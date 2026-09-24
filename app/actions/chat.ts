@@ -6,6 +6,16 @@ import { headers } from "next/headers";
 const rateLimitMap = new Map<string, { count: number, timestamp: number }>();
 const RATE_LIMIT = 5;
 const RATE_LIMIT_WINDOW = 60 * 1000;
+const MAX_MAP_SIZE = 1000;
+
+function cleanupRateLimitMap() {
+  const now = Date.now();
+  for (const [key, value] of rateLimitMap.entries()) {
+    if (now - value.timestamp > RATE_LIMIT_WINDOW) {
+      rateLimitMap.delete(key);
+    }
+  }
+}
 
 export async function submitChatMessage(message: string) {
   try {
@@ -21,6 +31,14 @@ export async function submitChatMessage(message: string) {
     } else {
       userLimit.count += 1;
     }
+
+    if (!rateLimitMap.has(ip) && rateLimitMap.size >= MAX_MAP_SIZE) {
+      cleanupRateLimitMap();
+      if (rateLimitMap.size >= MAX_MAP_SIZE) {
+        rateLimitMap.clear(); // Safety fallback
+      }
+    }
+    
     rateLimitMap.set(ip, userLimit);
 
     if (userLimit.count > RATE_LIMIT) {
