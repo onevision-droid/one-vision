@@ -44,5 +44,16 @@ export const programmes: Programme[] = [
     location: "High-risk Zones",
     metrics: [{ label: "Camps Supported", value: 12 }],
     image: "/new-illustrations/imphal-streetscape.webp"
+  },
+  {
+    id: "prog-5",
+    title: "School Aushadhi Lab",
+    slug: "school-aushadhi-lab",
+    description: "Decentralized Living Herbal Sanctuaries and Planetary One Health Pedagogy across Manipur.",
+    category: "Environment & Education",
+    status: "Seeking Funding",
+    location: "50 Schools in Manipur",
+    metrics: [{ label: "Schools Targeted", value: 50 }],
+    image: "/new-illustrations/community-support.webp"
   }
 ];

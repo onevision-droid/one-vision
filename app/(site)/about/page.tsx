@@ -53,6 +53,31 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      {/* Structure & People */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 md:px-12 max-w-6xl">
+          <div className="mb-16">
+            <h2 className="font-fraunces text-4xl md:text-5xl font-light tracking-tight text-foreground">
+              The People
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <a href="/about/governance" className="group block p-8 border border-border/50 bg-muted/10 hover:border-primary/30 hover:bg-muted/30 transition-all">
+              <h3 className="font-fraunces text-2xl font-light text-foreground mb-3 group-hover:text-primary transition-colors">Governance & Leadership</h3>
+              <p className="font-inter text-muted-foreground leading-relaxed">
+                Meet the Board of Directors shaping our strategic vision and maintaining institutional integrity.
+              </p>
+            </a>
+            <a href="/about/team" className="group block p-8 border border-border/50 bg-muted/10 hover:border-primary/30 hover:bg-muted/30 transition-all">
+              <h3 className="font-fraunces text-2xl font-light text-foreground mb-3 group-hover:text-primary transition-colors">Operational Team</h3>
+              <p className="font-inter text-muted-foreground leading-relaxed">
+                Discover the dedicated staff, field workers, and volunteers executing our mission across Manipur.
+              </p>
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

@@ -6,6 +6,8 @@ const mainLinks = [
     { label: 'Stories', href: '/stories' },
     { label: 'Get Help', href: '/get-help' },
     { label: 'Volunteer', href: '/volunteer' },
+    { label: 'Governance', href: '/about/governance' },
+    { label: 'Our Team', href: '/about/team' },
     { label: 'Donate', href: '/donate' },
     { label: 'Contact', href: '/contact' },
 ]
