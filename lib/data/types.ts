@@ -3,8 +3,8 @@ export interface Programme {
   title: string;
   slug: string;
   description: string;
-  category: "Health" | "Education" | "Community" | "Emergency Response";
-  status: "Active" | "Completed" | "Planning";
+  category: "Health" | "Education" | "Community" | "Emergency Response" | "Environment & Education";
+  status: "Active" | "Completed" | "Planning" | "Seeking Funding";
   location: string;
   metrics: { label: string; value: string | number }[];
   image: string;
