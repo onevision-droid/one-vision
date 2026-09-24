@@ -184,35 +184,35 @@ export default function SchoolAushadhiLabPage() {
           <div className="relative border-l border-primary/20 pl-8 ml-4 md:ml-8 space-y-12">
             
             <div className="relative">
-              <div className="absolute -left-[41px] top-1.5 h-4 w-4 rounded-full border-2 border-primary bg-background"></div>
+              <div className="absolute -left-10.25 top-1.5 h-4 w-4 rounded-full border-2 border-primary bg-background"></div>
               <p className="font-inter text-xs font-bold uppercase tracking-wider text-primary mb-2">Year 1 (2026)</p>
               <h3 className="font-fraunces text-2xl font-light text-foreground mb-2">Bio-Inception</h3>
               <p className="text-muted-foreground text-sm max-w-2xl">Ground establishment. Soil remediation with bio-char, bamboo fencing, bioswale digging, planting 10,000 hardened saplings.</p>
             </div>
             
             <div className="relative">
-              <div className="absolute -left-[41px] top-1.5 h-4 w-4 rounded-full border-2 border-primary/40 bg-background"></div>
+              <div className="absolute -left-10.25 top-1.5 h-4 w-4 rounded-full border-2 border-primary/40 bg-background"></div>
               <p className="font-inter text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Year 2 (2027)</p>
               <h3 className="font-fraunces text-2xl font-light text-foreground mb-2">Systemic Pedagogy</h3>
               <p className="text-muted-foreground text-sm max-w-2xl">Installing QR tags, launching Junior Fellows program, integrating Moringa into PM POSHAN meals.</p>
             </div>
             
             <div className="relative">
-              <div className="absolute -left-[41px] top-1.5 h-4 w-4 rounded-full border-2 border-primary/40 bg-background"></div>
+              <div className="absolute -left-10.25 top-1.5 h-4 w-4 rounded-full border-2 border-primary/40 bg-background"></div>
               <p className="font-inter text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Year 3 (2028)</p>
               <h3 className="font-fraunces text-2xl font-light text-foreground mb-2">Community Weaving</h3>
               <p className="text-muted-foreground text-sm max-w-2xl">Hosting 200 Maiba/Maibi masterclasses, running seed exchanges, spraying organic Neemastra.</p>
             </div>
             
             <div className="relative">
-              <div className="absolute -left-[41px] top-1.5 h-4 w-4 rounded-full border-2 border-primary/40 bg-background"></div>
+              <div className="absolute -left-10.25 top-1.5 h-4 w-4 rounded-full border-2 border-primary/40 bg-background"></div>
               <p className="font-inter text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Year 4 (2029)</p>
               <h3 className="font-fraunces text-2xl font-light text-foreground mb-2">Value Creation</h3>
               <p className="text-muted-foreground text-sm max-w-2xl">Training students in solar leaf drying and herbal teas; launching nursery seedling sales for school funds.</p>
             </div>
             
             <div className="relative">
-              <div className="absolute -left-[41px] top-1.5 h-4 w-4 rounded-full border-2 border-primary/40 bg-background"></div>
+              <div className="absolute -left-10.25 top-1.5 h-4 w-4 rounded-full border-2 border-primary/40 bg-background"></div>
               <p className="font-inter text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Year 5 (2030)</p>
               <h3 className="font-fraunces text-2xl font-light text-foreground mb-2">Autonomy</h3>
               <p className="text-muted-foreground text-sm max-w-2xl">Publishing the Manipur Ethnobotanical Atlas, final financial audits, transferring 100% management to local HGMC.</p>
