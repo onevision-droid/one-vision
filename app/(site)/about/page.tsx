@@ -1,11 +1,12 @@
 import { SectionBadge } from "@/components/composition/SectionBadge";
+import { HalftoneBackground } from "@/components/composition/HalftoneBackground";
 
 export default function AboutPage() {
   return (
     <div className="flex flex-col w-full bg-background pt-20">
       {/* Intro Section */}
       <section className="relative overflow-hidden py-24 md:py-32 bg-background border-b border-border">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] -z-10"></div>
+         <HalftoneBackground />
         <div className="container mx-auto px-4 md:px-12 max-w-6xl relative z-10">
           <div className="max-w-4xl">
             <SectionBadge>

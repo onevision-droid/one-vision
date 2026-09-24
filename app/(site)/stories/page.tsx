@@ -25,7 +25,7 @@ export default function StoriesPage() {
         <div className="container mx-auto px-4 md:px-12 max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24">
             <div className="relative aspect-4/5 w-full overflow-hidden rounded-2xl ring-1 ring-border">
-              <Image src="/new-illustrations/imphal-streetscape.webp" alt="Story Feature" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-700 hover:scale-105" />
+              <Image src="/new-illustrations/imphal-streetscape.webp" alt="Story Feature" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-700 motion-safe:hover:scale-105" />
             </div>
             <div className="flex flex-col justify-center">
               <div className="inline-flex items-center text-sm font-medium text-primary mb-4">Featured Story</div>

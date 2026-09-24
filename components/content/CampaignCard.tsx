@@ -19,7 +19,7 @@ export function CampaignCard({ title, summary, status, href, image = "/new-illus
           alt={title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-105"
         />
       </div>
       <div className="flex flex-col flex-1 px-2">

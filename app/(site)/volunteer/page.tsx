@@ -3,7 +3,7 @@ import { VolunteerForm } from "@/components/forms/VolunteerForm";
 import { TrustPanel } from "@/components/content/TrustPanel";
 import { SectionBadge } from "@/components/composition/SectionBadge";
 import Image from "next/image";
-
+import { HalftoneBackground } from "@/components/composition/HalftoneBackground";
 export const metadata: Metadata = {
   title: "Volunteer | One Vision",
   description: "Join our network of volunteers and make a tangible impact in your community.",
@@ -15,7 +15,7 @@ export default function VolunteerPage() {
       
       {/* 1. Header / Intro */}
       <section className="relative overflow-hidden py-24 md:py-32 bg-background border-b border-border">
-         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] -z-10"></div>
+         <HalftoneBackground />
         <div className="container mx-auto px-4 md:px-12 max-w-6xl relative z-10 flex flex-col items-center text-center">
           <SectionBadge>
             Make an Impact
