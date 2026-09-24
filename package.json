@@ -64,5 +64,10 @@
     "vite": "latest",
     "vitest": "^5.0.1"
   },
-  "packageManager": "pnpm@11.25.0"
+  "packageManager": "pnpm@11.25.0",
+  "pnpm": {
+    "approvedBuilds": [
+      "esbuild"
+    ]
+  }
 }
