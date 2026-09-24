@@ -28,24 +28,22 @@ export async function fetchChatCompletion(messages: { role: string; content: str
           messages,
         }),
       });
+      const data = await res.json();
       clearTimeout(timeoutId);
-      return res;
+      if (!res.ok || data.error) {
+        throw new Error(data.error?.message || `HTTP ${res.status}`);
+      }
+      return data;
     } catch (err) {
       clearTimeout(timeoutId);
       throw err;
     }
   };
 
-  let response = await makeRequest(PRIMARY_MODEL);
-
-  if (!response.ok) {
-    console.warn(`Primary model ${PRIMARY_MODEL} failed with status ${response.status}. Falling back to ${BACKUP_MODEL}...`);
-    response = await makeRequest(BACKUP_MODEL);
-    
-    if (!response.ok) {
-      throw new Error(`Backup model ${BACKUP_MODEL} also failed with status ${response.status}.`);
-    }
+  try {
+    return await makeRequest(PRIMARY_MODEL);
+  } catch (err) {
+    console.warn(`Primary model ${PRIMARY_MODEL} failed. Falling back to ${BACKUP_MODEL}...`, err);
+    return await makeRequest(BACKUP_MODEL);
   }
-
-  return response.json();
 }
