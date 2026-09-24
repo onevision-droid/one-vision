@@ -1,11 +1,10 @@
 packages:
   - "."
 allowBuilds:
-  core-js-pure: set this to true or false
+  core-js-pure: false
   esbuild: true
   sharp: false
   unrs-resolver: false
-  core-js-pure: false
 minimumReleaseAgeExclude:
   - '@next/env@16.3.6'
   - '@next/eslint-plugin-next@16.3.6'
