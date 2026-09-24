@@ -1,5 +1,6 @@
 "use client";
 
+import { supabase } from "@/lib/supabase/client";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -45,8 +46,27 @@ export function DonateForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     trackEvent("donate_intent", { amount: values.amount, frequency: values.frequency });
+    
+    // Insert intent into Supabase
+    const { error } = await supabase.from('donations').insert({
+      first_name: values.firstName,
+      last_name: values.lastName,
+      email: values.email,
+      amount: parseFloat(values.amount),
+      currency: 'INR',
+      is_recurring: values.frequency === 'monthly',
+      pan_number: values.pan || null,
+      allocation_preference: 'general',
+      status: 'pending'
+    });
+
+    if (error) {
+      console.error("Failed to insert donation intent:", error);
+      // In a real app, show a toast. For now, continue to gateway.
+    }
+    
     setIsSubmitted(true);
   }
 

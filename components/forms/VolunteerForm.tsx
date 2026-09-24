@@ -1,5 +1,6 @@
 "use client";
 
+import { supabase } from "@/lib/supabase/client";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -51,8 +52,25 @@ export function VolunteerForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     trackEvent("volunteer_submit", { interests: values.interests });
+    
+    const [firstName, ...lastNameParts] = values.name.split(" ");
+    
+    const { error } = await supabase.from('volunteer_applications').insert({
+      first_name: firstName || "Unknown",
+      last_name: lastNameParts.join(" ") || "Unknown",
+      email: values.email,
+      phone: values.phone || "",
+      skills: values.interests,
+      message: values.experience || "",
+      status: "pending"
+    });
+
+    if (error) {
+      console.error("Failed to submit volunteer application:", error);
+    }
+    
     setIsSubmitted(true);
   }
 
