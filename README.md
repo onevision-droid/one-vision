@@ -1,5 +1,7 @@
 # One Vision — NGO Web Platform
 
+[![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/onevision-droid/one-vision?utm_source=oss&utm_medium=github&utm_campaign=onevision-droid%2Fone-vision&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)](https://coderabbit.ai)
+
 A community-focused NGO web platform for Imphal and surrounding communities. Public-service interface first, brand/marketing site second.
 
 ## Documentation hierarchy

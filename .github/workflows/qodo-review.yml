@@ -1,0 +1,27 @@
+name: Qodo Merge (PR Agent)
+on:
+  pull_request_target:
+    types: [opened, reopened, ready_for_review, synchronize]
+  issue_comment:
+    types: [created, edited]
+jobs:
+  pr_agent_job:
+    if: ${{ github.event.sender.type != 'Bot' && (github.event_name == 'pull_request_target' || github.event.issue.pull_request) }}
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+      contents: write
+      checks: write
+    name: Run pr agent on every pull request
+    steps:
+      - name: PR Agent action step
+        id: pragent
+        uses: docker://pragent/pr-agent@sha256:7eb20c1514782bb44f3bbda876d70fb56abce8e845fef3efbdf1359c381c15c8
+        env:
+          OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_action_config.auto_review: "true"
+          github_action_config.auto_describe: "true"
+          github_action_config.auto_improve: "true"
+          github_action_config.pr_actions: '["opened", "reopened", "ready_for_review", "synchronize"]'
