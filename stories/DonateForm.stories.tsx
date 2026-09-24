@@ -15,7 +15,7 @@ type Story = StoryObj<typeof DonateForm>;
 
 export const Default: Story = {
   args: {
-    onSubmitOverride: (values) => {
+    onSubmitOverride: (values: any) => {
       console.log('Mock submission intercepted with values:', values);
     }
   }
