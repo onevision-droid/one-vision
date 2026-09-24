@@ -7,7 +7,7 @@ export async function getProgrammes(): Promise<Programme[]> {
     console.error("Error fetching programmes:", error);
     return [];
   }
-  return data as Programme[];
+  return data as unknown as Programme[];
 }
 
 export async function getCampaigns(): Promise<Campaign[]> {
@@ -16,7 +16,10 @@ export async function getCampaigns(): Promise<Campaign[]> {
     console.error("Error fetching campaigns:", error);
     return [];
   }
-  return data as Campaign[];
+  return data.map((d) => ({
+    ...d,
+    endDate: d.end_date,
+  })) as unknown as Campaign[];
 }
 
 export async function getStories(): Promise<Story[]> {
@@ -25,7 +28,7 @@ export async function getStories(): Promise<Story[]> {
     console.error("Error fetching stories:", error);
     return [];
   }
-  return data as Story[];
+  return data as unknown as Story[];
 }
 
 export async function getSiteSettings(): Promise<SiteSettings | null> {
@@ -34,5 +37,14 @@ export async function getSiteSettings(): Promise<SiteSettings | null> {
     console.error("Error fetching site settings:", error);
     return null;
   }
-  return data as SiteSettings;
+  
+  if (!data) return null;
+  
+  return {
+    emergencyMode: data.emergency_mode || false,
+    emergencyMessage: data.emergency_message || "",
+    contactEmail: data.contact_email || "",
+    contactPhone: data.contact_phone || "",
+    address: data.address || "",
+  } as SiteSettings;
 }
