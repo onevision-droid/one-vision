@@ -71,6 +71,8 @@ Use:
 
 Do not introduce microservices in v1. Keep the system modular inside one deployable application.
 
+**Package Manager Rule**: This project is strictly built on `pnpm`. **DO NOT use `npm` or `yarn`** under any circumstances. All dependencies must be managed via `pnpm add`, `pnpm install`, and executed via `pnpm run`.
+
 ## 5. Repository structure
 
 Suggested structure:
