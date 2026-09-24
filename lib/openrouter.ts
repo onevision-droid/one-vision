@@ -1,4 +1,4 @@
-const PRIMARY_MODEL = 'google/gemini-2.5-flash-exp:free';
+const PRIMARY_MODEL = 'google/gemini-2.0-flash-exp:free';
 const BACKUP_MODEL = 'meta-llama/llama-3.1-8b-instruct:free';
 
 export async function fetchChatCompletion(messages: { role: string; content: string }[]) {
@@ -11,19 +11,29 @@ export async function fetchChatCompletion(messages: { role: string; content: str
   }
 
   const makeRequest = async (model: string) => {
-    return fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-        'HTTP-Referer': SITE_URL,
-        'X-Title': SITE_NAME,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model,
-        messages,
-      }),
-    });
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
+    try {
+      const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        signal: controller.signal,
+        headers: {
+          Authorization: `Bearer ${API_KEY}`,
+          'HTTP-Referer': SITE_URL,
+          'X-Title': SITE_NAME,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          model,
+          messages,
+        }),
+      });
+      clearTimeout(timeoutId);
+      return res;
+    } catch (err) {
+      clearTimeout(timeoutId);
+      throw err;
+    }
   };
 
   let response = await makeRequest(PRIMARY_MODEL);

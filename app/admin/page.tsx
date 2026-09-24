@@ -17,12 +17,24 @@ export default function AdminDashboard() {
   const [applications, setApplications] = useState<VolunteerApp[]>([]);
 
   useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
+      const { data, error } = await supabase
+        .from("volunteer_applications")
+        .select("*")
+        .order("created_at", { ascending: false });
+        
+      if (data) setApplications(data);
+      setLoading(false);
+    }
+
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       if (session) {
         fetchData();
       } else {
         setLoading(false);
+        setApplications([]);
       }
     });
 
@@ -31,21 +43,11 @@ export default function AdminDashboard() {
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
       if (session) fetchData();
+      else setApplications([]);
     });
 
     return () => subscription.unsubscribe();
   }, []);
-
-  async function fetchData() {
-    setLoading(true);
-    const { data, error } = await supabase
-      .from("volunteer_applications")
-      .select("*")
-      .order("created_at", { ascending: false });
-      
-    if (data) setApplications(data);
-    setLoading(false);
-  }
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
@@ -70,12 +72,12 @@ export default function AdminDashboard() {
           <h1 className="font-fraunces text-2xl mb-6">Admin Login</h1>
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
-              <label className="text-sm font-medium">Email</label>
-              <Input type="email" value={email} onChange={e => setEmail(e.target.value)} required />
+              <label htmlFor="admin-email" className="text-sm font-medium">Email</label>
+              <Input id="admin-email" type="email" value={email} onChange={e => setEmail(e.target.value)} required />
             </div>
             <div>
-              <label className="text-sm font-medium">Password</label>
-              <Input type="password" value={password} onChange={e => setPassword(e.target.value)} required />
+              <label htmlFor="admin-password" className="text-sm font-medium">Password</label>
+              <Input id="admin-password" type="password" value={password} onChange={e => setPassword(e.target.value)} required />
             </div>
             <Button type="submit" className="w-full">Sign In</Button>
           </form>

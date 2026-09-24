@@ -30,7 +30,7 @@ const formSchema = z.object({
   pan: z.string().optional(),
 });
 
-export function DonateForm() {
+export function DonateForm({ onSubmitOverride }: { onSubmitOverride?: (values: z.infer<typeof formSchema>) => void } = {}) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedPreset, setSelectedPreset] = useState<number | null>(null);
 
@@ -47,6 +47,12 @@ export function DonateForm() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    if (onSubmitOverride) {
+      onSubmitOverride(values);
+      setIsSubmitted(true);
+      return;
+    }
+
     trackEvent("donate_intent", { amount: values.amount, frequency: values.frequency });
     
     // Insert intent into Supabase

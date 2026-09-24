@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/nextjs';
 import { DonateForm } from '@/components/forms/DonateForm';
 
 const meta: Meta<typeof DonateForm> = {
@@ -13,4 +13,10 @@ const meta: Meta<typeof DonateForm> = {
 export default meta;
 type Story = StoryObj<typeof DonateForm>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    onSubmitOverride: (values) => {
+      console.log('Mock submission intercepted with values:', values);
+    }
+  }
+};

@@ -16,8 +16,8 @@ export async function submitChatMessage(message: string) {
     }
     
     return { success: false, error: "No response from AI." };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Chat error:", error);
-    return { success: false, error: error.message || "Failed to fetch response." };
+    return { success: false, error: error instanceof Error ? error.message : "Failed to fetch response." };
   }
 }
