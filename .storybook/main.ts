@@ -15,6 +15,15 @@ const config: StorybookConfig = {
   "framework": "@storybook/nextjs-vite",
   "staticDirs": [
     "../public"
-  ]
+  ],
+  viteFinal: async (config) => {
+    const path = await import('path');
+    config.resolve = config.resolve || {};
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@/lib/supabase/client': path.resolve(process.cwd(), 'stories/mocks/supabaseClient.ts'),
+    };
+    return config;
+  },
 };
 export default config;

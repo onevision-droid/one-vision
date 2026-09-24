@@ -5,11 +5,12 @@ import { supabase } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Database } from "@/lib/supabase/database.types";
+import { Session } from "@supabase/supabase-js";
 
 type VolunteerApp = Database["public"]["Tables"]["volunteer_applications"]["Row"];
 
 export default function AdminDashboard() {
-  const [session, setSession] = useState<any>(null);
+  const [session, setSession] = useState<Session | null>(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(true);
@@ -17,6 +18,8 @@ export default function AdminDashboard() {
   const [applications, setApplications] = useState<VolunteerApp[]>([]);
 
   useEffect(() => {
+    let ignore = false;
+
     async function fetchData() {
       setLoading(true);
       const { data, error } = await supabase
@@ -24,29 +27,43 @@ export default function AdminDashboard() {
         .select("*")
         .order("created_at", { ascending: false });
         
-      if (data) setApplications(data);
-      setLoading(false);
+      if (!ignore) {
+        if (error || !data) {
+          setApplications([]);
+        } else {
+          setApplications(data);
+        }
+        setLoading(false);
+      }
     }
 
     supabase.auth.getSession().then(({ data: { session } }) => {
+      if (ignore) return;
       setSession(session);
       if (session) {
         fetchData();
       } else {
-        setLoading(false);
         setApplications([]);
+        setLoading(false);
       }
     });
 
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (ignore) return;
       setSession(session);
-      if (session) fetchData();
-      else setApplications([]);
+      if (session) {
+        fetchData();
+      } else {
+        setApplications([]);
+      }
     });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      ignore = true;
+      subscription.unsubscribe();
+    };
   }, []);
 
   async function handleLogin(e: React.FormEvent) {

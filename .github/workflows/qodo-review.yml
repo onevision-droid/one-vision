@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: PR Agent action step
         id: pragent
-        uses: the-pr-agent/pr-agent@925f4caa58f7e9f46444c1d4f8495d8918bc4c84
+        uses: docker://pragent/pr-agent@sha256:7eb20c1514782bb44f3bbda876d70fb56abce8e845fef3efbdf1359c381c15c8
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
