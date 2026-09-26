@@ -14,7 +14,7 @@ export async function GET() {
 
   const header = "Date,Description,Location,Amount (INR),Status\n";
   const rows = ledgerEntries
-    .map((e: any) => {
+    .map((e: { date: string; title: string; location: string; amount: string; status: string }) => {
       const d = new Date(e.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
       return `"${d}","${e.title}","${e.location}","${e.amount}","${e.status}"`;
     })
