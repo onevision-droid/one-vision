@@ -41,6 +41,7 @@ export const Secondary: Story = {
   },
 };
 
+
 export const Ghost: Story = {
   args: {
     children: 'Ghost Button',

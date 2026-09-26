@@ -26,7 +26,6 @@ export default function AdminDashboard() {
 
     async function fetchData() {
       setLoading(true);
-      
       const [appRes, reqRes, donRes] = await Promise.all([
         supabase.from("volunteer_applications").select("*").order("created_at", { ascending: false }),
         supabase.from("help_requests").select("*").order("created_at", { ascending: false }),
