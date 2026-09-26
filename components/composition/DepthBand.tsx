@@ -26,14 +26,14 @@ export function DepthBand({
       aria-labelledby={headingId}
       className={className}
     >
-      <div className="container-wide">
+      <div className="mx-auto w-full max-w-7xl px-5 xl:px-6">
         {heading && (
           <h2
             id={headingId}
             className={cn(
-              "font-display font-light tracking-tight",
-              "text-(length:--text-h2)",
-              "mb-12 lg:mb-16"
+              "font-serif font-light tracking-tight",
+              "text-display-md",
+              "mb-12 lg:mb-16",
             )}
           >
             {heading}

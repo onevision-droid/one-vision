@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { Quote } from "lucide-react";
 
 interface QuoteBlockProps {
   quote: string;
@@ -9,14 +10,19 @@ interface QuoteBlockProps {
 
 export function QuoteBlock({ quote, attribution, role, className }: QuoteBlockProps) {
   return (
-    <figure className={cn("pl-6 md:pl-10 border-l-4 border-terra py-2 my-12", className)}>
-      <blockquote className="font-fraunces text-2xl md:text-3xl text-ink leading-snug font-light mb-6">
-        &quot;{quote}&quot;
-      </blockquote>
-      <figcaption className="font-inter">
-        <span className="block font-semibold text-ink text-sm uppercase tracking-widest">{attribution}</span>
-        {role && <span className="block text-ink/60 text-sm mt-1">{role}</span>}
-      </figcaption>
-    </figure>
+    <div className={cn("space-y-4 rounded-2xl border-l-4 border-clay-500 bg-clay-500/5 p-6 md:p-8 my-12", className)}>
+      <figure className="flex items-start gap-4 md:gap-6">
+        <Quote className="mt-1 h-8 w-8 shrink-0 text-clay-500 opacity-60" />
+        <div className="flex flex-col">
+          <blockquote className="font-serif text-heading-md md:text-heading-lg text-ink-900 leading-snug font-light mb-6">
+            &quot;{quote}&quot;
+          </blockquote>
+          <figcaption className="font-sans">
+            <span className="block font-semibold text-ink-900 text-sm uppercase tracking-widest">{attribution}</span>
+            {role && <span className="block text-ink-500 text-sm mt-1">{role}</span>}
+          </figcaption>
+        </div>
+      </figure>
+    </div>
   );
 }

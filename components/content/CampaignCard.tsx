@@ -1,6 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 interface CampaignCardProps {
   title: string;
@@ -12,8 +14,8 @@ interface CampaignCardProps {
 
 export function CampaignCard({ title, summary, status, href, image = "/new-illustrations/hero.webp" }: CampaignCardProps) {
   return (
-    <div className="flex flex-col h-full group cursor-pointer relative">
-      <div className="relative aspect-4/5 w-full overflow-hidden mb-8 bg-stone-100">
+    <Card className="group flex flex-col h-full border border-border-default hover:border-text-primary transition-colors bg-surface rounded-md overflow-hidden">
+      <div className="relative aspect-4/3 w-full overflow-hidden">
         <Image
           src={image}
           alt={title}
@@ -22,21 +24,23 @@ export function CampaignCard({ title, summary, status, href, image = "/new-illus
           className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-105"
         />
       </div>
-      <div className="flex flex-col flex-1 px-2">
-        <div className="mb-6 flex items-center justify-between">
-          <span className="font-sans text-[10px] tracking-widest uppercase text-ink/50">
+      <CardContent className="flex flex-col flex-1 p-6 gap-4">
+        <div className="flex items-center justify-between">
+          <span className="font-sans text-caption tracking-widest uppercase text-ink-500 font-semibold">
             {status}
           </span>
-          <ArrowRight className="h-4 w-4 text-ink/40 transition-transform group-hover:translate-x-2 group-hover:text-ink" />
+          <ArrowRight className="h-4 w-4 text-ink-500 transition-transform group-hover:translate-x-2 group-hover:text-ink-900" />
         </div>
-        <h3 className="font-display text-2xl font-light mb-4 text-ink leading-snug">{title}</h3>
-        <p className="font-sans text-sm text-ink/60 mb-6 flex-1 leading-loose font-light">
+        <h3 className="font-sans text-heading-lg font-medium text-ink-900 leading-snug">{title}</h3>
+        <p className="font-sans text-body-sm text-ink-500 flex-1 leading-loose font-light">
           {summary}
         </p>
-        <Link href={href} className="absolute inset-0">
-          <span className="sr-only">View {title}</span>
-        </Link>
-      </div>
-    </div>
+        <div className="mt-auto pt-4">
+          <Button variant="link" nativeButton={false} render={<Link href={href} />}>
+            Read more
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
   );
 }

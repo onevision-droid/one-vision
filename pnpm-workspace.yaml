@@ -3,6 +3,7 @@ packages:
 allowBuilds:
   core-js-pure: false
   esbuild: true
+  puppeteer: true
   sharp: false
   unrs-resolver: false
 minimumReleaseAgeExclude:

@@ -50,6 +50,39 @@ export type Database = {
         }
         Relationships: []
       }
+      contact_messages: {
+        Row: {
+          created_at: string
+          email: string
+          first_name: string
+          id: string
+          last_name: string
+          message: string
+          status: string
+          subject: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          first_name: string
+          id?: string
+          last_name: string
+          message: string
+          status?: string
+          subject: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          first_name?: string
+          id?: string
+          last_name?: string
+          message?: string
+          status?: string
+          subject?: string
+        }
+        Relationships: []
+      }
       donations: {
         Row: {
           allocation_preference: string | null
@@ -133,6 +166,36 @@ export type Database = {
         }
         Relationships: []
       }
+      fund_allocations: {
+        Row: {
+          amount: string
+          created_at: string
+          date: string
+          id: string
+          location: string
+          status: string
+          title: string
+        }
+        Insert: {
+          amount: string
+          created_at?: string
+          date: string
+          id?: string
+          location: string
+          status: string
+          title: string
+        }
+        Update: {
+          amount?: string
+          created_at?: string
+          date?: string
+          id?: string
+          location?: string
+          status?: string
+          title?: string
+        }
+        Relationships: []
+      }
       help_requests: {
         Row: {
           assigned_to: string | null
@@ -192,6 +255,30 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      newsletter_subscribers: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          source: string
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          source?: string
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          source?: string
+          status?: string
+        }
+        Relationships: []
       }
       profiles: {
         Row: {

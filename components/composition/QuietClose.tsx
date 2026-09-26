@@ -1,3 +1,4 @@
+import { Section, Container } from "@/components/layout/Shell";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
@@ -22,28 +23,28 @@ export function QuietClose({
   className,
 }: QuietCloseProps) {
   return (
-    <section className={cn("bg-white @container py-24 md:py-32", className)}>
-      <div className="mx-auto max-w-4xl px-6">
-        <Card className="p-8 md:p-16 border-ink/10 bg-paper shadow-sm flex flex-col items-center text-center">
+    <Section tone="default" className={cn("@container", className)}>
+      <Container className="max-w-4xl">
+        <Card className="p-8 md:p-16 border-border-default bg-surface shadow-none rounded-md flex flex-col items-center text-center">
           {label && (
-            <div className="text-ink/60 mb-6 text-sm font-medium uppercase tracking-widest">
+            <div className="text-label text-ink-500 mb-6 font-semibold uppercase tracking-widest">
               {label}
             </div>
           )}
-          
-          <h2 className="text-balance font-fraunces text-3xl md:text-5xl font-light text-ink leading-[1.15]">
+
+          <h2 className="text-balance font-sans text-heading-xl md:text-display-md font-medium text-ink-900 leading-[1.15]">
             {heading}
           </h2>
-          
+
           {description && (
-            <p className="text-ink/70 mt-6 max-w-xl text-balance text-lg font-light leading-relaxed">
+            <p className="text-ink-500 mt-6 max-w-xl text-balance text-body-lg font-light leading-relaxed">
               {description}
             </p>
           )}
-          
+
           {action && <div className="mt-10">{action}</div>}
         </Card>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

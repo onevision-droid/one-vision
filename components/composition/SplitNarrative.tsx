@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { Container } from "@/components/layout/Shell";
 import { SectionWrapper, isDarkSurface, type CompositionProps } from "./shared";
 
 /**
@@ -32,14 +33,14 @@ export function SplitNarrative({
       aria-labelledby={headingId}
       className={className}
     >
-      <div className="container-wide">
+      <Container>
         {heading && (
           <h2
             id={headingId}
             className={cn(
-              "font-display font-light tracking-tight",
-              "text-(length:--text-h2)",
-              "mb-12 lg:mb-16"
+              "font-serif font-light tracking-tight",
+              "text-display-md",
+              "mb-12 lg:mb-16",
             )}
           >
             {heading}
@@ -48,20 +49,17 @@ export function SplitNarrative({
 
         <div
           className={cn(
-            "grid gap-12 lg:gap-16 items-center",
-            "lg:grid-cols-12",
-            reversed
-              ? "lg:[direction:rtl] lg:*:[direction:ltr]"
-              : ""
+            "grid lg:grid-cols-12 overflow-hidden rounded-3xl border border-border-default bg-surface shadow-xl shadow-black/5",
+            reversed ? "lg:[direction:rtl] lg:*:[direction:ltr]" : "",
           )}
         >
           {/* Content: 5 columns */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
             <div
               className={cn(
                 "space-y-6",
-                "text-(length:--text-body) leading-relaxed",
-                isDarkSurface(surface) ? "text-teal-soft" : "text-stone-deep"
+                "text-body leading-relaxed",
+                isDarkSurface(surface) ? "text-paper" : "text-ink-700",
               )}
             >
               {content}
@@ -69,13 +67,15 @@ export function SplitNarrative({
           </div>
 
           {/* Media: 7 columns */}
-          <div className="lg:col-span-7">
-            <div className="relative aspect-3/2 overflow-hidden rounded-none">
+          <div className="lg:col-span-7 relative">
+            <div className="relative h-full min-h-100 w-full overflow-hidden">
               {media}
+              {/* Cinematic fade for optional overlay text/badges */}
+              <div className="absolute inset-0 bg-linear-to-t from-ink-900/40 via-transparent to-transparent opacity-80 pointer-events-none" />
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </SectionWrapper>
   );
 }

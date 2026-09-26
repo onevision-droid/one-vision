@@ -1,5 +1,6 @@
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Footer } from "@/components/layout/Footer";
+import { ConsentNotice } from "@/components/layout/ConsentNotice";
 
 export default function SiteLayout({
   children,
@@ -13,6 +14,7 @@ export default function SiteLayout({
         {children}
       </main>
       <Footer />
+      <ConsentNotice />
     </div>
   );
 }

@@ -1,36 +1,99 @@
-import { AlertTriangleIcon } from "lucide-react";
+"use client";
+
+import { useState, useSyncExternalStore } from "react";
+import { AlertTriangleIcon, X } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 interface EmergencyBannerProps {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   actionLabel?: string;
   actionHref?: string;
+  dismissible?: boolean;
   className?: string;
 }
 
-export function EmergencyBanner({ title, description, actionLabel, actionHref, className }: EmergencyBannerProps) {
+export function EmergencyBanner({
+  title = "Immediate Crisis & Emergency Guidance",
+  description = "One Vision provides community aid and relief logistics, not first-response emergency dispatch. For life-threatening emergencies, call official services immediately.",
+  actionLabel,
+  actionHref,
+  dismissible = true,
+  className,
+}: EmergencyBannerProps) {
+  // useSyncExternalStore: server snapshot = false (banner visible),
+  // client snapshot reads sessionStorage. React reconciles cleanly with no
+  // hydration mismatch and no setState-in-effect lint violation.
+  const storedDismissed = useSyncExternalStore(
+    () => () => {}, // sessionStorage has no push updates — no-op subscribe
+    () => dismissible && sessionStorage.getItem("ov_emergency_banner_dismissed") === "true",
+    () => false,    // server snapshot: always render banner on SSR
+  );
+  const [manualDismissed, setManualDismissed] = useState(false);
+  const isDismissed = storedDismissed || manualDismissed;
+
+  const handleDismiss = () => {
+    setManualDismissed(true);
+    if (dismissible) {
+      sessionStorage.setItem("ov_emergency_banner_dismissed", "true");
+    }
+  };
+
+  if (isDismissed) {
+    return null;
+  }
+
+
   return (
-    <div className={cn("bg-terra text-white px-4 py-3 md:py-4 w-full", className)}>
-      <div className="container-wide flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="flex items-start md:items-center gap-3">
-          <AlertTriangleIcon className="h-5 w-5 shrink-0 mt-0.5 md:mt-0" />
-          <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
-            <span className="font-bold font-fraunces text-sm md:text-base tracking-wide">{title}</span>
-            <span className="hidden md:inline text-white/60 text-xs">|</span>
-            <span className="text-sm font-inter">{description}</span>
+    <div
+      role="region"
+      aria-label="Emergency information"
+      className={cn(
+        "bg-ink-900 text-paper border-b border-border-default px-4 py-3 md:py-4 w-full z-30 transition-all",
+        className
+      )}
+    >
+      <div className="container max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div className="flex items-start gap-3">
+          <div className="size-8 rounded-sm bg-danger/20 border border-danger/40 flex items-center justify-center shrink-0 mt-0.5">
+            <AlertTriangleIcon className="h-4 w-4 text-danger shrink-0" />
+          </div>
+          <div className="space-y-1">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="font-semibold font-sans text-body-sm text-paper tracking-wide uppercase">
+                {title}
+              </span>
+              <span className="text-paper/40 hidden md:inline">·</span>
+              <span className="text-caption text-paper/70 font-light">
+                {description}
+              </span>
+            </div>
+
+
           </div>
         </div>
-        
-        {actionLabel && actionHref && (
-          <Link 
-            href={actionHref}
-            className="shrink-0 bg-white text-terra hover:bg-mist px-4 py-1.5 rounded text-xs font-bold uppercase tracking-wider transition-colors"
-          >
-            {actionLabel}
-          </Link>
-        )}
+
+        <div className="flex items-center gap-3 self-end lg:self-center shrink-0">
+          {actionLabel && actionHref && (
+            <Link
+              href={actionHref}
+              className="bg-paper text-ink-900 hover:bg-paper/90 px-3 py-1.5 rounded-sm text-caption font-semibold uppercase tracking-wider transition-colors"
+            >
+              {actionLabel}
+            </Link>
+          )}
+
+          {dismissible && (
+            <button
+              onClick={handleDismiss}
+              aria-label="Dismiss emergency banner"
+              className="p-1 text-paper/60 hover:text-paper transition-colors rounded-sm focus:outline-none focus-visible:ring-1 focus-visible:ring-paper"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

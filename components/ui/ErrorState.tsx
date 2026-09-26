@@ -17,12 +17,12 @@ export function ErrorState({
   className 
 }: ErrorStateProps) {
   return (
-    <div className={cn("flex flex-col items-center justify-center text-center p-8 border border-terra/20 rounded-none bg-terra/5", className)}>
-      <div className="bg-terra/10 p-4 rounded-none mb-4 text-terra">
-        <AlertTriangleIcon className="h-8 w-8" />
+    <div className={cn("flex flex-col items-center justify-center text-center p-8 border border-danger/20 rounded-md bg-surface", className)}>
+      <div className="bg-danger/10 p-3.5 rounded-full mb-4 text-danger">
+        <AlertTriangleIcon className="h-6 w-6" />
       </div>
-      <h3 className="text-lg font-fraunces font-bold text-ink mb-2">{title}</h3>
-      <p className="text-sm text-ink/70 max-w-md mb-6">{description}</p>
+      <h3 className="font-sans text-heading-md font-semibold text-ink-900 mb-2">{title}</h3>
+      <p className="font-sans text-body-sm text-ink-500 max-w-md mb-6">{description}</p>
       {onRetry && (
         <Button variant="secondary" onClick={onRetry}>
           Try again

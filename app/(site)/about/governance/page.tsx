@@ -1,6 +1,10 @@
-import { SectionBadge } from "@/components/composition/SectionBadge";
+import { Metadata } from "next";
+import { Section, Container } from "@/components/layout/Shell";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import { HalftoneBackground } from "@/components/composition/HalftoneBackground";
-import Image from "next/image";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { Timeline, type TimelineItem } from "@/components/content/Timeline";
 
 const leaders = [
   {
@@ -40,85 +44,144 @@ const policies = [
   }
 ];
 
-export const metadata = {
+const milestones: TimelineItem[] = [
+  {
+    year: "1988",
+    tag: "Founding",
+    title: "Origins as Community Mutual Aid",
+    description: "Established by local educators and community elders in Imphal to coordinate informal education, youth mentorship, and emergency relief during seasonal flash floods.",
+    status: "completed",
+  },
+  {
+    year: "1997",
+    tag: "Incorporation",
+    title: "Legal Registration under Societies Act",
+    description: "Formally incorporated under the Manipur Societies Registration Act (Reg No: 1883/SR/1997) with a community-elected board and an open governance charter.",
+    status: "completed",
+  },
+  {
+    year: "2015",
+    tag: "Scale",
+    title: "Decentralized Youth & Field Volunteers",
+    description: "Expanded outreach into rural valley districts, training over 250 youth coordinators in rapid emergency response and digital inventory tracking.",
+    status: "completed",
+  },
+  {
+    year: "2023",
+    tag: "Crisis Response",
+    title: "Emergency Relief & Mobile Clinics",
+    description: "Mobilized continuous humanitarian aid, distributing emergency food rations, medicine, and establishing makeshift learning classrooms across relief centers.",
+    status: "completed",
+  },
+  {
+    year: "2026",
+    tag: "Current",
+    title: "Open Platform & Verified Dispatches",
+    description: "Launched our open financial ledger, transparent field dispatch tracking, and direct grassroots help-request infrastructure.",
+    status: "active",
+  },
+  {
+    year: "2027",
+    tag: "Roadmap",
+    title: "Permanent Women-Led Wellness Hubs",
+    description: "Transitioning temporary relief facilities into 12 self-sustaining community clinics and skill-building centers across Manipur.",
+    status: "upcoming",
+  },
+];
+
+export const metadata: Metadata = {
   title: "Governance & Leadership | One Vision",
   description: "Meet the board and executive team guiding One Vision. Committed to transparency, accountability, and community-led decision making.",
 };
 
 export default function GovernancePage() {
   return (
-    <div className="flex flex-col w-full bg-background pt-20">
+    <div className="flex flex-col w-full bg-surface pt-20">
       {/* Intro Section */}
-      <section className="relative overflow-hidden py-24 md:py-32 bg-background border-b border-border">
+      <Section tone="default" className="relative overflow-hidden py-24 md:py-32 border-b border-border-default">
         <HalftoneBackground />
-        <div className="container mx-auto px-4 md:px-12 max-w-6xl relative z-10">
+        <Container className="relative z-10">
+          <div className="mb-6">
+            <Breadcrumbs items={[{ label: "About", href: "/about" }, { label: "Governance", href: "/about/governance" }]} />
+          </div>
           <div className="max-w-4xl">
-            <SectionBadge>
+            <Badge className="mb-6">
               Governance & Leadership
-            </SectionBadge>
-            <h1 className="font-fraunces text-6xl md:text-7xl font-light leading-none tracking-tight text-foreground mb-8">
+            </Badge>
+            <h1 className="font-serif text-display-lg md:text-display-xl font-light leading-none tracking-tight text-ink-900 mb-8">
               Accountable.<br/> Community-led.
             </h1>
-            <p className="font-inter text-xl text-muted-foreground leading-relaxed font-light max-w-2xl">
+            <p className="font-sans text-body-lg text-ink-500 leading-relaxed font-light max-w-2xl">
               Committed to transparency, accountability, and making decisions that are rooted in the lived realities of the communities we serve in Manipur.
             </p>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Leadership Grid */}
-      <section className="py-24 bg-background border-b border-border">
-        <div className="container mx-auto px-4 md:px-12 max-w-6xl">
+      <Section tone="default" className="py-24 border-b border-border-default">
+        <Container>
           <div className="mb-16 max-w-2xl">
-            <h2 className="font-fraunces text-4xl md:text-5xl font-light tracking-tight mb-6 text-foreground">
+            <h2 className="font-serif text-display-md font-light tracking-tight mb-6 text-ink-900">
               Our Leadership
             </h2>
-            <p className="font-inter text-lg text-muted-foreground leading-relaxed">
+            <p className="font-sans text-body-lg text-ink-500 leading-relaxed">
               Our board and executive team bring decades of experience in healthcare, education, and community resilience within Manipur and beyond.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
             {leaders.map((leader, i) => (
-              <div key={i} className="flex flex-col group">
-                <div className="border-l-2 border-primary/20 pl-6 group-hover:border-primary transition-colors duration-500">
-                  <h3 className="font-fraunces text-2xl font-light text-foreground mb-1">{leader.name}</h3>
-                  <p className="font-inter text-sm font-medium text-primary mb-4 tracking-wide uppercase">{leader.role}</p>
-                  <p className="font-inter text-base text-muted-foreground leading-relaxed">
+              <Card key={i} className="flex flex-col h-full border-border-default hover:border-text-primary transition-colors">
+                <CardContent className="flex flex-col p-8 h-full gap-2">
+                  <h3 className="font-sans text-heading-lg font-medium text-ink-900">{leader.name}</h3>
+                  <p className="font-sans text-caption font-semibold tracking-wide uppercase text-ink-500">{leader.role}</p>
+                  <p className="font-sans text-body-lg text-ink-500 leading-relaxed mt-2">
                     {leader.bio}
                   </p>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
+
+      {/* Institutional Timeline */}
+      <Section tone="default" className="py-24 border-b border-border-default">
+        <Container>
+          <Timeline
+            heading="Institutional Journey & Milestones"
+            subheading="From informal mutual aid in 1988 to a verifiable civic infrastructure supporting communities across Manipur today."
+            items={milestones}
+          />
+        </Container>
+      </Section>
 
       {/* Policies */}
-      <section className="py-24 bg-muted/20">
-        <div className="container mx-auto px-4 md:px-12 max-w-6xl">
+      <Section tone="alt" id="safeguarding" className="py-24">
+        <Container>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8">
             <div className="lg:col-span-1">
-              <h2 className="font-fraunces text-3xl font-light tracking-tight mb-6 text-foreground">
+              <h2 className="font-sans text-heading-xl font-medium tracking-tight mb-6 text-ink-900">
                 Key Policies
               </h2>
-              <p className="font-inter text-base text-muted-foreground leading-relaxed mb-8">
+              <p className="font-sans text-body-lg text-ink-500 leading-relaxed mb-8">
                 Our governance framework ensures that One Vision operates ethically, safely, and in alignment with our core mission.
               </p>
             </div>
             <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-10">
               {policies.map((policy, i) => (
                 <div key={i} className="flex flex-col">
-                  <h3 className="font-inter text-lg font-medium text-foreground mb-3">{policy.title}</h3>
-                  <p className="font-inter text-sm text-muted-foreground leading-relaxed">
+                  <h3 className="font-sans text-heading-md font-medium text-ink-900 mb-3">{policy.title}</h3>
+                  <p className="font-sans text-body-sm text-ink-500 leading-relaxed">
                     {policy.description}
                   </p>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
     </div>
   );
 }

@@ -12,12 +12,12 @@ interface EmptyStateProps {
 
 export function EmptyState({ title, description, action, icon: Icon = FolderXIcon, className }: EmptyStateProps) {
   return (
-    <div className={cn("flex flex-col items-center justify-center text-center p-8 border-2 border-dashed border-ink/10 rounded-none bg-mist/30", className)}>
-      <div className="bg-mist p-4 rounded-none mb-4 text-ink/40">
-        <Icon className="h-8 w-8" />
+    <div className={cn("flex flex-col items-center justify-center text-center p-8 border border-dashed border-border-default rounded-md bg-surface", className)}>
+      <div className="bg-bg-section-alt p-3.5 rounded-full mb-4 text-ink-500">
+        <Icon className="h-6 w-6" />
       </div>
-      <h3 className="text-lg font-fraunces font-bold text-ink mb-2">{title}</h3>
-      {description && <p className="text-sm text-ink/60 max-w-md mb-6">{description}</p>}
+      <h3 className="font-sans text-heading-md font-semibold text-ink-900 mb-2">{title}</h3>
+      {description && <p className="font-sans text-body-sm text-ink-500 max-w-md mb-6">{description}</p>}
       {action && <div>{action}</div>}
     </div>
   );

@@ -8,51 +8,50 @@ web
 
 ## Stack
 
-Next.js App Router + TypeScript, Tailwind CSS, and shadcn/ui. (Supabase for backend, implemented in later phases).
+Next.js App Router + TypeScript, Tailwind CSS, and shadcn/ui. (Supabase for backend, implemented with extreme OpSec constraints).
 
 ## Users
 
-Imphal and surrounding communities (local residents seeking help), donors, volunteers, and partners. 
+Imphal and surrounding communities (local residents, conflict-affected people seeking help), donors, volunteers, and international partners. 
 
 ## Product Purpose
 
-A community-focused NGO web platform. The product should make it easy to understand what One Vision does, discover active community programmes and campaigns, request or find help, volunteer, partner, contribute, and read trustworthy stories and reports. It serves as a public-service interface first and a brand/marketing site second.
+A crisis-resilient humanitarian vanguard platform. The product serves as a secure beacon to broadcast the realities of the polycrisis, detail the 4 operational pillars (Health Equity, Energy Sovereignty, Ecological Restoration, Economic Dignity), and route sensitive assistance requests to encrypted external channels. It is a utilitarian tool for survival and coordination, not a marketing site.
 
 ## Positioning
 
-Dignity over spectacle, evidence over claims, and local by default (Imphal/Manipur context, local voices, familiar places). 
+Frontline humanitarian, data-heavy, utilitarian. Urgency and resilience over spectacle. We abandon the 'calm' approach in favor of stark truth, high-contrast visibility, and uncompromising evidence.
 
 ## Operating Context
 
-Must remain useful on inexpensive phones, slow connections, and unstable bandwidth.
+Must remain fundamentally operable on inexpensive phones, slow connections, unstable bandwidth, and during internet blockades (optimizing for offline/PWA cache where possible).
 
 ## Capabilities and Constraints
 
-- High-priority workflows include a safe "Get Help" experience, transparent donation experience, and progressive volunteer forms.
-- Data privacy is critical (least-privilege access, RLS). 
-- No dark patterns (no deceptive donation defaults, forced newsletter opt-ins, or manipulative urgency). 
-- Every programme/campaign must have a purpose, target audience, location, status, and responsible contact.
-- Avoid vague claims ("changing thousands of lives") unless supported by a documented metric.
+- High-priority workflows include a secure "Get Help" routing system (pushing users to Signal/ProtonMail instead of in-app databases to protect against data exposure).
+- Data privacy is existential. No sensitive intake data stored on the web server.
+- No dark patterns.
+- Every programme/intervention must reflect one of the 4 core pillars and include clear metrics, location data, and status.
 
 ## Brand Commitments
 
-- **Colors:** Muted mineral colours with occasional high-chroma action color (Ink, Deep Forest, Mineral Teal, Mist, Paper, Sand, Terracotta, Marigold, Cloud, Stone).
-- **Typography:** Fraunces (Headings) and Inter (Body/UI).
-- **Illustration:** Retro-modernist cinematic illustration, deep blue-green/red-orange/cream-white, geometric perspective, long cast shadows, subtle grain. No photorealistic 3D, stock charity imagery, or glossy corporate CGI.
-- **Composition:** Generous negative space, asymmetrical disciplined grids, restrained borders/shadows.
+- **Colors:** Stark, high-contrast. High-visibility safety colors (Safety Orange, Alert Red) against deep blacks and stark whites. Abandoning muted mineral colors.
+- **Typography:** Utilitarian grotesk sans-serifs and monospace fonts for data representation.
+- **Illustration/Photography:** Documentary reality. Maps, data visualizations, and secure (anonymized) photography. No decorative illustrations.
+- **Composition:** Grid-heavy, dashboard-like, information-dense, minimizing negative space in favor of vital data.
 
 ## Evidence on Hand
 
-No actual content or evidence provided yet. (Important: Do not fabricate quotes, outcomes, or impact metrics).
+Real-time crisis data, conflict-affected community metrics, decentralized health statistics. Must be verifiable and anonymized.
 
 ## Product Principles
 
-1. **People before promotion:** Every page should answer a real user need.
-2. **Dignity over spectacle:** Never use poverty, illness, grief, or disaster as visual decoration.
-3. **Evidence over claims:** Quantify impact only when the organisation can substantiate it.
-4. **Action must be obvious:** A visitor should quickly understand what they can do next.
-5. **Trust is a feature:** Clearly identify the organisation, contact channels, governance, funding, and policies.
+1. **Survival before aesthetics:** Every page must deliver vital information or facilitate secure aid.
+2. **Maximum OpSec:** Assume all digital infrastructure is compromised; route sensitive comms externally.
+3. **Data as Truth:** Quantify impact with stark, unadorned metrics.
+4. **Action must be urgent:** Clear, immediate pathways for routing help or receiving support.
+5. **Decentralized by Default:** Highlight decentralized nodes (solar microgrids, mobile health) over centralized hubs.
 
 ## Accessibility & Inclusion
 
-Minimum target is WCAG 2.2 AA intent. Must include semantic headings, landmarks, keyboard operation, visible focus state, sufficient contrast, descriptive link labels, and reduced-motion support. English plus relevant local-language content must be supported (allow for longer strings, translated labels).
+Minimum target is WCAG 2.2 AA intent. Must accommodate high-stress cognitive load (clear hierarchies, no ambiguous terms). Support for local languages is critical for life-saving information.

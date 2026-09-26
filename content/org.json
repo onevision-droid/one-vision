@@ -1,0 +1,97 @@
+{
+  "org": {
+    "name": "One Vision",
+    "legal": "One Vision, Manipur",
+    "established": "1988",
+    "formerly": "Society for Health & Education Manipur",
+    "regNo": "MN/NGO/1988/001",
+    "location": "Imphal, Manipur, India",
+    "mandate": "Decentralised crisis-resilient humanitarian vanguard operating across the Manipur polycrisis zone."
+  },
+  "contact": {
+    "email": "ops@onevision.org",
+    "phone": "+91 98765 43210",
+    "signal": "+91 98765 43210",
+    "protonmail": "secure@onevision.proton.me",
+    "opsecNote": "For sensitive communications, use Signal or ProtonMail only. Standard email is not secure for crisis-related requests."
+  },
+  "locale": "en-GB",
+  "stats": [
+    {
+      "id": "people-reached",
+      "value": 12400,
+      "suffix": "+",
+      "label": "People Reached",
+      "period": "May 2023–Sep 2026",
+      "source": "Field Ops Mobile Health Unit Logs"
+    },
+    {
+      "id": "health-nodes",
+      "value": 18,
+      "label": "Decentralised Health Nodes",
+      "period": "Active as of Q3 2026",
+      "source": "Pillar 1 Operations Register"
+    },
+    {
+      "id": "solar-kw",
+      "value": 240,
+      "suffix": " kW",
+      "label": "Solar Capacity Deployed",
+      "period": "Sep 2026",
+      "source": "Solar-Kiran Microgrid Deployment Log"
+    },
+    {
+      "id": "cooperatives",
+      "value": 34,
+      "label": "Self-Help Cooperatives",
+      "period": "Active Q3 2026",
+      "source": "Economic Dignity Pillar Register"
+    }
+  ],
+  "pillars": [
+    {
+      "id": "health-equity",
+      "slug": "health-equity",
+      "title": "Conflict-Resilient Health Equity",
+      "shortTitle": "Health Equity",
+      "icon": "HeartPulse"
+    },
+    {
+      "id": "energy-sovereignty",
+      "slug": "energy-sovereignty",
+      "title": "Energy Sovereignty",
+      "shortTitle": "Energy",
+      "icon": "Zap"
+    },
+    {
+      "id": "ecological-restoration",
+      "slug": "ecological-restoration",
+      "title": "Ecological Restoration & Agrarian Resilience",
+      "shortTitle": "Ecology",
+      "icon": "Leaf"
+    },
+    {
+      "id": "economic-dignity",
+      "slug": "economic-dignity",
+      "title": "Economic Dignity & Livelihood Rehabilitation",
+      "shortTitle": "Dignity",
+      "icon": "HandCoins"
+    }
+  ],
+  "footerNav": [
+    "Health Equity",
+    "Energy Sovereignty",
+    "Ecological Restoration",
+    "Economic Dignity",
+    "Field Reports",
+    "Secure Contact",
+    "Deploy Support",
+    "About",
+    "Governance",
+    "Transparency"
+  ],
+  "darkSections": {
+    "allowed": true,
+    "rule": "max 1 per page, full-bleed, preceded/followed by paper sections"
+  }
+}

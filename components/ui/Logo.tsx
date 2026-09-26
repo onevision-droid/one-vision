@@ -10,88 +10,91 @@ interface LogoProps {
 
 export function Logo({ className, isHovered = false }: LogoProps) {
   return (
-    <div className={cn("flex items-center gap-3", className)}>
+    <div className={cn("flex items-center gap-2.5", className)}>
       <motion.svg 
-        viewBox="0 0 40 40" 
-        className="w-8 h-8 text-ink dark:text-paper overflow-visible"
+        viewBox="0 0 32 32" 
+        className="w-5 h-5 text-ink-900 overflow-visible"
         initial="hidden"
         animate={isHovered ? "hover" : "visible"}
       >
-        {/* Left Circle (Community) */}
-        <motion.circle
-          cx="16"
-          cy="20"
-          r="12"
+        {/* Left Block (Community) */}
+        <motion.rect
+          x="4"
+          y="8"
+          width="14"
+          height="14"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.5"
+          strokeWidth="2"
           variants={{
-            hidden: { pathLength: 0, opacity: 0, cx: 16 },
+            hidden: { pathLength: 0, opacity: 0, x: 4 },
             visible: { 
               pathLength: 1, 
               opacity: 1,
-              cx: [16, 15, 16],
+              x: [4, 2, 4],
               transition: { 
-                pathLength: { duration: 1.5, ease: "easeInOut" },
-                opacity: { duration: 1.5, ease: "easeInOut" },
-                cx: { repeat: Infinity, duration: 6, ease: "easeInOut" }
+                pathLength: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+                opacity: { duration: 1.2, ease: "easeOut" },
+                x: { repeat: Infinity, duration: 8, ease: "easeInOut" }
               }
             },
             hover: {
-              cx: 18,
+              x: 6,
               pathLength: 1,
               opacity: 1,
-              transition: { type: "spring", stiffness: 300, damping: 25 }
+              transition: { type: "spring", stiffness: 400, damping: 30 }
             }
           }}
         />
-        {/* Right Circle (Organization) */}
-        <motion.circle
-          cx="24"
-          cy="20"
-          r="12"
+        {/* Right Block (Organization) */}
+        <motion.rect
+          x="14"
+          y="10"
+          width="14"
+          height="14"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.5"
+          strokeWidth="2"
           variants={{
-            hidden: { pathLength: 0, opacity: 0, cx: 24 },
+            hidden: { pathLength: 0, opacity: 0, x: 14 },
             visible: { 
               pathLength: 1, 
               opacity: 1,
-              cx: [24, 25, 24],
+              x: [14, 16, 14],
               transition: { 
-                pathLength: { duration: 1.5, ease: "easeInOut", delay: 0.2 },
-                opacity: { duration: 1.5, ease: "easeInOut", delay: 0.2 },
-                cx: { repeat: Infinity, duration: 6, ease: "easeInOut", delay: 0.2 }
+                pathLength: { duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.15 },
+                opacity: { duration: 1.2, ease: "easeOut", delay: 0.15 },
+                x: { repeat: Infinity, duration: 8, ease: "easeInOut", delay: 0.15 }
               }
             },
             hover: {
-              cx: 22,
+              x: 12,
               pathLength: 1,
               opacity: 1,
-              transition: { type: "spring", stiffness: 300, damping: 25 }
+              transition: { type: "spring", stiffness: 400, damping: 30 }
             }
           }}
         />
-        {/* Subtle center intersection glow/dot that appears on hover */}
-        <motion.circle
-          cx="20"
-          cy="20"
-          r="4"
+        {/* Center intersection block */}
+        <motion.rect
+          x="12"
+          y="13"
+          width="8"
+          height="8"
           fill="currentColor"
           variants={{
             hidden: { opacity: 0, scale: 0 },
             visible: { opacity: 0, scale: 0.5 },
             hover: { 
-              opacity: 0.3, 
+              opacity: 1, 
               scale: 1,
-              transition: { duration: 0.3 }
+              transition: { duration: 0.2, ease: "easeOut" }
             }
           }}
         />
       </motion.svg>
-      <span className="font-fraunces text-2xl font-medium tracking-wide text-ink dark:text-paper">
-        One Vision.
+      <span className="font-sans text-body-sm font-semibold tracking-wide text-ink-900 leading-none">
+        One Vision
       </span>
     </div>
   );

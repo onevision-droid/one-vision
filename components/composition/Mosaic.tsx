@@ -34,14 +34,14 @@ export function Mosaic({
       aria-labelledby={headingId}
       className={className}
     >
-      <div className="container-wide">
+      <div className="mx-auto w-full max-w-7xl px-5 xl:px-6">
         {heading && (
           <h2
             id={headingId}
             className={cn(
-              "font-display font-light tracking-tight",
-              "text-(length:--text-h2)",
-              "mb-12 lg:mb-16"
+              "font-serif font-light tracking-tight",
+              "text-display-md",
+              "mb-12 lg:mb-16",
             )}
           >
             {heading}
@@ -52,7 +52,7 @@ export function Mosaic({
           className={cn(
             "grid gap-6 lg:gap-8",
             "lg:grid-cols-12",
-            reversed && "lg:[direction:rtl] lg:*:[direction:ltr]"
+            reversed && "lg:[direction:rtl] lg:*:[direction:ltr]",
           )}
         >
           {/* Lead image: spans 7 columns */}
@@ -70,7 +70,7 @@ export function Mosaic({
                 key={i}
                 className={cn(
                   "relative overflow-hidden rounded-none",
-                  i === 0 ? "aspect-square" : "aspect-3/2"
+                  i === 0 ? "aspect-square" : "aspect-3/2",
                 )}
               >
                 {satellite}

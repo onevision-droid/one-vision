@@ -1,47 +1,28 @@
-import { cn } from "@/lib/utils";
-import type { Surface } from "@/lib/tokens";
+import { Section } from "@/components/layout/Shell";
+import type { SectionTone } from "@/components/layout/Shell";
 
-/**
- * Shared props for all composition pattern components.
- * Every page is a sequence of these patterns (doc 02 §9).
- */
+export type Surface =
+  "paper" | "white" | "ink" | "forest" | "mist" | "sand" | "transparent";
+
 export interface CompositionProps {
-  /** Surface colour for the section background */
   surface?: Surface;
-  /** Reverse text/media layout on desktop */
-  reversed?: boolean;
-  /** Additional CSS classes */
   className?: string;
-  /** Section content */
   children?: React.ReactNode;
-  /** ID for aria-labelledby (auto-generated from heading if provided) */
   id?: string;
+  reversed?: boolean;
 }
 
-/** Map surface token to Tailwind background class */
-export const surfaceBgClass: Record<Surface, string> = {
-  paper: "bg-paper",
-  mist: "bg-mist",
-  sand: "bg-sand",
-  forest: "bg-forest",
-  ink: "bg-ink",
-};
-
-/** Map surface to text colour class */
-export const surfaceTextClass: Record<Surface, string> = {
-  paper: "text-ink",
-  mist: "text-ink",
-  sand: "text-ink",
-  forest: "text-mist",
-  ink: "text-mist",
-};
-
-/** Whether surface is a dark field */
-export function isDarkSurface(surface: Surface): boolean {
+/**
+ * Maps legacy `Surface` to new `SectionTone`.
+ */
+export function isDarkSurface(surface: Surface | string): boolean {
   return surface === "forest" || surface === "ink";
 }
 
-/** Base section wrapper with consistent rhythm, surface, and semantics */
+/**
+ * Legacy wrapper exported for backwards compatibility.
+ * Use `<Section>` and `<Container>` from `@/components/layout/Shell` directly in new code.
+ */
 export function SectionWrapper({
   surface = "paper",
   className,
@@ -49,19 +30,19 @@ export function SectionWrapper({
   id,
   "aria-labelledby": ariaLabelledBy,
 }: CompositionProps & { "aria-labelledby"?: string }) {
+  // Map old surfaces to new tones
+  let tone: SectionTone = "default";
+  if (surface === "ink" || surface === "forest") tone = "inverted";
+  if (surface === "mist" || surface === "sand") tone = "alt";
+
   return (
-    <section
+    <Section
       id={id}
-      data-surface={surface}
+      tone={tone}
       aria-labelledby={ariaLabelledBy}
-      className={cn(
-        "section-rhythm",
-        surfaceBgClass[surface],
-        surfaceTextClass[surface],
-        className
-      )}
+      className={className}
     >
       {children}
-    </section>
+    </Section>
   );
 }

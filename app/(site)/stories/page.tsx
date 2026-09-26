@@ -1,67 +1,116 @@
+import { Metadata } from "next";
 import { StoryCard } from "@/components/content/StoryCard";
+import { Section, Container } from "@/components/layout/Shell";
+import { PageHero } from "@/components/composition/PageHero";
+import { QuietClose } from "@/components/composition/QuietClose";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import Image from "next/image";
-import { SectionBadge } from "@/components/composition/SectionBadge";
-import { HalftoneBackground } from "@/components/composition/HalftoneBackground";
+import { ArrowRight } from "lucide-react";
+import { stories } from "@/lib/data/stories";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+
+export const metadata: Metadata = {
+  title: "Stories | One Vision",
+  description: "Long-form stories documenting community resilience, grassroots action, and the people driving change in Imphal and Manipur.",
+};
 
 export default function StoriesPage() {
-  return (
-    <div className="flex flex-col w-full bg-background pt-20">
-      <section className="relative overflow-hidden py-24 md:py-32 border-b border-border bg-foreground text-background">
-        <HalftoneBackground opacity={10} />
-        <div className="container mx-auto px-4 md:px-12 max-w-6xl text-center relative z-10">
-          <SectionBadge className="border-background/20 bg-background/10">
-            Community Voices
-          </SectionBadge>
-          <h1 className="text-balance font-fraunces text-5xl md:text-7xl font-light tracking-tight mb-8">
-            Local Stories.
-          </h1>
-          <p className="text-balance font-inter text-xl text-background/80 leading-relaxed font-light max-w-2xl mx-auto">
-            Documenting the quiet resilience of our community through respectful, long-form storytelling. Dignity over spectacle.
-          </p>
-        </div>
-      </section>
+  const [featured, ...rest] = stories;
 
-      <section className="py-24">
-        <div className="container mx-auto px-4 md:px-12 max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24">
-            <div className="relative aspect-4/5 w-full overflow-hidden rounded-2xl ring-1 ring-border">
-              <Image src="/new-illustrations/imphal-streetscape.webp" alt="Story Feature" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-700 motion-safe:hover:scale-105" />
+  return (
+    <div className="flex flex-col w-full bg-paper pt-20">
+      <PageHero 
+        badge="Community Voices"
+        heading={
+          <>
+            Local <br />
+            Stories.
+          </>
+        }
+        description="Documenting the quiet resilience of our community through respectful, long-form storytelling. Dignity over spectacle."
+        imageSrc="/new-illustrations/women-led.webp"
+        imageAlt="Women community leaders"
+      />
+
+      {/* Featured Story */}
+      <Section tone="default" className="py-24 border-b border-border-default">
+        <Container className="pb-0">
+          <Breadcrumbs items={[{ label: "Stories", href: "/stories" }]} />
+        </Container>
+        <Container>
+          <p className="text-caption tracking-widest uppercase text-ink-500 font-semibold mb-10">Featured Story</p>
+          <Link href={`/stories/${featured.slug}`} className="group grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="relative aspect-4/3 w-full overflow-hidden border border-border-default rounded-md bg-surface-alt">
+              <Image
+                src={featured.image}
+                alt={featured.title}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                priority
+              />
             </div>
             <div className="flex flex-col justify-center">
-              <div className="inline-flex items-center text-sm font-medium text-primary mb-4">Featured Story</div>
-              <h2 className="text-4xl md:text-5xl font-fraunces font-light mb-6 tracking-tight">A teacher finds a new classroom</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                After her school was repurposed, Leima gathered students in a community hall to ensure education didn&apos;t stop. A look at grassroots educational continuity.
-              </p>
-              <div className="flex items-center gap-4 text-sm text-muted-foreground mb-8">
-                <span>By T. Singh</span>
-                <span className="w-1 h-1 rounded-full bg-border"></span>
-                <span>October 12, 2024</span>
+              <div className="flex items-center gap-3 text-caption tracking-widest uppercase text-ink-500 font-semibold mb-6">
+                <span>By {featured.author}</span>
+                <span className="size-1 rounded-full bg-ink-300" />
+                <time dateTime={featured.date}>
+                  {new Date(featured.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
+                </time>
               </div>
-              <a href="/stories/teacher" className="inline-flex h-12 items-center justify-center rounded-full bg-foreground px-8 text-sm font-medium text-background transition-colors hover:bg-foreground/90 w-fit">
-                Read full story
-              </a>
+              <h2 className="font-serif text-display-md font-light tracking-tight text-ink-900 mb-6 group-hover:text-action-primary transition-colors">
+                {featured.title}
+              </h2>
+              <p className="text-body-lg text-ink-500 font-light leading-relaxed mb-8">
+                {featured.excerpt}
+              </p>
+              <div className="inline-flex items-center gap-2 text-caption tracking-widest uppercase font-semibold text-ink-900 group-hover:text-action-primary transition-colors">
+                <span>Read full story</span>
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+              </div>
             </div>
-          </div>
+          </Link>
+        </Container>
+      </Section>
 
+      {/* Story Grid */}
+      <Section tone="alt" className="py-24">
+        <Container>
+          <h2 className="font-sans text-heading-xl font-medium tracking-tight text-ink-900 mb-16">More stories</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
-             <StoryCard 
-                title="Mobilizing medical supplies"
-                summary="How local pharmacists pooled resources to ensure chronic patients didn't miss their medication during times of supply chain disruption."
-                author="A. Sharma"
-                date="September 28, 2024"
-                href="/stories/medical"
+            {rest.map((story) => (
+              <StoryCard
+                key={story.id}
+                title={story.title}
+                summary={story.excerpt}
+                author={story.author}
+                date={new Date(story.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
+                href={`/stories/${story.slug}`}
+                image={story.image}
               />
-              <StoryCard 
-                title="Rebuilding the community center"
-                summary="Volunteers from three neighborhoods joined hands to repair the central community hall before the monsoon season arrived."
-                author="M. Devi"
-                date="August 15, 2024"
-                href="/stories/rebuild"
-              />
+            ))}
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
+
+      <QuietClose
+        label="Share your story"
+        heading="Have a story to tell?"
+        description="We are always looking to amplify local voices and document community resilience. Reach out if you have a story that needs to be told."
+        action={
+          <Button
+            nativeButton={false}
+            className="gap-2 px-6"
+            render={
+              <Link href="/contact" className="flex items-center">
+                <span>Contact us</span>
+                <ArrowRight className="size-4" />
+              </Link>
+            }
+          />
+        }
+      />
     </div>
   );
 }

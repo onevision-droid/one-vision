@@ -1,0 +1,6 @@
+﻿File,Contents
+`OV_01_UI_UX_AUDIT.md`,"Full 15-page audit, Lagom philosophy scorecard, 30-issue registry with severities, page scorecard"
+`OV_02_DESIGN_REGISTRY.md`,"The consistent registry: color/typography/spacing/radius/motion tokens, component specs (4 buttons, 1 pill, 3 cards, 2 stats), imagery ratio slots, content source-of-truth rules, enforcement mechanism"
+`OV_03_ENHANCEMENT_PLAN.md`,8-phase roadmap (foundations → shell → components → pages → imagery → content → a11y → polish) with per-task acceptance criteria and KPIs
+`OV_04_AI_CODING_AGENT_INSTRUCTIONS.md`,Copy-paste master prompt + 7 phase prompts + 12 anti-patterns + registry PR checklist
+`design-tokens.json`,Machine-readable token file ready to wire into `tailwind.config`

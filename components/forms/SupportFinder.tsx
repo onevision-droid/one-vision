@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { programmes } from "@/lib/data/programmes";
 import Link from "next/link";
 import { trackEvent } from "@/lib/analytics/trackEvent";
+import { ArrowRight, ChevronRight, RefreshCcw } from "lucide-react";
 
 export function SupportFinder() {
   const [step, setStep] = useState(1);
@@ -21,89 +22,138 @@ export function SupportFinder() {
     setStep(3);
   };
 
-  const matchedProgrammes = programmes.filter(p => p.category === category || category === "Other");
+  const matchedProgrammes = programmes.filter(
+    (p) => p.category === category || category === "Other",
+  );
 
   if (step === 3) {
     return (
-      <div className="bg-white p-8 border border-ink/10 rounded-none max-w-2xl mx-auto w-full">
-        <h3 className="font-fraunces text-2xl font-light mb-4">Recommended Resources</h3>
-        <p className="font-inter text-ink/70 mb-8">
-          Based on your selection, here are the most relevant active programmes and resources.
+      <div className="bg-surface p-8 md:p-12 border border-border-default rounded-md w-full">
+        <h3 className="font-sans text-heading-xl font-semibold text-ink-900 mb-4">
+          Recommended Resources
+        </h3>
+        <p className="text-body-lg text-ink-500 font-light mb-10 leading-relaxed">
+          Based on your selection, here are the most relevant active programmes
+          and resources available in your area.
         </p>
-        
+
         {matchedProgrammes.length > 0 ? (
-          <div className="space-y-4">
-            {matchedProgrammes.map(p => (
-              <div key={p.id} className="p-4 bg-mist rounded-none border border-ink/5 flex justify-between items-center">
+          <div className="grid grid-cols-1 gap-4 mb-12">
+            {matchedProgrammes.map((p) => (
+              <Link
+                key={p.id}
+                href={`/programmes/${p.slug}`}
+                className="group p-6 bg-surface-alt border border-transparent hover:border-action-primary hover:bg-paper transition-all flex justify-between items-center"
+              >
                 <div>
-                  <h4 className="font-fraunces font-bold">{p.title}</h4>
-                  <p className="text-sm text-ink/70">{p.location}</p>
+                  <h4 className="font-sans text-heading-md font-medium text-ink-900 group-hover:text-action-primary transition-colors mb-2">
+                    {p.title}
+                  </h4>
+                  <p className="text-body-sm text-ink-500">{p.location}</p>
                 </div>
-                <Link href={`/programmes/${p.slug}`} className="text-sm font-medium text-forest hover:underline">
-                  View details
-                </Link>
-              </div>
+                <div className="size-10 flex items-center justify-center shrink-0 border border-border-default group-hover:border-action-primary rounded-none transition-colors">
+                  <ArrowRight className="size-4 text-ink-900 group-hover:text-action-primary transition-colors" />
+                </div>
+              </Link>
             ))}
           </div>
         ) : (
-          <p className="text-sm text-ink/70 italic bg-mist p-4 rounded">No specific programmes match this exactly right now, but please contact us directly so we can assist you.</p>
+          <div className="p-8 bg-surface-alt border border-dashed border-ink-300 text-center mb-12">
+            <p className="text-body text-ink-500 font-light">
+              No specific programmes match this exactly right now, but please
+              contact us directly so we can assist you.
+            </p>
+          </div>
         )}
-        
-        <div className="mt-8 pt-8 border-t border-ink/10">
-          <h4 className="font-fraunces font-bold mb-2">Need direct assistance?</h4>
-          <p className="text-sm mb-4">If this is an emergency, please use our contact form or call our 24/7 hotline.</p>
-          <Link href="/contact" className="inline-flex h-9 items-center justify-center bg-primary text-primary-foreground hover:bg-primary/80 px-4 py-2 text-sm font-medium transition-colors">
-            Contact Support Team
-          </Link>
+
+        <div className="pt-8 border-t border-border-default flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+          <div>
+            <h4 className="font-sans text-heading-md font-medium text-ink-900 mb-2">
+              Need direct assistance?
+            </h4>
+            <p className="text-body-sm text-ink-500 font-light">
+              If this is an emergency, contact our support team directly.
+            </p>
+          </div>
+          <Button
+            nativeButton={false}
+            className="shrink-0"
+            render={<Link href="/contact" />}
+          >
+            Contact Support
+          </Button>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="bg-white p-6 md:p-10 border border-ink/10 rounded-none max-w-2xl mx-auto w-full">
-      <div className="flex justify-between items-center mb-8">
-        <span className="text-xs uppercase tracking-widest text-ink/40 font-bold">Step {step} of 2</span>
-        <button 
-          onClick={() => setStep(1)} 
+    <div className="bg-surface p-8 md:p-12 border border-border-default rounded-md w-full">
+      <div className="flex justify-between items-center mb-12 border-b border-border-default pb-6">
+        <span className="text-caption tracking-widest uppercase text-ink-900 font-semibold">
+          Step {step} of 2
+        </span>
+        <button
+          onClick={() => setStep(1)}
           disabled={step === 1}
-          className="text-xs uppercase tracking-widest text-ink/40 hover:text-ink disabled:opacity-30 disabled:hover:text-ink/40"
+          className="flex items-center gap-2 text-caption tracking-widest uppercase text-ink-500 hover:text-ink-900 disabled:opacity-30 disabled:hover:text-ink-500 transition-colors font-medium"
         >
+          <RefreshCcw className="size-3" />
           Reset
         </button>
       </div>
 
       {step === 1 && (
-        <div className="space-y-6">
-          <h3 className="font-fraunces text-2xl md:text-3xl font-light">What kind of support are you looking for?</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {["Health", "Education", "Community", "Emergency Response", "Other"].map(cat => (
-              <Button 
-                key={cat} 
-                variant="outline" 
-                className="h-auto py-4 justify-start font-inter"
+        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+          <h3 className="font-sans text-heading-lg font-semibold text-ink-900 leading-tight mb-8">
+            What kind of support are you looking for?
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              "Health",
+              "Education",
+              "Community",
+              "Emergency Response",
+              "Relief Supply",
+              "Other",
+            ].map((cat) => (
+              <button
+                key={cat}
+                className="group flex items-center justify-between p-6 border border-border-default hover:border-action-primary hover:bg-surface-alt transition-colors bg-surface rounded-md text-left"
                 onClick={() => handleCategorySelect(cat)}
               >
-                {cat}
-              </Button>
+                <span className="font-sans text-body font-medium text-ink-900 group-hover:text-action-primary transition-colors">
+                  {cat}
+                </span>
+                <ChevronRight className="size-4 text-ink-300 group-hover:text-action-primary transition-colors group-hover:translate-x-1" />
+              </button>
             ))}
           </div>
         </div>
       )}
 
       {step === 2 && (
-        <div className="space-y-6">
-          <h3 className="font-fraunces text-2xl md:text-3xl font-light">Who is this support for?</h3>
+        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+          <h3 className="font-sans text-heading-lg font-semibold text-ink-900 leading-tight mb-8">
+            Who is this support for?
+          </h3>
           <div className="grid grid-cols-1 gap-4">
-            {["Myself", "My family", "A community member", "Multiple families / A whole community"].map(ben => (
-              <Button 
-                key={ben} 
-                variant="outline" 
-                className="h-auto py-4 justify-start font-inter"
+            {[
+              "Myself",
+              "My family",
+              "A community member",
+              "Multiple families / A whole community",
+            ].map((ben) => (
+              <button
+                key={ben}
+                className="group flex items-center justify-between p-6 border border-border-default hover:border-action-primary hover:bg-surface-alt transition-colors bg-surface rounded-md text-left"
                 onClick={() => handleBeneficiarySelect(ben)}
               >
-                {ben}
-              </Button>
+                <span className="font-sans text-body font-medium text-ink-900 group-hover:text-action-primary transition-colors">
+                  {ben}
+                </span>
+                <ChevronRight className="size-4 text-ink-300 group-hover:text-action-primary transition-colors group-hover:translate-x-1" />
+              </button>
             ))}
           </div>
         </div>

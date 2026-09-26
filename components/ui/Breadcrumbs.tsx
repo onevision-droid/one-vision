@@ -7,6 +7,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import React from "react";
+import { cn } from "@/lib/utils";
 
 export interface BreadcrumbLinkProps {
   label: string;
@@ -15,18 +16,19 @@ export interface BreadcrumbLinkProps {
 
 export interface BreadcrumbsProps {
   items: BreadcrumbLinkProps[];
+  className?: string;
 }
 
-export function Breadcrumbs({ items = [] }: BreadcrumbsProps) {
+export function Breadcrumbs({ items = [], className }: BreadcrumbsProps) {
   return (
-    <Breadcrumb>
+    <Breadcrumb className={cn("mb-6", className)}>
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink href="/">Home</BreadcrumbLink>
         </BreadcrumbItem>
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
-          
+
           return (
             <React.Fragment key={index}>
               <BreadcrumbSeparator />

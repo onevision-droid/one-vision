@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { Container } from "@/components/layout/Shell";
 import { SectionWrapper, type CompositionProps } from "./shared";
 
 /**
@@ -33,14 +34,14 @@ export function EvidenceShoreline({
       aria-labelledby={headingId}
       className={className}
     >
-      <div className="container-wide">
+      <Container>
         {heading && (
           <h2
             id={headingId}
             className={cn(
-              "font-display font-light tracking-tight",
-              "text-(length:--text-h2)",
-              "mb-12 lg:mb-16"
+              "font-serif font-light tracking-tight",
+              "text-display-md",
+              "mb-12 lg:mb-16",
             )}
           >
             {heading}
@@ -50,7 +51,7 @@ export function EvidenceShoreline({
         <div className={cn("grid gap-8", media ? "lg:grid-cols-12" : "")}>
           {/* Metrics */}
           <div className={cn(media ? "lg:col-span-8" : "")}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px border border-mist-deep rounded-none overflow-hidden">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px border border-border-default overflow-hidden">
               {metrics}
             </div>
           </div>
@@ -67,11 +68,9 @@ export function EvidenceShoreline({
 
         {/* Methodology footnote */}
         {footnote && (
-          <div className="mt-6 text-(length:--text-caption) text-stone">
-            {footnote}
-          </div>
+          <div className="mt-6 text-caption text-ink-500">{footnote}</div>
         )}
-      </div>
+      </Container>
     </SectionWrapper>
   );
 }

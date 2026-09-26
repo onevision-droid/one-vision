@@ -13,7 +13,7 @@ export function MobileNavigation({ navLinks }: { navLinks: { href: string; label
         <SheetContent side="right" className="pr-0">
           <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
           <div className="flex flex-col gap-6 p-6">
-            <Link href="/" className="font-fraunces text-xl font-bold text-ink dark:text-paper">
+            <Link href="/" className="font-sans text-heading-md font-bold text-ink dark:text-paper">
               One Vision
             </Link>
             <nav className="flex flex-col gap-4">
@@ -21,13 +21,19 @@ export function MobileNavigation({ navLinks }: { navLinks: { href: string; label
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="font-inter text-lg font-medium"
+                  className="font-sans text-body-lg font-medium"
                 >
                   {link.label}
                 </Link>
               ))}
+              <Link
+                href="/search"
+                className="font-sans text-body-lg font-medium text-action-primary"
+              >
+                Search
+              </Link>
             </nav>
-            <Button variant="default" className="mt-4 font-inter w-full">Support Us</Button>
+            <Button variant="primary" className="mt-4 font-sans w-full">Support Us</Button>
           </div>
         </SheetContent>
       </Sheet>

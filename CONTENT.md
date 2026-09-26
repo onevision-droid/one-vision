@@ -3,28 +3,27 @@
 ## Editorial voice
 
 Write:
-- plain;
-- specific;
-- warm;
-- respectful;
-- locally grounded;
+- urgent;
+- factual;
+- unadorned;
+- stark;
+- uncompromising;
 - evidence-led.
 
 Prefer:
-“Volunteers helped 42 households access flood-preparedness information in July 2026.”
+"24 solar microgrids deployed across 3 community sites, restoring power to 1,200 people in September 2026."
 
 Over:
-“We transformed thousands of lives through our incredible work.”
+"We brought the light of hope to thousands of lives through our incredible renewable energy work."
 
-## Story structure
+## Story structure (Crisis Reporting)
 
-1. What happened?
-2. Why does it matter?
-3. Who is involved?
-4. What did One Vision actually do?
-5. What changed?
-6. What remains?
-7. What can the reader do?
+1. **The Reality:** What is the current ground situation/crisis data?
+2. **The Mandate:** Which of the 4 operational pillars addresses this?
+3. **The Deployment:** What did One Vision actually deploy?
+4. **The Metrics:** What are the verifiable outcomes?
+5. **The Requirement:** What is urgently needed now (resources, support)?
+6. **The Action:** Secure routing for help or contribution.
 
 ## Impact language
 
@@ -32,57 +31,47 @@ Every metric should have:
 - number;
 - unit;
 - period;
-- geography;
-- source/measurement method where appropriate.
+- geography (anonymized if required for OpSec);
+- verification source.
 
 Example:
-“128 young people completed the 2026 digital-skills programme in Imphal East.”
+"12 decentralized harm-reduction stations established in Imphal East, serving 450 individuals per week (Data: Mobile Health Ops, Q3 2026)."
 
-Do not use lifetime totals without a date or definition.
+Do not use lifetime totals without a date or definition. Never fabricate impact.
 
-## Sensitive stories
+## Sensitive stories & OpSec
 
-Consent should cover:
-- image use;
-- name;
-- location;
-- story details;
-- publication channels.
-
-Use pseudonyms or anonymisation when appropriate.
+Consent and Security are paramount:
+- Assume all metadata is sensitive.
+- Use pseudonyms or absolute anonymisation.
+- Never publish exact geographic coordinates of vulnerable community sites or secure health outposts unless publicly cleared.
+- Blur or crop imagery to protect identities.
 
 ## Calls to action
 
-Use one primary action per section:
-- Get Help
-- Volunteer
-- Support the Work
-- Join a Programme
-- Read the Story
-- Download the Report
+Use one primary action per section, prioritizing security:
+- Secure Contact (routes to Signal/Proton)
+- Deploy Support (Donate/Fund)
+- Access Health (routes to Tele-Health protocol)
+- Read Field Report
 
-Avoid “Learn More” when a specific label is possible.
+Avoid "Learn More" when a specific label is possible.
 
 ## Homepage content hierarchy
 
-1. identity and purpose
-2. current needs/work
-3. people and stories
-4. programmes
-5. evidence
-6. ways to participate
-7. transparency
-8. contact
+1. **The Beacon:** Real-time crisis reality and our operational mandate.
+2. **Current Deployments (The 4 Pillars):** Health Equity, Energy Sovereignty, Ecological Restoration, Economic Dignity.
+3. **Field Data:** Urgent metrics and reports from the ground.
+4. **Secure Routing (Get Help):** Instructions for encrypted communication.
+5. **Transparency & Logistics:** Funding deployment, governance, resource needs.
 
 ## Content governance
 
 Every content item has:
 - owner;
-- author;
 - publication date;
-- review date;
-- status;
-- source/evidence;
-- media consent state where relevant.
+- status (Active, Deprecated, Critical);
+- evidence source;
+- OpSec clearance state.
 
-Sensitive or high-impact content requires a second reviewer.
+All field reports require clearance from the Operations Lead to ensure no sensitive locations or identities are exposed.

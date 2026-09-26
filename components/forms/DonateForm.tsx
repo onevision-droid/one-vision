@@ -30,7 +30,13 @@ const formSchema = z.object({
   pan: z.string().optional(),
 });
 
-export function DonateForm({ onSubmitOverride }: { onSubmitOverride?: (values: z.infer<typeof formSchema>) => void } = {}) {
+export function DonateForm({
+  onSubmitOverride,
+  recurringEnabled = false,
+}: {
+  onSubmitOverride?: (values: z.infer<typeof formSchema>) => void;
+  recurringEnabled?: boolean;
+} = {}) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedPreset, setSelectedPreset] = useState<number | null>(null);
 
@@ -53,7 +59,10 @@ export function DonateForm({ onSubmitOverride }: { onSubmitOverride?: (values: z
       return;
     }
 
-    trackEvent("donate_intent", { amount: values.amount, frequency: values.frequency });
+    trackEvent("donate_complete", {
+      amount: parseFloat(values.amount),
+      frequency: values.frequency,
+    });
     
     // Insert intent into Supabase
     const { error } = await supabase.from('donations').insert({
@@ -78,12 +87,12 @@ export function DonateForm({ onSubmitOverride }: { onSubmitOverride?: (values: z
 
   if (isSubmitted) {
     return (
-      <div className="bg-muted/30 p-8 rounded-2xl border border-border/50 text-center space-y-4">
-        <h3 className="font-fraunces text-2xl font-medium">Proceeding to Gateway...</h3>
-        <p className="text-muted-foreground">
+      <div className="bg-surface p-8 rounded-md border border-border-default text-center space-y-4">
+        <h3 className="font-sans text-heading-lg font-semibold text-ink-900">Proceeding to Gateway...</h3>
+        <p className="font-sans text-ink-500">
           In a live environment, you would be redirected to a secure payment provider.
         </p>
-        <Button variant="outline" onClick={() => setIsSubmitted(false)} className="mt-4">
+        <Button variant="secondary" onClick={() => setIsSubmitted(false)} className="mt-4">
           Go back
         </Button>
       </div>
@@ -97,7 +106,7 @@ export function DonateForm({ onSubmitOverride }: { onSubmitOverride?: (values: z
         {/* Section 1: Amount Selection */}
         <div className="space-y-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl font-medium text-foreground">1. Select Amount</h2>
+            <h2 className="font-sans text-heading-md font-semibold text-ink-900">1. Select Amount</h2>
           </div>
           
           <FormField
@@ -106,26 +115,35 @@ export function DonateForm({ onSubmitOverride }: { onSubmitOverride?: (values: z
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <div className="flex p-1 bg-muted/20 rounded-lg border border-border w-fit">
+                  <div className="flex p-1 bg-surface-alt rounded-sm border border-border-default w-fit">
                     <button
                       type="button"
                       onClick={() => field.onChange("one-time")}
                       className={cn(
-                        "px-6 py-2 rounded-md text-sm font-medium transition-colors",
-                        field.value === "one-time" ? "bg-background shadow-sm text-foreground" : "text-muted-foreground hover:text-foreground"
+                        "px-6 py-2 rounded-sm text-body-sm font-medium transition-colors border",
+                        field.value === "one-time" ? "bg-action-primary shadow-sm text-paper border-action-primary" : "border-transparent text-ink-500 hover:text-ink-900"
                       )}
                     >
                       One-time
                     </button>
                     <button
                       type="button"
-                      onClick={() => field.onChange("monthly")}
+                      onClick={() => {
+                        if (recurringEnabled) {
+                          field.onChange("monthly");
+                        }
+                      }}
+                      disabled={!recurringEnabled}
+                      title={!recurringEnabled ? "Monthly recurring giving is coming soon" : undefined}
                       className={cn(
-                        "px-6 py-2 rounded-md text-sm font-medium transition-colors",
-                        field.value === "monthly" ? "bg-background shadow-sm text-foreground" : "text-muted-foreground hover:text-foreground"
+                        "px-6 py-2 rounded-sm text-body-sm font-medium transition-colors border",
+                        field.value === "monthly"
+                          ? "bg-action-primary shadow-sm text-paper border-action-primary"
+                          : "border-transparent text-ink-500 hover:text-ink-900",
+                        !recurringEnabled && "opacity-50 cursor-not-allowed hover:text-ink-500"
                       )}
                     >
-                      Monthly
+                      Monthly {!recurringEnabled && <span className="text-[10px] uppercase tracking-wider text-ink-400 ml-1">(Soon)</span>}
                     </button>
                   </div>
                 </FormControl>
@@ -139,37 +157,42 @@ export function DonateForm({ onSubmitOverride }: { onSubmitOverride?: (values: z
               <Button
                 key={amt}
                 type="button"
-                variant={selectedPreset === amt ? "default" : "outline"}
+                variant={selectedPreset === amt ? "primary" : "secondary"}
                 className={cn(
-                  "py-4 h-auto rounded-xl border font-medium text-lg shadow-sm transition-all",
+                  "py-4 h-auto text-heading-md font-sans transition-all w-full",
                   selectedPreset === amt 
-                    ? "bg-primary text-primary-foreground border-primary" 
-                    : "border-border bg-background hover:border-primary/50 hover:bg-primary/5 text-foreground"
+                    ? "border-text-primary" 
+                    : ""
                 )}
                 onClick={() => {
                   setSelectedPreset(amt);
                   form.setValue("amount", amt.toString(), { shouldValidate: true });
+                  trackEvent("donate_start", { amount: amt, frequency: form.getValues("frequency") });
                 }}
               >
                 ₹{amt.toLocaleString()}
               </Button>
             ))}
           </div>
+
+          <p className="text-caption text-ink-500 font-light">
+            Fee transparency: 100% of your donation is allocated to community relief. Processing fees (~2%) are absorbed by foundation reserves.
+          </p>
           
           <FormField
             control={form.control}
             name="amount"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-muted-foreground font-light text-sm block">Or enter a custom amount (INR)</FormLabel>
+                <FormLabel className="text-ink-500 font-light text-body-sm block">Or enter a custom amount (INR)</FormLabel>
                 <FormControl>
                   <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground">₹</span>
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-ink-500">₹</span>
                     <Input 
                       {...field} 
                       type="number" 
                       min="100" 
-                      placeholder="0.00" 
+                      placeholder="0" 
                       className="pl-8"
                       onChange={(e) => {
                         setSelectedPreset(null);
@@ -184,11 +207,11 @@ export function DonateForm({ onSubmitOverride }: { onSubmitOverride?: (values: z
           />
         </div>
 
-        <div className="h-px bg-border w-full" />
+        <div className="h-px bg-border-default w-full" />
 
         {/* Section 2: Personal Details */}
         <div className="space-y-6">
-          <h2 className="text-xl font-medium text-foreground">2. Your Details</h2>
+          <h2 className="font-sans text-heading-md font-semibold text-ink-900">2. Your Details</h2>
           
           <div className="grid md:grid-cols-2 gap-6">
             <FormField
@@ -198,7 +221,7 @@ export function DonateForm({ onSubmitOverride }: { onSubmitOverride?: (values: z
                 <FormItem>
                   <FormLabel>First Name</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Jane" />
+                    <Input {...field} placeholder="Jane" autoComplete="given-name" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -211,7 +234,7 @@ export function DonateForm({ onSubmitOverride }: { onSubmitOverride?: (values: z
                 <FormItem>
                   <FormLabel>Last Name</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Doe" />
+                    <Input {...field} placeholder="Doe" autoComplete="family-name" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -226,7 +249,7 @@ export function DonateForm({ onSubmitOverride }: { onSubmitOverride?: (values: z
               <FormItem>
                 <FormLabel>Email Address (for tax receipt)</FormLabel>
                 <FormControl>
-                  <Input {...field} type="email" placeholder="jane@example.com" />
+                  <Input {...field} type="email" placeholder="jane@example.com" autoComplete="email" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -250,10 +273,10 @@ export function DonateForm({ onSubmitOverride }: { onSubmitOverride?: (values: z
 
         {/* Submit Action */}
         <div className="pt-4">
-          <Button type="submit" className="w-full text-lg py-6 gap-2 bg-primary text-primary-foreground hover:bg-primary/90" variant="default">
+          <Button type="submit" className="w-full h-14 text-body-lg gap-2" variant="primary">
             Proceed to Payment <ArrowRight className="size-5" />
           </Button>
-          <p className="text-center text-xs text-muted-foreground mt-4 flex items-center justify-center gap-1.5">
+          <p className="text-center text-caption text-ink-500 mt-4 flex items-center justify-center gap-1.5 uppercase tracking-widest font-semibold">
             <Lock className="size-3" /> Payments are securely processed via certified gateway.
           </p>
         </div>

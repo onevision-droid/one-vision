@@ -27,23 +27,37 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://onevision.org"),
   openGraph: {
     type: "website",
-    locale: "en_IN",
+    locale: "en_GB",
     siteName: "One Vision",
+    title: "One Vision — Community Organisation · Imphal, Manipur",
+    description: "One Vision is a community-focused NGO connecting resources, programmes, and volunteers to build resilience across Imphal and Manipur.",
+    images: [
+      {
+        url: "/new-illustrations/hero.webp",
+        width: 1200,
+        height: 630,
+        alt: "One Vision community organisation in Imphal, Manipur",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "One Vision — Community Organisation · Imphal, Manipur",
+    description: "One Vision is a community-focused NGO connecting resources, programmes, and volunteers to build resilience across Imphal and Manipur.",
+    images: ["/new-illustrations/hero.webp"],
   },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
-      className={cn("h-full antialiased", inter.variable, fraunces.variable)}
+      lang="en-GB"
+      className={cn("h-full antialiased overflow-x-hidden", inter.variable, fraunces.variable)}
     >
-      <body className="min-h-full flex flex-col font-sans bg-paper text-ink">
+      <body className="min-h-full flex flex-col font-sans bg-paper text-ink-900 overflow-x-hidden">
         <SkipLink />
         <TooltipProvider>
-          <main id="main">
-            {children}
-          </main>
+          {children}
         </TooltipProvider>
       </body>
     </html>

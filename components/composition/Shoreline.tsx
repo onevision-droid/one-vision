@@ -8,7 +8,7 @@ import { SectionWrapper, isDarkSurface, type CompositionProps } from "./shared";
  */
 interface ShorelineProps extends CompositionProps {
   /** Small label above the headline */
-  eyebrow?: string;
+  eyebrow?: React.ReactNode;
   /** Large display headline (can contain JSX for line breaks) */
   headline: React.ReactNode;
   /** Supporting paragraph */
@@ -40,31 +40,28 @@ export function Shoreline({
       aria-labelledby={headingId}
       className={cn("overflow-hidden", className)}
     >
-      <div className="container-wide">
+      <div className="mx-auto w-full max-w-7xl px-5 xl:px-6">
         <div
           className={cn(
             "grid gap-12 items-center",
             "lg:grid-cols-[1fr_1fr]",
-            reversed && "lg:[direction:rtl] lg:*:[direction:ltr]"
+            reversed && "lg:[direction:rtl] lg:*:[direction:ltr]",
           )}
         >
           {/* Content */}
           <div className="flex flex-col justify-center space-y-6 lg:space-y-8">
             {eyebrow && (
-              <span
-                className={cn(
-                  "eyebrow",
-                  dark ? "text-teal-soft" : "text-stone"
-                )}
+              <div
+                className={cn("eyebrow", dark ? "text-paper" : "text-stone")}
               >
                 {eyebrow}
-              </span>
+              </div>
             )}
             <h1
               id={headingId}
               className={cn(
-                "font-display font-light tracking-tight leading-[1.05]",
-                "text-(length:--text-display-xl)"
+                "font-serif font-light tracking-tight leading-[1.05]",
+                "text-display-lg",
               )}
             >
               {headline}
@@ -72,15 +69,15 @@ export function Shoreline({
             {description && (
               <p
                 className={cn(
-                  "max-w-135 text-(length:--text-body) leading-relaxed",
-                  dark ? "text-teal-soft" : "text-stone"
+                  "max-w-135 text-body leading-relaxed",
+                  dark ? "text-paper" : "text-stone",
                 )}
               >
                 {description}
               </p>
             )}
             {actions && (
-              <div className="flex flex-col min-[400px]:flex-row gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 {actions}
               </div>
             )}

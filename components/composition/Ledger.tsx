@@ -31,29 +31,27 @@ export function Ledger({
       aria-labelledby={headingId}
       className={className}
     >
-      <div className="container-wide">
+      <div className="mx-auto w-full max-w-7xl px-5 xl:px-6">
         {(heading || headerAction) && (
           <div
             className={cn(
               "flex flex-col md:flex-row justify-between items-start md:items-end gap-4",
               "border-b pb-8 mb-10 lg:mb-14",
-              dark ? "border-teal-soft/20" : "border-ink/10"
+              dark ? "border-teal-soft/20" : "border-ink/10",
             )}
           >
             {heading && (
               <h2
                 id={headingId}
                 className={cn(
-                  "font-display font-light tracking-tight",
-                  "text-(length:--text-h2)"
+                  "font-serif font-light tracking-tight",
+                  "text-display-md",
                 )}
               >
                 {heading}
               </h2>
             )}
-            {headerAction && (
-              <div className="shrink-0">{headerAction}</div>
-            )}
+            {headerAction && <div className="shrink-0">{headerAction}</div>}
           </div>
         )}
 
@@ -61,7 +59,7 @@ export function Ledger({
         <div
           className={cn(
             "divide-y",
-            dark ? "divide-teal-soft/20" : "divide-ink/10"
+            dark ? "divide-teal-soft/20" : "divide-ink/10",
           )}
         >
           {children}
@@ -104,18 +102,18 @@ export function LedgerRow({
         "flex flex-col md:flex-row md:items-center gap-3 md:gap-6",
         "py-5 lg:py-6",
         "group",
-        className
+        className,
       )}
     >
       {number && (
-        <span className="text-(length:--text-caption) tabular-nums text-stone font-sans shrink-0 w-8">
+        <span className="text-caption tabular-nums text-stone font-sans shrink-0 w-8">
           {number}
         </span>
       )}
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-3 mb-1">
           {chip}
-          <span className="font-display font-light text-(length:--text-h3) tracking-tight truncate">
+          <span className="font-serif font-light text-heading-xl tracking-tight truncate">
             {title}
           </span>
         </div>
@@ -125,9 +123,7 @@ export function LedgerRow({
           </div>
         )}
       </div>
-      {action && (
-        <div className="shrink-0 md:ml-auto">{action}</div>
-      )}
+      {action && <div className="shrink-0 md:ml-auto">{action}</div>}
     </div>
   );
 }
