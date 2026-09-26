@@ -77,6 +77,8 @@ export function HelpRequestForm() {
 
     if (error) {
       console.error("Failed to submit help request:", error);
+      alert("Failed to submit request. Please try again.");
+      return;
     }
 
     setIsSubmitted(true);

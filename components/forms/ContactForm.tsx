@@ -59,6 +59,8 @@ export function ContactForm() {
 
     if (error) {
       console.error("Failed to submit contact message:", error);
+      alert("Failed to send message. Please try again.");
+      return;
     }
     
     setIsSubmitted(true);

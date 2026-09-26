@@ -14,10 +14,12 @@ export const metadata: Metadata = {
 };
 
 export default async function OpenLedgerPage() {
-  const { data: ledgerEntries } = await supabase
+  const { data: dataEntries, error } = await supabase
     .from("fund_allocations")
     .select("*")
     .order("date", { ascending: false });
+
+  const ledgerEntries = error || !dataEntries ? [] : dataEntries;
 
   // Format date helper
   const formatDate = (dateString: string) => {

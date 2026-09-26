@@ -142,27 +142,20 @@ export default async function CampaignPage({ params }: Props) {
       </Container>
 
       {/* Campaign Details */}
-      <Section tone="default" className="py-20 border-b border-border-default">
-        <Container>
-          <div className="max-w-2xl mx-auto prose prose-lg prose-headings:font-serif prose-headings:font-light prose-p:text-ink-700 prose-p:font-light prose-p:leading-relaxed">
-            <h2>The Challenge</h2>
-            <p>
-              As the winter months approach, thousands of displaced families residing in temporary relief camps across the high-altitude districts face extreme weather conditions without adequate protection.
-            </p>
-            
-            <h2>What We Are Doing</h2>
-            <p>
-              We are procuring and dispatching immediate thermal wear kits, industrial-grade insulated blankets, and essential pediatric medicines. Our volunteer teams on the ground are coordinating directly with camp leaders to ensure equitable distribution.
-            </p>
-            
-            <ul>
-              <li>Procuring 5,000 thermal kits.</li>
-              <li>Setting up 3 temporary medical outposts.</li>
-              <li>Partnering with local suppliers for immediate dispatch.</li>
-            </ul>
-          </div>
-        </Container>
-      </Section>
+      {campaign.sections && campaign.sections.length > 0 && (
+        <Section tone="default" className="py-20 border-b border-border-default">
+          <Container>
+            <div className="max-w-2xl mx-auto prose prose-lg prose-headings:font-serif prose-headings:font-light prose-p:text-ink-700 prose-p:font-light prose-p:leading-relaxed">
+              {campaign.sections.map((section) => (
+                <div key={section.id}>
+                  <h2>{section.title}</h2>
+                  <div dangerouslySetInnerHTML={{ __html: section.content }} />
+                </div>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
     </div>
   );
 }

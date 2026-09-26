@@ -19,6 +19,10 @@ export const campaigns: (Campaign & { status?: string; pillar?: string })[] = [
     image: "/new-illustrations/community-support.webp",
     status: "Urgent",
     pillar: "energy-sovereignty",
+    sections: [
+      { id: "challenge", title: "The Challenge", content: "<p>Access to reliable electricity is a severe challenge for communities cut off by blockades. Medical equipment fails, and water pumps go silent.</p>" },
+      { id: "solution", title: "What We Are Doing", content: "<p>Installing 3 robust solar microgrids that will serve as resilient community hubs.</p>" }
+    ]
   },
   {
     id: "camp-2",
@@ -33,6 +37,10 @@ export const campaigns: (Campaign & { status?: string; pillar?: string })[] = [
     image: "/new-illustrations/health-access.webp",
     status: "Active",
     pillar: "health-equity",
+    sections: [
+      { id: "challenge", title: "The Challenge", content: "<p>Conflict zones severely restrict the movement of medical personnel and supplies, leaving many without basic care.</p>" },
+      { id: "solution", title: "What We Are Doing", content: "<p>Deploying 6 fully-equipped mobile tele-health units to bridge the gap.</p>" }
+    ]
   },
   {
     id: "camp-3",
@@ -47,5 +55,9 @@ export const campaigns: (Campaign & { status?: string; pillar?: string })[] = [
     image: "/new-illustrations/imphal-streetscape.webp",
     status: "Urgent",
     pillar: "ecological-restoration",
+    sections: [
+      { id: "challenge", title: "The Challenge", content: "<p>The loss of indigenous seeds due to displacement threatens long-term food security and agrarian sovereignty.</p>" },
+      { id: "solution", title: "What We Are Doing", content: "<p>Establishing a cryogenic preservation system for 180 seed varieties.</p>" }
+    ]
   },
 ];

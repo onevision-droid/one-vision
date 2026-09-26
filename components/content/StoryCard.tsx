@@ -13,7 +13,7 @@ interface StoryCardProps {
 
 export function StoryCard({ title, summary, author, date, href, image }: StoryCardProps) {
   return (
-    <Card className="flex flex-col group h-full border-t border-border-default hover:border-text-primary rounded-none shadow-none bg-transparent">
+    <Card className="relative flex flex-col group h-full border-t border-border-default hover:border-text-primary rounded-none shadow-none bg-transparent">
       {image && (
         <div className="relative w-full aspect-video overflow-hidden bg-surface-alt rounded-md mb-2">
           <Image

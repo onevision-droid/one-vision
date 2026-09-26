@@ -33,9 +33,11 @@ const formSchema = z.object({
 export function DonateForm({
   onSubmitOverride,
   recurringEnabled = false,
+  allocationPreference = "general",
 }: {
   onSubmitOverride?: (values: z.infer<typeof formSchema>) => void;
   recurringEnabled?: boolean;
+  allocationPreference?: string;
 } = {}) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedPreset, setSelectedPreset] = useState<number | null>(null);
@@ -73,7 +75,7 @@ export function DonateForm({
       currency: 'INR',
       is_recurring: values.frequency === 'monthly',
       pan_number: values.pan || null,
-      allocation_preference: 'general',
+      allocation_preference: allocationPreference,
       status: 'pending'
     });
 

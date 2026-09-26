@@ -1,9 +1,13 @@
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import { useState } from "react";
+import { SearchDialog } from "@/components/ui/SearchDialog";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 
 export function MobileNavigation({ navLinks }: { navLinks: { href: string; label: string }[] }) {
+  const [isSearchOpen, setSearchOpen] = useState(false);
+  
   return (
     <div className="md:hidden">
       <Sheet>
@@ -26,17 +30,18 @@ export function MobileNavigation({ navLinks }: { navLinks: { href: string; label
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/search"
-                className="font-sans text-body-lg font-medium text-action-primary"
+              <button
+                onClick={() => setSearchOpen(true)}
+                className="font-sans text-body-lg font-medium text-action-primary text-left cursor-pointer"
               >
                 Search
-              </Link>
+              </button>
             </nav>
             <Button variant="primary" className="mt-4 font-sans w-full">Support Us</Button>
           </div>
         </SheetContent>
       </Sheet>
+      <SearchDialog isOpen={isSearchOpen} onClose={() => setSearchOpen(false)} />
     </div>
   );
 }

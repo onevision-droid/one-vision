@@ -111,7 +111,7 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="p-8 max-w-7xl mx-auto space-y-8">
+    <main id="main" className="p-8 max-w-7xl mx-auto space-y-8">
       <div className="flex justify-between items-center">
         <h1 className="font-sans text-heading-xl font-medium">Admin Dashboard</h1>
         <Button variant="secondary" onClick={handleLogout}>Sign Out</Button>

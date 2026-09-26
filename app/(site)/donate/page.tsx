@@ -15,7 +15,13 @@ export const metadata: Metadata = {
     "Support community resilience in Manipur. Transparent, direct, and accountable allocation of resources.",
 };
 
-export default function DonatePage() {
+export default async function DonatePage(
+  props: {
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+  }
+) {
+  const searchParams = await props.searchParams;
+  const campaign = typeof searchParams.campaign === 'string' ? searchParams.campaign : 'general';
   if (!env.DONATE_ENABLED) {
     notFound();
   }
@@ -46,7 +52,7 @@ export default function DonatePage() {
             <div className="space-y-8">
               <Card className="border-border-default shadow-none bg-paper rounded-none">
                 <CardContent className="p-8 md:p-10">
-                  <DonateForm recurringEnabled={env.DONATE_RECURRING_ENABLED} />
+                  <DonateForm recurringEnabled={env.DONATE_RECURRING_ENABLED} allocationPreference={campaign} />
                 </CardContent>
               </Card>
             </div>
