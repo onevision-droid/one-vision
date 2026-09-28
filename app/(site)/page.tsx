@@ -242,7 +242,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-mono text-base font-bold uppercase tracking-wider text-paper mb-1.5">ProtonMail</p>
-                    <p className="font-sans text-role-body max-w-prose text-paper/70 leading-relaxed">Encrypted email for confidential communications.<br />secure@onevision.proton.me</p>
+                    <p className="font-sans text-role-body max-w-prose text-paper/70 leading-relaxed">For end-to-end encrypted email, send via Proton-to-Proton or PGP; for urgent requests, use Signal.<br />secure@onevision.proton.me</p>
                   </div>
                 </div>
               </div>
@@ -295,7 +295,7 @@ export default function Home() {
                 <span className="font-mono text-sm tracking-widest uppercase text-ink-500 font-bold">Field Reports</span>
                 <h3 className="font-serif text-2xl md:text-3xl font-light text-ink-900 mt-6 mb-4">Operational Audits</h3>
                 <p className="font-sans text-role-body text-ink-500 leading-relaxed">
-                  Downloadable field reports, impact audits, and financial statements published transparently as verified.
+                  Downloadable field reports, impact reports, and financial statements published transparently as verified.
                 </p>
               </div>
               <span className="inline-flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-widest text-ink-900 mt-8 group-hover:text-safety-orange transition-colors">

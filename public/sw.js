@@ -64,8 +64,9 @@ self.addEventListener("fetch", (event) => {
         if (response.ok && url.origin === self.location.origin) {
           const cloned = response.clone();
           caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, cloned);
-            trimCache(CACHE_NAME, MAX_CACHE_ITEMS);
+            cache.put(event.request, cloned).then(() => {
+              trimCache(CACHE_NAME, MAX_CACHE_ITEMS);
+            });
           });
         }
         return response;

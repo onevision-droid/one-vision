@@ -50,11 +50,14 @@ export function LoginForm({
         <CardContent>
           <form onSubmit={onSubmit}>
             <FieldGroup>
-              {error && (
-                <div className="p-3 bg-red-500/10 border border-red-500/30 text-red-600 dark:text-red-400 text-xs font-mono">
-                  {error}
-                </div>
-              )}
+              <div
+                role="alert"
+                aria-live="assertive"
+                aria-atomic="true"
+                className={error ? "p-3 bg-red-500/10 border border-red-500/30 text-red-600 dark:text-red-400 text-xs font-mono" : "sr-only"}
+              >
+                {error}
+              </div>
               <Field>
                 <FieldLabel htmlFor="email" className="font-medium text-ink-900">Email address</FieldLabel>
                 <Input
