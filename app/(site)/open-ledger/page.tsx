@@ -47,7 +47,7 @@ export default async function OpenLedgerPage() {
                   Open Ledger
                 </h1>
                 <p className="text-body-lg text-ink-500 font-light leading-relaxed max-w-2xl">
-                  We believe in radical transparency. Every rupee we receive is accounted for. Here is a real-time record of our fund allocations across communities.
+                  We believe in radical transparency. Every rupee we receive is accounted for. Here is our verified ledger of fund allocations across communities, reconciled and updated hourly.
                 </p>
               </div>
               

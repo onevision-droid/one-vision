@@ -36,6 +36,7 @@ export default async function DonatePage(
         }
         description="Directly fund community-led innovation, health programs, and youth development. We build for the long term."
         image="/donate-hero.jpg"
+        imageAlt="Community aid distribution and sustainable support in Manipur"
       />
 
       <Section tone="default">
@@ -56,10 +57,10 @@ export default async function DonatePage(
                   We accept books, computers, and medical supplies for our community hubs and health connect programs.
                 </p>
                 <Link
-                  href="/get-help"
+                  href="/contact"
                   className="font-mono text-[11px] font-bold uppercase tracking-widest text-ink-900 hover:text-safety-orange group-hover:text-safety-orange underline underline-offset-4 transition-colors"
                 >
-                  View drop-off locations
+                  Inquire about physical drop-offs &rarr;
                 </Link>
               </div>
 

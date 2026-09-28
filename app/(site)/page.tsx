@@ -176,7 +176,7 @@ export default function Home() {
                 {stories[0].excerpt}
               </p>
               <div className="mt-auto">
-                <Link href="/stories" className="inline-flex w-fit items-center gap-2 px-8 py-4 bg-ink-900 hover:bg-safety-orange text-paper font-bold uppercase tracking-widest text-[11px] transition-colors duration-300">
+                <Link href={`/stories/${stories[0].slug}`} className="inline-flex w-fit items-center gap-2 px-8 py-4 bg-ink-900 hover:bg-safety-orange text-paper font-bold uppercase tracking-widest text-[11px] transition-colors duration-300">
                   Read Full Report <ArrowRight className="size-4" />
                 </Link>
               </div>
@@ -242,7 +242,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-mono text-base font-bold uppercase tracking-wider text-paper mb-1.5">ProtonMail</p>
-                    <p className="font-sans text-role-body max-w-prose text-paper/70 leading-relaxed">Encrypted email for non-urgent requests.<br />Response within 24–48h.</p>
+                    <p className="font-sans text-role-body max-w-prose text-paper/70 leading-relaxed">Encrypted email for confidential communications.<br />secure@onevision.proton.me</p>
                   </div>
                 </div>
               </div>
@@ -293,9 +293,9 @@ export default function Home() {
             <Link href="/reports" className="group bg-paper hover:bg-surface p-6 md:p-8 flex flex-col justify-between h-full transition-colors duration-300">
               <div>
                 <span className="font-mono text-sm tracking-widest uppercase text-ink-500 font-bold">Field Reports</span>
-                <h3 className="font-serif text-2xl md:text-3xl font-light text-ink-900 mt-6 mb-4">Quarterly Audits</h3>
+                <h3 className="font-serif text-2xl md:text-3xl font-light text-ink-900 mt-6 mb-4">Operational Audits</h3>
                 <p className="font-sans text-role-body text-ink-500 leading-relaxed">
-                  Downloadable field reports, impact audits, and financial statements. Published quarterly.
+                  Downloadable field reports, impact audits, and financial statements published transparently as verified.
                 </p>
               </div>
               <span className="inline-flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-widest text-ink-900 mt-8 group-hover:text-safety-orange transition-colors">

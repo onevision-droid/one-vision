@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface LogoProps {
@@ -44,6 +44,8 @@ export function Logo({
   size = "md",
   variant = "default",
 }: LogoProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   const sizeMap = {
     sm: "size-6",
     md: "size-8",
@@ -61,7 +63,7 @@ export function Logo({
       {/* Precision Ocular Visor Mark (Continuous Loop Animation) */}
       <motion.div
         className={cn("relative shrink-0 flex items-center justify-center", sizeMap[size])}
-        whileHover={{ scale: 1.08 }}
+        whileHover={shouldReduceMotion ? undefined : { scale: 1.08 }}
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
       >
         <svg
@@ -85,14 +87,22 @@ export function Logo({
             d={HOUSING_PATH}
             fill="currentColor"
             fillRule="evenodd"
-            animate={{
-              scale: [1, 1.018, 1],
-            }}
-            transition={{
-              duration: 4.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
+            animate={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    scale: [1, 1.018, 1],
+                  }
+            }
+            transition={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    duration: 4.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }
+            }
             style={{ transformOrigin: "50px 50px" }}
           />
 
@@ -106,16 +116,24 @@ export function Logo({
 
           {/* Sentinel Eye Pupil & Specular Glint (Continuous Scanning Loop) */}
           <motion.g
-            animate={{
-              x: [0, 3.2, 3.2, 0, -3.2, -3.2, 0],
-              y: [0, -1.2, -1.2, 0, -1, -1, 0],
-            }}
-            transition={{
-              duration: 5.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              times: [0, 0.22, 0.35, 0.5, 0.72, 0.85, 1],
-            }}
+            animate={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    x: [0, 3.2, 3.2, 0, -3.2, -3.2, 0],
+                    y: [0, -1.2, -1.2, 0, -1, -1, 0],
+                  }
+            }
+            transition={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    duration: 5.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    times: [0, 0.22, 0.35, 0.5, 0.72, 0.85, 1],
+                  }
+            }
           >
             {/* Pupil */}
             <circle
@@ -131,15 +149,23 @@ export function Logo({
               cy="43.5"
               r="4.2"
               fill="#FFFFFF"
-              animate={{
-                scale: [1, 1.25, 1],
-                opacity: [0.9, 1, 0.9],
-              }}
-              transition={{
-                duration: 2.75,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
+              animate={
+                shouldReduceMotion
+                  ? undefined
+                  : {
+                      scale: [1, 1.25, 1],
+                      opacity: [0.9, 1, 0.9],
+                    }
+              }
+              transition={
+                shouldReduceMotion
+                  ? undefined
+                  : {
+                      duration: 2.75,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }
+              }
               style={{ transformOrigin: "56.5px 43.5px" }}
             />
           </motion.g>

@@ -26,6 +26,7 @@ export default function VolunteerPage() {
         }
         description="The most effective change is driven by the community. Join our network of local leaders, educators, and volunteers."
         image="/volunteer-hero.jpg"
+        imageAlt="Volunteers engaged in local community education and outreach in Manipur"
       />
 
       {/* 2 & 3. The Core Need & Mentorship Matrix (Merged Dark Canvas) */}

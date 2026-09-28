@@ -9,6 +9,7 @@ import {
   Phone,
   Info,
   ExternalLink,
+  Lock,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -21,34 +22,45 @@ const signalNumber = siteSettings.contactPhone;
 
 const contactChannels = [
   {
+    id: "signal",
+    icon: MessageCircle,
+    label: "Encrypted Support (Signal)",
+    value: signalNumber,
+    description:
+      "End-to-end encrypted direct messaging for urgent, medical, or community assistance.",
+    action: "Message via Signal",
+    href: `https://signal.me/#p/${signalNumber}`,
+    primary: true,
+  },
+  {
+    id: "protonmail",
+    icon: Lock,
+    label: "Encrypted Email (ProtonMail)",
+    value: "secure@onevision.proton.me",
+    description:
+      "For sensitive documentation and confidential reports. Standard email is unencrypted.",
+    action: "Send Secure Email",
+    href: "mailto:secure@onevision.proton.me",
+    primary: false,
+  },
+  {
     id: "email",
     icon: Mail,
     label: "General Enquiries",
     value: "hello@onevision.org",
     description:
-      "For partnerships, media, and general information about our community programmes.",
+      "For public partnerships, media inquiries, and general non-sensitive project information.",
     action: "Send Email",
     href: "mailto:hello@onevision.org",
-    primary: true,
-  },
-  {
-    id: "signal",
-    icon: MessageCircle,
-    label: "Community Support",
-    value: signalNumber,
-    description:
-      "For direct community project support or to reach our field operations team. Secure and direct.",
-    action: "Message via Signal",
-    href: `https://signal.me/#p/${signalNumber}`,
     primary: false,
   },
   {
     id: "phone",
     icon: Phone,
-    label: "Field Office",
+    label: "Field Office Line",
     value: siteSettings.contactPhone,
     description:
-      "Our main office line in Imphal. Available during standard operating hours.",
+      "Our main operational desk in Imphal. Available during standard operating hours.",
     action: "Call Office",
     href: `tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`,
     primary: false,
@@ -102,7 +114,7 @@ export default function ContactPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 border-t border-l border-border-default *:border-b *:border-r *:border-border-default">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-l border-border-default *:border-b *:border-r *:border-border-default">
             {contactChannels.map((channel) => {
               const Icon = channel.icon;
               return (

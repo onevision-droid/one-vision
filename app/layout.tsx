@@ -76,9 +76,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col font-sans bg-background text-text-primary overflow-x-hidden">
         <SkipLink />
         <TooltipProvider>
-          <main id="main-content">
-            {children}
-          </main>
+          {children}
         </TooltipProvider>
         <script
           dangerouslySetInnerHTML={{

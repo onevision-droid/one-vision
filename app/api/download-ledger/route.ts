@@ -5,20 +5,41 @@ import { supabase } from "@/lib/supabase/client";
 export const revalidate = 3600;
 
 export async function GET() {
-  // Hard limit to 5000 rows to prevent unbounded queries (DoS vector)
-  const { data: ledgerEntries, error } = await supabase
-    .from("fund_allocations")
-    .select("*")
-    .order("date", { ascending: false })
-    .limit(5000);
+  // Paged retrieval to fetch all ledger records without truncation
+  type LedgerRecord = { date: string; title: string; location: string; amount: string; status: string };
+  const allEntries: LedgerRecord[] = [];
+  const pageSize = 1000;
+  let page = 0;
+  let hasMore = true;
 
-  if (error || !ledgerEntries) {
-    return new NextResponse("Internal Server Error", { status: 500 });
+  while (hasMore) {
+    const from = page * pageSize;
+    const to = from + pageSize - 1;
+    const { data, error } = await supabase
+      .from("fund_allocations")
+      .select("*")
+      .order("date", { ascending: false })
+      .range(from, to);
+
+    if (error) {
+      return new NextResponse("Internal Server Error", { status: 500 });
+    }
+
+    if (data && data.length > 0) {
+      allEntries.push(...(data as LedgerRecord[]));
+      if (data.length < pageSize) {
+        hasMore = false;
+      } else {
+        page++;
+      }
+    } else {
+      hasMore = false;
+    }
   }
 
   const header = "Date,Description,Location,Amount (INR),Status\n";
-  const rows = ledgerEntries
-    .map((e: { date: string; title: string; location: string; amount: string; status: string }) => {
+  const rows = allEntries
+    .map((e) => {
       const d = new Date(e.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
       return `"${d}","${e.title}","${e.location}","${e.amount}","${e.status}"`;
     })

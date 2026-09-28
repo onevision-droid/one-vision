@@ -25,6 +25,7 @@ export default function ProgrammesPage() {
         }
         description="Expanding opportunities across Manipur through evidence-based interventions. We believe community-driven action is the only sustainable approach."
         image="/programmes-hero.jpg"
+        imageAlt="Community initiative participants working together in Manipur"
       />
 
       <Section tone="alt" className="py-8 lg:py-12 border-b border-border-default">

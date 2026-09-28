@@ -8,6 +8,8 @@ interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
   children: React.ReactNode
   vertical?: boolean
   repeat?: number
+  duration?: number
+  gap?: string
 }
 
 export function Marquee({
@@ -17,13 +19,23 @@ export function Marquee({
   children,
   vertical = false,
   repeat = 4,
+  duration = 40,
+  gap = "2rem",
+  style,
   ...props
 }: MarqueeProps) {
   return (
     <div
       {...props}
+      style={
+        {
+          "--duration": `${duration}s`,
+          "--gap": gap,
+          ...style,
+        } as React.CSSProperties
+      }
       className={cn(
-        "group flex overflow-hidden",
+        "group flex overflow-hidden p-2 gap-(--gap)",
         {
           "flex-row": !vertical,
           "flex-col": vertical,
@@ -33,27 +45,21 @@ export function Marquee({
         className
       )}
     >
-      <div
-        className={cn("flex shrink-0 animate-marquee", {
-          "flex-row": !vertical,
-          "flex-col": vertical,
-          "direction-reverse": reverse,
-          "hover:paused": pauseOnHover,
-        })}
-      >
-        <div className={cn("flex shrink-0 items-center gap-8", {
-          "flex-row": !vertical,
-          "flex-col": vertical,
-        })}>
-          {Array(repeat)
-            .fill(0)
-            .map((_, i) => (
-              <div key={i} className="flex shrink-0">
-                {children}
-              </div>
-            ))}
-        </div>
-      </div>
+      {Array(repeat)
+        .fill(0)
+        .map((_, i) => (
+          <div
+            key={i}
+            className={cn("flex shrink-0 justify-around gap-(--gap)", {
+              "animate-marquee flex-row": !vertical,
+              "animate-marquee-vertical flex-col": vertical,
+              "direction-reverse": reverse,
+              "group-hover:paused": pauseOnHover,
+            })}
+          >
+            {children}
+          </div>
+        ))}
     </div>
   )
 }

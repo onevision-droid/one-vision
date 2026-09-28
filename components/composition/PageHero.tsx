@@ -6,6 +6,7 @@ interface PageHeroProps {
   heading: React.ReactNode;
   description: string;
   image?: string;
+  imageAlt?: string;
   actions?: React.ReactNode;
 }
 
@@ -14,6 +15,7 @@ export function PageHero({
   heading,
   description,
   image,
+  imageAlt,
   actions,
 }: PageHeroProps) {
   if (image) {
@@ -44,7 +46,7 @@ export function PageHero({
             <div className="w-full lg:w-auto lg:aspect-square lg:h-full shrink-0 relative bg-ink-900 border-t lg:border-t-0 border-border-default overflow-hidden aspect-square max-h-80 sm:max-h-96 lg:max-h-none">
               <Image 
                 src={image} 
-                alt={badge} 
+                alt={imageAlt || `${badge} photographic overview`} 
                 fill
                 sizes="(max-width: 1024px) 100vw, 400px"
                 className="object-cover object-center grayscale hover:grayscale-0 contrast-125 transition-all duration-700 group-hover:scale-105"

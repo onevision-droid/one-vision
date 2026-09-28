@@ -111,6 +111,13 @@
   --color-line-strong: var(--border);
 
   /* Compatibility Aliases for Legacy Components */
+  --color-danger: var(--color-alert-red);
+  --color-bg-section-alt: var(--color-section-alt);
+  --color-line: var(--border);
+  --color-ink-600: oklch(0.450 0.010 260.0);
+  --color-ink-400: oklch(0.600 0.010 260.0);
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
   --color-text-primary: var(--foreground);
   --color-text-secondary: var(--muted-foreground);
   --color-text-heading: var(--foreground);
@@ -123,6 +130,67 @@
   --color-warm: var(--color-hazard-yellow);
   --color-stone: var(--color-ink-500);
   --color-teal-soft: var(--border);
+
+  /* Typography Scale */
+  --text-display-xl: 72px;
+  --text-display-xl--line-height: 72px;
+  --text-display-xl--font-weight: 700;
+  --text-display-xl--letter-spacing: -0.04em;
+
+  --text-display-lg: 56px;
+  --text-display-lg--line-height: 56px;
+  --text-display-lg--font-weight: 700;
+  --text-display-lg--letter-spacing: -0.03em;
+
+  --text-display-md: 40px;
+  --text-display-md--line-height: 40px;
+  --text-display-md--font-weight: 700;
+  --text-display-md--letter-spacing: -0.02em;
+
+  --text-heading-xl: 32px;
+  --text-heading-xl--line-height: 40px;
+  --text-heading-xl--font-weight: 600;
+  --text-heading-xl--letter-spacing: -0.01em;
+
+  --text-heading-lg: 24px;
+  --text-heading-lg--line-height: 32px;
+  --text-heading-lg--font-weight: 600;
+  --text-heading-lg--letter-spacing: 0;
+
+  --text-heading-md: 20px;
+  --text-heading-md--line-height: 28px;
+  --text-heading-md--font-weight: 600;
+  --text-heading-md--letter-spacing: 0;
+
+  --text-heading-sm: 18px;
+  --text-heading-sm--line-height: 24px;
+  --text-heading-sm--font-weight: 600;
+  --text-heading-sm--letter-spacing: 0;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 28px;
+  --text-body-lg--font-weight: 400;
+  --text-body-lg--letter-spacing: 0;
+
+  --text-body: 16px;
+  --text-body--line-height: 26px;
+  --text-body--font-weight: 400;
+  --text-body--letter-spacing: 0;
+
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 22px;
+  --text-body-sm--font-weight: 400;
+  --text-body-sm--letter-spacing: 0;
+
+  --text-label: 12px;
+  --text-label--line-height: 16px;
+  --text-label--font-weight: 600;
+  --text-label--letter-spacing: 0.08em;
+
+  --text-caption: 12px;
+  --text-caption--line-height: 16px;
+  --text-caption--font-weight: 400;
+  --text-caption--letter-spacing: 0.02em;
 
   /* Font Aliases */
   --font-sans: var(--font-inter), system-ui, sans-serif;

@@ -28,6 +28,7 @@ export default function StoriesPage() {
         }
         description="Documenting community resilience through respectful, long-form storytelling. Dignity over spectacle."
         image="/community-voices.jpg"
+        imageAlt="Local community members sharing their stories in Manipur"
       />
 
       {/* Featured Story */}

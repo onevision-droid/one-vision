@@ -29,6 +29,7 @@ export default function AboutPage() {
         }
         description="A community-led organisation working for a healthier, greener and more resilient Manipur. We connect local innovation with lasting support."
         image="/about-hero.jpg"
+        imageAlt="Community volunteers and organizers collaborating in Manipur"
       />
 
       {/* Trust Panel (Document Shell via SplitNarrative) */}

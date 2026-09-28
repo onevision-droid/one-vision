@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/ui/Logo";
 import { SearchDialog } from "@/components/ui/SearchDialog";
@@ -25,12 +25,65 @@ export function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredPath, setHoveredPath] = useState<string | null>(null);
   const [prevPathname, setPrevPathname] = useState(pathname);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
 
   // Close mobile nav on route change during render
   if (prevPathname !== pathname) {
     setPrevPathname(pathname);
     setMobileOpen(false);
   }
+
+  // Prevent background page scrolling when mobile drawer is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [mobileOpen]);
+
+  // Focus management: move focus into drawer on open, restore on close
+  useEffect(() => {
+    if (mobileOpen) {
+      const drawer = drawerRef.current;
+      if (drawer) {
+        const focusable = drawer.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusable.length > 0) {
+          focusable[0]?.focus();
+        }
+      }
+    } else if (menuButtonRef.current) {
+      menuButtonRef.current.focus();
+    }
+  }, [mobileOpen]);
+
+  const handleDrawerKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Tab" && drawerRef.current) {
+      const focusable = drawerRef.current.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }
+    }
+  };
 
   // Scroll detection for Nordic Lagom elevated state
   useEffect(() => {
@@ -157,9 +210,11 @@ export function SiteHeader() {
 
             {/* Mobile Hamburger Menu Button */}
             <motion.button
+              ref={menuButtonRef}
               whileTap={{ scale: 0.95 }}
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-expanded={mobileOpen}
+              aria-controls="mobile-nav-drawer"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               className="md:hidden flex items-center justify-center size-9 border border-border-default bg-surface text-ink-900 hover:border-ink-900 transition-colors cursor-pointer"
             >
@@ -177,6 +232,12 @@ export function SiteHeader() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
+            ref={drawerRef}
+            id="mobile-nav-drawer"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile Navigation"
+            onKeyDown={handleDrawerKeyDown}
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
