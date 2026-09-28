@@ -77,13 +77,13 @@ export function NewsletterForm({
     return (
       <div
         className={cn(
-          "flex items-center gap-3 p-4 bg-surface border border-border-default rounded-md text-ink-900",
+          "flex items-center gap-3 p-4 bg-surface border border-border-default text-ink-900",
           className
         )}
         role="status"
         aria-live="polite"
       >
-        <CheckCircle2 className="size-5 text-moss-400 shrink-0" />
+        <CheckCircle2 className="size-5 text-status-active shrink-0" />
         <div className="text-body-sm">
           <p className="font-medium text-ink-900">Thank you for subscribing.</p>
           <p className="text-ink-500 font-light">
@@ -104,7 +104,7 @@ export function NewsletterForm({
       {/* Honeypot field for bot mitigation */}
       <input
         type="text"
-        name="b_organisational_catch"
+        name="ov_system_field"
         value={honeypot}
         onChange={(e) => setHoneypot(e.target.value)}
         tabIndex={-1}
@@ -126,7 +126,7 @@ export function NewsletterForm({
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? "newsletter-email-error" : undefined}
             disabled={status === "loading"}
-            className="h-11 bg-surface border-border-default focus-visible:border-ink-900 rounded-md text-body-sm"
+            className="h-11 bg-surface border-border-default focus-visible:border-safety-orange text-body-sm"
             {...register("email")}
           />
         </div>

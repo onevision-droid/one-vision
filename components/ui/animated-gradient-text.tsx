@@ -12,8 +12,8 @@ export function AnimatedGradientText({
   children,
   className,
   speed = 1,
-  colorFrom = "#ffaa40",
-  colorTo = "#9c40ff",
+  colorFrom = "var(--color-safety-orange)",
+  colorTo = "var(--color-hazard-yellow)",
   ...props
 }: AnimatedGradientTextProps) {
   return (

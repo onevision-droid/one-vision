@@ -3,11 +3,9 @@ import { programmes } from "@/lib/data/programmes";
 import { Section, Container } from "@/components/layout/Shell";
 import { PageHero } from "@/components/composition/PageHero";
 import { QuietClose } from "@/components/composition/QuietClose";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ProgrammeFilter } from "@/components/content/ProgrammeFilter";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Programmes | One Vision",
@@ -16,25 +14,22 @@ export const metadata: Metadata = {
 
 export default function ProgrammesPage() {
   return (
-    <div className="flex flex-col w-full bg-paper pt-20">
+    <div className="flex flex-col w-full bg-paper">
       <PageHero 
-        badge="Active Initiatives"
+        badge="OUR PROGRAMMES"
         heading={
           <>
-            What <br />
-            we do.
+            Five<br/>
+            Priorities.
           </>
         }
-        description="Active and upcoming initiatives dedicated to building resilience and expanding opportunities across Manipur. Evidence-based and community-driven."
-        imageSrc="/new-illustrations/community-support.webp"
-        imageAlt="Community members working together"
+        description="Expanding opportunities across Manipur through evidence-based interventions. We believe community-driven action is the only sustainable approach."
+        image="/programmes-hero.jpg"
+        imageAlt="Community initiative participants working together in Manipur"
       />
 
-      <Section tone="alt" className="py-24 border-b border-border-default">
+      <Section tone="alt" className="py-8 lg:py-12 border-b border-border-default">
         <Container>
-          <div className="mb-10">
-            <Breadcrumbs items={[{ label: "Programmes", href: "/programmes" }]} />
-          </div>
           <ProgrammeFilter programmes={programmes} />
         </Container>
       </Section>
@@ -43,16 +38,10 @@ export default function ProgrammesPage() {
         heading="Ready to get involved?"
         description="Whether you can offer time, specialized skills, or resources, every single contribution helps build resilience in Imphal."
         action={
-          <Button
-            nativeButton={false}
-            className="gap-2 px-6"
-            render={
-              <Link href="/volunteer" className="flex items-center">
-                <span>Volunteer with us</span>
-                <ArrowRight className="size-4" />
-              </Link>
-            }
-          />
+          <Link href="/volunteer" className="inline-flex items-center gap-2 px-8 py-4 bg-paper text-ink-900 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-safety-orange">
+            <span>Volunteer with us</span>
+            <ArrowRight className="size-4" />
+          </Link>
         }
       />
     </div>

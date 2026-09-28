@@ -1,3 +1,5 @@
+<!-- DEPRECATED: This document is from a prior design era (Nordic Lagom / Fraunces serif). The canonical design system is now defined in /DESIGN.md (Frontline Humanitarian mandate). Do not reference this file for new development. -->
+
 # 04 — Production Readiness Plan — One Vision
 
 Objective: take One Vision from scaffold to launch-ready, meeting AGENTS.md §15 definition of done. Five workstreams; each item has a measurable exit criterion.

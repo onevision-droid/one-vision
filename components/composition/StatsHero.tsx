@@ -3,80 +3,86 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 interface StatProps {
-  value: string | number;
-  label: string;
-  description?: string;
-  suffix?: string;
+ value: string | number;
+ label: string;
+ description?: string;
+ suffix?: string;
 }
 
 interface StatsHeroProps {
-  heading: string;
-  description: string;
-  stats: StatProps[];
-  ctaLabel?: string;
-  ctaHref?: string;
-  tone?: "default" | "alt" | "inverted";
+ heading: string;
+ description: string;
+ stats: StatProps[];
+ ctaLabel?: string;
+ ctaHref?: string;
+ tone?: "default" | "alt" | "inverted";
 }
 
 export function StatsHero({
-  heading,
-  description,
-  stats,
-  ctaLabel,
-  ctaHref,
-  tone = "alt",
+ heading,
+ description,
+ stats,
+ ctaLabel,
+ ctaHref,
+ tone = "alt",
 }: StatsHeroProps) {
-  return (
-    <Section tone={tone} className="border-t border-border-default">
-      <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
-          <div className="lg:col-span-5 flex flex-col pt-4">
-            <h2 className="font-sans text-heading-xl font-medium text-ink-900 mb-6">
-              {heading}
-            </h2>
-            <p className="text-body-lg text-ink-500 font-light leading-relaxed mb-8">
-              {description}
-            </p>
-            {ctaLabel && ctaHref && (
-              <Link
-                href={ctaHref}
-                className="group flex items-center gap-2 text-ink-900 font-semibold tracking-widest uppercase text-caption hover:text-action-primary transition-colors w-fit"
-              >
-                {ctaLabel}
-                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            )}
-          </div>
+ return (
+  <Section tone={tone} className="py-8 lg:py-14 bg-background">
+  <Container className="px-0 md:px-0">
+  <div className="bg-paper border-x border-border-default overflow-hidden flex flex-col lg:flex-row">
+  <div className="lg:w-5/12 flex flex-col p-6 md:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-border-default transition-colors hover:bg-surface">
+  <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-ink-900 leading-tight mb-6">
+  {heading}
+  </h2>
+  <p className="font-sans text-role-body md:text-role-body-lg text-ink-500 mb-8 max-w-md leading-relaxed">
+  {description}
+  </p>
+  {ctaLabel && ctaHref && (
+  <div className="mt-auto">
+  <Link
+  href={ctaHref}
+  className="inline-flex items-center gap-2 px-6 py-3.5 bg-ink-900 hover:bg-safety-orange text-paper font-bold uppercase tracking-widest text-xs transition-colors duration-300"
+  >
+  {ctaLabel}
+  <ArrowRight className="size-4" />
+  </Link>
+  </div>
+  )}
+  </div>
 
-          <div className="lg:col-span-7">
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border-default">
-              {stats.map((stat, i) => (
-                <li
-                  key={i}
-                  className="flex flex-col bg-paper p-8 lg:p-12 h-full"
-                >
-                  <h3 className="font-serif text-display-md font-light text-ink-900 mb-4">
-                    {stat.value}
-                    {stat.suffix && (
-                      <span className="text-heading-xl text-ink-500">
-                        {stat.suffix}
-                      </span>
-                    )}
-                  </h3>
-                  <p className="text-body font-medium text-ink-900 mb-2">
-                    {stat.label}
-                  </p>
-                  {stat.description && (
-                    <p className="text-body-sm text-ink-500 font-light leading-relaxed">
-                      {stat.description}
-                    </p>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Container>
-    </Section>
-  );
+  <div className="lg:w-7/12 bg-surface">
+  <ul className="grid grid-cols-1 sm:grid-cols-2 h-full">
+  {stats.map((stat, i) => (
+  <li
+  key={i}
+  className={`flex flex-col justify-center p-6 lg:p-8 border-b border-border-default transition-colors hover:bg-surface-alt ${
+  i % 2 !== 0 ? "sm:border-l" : ""
+  } ${
+  i >= stats.length - (stats.length % 2 === 0 ? 2 : 1) ? "sm:border-b-0" : ""
+  }`}
+  >
+  <h3 className="font-mono text-5xl md:text-6xl font-bold tracking-tight text-ink-900 mb-4">
+  {stat.value}
+  {stat.suffix && (
+  <span className="text-3xl text-safety-orange ml-1">
+  {stat.suffix}
+  </span>
+  )}
+  </h3>
+  <p className="font-mono text-[11px] font-bold uppercase tracking-widest text-ink-500 mb-2">
+  {stat.label}
+  </p>
+  {stat.description && (
+  <p className="font-sans text-role-body-sm text-ink-500 max-w-prose">
+  {stat.description}
+  </p>
+  )}
+  </li>
+  ))}
+  </ul>
+  </div>
+  </div>
+  </Container>
+ </Section>
+ );
 }

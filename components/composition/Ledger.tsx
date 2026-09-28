@@ -37,14 +37,14 @@ export function Ledger({
             className={cn(
               "flex flex-col md:flex-row justify-between items-start md:items-end gap-4",
               "border-b pb-8 mb-10 lg:mb-14",
-              dark ? "border-teal-soft/20" : "border-ink/10",
+              dark ? "border-paper/20" : "border-border-default",
             )}
           >
             {heading && (
               <h2
                 id={headingId}
                 className={cn(
-                  "font-serif font-light tracking-tight",
+                  "font-sans font-light tracking-tight",
                   "text-display-md",
                 )}
               >
@@ -59,7 +59,7 @@ export function Ledger({
         <div
           className={cn(
             "divide-y",
-            dark ? "divide-teal-soft/20" : "divide-ink/10",
+            dark ? "divide-paper/20" : "divide-border-default",
           )}
         >
           {children}
@@ -106,19 +106,19 @@ export function LedgerRow({
       )}
     >
       {number && (
-        <span className="text-caption tabular-nums text-stone font-sans shrink-0 w-8">
+        <span className="text-caption tabular-nums text-ink-500 font-sans shrink-0 w-8">
           {number}
         </span>
       )}
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-3 mb-1">
           {chip}
-          <span className="font-serif font-light text-heading-xl tracking-tight truncate">
+          <span className="font-sans font-light text-heading-xl tracking-tight truncate">
             {title}
           </span>
         </div>
         {meta && (
-          <div className="text-(length:--text-small) text-stone leading-relaxed">
+          <div className="text-(length:--text-small) text-ink-500 leading-relaxed">
             {meta}
           </div>
         )}

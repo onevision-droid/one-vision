@@ -1,7 +1,4 @@
-"use client";
-
 import { type ComponentPropsWithoutRef } from "react"
-import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
@@ -11,7 +8,8 @@ interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
   children: React.ReactNode
   vertical?: boolean
   repeat?: number
-  duration?: number // Added duration prop
+  duration?: number
+  gap?: string
 }
 
 export function Marquee({
@@ -21,68 +19,47 @@ export function Marquee({
   children,
   vertical = false,
   repeat = 4,
-  duration = 80, // Default to a much slower speed
+  duration = 40,
+  gap = "2rem",
+  style,
   ...props
 }: MarqueeProps) {
-  // Extract duration from props or css var if possible, default to slow editorial pace
   return (
     <div
       {...props}
+      style={
+        {
+          "--duration": `${duration}s`,
+          "--gap": gap,
+          ...style,
+        } as React.CSSProperties
+      }
       className={cn(
-        "group flex overflow-hidden",
+        "group flex overflow-hidden p-2 gap-(--gap)",
         {
           "flex-row": !vertical,
           "flex-col": vertical,
+          "mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]": !vertical,
+          "mask-[linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]": vertical,
         },
         className
       )}
     >
-      <motion.div
-        className={cn("flex shrink-0", {
-          "flex-row": !vertical,
-          "flex-col": vertical,
-        })}
-        animate={{
-          x: vertical ? 0 : reverse ? ["-50%", "0%"] : ["0%", "-50%"],
-          y: vertical ? (reverse ? ["-50%", "0%"] : ["0%", "-50%"]) : 0,
-        }}
-        transition={{
-          duration: duration,
-          ease: "linear",
-          repeat: Infinity,
-        }}
-        // Framer Motion allows pausing standard animations via CSS if we use WAAPI, but for simplicity we rely on standard motion
-        style={pauseOnHover ? { 
-          animationPlayState: "paused",
-          // Note: Framer Motion v10+ WAAPI animations can sometimes respond to this natively, 
-          // but if it doesn't, the smooth motion is still highly superior to css keyframes!
-        } as React.CSSProperties : {}}
-      >
-        <div className={cn("flex shrink-0 items-center gap-8", {
-          "flex-row": !vertical,
-          "flex-col": vertical,
-        })}>
-          {Array(repeat)
-            .fill(0)
-            .map((_, i) => (
-              <div key={i} className="flex shrink-0">
-                {children}
-              </div>
-            ))}
-        </div>
-        <div className={cn("flex shrink-0 items-center gap-8 pl-8", {
-          "flex-row": !vertical,
-          "flex-col": vertical,
-        })}>
-          {Array(repeat)
-            .fill(0)
-            .map((_, i) => (
-              <div key={i} className="flex shrink-0">
-                {children}
-              </div>
-            ))}
-        </div>
-      </motion.div>
+      {Array(repeat)
+        .fill(0)
+        .map((_, i) => (
+          <div
+            key={i}
+            className={cn("flex shrink-0 justify-around gap-(--gap)", {
+              "animate-marquee flex-row": !vertical,
+              "animate-marquee-vertical flex-col": vertical,
+              "[animation-direction:reverse]": reverse,
+              "group-hover:[animation-play-state:paused]": pauseOnHover,
+            })}
+          >
+            {children}
+          </div>
+        ))}
     </div>
   )
 }

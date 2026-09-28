@@ -1,3 +1,5 @@
+<!-- DEPRECATED: This document is from a prior design era (Nordic Lagom / Fraunces serif). The canonical design system is now defined in /DESIGN.md (Frontline Humanitarian mandate). Do not reference this file for new development. -->
+
 # 03 — Page Sections Blueprint — One Vision
 
 Every page is a deliberate sequence of the seven composition patterns (Shoreline, Depth Band, Mosaic, Split Narrative, Evidence Shoreline, Ledger, Quiet Close) defined in doc 02 §9. Sections marked **[new]** are additions beyond DESIGN.md §13–17. Every page ends with Quiet Close. Every page carries: breadcrumbs (except `/`), unique H1, SEO metadata, and one primary CTA per viewport.

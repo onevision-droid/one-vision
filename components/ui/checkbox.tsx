@@ -13,9 +13,9 @@ const Checkbox = React.forwardRef<
     ref={ref}
     className={cn(
       // Use project tokens — no shadcn CSS variables
-      "peer h-4 w-4 min-h-4 min-w-4 shrink-0 rounded-sm border border-border-input",
+      "peer h-4 w-4 min-h-4 min-w-4 shrink-0 border border-border-input",
       "transition-colors duration-base",
-      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-500",
+      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-action-primary",
       "disabled:cursor-not-allowed disabled:opacity-50",
       "data-[state=checked]:bg-action-primary data-[state=checked]:border-action-primary data-[state=checked]:text-paper",
       className

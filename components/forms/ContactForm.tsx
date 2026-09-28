@@ -14,6 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics/trackEvent";
@@ -68,8 +69,8 @@ export function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="bg-surface p-8 md:p-10 border border-border-default rounded-md flex flex-col items-center justify-center gap-4 text-center min-h-100">
-        <div className="flex items-center justify-center w-12 h-12 rounded-full bg-section-alt border border-border-default">
+      <div className="bg-surface p-8 md:p-10 border border-border-default flex flex-col items-center justify-center gap-4 text-center min-h-75 py-12">
+        <div className="flex items-center justify-center w-12 h-12 bg-section-alt border border-border-default">
           <CheckCircle2 className="w-6 h-6 text-action-primary" />
         </div>
         <div className="space-y-2">
@@ -94,13 +95,13 @@ export function ContactForm() {
   }
 
   return (
-    <div className="bg-surface p-6 md:p-8 border border-border-default rounded-md">
+    <div className="bg-surface p-6 md:p-8 border border-border-default">
       <h2 className="font-sans text-heading-md font-medium text-ink-900 mb-6">Send a Message</h2>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <input
             type="text"
-            name="company_website_url"
+            name="ov_system_field"
             value={honeypot}
             onChange={(e) => setHoneypot(e.target.value)}
             tabIndex={-1}
@@ -114,7 +115,7 @@ export function ContactForm() {
               name="firstName"
               render={({ field }) => (
                 <FormItem className="space-y-1">
-                  <FormLabel className="text-body-sm font-medium text-ink-900">
+                  <FormLabel className="text-body-sm font-semibold text-ink-900 uppercase tracking-widest">
                     First Name <span className="text-danger">*</span>
                   </FormLabel>
                   <FormControl>
@@ -129,7 +130,7 @@ export function ContactForm() {
               name="lastName"
               render={({ field }) => (
                 <FormItem className="space-y-1">
-                  <FormLabel className="text-body-sm font-medium text-ink-900">
+                  <FormLabel className="text-body-sm font-semibold text-ink-900 uppercase tracking-widest">
                     Last Name <span className="text-danger">*</span>
                   </FormLabel>
                   <FormControl>
@@ -168,7 +169,7 @@ export function ContactForm() {
                 <FormControl>
                   <select 
                     {...field}
-                    className="w-full border border-border-input bg-transparent px-3 py-2 rounded-sm text-body-sm text-ink-900 transition-colors duration-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-500 focus-visible:border-clay-500"
+                    className="w-full border border-border-input bg-transparent px-3 py-2 text-body-sm text-ink-900 transition-colors duration-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-action-primary focus-visible:border-action-primary"
                   >
                     <option value="General Inquiry">General Inquiry</option>
                     <option value="Partnership">Partnership</option>
@@ -198,13 +199,14 @@ export function ContactForm() {
           />
 
           <div className="pt-2">
-            <button
+            <Button
               type="submit"
-              className="group flex items-center justify-center gap-2 w-full bg-action-primary hover:bg-action-hover text-paper text-body-sm font-medium px-6 py-2.5 transition-colors duration-base rounded-sm"
+              variant="primary"
+              className="w-full h-12 flex items-center justify-center gap-2 text-body-sm"
             >
               <span>Send Message</span>
-              <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform duration-fast" />
-            </button>
+              <ArrowRight className="size-4" />
+            </Button>
           </div>
         </form>
       </Form>

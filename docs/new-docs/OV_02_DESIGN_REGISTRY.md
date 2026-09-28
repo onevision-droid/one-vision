@@ -1,3 +1,5 @@
+<!-- DEPRECATED: This document references the prior design era (Nordic Lagom / Fraunces serif). The canonical design system is now /DESIGN.md (Frontline Humanitarian mandate). -->
+
 # One Vision — Design Registry (Single Source of Truth)
 **Status:** v1.0 · **Philosophy:** Nordic Lagom — *fewer, better-defined choices.* Not too much, not too little.
 **Rule zero:** Nothing is styled ad hoc. If a value isn't in this registry, it doesn't ship. Missing value → propose a token, get approval, add it here first.

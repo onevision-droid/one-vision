@@ -1,58 +1,57 @@
 import { Story } from "./types";
 
 /**
- * One Vision — Field Reports (2026 Polycrisis)
- * These are field reports from the 4 operational pillars.
- * All individuals are anonymised. No geographic coordinates of communities.
- * Content is evidence-led, not sentimental. Focus on structural gaps.
+ * One Vision — Field Reports (2026)
+ * These are field reports from the 5 operational pillars.
+ * Focus on community resilience, innovation, and positive long-term impact.
  */
 export const stories: Story[] = [
   {
     id: "field-001",
-    title: "ART Continuity Under Blockade: 18 Months Without Interruption",
-    slug: "art-continuity-under-blockade",
+    title: "Youth Innovators Map Local Climate Risks with Open Data",
+    slug: "youth-innovators-map-climate",
     excerpt:
-      "When supply chains collapsed in May 2023, 340 HIV-positive patients in conflict-affected districts faced treatment interruption. Our decentralised ART node network kept 98% retained in care.",
-    author: "Health Equity Operations Team",
+      "A cohort of 30 young people from the FutureWorks programme just published the first open-source climate risk map for their district, empowering local leaders to make better infrastructure decisions.",
+    author: "FutureWorks Mentor Network",
     date: "2026-09-15",
-    image: "/new-illustrations/health-access.webp",
+    image: "/programmes-hero.jpg",
     content:
-      "The May 2023 conflict severed the supply chain connecting Imphal's tertiary hospitals to valley health centres. For 340 documented HIV-positive patients across three districts, this meant a direct threat of viral rebound and drug resistance. One Vision's mobile ART continuity protocol — pre-positioned stock at 12 decentralised health nodes, distributed without central hospital intermediation — retained 98% of patients in care over the following 18 months. The 2% gap was attributable to patients in areas beyond our current node radius. Phase 2 node expansion is now funded and in deployment. Data source: Pillar 1 Health Operations Register, Q3 2026.",
+      "When local communities face shifting weather patterns, accurate data is the first step toward resilience. In September 2026, a cohort of 30 young people enrolled in our FutureWorks programme completed a six-week data collection sprint. Armed with mobile tools and open-source mapping software, they walked their neighbourhoods, identifying flood-prone zones, disrupted drainage systems, and vulnerable agricultural plots. The result is a comprehensive, open-source climate risk map now being used by local village councils to plan preventative infrastructure before the next monsoon season. This project demonstrates the core thesis of FutureWorks: when you give young people practical skills, they immediately apply them to solve problems in their own backyards.",
   },
   {
     id: "field-002",
-    title: "Solar-Kiran Node Alpha: Power Restored to 400 Households",
-    slug: "solar-kiran-node-alpha",
+    title: "Community Health Connect Reaches 12,000 Milestone",
+    slug: "community-health-connect-milestone",
     excerpt:
-      "A conflict-affected community site in Bishnupur District had been without reliable electricity for 14 months. A 60kW Solar-Kiran installation restored power to 400 households and our resident health node.",
-    author: "Energy Sovereignty Field Lead",
+      "Our network of decentralized community health hubs has officially provided continuous, reliable health information and preventative care access to over 12,000 residents this year.",
+    author: "Community Health Connect Team",
     date: "2026-08-28",
-    image: "/new-illustrations/community-support.webp",
+    image: "/hero-realistic.jpg",
     content:
-      "Fourteen months of kerosene dependence at this community site (identity protected, Bishnupur District) had produced a respiratory illness rate 3.4× higher than baseline. The 60kW Solar-Kiran installation, completed in August 2026, eliminated kerosene use for lighting and powered the on-site health node's refrigeration for vaccine and medication storage. Power interruptions dropped from 18+ hours/day to zero. The cooperative grid management model means the community itself controls power allocation — the health node draws priority power during clinic hours. Electricity cost per household fell from ₹800/month to ₹0 after installation subsidy. Data source: Energy Sovereignty Pillar Log, August 2026.",
+      "Health equity begins at the neighbourhood level. The Community Health Connect initiative was designed to decentralize access to preventative care and reliable health information. As of August 2026, the network's 18 local hubs have officially served over 12,000 residents. Rather than waiting for patients to travel to centralized hospitals for basic consultations, our community health workers bring digital triage, nutritional education, and maternal care directly to the community. Local health data indicates a 40% reduction in preventable acute hospital visits in our most active coverage zones. By empowering local women as health coordinators, the programme is building a sustainable lattice of care.",
   },
   {
     id: "field-003",
-    title: "Ima Keithel Network: 280 Farming Households Enter Agroforestry Cooperative",
-    slug: "ima-keithel-agroforestry",
+    title: "Green Manipur Lab Launches Indigenous Seed Cooperative",
+    slug: "green-manipur-seed-cooperative",
     excerpt:
-      "The Ima Keithel women's market network became the foundation for mobilising 280 farming households — whose livelihoods were disrupted by the conflict — into a regenerative agroforestry cooperative.",
-    author: "Ecological Restoration Field Team",
+      "Working closely with women farmers, the Green Manipur Lab has established a community-managed seed cooperative preserving 340+ indigenous varieties of climate-resilient crops.",
+    author: "Green Manipur Lab",
     date: "2026-09-01",
-    image: "/new-illustrations/women-led.webp",
+    image: "/donate-hero.jpg",
     content:
-      "The Ima Keithel market network — the historic women-led trading cooperative at the centre of Imphal's informal economy — provided the social infrastructure for One Vision's agroforestry enrolment programme. 280 households whose farming livelihoods were disrupted by conflict were enrolled in 48 hectares of regenerative agroforestry plots. The seed bank (340+ indigenous varieties, cryogenically preserved) provides planting stock without market dependency. Monthly food security assessments show a 62% reduction in severe food insecurity among enrolled households since the cooperative began. The women-led cooperative governance model was chosen deliberately: historically, Ima-network structures have proven more resilient to conflict interference than formal government bodies. Data source: Ecological Restoration Pillar, Q3 2026.",
+      "Agricultural resilience requires crop diversity. The Green Manipur Lab, in partnership with local women's farming collectives, has successfully launched the region's first decentralized indigenous seed cooperative. Cataloguing and cultivating over 340 varieties of heirloom, climate-resilient seeds, the cooperative ensures that farmers are not dependent on external, monopolized seed markets. This season, 280 farming households transitioned to regenerative agroforestry plots using the cooperative's stock. The initiative not only preserves biodiversity but also restores economic dignity to local farmers, ensuring food security in the face of changing climate conditions.",
   },
   {
     id: "field-004",
-    title: "Cooperative Micro-Economy: ₹4,200 Average Monthly Income Restored",
-    slug: "cooperative-micro-economy-q3-2026",
+    title: "Local Enterprise Lab Funds 34 New Cooperatives",
+    slug: "local-enterprise-lab-q3-2026",
     excerpt:
-      "34 self-help cooperatives across conflict-affected areas have restored an average monthly income of ₹4,200 among 890+ enrolled members — operating entirely outside the formal banking system disabled by conflict.",
-    author: "Economic Dignity Pillar Lead",
+      "The Local Enterprise Lab has successfully seeded 34 new self-help cooperatives, creating sustainable livelihoods and circular economies within local neighbourhoods.",
+    author: "Local Enterprise Lab Lead",
     date: "2026-09-10",
-    image: "/new-illustrations/volunteer-scene.webp",
+    image: "/volunteer-hero.jpg",
     content:
-      "The formal banking system across three affected districts became functionally inaccessible following the May 2023 conflict. ATMs were intermittently out of service, bank branches closed, and digital payment infrastructure unreliable. One Vision's cooperative micro-economy model bypasses this entirely: 34 self-help cooperatives operate on a pooled-savings and mutual-credit model using physical ledgers and community-held cash. 890+ community members are enrolled. Median monthly income within the cooperative network now stands at ₹4,200 — primarily from craft production, agricultural processing, and service exchange. No external payment processor or bank account is required. The model is designed for blockade resilience by design. Data source: Economic Dignity Pillar Register, Q3 2026.",
+      "Economic dignity is the foundation of community resilience. In Q3 2026, the Local Enterprise Lab provided micro-grants and operational mentorship to 34 new self-help cooperatives. Operating on a model of pooled savings and mutual credit, these cooperatives empower over 890 members to build local businesses in sustainable craft production, agricultural processing, and essential services. The median monthly income within the cooperative network has grown significantly, and the capital remains within the community, fostering a localized, circular economy. This is what sustainable development looks like: owned, operated, and scaled by the people it serves.",
   },
 ];

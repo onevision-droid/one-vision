@@ -15,7 +15,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics/trackEvent";
 import { useState } from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
@@ -91,8 +90,8 @@ export function VolunteerForm() {
   if (isSubmitted) {
     return (
       <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
-        <div className="flex items-center justify-center w-12 h-12 rounded-full bg-moss-400/10">
-          <CheckCircle2 className="w-6 h-6 text-moss-400" />
+        <div className="flex items-center justify-center w-12 h-12 bg-status-active/10">
+          <CheckCircle2 className="w-6 h-6 text-status-active" />
         </div>
         <div className="space-y-2">
           <h3 className="font-sans text-heading-md font-semibold text-ink-900">
@@ -112,11 +111,11 @@ export function VolunteerForm() {
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         onFocusCapture={handleStart}
-        className="space-y-5"
+        className="space-y-8"
       >
         <input
           type="text"
-          name="system_volunteer_code"
+          name="ov_system_field"
           value={honeypot}
           onChange={(e) => setHoneypot(e.target.value)}
           tabIndex={-1}
@@ -126,19 +125,19 @@ export function VolunteerForm() {
         />
 
         {/* Row 1: Name + Email */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           <FormField
             control={form.control}
             name="name"
             render={({ field }) => (
-              <FormItem className="space-y-1">
-                <FormLabel className="text-body-sm font-medium text-ink-900">
-                  Full Name <span className="text-danger">*</span>
+              <FormItem className="space-y-2">
+                <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">
+                  Full Name <span className="text-safety-orange">*</span>
                 </FormLabel>
                 <FormControl>
-                  <Input placeholder="Jane Doe" autoComplete="name" {...field} />
+                  <Input placeholder="Jane Doe" autoComplete="name" className="rounded-none border-border-default focus-visible:ring-safety-orange" {...field} />
                 </FormControl>
-                <FormMessage className="text-caption text-danger" />
+                <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
               </FormItem>
             )}
           />
@@ -146,14 +145,14 @@ export function VolunteerForm() {
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem className="space-y-1">
-                <FormLabel className="text-body-sm font-medium text-ink-900">
-                  Email <span className="text-danger">*</span>
+              <FormItem className="space-y-2">
+                <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">
+                  Email <span className="text-safety-orange">*</span>
                 </FormLabel>
                 <FormControl>
-                  <Input placeholder="jane@example.com" type="email" autoComplete="email" {...field} />
+                  <Input placeholder="jane@example.com" type="email" autoComplete="email" className="rounded-none border-border-default focus-visible:ring-safety-orange" {...field} />
                 </FormControl>
-                <FormMessage className="text-caption text-danger" />
+                <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
               </FormItem>
             )}
           />
@@ -164,14 +163,14 @@ export function VolunteerForm() {
           control={form.control}
           name="phone"
           render={({ field }) => (
-            <FormItem className="space-y-1">
-              <FormLabel className="text-body-sm font-medium text-ink-900">
+            <FormItem className="space-y-2">
+              <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">
                 Phone Number
               </FormLabel>
               <FormControl>
-                <Input placeholder="+91 98765 43210" autoComplete="tel" {...field} />
+                <Input placeholder="+91 98765 43210" autoComplete="tel" className="rounded-none border-border-default focus-visible:ring-safety-orange" {...field} />
               </FormControl>
-              <FormMessage className="text-caption text-danger" />
+              <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
             </FormItem>
           )}
         />
@@ -181,16 +180,16 @@ export function VolunteerForm() {
           control={form.control}
           name="interests"
           render={() => (
-            <FormItem className="space-y-2">
+            <FormItem className="space-y-4">
               <div>
-                <FormLabel className="text-body-sm font-medium text-ink-900">
-                  Areas of Interest <span className="text-danger">*</span>
+                <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">
+                  Areas of Interest <span className="text-safety-orange">*</span>
                 </FormLabel>
-                <p className="text-caption text-ink-500 mt-1">
+                <p className="font-sans text-role-body-sm text-ink-500 mt-1">
                   Select all that apply.
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border border-border-default *:border-b *:border-r *:border-border-default bg-surface">
                 {areasOfInterest.map((item) => (
                   <FormField
                     key={item.id}
@@ -201,15 +200,16 @@ export function VolunteerForm() {
                       return (
                         <FormItem key={item.id} className="space-y-0">
                           <FormLabel
-                            className={`flex items-center gap-3 px-3 py-3 border cursor-pointer transition-colors text-body-sm font-normal rounded-md ${
+                            className={`flex items-center gap-3 p-4 cursor-pointer transition-colors font-sans text-role-body-sm font-normal ${
                               isChecked
-                                ? "border-action-primary bg-action-primary/5 text-action-primary"
-                                : "border-border-input text-ink-700 hover:border-ink-300 hover:bg-surface"
+                                ? "bg-safety-orange text-ink-900"
+                                : "text-ink-700 hover:bg-paper"
                             }`}
                           >
                             <FormControl>
                               <Checkbox
                                 checked={isChecked}
+                                className="rounded-none border-ink-900 data-[state=checked]:bg-ink-900 data-[state=checked]:text-safety-orange"
                                 onCheckedChange={(checked) => {
                                   return checked
                                     ? field.onChange([...field.value, item.id])
@@ -229,7 +229,7 @@ export function VolunteerForm() {
                   />
                 ))}
               </div>
-              <FormMessage className="text-caption text-danger" />
+              <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
             </FormItem>
           )}
         />
@@ -239,33 +239,31 @@ export function VolunteerForm() {
           control={form.control}
           name="experience"
           render={({ field }) => (
-            <FormItem className="space-y-1">
-              <FormLabel className="text-body-sm font-medium text-ink-900">
+            <FormItem className="space-y-2">
+              <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">
                 Relevant Experience
               </FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="Tell us about any previous volunteering or relevant professional experience..."
-                  className="min-h-24"
+                  className="min-h-32 rounded-none border-border-default focus-visible:ring-safety-orange"
                   {...field}
                 />
               </FormControl>
-              <FormMessage className="text-caption text-danger" />
+              <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
             </FormItem>
           )}
         />
 
         {/* Submit */}
-        <div className="pt-2">
-          <Button
+        <div className="pt-4">
+          <button
             type="submit"
-            variant="primary"
-            size="lg"
-            className="w-full flex items-center justify-center gap-2"
+            className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-ink-900 text-paper font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-safety-orange hover:text-ink-900"
           >
             <span>Submit Application</span>
             <ArrowRight className="size-4" />
-          </Button>
+          </button>
         </div>
       </form>
     </Form>

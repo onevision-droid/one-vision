@@ -1,81 +1,23 @@
 import Link from "next/link";
-import { Logo } from "@/components/ui/Logo";
 import { siteSettings } from "@/lib/data/site-settings";
-import orgData from "@/content/org.json";
-
-const navHrefMap: Record<string, string> = {
-  "Health Equity": "/programmes/health-equity",
-  "Energy Sovereignty": "/programmes/energy-sovereignty",
-  "Ecological Restoration": "/programmes/ecological-restoration",
-  "Economic Dignity": "/programmes/economic-dignity",
-  "Field Reports": "/stories",
-  "Secure Contact": "/get-help",
-  "Deploy Support": "/donate",
-  "About": "/about",
-  "Governance": "/about/governance",
-  "Transparency": "/open-ledger",
-};
-
-const mainLinks = orgData.footerNav.map((label) => ({
-  label,
-  href: navHrefMap[label] || `/${label.toLowerCase().replace(/\s+/g, "-")}`,
-}));
 
 export function Footer() {
     return (
-        <footer className="bg-surface @container py-12 mt-auto">
-            <div className="mx-auto max-w-7xl px-6 md:px-8">
-                <div className="border-y border-border-default py-8">
-                    <div className="@xl:flex-row @xl:items-center flex flex-col gap-6">
-                        <Link
-                            href="/"
-                            aria-label="One Vision Home"
-                            className="inline-block"
-                        >
-                            <Logo />
-                        </Link>
-                        <nav className="@xl:ml-auto flex flex-wrap gap-x-6 gap-y-2">
-                            {mainLinks.map((link) => (
-                                <Link
-                                    key={link.label}
-                                    href={link.href}
-                                    className="text-ink-500 hover:text-ink-900 text-body-sm transition-colors"
-                                >
-                                    {link.label}
-                                </Link>
-                            ))}
-                        </nav>
-                    </div>
-                </div>
-                <div className="@xl:flex-row @xl:justify-between flex flex-col-reverse gap-4 pt-8">
-                    <div className="space-y-1">
-                        <p className="text-ink-300 text-body-sm">
-                            One Vision is a registered NGO in Manipur (Reg No: {siteSettings.registrationNumber}).
-                        </p>
-                        <p className="text-ink-300 text-body-sm">
-                            &copy; {new Date().getFullYear()} One Vision. All rights reserved.
-                        </p>
-                    </div>
-                    <div className="flex flex-wrap gap-6">
-                        <Link
-                            href="/privacy"
-                            className="text-ink-300 hover:text-ink-900 text-body-sm transition-colors"
-                        >
-                            Privacy Policy
-                        </Link>
-                        <Link
-                            href="/terms"
-                            className="text-ink-300 hover:text-ink-900 text-body-sm transition-colors"
-                        >
-                            Terms of Service
-                        </Link>
-                        <Link
-                            href="/accessibility"
-                            className="text-ink-300 hover:text-ink-900 text-body-sm transition-colors"
-                        >
-                            Accessibility
-                        </Link>
-                    </div>
+        <footer className="bg-background py-8 mt-auto border-t border-border-default">
+            <div className="mx-auto max-w-container px-6">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p className="text-role-caption">
+                        &copy; {new Date().getFullYear()} One Vision (Reg No: {siteSettings.registrationNumber}). All rights reserved.
+                    </p>
+                    <nav className="flex flex-wrap justify-center items-center gap-6 text-role-label text-ink-900">
+                        <Link href="/programmes" className="hover:text-accent-teal hover:-translate-y-px transition-all duration-300 inline-block">Programmes</Link>
+                        <Link href="/about" className="hover:text-accent-teal hover:-translate-y-px transition-all duration-300 inline-block">About</Link>
+                        <Link href="/stories" className="hover:text-accent-teal hover:-translate-y-px transition-all duration-300 inline-block">Field Reports</Link>
+                        <Link href="/volunteer" className="hover:text-accent-teal hover:-translate-y-px transition-all duration-300 inline-block">Volunteer</Link>
+                        <Link href="/open-ledger" className="hover:text-accent-teal hover:-translate-y-px transition-all duration-300 inline-block">Transparency</Link>
+                        <Link href="/get-help" className="hover:text-accent-teal hover:-translate-y-px transition-all duration-300 inline-block">Contact</Link>
+                        <Link href="/privacy" className="hover:text-accent-teal hover:-translate-y-px transition-all duration-300 inline-block">Privacy</Link>
+                    </nav>
                 </div>
             </div>
         </footer>

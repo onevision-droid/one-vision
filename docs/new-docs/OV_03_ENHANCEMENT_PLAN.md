@@ -1,3 +1,5 @@
+<!-- DEPRECATED: This document references the prior design era (Nordic Lagom / Fraunces serif). The canonical design system is now /DESIGN.md (Frontline Humanitarian mandate). -->
+
 # One Vision — Comprehensive Design Enhancement Plan
 **Companion docs:** `OV_01_UI_UX_AUDIT.md` (findings) · `OV_02_DESIGN_REGISTRY.md` (source of truth) · `OV_04_AI_CODING_AGENT_INSTRUCTIONS.md` (execution prompt)
 **North star:** consistency score 2.5 → **≥ 4.2/5**, zero Critical issues, one visual voice.

@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Database } from "@/lib/supabase/database.types";
 import { Session } from "@supabase/supabase-js";
+import Link from "next/link";
+import { LoginForm } from "@/components/login-form";
 
 type VolunteerApp = Database["public"]["Tables"]["volunteer_applications"]["Row"];
 type HelpRequest = Database["public"]["Tables"]["help_requests"]["Row"];
@@ -91,21 +92,29 @@ export default function AdminDashboard() {
 
   if (!session) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-paper p-4">
-        <div className="bg-surface p-8 border border-border-default max-w-md w-full shadow-none rounded-md">
-          <h1 className="font-sans text-heading-lg font-medium mb-6">Admin Login</h1>
-          <form onSubmit={handleLogin} className="space-y-4">
-            <div>
-              <label htmlFor="admin-email" className="text-sm font-medium">Email</label>
-              <Input id="admin-email" type="email" value={email} onChange={e => setEmail(e.target.value)} required />
-            </div>
-            <div>
-              <label htmlFor="admin-password" className="text-sm font-medium">Password</label>
-              <Input id="admin-password" type="password" value={password} onChange={e => setPassword(e.target.value)} required />
-            </div>
-            <Button type="submit" className="w-full">Sign In</Button>
-          </form>
-        </div>
+      <div className="bg-paper min-h-screen flex flex-col px-4 md:px-8">
+        <header className="w-full max-w-5xl mx-auto py-6 border-b border-border-default flex items-center justify-between">
+          <Link
+            href="/"
+            aria-label="Go home"
+            className="inline-block font-sans text-heading-sm font-bold text-ink-900"
+          >
+            One Vision
+          </Link>
+          <span className="font-sans text-xs text-ink-500 uppercase tracking-wider">Secured Node</span>
+        </header>
+
+        <main className="flex-1 flex flex-col items-center justify-center pb-24">
+          <div className="w-full max-w-sm">
+            <LoginForm 
+              email={email}
+              setEmail={setEmail}
+              password={password}
+              setPassword={setPassword}
+              onSubmit={handleLogin}
+            />
+          </div>
+        </main>
       </div>
     );
   }
@@ -122,7 +131,7 @@ export default function AdminDashboard() {
         {applications.length === 0 ? (
           <p className="text-muted-foreground">No applications found.</p>
         ) : (
-          <div className="border border-border-default bg-surface shadow-none overflow-hidden rounded-md">
+          <div className="border border-border-default bg-surface shadow-none overflow-hidden">
             <table className="w-full text-left text-sm">
               <thead className="bg-section-alt border-b border-border-default">
                 <tr>
@@ -139,8 +148,8 @@ export default function AdminDashboard() {
                     <td className="p-4">{app.email}</td>
                     <td className="p-4">{app.skills?.join(", ")}</td>
                     <td className="p-4 capitalize">
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                        app.status === 'pending' ? 'bg-yellow-100 text-yellow-800' : 'bg-green-100 text-green-800'
+                      <span className={`px-2 py-1 text-xs font-medium ${
+                        app.status === 'pending' ? 'bg-hazard-yellow/20 text-ink-900 border border-hazard-yellow/40' : 'bg-status-active/20 text-status-active border border-status-active/40'
                       }`}>
                         {app.status}
                       </span>
@@ -158,7 +167,7 @@ export default function AdminDashboard() {
         {requests.length === 0 ? (
           <p className="text-muted-foreground">No requests found.</p>
         ) : (
-          <div className="border border-border-default bg-surface shadow-none overflow-hidden rounded-md">
+          <div className="border border-border-default bg-surface shadow-none overflow-hidden">
             <table className="w-full text-left text-sm">
               <thead className="bg-section-alt border-b border-border-default">
                 <tr>
@@ -169,7 +178,7 @@ export default function AdminDashboard() {
                   <th className="p-4 font-medium">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-ink/10">
+              <tbody className="divide-y divide-border-default">
                 {requests.map((req) => (
                   <tr key={req.id}>
                     <td className="p-4">{req.requester_name}</td>
@@ -177,8 +186,8 @@ export default function AdminDashboard() {
                     <td className="p-4">{req.request_type}</td>
                     <td className="p-4 max-w-xs truncate" title={req.description}>{req.description}</td>
                     <td className="p-4 capitalize">
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                        req.status === 'open' ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'
+                      <span className={`px-2 py-1 text-xs font-medium ${
+                        req.status === 'open' ? 'bg-alert-red/20 text-alert-red border border-alert-red/40' : 'bg-status-active/20 text-status-active border border-status-active/40'
                       }`}>
                         {req.status}
                       </span>
@@ -196,7 +205,7 @@ export default function AdminDashboard() {
         {donations.length === 0 ? (
           <p className="text-muted-foreground">No donations found.</p>
         ) : (
-          <div className="border border-border-default bg-surface shadow-none overflow-hidden rounded-md">
+          <div className="border border-border-default bg-surface shadow-none overflow-hidden">
             <table className="w-full text-left text-sm">
               <thead className="bg-section-alt border-b border-border-default">
                 <tr>
@@ -207,7 +216,7 @@ export default function AdminDashboard() {
                   <th className="p-4 font-medium">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-ink/10">
+              <tbody className="divide-y divide-border-default">
                 {donations.map((don) => (
                   <tr key={don.id}>
                     <td className="p-4">{don.first_name} {don.last_name}</td>
@@ -215,8 +224,8 @@ export default function AdminDashboard() {
                     <td className="p-4">{don.amount} {don.currency}</td>
                     <td className="p-4">{don.is_recurring ? "Monthly" : "One-time"}</td>
                     <td className="p-4 capitalize">
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                        don.status === 'pending' ? 'bg-yellow-100 text-yellow-800' : 'bg-green-100 text-green-800'
+                      <span className={`px-2 py-1 text-xs font-medium ${
+                        don.status === 'pending' ? 'bg-hazard-yellow/20 text-ink-900 border border-hazard-yellow/40' : 'bg-status-active/20 text-status-active border border-status-active/40'
                       }`}>
                         {don.status}
                       </span>

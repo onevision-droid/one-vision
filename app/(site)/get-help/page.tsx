@@ -4,170 +4,153 @@ import { Section, Container } from "@/components/layout/Shell";
 import { PageHero } from "@/components/composition/PageHero";
 import { FAQ } from "@/components/composition/FAQ";
 import {
-  Shield,
   MessageCircle,
   Mail,
   Phone,
-  AlertTriangle,
-  Lock,
+  Info,
   ExternalLink,
+  Lock,
 } from "lucide-react";
-import { EmergencyBanner } from "@/components/content/EmergencyBanner";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Secure Contact | One Vision",
+  title: "Contact | One Vision",
   description:
-    "Reach One Vision securely via Signal or ProtonMail. No sensitive data is collected on this platform. All crisis-related communications must use encrypted channels only.",
+    "Reach out to partner, volunteer, or request support for your community project.",
 };
 
-// Signal number extracted from site settings
 const signalNumber = siteSettings.contactPhone;
 
-const secureChannels = [
+const contactChannels = [
   {
     id: "signal",
     icon: MessageCircle,
-    label: "Signal (Recommended)",
+    label: "Encrypted Support (Signal)",
     value: signalNumber,
     description:
-      "End-to-end encrypted. Use for all crisis-related, health, or sensitive assistance requests. Available 24/7. Do not use regular SMS.",
-    action: "Open Signal",
+      "End-to-end encrypted direct messaging for urgent, medical, or community assistance.",
+    action: "Message via Signal",
     href: `https://signal.me/#p/${signalNumber}`,
-    urgent: true,
+    primary: true,
   },
   {
     id: "protonmail",
-    icon: Mail,
-    label: "ProtonMail",
+    icon: Lock,
+    label: "Encrypted Email (ProtonMail)",
     value: "secure@onevision.proton.me",
     description:
-      "End-to-end encrypted email. Use for detailed case submissions or documentation. Response within 24–48 hours.",
-    action: "Send Encrypted Email",
+      "For sensitive documentation and confidential reports. Standard email is unencrypted.",
+    action: "Send Secure Email",
     href: "mailto:secure@onevision.proton.me",
-    urgent: false,
+    primary: false,
+  },
+  {
+    id: "email",
+    icon: Mail,
+    label: "General Enquiries",
+    value: "hello@onevision.org",
+    description:
+      "For public partnerships, media inquiries, and general non-sensitive project information.",
+    action: "Send Email",
+    href: "mailto:hello@onevision.org",
+    primary: false,
   },
   {
     id: "phone",
     icon: Phone,
-    label: "Field Phone (Non-sensitive only)",
+    label: "Field Office Line",
     value: siteSettings.contactPhone,
     description:
-      "For general enquiries and non-sensitive information only. Do NOT share personal crisis details over an unencrypted phone call.",
-    action: `tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`,
+      "Our main operational desk in Imphal. Available during standard operating hours.",
+    action: "Call Office",
     href: `tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`,
-    urgent: false,
+    primary: false,
   },
 ];
 
-
-export default function SecureContactPage() {
+export default function ContactPage() {
   return (
-    <div className="flex flex-col w-full bg-paper pt-20">
-      {/* Emergency Banner */}
-      <EmergencyBanner />
+    <div className="flex flex-col w-full bg-paper">
 
-      {/* 1. Page Hero */}
       <PageHero
-        badge="OpSec-First"
+        badge="REACH OUT"
         heading={
           <>
-            Secure Contact.
-            <br />
-            No in-app intake.
+            Let&apos;s<br/>
+            Connect.
           </>
         }
-        description="This platform does not collect sensitive data. All crisis-related, health, or assistance requests must use encrypted channels only. Assume standard web forms are compromised."
-        imageSrc="/new-illustrations/help-desk.webp"
-        imageAlt="Secure communications protocol"
+        description="Reach out to partner, volunteer, or request support for your community project. We are always looking to collaborate."
+        image="/contact-hero.jpg"
       />
 
-      {/* 2. OpSec Warning */}
+      {/* 2. Notice */}
       <Section tone="alt" className="border-b border-border-default">
-        <Container>
-          <Breadcrumbs items={[{ label: "Secure Contact", href: "/get-help" }]} />
-          <div className="mt-8 flex items-start gap-6 p-6 border border-safety-orange/30 bg-safety-orange/5">
-            <AlertTriangle
-              className="size-6 text-safety-orange shrink-0 mt-1"
-              aria-hidden="true"
-            />
+        <Container className="px-0 md:px-0">
+          <div className="flex flex-col md:flex-row md:items-center gap-6 p-6 md:p-8 lg:p-10 border-x border-border-default bg-surface/50">
+            <div className="size-14 shrink-0 bg-safety-orange flex items-center justify-center">
+              <Info
+                className="size-7 text-ink-900"
+                aria-hidden="true"
+              />
+            </div>
             <div>
-              <h2 className="font-sans text-body font-semibold text-ink-900 mb-2">
-                Operational Security Notice
+              <h2 className="font-serif text-2xl sm:text-3xl font-light text-ink-900 mb-2 sm:mb-3">
+                Community First
               </h2>
-              <p className="font-sans text-body-sm text-ink-500 font-light leading-relaxed">
-                We operate in a conflict zone where digital communications are
-                actively monitored. This website does <strong>not</strong>{" "}
-                contain any intake forms for sensitive requests. All case
-                submissions, health requests, and assistance needs must be routed
-                through encrypted channels below. Do not email sensitive
-                information to standard addresses.
+              <p className="font-sans text-role-body max-w-prose text-ink-500 font-light leading-relaxed">
+                We believe the best solutions come from within the community. If you have an idea, a project, or a need in your neighbourhood, reach out. We are always looking to support local leaders and initiatives.
               </p>
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* 3. Secure Channels */}
+      {/* 3. Channels */}
       <Section tone="default">
-        <Container>
-          <div className="mb-12">
-            <div className="flex items-center gap-2 mb-4">
-              <Lock className="size-4 text-ink-500" aria-hidden="true" />
-              <span className="font-sans text-label tracking-widest uppercase text-ink-500 font-semibold">
-                Encrypted Channels Only
-              </span>
-            </div>
-            <h2 className="font-sans text-heading-xl md:text-display-md font-medium text-ink-900 tracking-tight">
-              How to reach us securely.
+        <Container className="px-0 md:px-0">
+          <div className="px-6 py-4 md:px-8 md:py-6 border-x border-border-default bg-paper">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-ink-900 tracking-tight leading-tight">
+              Ways to reach us.
             </h2>
           </div>
 
-          <div className="grid gap-px bg-border-default md:grid-cols-3">
-            {secureChannels.map((channel) => {
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-l border-border-default *:border-b *:border-r *:border-border-default">
+            {contactChannels.map((channel) => {
               const Icon = channel.icon;
               return (
-                <div key={channel.id} className="bg-surface p-8 flex flex-col gap-6">
-                  {channel.urgent && (
-                    <div className="flex items-center gap-2">
-                      <span className="size-1.5 rounded-full bg-safety-orange block animate-pulse" />
-                      <span className="font-sans text-label tracking-widest uppercase text-safety-orange font-semibold">
-                        Recommended
-                      </span>
-                    </div>
-                  )}
-                  <div className="flex items-start gap-4">
+                <div key={channel.id} className="bg-surface p-6 md:p-8 flex flex-col h-full group hover:bg-ink-900 transition-colors duration-500">
+                  <div className="flex items-center gap-4 mb-6">
                     <div
-                      className={`shrink-0 size-10 flex items-center justify-center ${
-                        channel.urgent ? "bg-safety-orange" : "bg-field-black"
+                      className={`shrink-0 size-12 flex items-center justify-center ${
+                        channel.primary ? "bg-safety-orange text-ink-900" : "bg-ink-900 text-paper group-hover:bg-safety-orange group-hover:text-ink-900 transition-colors"
                       }`}
                     >
-                      <Icon className="size-5 text-paper" strokeWidth={1.5} />
+                      <Icon className="size-5" strokeWidth={1.5} />
                     </div>
                     <div>
-                      <h3 className="font-sans text-body-sm font-semibold uppercase tracking-wider text-ink-900 mb-1">
+                      <h3 className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink-500 group-hover:text-paper/50 transition-colors mb-1">
                         {channel.label}
                       </h3>
-                      <p className="font-sans text-body font-medium text-ink-900">
+                      <p className="font-sans text-role-body font-medium text-ink-900 group-hover:text-paper transition-colors">
                         {channel.value}
                       </p>
                     </div>
                   </div>
-                  <p className="font-sans text-body-sm text-ink-500 font-light leading-relaxed flex-1">
+                  <p className="font-sans text-role-body-sm text-ink-500 font-light leading-relaxed mb-6 sm:mb-8 group-hover:text-paper/70 transition-colors">
                     {channel.description}
                   </p>
                   <a
                     href={channel.href}
                     target={channel.id !== "phone" ? "_blank" : undefined}
                     rel={channel.id !== "phone" ? "noopener noreferrer" : undefined}
-                    className={`inline-flex items-center gap-2 font-sans text-body-sm font-semibold uppercase tracking-widest px-6 py-3 transition-colors ${
-                      channel.urgent
-                        ? "bg-safety-orange text-paper hover:bg-safety-orange-dim"
-                        : "border border-border-default text-ink-900 hover:bg-section-alt"
+                    className={`inline-flex items-center justify-between mt-auto px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300 ${
+                      channel.primary
+                        ? "bg-ink-900 text-paper hover:bg-safety-orange hover:text-ink-900 group-hover:bg-safety-orange group-hover:text-ink-900"
+                        : "bg-paper text-ink-900 hover:bg-safety-orange group-hover:bg-paper"
                     }`}
                   >
-                    {channel.action}
-                    <ExternalLink className="size-3.5" aria-hidden="true" />
+                    <span>{channel.action}</span>
+                    <ExternalLink className="size-4" aria-hidden="true" />
                   </a>
                 </div>
               );
@@ -176,91 +159,25 @@ export default function SecureContactPage() {
         </Container>
       </Section>
 
-      {/* 4. What to include in your message */}
-      <Section tone="alt" className="border-t border-border-default">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Shield className="size-4 text-ink-500" aria-hidden="true" />
-                <span className="font-sans text-label tracking-widest uppercase text-ink-500 font-semibold">
-                  Message Protocol
-                </span>
-              </div>
-              <h2 className="font-sans text-heading-xl font-medium text-ink-900 mb-6 tracking-tight">
-                What to include.
-              </h2>
-              <ul className="space-y-4 font-sans text-body text-ink-500 font-light leading-relaxed">
-                <li className="flex items-start gap-3">
-                  <span className="font-sans text-label text-ink-900 font-semibold uppercase tracking-widest mt-0.5 shrink-0">01</span>
-                  <span>Your general area (district only — do not send GPS coordinates or full address).</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="font-sans text-label text-ink-900 font-semibold uppercase tracking-widest mt-0.5 shrink-0">02</span>
-                  <span>The nature of the need (health, shelter, food, energy, economic). General description only.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="font-sans text-label text-ink-900 font-semibold uppercase tracking-widest mt-0.5 shrink-0">03</span>
-                  <span>Number of individuals affected.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="font-sans text-label text-ink-900 font-semibold uppercase tracking-widest mt-0.5 shrink-0">04</span>
-                  <span>A secure way to reach you back (Signal preferred).</span>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h2 className="font-sans text-heading-xl font-medium text-ink-900 mb-6 tracking-tight">
-                What not to include.
-              </h2>
-              <ul className="space-y-4 font-sans text-body text-ink-500 font-light leading-relaxed">
-                <li className="flex items-start gap-3">
-                  <span className="text-alert-red font-semibold">✕</span>
-                  <span>Full names of individuals at risk.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-alert-red font-semibold">✕</span>
-                  <span>Exact GPS coordinates or address of camps or safe houses.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-alert-red font-semibold">✕</span>
-                  <span>Medical diagnoses (use general terms: "needs ART" is sufficient).</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-alert-red font-semibold">✕</span>
-                  <span>Any information over unencrypted channels (regular email, SMS, or WhatsApp).</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* 5. FAQs */}
+      {/* 4. FAQs */}
       <FAQ
         tone="default"
         heading="Common Questions"
         items={[
           {
-            question: "Why don't you have an online contact form?",
+            question: "How can I partner with One Vision?",
             answer:
-              "We operate in a conflict zone with active digital surveillance. Standard web forms submit data to servers that can be compromised, subpoenaed, or monitored. We do not collect sensitive intake data on this platform. Signal and ProtonMail provide end-to-end encryption that protects both you and us.",
+              "We work with local organizations, businesses, and community leaders. Send an email to our general enquiries address with details about your initiative and how you'd like to collaborate.",
           },
           {
-            question: "Is Signal available in conflict-affected areas?",
+            question: "Can I volunteer from outside Manipur?",
             answer:
-              "Signal works over any internet connection including mobile data. During internet blockades, our teams use cached protocols. If connectivity is unavailable, please ask someone in a connected area to relay your contact details via Signal.",
+              "Yes. While our field operations are entirely local, we have a remote network of professionals (designers, developers, data scientists) supporting our digital tools and infrastructure. Reach out via email.",
           },
           {
             question: "How quickly will you respond?",
             answer:
-              "Emergency or health-related Signal messages: within 4–6 hours during operational hours. ProtonMail: within 24–48 hours. We prioritise based on urgency category. If your situation is life-threatening, contact emergency services first.",
-          },
-          {
-            question: "Can I request help for someone else?",
-            answer:
-              "Yes. You can send a message on behalf of a family member, neighbour, or community group. Use only the information that person has consented to share. Do not include sensitive details without explicit consent.",
+              "We aim to respond to all inquiries within 2-3 business days. If you are reaching out regarding an active community project, please mention this in your subject line.",
           },
         ]}
       />
