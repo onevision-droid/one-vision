@@ -1,94 +1,88 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Radio } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 import { Section, Container } from "@/components/layout/Shell";
 
 const keyFacts = [
   {
-    stat: "May 2023",
-    label: "Conflict began",
-    detail: "Ethnic conflict and civil unrest disrupts health, energy, and economic infrastructure across Manipur",
+    stat: "CLIMATE",
+    label: "Extreme Weather",
+    detail: "Floods and landslides threaten communities, homes, and everyday livelihoods.",
   },
   {
-    stat: "3+ Years",
-    label: "Sustained crisis",
-    detail: "No political resolution. Structural humanitarian gaps persist across valley districts.",
+    stat: "ECOLOGY",
+    label: "Environmental Stress",
+    detail: "Pollution and degradation threaten clean air, water, and natural infrastructure.",
   },
   {
-    stat: "18 Nodes",
-    label: "Health access restored",
-    detail: "Decentralised mobile health nodes serving conflict-affected communities Q3 2026",
+    stat: "YOUTH",
+    label: "Future Skills",
+    detail: "Young people need practical pathways and mentorship into new digital industries.",
   },
   {
-    stat: "4 Pillars",
-    label: "Our mandate",
-    detail: "Health Equity, Energy, Ecology, Economic Dignity",
+    stat: "COMMUNITY",
+    label: "Access to Services",
+    detail: "Communities need better access to reliable information, services and opportunities.",
   },
 ];
 
 export function WhatWeDo() {
   return (
-    <Section tone="inverted" className="border-t border-field-black">
-      <Container>
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20 items-start">
+    <Section tone="default" className="border-t border-border-default py-8 lg:py-14 bg-paper">
+      <Container className="px-0 md:px-0">
+        <div className="grid lg:grid-cols-2 items-stretch border-x border-border-default bg-surface">
           {/* Left: Context Statement */}
-          <div className="space-y-8 pt-2">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Radio className="size-4 text-safety-orange animate-pulse" aria-hidden="true" />
-                <span className="font-sans text-label tracking-widest uppercase text-safety-orange font-semibold">
-                  Ground Reality
-                </span>
-              </div>
-              <h2 className="font-sans text-heading-xl md:text-display-md font-medium text-paper leading-tight tracking-tight">
-                The crisis is structural. Our response is permanent.
-              </h2>
+          <div className="flex flex-col p-6 md:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-border-default">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="size-1.5 bg-safety-orange shrink-0" />
+              <span className="font-mono text-[10px] uppercase tracking-widest text-ink-500 font-bold">
+                The Problem Statement
+              </span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light leading-[0.95] tracking-tight mb-6 text-ink-900">
+              The challenges are changing.<br />
+              Our response must change with them.
+            </h2>
+            
+            <div className="space-y-6 text-role-body-lg text-ink-500 font-light leading-relaxed flex-1">
+              <p>
+                Manipur has extraordinary natural wealth, strong communities and a generation growing up in a rapidly changing world.
+              </p>
+              <p>
+                But climate pressure, environmental degradation, unequal access to opportunity, changing health needs and limited pathways into future work are creating new challenges.
+              </p>
+              <p className="font-semibold text-ink-900">
+                These problems cannot be solved one at a time. One Vision works across the connections. People. Health. Environment. Opportunity.
+              </p>
             </div>
 
-            <p className="font-sans text-body-lg text-paper/70 font-light leading-relaxed">
-              Traditional NGO models built for acute emergencies have failed in
-              Manipur. The conflict that began in May 2023 has become a
-              long-duration polycrisis. Supply chains are severed. Centralised
-              infrastructure is compromised. State support is unreliable.
-            </p>
-
-            <p className="font-sans text-body-lg text-paper/70 font-light leading-relaxed">
-              One Vision abandoned its legacy model in September 2026. Every
-              resource is now deployed through decentralised, conflict-resilient
-              infrastructure designed to survive blockades and operate without
-              external grid dependency.
-            </p>
-
-            <div className="pt-2">
-              <Button
-                variant="secondary"
-                className="gap-2 border-paper/20 text-paper hover:bg-paper/10"
-                nativeButton={false}
-                render={
-                  <Link href="/about">
-                    <span>Our mandate</span>
-                    <ArrowRight className="size-4" aria-hidden="true" />
-                  </Link>
-                }
-              />
+            <div className="mt-12 pt-12 border-t border-border-default">
+              <Link 
+                href="/about"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-ink-900 hover:bg-safety-orange text-paper font-bold uppercase tracking-widest text-[11px] transition-colors duration-300 w-fit"
+              >
+                <span>Read Our Mandate</span>
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
             </div>
           </div>
 
           {/* Right: Key Facts Grid */}
-          <div className="grid grid-cols-2 gap-px bg-paper/10">
-            {keyFacts.map((fact) => (
+          <div className="flex flex-col bg-paper">
+            {keyFacts.map((fact, index) => (
               <div
                 key={fact.label}
-                className="bg-field-black p-8 flex flex-col gap-3"
+                className={`flex-1 p-8 lg:p-12 flex flex-col justify-center transition-colors hover:bg-surface-alt ${index < 3 ? 'border-b border-border-default' : ''}`}
               >
-                <p className="font-sans text-display-md font-medium text-safety-orange leading-none">
-                  {fact.stat}
-                </p>
-                <p className="font-sans text-body-sm font-semibold uppercase tracking-widest text-paper">
-                  {fact.label}
-                </p>
-                <p className="font-sans text-body-sm text-paper/50 font-light leading-relaxed">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-4">
+                  <p className="font-mono text-4xl md:text-5xl leading-none tracking-tight text-ink-900 font-bold">
+                    {fact.stat}
+                  </p>
+                  <p className="font-mono text-[11px] font-bold uppercase tracking-widest text-ink-500 pb-1">
+                    {fact.label}
+                  </p>
+                </div>
+                <p className="font-sans text-role-body text-ink-500 max-w-md">
                   {fact.detail}
                 </p>
               </div>

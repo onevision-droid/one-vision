@@ -1,3 +1,5 @@
+<!-- DEPRECATED: This document is from a prior design era (Nordic Lagom / Fraunces serif). The canonical design system is now defined in /DESIGN.md (Frontline Humanitarian mandate). Do not reference this file for new development. -->
+
 # 01 — UI/UX Audit — One Vision
 
 **Scope:** repository blueprint (docs + config), not rendered code — `app/`, `components/`, `lib/` do not yet exist. Audit verdicts therefore apply to the *design intent* (DESIGN.md, AGENTS.md, CONTENT.md) and the *technical scaffold* (package.json, components.json, configs).

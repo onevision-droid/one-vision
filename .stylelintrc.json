@@ -4,9 +4,35 @@
     "at-rule-no-unknown": [
       true,
       {
-        "ignoreAtRules": ["theme", "custom-variant", "apply", "tailwind", "layer", "config", "source", "plugin", "utility"]
+        "ignoreAtRules": [
+          "theme",
+          "custom-variant",
+          "apply",
+          "tailwind",
+          "layer",
+          "config",
+          "source",
+          "plugin",
+          "utility"
+        ]
       }
     ],
-    "import-notation": "string"
+    "at-rule-prelude-no-invalid": null,
+    "at-rule-descriptor-no-unknown": null,
+    "at-rule-empty-line-before": null,
+    "import-notation": "string",
+    "rule-empty-line-before": null,
+    "custom-property-empty-line-before": null,
+    "custom-property-pattern": null,
+    "color-function-notation": null,
+    "color-function-alias-notation": null,
+    "alpha-value-notation": null,
+    "lightness-notation": null,
+    "hue-degree-notation": null,
+    "length-zero-no-unit": null,
+    "value-keyword-case": null,
+    "declaration-block-no-redundant-longhand-properties": null,
+    "comment-empty-line-before": null,
+    "no-descending-specificity": null
   }
 }

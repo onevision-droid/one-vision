@@ -72,10 +72,10 @@ export default async function CampaignPage({ params }: Props) {
                 <span className="inline-block px-3 py-1 bg-surface-alt border border-border-default text-caption uppercase tracking-widest text-ink-500 font-semibold">
                   {campaign.category}
                 </span>
-                <h1 className="font-serif text-display-md font-light tracking-tight text-ink-900 leading-[1.1]">
+                <h1 className="font-sans text-display-md font-light tracking-tight text-ink-900 leading-[1.1]">
                   {campaign.title}
                 </h1>
-                <p className="text-body-lg text-ink-500 font-light leading-relaxed">
+                <p className="text-body-lg max-w-prose  text-ink-500 font-light leading-relaxed">
                   {campaign.description}
                 </p>
               </div>
@@ -85,10 +85,10 @@ export default async function CampaignPage({ params }: Props) {
             <div className="bg-surface p-8 border border-border-default space-y-8">
               <div>
                 <div className="flex justify-between items-end mb-2">
-                  <p className="text-heading-lg font-serif font-light text-ink-900">
+                  <p className="text-heading-lg font-sans font-light text-ink-900">
                     ₹{campaign.raised?.toLocaleString('en-IN')}
                   </p>
-                  <p className="text-body-sm text-ink-500">
+                  <p className="text-body-sm max-w-prose text-ink-500">
                     of ₹{campaign.goal?.toLocaleString('en-IN')} goal
                   </p>
                 </div>
@@ -106,14 +106,14 @@ export default async function CampaignPage({ params }: Props) {
                     <Users className="size-4" />
                     <span className="text-caption uppercase tracking-widest font-semibold">Donors</span>
                   </div>
-                  <p className="text-heading-md font-serif">{campaign.donors}</p>
+                  <p className="text-heading-md font-sans">{campaign.donors}</p>
                 </div>
                 <div className="space-y-1">
                   <div className="flex items-center gap-2 text-ink-500">
                     <Calendar className="size-4" />
                     <span className="text-caption uppercase tracking-widest font-semibold">Ends</span>
                   </div>
-                  <p className="text-heading-md font-serif">
+                  <p className="text-heading-md font-sans">
                     {new Date(campaign.endDate).toLocaleDateString("en-GB", { month: 'short', day: 'numeric', year: 'numeric' })}
                   </p>
                 </div>
@@ -145,7 +145,7 @@ export default async function CampaignPage({ params }: Props) {
       {campaign.sections && campaign.sections.length > 0 && (
         <Section tone="default" className="py-20 border-b border-border-default">
           <Container>
-            <div className="max-w-2xl mx-auto prose prose-lg prose-headings:font-serif prose-headings:font-light prose-p:text-ink-700 prose-p:font-light prose-p:leading-relaxed">
+            <div className="max-w-2xl mx-auto prose prose-lg prose-headings:font-sans prose-headings:font-light prose-p:text-ink-700 prose-p:font-light prose-p:leading-relaxed">
               {campaign.sections.map((section) => (
                 <div key={section.id}>
                   <h2>{section.title}</h2>

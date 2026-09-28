@@ -8,8 +8,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "lint:css": "stylelint \"app/**/*.css\"",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "test": "vitest run",
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
@@ -22,7 +24,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cn": "^0.4.0",
-    "framer-motion": "^13.4.1",
+    "framer-motion": "^13.4.4",
     "lucide-react": "^1.47.0",
     "minisearch": "^7.2.0",
     "motion": "^13.4.3",

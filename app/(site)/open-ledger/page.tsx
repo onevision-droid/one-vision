@@ -13,11 +13,14 @@ export const metadata: Metadata = {
   description: "Transparent view of our fund allocations and impact.",
 };
 
+export const revalidate = 3600;
+
 export default async function OpenLedgerPage() {
   const { data: dataEntries, error } = await supabase
     .from("fund_allocations")
     .select("*")
-    .order("date", { ascending: false });
+    .order("date", { ascending: false })
+    .limit(100);
 
   const ledgerEntries = error || !dataEntries ? [] : dataEntries;
 
@@ -31,16 +34,16 @@ export default async function OpenLedgerPage() {
   };
 
   return (
-    <div className="flex flex-col w-full bg-paper pt-20">
-      <Section tone="default" className="pt-16 pb-24 border-b border-border-default">
+    <div className="flex flex-col w-full bg-paper">
+      <Section tone="default" className="pt-24 pb-8 md:pt-26 md:pb-12 lg:pt-28 lg:pb-14 border-b border-border-default">
         <Container>
-          <div className="max-w-4xl mx-auto space-y-8">
+          <div className="max-w-4xl mx-auto space-y-6">
             <Breadcrumbs items={[{ label: "Reports", href: "/reports" }, { label: "Open Ledger", href: "/open-ledger" }]} />
             
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
               <div>
-                <Badge className="mb-6">Financial Transparency</Badge>
-                <h1 className="font-serif text-display-md font-light tracking-tight text-ink-900 leading-[1.1] mb-6">
+                <Badge className="mb-4">Financial Transparency</Badge>
+                <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-ink-900 leading-[1.1] mb-4">
                   Open Ledger
                 </h1>
                 <p className="text-body-lg text-ink-500 font-light leading-relaxed max-w-2xl">
@@ -54,7 +57,7 @@ export default async function OpenLedgerPage() {
               </Button>
             </div>
             
-            <div className="mt-16">
+            <div className="mt-8 sm:mt-10">
               <Ledger heading="Fund Allocations" headingId="allocations-ledger">
                 {ledgerEntries?.map((entry: Tables<"fund_allocations">) => (
                   <LedgerRow

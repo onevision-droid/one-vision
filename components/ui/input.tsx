@@ -9,11 +9,11 @@ const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
         className={cn(
           // Use project's actual tokens. min-h-touch-target (44px) is applied globally,
           // so we don't fight it — we use px-3 py-2 for comfortable padding instead.
-          "w-full border border-border-input bg-transparent px-3 py-2",
-          "rounded-sm text-body-sm text-ink-900",
+          "w-full border border-border-default bg-transparent p-4",
+          "font-sans text-body-sm text-ink-900",
           "placeholder:text-ink-300",
-          "transition-colors duration-base",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-500 focus-visible:border-clay-500",
+          "transition-colors duration-200",
+          "focus:outline-none focus:ring-2 focus:ring-safety-orange focus:border-safety-orange",
           "disabled:cursor-not-allowed disabled:opacity-50",
           className
         )}

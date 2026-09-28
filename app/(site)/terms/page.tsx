@@ -18,15 +18,15 @@ export default function TermsPage() {
             
             <div>
               <Badge className="mb-6">Legal</Badge>
-              <h1 className="font-serif text-display-md font-light tracking-tight text-ink-900 leading-[1.1] mb-6">
+              <h1 className="font-sans text-display-md font-light tracking-tight text-ink-900 leading-[1.1] mb-6">
                 Terms of Service
               </h1>
-              <p className="text-body-lg text-ink-500 font-light leading-relaxed">
+              <p className="text-body-lg max-w-prose  text-ink-500 font-light leading-relaxed">
                 Last updated: October 2026
               </p>
             </div>
             
-            <div className="prose prose-lg prose-headings:font-serif prose-headings:font-light prose-p:text-ink-700 prose-p:font-light prose-p:leading-relaxed">
+            <div className="prose prose-lg prose-headings:font-sans prose-headings:font-light prose-p:text-ink-700 prose-p:font-light prose-p:leading-relaxed">
               <p>
                 By accessing or using the One Vision website, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our website.
               </p>

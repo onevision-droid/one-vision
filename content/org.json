@@ -6,10 +6,10 @@
     "formerly": "Society for Health & Education Manipur",
     "regNo": "MN/NGO/1988/001",
     "location": "Imphal, Manipur, India",
-    "mandate": "Decentralised crisis-resilient humanitarian vanguard operating across the Manipur polycrisis zone."
+    "mandate": "A community-led organisation working for a healthier, greener and more resilient Manipur."
   },
   "contact": {
-    "email": "ops@onevision.org",
+    "email": "hello@onevision.org",
     "phone": "+91 98765 43210",
     "signal": "+91 98765 43210",
     "protonmail": "secure@onevision.proton.me",
@@ -18,71 +18,77 @@
   "locale": "en-GB",
   "stats": [
     {
-      "id": "people-reached",
-      "value": 12400,
+      "id": "people-engaged",
+      "value": 2500,
       "suffix": "+",
-      "label": "People Reached",
-      "period": "May 2023–Sep 2026",
-      "source": "Field Ops Mobile Health Unit Logs"
+      "label": "People Engaged",
+      "period": "2026",
+      "source": "Community Health & Action Logs"
     },
     {
-      "id": "health-nodes",
-      "value": 18,
-      "label": "Decentralised Health Nodes",
-      "period": "Active as of Q3 2026",
-      "source": "Pillar 1 Operations Register"
+      "id": "youth-trained",
+      "value": 500,
+      "suffix": "+",
+      "label": "Young People Trained",
+      "period": "2026",
+      "source": "FutureWorks Platform"
     },
     {
-      "id": "solar-kw",
-      "value": 240,
-      "suffix": " kW",
-      "label": "Solar Capacity Deployed",
-      "period": "Sep 2026",
-      "source": "Solar-Kiran Microgrid Deployment Log"
+      "id": "communities-reached",
+      "value": 25,
+      "suffix": "+",
+      "label": "Communities Reached",
+      "period": "2026",
+      "source": "Green Manipur Network"
     },
     {
-      "id": "cooperatives",
-      "value": 34,
-      "label": "Self-Help Cooperatives",
-      "period": "Active Q3 2026",
-      "source": "Economic Dignity Pillar Register"
+      "id": "projects-supported",
+      "value": 22,
+      "suffix": "+",
+      "label": "Local Projects Supported",
+      "period": "2026",
+      "source": "Community Data Lab"
     }
   ],
   "pillars": [
     {
-      "id": "health-equity",
-      "slug": "health-equity",
-      "title": "Conflict-Resilient Health Equity",
-      "shortTitle": "Health Equity",
+      "id": "health-connect",
+      "slug": "community-health-connect",
+      "title": "Community Health Connect",
+      "shortTitle": "Health",
       "icon": "HeartPulse"
     },
     {
-      "id": "energy-sovereignty",
-      "slug": "energy-sovereignty",
-      "title": "Energy Sovereignty",
-      "shortTitle": "Energy",
-      "icon": "Zap"
-    },
-    {
-      "id": "ecological-restoration",
-      "slug": "ecological-restoration",
-      "title": "Ecological Restoration & Agrarian Resilience",
-      "shortTitle": "Ecology",
+      "id": "green-manipur",
+      "slug": "green-manipur-lab",
+      "title": "Green Manipur Lab",
+      "shortTitle": "Environment",
       "icon": "Leaf"
     },
     {
-      "id": "economic-dignity",
-      "slug": "economic-dignity",
-      "title": "Economic Dignity & Livelihood Rehabilitation",
-      "shortTitle": "Dignity",
+      "id": "futureworks",
+      "slug": "futureworks",
+      "title": "FutureWorks",
+      "shortTitle": "Youth",
+      "icon": "Laptop"
+    },
+    {
+      "id": "local-enterprise",
+      "slug": "local-enterprise-lab",
+      "title": "Local Enterprise Lab",
+      "shortTitle": "Enterprise",
       "icon": "HandCoins"
+    },
+    {
+      "id": "community-data",
+      "slug": "community-data-lab",
+      "title": "Community Data Lab",
+      "shortTitle": "Evidence",
+      "icon": "LineChart"
     }
   ],
   "footerNav": [
-    "Health Equity",
-    "Energy Sovereignty",
-    "Ecological Restoration",
-    "Economic Dignity",
+    "Our Programmes",
     "Field Reports",
     "Secure Contact",
     "Deploy Support",

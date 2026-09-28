@@ -6,7 +6,6 @@ import { FAQ } from "@/components/composition/FAQ";
 import Image from "next/image";
 import { siteSettings } from "@/lib/data/site-settings";
 import Link from "next/link";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Volunteer | One Vision",
@@ -16,210 +15,196 @@ export const metadata: Metadata = {
 
 export default function VolunteerPage() {
   return (
-    <div className="flex flex-col w-full bg-paper pt-20">
-      {/* 1. Header / Intro */}
+    <div className="flex flex-col w-full bg-paper">
       <PageHero
-        badge="Make an Impact"
+        badge="JOIN US"
         heading={
           <>
-            Become a <br />
-            Volunteer.
+            Local<br/>
+            Action.
           </>
         }
-        description="Our work is driven by the strength and dedication of local volunteers. Join us to make a tangible impact in Imphal and surrounding areas."
-        imageSrc="/new-illustrations/volunteer-scene.webp"
-        imageAlt="Volunteers working together"
+        description="The most effective change is driven by the community. Join our network of local leaders, educators, and volunteers."
+        image="/volunteer-hero.jpg"
       />
 
-      {/* 2 & 3. The Core Need & Safety Matrix (Merged Dark Canvas) */}
-      <Section tone="inverted" className="relative overflow-hidden">
-        <Container className="relative z-10 pt-6 pb-0 [&_a]:text-paper/60 [&_a:hover]:text-paper [&_li]:text-paper/40 [&_span[aria-hidden]]:text-paper/30">
-          <Breadcrumbs items={[{ label: "Volunteer", href: "/volunteer" }]} />
-        </Container>
-        <Container className="relative z-10 pb-24 border-b border-paper/5">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            <div className="lg:col-span-5 flex flex-col justify-center pt-8">
-              <span className="text-caption tracking-widest uppercase text-paper/60 font-semibold mb-4 block">
-                The Core Need
+      {/* 2 & 3. The Core Need & Mentorship Matrix (Merged Dark Canvas) */}
+      <Section tone="inverted" className="relative overflow-hidden bg-ink-900">
+        <Container className="px-0 md:px-0">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border-x border-b border-ink-900">
+            <div className="lg:col-span-5 flex flex-col justify-center p-6 md:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-ink-900">
+              <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-safety-orange mb-4 block">
+                The Community Network
               </span>
-              <h2 className="text-heading-xl font-medium mb-6 tracking-tight text-paper">
-                Your Time Matters
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light mb-4 sm:mb-6 tracking-tight text-paper leading-[0.98]">
+                Your Skills Matter
               </h2>
-              <p className="text-body-lg text-paper/70 font-light leading-relaxed mb-12">
-                Whether you have specialized skills in healthcare and education,
-                or simply the time and willingness to help distribute supplies,
+              <p className="font-sans text-role-body-lg max-w-prose text-paper/70 font-light leading-relaxed mb-8 sm:mb-10">
+                Whether you have specialized skills in technology and education,
+                or simply the time and willingness to help your neighborhood,
                 there is a vital place for you here.
               </p>
 
-              <div className="p-8 bg-paper/5 border border-paper/10 rounded-md relative backdrop-blur-md">
-                <p className="text-body-lg font-serif font-light italic leading-relaxed text-paper mb-8 relative z-10">
+              <div className="p-6 border-l-4 border-safety-orange bg-surface/5">
+                <p className="font-sans text-role-body-lg max-w-prose font-light italic leading-relaxed text-paper mb-6">
                   &quot;Volunteering here isn&apos;t just about giving time;
-                  it&apos;s about rebuilding our own community with
-                  dignity.&quot;
+                  it&apos;s about building the future of our own community with
+                  dignity and shared purpose.&quot;
                 </p>
                 <div className="flex items-center gap-4">
-                  <div className="size-12 bg-action-primary/10 border border-action-primary/20 rounded-full flex items-center justify-center text-action-primary font-serif text-sm">
+                  <div className="size-12 bg-safety-orange flex items-center justify-center font-mono font-bold text-ink-900 text-sm">
                     SS
                   </div>
                   <div>
                     <div className="font-medium text-paper text-body-sm">
                       S. Singh
                     </div>
-                    <div className="text-caption tracking-widest uppercase text-paper/60 mt-0.5">
-                      Core Volunteer
+                    <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-safety-orange mt-1">
+                      FutureWorks Mentor
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-7 relative aspect-4/3 lg:aspect-auto lg:h-175 w-full overflow-hidden border border-paper/10 rounded-md bg-ink-900/50">
+            <div className="lg:col-span-7 relative h-96 lg:h-auto w-full overflow-hidden bg-ink-900">
               <Image
-                src="/new-illustrations/volunteer-scene.webp"
-                alt="Volunteers organizing supplies"
+                src="/volunteer-hero.jpg"
+                alt="Volunteers organizing community projects"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-base ease-in-out"
+                className="object-cover grayscale mix-blend-luminosity opacity-50 transition-all duration-700 hover:grayscale-0 hover:mix-blend-normal hover:opacity-100"
               />
             </div>
           </div>
         </Container>
 
-        <Container className="relative z-10 pt-24 pb-12">
-          <div className="mb-16">
-            <span className="text-caption tracking-widest uppercase text-paper/70 font-semibold mb-4 block">
-              Safety First
-            </span>
-            <h2 className="text-heading-xl font-medium tracking-tight text-paper">
-              Our Commitment to You
-            </h2>
-          </div>
+        <Container className="px-0 md:px-0">
+          <div className="border-x border-b border-ink-900">
+            <div className="px-6 py-4 md:px-8 md:py-6 border-b border-ink-900">
+              <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-safety-orange mb-3 block">
+                What to Expect
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light tracking-tight text-paper">
+                Our Commitment to You
+              </h2>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex flex-col gap-4 p-8 border border-paper/10 bg-paper/5 backdrop-blur-sm rounded-md hover:bg-paper/10 transition-colors">
-              <h3 className="font-medium text-heading-md text-paper mb-2">
-                01. Guided Deployments
-              </h3>
-              <p className="text-body-sm text-paper/70 font-light leading-relaxed">
-                Volunteers are never sent into the field alone or without a
-                clear mandate. Every team is led by a trained coordinator.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4 p-8 border border-paper/10 bg-paper/5 backdrop-blur-sm rounded-md hover:bg-paper/10 transition-colors">
-              <h3 className="font-medium text-heading-md text-paper mb-2">
-                02. Verified Needs
-              </h3>
-              <p className="text-body-sm text-paper/70 font-light leading-relaxed">
-                We only operate in areas where we have confirmed requests from
-                local leadership and can guarantee safe passage.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4 p-8 border border-paper/10 bg-paper/5 backdrop-blur-sm rounded-md hover:bg-paper/10 transition-colors">
-              <h3 className="font-medium text-heading-md text-paper mb-2">
-                03. Zero Liability
-              </h3>
-              <p className="text-body-sm text-paper/70 font-light leading-relaxed">
-                You are not financially responsible for supplies. Your
-                contribution is your time, expertise, and compassion.
-              </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 *:border-b *:md:border-b-0 *:border-r last:*:border-r-0 border-ink-900">
+              <div className="flex flex-col gap-4 p-6 md:p-8 hover:bg-surface/5 transition-colors">
+                <h3 className="font-serif text-xl sm:text-2xl font-light text-paper">
+                  01. Mentorship & Growth
+                </h3>
+                <p className="font-sans text-role-body text-paper/70 font-light leading-relaxed">
+                  Volunteers learn alongside professionals. You gain real-world experience while making a direct impact on your community.
+                </p>
+              </div>
+              <div className="flex flex-col gap-4 p-6 md:p-8 hover:bg-surface/5 transition-colors">
+                <h3 className="font-serif text-xl sm:text-2xl font-light text-paper">
+                  02. Clear Impact
+                </h3>
+                <p className="font-sans text-role-body text-paper/70 font-light leading-relaxed">
+                  We only assign tasks that matter. You will see exactly how your time translates into community resilience and outcomes.
+                </p>
+              </div>
+              <div className="flex flex-col gap-4 p-6 md:p-8 hover:bg-surface/5 transition-colors">
+                <h3 className="font-serif text-xl sm:text-2xl font-light text-paper">
+                  03. Respect for Time
+                </h3>
+                <p className="font-sans text-role-body text-paper/70 font-light leading-relaxed">
+                  We know your time is valuable. We offer flexible scheduling and prioritize efficient, focused community action.
+                </p>
+              </div>
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* 4. Volunteer Form */}
       {/* 4. Volunteer Form (Document Shell Layout) */}
-      <section className="w-full px-4 py-12 md:py-20 bg-paper">
-        <div className="mx-auto max-w-6xl overflow-hidden rounded-3xl border border-border-default bg-surface shadow-xl shadow-black/5">
-          <div className="bg-clay-500/5 px-8 py-10 md:px-12 md:py-12 border-b border-border-default">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="size-2 rounded-full bg-clay-500 animate-pulse" />
-              <span className="text-caption tracking-widest uppercase text-clay-500 font-semibold">
-                Registration
-              </span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-serif text-ink-900 mb-4 tracking-tight">
-              Volunteer Application
-            </h2>
-            <p className="text-body-lg text-ink-500 font-light leading-relaxed max-w-2xl">
-              Fill out the form below. Our volunteer coordinator will review
-              your profile and contact you with upcoming opportunities that
-              match your interests.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
-            {/* Form */}
-            <div className="lg:col-span-7 p-8 md:p-12 lg:border-r border-border-default">
-              <VolunteerForm />
+      <Section tone="default" className="border-t border-border-default">
+        <Container className="px-0 md:px-0">
+          <div className="border-x border-border-default bg-surface">
+            <div className="p-6 md:p-10 lg:p-12 border-b border-border-default bg-paper">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="size-2 bg-safety-orange animate-pulse" />
+                <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-safety-orange">
+                  Registration
+                </span>
+              </div>
+              <h2 className="font-serif text-3xl sm:text-4xl font-light text-ink-900 mb-4 tracking-tight leading-tight">
+                Volunteer Application
+              </h2>
+              <p className="font-sans text-role-body-lg text-ink-500 font-light leading-relaxed max-w-2xl">
+                Fill out the form below. Our volunteer coordinator will review
+                your profile and contact you with upcoming opportunities that
+                match your interests.
+              </p>
             </div>
 
-            {/* Trust / Contact Sidebar */}
-            <div className="lg:col-span-5 flex flex-col gap-10 p-8 md:p-12 bg-section-alt">
-              <div>
-                <h3 className="font-sans text-heading-md font-medium text-ink-900 mb-8 tracking-wide">
-                  Get in Touch
-                </h3>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
+              {/* Form */}
+              <div className="lg:col-span-7 p-6 md:p-8 lg:p-10 lg:border-r border-border-default">
+                <VolunteerForm />
+              </div>
 
-                <div className="space-y-8 border-l-2 border-border-default ml-4 relative">
-                  <div className="relative pl-8">
-                    <span className="absolute -left-3 top-0.5 size-6 rounded-full bg-surface border border-border-default flex items-center justify-center font-serif text-ink-900 font-medium text-xs">
-                      @
-                    </span>
-                    <h4 className="font-medium text-ink-900 mb-1 mt-1 uppercase tracking-widest text-caption">
-                      Coordinator Email
-                    </h4>
-                    <Link
-                      href={`mailto:${siteSettings.contactEmail}`}
-                      className="text-body-sm text-ink-500 hover:text-action-primary transition-colors block"
-                    >
-                      {siteSettings.contactEmail}
-                    </Link>
+              {/* Trust / Contact Sidebar */}
+              <div className="lg:col-span-5 flex flex-col p-6 md:p-8 lg:p-10 bg-paper">
+                <div>
+                  <h3 className="font-serif text-2xl font-light text-ink-900 mb-6 sm:mb-8 tracking-wide">
+                    Get in Touch
+                  </h3>
+
+                  <div className="space-y-6 sm:space-y-8">
+                    <div>
+                      <h4 className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink-500 mb-2">
+                        Coordinator Email
+                      </h4>
+                      <Link
+                        href={`mailto:${siteSettings.contactEmail}`}
+                        className="font-sans text-role-body font-medium text-ink-900 hover:text-safety-orange transition-colors"
+                      >
+                        {siteSettings.contactEmail}
+                      </Link>
+                    </div>
+
+                    <div>
+                      <h4 className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink-500 mb-2">
+                        Coordinator Phone
+                      </h4>
+                      <Link
+                        href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`}
+                        className="font-sans text-role-body font-medium text-ink-900 hover:text-safety-orange transition-colors"
+                      >
+                        {siteSettings.contactPhone}
+                      </Link>
+                    </div>
+
+                    <div>
+                      <h4 className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink-500 mb-2">
+                        Headquarters
+                      </h4>
+                      <p className="font-sans text-role-body font-medium text-ink-900 max-w-xs leading-relaxed">
+                        {siteSettings.address}
+                      </p>
+                    </div>
                   </div>
+                </div>
 
-                  <div className="relative pl-8">
-                    <span className="absolute -left-3 top-0.5 size-6 rounded-full bg-surface border border-border-default flex items-center justify-center font-serif text-ink-900 font-medium text-xs">
-                      #
-                    </span>
-                    <h4 className="font-medium text-ink-900 mb-1 mt-1 uppercase tracking-widest text-caption">
-                      Coordinator Phone
+                <div className="bg-ink-900 p-6 flex flex-col items-start gap-4 mt-8 sm:mt-10">
+                  <div>
+                    <h4 className="font-serif text-2xl font-light text-paper mb-3">
+                      Community First
                     </h4>
-                    <Link
-                      href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`}
-                      className="text-body-sm text-ink-500 hover:text-action-primary transition-colors block"
-                    >
-                      {siteSettings.contactPhone}
-                    </Link>
-                  </div>
-
-                  <div className="relative pl-8">
-                    <span className="absolute -left-3 top-0.5 size-6 rounded-full bg-surface border border-border-default flex items-center justify-center font-serif text-ink-900 font-medium text-xs">
-                      *
-                    </span>
-                    <h4 className="font-medium text-ink-900 mb-1 mt-1 uppercase tracking-widest text-caption">
-                      Headquarters
-                    </h4>
-                    <p className="text-body-sm text-ink-500 max-w-xs leading-relaxed">
-                      {siteSettings.address}
+                    <p className="font-sans text-role-body text-paper/70 font-light leading-relaxed">
+                      By volunteering with One Vision, you join a network dedicated to long-term resilience and dignity for all.
                     </p>
                   </div>
                 </div>
               </div>
-
-              <div className="bg-ink-900 p-8 rounded-2xl flex flex-col items-start gap-4 mt-auto">
-                <div>
-                  <h4 className="text-heading-md font-medium text-paper mb-2">
-                    Community First
-                  </h4>
-                  <p className="text-body-sm text-paper/70 font-light leading-relaxed">
-                    By volunteering with One Vision, you join a network dedicated to long-term resilience and dignity for all.
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* 5. FAQs */}
       <FAQ

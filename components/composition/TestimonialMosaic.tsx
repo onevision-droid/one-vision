@@ -30,7 +30,7 @@ export function TestimonialMosaic({
             {heading}
           </h2>
           {description && (
-            <p className="text-body-lg text-ink-500 font-light leading-relaxed">
+            <p className="text-body-lg max-w-prose  text-ink-500 font-light leading-relaxed">
               {description}
             </p>
           )}
@@ -46,12 +46,12 @@ export function TestimonialMosaic({
                 idx === 1 || idx === 4 ? "md:mt-8" : ""
               }`}
             >
-              <blockquote className="font-serif text-heading-md font-light text-ink-900 leading-relaxed mb-8">
+              <blockquote className="font-sans text-heading-md font-light text-ink-900 leading-relaxed mb-8">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
               <div className="flex items-center gap-4 mt-auto">
                 {t.image ? (
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 border border-border-default">
+                  <div className="relative w-12 h-12 overflow-hidden shrink-0 border border-border-default">
                     <Image
                       src={t.image}
                       alt={t.author}
@@ -60,14 +60,14 @@ export function TestimonialMosaic({
                     />
                   </div>
                 ) : (
-                  <div className="w-12 h-12 rounded-full shrink-0 bg-surface-alt border border-border-default flex items-center justify-center">
-                    <span className="font-serif text-body-lg text-ink-900 font-light">
+                  <div className="w-12 h-12 shrink-0 bg-surface-alt border border-border-default flex items-center justify-center">
+                    <span className="font-sans text-body-lg text-ink-900 font-light">
                       {t.author.charAt(0)}
                     </span>
                   </div>
                 )}
                 <div>
-                  <p className="text-body-sm font-medium text-ink-900">
+                  <p className="text-body-sm max-w-prose font-medium text-ink-900">
                     {t.author}
                   </p>
                   {t.role && (

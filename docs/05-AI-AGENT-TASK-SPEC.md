@@ -1,3 +1,5 @@
+<!-- DEPRECATED: This document is from a prior design era (Nordic Lagom / Fraunces serif). The canonical design system is now defined in /DESIGN.md (Frontline Humanitarian mandate). Do not reference this file for new development. -->
+
 # 05 — AI Agent Task Specification — One Vision
 
 How an AI coding agent must execute on this project. Read `AGENTS.md` first, then docs 01–04. This document defines binding rules and task specs with acceptance criteria.

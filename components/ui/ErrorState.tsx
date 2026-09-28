@@ -17,8 +17,8 @@ export function ErrorState({
   className 
 }: ErrorStateProps) {
   return (
-    <div className={cn("flex flex-col items-center justify-center text-center p-8 border border-danger/20 rounded-md bg-surface", className)}>
-      <div className="bg-danger/10 p-3.5 rounded-full mb-4 text-danger">
+    <div className={cn("flex flex-col items-center justify-center text-center p-8 border border-danger/20 bg-surface", className)}>
+      <div className="bg-danger/10 p-3.5 mb-4 text-danger">
         <AlertTriangleIcon className="h-6 w-6" />
       </div>
       <h3 className="font-sans text-heading-md font-semibold text-ink-900 mb-2">{title}</h3>

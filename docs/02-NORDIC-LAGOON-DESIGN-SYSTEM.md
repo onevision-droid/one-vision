@@ -1,3 +1,5 @@
+<!-- DEPRECATED: This document is from a prior design era (Nordic Lagom / Fraunces serif). The canonical design system is now defined in /DESIGN.md (Frontline Humanitarian mandate). Do not reference this file for new development. -->
+
 # 02 — Nordic Lagoon Design System — One Vision
 
 **Thesis:** One Vision's existing palette (Paper, Mist, Mineral Teal, Deep Forest) already sits on a "Nordic lagoon" axis — cold mineral greens/blues, warm sand neutrals, scarce terracotta sunlight. This document converts that intent into an enforceable token system and component grammar. "Nordic" supplies the discipline: calm, airy, typographically confident, zero decoration without function. "Lagoon" supplies the colour physics: deep teal depths, mist surfaces, warm sand shallows, one warm accent like low sun.

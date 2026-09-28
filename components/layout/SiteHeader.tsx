@@ -2,335 +2,251 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/ui/Logo";
-import { Search } from "lucide-react";
 import { SearchDialog } from "@/components/ui/SearchDialog";
+import { Search, ArrowRight, Menu, X, Phone, MessageSquare } from "lucide-react";
+import { siteSettings } from "@/lib/data/site-settings";
 
-// "Deploy Support" is not in nav — it lives exclusively as the orange CTA button.
-// Keeps nav uncluttered (4 items) and CTA visually distinct.
 const navLinks = [
+  { href: "/programmes", label: "Our Programmes" },
   { href: "/stories", label: "Field Reports" },
-  { href: "/programmes", label: "The 4 Pillars" },
-  { href: "/get-help", label: "Secure Contact" },
+  { href: "/volunteer", label: "Volunteer" },
+  { href: "/open-ledger", label: "Open Ledger" },
+  { href: "/get-help", label: "Contact" },
   { href: "/about", label: "About" },
 ];
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const [hoveredPath, setHoveredPath] = useState<string | null>(null);
-  const [isLogoHovered, setIsLogoHovered] = useState(false);
   const [isSearchOpen, setSearchOpen] = useState(false);
-  const [menuState, setMenuState] = useState({ forPathname: pathname, open: false });
-  const mobileOpen = menuState.forPathname === pathname && menuState.open;
-  const setMobileOpen = (open: boolean) => setMenuState({ forPathname: pathname, open });
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [hoveredPath, setHoveredPath] = useState<string | null>(null);
+  const [prevPathname, setPrevPathname] = useState(pathname);
 
-  const triggerRef = useRef<HTMLButtonElement>(null);
-  const panelRef = useRef<HTMLDivElement>(null);
-  const wasMobileOpen = useRef(mobileOpen);
+  // Close mobile nav on route change during render
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setMobileOpen(false);
+  }
 
+  // Scroll detection for Nordic Lagom elevated state
   useEffect(() => {
-    if (mobileOpen) {
-      wasMobileOpen.current = true;
-      const focusable = panelRef.current?.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
-      );
-      if (focusable && focusable.length > 0) focusable[0].focus();
-    } else if (wasMobileOpen.current) {
-      wasMobileOpen.current = false;
-      triggerRef.current?.focus();
-    }
-  }, [mobileOpen]);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 15);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
+  // Global Cmd+K / Ctrl+K shortcut for Search Dialog & Escape for Mobile Menu
   useEffect(() => {
-    if (!mobileOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Tab") {
-        const focusable = panelRef.current?.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
-        );
-        if (!focusable || focusable.length === 0) return;
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-        if (e.shiftKey) {
-          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
-        } else {
-          if (document.activeElement === last) { e.preventDefault(); first.focus(); }
-        }
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setSearchOpen((prev) => !prev);
+      }
+      if (e.key === "Escape") {
+        setMobileOpen(false);
+        setSearchOpen(false);
       }
     };
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [mobileOpen]);
-
-  const { scrollY } = useScroll();
-
-  // Smoother scroll interpolation — start fading in bg at 20px not 0px
-  const headerBackground = useTransform(
-    scrollY,
-    [20, 80],
-    ["rgba(250, 248, 244, 0)", "rgba(250, 248, 244, 0.95)"]
-  );
-  // Solid blueprint border immediately visible
-  const headerBorder = useTransform(
-    scrollY,
-    [0, 80],
-    ["rgba(23, 23, 23, 1)", "rgba(23, 23, 23, 1)"]
-  );
-  const blurValue = useTransform(scrollY, [20, 80], [0, 12]);
-  const backdropFilter = useMotionTemplate`blur(${blurValue}px)`;
-  // Height: 64px at top, shrinks to 56px on scroll — tighter, more utilitarian
-  const headerHeight = useTransform(scrollY, [0, 80], [64, 56]);
-
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setMenuState((prev) => ({ ...prev, open: false }));
-    };
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
   }, []);
-
-  // Global Cmd+K / Ctrl+K shortcut for Search Dialog
-  useEffect(() => {
-    const handleShortcut = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-        e.preventDefault();
-        setSearchOpen(true);
-      }
-    };
-    document.addEventListener("keydown", handleShortcut);
-    return () => document.removeEventListener("keydown", handleShortcut);
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("overflow-hidden", mobileOpen);
-    return () => { document.documentElement.classList.remove("overflow-hidden"); };
-  }, [mobileOpen]);
-
-  const activeLink = navLinks.find(
-    (link) => pathname === link.href || pathname.startsWith(`${link.href}/`)
-  )?.href;
-  const currentIndicator = hoveredPath || activeLink;
 
   return (
     <>
-      <motion.header
-        style={{
-          backgroundColor: headerBackground,
-          borderBottomColor: headerBorder,
-          backdropFilter,
-        }}
-        className="fixed top-0 z-50 w-full border-b border-ink-900"
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
+          isScrolled
+            ? "bg-paper/95 backdrop-blur-md border-b border-border-default shadow-xs"
+            : "bg-paper/85 backdrop-blur-sm border-b border-border-default"
+        }`}
       >
-        <motion.div
-          style={{ height: headerHeight }}
-          className="w-full max-w-7xl px-4 xl:px-8 flex items-center justify-between mx-auto"
-        >
-          {/* Logo */}
+        <div className="w-full max-w-container px-4 sm:px-6 lg:px-8 mx-auto flex items-center justify-between h-16">
+          {/* Logo & Brand Identity */}
           <Link
             href="/"
-            className="flex items-center shrink-0 mr-8"
+            className="flex items-center shrink-0 mr-6 sm:mr-8 group focus-visible:outline-2 focus-visible:outline-safety-orange"
             aria-label="One Vision home"
-            onMouseEnter={() => setIsLogoHovered(true)}
-            onMouseLeave={() => setIsLogoHovered(false)}
           >
-            <Logo isHovered={isLogoHovered} />
+            <Logo />
           </Link>
 
-          {/* Desktop Nav — centered between logo and actions */}
+          {/* Desktop Navigation — Nordic Lagom with Motion Indicator */}
           <nav
-            className="hidden md:flex items-center gap-1 text-body-sm font-sans text-ink-700 flex-1"
+            className="hidden md:flex items-center gap-1 lg:gap-2 flex-1 relative h-full"
+            aria-label="Main Navigation"
             onMouseLeave={() => setHoveredPath(null)}
-            aria-label="Main navigation"
           >
-            {navLinks.map((link, i) => {
-              const isIndicatorActive = currentIndicator === link.href;
-              return (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, y: -8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.08 + i * 0.04, ease: [0.16, 1, 0.3, 1] }}
-                  className="relative"
-                >
-                  <Link
-                    href={link.href}
-                    onMouseEnter={() => setHoveredPath(link.href)}
-                    className={`relative z-10 px-3 py-1.5 flex items-center transition-colors duration-150 text-[13px] tracking-wide ${
-                      isIndicatorActive ? "text-paper font-medium" : "text-ink-700 hover:text-ink-900"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
+            {navLinks.map((link) => {
+              const isActive =
+                pathname === link.href ||
+                (link.href !== "/" && pathname.startsWith(`${link.href}/`));
+              const isHovered = hoveredPath === link.href;
 
-                  {isIndicatorActive && (
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onMouseEnter={() => setHoveredPath(link.href)}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`relative px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-200 ${
+                    isActive
+                      ? "text-ink-900"
+                      : "text-ink-500 hover:text-ink-900"
+                  }`}
+                >
+                  <span className="relative z-10">{link.label}</span>
+
+                  {/* Active Motion Pill (Brutalist razor-sharp bottom notch) */}
+                  {isActive && (
                     <motion.div
-                      layoutId="active-nav-block"
-                      className="absolute inset-0 bg-ink-900 z-0"
-                      initial={false}
-                      transition={{ type: "spring", stiffness: 500, damping: 40 }}
+                      layoutId="activeNavIndicator"
+                      className="absolute bottom-0 left-3 right-3 h-0.5 bg-safety-orange z-20"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
-                </motion.div>
+
+                  {isHovered && !isActive && (
+                    <motion.div
+                      layoutId="hoverNavIndicator"
+                      className="absolute inset-0 bg-surface/60 z-0"
+                      transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                    />
+                  )}
+                </Link>
               );
             })}
-            {/* Search Nav Item */}
-            <motion.div
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.08 + navLinks.length * 0.04, ease: [0.16, 1, 0.3, 1] }}
-              className="relative ml-2"
-            >
-              <button
-                onClick={() => setSearchOpen(true)}
-                onMouseEnter={() => setHoveredPath("search")}
-                className={`relative z-10 px-3 py-1.5 flex items-center transition-colors duration-150 text-[13px] tracking-wide cursor-pointer ${
-                  currentIndicator === "search" ? "text-paper font-medium" : "text-ink-700 hover:text-ink-900"
-                }`}
-              >
-                Search <span className="opacity-50 ml-1.5 text-[11px] font-mono mt-px">[Cmd+K]</span>
-              </button>
-
-              {currentIndicator === "search" && (
-                <motion.div
-                  layoutId="active-nav-block"
-                  className="absolute inset-0 bg-ink-900 z-0"
-                  initial={false}
-                  transition={{ type: "spring", stiffness: 500, damping: 40 }}
-                />
-              )}
-            </motion.div>
           </nav>
 
-          {/* Actions — right side */}
-          <div className="flex items-center gap-2 shrink-0">
-            {/* Deploy Support CTA — perfectly aligned height */}
-            <motion.div
-              className="hidden md:block"
-              whileHover={{ scale: 1.02 }}
+          {/* Header Right Actions */}
+          <div className="flex items-center gap-3 shrink-0">
+            {/* Search Trigger with Keyboard Shortcut */}
+            <motion.button
               whileTap={{ scale: 0.97 }}
-            >
-              <Button
-                className="bg-ink-900 text-paper hover:bg-ink-800 uppercase tracking-widest text-[11px] font-semibold h-auto py-1.75 px-4 rounded-none min-h-0!"
-                nativeButton={false}
-                render={<Link href="/donate" />}
-              >
-                Deploy Support
-              </Button>
-            </motion.div>
-
-            {/* Mobile Search */}
-            <button
               onClick={() => setSearchOpen(true)}
-              aria-label="Search site"
-              className="md:hidden p-2 text-ink-500 hover:text-ink-900 transition-colors cursor-pointer"
+              aria-label="Search site (Press Ctrl+K or Cmd+K)"
+              className="flex items-center gap-2 px-2.5 py-1.5 border border-border-default bg-surface/60 hover:bg-surface hover:border-ink-900 transition-colors text-ink-500 hover:text-ink-900 cursor-pointer"
             >
-              <Search className="size-4" />
-            </button>
+              <Search className="size-3.5" aria-hidden="true" />
+              <span className="hidden xl:inline font-mono text-[10px] uppercase tracking-wider text-ink-500">
+                Search
+              </span>
+              <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 font-mono text-[9px] font-bold text-ink-400 bg-paper border border-border-default">
+                ⌘K
+              </kbd>
+            </motion.button>
 
-            {/* Mobile hamburger */}
-            <button
-              ref={triggerRef}
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileOpen}
-              aria-controls="mobile-nav-panel"
-              className="md:hidden relative z-20 p-2 -mr-1 cursor-pointer"
-            >
-              <div className="relative w-5 h-4 flex items-center justify-center">
-                <motion.span
-                  animate={mobileOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -4 }}
-                  transition={{ duration: 0.2, ease: "easeInOut" }}
-                  className="absolute h-px w-5 bg-ink-900 block origin-center"
-                />
-                <motion.span
-                  animate={mobileOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
-                  transition={{ duration: 0.14 }}
-                  className="absolute h-px w-5 bg-ink-900 block origin-center"
-                />
-                <motion.span
-                  animate={mobileOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 4 }}
-                  transition={{ duration: 0.2, ease: "easeInOut" }}
-                  className="absolute h-px w-5 bg-ink-900 block origin-center"
-                />
-              </div>
-            </button>
-          </div>
-        </motion.div>
-      </motion.header>
-
-      {/* Mobile full-screen overlay */}
-      <motion.div
-        ref={panelRef}
-        id="mobile-nav-panel"
-        tabIndex={-1}
-        role="dialog"
-        aria-modal="true"
-        aria-label="Mobile navigation"
-        initial={false}
-        animate={mobileOpen ? { opacity: 1, pointerEvents: "auto" } : { opacity: 0, pointerEvents: "none" }}
-        transition={{ duration: 0.22, ease: "easeInOut" }}
-        className="fixed inset-0 z-40 bg-paper/97 backdrop-blur-md md:hidden flex flex-col"
-      >
-        <div className="flex flex-col h-full px-6 pt-24 pb-10">
-          <nav className="flex flex-col gap-0 flex-1" aria-label="Mobile navigation">
-            {navLinks.map((link, i) => {
-              const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`);
-              return (
-                <motion.div
-                  key={link.href}
-                  initial={false}
-                  animate={mobileOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-                  transition={{ duration: 0.25, delay: mobileOpen ? i * 0.05 : 0, ease: [0.16, 1, 0.3, 1] }}
+            {/* Donate CTA (Desktop) */}
+            <div className="hidden sm:block">
+              <motion.div whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  href="/donate"
+                  className="inline-flex items-center gap-2 px-5 py-2 bg-ink-900 hover:bg-safety-orange text-paper hover:text-ink-900 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300"
                 >
-                  <Link
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className={`font-sans text-display-md font-medium leading-tight py-4 border-b border-border-default flex items-center justify-between group ${
-                      isActive ? "text-ink-900" : "text-ink-500 hover:text-ink-900"
-                    } transition-colors duration-150`}
-                  >
-                    {link.label}
-                    <span className="text-ink-300 group-hover:text-ink-700 transition-colors text-heading-lg font-light">
-                      →
-                    </span>
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </nav>
+                  <span>Donate</span>
+                  <ArrowRight className="size-3.5" aria-hidden="true" />
+                </Link>
+              </motion.div>
+            </div>
 
-          {/* Mobile CTAs */}
-          <motion.div
-            initial={false}
-            animate={mobileOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 6 }}
-            transition={{ duration: 0.3, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col gap-2 mt-6"
-          >
-            <Button
-              variant="primary"
-              className="w-full font-sans text-[11px] tracking-widest uppercase h-11 rounded-none bg-safety-orange hover:bg-safety-orange-dim"
-              nativeButton={false}
-              render={<Link href="/donate" onClick={() => setMobileOpen(false)} />}
+            {/* Mobile Hamburger Menu Button */}
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-expanded={mobileOpen}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              className="md:hidden flex items-center justify-center size-9 border border-border-default bg-surface text-ink-900 hover:border-ink-900 transition-colors cursor-pointer"
             >
-              Deploy Support
-            </Button>
-            <Button
-              variant="secondary"
-              className="w-full font-sans text-[11px] tracking-widest uppercase h-10 rounded-none"
-              nativeButton={false}
-              render={<Link href="/get-help" onClick={() => setMobileOpen(false)} />}
-            >
-              Secure Contact
-            </Button>
-          </motion.div>
+              {mobileOpen ? (
+                <X className="size-5" aria-hidden="true" />
+              ) : (
+                <Menu className="size-5" aria-hidden="true" />
+              )}
+            </motion.button>
+          </div>
         </div>
-      </motion.div>
+      </header>
+
+      {/* Mobile Animated Navigation Drawer */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-x-0 top-16 bottom-0 z-40 bg-paper/98 backdrop-blur-xl border-b border-border-default md:hidden flex flex-col justify-between p-6 overflow-y-auto"
+          >
+            <nav className="flex flex-col divide-y divide-border-default" aria-label="Mobile Navigation">
+              {navLinks.map((link, idx) => {
+                const isActive =
+                  pathname === link.href ||
+                  (link.href !== "/" && pathname.startsWith(`${link.href}/`));
+
+                return (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.035, duration: 0.2 }}
+                  >
+                    <Link
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={`flex items-center justify-between py-4 text-left transition-colors ${
+                        isActive
+                          ? "text-safety-orange font-bold"
+                          : "text-ink-900 hover:text-safety-orange font-medium"
+                      }`}
+                    >
+                      <span className="font-serif text-2xl font-light tracking-tight">
+                        {link.label}
+                      </span>
+                      <ArrowRight className="size-4 opacity-50" />
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </nav>
+
+            {/* Mobile Bottom Quick Actions */}
+            <div className="pt-6 mt-6 border-t border-border-default space-y-4">
+              <div className="grid grid-cols-2 gap-3 font-mono text-[10px] uppercase tracking-wider text-ink-600">
+                <a
+                  href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`}
+                  className="flex items-center gap-2 p-3 border border-border-default bg-surface hover:border-ink-900 transition-colors"
+                >
+                  <Phone className="size-3.5 text-safety-orange" />
+                  <span>Field Office</span>
+                </a>
+                <Link
+                  href="/get-help"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center gap-2 p-3 border border-border-default bg-surface hover:border-ink-900 transition-colors"
+                >
+                  <MessageSquare className="size-3.5 text-safety-orange" />
+                  <span>Direct Help</span>
+                </Link>
+              </div>
+
+              <Link
+                href="/donate"
+                onClick={() => setMobileOpen(false)}
+                className="w-full flex items-center justify-center gap-2 py-3.5 bg-ink-900 hover:bg-safety-orange text-paper hover:text-ink-900 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300"
+              >
+                <span>Donate to Resilience Fund</span>
+                <ArrowRight className="size-4" />
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Global Search Dialog */}
       <SearchDialog isOpen={isSearchOpen} onClose={() => setSearchOpen(false)} />

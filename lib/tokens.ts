@@ -8,25 +8,33 @@
  * For CSS styling, always use the CSS custom properties directly.
  */
 
-// ── Colours ──
+// ── Colours (DESIGN.md Section 4: Utilitarian Emergency) ──
 
 export const colours = {
-  ink: "#10201E",
-  forest: "#123E3A",
-  pine: "#1B524C",
-  teal: "#5E8780",
-  tealSoft: "#8FA9A3",
-  mist: "#DCE8E5",
-  mistDeep: "#C8D8D4",
-  paper: "#F7F3EA",
-  sand: "#D8C8AE",
-  sandSoft: "#EADFC9",
-  terra: "#C85B3F",
-  terraDeep: "#A8462F",
-  marigold: "#D7A43A",
+  // Core palette
+  paper: "#FAFAFA",
+  surface: "#FFFFFF",
+  ink900: "#171717",
+  ink700: "#262626",
+  ink500: "#525252",
+  ink300: "#A3A3A3",
+  ink100: "#E5E5E5",
+  safetyOrange: "#F97316",
+  safetyOrangeDim: "#EA580C",
+  alertRed: "#DC2626",
+  fieldBlack: "#171717",
+  hazardYellow: "#EAB308",
+  statusActive: "#16A34A",
+
+  // Compatibility aliases
+  ink: "#171717",
   cloud: "#FFFFFF",
-  stone: "#6F7672",
-  stoneDeep: "#4A524E",
+  stone: "#525252",
+  teal: "#16A34A",
+  tealSoft: "#E5E5E5",
+  marigold: "#EAB308",
+  terra: "#F97316",
+  terraDeep: "#EA580C",
 } as const;
 
 export type ColourToken = keyof typeof colours;
@@ -35,9 +43,9 @@ export type ColourToken = keyof typeof colours;
 
 export const surfaces = [
   "paper",
-  "mist",
-  "sand",
-  "forest",
+  "surface",
+  "surface-alt",
+  "field-black",
   "ink",
 ] as const;
 
@@ -66,12 +74,13 @@ export const motion = {
   easeStandard: "cubic-bezier(0.4, 0, 0.2, 1)",
 } as const;
 
-// ── Radii ──
+// ── Radii (DESIGN.md Section 9: Brutalist Mandate) ──
 
 export const radii = {
-  sm: 4,
-  md: 8,
-  lg: 16,
+  none: 0,
+  sm: 0,
+  md: 0,
+  lg: 0,
 } as const;
 
 // ── Media breakpoints ──

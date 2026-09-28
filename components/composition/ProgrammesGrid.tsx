@@ -48,11 +48,11 @@ export function ProgrammesGrid() {
               <div className="p-8 pb-0 space-y-3 z-10 relative">
                 {/* Metadata Pills */}
                 <div className="flex flex-wrap items-center gap-3 text-xs text-ink-500">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-border-default bg-paper/80 backdrop-blur-sm px-3 py-1 font-medium text-ink-700 shadow-xs">
+                  <span className="inline-flex items-center gap-2 border border-border-default bg-paper/80 backdrop-blur-sm px-3 py-1 font-medium text-ink-700 shadow-xs">
                     {programme.category}
                   </span>
                   <div className="flex items-center gap-2">
-                    <span className={cn("size-2 rounded-full", programme.status === "Active" ? "bg-ok" : "bg-warm")} />
+                    <span className={cn("size-2", programme.status === "Active" ? "bg-status-active" : "bg-hazard-yellow")} />
                     {programme.status}
                   </div>
                   <span className="text-border-strong">•</span>

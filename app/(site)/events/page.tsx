@@ -47,7 +47,7 @@ export default function EventsPage() {
   };
 
   return (
-    <div className="flex flex-col w-full bg-paper pt-20">
+    <div className="flex flex-col w-full bg-paper">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -62,12 +62,10 @@ export default function EventsPage() {
           </>
         }
         description="We convene regularly with ward representatives, local youth, healthcare workers, and community members to plan transparent aid distribution and resilience programs."
-        imageSrc="/new-illustrations/community-support.webp"
-        imageAlt="Community members in an assembly"
       />
 
       {/* Upcoming Events */}
-      <Section tone="default" className="py-24 border-b border-border-default">
+      <Section tone="default" className="py-16 border-b border-border-default">
         <Container>
           <div className="mb-12">
             <Breadcrumbs items={[{ label: "Events", href: "/events" }]} />
@@ -88,7 +86,7 @@ export default function EventsPage() {
                 <article
                   key={evt.id}
                   id={evt.slug}
-                  className="bg-surface border border-border-default hover:border-action-primary transition-colors p-6 md:p-8 rounded-md flex flex-col md:flex-row gap-6 md:items-start justify-between scroll-mt-24"
+                  className="bg-surface border border-border-default hover:border-action-primary transition-colors p-6 md:p-8 flex flex-col md:flex-row gap-6 md:items-start justify-between scroll-mt-24"
                 >
                   <div className="space-y-4 max-w-xl">
                     <div className="flex flex-wrap items-center gap-3 text-caption font-semibold uppercase tracking-wider text-ink-500">
@@ -98,25 +96,25 @@ export default function EventsPage() {
                       </span>
                       {evt.time && (
                         <>
-                          <span className="size-1 bg-ink-300 rounded-full" />
+                          <span className="size-1 bg-ink-300" />
                           <span className="inline-flex items-center gap-1.5">
                             <Clock className="size-3.5" />
                             {evt.time}
                           </span>
                         </>
                       )}
-                      <span className="size-1 bg-ink-300 rounded-full" />
+                      <span className="size-1 bg-ink-300" />
                       <span className="inline-flex items-center gap-1.5">
                         <MapPin className="size-3.5" />
                         {evt.location}
                       </span>
                     </div>
 
-                    <h3 className="font-serif text-heading-lg font-light text-ink-900 leading-snug">
+                    <h3 className="font-sans text-heading-lg font-light text-ink-900 leading-snug">
                       {evt.title}
                     </h3>
 
-                    <p className="text-body-sm text-ink-500 font-light leading-relaxed">
+                    <p className="text-body-sm max-w-prose text-ink-500 font-light leading-relaxed">
                       {evt.description}
                     </p>
                   </div>
@@ -141,7 +139,7 @@ export default function EventsPage() {
       </Section>
 
       {/* Past Events & Documented Outcomes */}
-      <Section tone="alt" className="py-24 border-b border-border-default">
+      <Section tone="alt" className="py-16 border-b border-border-default">
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
             <div>
@@ -161,40 +159,40 @@ export default function EventsPage() {
                 <article
                   key={evt.id}
                   id={evt.slug}
-                  className="bg-surface border border-border-default p-6 md:p-8 rounded-md space-y-4 scroll-mt-24"
+                  className="bg-surface border border-border-default p-6 md:p-8 space-y-4 scroll-mt-24"
                 >
                   <div className="flex flex-wrap items-center gap-3 text-caption font-semibold uppercase tracking-wider text-ink-500">
                     <span className="inline-flex items-center gap-1.5">
                       <Calendar className="size-3.5" />
                       <time dateTime={evt.date}>{evt.displayDate}</time>
                     </span>
-                    <span className="size-1 bg-ink-300 rounded-full" />
+                    <span className="size-1 bg-ink-300" />
                     <span className="inline-flex items-center gap-1.5">
                       <MapPin className="size-3.5" />
                       {evt.location}
                     </span>
-                    <span className="size-1 bg-ink-300 rounded-full" />
-                    <span className="text-caption uppercase px-2 py-0.5 bg-surface-alt border border-border-default rounded-sm">
+                    <span className="size-1 bg-ink-300" />
+                    <span className="text-caption uppercase px-2 py-0.5 bg-surface-alt border border-border-default">
                       Completed
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-heading-lg font-light text-ink-900">
+                  <h3 className="font-sans text-heading-lg font-light text-ink-900">
                     {evt.title}
                   </h3>
 
-                  <p className="text-body-sm text-ink-500 font-light leading-relaxed">
+                  <p className="text-body-sm max-w-prose text-ink-500 font-light leading-relaxed">
                     {evt.description}
                   </p>
 
                   {evt.outcome && (
-                    <div className="bg-surface-alt border border-border-default p-4 rounded-sm flex items-start gap-3 mt-4">
+                    <div className="bg-surface-alt border border-border-default p-4 flex items-start gap-3 mt-4">
                       <CheckCircle2 className="size-5 text-action-primary shrink-0 mt-0.5" />
                       <div>
                         <span className="text-caption uppercase tracking-wider text-ink-900 font-semibold block mb-0.5">
                           Verified Outcome
                         </span>
-                        <p className="text-body-sm text-ink-700 font-light leading-relaxed">
+                        <p className="text-body-sm max-w-prose text-ink-700 font-light leading-relaxed">
                           {evt.outcome}
                         </p>
                       </div>

@@ -2,52 +2,46 @@
 
 ## 1. Design thesis
 
-**One Vision should feel like a trusted civic studio rooted in Imphal: calm enough to listen, clear enough to act, and human enough to remember the people behind every programme.**
+**One Vision is a crisis beacon: stark, data-heavy, utilitarian. Every pixel must serve survival, coordination, or truth. Urgency and resilience over spectacle.**
 
 The visual system combines:
-- the editorial restraint and spatial discipline of the supplied architecture/web reference;
-- the action-oriented campaign structure seen in major NGOs;
-- the clarity, accessibility and information hierarchy associated with public-health communication;
-- a distinct Imphal/Manipur visual vocabulary.
+- the high-contrast, dashboard-like composition of frontline humanitarian operations (MSF, ICRC field reporting);
+- the data integrity and transparency of crisis data platforms;
+- the accessibility and cognitive-load awareness of emergency communication systems;
+- a distinct Imphal/Manipur operational context.
 
-Do not imitate Greenpeace, WHO, or the supplied reference. Borrow principles, then create a One Vision identity.
+Do not soften this system. It is not a marketing site. It is a public data beacon for a polycrisis zone.
 
 ## 2. Brand personality
 
 Three words:
-**Grounded · Human · Forward**
+**Stark · Resilient · Accountable**
 
 Supporting traits:
-- credible, not bureaucratic;
-- hopeful, not sentimental;
-- local, not provincial;
-- contemporary, not trendy;
-- expressive, not noisy.
+- urgent, not performative;
+- factual, not emotional;
+- utilitarian, not decorative;
+- transparent, not polished;
+- local, not generic.
 
 ## 3. Logo direction
 
 ### Primary concept: The Open V
 
-Create a typography-led wordmark:
+Typography-led wordmark:
 
 **ONE VISION**
 
-The “V” is the visual anchor. Construct it as two clean strokes that subtly suggest:
-- two people meeting;
-- an open path;
-- a valley/horizon;
-- collective vision.
+The "V" is the visual anchor. Two clean strokes suggesting convergence, collective action, forward movement.
 
-The mark should work in one colour before any secondary treatment is introduced.
+The mark must work in one colour at any size. Brutalist — no rounded treatments, no embellishments.
 
 Avoid:
-- generic hands;
-- globe icons;
-- hearts;
-- puzzle pieces;
+- generic hands, globes, hearts, puzzle pieces;
 - literal eye icons;
 - NGO clip-art;
-- complex emblems.
+- complex emblems;
+- any rounded or soft treatment.
 
 ### Lockups
 
@@ -56,62 +50,62 @@ Avoid:
 3. Compact V monogram
 4. One-colour stamp for documents/social avatars
 
-The logo must remain legible at small sizes.
-
 ## 4. Colour system
 
-### Core palette
+### Core palette (Utilitarian Emergency)
 
 | Token | Hex | Role |
 |---|---|---|
-| Ink | #10201E | Primary text, footer |
-| Deep Forest | #123E3A | Primary brand field |
-| Mineral Teal | #5E8780 | Secondary field |
-| Mist | #DCE8E5 | Soft background |
-| Paper | #F7F3EA | Primary warm background |
-| Sand | #D8C8AE | Editorial section |
-| Terracotta | #C85B3F | Action/accent |
-| Marigold | #D7A43A | Secondary highlight |
-| Cloud | #FFFFFF | Cards and negative space |
-| Stone | #6F7672 | Secondary text |
+| Paper | #FAFAFA | Primary base (off-white, prevents halation) |
+| Surface | #FFFFFF | Raised cards/elements |
+| Ink 900 | #171717 | Primary text, headers |
+| Ink 700 | #262626 | Body text |
+| Ink 500 | #525252 | Muted text, secondary |
+| Ink 300 | #A3A3A3 | Disabled/captions |
+| Ink 100 | #E5E5E5 | Borders, dividers |
+| Safety Orange | #F97316 | Primary action, urgency |
+| Safety Orange Dim | #EA580C | Action hover |
+| Alert Red | #DC2626 | Critical/destructive |
+| Field Black | #171717 | Inverted backgrounds |
+| Hazard Yellow | #EAB308 | Warning state |
+| Status Active | #16A34A | Operational status |
 
 ### Usage ratio
 
-Approximate:
-- 55% Paper/Cloud/Mist;
-- 25% Deep Forest/Ink;
-- 10% Mineral Teal/Sand;
-- 10% Terracotta/Marigold accents.
+- 60% Paper/Surface/Ink (neutral base);
+- 25% Field Black (inverted sections, header, footer);
+- 10% Safety Orange (action, urgency);
+- 5% Alert Red/Status Active (status indicators only).
 
-The accent colours are scarce. They should communicate action, not decorate every component.
+Safety Orange is the primary accent. It marks actions and urgency. Alert Red is reserved for critical states. Do not use accent colours decoratively.
 
 ## 5. Typography
 
-Recommended pairing:
+**UI/Body:** Inter — utilitarian grotesk sans-serif
+**Data/Metrics:** JetBrains Mono or IBM Plex Mono — for all numerical data, stats, codes, reference IDs
 
-**Display:** Fraunces or a similar high-quality editorial serif  
-**UI/body:** Inter or a similar neutral sans-serif
-
-If licensing or performance requires a simpler stack:
-- use Inter for body/UI;
-- use a locally hosted editorial serif for display.
+No serif fonts. The editorial serif era is deprecated.
 
 Typography hierarchy:
-- Display XL: 64–88px desktop;
-- Display L: 48–64px;
-- H1: 42–56px;
-- H2: 32–42px;
-- H3: 24–30px;
-- body: 17–19px;
-- small: 14–15px.
+- Display XL: 72px desktop, fluid scale to ~40px mobile;
+- Display LG: 56px desktop;
+- Display MD: 40px desktop;
+- Heading XL: 32px;
+- Heading LG: 24px;
+- Heading MD: 20px;
+- Body LG: 18px;
+- Body: 16px;
+- Body SM: 14px;
+- Label: 12px uppercase tracking-widest;
+- Caption: 12px.
 
-Mobile sizes should be reduced fluidly, not through abrupt jumps.
+Mobile sizes should scale fluidly using `clamp()`, not abrupt breakpoint jumps.
 
 ## 6. Grid
 
 Desktop:
 - 12-column grid;
-- max content width: approximately 1280–1360px;
+- max content width: 1200px;
 - 24–32px gutters.
 
 Tablet:
@@ -121,170 +115,115 @@ Mobile:
 - 4 columns;
 - 20px outer padding.
 
-Use asymmetric compositions deliberately, but maintain alignment to the underlying grid.
+Use dense, dashboard-like compositions. Minimise negative space in favour of vital data.
 
 ## 7. Spacing
 
 Base unit: 4px.
 
 Common values:
-4, 8, 12, 16, 24, 32, 48, 64, 80, 96, 128.
+4, 8, 12, 16, 24, 32, 48, 64, 96, 128.
 
-Major editorial sections should have 96–160px vertical breathing room on desktop.
+Sections should use 64–96px vertical spacing. No "editorial breathing room" — density is a feature.
 
 ## 8. Photography direction
 
-Photography should feel documentary and respectful.
+Photography must feel documentary and operationally secure.
 
-Preferred:
-- real community participation;
-- volunteers working with people rather than posing over them;
-- hands and environments when identity should be protected;
-- neighbourhood streets;
-- schools/community spaces;
-- local landscapes;
-- quiet portraits with consent;
-- before/after context only when genuinely meaningful.
+Required:
+- real field operations;
+- anonymised subjects (hands, environments, blurred faces);
+- equipment, infrastructure, solar arrays, health stations;
+- data displays, maps, operational dashboards;
+- before/after only when genuinely meaningful.
 
-Avoid:
+Forbidden:
 - exploitative suffering imagery;
-- generic stock-photo “charity” scenes;
-- excessive smiling-for-camera imagery;
-- poverty porn;
-- over-saturated filters.
+- generic stock charity scenes;
+- posed group photos;
+- over-saturated filters;
+- exact geographic coordinates of vulnerable sites in metadata.
 
-## 9. Illustration direction
+All photography must pass OpSec review before publication.
 
-Use illustration for:
-- campaign explainers;
-- programme introductions;
-- empty states;
-- annual reports;
-- social campaign assets;
-- sensitive topics where photography could compromise dignity/privacy.
+## 9. Border radius
 
-### Master illustration prompt
+**Zero everywhere.** Brutalist mandate.
 
-“Retro-modernist cinematic editorial illustration of [SUBJECT], rooted in Imphal and Manipur. Large areas of high-purity colour blocks: deep blue-green background, red-orange architectural elements, cream-white planes and mineral neutrals. Minimal geometric composition with architectural perspective, hard side illumination, long crisp shadows and generous negative space. Quiet, human and contemplative atmosphere. Flat colour blocks combined with fine linework and subtle local details. Slight grain, matte printed-paper texture, restrained vintage character. Contemporary editorial art direction, culturally specific without stereotypes. No text, no watermark, no logo, no 3D render, no glossy CGI, no photorealistic photography.”
+`border-radius: 0px` is enforced globally via `!important`. Do not use `rounded-*` Tailwind classes. They are dead code.
 
-### Illustration subjects to commission
+## 10. Motion
 
-1. Community volunteers meeting residents.
-2. A neighbourhood resource/help desk.
-3. Young people learning together.
-4. Women-led community work.
-5. Elder/community knowledge exchange.
-6. Flood/rain preparedness without disaster spectacle.
-7. Healthcare access/navigation.
-8. Education and youth development.
-9. Local environment/community stewardship.
-10. A quiet Imphal street/community space at dusk.
-11. A family receiving information/support.
-12. Volunteers mapping community needs.
-
-## 10. Image composition
-
-Use four recurring patterns:
-
-### A. Full-bleed story
-Large image + short editorial statement.
-
-### B. Editorial mosaic
-One large image with 2–4 smaller contextual images.
-
-### C. Split narrative
-Text on one side, documentary image on the other.
-
-### D. Evidence strip
-Three to five metrics/cards with a supporting image.
-
-Avoid card grids everywhere. The reference works partly because the page periodically changes composition.
-
-## 11. Motion
-
-Motion should feel like editorial pacing.
+Motion budget is minimal. This site targets inexpensive phones and slow connections.
 
 Allowed:
-- subtle image reveal;
-- 150–350ms hover transitions;
-- gentle section entrance;
-- horizontal image drift;
-- restrained number animation.
+- 150–250ms hover transitions (opacity, background-color);
+- state-change feedback (button press, toast entry, focus ring) at ~100ms;
+- subtle section entrance (opacity 0→1, no spatial transform).
 
-Avoid:
-- parallax everywhere;
-- bouncing cards;
-- excessive cursor effects;
-- autoplay video with sound;
-- motion that delays access to content.
+Forbidden:
+- parallax;
+- spring physics;
+- staggered reveals;
+- scroll-driven transforms;
+- any animation that delays access to content;
+- any animation that adds >5KB to the JS bundle.
 
-Respect prefers-reduced-motion.
+Respect `prefers-reduced-motion`:
+- Decorative animations: disabled entirely;
+- State-change feedback: preserved at ~100ms;
+- Never use a global 0.01ms kill switch — it destroys useful feedback.
 
-## 12. Header
+## 11. Header
 
 Desktop:
-- One Vision wordmark left;
-- navigation centre/right;
-- primary “Support” action;
-- optional language selector.
-
-Suggested nav:
-**What We Do · Stories · Get Help · Get Involved · About**
-
-Keep the header visually light.
+- ONE VISION wordmark left;
+- Navigation items: Field Reports, The 4 Pillars, Secure Contact, About;
+- "Deploy Support" action button (right);
+- Search (Cmd+K).
 
 Mobile:
-- wordmark;
-- menu;
-- persistent high-priority action only when useful.
+- Wordmark;
+- Hamburger menu;
+- Search icon.
 
-## 13. Homepage composition
+Header must remain under 64px height. Fixed position with transparent-to-solid scroll treatment.
 
-### Section 01 — Hero
-Large editorial statement:
-**A stronger Imphal begins with people who show up for one another.**
+## 12. Homepage composition
 
-Supporting line explaining One Vision in one sentence.
+### Section 01 — Hero (Crisis Beacon)
+Large utilitarian statement with key metrics.
+Actions: Deploy Support, Secure Contact.
 
-Actions:
-- Get Involved
-- Find Support
+**Layout Lock (Immutable):**
+- Proportions: Asymmetrical card with `flex-1` content on the left and 1:1 `aspect-square` image container on the right (`lg:h-95 xl:h-100`).
+- Sizing: Card height strictly locked to `380px` (`lg:h-95`) and `400px` (`xl:h-100`).
+- Section Clearance: `pt-24 md:pt-26 lg:pt-28 pb-4 md:pb-6 lg:pb-6` ensuring full viewport fit on compact laptop displays (1280x585) without vertical scroll.
+- Rule: Layout, geometry, height, and width are permanently frozen across all pages (`Hero.tsx` and `PageHero.tsx`). Only internal content may change.
 
-Visual:
-large documentary/illustration composition, not a generic charity collage.
+### Section 02 — Key Metrics (StatsHero)
+Q3 2026 ground reality data. Verifiable, dated, sourced.
 
-### Section 02 — What is happening
-3–4 active programme/campaign stories.
+### Section 03 — The 4 Pillars (ProgrammesBento)
+Operational dashboard: Health Equity, Energy Sovereignty, Ecological Restoration, Economic Dignity.
+Each pillar shows: status, metric, description, link.
 
-### Section 03 — The people
-Portrait/story-led human section.
+### Section 04 — Ground Reality (WhatWeDo)
+Current deployments and active operations.
 
-### Section 04 — What we do
-Programme pillars:
-- Community Support
-- Youth & Education
-- Health & Wellbeing
-- Livelihoods & Opportunity
-- Environment & Resilience
+### Section 05 — Field Report (SplitNarrative)
+One featured story with anonymised imagery.
 
-These should be configurable rather than hard-coded if the organisation's actual programme structure differs.
+### Section 06 — Secure Routing
+Link to /get-help with OpSec messaging. This is the core differentiator.
 
-### Section 05 — Evidence
-Impact metrics with dates and methodology.
+### Section 07 — Trust & Transparency
+Governance, funding deployment, reports, open ledger links.
 
-### Section 06 — Story
-One long-form feature with large image.
+### Section 08 — Closing CTA (QuietClose)
+Single clear action: Deploy Support.
 
-### Section 07 — Take part
-Volunteer / partner / donate / share knowledge.
-
-### Section 08 — Transparency
-Reports, governance, funding information, policies.
-
-### Section 09 — Closing
-A quiet image and a single clear invitation.
-
-## 14. Information architecture
+## 13. Information architecture
 
 Top-level routes:
 
@@ -296,196 +235,81 @@ Top-level routes:
  /campaigns/[slug]
  /stories
  /stories/[slug]
- /get-help
- /get-involved
+ /get-help (Secure Contact — routes to Signal/ProtonMail)
  /volunteer
  /donate
  /events
  /reports
+ /open-ledger
  /contact
  /search
  /privacy
  /accessibility
  /terms
 
-Potential phase-2 routes:
- /resources
- /community-directory
- /partner-with-us
- /impact
- /languages/[locale]
+## 14. Get Help / Secure Contact
 
-## 15. Get Help experience
+**No in-app intake forms.** All sensitive communications route to:
+1. Signal (recommended, end-to-end encrypted);
+2. ProtonMail (for detailed case submissions);
+3. Field phone (non-sensitive only).
 
-This is a core differentiator.
+The page must explain:
+- why web forms are not used (active surveillance);
+- what to include in messages;
+- what NOT to include (GPS, full names, diagnoses);
+- expected response times.
 
-The user should be able to:
-1. identify what kind of support they need;
-2. see whether One Vision directly provides it;
-3. find a relevant programme/resource;
-4. submit a safe request if appropriate;
-5. receive a confirmation and expected next step.
-
-Do not promise emergency response unless One Vision actually provides it.
-
-Emergency information must clearly distinguish:
-- emergency services;
-- external organisations;
-- One Vision's own support.
-
-## 16. Donation experience
+## 15. Donation experience
 
 Design for trust:
-- explain what donations support;
-- offer one-time and recurring options if legally/operationally supported;
-- make fees/charges clear where relevant;
-- show organisation identity;
-- provide receipts/confirmation;
-- publish appropriate financial/impact documentation;
-- never imply that a specific rupee amount guarantees an individual outcome unless substantiated.
+- explain what donations support (which pillar/operation);
+- one-time donations (recurring when legally cleared);
+- fee transparency;
+- organisation identity and registration;
+- route to certified payment gateway;
+- never store card/UPI details in-app.
 
-## 17. Volunteer experience
+## 16. Forms
 
-Form fields should be progressive:
-1. interest;
-2. location;
-3. availability;
-4. skills;
-5. contact;
-6. consent.
+All forms follow a single pattern:
+- Labels: `text-body-sm font-semibold text-ink-900 uppercase tracking-widest`
+- Inputs: `h-12` height, `border-border-default`, `bg-transparent`
+- Submit: `<Button variant="primary">` with Lucide arrow icon
+- Honeypot: `name="ov_system_field"`, `sr-only`, `aria-hidden`
+- Validation: Zod schema, inline error messages
 
-After submission:
-- clear confirmation;
-- expected response time;
-- what happens next.
+## 17. Accessibility
 
-## 18. Content model
+Minimum target: WCAG 2.2 AA.
+Required:
+- stark contrast ratios (4.5:1 minimum for text);
+- semantic headings and landmarks;
+- `<main id="main-content">` target for skip link;
+- clear, unambiguous labels;
+- no information conveyed by colour alone;
+- 44×44px minimum touch targets;
+- keyboard navigation with visible focus indicators;
+- `prefers-reduced-motion` respected intentionally.
 
-Core entities:
+## 18. Content rules
 
-### Programme
-- title
-- slug
-- summary
-- problem
-- approach
-- geography
-- status
-- start date
-- people served
-- impact metrics
-- lead/contact
-- images
-- related stories
-- documents
+See CONTENT.md for full editorial system.
+Key: factual, urgent, evidence-led. No marketing language.
 
-### Campaign
-- title
-- objective
-- context
-- action
-- status
-- start/end
-- evidence
-- CTA
-- media
-
-### Story
-- title
-- dek
-- author
-- date
-- location
-- body
-- hero media
-- people/consent metadata
-- related programme
-
-### Report
-- title
-- reporting period
-- document
-- summary
-- publication date
-
-### Event
-- title
-- date/time
-- location
-- description
-- registration
-- capacity
-- status
-
-## 19. Accessibility language
-
-The design should anticipate English plus relevant local-language content.
-
-Do not bake copy into images.
-
-Allow:
-- longer strings;
-- different line lengths;
-- translated navigation labels;
-- language-specific metadata;
-- locale-aware dates and numbers.
-
-## 20. Responsive behavior
-
-Desktop is not the master layout. Define every composition from mobile upward.
-
-At mobile:
-- mosaics collapse to a deliberate reading order;
-- decorative images may disappear;
-- tables become cards;
-- horizontal navigation becomes scrollable or stacked;
-- forms become single-column;
-- CTAs remain visible;
-- typography stays comfortable.
-
-## 21. Trust and transparency module
-
-Create a reusable “Trust Panel” containing:
-- legal/registration identity as applicable;
-- governance information;
-- contact information;
-- funding transparency;
-- annual reports;
-- safeguarding/privacy policy;
-- correction/contact pathway.
-
-This should appear contextually, not as a wall of legal text.
-
-## 22. Design anti-patterns
+## 19. Design anti-patterns
 
 Do not:
-- copy Greenpeace's visual identity;
-- copy WHO's visual identity;
-- use a generic NGO green;
-- use a globe/hand/heart logo cliché;
-- fill every section with cards;
+- modify or alter the Hero section layout, height, width, padding, or 1:1 image aspect ratio (layout is permanently locked);
+- use rounded corners anywhere;
 - use gradients as decoration;
-- use stock charity imagery;
-- use excessive rounded UI;
-- use huge shadows;
+- use serif fonts;
+- use generic charity imagery;
+- use excessive shadows;
 - make every CTA red;
 - bury contact information;
-- make donation the only visible action;
-- create fake impact numbers.
-
-## 23. Success criteria
-
-A visitor should understand within approximately 10 seconds:
-- who One Vision is;
-- where it works;
-- what it does;
-- how they can participate.
-
-A person seeking help should find a relevant route without reading the entire homepage.
-
-A donor should be able to understand:
-- who receives the money;
-- what it supports;
-- how the organisation demonstrates accountability.
-
-A volunteer should be able to submit interest quickly on a phone.
+- create fake impact numbers;
+- collect sensitive data in web forms;
+- add animations that delay content access;
+- use parallax or spring physics;
+- load unnecessary font weights.

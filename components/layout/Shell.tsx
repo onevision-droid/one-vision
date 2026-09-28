@@ -27,7 +27,7 @@ export const Section = React.forwardRef<HTMLElement, SectionProps>(
         ref={ref}
         data-tone={tone}
         className={cn(
-          "py-8 md:py-9", // 64px mobile, 96px desktop
+          "py-10 md:py-12 lg:py-14 overflow-hidden",
           toneClasses[tone],
           className
         )}
@@ -51,7 +51,7 @@ export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
       <div
         ref={ref}
         className={cn(
-          "mx-auto w-full max-w-7xl px-5 xl:px-6", // 24px default, 32px >= xl
+          "mx-auto w-full max-w-max px-4 sm:px-6 lg:px-8",
           className
         )}
         {...props}

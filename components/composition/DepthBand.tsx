@@ -31,7 +31,7 @@ export function DepthBand({
           <h2
             id={headingId}
             className={cn(
-              "font-serif font-light tracking-tight",
+              "font-sans font-light tracking-tight",
               "text-display-md",
               "mb-12 lg:mb-16",
             )}

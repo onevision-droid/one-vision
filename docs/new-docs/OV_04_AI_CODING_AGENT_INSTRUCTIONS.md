@@ -1,3 +1,5 @@
+<!-- DEPRECATED: This document references the prior design era (Nordic Lagom / Fraunces serif). The canonical design system is now /DESIGN.md (Frontline Humanitarian mandate). -->
+
 # One Vision — Instructions for the AI Coding Agent
 **Use:** paste the Master Prompt below into your coding agent's first message, then run each Phase Prompt in order. The agent must have the repo, `OV_02_DESIGN_REGISTRY.md`, and `design-tokens.json`.
 

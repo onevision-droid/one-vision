@@ -10,7 +10,7 @@ function Card({
     <div
       data-slot="card"
       className={cn(
-        "flex flex-col rounded-md border border-border-default bg-surface",
+        "flex flex-col border border-border-default bg-surface",
         size === "default" ? "p-5" : "p-6",
         className
       )}

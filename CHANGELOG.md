@@ -42,4 +42,4 @@ This changelog details the comprehensive transition of "One Vision" from inconsi
 - Removed hardcoded unapproved Tailwind styles from `Footer.tsx` (like `bg-white` and `text-ink/60`) and replaced them with explicit design tokens.
 
 ## Conclusion
-The codebase now accurately reflects the Nordic Lagom inspired design directives established in the Design Registry. Components are restricted, predictable, and maintain the intended aesthetic of One Vision without reliance on ad-hoc Tailwind styling.
+The codebase reflects the Frontline Humanitarian design mandate established in AGENTS.md and PRODUCT.md. Components are restricted, predictable, and maintain the stark, utilitarian, data-heavy aesthetic of the vanguard identity.

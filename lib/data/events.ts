@@ -13,7 +13,7 @@ export const events: EventItem[] = [
       "Bi-monthly open forum bringing together ward representatives, youth volunteers, and elders to review aid distribution ledgers and prioritize community winter requirements.",
     status: "upcoming",
     registrationUrl: "/contact?subject=Event+Registration:+Townhall",
-    image: "/new-illustrations/community-support.webp",
+    image: "/community-voices.jpg",
   },
   {
     id: "evt-2",
@@ -27,7 +27,7 @@ export const events: EventItem[] = [
       "Training session for new volunteers joining the Mobile Health Unit. Covers medical triage support protocols, safeguarding standards, and logistics in peripheral districts.",
     status: "upcoming",
     registrationUrl: "/volunteer",
-    image: "/new-illustrations/health-access.webp",
+    image: "/volunteer-hero.jpg",
   },
   {
     id: "evt-3",
@@ -42,7 +42,7 @@ export const events: EventItem[] = [
     status: "past",
     outcome:
       "85 community volunteers across 12 wards certified on emergency supply routing; pre-positioned 400 family relief packages in flood-vulnerable zones.",
-    image: "/new-illustrations/imphal-streetscape.webp",
+    image: "/about-hero.jpg",
   },
   {
     id: "evt-4",
@@ -57,6 +57,6 @@ export const events: EventItem[] = [
     status: "past",
     outcome:
       "48 students completed digital certification; 14 secured direct apprenticeships with local educational institutes and trading associations.",
-    image: "/new-illustrations/youth-learning.webp",
+    image: "/community-voices.jpg",
   },
 ];

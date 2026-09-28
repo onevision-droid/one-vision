@@ -1,12 +1,16 @@
 import { NextResponse } from "next/server";
-
 import { supabase } from "@/lib/supabase/client";
 
+// Cache this route for 1 hour to prevent DB hammering
+export const revalidate = 3600;
+
 export async function GET() {
+  // Hard limit to 5000 rows to prevent unbounded queries (DoS vector)
   const { data: ledgerEntries, error } = await supabase
     .from("fund_allocations")
     .select("*")
-    .order("date", { ascending: false });
+    .order("date", { ascending: false })
+    .limit(5000);
 
   if (error || !ledgerEntries) {
     return new NextResponse("Internal Server Error", { status: 500 });

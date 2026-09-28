@@ -55,7 +55,7 @@ export default function TeamPage() {
           </div>
           <div className="text-center max-w-4xl mx-auto">
             <Badge variant="default" className="mb-6 mx-auto">Our People</Badge>
-            <h1 className="font-serif text-display-lg md:text-display-xl font-light leading-none tracking-tight text-ink-900 mb-8">
+            <h1 className="font-sans text-display-lg md:text-display-lg font-light leading-none tracking-tight text-ink-900 mb-8">
               The Team Behind <br className="hidden md:block"/> the Vision
             </h1>
             <p className="font-sans text-body-lg text-ink-500 leading-relaxed font-light max-w-2xl mx-auto">
@@ -75,7 +75,7 @@ export default function TeamPage() {
                 <div className="md:col-span-4">
                   <div className="sticky top-28">
                     <h2 className="font-sans text-heading-xl font-medium text-ink-900 mb-4">{dept.name}</h2>
-                    <p className="font-sans text-body-sm text-ink-500 leading-relaxed">
+                    <p className="font-sans text-body-sm max-w-prose text-ink-500 leading-relaxed">
                       {dept.description}
                     </p>
                   </div>
@@ -104,7 +104,7 @@ export default function TeamPage() {
       {/* Secure Contact CTA */}
       <Section tone="alt" className="pt-24 pb-24 border-t border-border-default">
         <Container className="max-w-3xl text-center">
-          <h2 className="font-serif text-heading-xl font-light tracking-tight text-ink-900 mb-6">
+          <h2 className="font-sans text-heading-xl font-light tracking-tight text-ink-900 mb-6">
             Get in Touch
           </h2>
           <p className="font-sans text-ink-500 leading-relaxed mb-8">

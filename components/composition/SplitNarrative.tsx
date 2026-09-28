@@ -1,20 +1,11 @@
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/layout/Shell";
-import { SectionWrapper, isDarkSurface, type CompositionProps } from "./shared";
+import { SectionWrapper, type CompositionProps } from "./shared";
 
-/**
- * Split Narrative — 5/7 text/media split.
- * Media may bleed to viewport edge.
- * Doc 02 §9 pattern #4.
- */
 interface SplitNarrativeProps extends CompositionProps {
-  /** Text/content side */
   content: React.ReactNode;
-  /** Media side (image, illustration) */
   media: React.ReactNode;
-  /** Optional heading */
   heading?: React.ReactNode;
-  /** Heading ID for aria-labelledby */
   headingId?: string;
 }
 
@@ -33,45 +24,45 @@ export function SplitNarrative({
       aria-labelledby={headingId}
       className={className}
     >
-      <Container>
+      <Container className="px-0 md:px-0">
         {heading && (
-          <h2
-            id={headingId}
-            className={cn(
-              "font-serif font-light tracking-tight",
-              "text-display-md",
-              "mb-12 lg:mb-16",
-            )}
-          >
-            {heading}
-          </h2>
+          <div className="border-b lg:border-x border-border-default px-6 py-4 md:px-8 md:py-5 bg-surface">
+            <div className="flex items-center gap-3">
+              <span className="size-1.5 bg-safety-orange shrink-0" />
+              <h2
+                id={headingId}
+                className="font-mono text-[11px] uppercase tracking-widest text-ink-500 font-bold"
+              >
+                {heading}
+              </h2>
+            </div>
+          </div>
         )}
 
         <div
           className={cn(
-            "grid lg:grid-cols-12 overflow-hidden rounded-3xl border border-border-default bg-surface shadow-xl shadow-black/5",
+            "grid lg:grid-cols-12 overflow-hidden border-b lg:border-x border-border-default bg-paper",
             reversed ? "lg:[direction:rtl] lg:*:[direction:ltr]" : "",
           )}
         >
-          {/* Content: 5 columns */}
-          <div className="lg:col-span-5 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+          {/* Content: 6 columns — 50% */}
+          <div className="lg:col-span-6 p-6 md:p-10 lg:p-12 lg:border-r border-border-default flex flex-col justify-center">
             <div
               className={cn(
                 "space-y-6",
-                "text-body leading-relaxed",
-                isDarkSurface(surface) ? "text-paper" : "text-ink-700",
+                "font-sans leading-relaxed text-ink-900",
               )}
             >
               {content}
             </div>
           </div>
 
-          {/* Media: 7 columns */}
-          <div className="lg:col-span-7 relative">
-            <div className="relative h-full min-h-100 w-full overflow-hidden">
+          {/* Media: 6 columns — 50% */}
+          <div className="lg:col-span-6 relative bg-ink-900 border-t lg:border-t-0 border-border-default">
+            <div className="relative h-full min-h-75 lg:min-h-85 w-full overflow-hidden [&>img]:grayscale [&>img]:hover:grayscale-0 [&>img]:transition-all [&>img]:duration-700">
               {media}
-              {/* Cinematic fade for optional overlay text/badges */}
-              <div className="absolute inset-0 bg-linear-to-t from-ink-900/40 via-transparent to-transparent opacity-80 pointer-events-none" />
+              {/* Brutalist overlay */}
+              <div className="absolute inset-0 bg-ink-900/10 mix-blend-multiply pointer-events-none" />
             </div>
           </div>
         </div>
