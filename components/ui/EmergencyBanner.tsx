@@ -56,9 +56,9 @@ export function EmergencyBanner({
  >
  <div className="container max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-4">
  <div className="flex items-start gap-3">
- <div className="size-8 bg-danger/20 border border-danger/40 flex items-center justify-center shrink-0 mt-0.5">
- <AlertTriangleIcon className="h-4 w-4 text-danger shrink-0" />
- </div>
+        <div className="size-8 bg-destructive/20 border border-destructive/40 flex items-center justify-center shrink-0 mt-0.5 rounded-xs">
+          <AlertTriangleIcon className="h-4 w-4 text-destructive shrink-0" />
+        </div>
  <div className="space-y-1">
  <div className="flex flex-wrap items-center gap-2">
  <span className="font-semibold font-sans text-body-sm text-background tracking-wide uppercase">

@@ -135,7 +135,7 @@ export function VolunteerForm() {
                   Full Name <span className="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
-                  <Input placeholder="Jane Doe" autoComplete="name" className="rounded-none border-border focus-visible:ring-ring" {...field} />
+                  <Input placeholder="Jane Doe" autoComplete="name" className="rounded-sm border-border focus-visible:ring-primary/20" {...field} />
                 </FormControl>
                 <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
@@ -150,7 +150,7 @@ export function VolunteerForm() {
                   Email <span className="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
-                  <Input placeholder="jane@example.com" type="email" autoComplete="email" className="rounded-none border-border focus-visible:ring-ring" {...field} />
+                  <Input placeholder="jane@example.com" type="email" autoComplete="email" className="rounded-sm border-border focus-visible:ring-primary/20" {...field} />
                 </FormControl>
                 <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
@@ -168,7 +168,7 @@ export function VolunteerForm() {
                 Phone Number
               </FormLabel>
               <FormControl>
-                <Input placeholder="+91 98765 43210" autoComplete="tel" className="rounded-none border-border focus-visible:ring-ring" {...field} />
+                <Input placeholder="+91 98765 43210" autoComplete="tel" className="rounded-sm border-border focus-visible:ring-primary/20" {...field} />
               </FormControl>
               <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
             </FormItem>
@@ -189,7 +189,7 @@ export function VolunteerForm() {
                   Select all that apply.
                 </p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border border-border *:border-b *:border-r *:border-border bg-muted">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border border-border *:border-b *:border-r *:border-border bg-card rounded-sm overflow-hidden">
                 {areasOfInterest.map((item) => (
                   <FormField
                     key={item.id}
@@ -202,14 +202,14 @@ export function VolunteerForm() {
                           <FormLabel
                             className={`flex items-center gap-3 p-4 cursor-pointer transition-colors font-sans text-base-sm font-normal ${
                               isChecked
-                                ?"bg-destructive text-foreground"
-                                :"text-foreground hover:bg-background"
+                                ? "bg-primary/10 text-primary"
+                                : "text-foreground hover:bg-muted/40"
                             }`}
                           >
                             <FormControl>
                               <Checkbox
                                 checked={isChecked}
-                                className="rounded-none border-foreground data-[state=checked]:bg-foreground data-[state=checked]:text-destructive"
+                                className="rounded-xs border-border data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
                                 onCheckedChange={(checked) => {
                                   return checked
                                     ? field.onChange([...field.value, item.id])
@@ -246,7 +246,7 @@ export function VolunteerForm() {
               <FormControl>
                 <Textarea
                   placeholder="Tell us about any previous volunteering or relevant professional experience..."
-                  className="min-h-32 rounded-none border-border focus-visible:ring-ring"
+                  className="min-h-32 rounded-sm border-border focus-visible:ring-primary/20"
                   {...field}
                 />
               </FormControl>
@@ -259,7 +259,7 @@ export function VolunteerForm() {
         <div className="pt-4">
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300"
+            className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium uppercase tracking-widest transition-colors duration-300 rounded-sm shadow-xs"
           >
             <span>Submit Application</span>
             <ArrowRight className="size-4" />

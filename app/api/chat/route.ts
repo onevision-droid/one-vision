@@ -127,7 +127,7 @@ export async function POST(req: NextRequest) {
             Authorization: `Bearer ${apiKey}`,
            "Content-Type":"application/json",
            "HTTP-Referer":"https://onevision.org",
-           "X-Title":"One Vision Vanguard",
+           "X-Title": "One Vision Community Care Assistant",
           },
           body: JSON.stringify({
             model,

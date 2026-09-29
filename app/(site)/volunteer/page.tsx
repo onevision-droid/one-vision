@@ -127,8 +127,8 @@ export default function VolunteerPage() {
           <div className="border-x border-border bg-muted">
             <div className="p-6 md:p-10 lg:p-12 border-b border-border bg-background">
               <div className="flex items-center gap-3 mb-4">
-                <span className="size-2 bg-destructive animate-pulse" />
-                <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-destructive">
+                <span className="size-2 bg-primary animate-pulse rounded-full" />
+                <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-primary">
                   Registration
                 </span>
               </div>
@@ -162,7 +162,7 @@ export default function VolunteerPage() {
                       </h4>
                       <Link
                         href={`mailto:${siteSettings.contactEmail}`}
-                        className="font-sans text-base font-medium text-foreground hover:text-destructive transition-colors"
+                        className="font-sans text-base font-medium text-foreground hover:text-primary transition-colors"
                       >
                         {siteSettings.contactEmail}
                       </Link>
@@ -173,8 +173,8 @@ export default function VolunteerPage() {
                         Coordinator Phone
                       </h4>
                       <Link
-                        href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g,"")}`}
-                        className="font-sans text-base font-medium text-foreground hover:text-destructive transition-colors"
+                        href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`}
+                        className="font-sans text-base font-medium text-foreground hover:text-primary transition-colors"
                       >
                         {siteSettings.contactPhone}
                       </Link>
@@ -191,13 +191,13 @@ export default function VolunteerPage() {
                   </div>
                 </div>
 
-                <div className="bg-foreground p-6 flex flex-col items-start gap-4 mt-8 sm:mt-10">
+                <div className="border border-border bg-card p-6 flex flex-col items-start gap-4 mt-8 sm:mt-10 rounded-sm">
                   <div>
-                    <h4 className="font-serif text-2xl font-light text-background mb-3">
+                    <h4 className="font-serif text-xl sm:text-2xl font-light text-foreground mb-3">
                       Community First
                     </h4>
-                    <p className="font-sans text-base text-background/70 font-light leading-relaxed">
-                      By volunteering with One Vision, you join a network dedicated to long-term resilience and dignity for all.
+                    <p className="font-sans text-base text-muted-foreground font-light leading-relaxed">
+                      By volunteering with One Vision, you join a network dedicated to long-term resilience and dignity for all in Manipur.
                     </p>
                   </div>
                 </div>

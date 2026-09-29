@@ -19,14 +19,14 @@ export default function StoriesPage() {
   return (
     <div className="flex flex-col w-full bg-background">
       <PageHero 
-        badge="FIELD REPORTS"
+        badge="COMMUNITY VOICES · MANIPUR"
         heading={
           <>
-            Local <br />
+            Grassroots<br />
             Stories.
           </>
         }
-        description="Documenting community resilience through respectful, long-form storytelling. Dignity over spectacle."
+        description="Documenting community resilience, local leadership, and shared humanity across Manipur. Dignity, evidence, and long-term hope."
         image="/community-voices.jpg"
         imageAlt="Local community members sharing their stories in Manipur"
       />
@@ -34,36 +34,35 @@ export default function StoriesPage() {
       {/* Featured Story */}
       <Section tone="default" className="border-t border-border">
         <Container className="px-0 md:px-0">
-          <Link href={`/stories/${featured.slug}`} className="group grid grid-cols-1 lg:grid-cols-12 overflow-hidden border-x border-border bg-muted hover:bg-foreground transition-colors duration-300">
+          <Link href={`/stories/${featured.slug}`} className="group grid grid-cols-1 lg:grid-cols-12 overflow-hidden border-x border-border bg-card hover:bg-muted/30 transition-colors duration-300">
             {/* Image (7 cols) */}
-            <div className="relative h-64 md:h-96 lg:h-auto lg:col-span-7 w-full overflow-hidden border-b lg:border-b-0 lg:border-r border-border bg-foreground group-hover:border-foreground">
+            <div className="relative h-64 md:h-96 lg:h-auto lg:col-span-7 w-full overflow-hidden border-b lg:border-b-0 lg:border-r border-border bg-muted">
               <Image
                 src={featured.image}
                 alt={featured.title}
                 fill
                 sizes="(max-width: 1024px) 100vw, 60vw"
-                className="object-cover transition-all duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
+                className="object-cover transition-all duration-700 group-hover:scale-105"
                 priority
               />
-              <div className="absolute inset-0 bg-foreground/10 mix-blend-multiply pointer-events-none group-hover:opacity-0 transition-opacity duration-700" />
             </div>
             
             {/* Content (5 cols) */}
             <div className="lg:col-span-5 flex flex-col justify-center p-6 md:p-8 lg:p-10">
-              <div className="flex items-center gap-3 font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground group-hover:text-background/60 transition-colors mb-4">
+              <div className="flex items-center gap-3 font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-4">
                 <span>By {featured.author}</span>
-                <span className="size-1 bg-destructive group-hover:bg-destructive" />
+                <span className="size-1 rounded-full bg-primary" />
                 <time dateTime={featured.date}>
-                  {new Date(featured.date).toLocaleDateString("en-GB", { day:"numeric", month:"long", year:"numeric" })}
+                  {new Date(featured.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
                 </time>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-foreground group-hover:text-background transition-colors leading-[0.98] mb-4 sm:mb-6 font-light">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-foreground leading-[0.98] mb-4 sm:mb-6 font-light">
                 {featured.title}
               </h2>
-              <p className="font-sans text-lg text-muted-foreground group-hover:text-background/70 transition-colors leading-relaxed mb-6 sm:mb-8">
+              <p className="font-sans text-lg text-muted-foreground font-light leading-relaxed mb-6 sm:mb-8">
                 {featured.excerpt}
               </p>
-              <div className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest text-foreground group-hover:text-destructive transition-colors mt-auto">
+              <div className="inline-flex items-center gap-2 font-sans text-xs font-medium uppercase tracking-wider text-primary group-hover:translate-x-0.5 transition-all mt-auto">
                 <span>Read full story</span>
                 <ArrowRight className="size-4" />
               </div>

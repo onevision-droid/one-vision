@@ -116,12 +116,12 @@ export function ContactForm() {
               render={({ field }) => (
                 <FormItem className="space-y-1">
                   <FormLabel className="text-body-sm font-semibold text-foreground uppercase tracking-widest">
-                    First Name <span className="text-danger">*</span>
+                    First Name <span className="text-destructive">*</span>
                   </FormLabel>
                   <FormControl>
                     <Input placeholder="Jane" autoComplete="given-name" {...field} />
                   </FormControl>
-                  <FormMessage className="text-caption text-danger" />
+                  <FormMessage className="text-caption text-destructive" />
                 </FormItem>
               )}
             />
@@ -131,12 +131,12 @@ export function ContactForm() {
               render={({ field }) => (
                 <FormItem className="space-y-1">
                   <FormLabel className="text-body-sm font-semibold text-foreground uppercase tracking-widest">
-                    Last Name <span className="text-danger">*</span>
+                    Last Name <span className="text-destructive">*</span>
                   </FormLabel>
                   <FormControl>
                     <Input placeholder="Doe" autoComplete="family-name" {...field} />
                   </FormControl>
-                  <FormMessage className="text-caption text-danger" />
+                  <FormMessage className="text-caption text-destructive" />
                 </FormItem>
               )}
             />
@@ -148,12 +148,12 @@ export function ContactForm() {
             render={({ field }) => (
               <FormItem className="space-y-1">
                 <FormLabel className="text-body-sm font-medium text-foreground">
-                  Email Address <span className="text-danger">*</span>
+                  Email Address <span className="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
                   <Input type="email" placeholder="jane@example.com" autoComplete="email" {...field} />
                 </FormControl>
-                <FormMessage className="text-caption text-danger" />
+                <FormMessage className="text-caption text-destructive" />
               </FormItem>
             )}
           />
@@ -164,7 +164,7 @@ export function ContactForm() {
             render={({ field }) => (
               <FormItem className="space-y-1">
                 <FormLabel className="text-body-sm font-medium text-foreground">
-                  Subject <span className="text-danger">*</span>
+                  Subject <span className="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
                   <select 
@@ -177,7 +177,7 @@ export function ContactForm() {
                     <option value="Feedback">Feedback</option>
                   </select>
                 </FormControl>
-                <FormMessage className="text-caption text-danger" />
+                <FormMessage className="text-caption text-destructive" />
               </FormItem>
             )}
           />
@@ -188,12 +188,12 @@ export function ContactForm() {
             render={({ field }) => (
               <FormItem className="space-y-1">
                 <FormLabel className="text-body-sm font-medium text-foreground">
-                  Message <span className="text-danger">*</span>
+                  Message <span className="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
                   <Textarea rows={4} className="resize-none" {...field} />
                 </FormControl>
-                <FormMessage className="text-caption text-danger" />
+                <FormMessage className="text-caption text-destructive" />
               </FormItem>
             )}
           />

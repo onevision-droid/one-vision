@@ -13,32 +13,32 @@ import {
 } from"lucide-react";
 
 export const metadata: Metadata = {
-  title:"Contact | One Vision",
+  title: "Community Support & Care Desk | One Vision",
   description:
-   "Reach out to partner, volunteer, or request support for your community project.",
+    "Request healthcare navigation, emergency relief support, or community project assistance from our teams across Manipur.",
 };
 
 const contactChannels = [
   {
-    id:"email",
-    icon: Mail,
-    label:"General Enquiries",
-    value:"hello@onevision.org",
+    id: "phone",
+    icon: Phone,
+    label: "24/7 Community Care Desk",
+    value: siteSettings.contactPhone,
     description:
-     "For public partnerships, media inquiries, and general project information.",
-    action:"Send Email",
-    href:"mailto:hello@onevision.org",
+      "Direct line to our primary clinic navigators and field emergency support desk in Imphal.",
+    action: "Call Community Desk",
+    href: `tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`,
     primary: true,
   },
   {
-    id:"phone",
-    icon: Phone,
-    label:"Field Office Line",
-    value: siteSettings.contactPhone,
+    id: "email",
+    icon: Mail,
+    label: "Care & Support Inbox",
+    value: siteSettings.contactEmail,
     description:
-     "Our main operational desk in Imphal. Available during standard operating hours.",
-    action:"Call Office",
-    href: `tel:${siteSettings.contactPhone.replace(/[^0-9+]/g,"")}`,
+      "For family assistance queries, clinic visits, and local community coordinator requests.",
+    action: "Send Request",
+    href: `mailto:${siteSettings.contactEmail}`,
     primary: false,
   },
 ];
@@ -48,33 +48,33 @@ export default function ContactPage() {
     <div className="flex flex-col w-full bg-background">
 
       <PageHero
-        badge="REACH OUT"
+        badge="COMMUNITY SUPPORT DESK · MANIPUR"
         heading={
           <>
-            Let&apos;s<br/>
-            Connect.
+            Frontline Care<br />
+            & Assistance.
           </>
         }
-        description="Reach out to partner, volunteer, or request support for your community project. We are always looking to collaborate."
+        description="Need healthcare navigation, maternal support, emergency assistance, or guidance for your village? Our dedicated community teams are here for you."
         image="/contact-hero.jpg"
       />
 
       {/* 2. Notice */}
       <Section tone="alt" className="border-b border-border">
         <Container className="px-0 md:px-0">
-          <div className="flex flex-col md:flex-row md:items-center gap-6 p-6 md:p-8 lg:p-10 border-x border-border bg-muted/50">
-            <div className="size-14 shrink-0 bg-destructive flex items-center justify-center">
+          <div className="flex flex-col md:flex-row md:items-center gap-6 p-6 md:p-8 lg:p-10 border-x border-border bg-card">
+            <div className="size-14 shrink-0 bg-primary/10 text-primary border border-primary/20 flex items-center justify-center rounded-sm">
               <Info
-                className="size-7 text-foreground"
+                className="size-7"
                 aria-hidden="true"
               />
             </div>
             <div>
               <h2 className="font-serif text-2xl sm:text-3xl font-light text-foreground mb-2 sm:mb-3">
-                Community First
+                Compassionate & Confidential Support
               </h2>
               <p className="font-sans text-base max-w-prose text-muted-foreground font-light leading-relaxed">
-                We believe the best solutions come from within the community. If you have an idea, a project, or a need in your neighbourhood, reach out. We are always looking to support local leaders and initiatives.
+                Every request is handled with strict confidentiality, dignity, and care by our local community health coordinators. No family is turned away from essential healthcare guidance or emergency relief coordination.
               </p>
             </div>
           </div>
@@ -82,20 +82,19 @@ export default function ContactPage() {
       </Section>
 
       {/* 3. Channels */}
-      {/* 3. Channels (Nordic Lagom) */}
       <Section tone="default" className="py-12 md:py-16">
         <Container>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 sm:mb-10">
             <div>
-              <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-destructive mb-2 block">
+              <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-primary mb-2 block">
                 Direct Channels
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-foreground tracking-tight leading-tight">
-                Ways to reach us.
+                Ways to get help.
               </h2>
             </div>
             <p className="font-sans text-body-sm text-muted-foreground font-light max-w-md leading-relaxed">
-              Frontline communication protocols for verified coordination, medical assistance, and operational enquiries.
+              Direct community assistance channels to reach our field coordinators, clinic navigators, and local support network across Manipur.
             </p>
           </div>
 
@@ -107,10 +106,10 @@ export default function ContactPage() {
                 <div
                   key={channel.id}
                   className={cn(
-                   "group relative flex flex-col justify-between h-full p-6 md:p-7 rounded-md bg-muted border transition-all duration-300 ease-out",
+                    "group relative flex flex-col justify-between h-full p-6 md:p-7 rounded-md bg-card border transition-all duration-300 ease-out",
                     channel.primary
-                      ?"border-destructive/30 shadow-xs hover:border-destructive hover:shadow-md hover:-translate-y-1"
-                      :"border-border/70 shadow-2xs hover:border-foreground/30 hover:shadow-sm hover:-translate-y-1"
+                      ? "border-primary/40 shadow-xs hover:border-primary hover:shadow-md hover:-translate-y-0.5"
+                      : "border-border/70 shadow-2xs hover:border-foreground/30 hover:shadow-sm hover:-translate-y-0.5"
                   )}
                 >
                   <div>
@@ -118,18 +117,18 @@ export default function ContactPage() {
                     <div className="flex items-center justify-between gap-3 mb-5">
                       <div
                         className={cn(
-                         "size-10 rounded-md flex items-center justify-center border transition-colors",
+                          "size-10 rounded-md flex items-center justify-center border transition-colors",
                           channel.primary
-                            ?"bg-destructive/10 text-destructive border-destructive/30"
-                            :"bg-foreground/5 text-foreground   border-black/5 dark:border-border"
+                            ? "bg-primary/10 text-primary border-primary/30"
+                            : "bg-foreground/5 text-foreground border-black/5 dark:border-border"
                         )}
                       >
                         <Icon className="size-5" strokeWidth={1.5} />
                       </div>
                       {channel.primary && (
-                        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-destructive bg-destructive/10 rounded-full border border-destructive/30" data-badge="pill">
-                          <span className="size-1.5 rounded-full bg-destructive animate-pulse" />
-                          Active
+                        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-primary bg-primary/10 rounded-full border border-primary/30" data-badge="pill">
+                          <span className="size-1.5 rounded-full bg-primary animate-pulse" />
+                          Priority
                         </span>
                       )}
                     </div>
@@ -151,13 +150,13 @@ export default function ContactPage() {
                   {/* Modern Hairline Action Button */}
                   <a
                     href={channel.href}
-                    target={channel.id !=="phone" ?"_blank" : undefined}
-                    rel={channel.id !=="phone" ?"noopener noreferrer" : undefined}
+                    target={channel.id !== "phone" ? "_blank" : undefined}
+                    rel={channel.id !== "phone" ? "noopener noreferrer" : undefined}
                     className={cn(
-                     "inline-flex items-center justify-between w-full px-4 py-2.5 rounded-sm font-sans text-xs font-medium transition-all duration-200",
+                      "inline-flex items-center justify-between w-full px-4 py-2.5 rounded-sm font-sans text-xs font-medium transition-all duration-200",
                       channel.primary
-                        ?"bg-primary text-background hover:bg-primary/90 shadow-2xs"
-                        :"border border-border/80 text-foreground hover:border-foreground/60 hover:bg-foreground/5"
+                        ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-2xs"
+                        : "border border-border/80 text-foreground hover:border-foreground/60 hover:bg-muted/50"
                     )}
                   >
                     <span>{channel.action}</span>

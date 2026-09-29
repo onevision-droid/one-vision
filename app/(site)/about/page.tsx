@@ -20,14 +20,14 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col w-full bg-page">
       <PageHero 
-        badge="ABOUT US"
+        badge="ABOUT ONE VISION · EST. 1988"
         heading={
           <>
-            The<br/>
-            Foundation.
+            Our<br/>
+            Foundations.
           </>
         }
-        description="A community-led organisation working for a healthier, greener and more resilient Manipur. We connect local innovation with lasting support."
+        description="A community-led organisation working for a healthier, greener and more resilient Manipur since 1988. Formerly known as the Society for Health & Education Manipur."
         image="/about-hero.jpg"
         imageAlt="Community volunteers and organizers collaborating in Manipur"
       />
@@ -49,38 +49,38 @@ export default function AboutPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-t border-l border-border *:border-b *:border-r *:border-border">
                 <div className="p-5 md:p-6 space-y-4 flex flex-col h-full bg-muted">
                   <div className="flex items-center gap-3">
-                    <CheckCircle2 className="size-4 text-destructive" />
-                    <h3 className="font-mono text-[10px] tracking-widest uppercase font-bold text-foreground">Registration</h3>
+                    <CheckCircle2 className="size-4 text-primary" />
+                    <h3 className="font-sans text-xs uppercase tracking-wider font-semibold text-foreground">Registration</h3>
                   </div>
                   <div className="space-y-2 mt-auto">
-                    <p className="font-sans text-base-sm text-muted-foreground">{orgData.org.legal}</p>
-                    <p className="font-sans text-base-sm font-medium text-foreground">Reg No: {orgData.org.regNo}</p>
-                    <p className="font-sans text-base-sm text-muted-foreground">{orgData.org.location}</p>
+                    <p className="font-sans text-sm text-muted-foreground">{orgData.org.legal}</p>
+                    <p className="font-sans text-sm font-medium text-foreground">Reg No: {orgData.org.regNo}</p>
+                    <p className="font-sans text-sm text-muted-foreground">{orgData.org.location}</p>
                   </div>
                 </div>
                 <div className="p-5 md:p-6 space-y-4 flex flex-col h-full bg-muted">
                   <div className="flex items-center gap-3">
-                    <Mail className="size-4 text-destructive" />
-                    <h3 className="font-mono text-[10px] tracking-widest uppercase font-bold text-foreground">Contact</h3>
+                    <Mail className="size-4 text-primary" />
+                    <h3 className="font-sans text-xs uppercase tracking-wider font-semibold text-foreground">Contact</h3>
                   </div>
                   <div className="space-y-2 mt-auto">
-                    <p className="font-sans text-base-sm text-muted-foreground">{orgData.contact.email}</p>
-                    <p className="font-sans text-base-sm text-muted-foreground">{orgData.contact.phone}</p>
+                    <p className="font-sans text-sm text-muted-foreground">{orgData.contact.email}</p>
+                    <p className="font-sans text-sm text-muted-foreground">{orgData.contact.phone}</p>
                   </div>
                 </div>
               </div>
             </div>
           }
           media={
-            <div className="relative w-full h-full min-h-75 lg:min-h-85 bg-foreground group overflow-hidden">
+            <div className="relative w-full h-full min-h-75 lg:min-h-85 bg-muted group overflow-hidden">
               <Image 
                 src="/about-hero.jpg" 
                 alt="Community trust" 
                 fill 
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0" 
+                className="object-cover transition-all duration-700 group-hover:scale-105" 
               />
-              <div className="absolute inset-0 bg-foreground/10 mix-blend-multiply pointer-events-none group-hover:opacity-0 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-background/5 pointer-events-none" />
             </div>
           }
         />
@@ -137,24 +137,24 @@ export default function AboutPage() {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-l border-border *:border-b *:border-r *:border-border">
-              <Link href="/about/governance" className="group block p-6 md:p-8 lg:p-10 bg-muted hover:bg-foreground transition-colors duration-300">
-                <h3 className="font-serif text-2xl sm:text-3xl font-light text-foreground mb-3 sm:mb-4 group-hover:text-background transition-colors">Governance & Leadership</h3>
-                <p className="font-sans text-base text-muted-foreground group-hover:text-background/70 transition-colors leading-relaxed">
-                  Meet the Board of Directors shaping our strategic vision and maintaining institutional integrity.
+              <Link href="/about/governance" className="group block p-6 md:p-8 lg:p-10 bg-card hover:bg-muted/50 transition-colors duration-300">
+                <h3 className="font-serif text-2xl sm:text-3xl font-light text-foreground mb-3 sm:mb-4 group-hover:text-primary transition-colors">Governance & Leadership</h3>
+                <p className="font-sans text-base text-muted-foreground leading-relaxed">
+                  Meet the Board of Trustees shaping our strategic vision and maintaining institutional integrity.
                 </p>
                 <div className="mt-6">
-                  <span className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest text-foreground group-hover:text-destructive transition-colors">
+                  <span className="inline-flex items-center gap-2 font-sans text-xs font-semibold text-primary transition-colors">
                     Read more <ArrowRight className="size-4" />
                   </span>
                 </div>
               </Link>
-              <Link href="/about/team" className="group block p-6 md:p-8 lg:p-10 bg-muted hover:bg-foreground transition-colors duration-300">
-                <h3 className="font-serif text-2xl sm:text-3xl font-light text-foreground mb-3 sm:mb-4 group-hover:text-background transition-colors">Operational Team</h3>
-                <p className="font-sans text-base text-muted-foreground group-hover:text-background/70 transition-colors leading-relaxed">
-                  Discover the dedicated staff, field workers, and volunteers executing our mission across Manipur.
+              <Link href="/about/team" className="group block p-6 md:p-8 lg:p-10 bg-card hover:bg-muted/50 transition-colors duration-300">
+                <h3 className="font-serif text-2xl sm:text-3xl font-light text-foreground mb-3 sm:mb-4 group-hover:text-primary transition-colors">Operational Team</h3>
+                <p className="font-sans text-base text-muted-foreground leading-relaxed">
+                  Discover the dedicated staff, field workers, and community navigators executing our mission across Manipur.
                 </p>
                 <div className="mt-6">
-                  <span className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest text-foreground group-hover:text-destructive transition-colors">
+                  <span className="inline-flex items-center gap-2 font-sans text-xs font-semibold text-primary transition-colors">
                     Read more <ArrowRight className="size-4" />
                   </span>
                 </div>
@@ -169,7 +169,7 @@ export default function AboutPage() {
         heading="Support our work."
         description="Your contribution helps us expand our reach and build more resilient communities in Manipur."
         action={
-          <Link href="/donate" className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300">
+          <Link href="/donate" className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-xs sm:text-[13px] transition-colors duration-300 rounded-[2px]">
             <span>Make a donation</span>
             <ArrowRight className="size-4" />
           </Link>
