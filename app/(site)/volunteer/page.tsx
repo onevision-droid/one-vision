@@ -32,8 +32,8 @@ export default function VolunteerPage() {
       {/* 2 & 3. The Core Need & Mentorship Matrix (Merged Dark Canvas) */}
       <Section tone="inverted" className="relative overflow-hidden bg-ink-900">
         <Container className="px-0 md:px-0">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border-x border-b border-ink-900">
-            <div className="lg:col-span-5 flex flex-col justify-center p-6 md:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-ink-900">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border-x border-b border-white/10">
+            <div className="lg:col-span-5 flex flex-col justify-center p-6 md:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-white/10">
               <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-safety-orange mb-4 block">
                 The Community Network
               </span>
@@ -46,14 +46,14 @@ export default function VolunteerPage() {
                 there is a vital place for you here.
               </p>
 
-              <div className="p-6 border-l-4 border-safety-orange bg-surface/5">
+              <div className="p-6 border-l-2 border-safety-orange bg-white/3 rounded-r-xs">
                 <p className="font-sans text-role-body-lg max-w-prose font-light italic leading-relaxed text-paper mb-6">
                   &quot;Volunteering here isn&apos;t just about giving time;
                   it&apos;s about building the future of our own community with
                   dignity and shared purpose.&quot;
                 </p>
                 <div className="flex items-center gap-4">
-                  <div className="size-12 bg-safety-orange flex items-center justify-center font-mono font-bold text-ink-900 text-sm">
+                  <div className="size-11 rounded-sm bg-safety-orange flex items-center justify-center font-mono font-bold text-ink-900 text-sm">
                     SS
                   </div>
                   <div>
@@ -81,8 +81,8 @@ export default function VolunteerPage() {
         </Container>
 
         <Container className="px-0 md:px-0">
-          <div className="border-x border-b border-ink-900">
-            <div className="px-6 py-4 md:px-8 md:py-6 border-b border-ink-900">
+          <div className="border-x border-b border-white/10">
+            <div className="px-6 py-4 md:px-8 md:py-6 border-b border-white/10">
               <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-safety-orange mb-3 block">
                 What to Expect
               </span>
@@ -91,7 +91,7 @@ export default function VolunteerPage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 *:border-b *:md:border-b-0 *:border-r last:*:border-r-0 border-ink-900">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 *:border-b *:md:border-b-0 *:border-r last:*:border-r-0 border-white/10 *:border-white/10">
               <div className="flex flex-col gap-4 p-6 md:p-8 hover:bg-surface/5 transition-colors">
                 <h3 className="font-serif text-xl sm:text-2xl font-light text-paper">
                   01. Mentorship & Growth

@@ -10,10 +10,7 @@
   },
   "contact": {
     "email": "hello@onevision.org",
-    "phone": "+91 98765 43210",
-    "signal": "+91 98765 43210",
-    "protonmail": "secure@onevision.proton.me",
-    "opsecNote": "For sensitive communications, use Signal or ProtonMail only. Standard email is not secure for crisis-related requests."
+    "phone": "+91 98765 43210"
   },
   "locale": "en-GB",
   "stats": [

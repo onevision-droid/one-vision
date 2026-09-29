@@ -1,0 +1,1007 @@
+[
+  {
+    "filePath": "C:\\ov\\app\\(site)\\about\\governance\\page.tsx",
+    "relativePath": "app\\(site)\\about\\governance\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\about\\page.tsx",
+    "relativePath": "app\\(site)\\about\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\about\\team\\page.tsx",
+    "relativePath": "app\\(site)\\about\\team\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\accessibility\\page.tsx",
+    "relativePath": "app\\(site)\\accessibility\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\campaigns\\page.tsx",
+    "relativePath": "app\\(site)\\campaigns\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\campaigns\\[slug]\\page.tsx",
+    "relativePath": "app\\(site)\\campaigns\\[slug]\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\contact\\page.tsx",
+    "relativePath": "app\\(site)\\contact\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\donate\\page.tsx",
+    "relativePath": "app\\(site)\\donate\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\events\\page.tsx",
+    "relativePath": "app\\(site)\\events\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\get-help\\page.tsx",
+    "relativePath": "app\\(site)\\get-help\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\layout.tsx",
+    "relativePath": "app\\(site)\\layout.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\offline\\page.tsx",
+    "relativePath": "app\\(site)\\offline\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\open-ledger\\page.tsx",
+    "relativePath": "app\\(site)\\open-ledger\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\page.tsx",
+    "relativePath": "app\\(site)\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\privacy\\page.tsx",
+    "relativePath": "app\\(site)\\privacy\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\programmes\\page.tsx",
+    "relativePath": "app\\(site)\\programmes\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\programmes\\[slug]\\page.tsx",
+    "relativePath": "app\\(site)\\programmes\\[slug]\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\reports\\page.tsx",
+    "relativePath": "app\\(site)\\reports\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\stories\\page.tsx",
+    "relativePath": "app\\(site)\\stories\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\stories\\[slug]\\page.tsx",
+    "relativePath": "app\\(site)\\stories\\[slug]\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\terms\\page.tsx",
+    "relativePath": "app\\(site)\\terms\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\(site)\\volunteer\\page.tsx",
+    "relativePath": "app\\(site)\\volunteer\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\actions\\chat.ts",
+    "relativePath": "app\\actions\\chat.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\admin\\layout.tsx",
+    "relativePath": "app\\admin\\layout.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\admin\\page.tsx",
+    "relativePath": "app\\admin\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\api\\chat\\route.ts",
+    "relativePath": "app\\api\\chat\\route.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\api\\download-ledger\\route.ts",
+    "relativePath": "app\\api\\download-ledger\\route.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\design\\patterns\\page.tsx",
+    "relativePath": "app\\design\\patterns\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\globals.css",
+    "relativePath": "app\\globals.css",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\layout.tsx",
+    "relativePath": "app\\layout.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\login\\layout.tsx",
+    "relativePath": "app\\login\\layout.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\login\\page.tsx",
+    "relativePath": "app\\login\\page.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\not-found.tsx",
+    "relativePath": "app\\not-found.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\robots.ts",
+    "relativePath": "app\\robots.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\app\\sitemap.ts",
+    "relativePath": "app\\sitemap.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ai\\agent-chat.tsx",
+    "relativePath": "components\\ai\\agent-chat.tsx",
+    "violations": [
+      {
+        "rule": "anti-pattern-excessive-radius",
+        "severity": "warning",
+        "line": 247,
+        "snippet": "\"size-6 rounded-full shrink-0 flex items-center justify-center font-mono text-[10px] border transition-colors mt-0.5\",",
+        "message": "Avoid extreme cartoonish rounding on structural layout containers. Nordic Lagom prioritizes subtle, serene hairline structure and disciplined geometry."
+      },
+      {
+        "rule": "anti-pattern-excessive-radius",
+        "severity": "warning",
+        "line": 327,
+        "snippet": "<div className=\"size-6 rounded-full shrink-0 flex items-center justify-center bg-safety-orange/10 text-safety-orange bor",
+        "message": "Avoid extreme cartoonish rounding on structural layout containers. Nordic Lagom prioritizes subtle, serene hairline structure and disciplined geometry."
+      }
+    ],
+    "status": "warn"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ai\\floating-agent-chat.tsx",
+    "relativePath": "components\\ai\\floating-agent-chat.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\CommunityAction.tsx",
+    "relativePath": "components\\composition\\CommunityAction.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\ContactForm.tsx",
+    "relativePath": "components\\composition\\ContactForm.tsx",
+    "violations": [
+      {
+        "rule": "anti-pattern-excessive-radius",
+        "severity": "warning",
+        "line": 92,
+        "snippet": "<span className=\"size-3 border-2 border-paper/30 border-t-paper rounded-full animate-spin\" />",
+        "message": "Avoid extreme cartoonish rounding on structural layout containers. Nordic Lagom prioritizes subtle, serene hairline structure and disciplined geometry."
+      }
+    ],
+    "status": "warn"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\DepthBand.tsx",
+    "relativePath": "components\\composition\\DepthBand.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\EvidenceShoreline.tsx",
+    "relativePath": "components\\composition\\EvidenceShoreline.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\FAQ.tsx",
+    "relativePath": "components\\composition\\FAQ.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\HalftoneBackground.tsx",
+    "relativePath": "components\\composition\\HalftoneBackground.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\Ledger.tsx",
+    "relativePath": "components\\composition\\Ledger.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\MissionNetwork.tsx",
+    "relativePath": "components\\composition\\MissionNetwork.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\Mosaic.tsx",
+    "relativePath": "components\\composition\\Mosaic.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\PageHero.tsx",
+    "relativePath": "components\\composition\\PageHero.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\ProgrammesBento.tsx",
+    "relativePath": "components\\composition\\ProgrammesBento.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\ProgrammesGrid.tsx",
+    "relativePath": "components\\composition\\ProgrammesGrid.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\QuietClose.tsx",
+    "relativePath": "components\\composition\\QuietClose.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\SectionBadge.tsx",
+    "relativePath": "components\\composition\\SectionBadge.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\shared.tsx",
+    "relativePath": "components\\composition\\shared.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\Shoreline.tsx",
+    "relativePath": "components\\composition\\Shoreline.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\SplitNarrative.tsx",
+    "relativePath": "components\\composition\\SplitNarrative.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\StatsHero.tsx",
+    "relativePath": "components\\composition\\StatsHero.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\TestimonialMosaic.tsx",
+    "relativePath": "components\\composition\\TestimonialMosaic.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\composition\\WhatWeDo.tsx",
+    "relativePath": "components\\composition\\WhatWeDo.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\content\\CampaignActionButton.tsx",
+    "relativePath": "components\\content\\CampaignActionButton.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\content\\CampaignCard.tsx",
+    "relativePath": "components\\content\\CampaignCard.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\content\\EmergencyBanner.tsx",
+    "relativePath": "components\\content\\EmergencyBanner.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\content\\Hero.tsx",
+    "relativePath": "components\\content\\Hero.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\content\\HeroStats.tsx",
+    "relativePath": "components\\content\\HeroStats.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\content\\ImageMosaic.tsx",
+    "relativePath": "components\\content\\ImageMosaic.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\content\\ImpactMetric.tsx",
+    "relativePath": "components\\content\\ImpactMetric.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\content\\PartnerLogoRow.tsx",
+    "relativePath": "components\\content\\PartnerLogoRow.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\content\\ProgrammeFilter.tsx",
+    "relativePath": "components\\content\\ProgrammeFilter.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\content\\QuoteBlock.tsx",
+    "relativePath": "components\\content\\QuoteBlock.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\content\\ReportDownloadButton.tsx",
+    "relativePath": "components\\content\\ReportDownloadButton.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\content\\SearchTracker.tsx",
+    "relativePath": "components\\content\\SearchTracker.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\content\\StoryCard.tsx",
+    "relativePath": "components\\content\\StoryCard.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\content\\StoryTracker.tsx",
+    "relativePath": "components\\content\\StoryTracker.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\content\\Timeline.tsx",
+    "relativePath": "components\\content\\Timeline.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\content\\TrustPanel.tsx",
+    "relativePath": "components\\content\\TrustPanel.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\forms\\ContactForm.tsx",
+    "relativePath": "components\\forms\\ContactForm.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\forms\\DonateForm.tsx",
+    "relativePath": "components\\forms\\DonateForm.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\forms\\NewsletterForm.tsx",
+    "relativePath": "components\\forms\\NewsletterForm.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\forms\\SupportFinder.tsx",
+    "relativePath": "components\\forms\\SupportFinder.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\forms\\VolunteerForm.tsx",
+    "relativePath": "components\\forms\\VolunteerForm.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\layout\\ConsentNotice.tsx",
+    "relativePath": "components\\layout\\ConsentNotice.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\layout\\Footer.tsx",
+    "relativePath": "components\\layout\\Footer.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\layout\\MobileNavigation.tsx",
+    "relativePath": "components\\layout\\MobileNavigation.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\layout\\Shell.tsx",
+    "relativePath": "components\\layout\\Shell.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\layout\\SiteHeader.tsx",
+    "relativePath": "components\\layout\\SiteHeader.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\login-form.tsx",
+    "relativePath": "components\\login-form.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\prompt-kit\\chain-of-thought.tsx",
+    "relativePath": "components\\prompt-kit\\chain-of-thought.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\prompt-kit\\loader.tsx",
+    "relativePath": "components\\prompt-kit\\loader.tsx",
+    "violations": [
+      {
+        "rule": "anti-pattern-excessive-radius",
+        "severity": "warning",
+        "line": 73,
+        "snippet": "<span className=\"size-1.5 rounded-full bg-safety-orange animate-bounce [animation-delay:-0.3s]\" />",
+        "message": "Avoid extreme cartoonish rounding on structural layout containers. Nordic Lagom prioritizes subtle, serene hairline structure and disciplined geometry."
+      },
+      {
+        "rule": "anti-pattern-excessive-radius",
+        "severity": "warning",
+        "line": 74,
+        "snippet": "<span className=\"size-1.5 rounded-full bg-safety-orange animate-bounce [animation-delay:-0.15s]\" />",
+        "message": "Avoid extreme cartoonish rounding on structural layout containers. Nordic Lagom prioritizes subtle, serene hairline structure and disciplined geometry."
+      },
+      {
+        "rule": "anti-pattern-excessive-radius",
+        "severity": "warning",
+        "line": 75,
+        "snippet": "<span className=\"size-1.5 rounded-full bg-safety-orange animate-bounce\" />",
+        "message": "Avoid extreme cartoonish rounding on structural layout containers. Nordic Lagom prioritizes subtle, serene hairline structure and disciplined geometry."
+      },
+      {
+        "rule": "anti-pattern-excessive-radius",
+        "severity": "warning",
+        "line": 82,
+        "snippet": "<span className=\"absolute inline-flex size-full rounded-full bg-safety-orange/40 animate-ping\" />",
+        "message": "Avoid extreme cartoonish rounding on structural layout containers. Nordic Lagom prioritizes subtle, serene hairline structure and disciplined geometry."
+      },
+      {
+        "rule": "anti-pattern-excessive-radius",
+        "severity": "warning",
+        "line": 83,
+        "snippet": "<span className=\"relative inline-flex size-1.5 rounded-full bg-safety-orange\" />",
+        "message": "Avoid extreme cartoonish rounding on structural layout containers. Nordic Lagom prioritizes subtle, serene hairline structure and disciplined geometry."
+      }
+    ],
+    "status": "warn"
+  },
+  {
+    "filePath": "C:\\ov\\components\\prompt-kit\\prompt-input.tsx",
+    "relativePath": "components\\prompt-kit\\prompt-input.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\prompt-kit\\prompt-suggestion.tsx",
+    "relativePath": "components\\prompt-kit\\prompt-suggestion.tsx",
+    "violations": [
+      {
+        "rule": "anti-pattern-excessive-radius",
+        "severity": "warning",
+        "line": 21,
+        "snippet": "\"inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-sans text-xs font-normal transition-all duration-200 curso",
+        "message": "Avoid extreme cartoonish rounding on structural layout containers. Nordic Lagom prioritizes subtle, serene hairline structure and disciplined geometry."
+      }
+    ],
+    "status": "warn"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\accordion.tsx",
+    "relativePath": "components\\ui\\accordion.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\action-drawer.tsx",
+    "relativePath": "components\\ui\\action-drawer.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\alert-dialog.tsx",
+    "relativePath": "components\\ui\\alert-dialog.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\alert.tsx",
+    "relativePath": "components\\ui\\alert.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\animated-gradient-text.tsx",
+    "relativePath": "components\\ui\\animated-gradient-text.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\avatar.tsx",
+    "relativePath": "components\\ui\\avatar.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\badge.tsx",
+    "relativePath": "components\\ui\\badge.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\blur-fade.tsx",
+    "relativePath": "components\\ui\\blur-fade.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\breadcrumb.tsx",
+    "relativePath": "components\\ui\\breadcrumb.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\Breadcrumbs.tsx",
+    "relativePath": "components\\ui\\Breadcrumbs.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\button.tsx",
+    "relativePath": "components\\ui\\button.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\card.tsx",
+    "relativePath": "components\\ui\\card.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\chart.tsx",
+    "relativePath": "components\\ui\\chart.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\checkbox.tsx",
+    "relativePath": "components\\ui\\checkbox.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\data-table.tsx",
+    "relativePath": "components\\ui\\data-table.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\dialog.tsx",
+    "relativePath": "components\\ui\\dialog.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\drawer.tsx",
+    "relativePath": "components\\ui\\drawer.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\dropdown-menu.tsx",
+    "relativePath": "components\\ui\\dropdown-menu.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\EmergencyBanner.tsx",
+    "relativePath": "components\\ui\\EmergencyBanner.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\EmptyState.tsx",
+    "relativePath": "components\\ui\\EmptyState.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\ErrorState.tsx",
+    "relativePath": "components\\ui\\ErrorState.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\field.tsx",
+    "relativePath": "components\\ui\\field.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\form.tsx",
+    "relativePath": "components\\ui\\form.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\input.tsx",
+    "relativePath": "components\\ui\\input.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\label.tsx",
+    "relativePath": "components\\ui\\label.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\LoadingSkeleton.tsx",
+    "relativePath": "components\\ui\\LoadingSkeleton.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\Logo.tsx",
+    "relativePath": "components\\ui\\Logo.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\marquee.tsx",
+    "relativePath": "components\\ui\\marquee.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\navigation-menu.tsx",
+    "relativePath": "components\\ui\\navigation-menu.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\number-ticker.tsx",
+    "relativePath": "components\\ui\\number-ticker.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\progress.tsx",
+    "relativePath": "components\\ui\\progress.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\questionnaire.tsx",
+    "relativePath": "components\\ui\\questionnaire.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\radio-group.tsx",
+    "relativePath": "components\\ui\\radio-group.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\retro-grid.tsx",
+    "relativePath": "components\\ui\\retro-grid.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\Reveal.tsx",
+    "relativePath": "components\\ui\\Reveal.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\SearchDialog.tsx",
+    "relativePath": "components\\ui\\SearchDialog.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\select.tsx",
+    "relativePath": "components\\ui\\select.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\separator.tsx",
+    "relativePath": "components\\ui\\separator.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\sheet.tsx",
+    "relativePath": "components\\ui\\sheet.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\shimmer-button.tsx",
+    "relativePath": "components\\ui\\shimmer-button.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\sidebar.tsx",
+    "relativePath": "components\\ui\\sidebar.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\skeleton.tsx",
+    "relativePath": "components\\ui\\skeleton.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\SkipLink.tsx",
+    "relativePath": "components\\ui\\SkipLink.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\switch.tsx",
+    "relativePath": "components\\ui\\switch.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\table.tsx",
+    "relativePath": "components\\ui\\table.tsx",
+    "violations": [
+      {
+        "rule": "anti-pattern-overflow-x",
+        "severity": "warning",
+        "line": 10,
+        "snippet": "className=\"relative w-full overflow-x-auto [-webkit-overflow-scrolling:touch]\"",
+        "message": "'overflow-x-auto' found. Avoid masking layout overflows; ensure content fits within viewport."
+      }
+    ],
+    "status": "warn"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\tabs.tsx",
+    "relativePath": "components\\ui\\tabs.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\textarea.tsx",
+    "relativePath": "components\\ui\\textarea.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\toast.tsx",
+    "relativePath": "components\\ui\\toast.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\components\\ui\\tooltip.tsx",
+    "relativePath": "components\\ui\\tooltip.tsx",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\lib\\analytics\\trackEvent.ts",
+    "relativePath": "lib\\analytics\\trackEvent.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\lib\\data\\campaigns.ts",
+    "relativePath": "lib\\data\\campaigns.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\lib\\data\\events.ts",
+    "relativePath": "lib\\data\\events.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\lib\\data\\programmes.ts",
+    "relativePath": "lib\\data\\programmes.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\lib\\data\\reports.ts",
+    "relativePath": "lib\\data\\reports.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\lib\\data\\resources.ts",
+    "relativePath": "lib\\data\\resources.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\lib\\data\\site-settings.ts",
+    "relativePath": "lib\\data\\site-settings.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\lib\\data\\stories.ts",
+    "relativePath": "lib\\data\\stories.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\lib\\data\\types.ts",
+    "relativePath": "lib\\data\\types.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\lib\\env.ts",
+    "relativePath": "lib\\env.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\lib\\hooks\\useCountUp.ts",
+    "relativePath": "lib\\hooks\\useCountUp.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\lib\\hooks\\useInView.ts",
+    "relativePath": "lib\\hooks\\useInView.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\lib\\openrouter.ts",
+    "relativePath": "lib\\openrouter.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\lib\\supabase\\client.ts",
+    "relativePath": "lib\\supabase\\client.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\lib\\supabase\\data.ts",
+    "relativePath": "lib\\supabase\\data.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\lib\\supabase\\database.types.ts",
+    "relativePath": "lib\\supabase\\database.types.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\lib\\tokens.ts",
+    "relativePath": "lib\\tokens.ts",
+    "violations": [],
+    "status": "pass"
+  },
+  {
+    "filePath": "C:\\ov\\lib\\utils.ts",
+    "relativePath": "lib\\utils.ts",
+    "violations": [],
+    "status": "pass"
+  }
+]

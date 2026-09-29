@@ -36,8 +36,7 @@ export function CommunityAction() {
 
  <p className="text-ink-700 text-balance font-sans text-body-sm max-w-prose font-medium tracking-wide">
  <span className="text-ink-900 font-bold uppercase">Secure Contact. </span>{" "}
- All assistance requests are routed through encrypted channels
- (Signal / ProtonMail) for your safety.
+ All assistance requests are securely routed directly to our frontline coordinators for your safety.
  </p>
  </div>
 

@@ -34,7 +34,8 @@
   --input: oklch(0.880 0.008 85.0);
   --ring: oklch(0.680 0.190 45.0); /* Safety Orange focus ring */
   
-  --radius: 0rem; /* BRUTALIST MANDATE: No rounded corners */
+  --radius: 0.25rem; /* Nordic Lagom: Subtle, disciplined refined radius */
+  --ease-lagom: cubic-bezier(.2, .7, .2, 1);
 }
 
 .dark {
