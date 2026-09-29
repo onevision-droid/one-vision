@@ -68,19 +68,19 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/10">
           <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-white/5">
             <span className="font-mono text-3xl font-bold text-primary">18</span>
-            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-[#A9A49C] mt-2">Local Hubs</span>
+            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-muted-foreground mt-2">Local Hubs</span>
           </div>
           <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-white/5">
             <span className="font-mono text-3xl font-bold text-white">240kW</span>
-            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-[#A9A49C] mt-2">Solar Deployed</span>
+            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-muted-foreground mt-2">Solar Deployed</span>
           </div>
           <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-white/5">
             <span className="font-mono text-3xl font-bold text-white">12,400+</span>
-            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-[#A9A49C] mt-2">People Reached</span>
+            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-muted-foreground mt-2">People Reached</span>
           </div>
           <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-white/5">
             <span className="font-mono text-3xl font-bold text-white">4</span>
-            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-[#A9A49C] mt-2">Core Pillars</span>
+            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-muted-foreground mt-2">Core Pillars</span>
           </div>
         </div>
       </div>

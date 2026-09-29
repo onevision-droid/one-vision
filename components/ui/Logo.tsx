@@ -55,7 +55,7 @@ export function Logo({
   const colorMap = {
     default: "text-foreground dark:text-background",
     orange: "text-destructive",
-    blue: "text-[#1060C4]",
+    blue: "text-primary",
   };
 
   return (
@@ -111,7 +111,7 @@ export function Logo({
             cx="50"
             cy="50"
             r="23.5"
-            className="fill-paper dark:fill-surface"
+            className="fill-background dark:fill-muted"
           />
 
           {/* Sentinel Eye Pupil & Specular Glint (Continuous Scanning Loop) */}
@@ -148,7 +148,7 @@ export function Logo({
               cx="56.5"
               cy="43.5"
               r="4.2"
-              fill="#FFFFFF"
+              className="fill-background"
               animate={
                 shouldReduceMotion
                   ? undefined
