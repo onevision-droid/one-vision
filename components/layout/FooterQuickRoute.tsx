@@ -252,45 +252,38 @@ export function FooterQuickRoute() {
   return (
     <section 
       aria-labelledby="community-guide-heading"
-      className="w-full bg-muted/20 border border-border p-6 lg:p-8 mb-12 relative transition-all duration-300 rounded-[2px]"
+      className="w-full pb-8 mb-10 border-b border-border/60 relative"
     >
       {/* Top Header */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-border">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4">
         <div>
-          <div className="flex items-center gap-2 mb-2">
-            <span className="size-2 rounded-full bg-primary" />
-            <span className="font-sans text-xs font-semibold uppercase tracking-wider text-primary">
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="size-1.5 rounded-full bg-primary" />
+            <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-primary">
               Community Resource Guide
             </span>
-            <span className="text-muted-foreground text-xs">·</span>
-            <span className="font-sans text-xs text-muted-foreground">
-              Intelligent Community Matching
-            </span>
           </div>
-          <h2 id="community-guide-heading" className="font-serif text-2xl sm:text-3xl font-light text-foreground tracking-tight">
-            How can we help you or your community?
+          <h2 id="community-guide-heading" className="font-serif text-xl sm:text-2xl font-light text-foreground tracking-tight">
+            How can our community team support you?
           </h2>
-          <p className="font-sans text-sm text-muted-foreground mt-1 max-w-xl leading-relaxed">
-            Search for local health centres, relief assistance, volunteer pathways, or download verified 80G audit statements.
-          </p>
         </div>
 
-        {/* Friendly Suggestion Chips */}
-        <div className="flex flex-wrap gap-2 items-center">
-          <span className="font-sans text-xs text-muted-foreground mr-1">
-            Common questions:
+        {/* Suggestion Chips */}
+        <div className="flex flex-wrap gap-1.5 items-center">
+          <span className="font-sans text-[11px] text-muted-foreground mr-1">
+            Quick links:
           </span>
           {[
-            { label: "Find a Health Centre", q: "Where can I find a community clinic in Imphal or nearby districts?" },
-            { label: "Urgent Relief Help", q: "Emergency food or medicine assistance for families in need" },
-            { label: "Donate (80G Tax Receipt)", q: "How to donate and receive 80G tax exemption certificate" },
-            { label: "Volunteer in Manipur", q: "How can I join fieldwork and volunteer my skills?" }
+            { label: "Find a Clinic", q: "Where can I find a community clinic in Imphal or nearby districts?" },
+            { label: "Emergency Relief", q: "Emergency food or medicine assistance for families in need" },
+            { label: "80G Tax Receipt", q: "How to donate and receive 80G tax exemption certificate" },
+            { label: "Volunteer Roles", q: "How can I join fieldwork and volunteer my skills?" }
           ].map((item) => (
             <button
               key={item.label}
               type="button"
               onClick={() => handleSelectChip(item.q)}
-              className="font-sans text-xs px-3 py-1.5 bg-background hover:bg-muted border border-border hover:border-primary/50 text-foreground transition-all duration-200 cursor-pointer rounded-[2px] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              className="font-sans text-[11px] px-2.5 py-1 bg-muted/40 hover:bg-muted text-muted-foreground hover:text-foreground border border-border/50 transition-colors cursor-pointer rounded-xs"
             >
               {item.label}
             </button>
@@ -299,12 +292,12 @@ export function FooterQuickRoute() {
       </div>
 
       {/* Input Field Section */}
-      <div className="pt-6">
+      <div className="pt-2">
         <div className="relative flex items-center w-full">
           <label htmlFor={inputId} className="sr-only">
             What community support or resource do you need?
           </label>
-          <div className="absolute left-4 pointer-events-none text-muted-foreground">
+          <div className="absolute left-3.5 pointer-events-none text-muted-foreground">
             <Search className="size-4" />
           </div>
           <input
@@ -313,8 +306,8 @@ export function FooterQuickRoute() {
             value={query}
             onChange={(e) => handleInputChange(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Type your question (e.g., 'Where is the nearest medical clinic?' or 'How do I get an 80G tax receipt?')..."
-            className="w-full bg-background border border-border pl-11 pr-24 py-3.5 text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-ring transition-colors rounded-[2px]"
+            placeholder="Search by topic, clinic service, emergency relief, or 80G tax receipt..."
+            className="w-full bg-muted/30 hover:bg-muted/50 focus:bg-background border border-border/70 focus:border-primary/60 pl-10 pr-20 py-2.5 text-sm font-sans text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all rounded-sm"
           />
           {query ? (
             <button
@@ -328,8 +321,8 @@ export function FooterQuickRoute() {
               Clear
             </button>
           ) : (
-            <span className="absolute right-3 font-sans text-xs text-muted-foreground/60 pointer-events-none hidden sm:inline">
-              Press [Enter ↵]
+            <span className="absolute right-3 font-mono text-[10px] text-muted-foreground/50 pointer-events-none hidden sm:inline">
+              [Enter ↵]
             </span>
           )}
         </div>
@@ -338,34 +331,34 @@ export function FooterQuickRoute() {
         {judgment && query.trim().length > 1 && (
           <div 
             aria-live="polite"
-            className="mt-4 p-5 sm:p-6 bg-card border border-border flex flex-col gap-4 animate-in fade-in-50 duration-200 rounded-[2px]"
+            className="mt-3 p-5 bg-card border border-border/80 flex flex-col gap-3.5 animate-in fade-in-50 duration-200 rounded-sm shadow-xs"
           >
             {/* Urgent Community Banner (if emergency is detected) */}
             {judgment.isUrgentNoul > 0.6 && (
-              <div className="p-3.5 bg-destructive/10 border border-destructive/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-destructive rounded-[2px]">
-                <div className="flex items-center gap-2.5">
+              <div className="p-3 bg-destructive/10 border border-destructive/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-destructive rounded-xs">
+                <div className="flex items-center gap-2">
                   <AlertCircle className="size-4 shrink-0" />
-                  <span className="font-sans text-xs font-semibold">
-                    Urgent Need Detected: For emergency medical relief or crisis response, please call our direct hotline immediately.
+                  <span className="font-sans text-xs font-medium">
+                    Urgent assistance detected. Please contact our 24/7 helpline directly.
                   </span>
                 </div>
                 <a
                   href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, '')}`}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-destructive text-destructive-foreground font-sans text-xs font-semibold rounded-[2px] shrink-0"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 bg-destructive text-destructive-foreground font-sans text-xs font-medium rounded-xs shrink-0"
                 >
-                  <PhoneCall className="size-3.5" />
+                  <PhoneCall className="size-3" />
                   <span>Call {siteSettings.contactPhone}</span>
                 </a>
               </div>
             )}
 
             {/* Matched Community Resource */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div className="flex-1">
-                <div className="flex items-center gap-2 mb-1.5">
+                <div className="flex items-center gap-2 mb-1">
                   <span className="size-1.5 rounded-full bg-primary" />
-                  <span className="font-sans text-xs font-semibold text-primary">
-                    Recommended Community Resource
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-primary">
+                    Recommended Resource
                   </span>
                   <span className="text-muted-foreground text-xs">·</span>
                   <span className="font-sans text-xs text-muted-foreground">
@@ -373,20 +366,20 @@ export function FooterQuickRoute() {
                   </span>
                 </div>
 
-                <h3 className="font-serif text-xl sm:text-2xl font-light text-foreground tracking-tight">
+                <h3 className="font-serif text-lg font-light text-foreground tracking-tight">
                   {judgment.candidate.label}
                 </h3>
-                <p className="font-sans text-sm text-muted-foreground mt-1 max-w-2xl leading-relaxed">
+                <p className="font-sans text-xs text-muted-foreground mt-0.5 max-w-2xl leading-relaxed font-light">
                   {judgment.candidate.description}
                 </p>
 
                 {/* Alternative suggestion if relevant */}
                 {judgment.alternativeCandidate && (
-                  <div className="mt-3 flex items-center gap-2 text-xs text-muted-foreground">
-                    <span className="font-medium text-muted-foreground">Also relevant:</span>
+                  <div className="mt-2 flex items-center gap-1.5 text-xs text-muted-foreground font-light">
+                    <span>Also relevant:</span>
                     <Link
                       href={judgment.alternativeCandidate.destination}
-                      className="text-primary hover:underline font-medium inline-flex items-center gap-1"
+                      className="text-primary hover:underline font-normal inline-flex items-center gap-0.5"
                     >
                       <span>{judgment.alternativeCandidate.label}</span>
                       <ArrowRight className="size-3" />
@@ -398,7 +391,7 @@ export function FooterQuickRoute() {
               <div className="shrink-0">
                 <Link
                   href={judgment.candidate.destination}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs sm:text-[13px] font-semibold transition-colors duration-200 rounded-[2px]"
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium transition-colors rounded-sm shadow-2xs"
                 >
                   <span>{judgment.candidate.actionText}</span>
                   <ArrowRight className="size-3.5" />
