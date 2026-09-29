@@ -220,7 +220,7 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
                   onClick={() => handleSend(item.query)}
                   disabled={isLoading}
                   style={{ minHeight: "28px" }}
-                  className="group flex items-center justify-between sm:justify-center gap-2 px-3 py-1 text-[11px] font-sans text-foreground text-muted-foreground bg-muted hover:bg-muted/80 border border-border/80 hover:border-foreground/40 dark:hover:border-white/30 rounded-xs transition-all cursor-pointer shadow-2xs text-left sm:text-center"
+                  className="group flex items-center justify-between sm:justify-center gap-2 px-3 py-1 text-[11px] font-sans text-muted-foreground hover:text-foreground bg-muted hover:bg-muted/80 border border-border/80 hover:border-foreground/40 dark:hover:border-white/30 rounded-xs transition-all cursor-pointer shadow-2xs text-left sm:text-center"
                 >
                   <span>{item.label}</span>
                   <span className="text-muted-foreground group-hover:text-primary transition-colors">→</span>
@@ -267,8 +267,8 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
               </div>
 
               {/* Assistant Message Meta */}
-              {msg.role ==="assistant" && (
-                <div className="flex items-center justify-between gap-2 pt-1 border-t border-border/30  text-[9px] font-mono text-muted-foreground text-muted-foreground">
+              {msg.role === "assistant" && (
+                <div className="flex items-center justify-between gap-2 pt-1 border-t border-border/30 text-[9px] font-mono text-muted-foreground">
                   <div className="flex items-center gap-1">
                     {msg.modelUsed && (
                       <span className="inline-flex items-center gap-0.5">
