@@ -11,14 +11,14 @@ import { Loader } from"@/components/prompt-kit/loader";
 
 import {
   ArrowUpIcon,
-  Bot,
+  Sparkles,
   User,
   RotateCcw,
   Copy,
   Check,
   Cpu,
   X,
-} from"lucide-react";
+} from "lucide-react";
 import { cn } from"@/lib/utils";
 
 let messageCounter = 0;
@@ -154,14 +154,14 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
       {/* Minimal Header */}
       <div className="shrink-0 flex items-center justify-between px-3.5 py-2.5 border-b border-border/60 bg-muted/90 dark:border-border dark:bg-foreground/90">
         <div className="flex items-center gap-2">
-          <div className="size-6 bg-destructive/10 border border-destructive/30 flex items-center justify-center text-destructive">
-            <Bot className="size-3.5" />
+          <div className="size-6 rounded-xs bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+            <Sparkles className="size-3.5" />
           </div>
           <div className="flex items-center gap-1.5">
-            <h3 className="font-sans text-xs font-semibold text-foreground  tracking-tight">
-              One Vision AI
+            <h3 className="font-sans text-xs font-medium text-foreground tracking-tight">
+              Community Guide
             </h3>
-            <span className="size-1.5 rounded-full bg-status-active animate-pulse" title="Active" />
+            <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" title="Active" />
           </div>
         </div>
 
@@ -199,16 +199,16 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
         {/* Minimalist Empty State */}
         {messages.length === 0 && (
           <div className="h-full min-h-65 flex flex-col items-center justify-center text-center px-4 py-8 space-y-4 my-auto">
-            <div className="size-10 bg-muted border border-border/80 flex items-center justify-center text-destructive shadow-2xs">
-              <Bot className="size-5" />
+            <div className="size-10 rounded-sm bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shadow-2xs">
+              <Sparkles className="size-5" />
             </div>
 
             <div className="space-y-1.5 max-w-72">
               <h4 className="font-sans text-xs font-semibold uppercase tracking-wider text-foreground">
-                One Vision Assistant
+                Community Guide
               </h4>
               <p className="font-sans text-xs text-muted-foreground font-light leading-relaxed">
-                Real-time frontline intelligence, health nodes, solar microgrids, and open ledger records.
+                Frontline assistance, clinic services, emergency relief, and verified open ledger records.
               </p>
             </div>
 
@@ -219,11 +219,11 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
                   type="button"
                   onClick={() => handleSend(item.query)}
                   disabled={isLoading}
-                  style={{ minHeight:"28px" }}
-                  className="group flex items-center justify-between sm:justify-center gap-2 px-3 py-1 text-[11px] font-sans text-foreground text-muted-foreground bg-muted hover:bg-muted/80 border border-border/80 hover:border-foreground/40 dark:hover:border-white/30 transition-all cursor-pointer shadow-2xs text-left sm:text-center"
+                  style={{ minHeight: "28px" }}
+                  className="group flex items-center justify-between sm:justify-center gap-2 px-3 py-1 text-[11px] font-sans text-foreground text-muted-foreground bg-muted hover:bg-muted/80 border border-border/80 hover:border-foreground/40 dark:hover:border-white/30 rounded-xs transition-all cursor-pointer shadow-2xs text-left sm:text-center"
                 >
                   <span>{item.label}</span>
-                  <span className="text-muted-foreground group-hover:text-destructive transition-colors">→</span>
+                  <span className="text-muted-foreground group-hover:text-primary transition-colors">→</span>
                 </button>
               ))}
             </div>
@@ -242,13 +242,13 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
             {/* Avatar */}
             <div
               className={cn(
-               "size-6 rounded-full shrink-0 flex items-center justify-center font-mono text-[10px] border transition-colors mt-0.5",
-                msg.role ==="user"
-                  ?"bg-foreground text-background border-foreground dark:bg-background dark:text-foreground"
-                  :"bg-destructive/10 text-destructive border-destructive/30"
+                "size-6 rounded-full shrink-0 flex items-center justify-center font-mono text-[10px] border transition-colors mt-0.5",
+                msg.role === "user"
+                  ? "bg-foreground text-background border-foreground dark:bg-background dark:text-foreground"
+                  : "bg-primary/10 text-primary border-primary/20"
               )}
             >
-              {msg.role ==="user" ? <User className="size-3" /> : <Bot className="size-3" />}
+              {msg.role === "user" ? <User className="size-3" /> : <Sparkles className="size-3" />}
             </div>
 
             {/* Bubble */}
@@ -305,8 +305,8 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
         {/* Loading Indicator */}
         {isLoading && (
           <div className="flex gap-2 max-w-2xl mr-auto">
-            <div className="size-6 rounded-full shrink-0 flex items-center justify-center bg-destructive/10 text-destructive border border-destructive/30 mt-0.5">
-              <Bot className="size-3" />
+            <div className="size-6 rounded-full shrink-0 flex items-center justify-center bg-primary/10 text-primary border border-primary/20 mt-0.5">
+              <Sparkles className="size-3" />
             </div>
             <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-muted/80 border border-border/60 shadow-2xs  dark:border-border">
               <Loader variant="dots" size="sm" />
@@ -330,7 +330,7 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
           className="flex-row items-center gap-2 pl-3 pr-1.5 py-1 border border-border/80 bg-muted dark:bg-foreground/60 focus-within:border-foreground/40 dark:focus-within:border-white/30 focus-within:shadow-2xs transition-all"
         >
           <PromptInputTextarea
-            placeholder="Ask One Vision AI... (Enter to send)"
+            placeholder="Ask Community Guide... (Enter to send)"
             minHeight={22}
             maxHeight={80}
             className="py-1 text-xs sm:text-[13px] leading-snug"
@@ -341,12 +341,12 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
               onClick={() => handleSend()}
               disabled={!inputValue.trim() || isLoading}
               aria-label="Send Message"
-              style={{ minHeight:"28px", height:"28px", width:"28px" }}
+              style={{ minHeight: "28px", height: "28px", width: "28px" }}
               className={cn(
-               "size-7 shrink-0 flex items-center justify-center transition-all duration-150 border",
+                "size-7 shrink-0 flex items-center justify-center transition-all duration-150 border rounded-sm",
                 inputValue.trim() && !isLoading
-                  ?"bg-destructive border-destructive text-background hover:bg-destructive-dim active:scale-95 cursor-pointer shadow-2xs"
-                  :"bg-muted border-border/50 text-muted  dark:border-border dark:text-foreground cursor-not-allowed opacity-50"
+                  ? "bg-primary border-primary text-primary-foreground hover:bg-primary/90 active:scale-95 cursor-pointer shadow-2xs"
+                  : "bg-muted border-border/50 text-muted dark:border-border dark:text-foreground cursor-not-allowed opacity-50"
               )}
             >
               <ArrowUpIcon className="size-3.5" />
