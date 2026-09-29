@@ -44,10 +44,10 @@ const departments = [
 
 export default function TeamPage() {
   return (
-    <div className="flex flex-col w-full bg-surface pt-20">
+    <div className="flex flex-col w-full bg-muted pt-20">
       
       {/* Hero Section */}
-      <Section tone="default" className="relative overflow-hidden pt-24 pb-24 md:pt-32 md:pb-32 border-b border-border-default">
+      <Section tone="default" className="relative overflow-hidden pt-24 pb-24 md:pt-32 md:pb-32 border-b border-border">
         <HalftoneBackground />
         <Container className="relative z-10">
           <div className="mb-6">
@@ -55,11 +55,11 @@ export default function TeamPage() {
           </div>
           <div className="text-center max-w-4xl mx-auto">
             <Badge variant="default" className="mb-6 mx-auto">Our People</Badge>
-            <h1 className="font-sans text-display-lg md:text-display-lg font-light leading-none tracking-tight text-ink-900 mb-8">
+            <h1 className="font-sans text-display-lg md:text-display-lg font-light leading-none tracking-tight text-foreground mb-8">
               The Team Behind <br className="hidden md:block"/> the Vision
             </h1>
-            <p className="font-sans text-body-lg text-ink-500 leading-relaxed font-light max-w-2xl mx-auto">
-              While our <Link href="/about/governance" className="underline underline-offset-4 hover:text-ink-900 transition-colors">Board of Directors</Link> sets the strategic horizon, it is our dedicated staff, field workers, and volunteers who turn policy into reality on the ground in Manipur.
+            <p className="font-sans text-body-lg text-muted-foreground leading-relaxed font-light max-w-2xl mx-auto">
+              While our <Link href="/about/governance" className="underline underline-offset-4 hover:text-foreground transition-colors">Board of Directors</Link> sets the strategic horizon, it is our dedicated staff, field workers, and volunteers who turn policy into reality on the ground in Manipur.
             </p>
           </div>
         </Container>
@@ -74,8 +74,8 @@ export default function TeamPage() {
                 
                 <div className="md:col-span-4">
                   <div className="sticky top-28">
-                    <h2 className="font-sans text-heading-xl font-medium text-ink-900 mb-4">{dept.name}</h2>
-                    <p className="font-sans text-body-sm max-w-prose text-ink-500 leading-relaxed">
+                    <h2 className="font-sans text-heading-xl font-medium text-foreground mb-4">{dept.name}</h2>
+                    <p className="font-sans text-body-sm max-w-prose text-muted-foreground leading-relaxed">
                       {dept.description}
                     </p>
                   </div>
@@ -84,11 +84,11 @@ export default function TeamPage() {
                 <div className="md:col-span-8">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     {dept.members.map((member, mIdx) => (
-                      <Card key={mIdx} className="flex flex-col h-full border-border-default hover:border-text-primary transition-colors">
+                      <Card key={mIdx} className="flex flex-col h-full border-border hover:border-text-primary transition-colors">
                         <CardContent className="flex flex-col p-6 h-full gap-2">
-                          <h3 className="font-sans font-medium text-heading-md text-ink-900">{member.name}</h3>
-                          <p className="font-sans text-caption font-semibold uppercase tracking-wider text-ink-500">{member.role}</p>
-                          <div className="mt-2 text-body-sm text-ink-500 leading-relaxed">{member.bio}</div>
+                          <h3 className="font-sans font-medium text-heading-md text-foreground">{member.name}</h3>
+                          <p className="font-sans text-caption font-semibold uppercase tracking-wider text-muted-foreground">{member.role}</p>
+                          <div className="mt-2 text-body-sm text-muted-foreground leading-relaxed">{member.bio}</div>
                         </CardContent>
                       </Card>
                     ))}
@@ -102,12 +102,12 @@ export default function TeamPage() {
       </Section>
 
       {/* Secure Contact CTA */}
-      <Section tone="alt" className="pt-24 pb-24 border-t border-border-default">
+      <Section tone="alt" className="pt-24 pb-24 border-t border-border">
         <Container className="max-w-3xl text-center">
-          <h2 className="font-sans text-heading-xl font-light tracking-tight text-ink-900 mb-6">
+          <h2 className="font-sans text-heading-xl font-light tracking-tight text-foreground mb-6">
             Get in Touch
           </h2>
-          <p className="font-sans text-ink-500 leading-relaxed mb-8">
+          <p className="font-sans text-muted-foreground leading-relaxed mb-8">
             To protect our staff from spam and ensure your inquiry is routed to the correct department immediately, please use our secure central contact form.
           </p>
           <Button

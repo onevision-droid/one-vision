@@ -18,8 +18,8 @@ export default function PatternsPage() {
  return (
  <div className="flex flex-col pb-20">
  <div className="max-w-7xl mx-auto px-5 xl:px-6 py-12">
- <h1 className="font-sans text-display-lg font-light text-ink-900">Composition Patterns</h1>
- <p className="text-body text-ink-500 max-w-2xl mt-4">
+ <h1 className="font-sans text-display-lg font-light text-foreground">Composition Patterns</h1>
+ <p className="text-body text-muted-foreground max-w-2xl mt-4">
  Preview of the Nordic Lagoon composition patterns. These are the macro-layout 
  components used to construct pages.
  </p>

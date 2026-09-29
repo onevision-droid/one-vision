@@ -89,9 +89,9 @@ export function DonateForm({
 
   if (isSubmitted) {
     return (
-      <div className="bg-surface p-8 border border-border-default text-center space-y-4">
-        <h3 className="font-sans text-heading-lg font-semibold text-ink-900">Proceeding to Gateway...</h3>
-        <p className="font-sans text-ink-500">
+      <div className="bg-muted p-8 border border-border text-center space-y-4">
+        <h3 className="font-sans text-heading-lg font-semibold text-foreground">Proceeding to Gateway...</h3>
+        <p className="font-sans text-muted-foreground">
           In a live environment, you would be redirected to a secure payment provider.
         </p>
         <Button variant="secondary" onClick={() => setIsSubmitted(false)} className="mt-4">
@@ -107,8 +107,8 @@ export function DonateForm({
         
         {/* Section 1: Amount Selection */}
         <div className="space-y-8">
-          <div className="flex items-center justify-between border-b border-border-default pb-4">
-            <h2 className="font-serif text-3xl font-light text-ink-900">1. Select Amount</h2>
+          <div className="flex items-center justify-between border-b border-border pb-4">
+            <h2 className="font-serif text-3xl font-light text-foreground">1. Select Amount</h2>
           </div>
           
           <FormField
@@ -117,13 +117,13 @@ export function DonateForm({
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <div className="grid grid-cols-2 gap-0 border border-border-default bg-surface *:border-r last:*:border-r-0 *:border-border-default">
+                  <div className="grid grid-cols-2 gap-0 border border-border bg-muted *:border-r last:*:border-r-0 *:border-border">
                     <button
                       type="button"
                       onClick={() => field.onChange("one-time")}
                       className={cn(
                         "px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors",
-                        field.value === "one-time" ? "bg-safety-orange text-ink-900" : "text-ink-500 hover:bg-paper"
+                        field.value === "one-time" ? "bg-destructive text-foreground" : "text-muted-foreground hover:bg-background"
                       )}
                     >
                       One-time
@@ -140,21 +140,21 @@ export function DonateForm({
                       className={cn(
                         "px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors",
                         field.value === "monthly"
-                          ? "bg-safety-orange text-ink-900"
-                          : "text-ink-500 hover:bg-paper",
-                        !recurringEnabled && "opacity-50 cursor-not-allowed hover:bg-surface"
+                          ? "bg-destructive text-foreground"
+                          : "text-muted-foreground hover:bg-background",
+                        !recurringEnabled && "opacity-50 cursor-not-allowed hover:bg-muted"
                       )}
                     >
                       Monthly {!recurringEnabled && <span className="text-[9px] text-ink-400 ml-1">(Soon)</span>}
                     </button>
                   </div>
                 </FormControl>
-                <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+                <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
             )}
           />
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border border-border-default *:border-r *:border-b md:*:border-b-0 last:*:border-r-0 *:border-border-default bg-surface">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border border-border *:border-r *:border-b md:*:border-b-0 last:*:border-r-0 *:border-border bg-muted">
             {donationAmounts.map((amt) => (
               <button
                 key={amt}
@@ -162,8 +162,8 @@ export function DonateForm({
                 className={cn(
                   "py-6 text-2xl font-serif transition-colors",
                   selectedPreset === amt 
-                    ? "bg-ink-900 text-paper" 
-                    : "text-ink-900 hover:bg-paper"
+                    ? "bg-foreground text-background" 
+                    : "text-foreground hover:bg-background"
                 )}
                 onClick={() => {
                   setSelectedPreset(amt);
@@ -176,7 +176,7 @@ export function DonateForm({
             ))}
           </div>
 
-          <p className="font-sans text-role-body-sm text-ink-500 font-light border-l-2 border-safety-orange pl-4">
+          <p className="font-sans text-base-sm text-muted-foreground font-light border-l-2 border-safety-orange pl-4">
             Fee transparency: 100% of your donation is allocated to community relief. Processing fees (~2%) are absorbed by foundation reserves.
           </p>
           
@@ -185,16 +185,16 @@ export function DonateForm({
             name="amount"
             render={({ field }) => (
               <FormItem className="space-y-2">
-                <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">Or enter a custom amount (INR)</FormLabel>
+                <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">Or enter a custom amount (INR)</FormLabel>
                 <FormControl>
                   <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 font-sans font-medium text-ink-500">₹</span>
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 font-sans font-medium text-muted-foreground">₹</span>
                     <Input 
                       {...field} 
                       type="number" 
                       min="100" 
                       placeholder="0" 
-                      className="pl-8 rounded-none border-border-default focus-visible:ring-safety-orange h-14 font-sans text-lg"
+                      className="pl-8 rounded-none border-border focus-visible:ring-safety-orange h-14 font-sans text-lg"
                       onChange={(e) => {
                         setSelectedPreset(null);
                         field.onChange(e);
@@ -202,7 +202,7 @@ export function DonateForm({
                     />
                   </div>
                 </FormControl>
-                <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+                <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
             )}
           />
@@ -210,8 +210,8 @@ export function DonateForm({
 
         {/* Section 2: Personal Details */}
         <div className="space-y-8">
-          <div className="flex items-center justify-between border-b border-border-default pb-4">
-            <h2 className="font-serif text-3xl font-light text-ink-900">2. Your Details</h2>
+          <div className="flex items-center justify-between border-b border-border pb-4">
+            <h2 className="font-serif text-3xl font-light text-foreground">2. Your Details</h2>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -220,11 +220,11 @@ export function DonateForm({
               name="firstName"
               render={({ field }) => (
                 <FormItem className="space-y-2">
-                  <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">First Name <span className="text-safety-orange">*</span></FormLabel>
+                  <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">First Name <span className="text-destructive">*</span></FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Jane" autoComplete="given-name" className="rounded-none border-border-default focus-visible:ring-safety-orange h-12" />
+                    <Input {...field} placeholder="Jane" autoComplete="given-name" className="rounded-none border-border focus-visible:ring-safety-orange h-12" />
                   </FormControl>
-                  <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+                  <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
                 </FormItem>
               )}
             />
@@ -233,11 +233,11 @@ export function DonateForm({
               name="lastName"
               render={({ field }) => (
                 <FormItem className="space-y-2">
-                  <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">Last Name <span className="text-safety-orange">*</span></FormLabel>
+                  <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">Last Name <span className="text-destructive">*</span></FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Doe" autoComplete="family-name" className="rounded-none border-border-default focus-visible:ring-safety-orange h-12" />
+                    <Input {...field} placeholder="Doe" autoComplete="family-name" className="rounded-none border-border focus-visible:ring-safety-orange h-12" />
                   </FormControl>
-                  <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+                  <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
                 </FormItem>
               )}
             />
@@ -248,11 +248,11 @@ export function DonateForm({
             name="email"
             render={({ field }) => (
               <FormItem className="space-y-2">
-                <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">Email Address (for tax receipt) <span className="text-safety-orange">*</span></FormLabel>
+                <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">Email Address (for tax receipt) <span className="text-destructive">*</span></FormLabel>
                 <FormControl>
-                  <Input {...field} type="email" placeholder="jane@example.com" autoComplete="email" className="rounded-none border-border-default focus-visible:ring-safety-orange h-12" />
+                  <Input {...field} type="email" placeholder="jane@example.com" autoComplete="email" className="rounded-none border-border focus-visible:ring-safety-orange h-12" />
                 </FormControl>
-                <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+                <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
             )}
           />
@@ -262,11 +262,11 @@ export function DonateForm({
             name="pan"
             render={({ field }) => (
               <FormItem className="space-y-2">
-                <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">PAN Number (Required for 80G Exemption)</FormLabel>
+                <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">PAN Number (Required for 80G Exemption)</FormLabel>
                 <FormControl>
-                  <Input {...field} className="uppercase rounded-none border-border-default focus-visible:ring-safety-orange h-12" placeholder="ABCDE1234F" />
+                  <Input {...field} className="uppercase rounded-none border-border focus-visible:ring-safety-orange h-12" placeholder="ABCDE1234F" />
                 </FormControl>
-                <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+                <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
             )}
           />
@@ -274,11 +274,11 @@ export function DonateForm({
 
         {/* Submit Action */}
         <div className="pt-8">
-          <button type="submit" className="w-full flex items-center justify-center gap-2 px-8 py-5 bg-ink-900 text-paper font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-safety-orange hover:text-ink-900">
+          <button type="submit" className="w-full flex items-center justify-center gap-2 px-8 py-5 bg-foreground text-background font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-destructive hover:text-foreground">
             <span>Proceed to Payment</span>
             <ArrowRight className="size-4" />
           </button>
-          <p className="text-center font-mono text-[10px] text-ink-500 mt-6 flex items-center justify-center gap-2 uppercase tracking-widest font-bold">
+          <p className="text-center font-mono text-[10px] text-muted-foreground mt-6 flex items-center justify-center gap-2 uppercase tracking-widest font-bold">
             <Lock className="size-3" /> Payments are securely processed via certified gateway.
           </p>
         </div>

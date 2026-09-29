@@ -16,14 +16,14 @@ const partners: Partner[] = [
  focus: "Medical & Camps",
  status: "Active Response",
  icon: Activity,
-    logoClass: "bg-safety-orange-dim",
+    logoClass: "bg-destructive-dim",
  },
  {
  name: "Manipur Relief Fund",
  focus: "Resource Routing",
  status: "Verified Partner",
  icon: ShieldCheck,
-    logoClass: "bg-ink-900",
+    logoClass: "bg-foreground",
  },
  {
  name: "Imphal Valley Assoc.",
@@ -37,14 +37,14 @@ const partners: Partner[] = [
  focus: "Trauma Care",
  status: "Active Response",
  icon: Activity,
-    logoClass: "bg-hazard-yellow text-ink-900",
+    logoClass: "bg-hazard-yellow text-foreground",
  },
  {
  name: "Education First NGO",
  focus: "Student Support",
  status: "Verified Partner",
  icon: ShieldCheck,
-    logoClass: "bg-safety-orange",
+    logoClass: "bg-destructive",
  },
  {
  name: "Rural Dev Corp",
@@ -66,8 +66,8 @@ const PartnerTickerItem = ({ name, focus, status, icon: Icon, logoClass }: Partn
  >
  {name.charAt(0)}
  </div>
- <p className="text-sm font-medium text-ink-900">{name}</p>
- <p className="text-sm text-ink-500 font-light">{focus}</p>
+ <p className="text-sm font-medium text-foreground">{name}</p>
+ <p className="text-sm text-muted-foreground font-light">{focus}</p>
       <p className="flex items-center gap-1.5 text-xs font-medium text-status-active">
  <Icon className="size-3.5" aria-hidden="true" />
  {status}
@@ -79,9 +79,9 @@ const PartnerTickerItem = ({ name, focus, status, icon: Icon, logoClass }: Partn
 
 export function PartnerLogoRow() {
  return (
- <div className="relative py-12 border-y border-border-default bg-surface overflow-hidden">
+ <div className="relative py-12 border-y border-border bg-muted overflow-hidden">
  <div className="container mx-auto px-4 mb-8 text-center">
- <p className="font-sans text-xs uppercase tracking-widest text-ink-500 font-medium">
+ <p className="font-sans text-xs uppercase tracking-widest text-muted-foreground font-medium">
  Working alongside trusted organizations across Manipur
  </p>
  </div>

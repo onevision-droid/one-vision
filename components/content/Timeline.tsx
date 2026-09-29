@@ -26,19 +26,19 @@ export function Timeline({
  {(heading || subheading) && (
  <div className="space-y-3 max-w-2xl">
  {heading && (
- <h2 className="font-sans text-display-md font-light tracking-tight text-ink-900">
+ <h2 className="font-sans text-display-md font-light tracking-tight text-foreground">
  {heading}
  </h2>
  )}
  {subheading && (
- <p className="font-sans text-body-lg max-w-prose text-ink-500 font-light leading-relaxed">
+ <p className="font-sans text-body-lg max-w-prose text-muted-foreground font-light leading-relaxed">
  {subheading}
  </p>
  )}
  </div>
  )}
 
- <ol role="list" className="relative border-l border-border-default ml-3 sm:ml-4 space-y-12 sm:space-y-16">
+ <ol role="list" className="relative border-l border-border ml-3 sm:ml-4 space-y-12 sm:space-y-16">
  {items.map((item, index) => {
  const isCompleted = item.status === "completed" || (!item.status && index < items.length - 1);
  const isActive = item.status === "active";
@@ -54,9 +54,9 @@ export function Timeline({
  aria-hidden="true"
  className={cn(
  "absolute -left-1.75 top-1.5 size-3.5 transition-transform duration-200 group-hover:scale-125",
- isCompleted && "bg-ink-900 border-2 border-surface",
+ isCompleted && "bg-foreground border-2 border-surface",
  isActive && "bg-action-primary ring-4 ring-action-primary/20 border-2 border-surface",
- isUpcoming && "bg-surface border-2 border-ink-400"
+ isUpcoming && "bg-muted border-2 border-ink-400"
  )}
  />
 
@@ -78,11 +78,11 @@ export function Timeline({
  )}
  </div>
 
- <h3 className="font-sans text-heading-md font-medium text-ink-900 leading-snug">
+ <h3 className="font-sans text-heading-md font-medium text-foreground leading-snug">
  {item.title}
  </h3>
 
- <p className="font-sans text-body-sm text-ink-500 font-light leading-relaxed max-w-2xl">
+ <p className="font-sans text-body-sm text-muted-foreground font-light leading-relaxed max-w-2xl">
  {item.description}
  </p>
  </div>

@@ -52,7 +52,7 @@ export function Shoreline({
  <div className="flex flex-col justify-center space-y-6 lg:space-y-8">
  {eyebrow && (
  <div
-          className={cn("eyebrow", dark ? "text-paper" : "text-ink-500")}
+          className={cn("eyebrow", dark ? "text-background" : "text-muted-foreground")}
  >
  {eyebrow}
  </div>
@@ -70,7 +70,7 @@ export function Shoreline({
  <p
  className={cn(
  "max-w-135 text-body leading-relaxed",
-                dark ? "text-paper/80" : "text-ink-500",
+                dark ? "text-background/80" : "text-muted-foreground",
  )}
  >
  {description}

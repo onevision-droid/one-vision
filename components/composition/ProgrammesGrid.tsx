@@ -9,14 +9,14 @@ import { Button } from "@/components/ui/button";
 import { programmes } from "@/lib/data/programmes";
 export function ProgrammesGrid() {
   return (
-    <Section tone="default" className="border-t border-border-default">
+    <Section tone="default" className="border-t border-border">
       <Container>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <h2 className="text-balance font-sans text-heading-xl md:text-display-md font-medium text-ink-900">
+            <h2 className="text-balance font-sans text-heading-xl md:text-display-md font-medium text-foreground">
               Explore Our Work
             </h2>
-            <p className="text-ink-500 mt-4 text-balance text-body-lg font-light max-w-xl">
+            <p className="text-muted-foreground mt-4 text-balance text-body-lg font-light max-w-xl">
               We operate across four core pillars to build immediate resilience
               and long-term capacity in Manipur.
             </p>
@@ -37,7 +37,7 @@ export function ProgrammesGrid() {
           {programmes.slice(0, 4).map((programme) => (
             <Card
               key={programme.id}
-              className="group relative flex flex-col justify-between p-0 overflow-hidden bg-surface border border-border-default hover:border-line-strong transition-colors"
+              className="group relative flex flex-col justify-between p-0 overflow-hidden bg-muted border border-border hover:border-line-strong transition-colors"
             >
               <Link
                 href={`/programmes/${programme.slug}`}
@@ -47,8 +47,8 @@ export function ProgrammesGrid() {
 
               <div className="p-8 pb-0 space-y-3 z-10 relative">
                 {/* Metadata Pills */}
-                <div className="flex flex-wrap items-center gap-3 text-xs text-ink-500">
-                  <span className="inline-flex items-center gap-2 border border-border-default bg-paper/80 backdrop-blur-sm px-3 py-1 font-medium text-ink-700 shadow-xs">
+                <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+                  <span className="inline-flex items-center gap-2 border border-border bg-background/80 backdrop-blur-sm px-3 py-1 font-medium text-ink-700 shadow-xs">
                     {programme.category}
                   </span>
                   <div className="flex items-center gap-2">
@@ -59,11 +59,11 @@ export function ProgrammesGrid() {
                   <span className="truncate">{programme.location}</span>
                 </div>
 
-                <h3 className="text-ink-900 font-medium text-heading-md flex items-center justify-between pr-4 mt-2">
+                <h3 className="text-foreground font-medium text-heading-md flex items-center justify-between pr-4 mt-2">
                   {programme.title}
                   <ArrowRight className="size-4 opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
                 </h3>
-                <p className="text-ink-500 text-body-sm font-light leading-relaxed max-w-md">
+                <p className="text-muted-foreground text-body-sm font-light leading-relaxed max-w-md">
                   {programme.description}
                 </p>
               </div>

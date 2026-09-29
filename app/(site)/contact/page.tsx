@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
  return (
- <div className="flex flex-col w-full bg-paper">
+ <div className="flex flex-col w-full bg-background">
  <PageHero 
  badge="Contact Us"
  heading={
@@ -26,86 +26,86 @@ export default function ContactPage() {
  />
 
  {/* Contact Form (Document Shell Layout) */}
- <section className="w-full px-4 py-12 md:py-20 bg-paper">
- <div className="mx-auto max-w-6xl overflow-hidden border border-border-default bg-surface shadow-xl shadow-black/5">
-        <div className="bg-safety-orange/5 px-8 py-10 md:px-12 md:py-12 border-b border-border-default">
+ <section className="w-full px-4 py-12 md:py-20 bg-background">
+ <div className="mx-auto max-w-6xl overflow-hidden border border-border bg-muted shadow-xl shadow-black/5">
+        <div className="bg-destructive/5 px-8 py-10 md:px-12 md:py-12 border-b border-border">
           <div className="flex items-center gap-2 mb-3">
-            <span className="size-2 bg-safety-orange animate-pulse" />
-            <span className="text-caption tracking-widest uppercase text-safety-orange font-semibold">
+            <span className="size-2 bg-destructive animate-pulse" />
+            <span className="text-caption tracking-widest uppercase text-destructive font-semibold">
  General Inquiries
  </span>
  </div>
- <h2 className="text-3xl md:text-4xl font-sans text-ink-900 mb-4 tracking-tight">
+ <h2 className="text-3xl md:text-4xl font-sans text-foreground mb-4 tracking-tight">
  Contact Us
  </h2>
- <p className="text-body-lg text-ink-500 font-light leading-relaxed max-w-2xl">
+ <p className="text-body-lg text-muted-foreground font-light leading-relaxed max-w-2xl">
  For immediate assistance or specific queries, you can reach out to our team directly.
  </p>
  </div>
 
  <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
  {/* Form */}
- <div className="lg:col-span-7 p-8 md:p-12 lg:border-r border-border-default">
+ <div className="lg:col-span-7 p-8 md:p-12 lg:border-r border-border">
  <ContactForm />
  </div>
 
  {/* Sidebar Details */}
  <div className="lg:col-span-5 flex flex-col gap-10 p-8 md:p-12 bg-section-alt">
  <div>
- <h3 className="font-sans text-heading-md font-medium text-ink-900 mb-8 tracking-wide">
+ <h3 className="font-sans text-heading-md font-medium text-foreground mb-8 tracking-wide">
  Direct Contact
  </h3>
 
- <div className="space-y-8 border-l-2 border-border-default ml-4 relative">
+ <div className="space-y-8 border-l-2 border-border ml-4 relative">
  <div className="relative pl-8">
- <span className="absolute -left-3 top-0.5 size-6 bg-surface border border-border-default flex items-center justify-center font-sans text-ink-900 font-medium text-xs">
+ <span className="absolute -left-3 top-0.5 size-6 bg-muted border border-border flex items-center justify-center font-sans text-foreground font-medium text-xs">
  #
  </span>
- <h4 className="font-medium text-ink-900 mb-1 mt-1 uppercase tracking-widest text-caption">
+ <h4 className="font-medium text-foreground mb-1 mt-1 uppercase tracking-widest text-caption">
  Helpline
  </h4>
- <a href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, '')}`} className="text-body-sm text-ink-500 hover:text-action-primary transition-colors block">
+ <a href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, '')}`} className="text-body-sm text-muted-foreground hover:text-action-primary transition-colors block">
  {siteSettings.contactPhone}
  </a>
  </div>
 
  <div className="relative pl-8">
- <span className="absolute -left-3 top-0.5 size-6 bg-surface border border-border-default flex items-center justify-center font-sans text-ink-900 font-medium text-xs">
+ <span className="absolute -left-3 top-0.5 size-6 bg-muted border border-border flex items-center justify-center font-sans text-foreground font-medium text-xs">
  @
  </span>
- <h4 className="font-medium text-ink-900 mb-1 mt-1 uppercase tracking-widest text-caption">
+ <h4 className="font-medium text-foreground mb-1 mt-1 uppercase tracking-widest text-caption">
  Email
  </h4>
- <a href={`mailto:${siteSettings.contactEmail}`} className="text-body-sm text-ink-500 hover:text-action-primary transition-colors block">
+ <a href={`mailto:${siteSettings.contactEmail}`} className="text-body-sm text-muted-foreground hover:text-action-primary transition-colors block">
  {siteSettings.contactEmail}
  </a>
  </div>
 
  <div className="relative pl-8">
- <span className="absolute -left-3 top-0.5 size-6 bg-surface border border-border-default flex items-center justify-center font-sans text-ink-900 font-medium text-xs">
+ <span className="absolute -left-3 top-0.5 size-6 bg-muted border border-border flex items-center justify-center font-sans text-foreground font-medium text-xs">
  *
  </span>
- <h4 className="font-medium text-ink-900 mb-1 mt-1 uppercase tracking-widest text-caption">
+ <h4 className="font-medium text-foreground mb-1 mt-1 uppercase tracking-widest text-caption">
  Office
  </h4>
- <p className="text-body-sm text-ink-500 max-w-xs leading-relaxed">
+ <p className="text-body-sm text-muted-foreground max-w-xs leading-relaxed">
  Imphal, Manipur, India
  </p>
  </div>
  </div>
  </div>
 
- <div className="bg-ink-900 p-8 flex flex-col items-start gap-4 mt-auto">
+ <div className="bg-foreground p-8 flex flex-col items-start gap-4 mt-auto">
  <div>
- <h4 className="text-heading-md font-medium text-paper mb-2">
+ <h4 className="text-heading-md font-medium text-background mb-2">
  Need Help?
  </h4>
- <p className="text-body-sm max-w-prose text-paper/70 font-light leading-relaxed mb-6">
+ <p className="text-body-sm max-w-prose text-background/70 font-light leading-relaxed mb-6">
  If you are looking for support or need to request immediate assistance, please use our dedicated Help Portal.
  </p>
  <a 
  href="/get-help"
- className="group inline-flex items-center justify-center gap-2 bg-paper text-ink-900 text-body-sm font-medium px-6 py-2.5 transition-colors duration-base"
+ className="group inline-flex items-center justify-center gap-2 bg-background text-foreground text-body-sm font-medium px-6 py-2.5 transition-colors duration-base"
  >
  <span>Go to Help Portal</span>
  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform duration-fast" />

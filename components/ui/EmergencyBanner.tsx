@@ -50,7 +50,7 @@ export function EmergencyBanner({
  role="region"
  aria-label="Emergency information"
  className={cn(
- "bg-ink-900 text-paper border-b border-border-default px-4 py-3 md:py-4 w-full z-30 transition-all",
+ "bg-foreground text-background border-b border-border px-4 py-3 md:py-4 w-full z-30 transition-all",
  className
  )}
  >
@@ -61,11 +61,11 @@ export function EmergencyBanner({
  </div>
  <div className="space-y-1">
  <div className="flex flex-wrap items-center gap-2">
- <span className="font-semibold font-sans text-body-sm text-paper tracking-wide uppercase">
+ <span className="font-semibold font-sans text-body-sm text-background tracking-wide uppercase">
  {title}
  </span>
- <span className="text-paper/40 hidden md:inline">·</span>
- <span className="text-caption text-paper/70 font-light">
+ <span className="text-background/40 hidden md:inline">·</span>
+ <span className="text-caption text-background/70 font-light">
  {description}
  </span>
  </div>
@@ -78,7 +78,7 @@ export function EmergencyBanner({
  {actionLabel && actionHref && (
  <Link
  href={actionHref}
- className="bg-paper text-ink-900 hover:bg-paper/90 px-3 py-1.5 text-caption font-semibold uppercase tracking-wider transition-colors"
+ className="bg-background text-foreground hover:bg-background/90 px-3 py-1.5 text-caption font-semibold uppercase tracking-wider transition-colors"
  >
  {actionLabel}
  </Link>
@@ -88,7 +88,7 @@ export function EmergencyBanner({
  <button
  onClick={handleDismiss}
  aria-label="Dismiss emergency banner"
- className="p-1 text-paper/60 hover:text-paper transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-paper"
+ className="p-1 text-background/60 hover:text-background transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-paper"
  >
  <X className="h-4 w-4" />
  </button>

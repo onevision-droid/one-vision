@@ -24,23 +24,23 @@ export function ActionDrawer({
  <VaulDrawer.Trigger asChild>{trigger}</VaulDrawer.Trigger>
  
  <VaulDrawer.Portal>
- <VaulDrawer.Overlay className="fixed inset-0 bg-ink-900/40 backdrop-blur-sm z-50 transition-opacity" />
+ <VaulDrawer.Overlay className="fixed inset-0 bg-foreground/40 backdrop-blur-sm z-50 transition-opacity" />
  
- <VaulDrawer.Content className="bg-surface border-l border-border-default flex flex-col h-full w-full sm:w-125 mt-24 fixed bottom-0 right-0 z-50 shadow-2xl focus:outline-none">
+ <VaulDrawer.Content className="bg-muted border-l border-border flex flex-col h-full w-full sm:w-125 mt-24 fixed bottom-0 right-0 z-50 shadow-2xl focus:outline-none">
  {/* Header */}
- <div className="p-6 border-b border-border-default flex items-center justify-between shrink-0">
+ <div className="p-6 border-b border-border flex items-center justify-between shrink-0">
  <div>
- <VaulDrawer.Title className="font-sans text-heading-sm font-medium text-ink-900">
+ <VaulDrawer.Title className="font-sans text-heading-sm font-medium text-foreground">
  {title}
  </VaulDrawer.Title>
  {description && (
- <VaulDrawer.Description className="text-body-sm text-ink-500 mt-1">
+ <VaulDrawer.Description className="text-body-sm text-muted-foreground mt-1">
  {description}
  </VaulDrawer.Description>
  )}
  </div>
  
- <VaulDrawer.Close className="p-2 hover:bg-section-alt text-ink-500 hover:text-ink-900 transition-colors">
+ <VaulDrawer.Close className="p-2 hover:bg-section-alt text-muted-foreground hover:text-foreground transition-colors">
  <X className="size-5" />
  </VaulDrawer.Close>
  </div>

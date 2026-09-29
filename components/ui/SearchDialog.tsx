@@ -142,17 +142,17 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  {isOpen && (
  <div className="fixed inset-0 z-100 flex items-start justify-center pt-[10vh] px-4 md:px-0">
  <div
- className="absolute inset-0 bg-ink-900/60 backdrop-blur-sm"
+ className="absolute inset-0 bg-foreground/60 backdrop-blur-sm"
  onClick={onClose}
  />
  <div
-        className="relative w-full max-w-2xl bg-paper border-2 border-border-default shadow-2xl flex flex-col max-h-[80vh] overflow-hidden "
+        className="relative w-full max-w-2xl bg-background border-2 border-border shadow-2xl flex flex-col max-h-[80vh] overflow-hidden "
         role="dialog"
         aria-modal="true"
       >
         {/* Input Header */}
-        <div className="flex items-center border-b-2 border-border-default px-4 py-4 bg-surface">
- <Search className="size-5 text-ink-900 shrink-0 mr-3" />
+        <div className="flex items-center border-b-2 border-border px-4 py-4 bg-muted">
+ <Search className="size-5 text-foreground shrink-0 mr-3" />
  <input
  ref={inputRef}
  type="text"
@@ -163,11 +163,11 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  }}
  onKeyDown={handleKeyDown}
  placeholder="Search operations, reports, or field stories..."
- className="flex-1 bg-transparent border-none outline-none text-heading-sm font-sans text-ink-900 placeholder:text-ink-400 placeholder:font-light"
+ className="flex-1 bg-transparent border-none outline-none text-heading-sm font-sans text-foreground placeholder:text-ink-400 placeholder:font-light"
  />
  <button
  onClick={onClose}
- className="p-1 ml-2 text-ink-500 hover:text-ink-900 transition-colors shrink-0"
+ className="p-1 ml-2 text-muted-foreground hover:text-foreground transition-colors shrink-0"
  aria-label="Close search"
  >
  <X className="size-5" />
@@ -181,16 +181,16 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  <span className="text-caption uppercase tracking-widest text-ink-400 font-semibold mb-2">
  Global Search
  </span>
- <p className="text-body-sm text-ink-500 font-light max-w-sm">
+ <p className="text-body-sm text-muted-foreground font-light max-w-sm">
  Enter a keyword to locate field data, resource requests, or official documentation.
  </p>
  </div>
  ) : results.length === 0 ? (
  <div className="p-10 text-center flex flex-col items-center justify-center">
- <span className="text-caption uppercase tracking-widest text-safety-orange font-semibold mb-2">
+ <span className="text-caption uppercase tracking-widest text-destructive font-semibold mb-2">
  0 Matches
  </span>
- <p className="text-body-sm max-w-prose text-ink-500 font-light">
+ <p className="text-body-sm max-w-prose text-muted-foreground font-light">
  No records found for &quot;{query}&quot;. Try broader terms.
  </p>
  </div>
@@ -209,8 +209,8 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  target={isPdf ? "_blank" : undefined}
  onMouseEnter={() => setSelectedIndex(index)}
  onClick={onClose}
- className={`w-full text-left px-5 py-4 flex items-start gap-4 border-b border-border-default transition-colors ${
- isSelected ? "bg-ink-900 text-paper" : "bg-transparent text-ink-900 hover:bg-surface-alt"
+ className={`w-full text-left px-5 py-4 flex items-start gap-4 border-b border-border transition-colors ${
+ isSelected ? "bg-foreground text-background" : "bg-transparent text-foreground hover:bg-muted-alt"
  }`}
  >
  <div className="flex-1 min-w-0">
@@ -218,24 +218,24 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  <span
  className={`text-[10px] font-sans font-medium uppercase tracking-wider px-1.5 py-0.5 border ${
  isSelected
- ? "border-paper/40 text-paper/80"
-                    : "border-border-default text-ink-500"
+ ? "border-paper/40 text-background/80"
+                    : "border-border text-muted-foreground"
  } `}
  >
  {result._type}
  </span>
  {result._type === "programme" && (
- <span className={`text-caption font-semibold truncate ${isSelected ? "text-paper/60" : "text-ink-400"}`}>
+ <span className={`text-caption font-semibold truncate ${isSelected ? "text-background/60" : "text-ink-400"}`}>
  {item.location}
  </span>
  )}
  </div>
- <h4 className={`font-sans text-body-sm font-semibold truncate ${isSelected ? "text-paper" : "text-ink-900"}`}>
+ <h4 className={`font-sans text-body-sm font-semibold truncate ${isSelected ? "text-background" : "text-foreground"}`}>
  {item.title}
  </h4>
  </div>
  {isSelected && (
- <div className="shrink-0 flex items-center text-paper/60 mt-2">
+ <div className="shrink-0 flex items-center text-background/60 mt-2">
  <CornerDownLeft className="size-4" />
  </div>
  )}
@@ -248,20 +248,20 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  </div>
 
  {/* Footer */}
- <div className="border-t border-border-default bg-surface px-4 py-3 flex items-center justify-between text-[11px] font-sans text-ink-500 uppercase tracking-widest">
+ <div className="border-t border-border bg-muted px-4 py-3 flex items-center justify-between text-[11px] font-sans text-muted-foreground uppercase tracking-widest">
  <span>{results.length} results</span>
  <div className="hidden sm:flex items-center gap-4">
  <span className="flex items-center gap-1">
- <kbd className="px-1.5 py-0.5 border border-border-default bg-paper ">↑</kbd>
- <kbd className="px-1.5 py-0.5 border border-border-default bg-paper ">↓</kbd>
+ <kbd className="px-1.5 py-0.5 border border-border bg-background ">↑</kbd>
+ <kbd className="px-1.5 py-0.5 border border-border bg-background ">↓</kbd>
  Navigate
  </span>
  <span className="flex items-center gap-1">
- <kbd className="px-1.5 py-0.5 border border-border-default bg-paper ">↵</kbd>
+ <kbd className="px-1.5 py-0.5 border border-border bg-background ">↵</kbd>
  Select
  </span>
  <span className="flex items-center gap-1">
- <kbd className="px-1.5 py-0.5 border border-border-default bg-paper ">ESC</kbd>
+ <kbd className="px-1.5 py-0.5 border border-border bg-background ">ESC</kbd>
  Close
  </span>
  </div>

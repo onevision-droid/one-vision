@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="flex flex-col w-full bg-paper pt-20">
+    <div className="flex flex-col w-full bg-background pt-20">
       <Section tone="default" className="pt-16 pb-24">
         <Container>
           <div className="max-w-3xl mx-auto space-y-8">
@@ -18,10 +18,10 @@ export default function TermsPage() {
             
             <div>
               <Badge className="mb-6">Legal</Badge>
-              <h1 className="font-sans text-display-md font-light tracking-tight text-ink-900 leading-[1.1] mb-6">
+              <h1 className="font-sans text-display-md font-light tracking-tight text-foreground leading-[1.1] mb-6">
                 Terms of Service
               </h1>
-              <p className="text-body-lg max-w-prose  text-ink-500 font-light leading-relaxed">
+              <p className="text-body-lg max-w-prose  text-muted-foreground font-light leading-relaxed">
                 Last updated: October 2026
               </p>
             </div>

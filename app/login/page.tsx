@@ -35,16 +35,16 @@ export default function LoginPage() {
   }
 
   return (
-    <main id="main" className="flex min-h-svh w-full flex-col items-center justify-center p-6 md:p-10 bg-paper">
+    <main id="main" className="flex min-h-svh w-full flex-col items-center justify-center p-6 md:p-10 bg-background">
       <div className="w-full max-w-sm space-y-6">
-        <div className="flex items-center justify-between border-b border-border-default pb-4">
+        <div className="flex items-center justify-between border-b border-border pb-4">
           <Link
             href="/"
-            className="font-sans text-xs font-bold text-ink-900 uppercase tracking-widest hover:text-safety-orange transition-colors"
+            className="font-sans text-xs font-bold text-foreground uppercase tracking-widest hover:text-destructive transition-colors"
           >
             &larr; Return Home
           </Link>
-          <span className="font-mono text-[10px] text-ink-500 uppercase tracking-widest">Secured Node</span>
+          <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">Secured Node</span>
         </div>
         <LoginForm
           email={email}

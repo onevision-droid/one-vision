@@ -77,7 +77,7 @@ export function NewsletterForm({
     return (
       <div
         className={cn(
-          "flex items-center gap-3 p-4 bg-surface border border-border-default text-ink-900",
+          "flex items-center gap-3 p-4 bg-muted border border-border text-foreground",
           className
         )}
         role="status"
@@ -85,8 +85,8 @@ export function NewsletterForm({
       >
         <CheckCircle2 className="size-5 text-status-active shrink-0" />
         <div className="text-body-sm">
-          <p className="font-medium text-ink-900">Thank you for subscribing.</p>
-          <p className="text-ink-500 font-light">
+          <p className="font-medium text-foreground">Thank you for subscribing.</p>
+          <p className="text-muted-foreground font-light">
             You will receive our quarterly field dispatches and annual reports.
           </p>
         </div>
@@ -126,7 +126,7 @@ export function NewsletterForm({
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? "newsletter-email-error" : undefined}
             disabled={status === "loading"}
-            className="h-11 bg-surface border-border-default focus-visible:border-safety-orange text-body-sm"
+            className="h-11 bg-muted border-border focus-visible:border-safety-orange text-body-sm"
             {...register("email")}
           />
         </div>

@@ -7,13 +7,13 @@ export default function NotFound() {
  return (
  <Section tone="alt" className="min-h-[80vh] flex items-center justify-center">
  <Container className="max-w-xl text-center flex flex-col items-center">
- <div className="size-10 bg-surface border border-border-default flex items-center justify-center mb-8">
- <AlertCircle className="size-8 text-ink-500" />
+ <div className="size-10 bg-muted border border-border flex items-center justify-center mb-8">
+ <AlertCircle className="size-8 text-muted-foreground" />
  </div>
- <h1 className="font-sans text-display-lg font-light text-ink-900 mb-4">
+ <h1 className="font-sans text-display-lg font-light text-foreground mb-4">
  Page Not Found
  </h1>
- <p className="font-sans text-body-lg text-ink-500 mb-8 leading-relaxed max-w-md mx-auto">
+ <p className="font-sans text-body-lg text-muted-foreground mb-8 leading-relaxed max-w-md mx-auto">
  We couldn&apos;t find the page you&apos;re looking for. It might have been moved or doesn&apos;t exist anymore.
  </p>
  <Button

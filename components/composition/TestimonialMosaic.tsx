@@ -26,11 +26,11 @@ export function TestimonialMosaic({
     <Section tone={tone}>
       <Container>
         <div className="flex flex-col items-center text-center mb-16 max-w-2xl mx-auto">
-          <h2 className="font-sans text-heading-xl font-medium text-ink-900 mb-6">
+          <h2 className="font-sans text-heading-xl font-medium text-foreground mb-6">
             {heading}
           </h2>
           {description && (
-            <p className="text-body-lg max-w-prose  text-ink-500 font-light leading-relaxed">
+            <p className="text-body-lg max-w-prose  text-muted-foreground font-light leading-relaxed">
               {description}
             </p>
           )}
@@ -41,17 +41,17 @@ export function TestimonialMosaic({
           {testimonials.map((t, idx) => (
             <div
               key={idx}
-              className={`bg-paper p-8 border border-border-default flex flex-col justify-between ${
+              className={`bg-background p-8 border border-border flex flex-col justify-between ${
                 // Add some staggered height simulation or specific spans if desired
                 idx === 1 || idx === 4 ? "md:mt-8" : ""
               }`}
             >
-              <blockquote className="font-sans text-heading-md font-light text-ink-900 leading-relaxed mb-8">
+              <blockquote className="font-sans text-heading-md font-light text-foreground leading-relaxed mb-8">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
               <div className="flex items-center gap-4 mt-auto">
                 {t.image ? (
-                  <div className="relative w-12 h-12 overflow-hidden shrink-0 border border-border-default">
+                  <div className="relative w-12 h-12 overflow-hidden shrink-0 border border-border">
                     <Image
                       src={t.image}
                       alt={t.author}
@@ -60,18 +60,18 @@ export function TestimonialMosaic({
                     />
                   </div>
                 ) : (
-                  <div className="w-12 h-12 shrink-0 bg-surface-alt border border-border-default flex items-center justify-center">
-                    <span className="font-sans text-body-lg text-ink-900 font-light">
+                  <div className="w-12 h-12 shrink-0 bg-muted-alt border border-border flex items-center justify-center">
+                    <span className="font-sans text-body-lg text-foreground font-light">
                       {t.author.charAt(0)}
                     </span>
                   </div>
                 )}
                 <div>
-                  <p className="text-body-sm max-w-prose font-medium text-ink-900">
+                  <p className="text-body-sm max-w-prose font-medium text-foreground">
                     {t.author}
                   </p>
                   {t.role && (
-                    <p className="text-caption text-ink-500">{t.role}</p>
+                    <p className="text-caption text-muted-foreground">{t.role}</p>
                   )}
                 </div>
               </div>

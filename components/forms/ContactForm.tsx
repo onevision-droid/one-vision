@@ -69,15 +69,15 @@ export function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="bg-surface p-8 md:p-10 border border-border-default flex flex-col items-center justify-center gap-4 text-center min-h-75 py-12">
-        <div className="flex items-center justify-center w-12 h-12 bg-section-alt border border-border-default">
+      <div className="bg-muted p-8 md:p-10 border border-border flex flex-col items-center justify-center gap-4 text-center min-h-75 py-12">
+        <div className="flex items-center justify-center w-12 h-12 bg-section-alt border border-border">
           <CheckCircle2 className="w-6 h-6 text-action-primary" />
         </div>
         <div className="space-y-2">
-          <h3 className="font-sans text-heading-md font-semibold text-ink-900">
+          <h3 className="font-sans text-heading-md font-semibold text-foreground">
             Message Sent
           </h3>
-          <p className="text-body-sm text-ink-500 max-w-sm mx-auto mb-6">
+          <p className="text-body-sm text-muted-foreground max-w-sm mx-auto mb-6">
             Thank you for reaching out. We have received your message and will get back to you shortly.
           </p>
         </div>
@@ -95,8 +95,8 @@ export function ContactForm() {
   }
 
   return (
-    <div className="bg-surface p-6 md:p-8 border border-border-default">
-      <h2 className="font-sans text-heading-md font-medium text-ink-900 mb-6">Send a Message</h2>
+    <div className="bg-muted p-6 md:p-8 border border-border">
+      <h2 className="font-sans text-heading-md font-medium text-foreground mb-6">Send a Message</h2>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <input
@@ -115,7 +115,7 @@ export function ContactForm() {
               name="firstName"
               render={({ field }) => (
                 <FormItem className="space-y-1">
-                  <FormLabel className="text-body-sm font-semibold text-ink-900 uppercase tracking-widest">
+                  <FormLabel className="text-body-sm font-semibold text-foreground uppercase tracking-widest">
                     First Name <span className="text-danger">*</span>
                   </FormLabel>
                   <FormControl>
@@ -130,7 +130,7 @@ export function ContactForm() {
               name="lastName"
               render={({ field }) => (
                 <FormItem className="space-y-1">
-                  <FormLabel className="text-body-sm font-semibold text-ink-900 uppercase tracking-widest">
+                  <FormLabel className="text-body-sm font-semibold text-foreground uppercase tracking-widest">
                     Last Name <span className="text-danger">*</span>
                   </FormLabel>
                   <FormControl>
@@ -147,7 +147,7 @@ export function ContactForm() {
             name="email"
             render={({ field }) => (
               <FormItem className="space-y-1">
-                <FormLabel className="text-body-sm font-medium text-ink-900">
+                <FormLabel className="text-body-sm font-medium text-foreground">
                   Email Address <span className="text-danger">*</span>
                 </FormLabel>
                 <FormControl>
@@ -163,13 +163,13 @@ export function ContactForm() {
             name="subject"
             render={({ field }) => (
               <FormItem className="space-y-1">
-                <FormLabel className="text-body-sm font-medium text-ink-900">
+                <FormLabel className="text-body-sm font-medium text-foreground">
                   Subject <span className="text-danger">*</span>
                 </FormLabel>
                 <FormControl>
                   <select 
                     {...field}
-                    className="w-full border border-border-input bg-transparent px-3 py-2 text-body-sm text-ink-900 transition-colors duration-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-action-primary focus-visible:border-action-primary"
+                    className="w-full border border-border-input bg-transparent px-3 py-2 text-body-sm text-foreground transition-colors duration-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-action-primary focus-visible:border-action-primary"
                   >
                     <option value="General Inquiry">General Inquiry</option>
                     <option value="Partnership">Partnership</option>
@@ -187,7 +187,7 @@ export function ContactForm() {
             name="message"
             render={({ field }) => (
               <FormItem className="space-y-1">
-                <FormLabel className="text-body-sm font-medium text-ink-900">
+                <FormLabel className="text-body-sm font-medium text-foreground">
                   Message <span className="text-danger">*</span>
                 </FormLabel>
                 <FormControl>

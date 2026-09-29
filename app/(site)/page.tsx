@@ -51,7 +51,7 @@ const organizationJsonLd = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-full bg-paper">
+    <div className="flex flex-col w-full bg-background">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
@@ -59,15 +59,15 @@ export default function Home() {
 
 
       {/* 1. Hero — Crisis framing */}
-      <div className="border-b border-border-default">
+      <div className="border-b border-border">
         <Hero />
       </div>
 
       {/* 1.5. Live Metrics Ticker (Telemetry) */}
-      <div className="bg-graphite">
+      <div className="bg-foreground text-background">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/10">
           <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-white/5">
-            <span className="font-mono text-3xl font-bold text-fjord">18</span>
+            <span className="font-mono text-3xl font-bold text-primary">18</span>
             <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-[#A9A49C] mt-2">Local Hubs</span>
           </div>
           <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-white/5">
@@ -86,7 +86,7 @@ export default function Home() {
       </div>
 
       {/* 2. Key Metrics at a Glance */}
-      <div className="border-b border-border-default">
+      <div className="border-b border-border">
         <StatsHero
           heading="What does change look like?"
           description="It looks like a student building their first digital product. A neighbourhood reducing waste. A family finding reliable health information. That's impact."
@@ -101,25 +101,25 @@ export default function Home() {
       </div>
 
       {/* 3. The 4 Pillars — Operational Dashboard */}
-      <div className="border-b border-border-default">
+      <div className="border-b border-border">
         <ProgrammesBento />
       </div>
 
       {/* 4. Ground Reality Section */}
-      <div className="border-b border-border-default">
+      <div className="border-b border-border">
         <WhatWeDo />
       </div>
 
       {/* 4.5 The One Vision Method */}
-      <div className="border-b border-border-default bg-surface">
+      <div className="border-b border-border bg-muted">
         <div className="mx-auto max-w-container px-0 md:px-0">
           <div className="grid lg:grid-cols-2 items-stretch">
-            <div className="p-8 md:p-14 lg:p-24 flex flex-col justify-center items-center text-center border-b lg:border-b-0 lg:border-r border-stone transition-colors duration-500">
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-graphite tracking-tight leading-tight max-w-xl">
-                We don&apos;t arrive with answers. We build them with <span className="underline decoration-fjord decoration-2 underline-offset-8">communities</span>.
+            <div className="p-8 md:p-14 lg:p-24 flex flex-col justify-center items-center text-center border-b lg:border-b-0 lg:border-r border-border transition-colors duration-500">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-foreground tracking-tight leading-tight max-w-xl">
+                We don&apos;t arrive with answers. We build them with <span className="underline decoration-primary decoration-2 underline-offset-8">communities</span>.
               </h2>
             </div>
-            <div className="relative w-full h-[40vh] lg:h-auto min-h-85 bg-graphite">
+            <div className="relative w-full h-[40vh] lg:h-auto min-h-85 bg-muted">
               <Image
                 src="/community_voices.jpg"
                 alt="Community co-design session"
@@ -127,33 +127,33 @@ export default function Home() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover grayscale contrast-125 sepia-[.15]"
               />
-              <div className="absolute inset-0 pointer-events-none mix-blend-multiply bg-snow/10" />
+              <div className="absolute inset-0 pointer-events-none mix-blend-multiply bg-background/10" />
             </div>
           </div>
         </div>
       </div>
 
       {/* 5. Featured Field Report */}
-      <div className="border-b border-border-default">
+      <div className="border-b border-border">
         <SplitNarrative
           heading="Field Report"
           content={
             <div className="flex flex-col h-full justify-center">
-              <div className="font-mono text-[11px] uppercase tracking-widest text-safety-orange font-bold mb-6">
+              <div className="font-mono text-[11px] uppercase tracking-widest text-destructive font-bold mb-6">
                 {stories[0].date} — Youth & Future Skills
               </div>
-              <h3 className="font-serif text-4xl md:text-5xl font-light text-ink-900 mb-8 leading-tight">
+              <h3 className="font-serif text-4xl md:text-5xl font-light text-foreground mb-8 leading-tight">
                 {stories[0].title}
               </h3>
-              <p className="font-sans text-role-body-lg text-ink-500 leading-relaxed mb-12">
+              <p className="font-sans text-lg text-muted-foreground leading-relaxed mb-12">
                 {stories[0].excerpt}
               </p>
               <div className="mt-auto">
-                <Link href={`/stories/${stories[0].slug}`} className="inline-flex w-fit items-center gap-2 px-8 py-4 bg-ink-900 hover:bg-safety-orange text-paper font-bold uppercase tracking-widest text-[11px] transition-colors duration-300">
+                <Link href={`/stories/${stories[0].slug}`} className="inline-flex w-fit items-center gap-2 px-8 py-4 bg-foreground hover:bg-destructive text-background font-bold uppercase tracking-widest text-[11px] transition-colors duration-300">
                   Read Full Report <ArrowRight className="size-4" />
                 </Link>
               </div>
-              <div className="mt-12 pt-6 border-t border-border-default flex items-start gap-3 text-ink-500">
+              <div className="mt-12 pt-6 border-t border-border flex items-start gap-3 text-muted-foreground">
                 <Shield className="size-4 shrink-0 mt-0.5" aria-hidden="true" />
                 <span className="font-mono text-[11px] uppercase tracking-widest leading-relaxed font-bold">Identities anonymised.<br />Location withheld for OpSec.</span>
               </div>
@@ -172,24 +172,24 @@ export default function Home() {
       </div>
 
       {/* 6. Secure Routing — Core differentiator */}
-      <div className="border-b border-border-default bg-ink-900 text-paper">
+      <div className="border-b border-border bg-foreground text-background">
         <div className="mx-auto max-w-container px-0 md:px-0">
           <div className="grid lg:grid-cols-2 items-stretch">
             <div className="p-6 md:p-10 lg:p-14 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-paper/10">
               <div className="flex items-center gap-3 mb-6">
-                <span className="size-1.5 bg-safety-orange shrink-0" />
-                <span className="font-mono text-[10px] tracking-widest uppercase text-safety-orange font-semibold">
+                <span className="size-1.5 bg-destructive shrink-0" />
+                <span className="font-mono text-[10px] tracking-widest uppercase text-destructive font-semibold">
                   OpSec-First
                 </span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-paper tracking-tight leading-[0.95] mb-6">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-background tracking-tight leading-[0.95] mb-6">
                 Need help? Contact our field office.
               </h2>
-              <p className="font-sans text-role-body md:text-role-body-lg max-w-prose text-paper/70 font-light leading-relaxed mb-8">
+              <p className="font-sans text-base md:text-lg max-w-prose text-background/70 font-light leading-relaxed mb-8">
                 This platform does not collect sensitive data. All crisis-related, health, or assistance requests should be directed to our frontline coordinators.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/get-help" className="inline-flex w-fit items-center gap-2 px-8 py-4 bg-safety-orange hover:bg-paper text-ink-900 font-bold uppercase tracking-widest text-[11px] transition-colors duration-300">
+                <Link href="/get-help" className="inline-flex w-fit items-center gap-2 px-8 py-4 bg-destructive hover:bg-background text-foreground font-bold uppercase tracking-widest text-[11px] transition-colors duration-300">
                   <MessageCircle className="size-4" aria-hidden="true" />
                   <span>Get Help</span>
                   <ExternalLink className="size-3.5" aria-hidden="true" />
@@ -197,25 +197,25 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col">
-              <div className="flex-1 p-6 md:p-8 lg:p-10 border-b border-paper/10 hover:bg-paper/5 transition-colors flex flex-col justify-center group">
+              <div className="flex-1 p-6 md:p-8 lg:p-10 border-b border-paper/10 hover:bg-background/5 transition-colors flex flex-col justify-center group">
                 <div className="flex items-start gap-5">
-                  <div className="size-12 bg-safety-orange flex items-center justify-center shrink-0">
-                    <Phone className="size-5 text-ink-900" strokeWidth={1.5} />
+                  <div className="size-12 bg-destructive flex items-center justify-center shrink-0">
+                    <Phone className="size-5 text-foreground" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <p className="font-mono text-base font-bold uppercase tracking-wider text-paper mb-1.5">Field Office Line</p>
-                    <p className="font-sans text-role-body text-paper/70 leading-relaxed">Direct line for immediate community assistance.<br />{orgData.contact.phone}</p>
+                    <p className="font-mono text-base font-bold uppercase tracking-wider text-background mb-1.5">Field Office Line</p>
+                    <p className="font-sans text-base text-background/70 leading-relaxed">Direct line for immediate community assistance.<br />{orgData.contact.phone}</p>
                   </div>
                 </div>
               </div>
-              <div className="flex-1 p-6 md:p-8 lg:p-10 hover:bg-paper/5 transition-colors flex flex-col justify-center group">
+              <div className="flex-1 p-6 md:p-8 lg:p-10 hover:bg-background/5 transition-colors flex flex-col justify-center group">
                 <div className="flex items-start gap-5">
-                  <div className="size-12 bg-paper/10 flex items-center justify-center shrink-0">
-                    <Mail className="size-5 text-paper" strokeWidth={1.5} />
+                  <div className="size-12 bg-background/10 flex items-center justify-center shrink-0">
+                    <Mail className="size-5 text-background" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <p className="font-mono text-base font-bold uppercase tracking-wider text-paper mb-1.5">General Enquiries</p>
-                    <p className="font-sans text-role-body max-w-prose text-paper/70 leading-relaxed">For public partnerships and general information.<br />{orgData.contact.email}</p>
+                    <p className="font-mono text-base font-bold uppercase tracking-wider text-background mb-1.5">General Enquiries</p>
+                    <p className="font-sans text-base max-w-prose text-background/70 leading-relaxed">For public partnerships and general information.<br />{orgData.contact.email}</p>
                   </div>
                 </div>
               </div>
@@ -225,53 +225,53 @@ export default function Home() {
       </div>
 
       {/* 7. Trust & Transparency */}
-      <div className="border-b border-border-default bg-paper">
+      <div className="border-b border-border bg-background">
         <div className="mx-auto max-w-container px-0 md:px-0">
-          <div className="p-6 md:p-10 lg:p-12 border-b border-border-default">
+          <div className="p-6 md:p-10 lg:p-12 border-b border-border">
             <div className="flex items-center gap-3 mb-4">
-              <span className="size-1.5 bg-safety-orange shrink-0" />
-              <span className="font-mono text-[10px] tracking-widest uppercase text-safety-orange font-semibold">
+              <span className="size-1.5 bg-destructive shrink-0" />
+              <span className="font-mono text-[10px] tracking-widest uppercase text-destructive font-semibold">
                 Accountability
               </span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-ink-900 tracking-tight leading-[0.95]">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-foreground tracking-tight leading-[0.95]">
               Trust is a feature.
             </h2>
           </div>
           <div className="grid lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-border-default">
-            <Link href="/open-ledger" className="group bg-paper hover:bg-surface p-6 md:p-8 flex flex-col justify-between h-full transition-colors duration-300">
+            <Link href="/open-ledger" className="group bg-background hover:bg-muted p-6 md:p-8 flex flex-col justify-between h-full transition-colors duration-300">
               <div>
-                <span className="font-mono text-sm tracking-widest uppercase text-ink-500 font-bold">Open Ledger</span>
-                <h3 className="font-serif text-2xl md:text-3xl font-light text-ink-900 mt-6 mb-4">Financial Transparency</h3>
-                <p className="font-sans text-role-body text-ink-500 leading-relaxed">
+                <span className="font-mono text-sm tracking-widest uppercase text-muted-foreground font-bold">Open Ledger</span>
+                <h3 className="font-serif text-2xl md:text-3xl font-light text-foreground mt-6 mb-4">Financial Transparency</h3>
+                <p className="font-sans text-base text-muted-foreground leading-relaxed">
                   Every rupee tracked. Real-time allocation data. No hidden fees, no corporate overhead.
                 </p>
               </div>
-              <span className="inline-flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-widest text-ink-900 mt-8 group-hover:text-safety-orange transition-colors">
+              <span className="inline-flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-widest text-foreground mt-8 group-hover:text-destructive transition-colors">
                 View Ledger <ArrowRight className="size-4" aria-hidden="true" />
               </span>
             </Link>
-            <Link href="/about/governance" className="group bg-paper hover:bg-surface p-6 md:p-8 flex flex-col justify-between h-full transition-colors duration-300">
+            <Link href="/about/governance" className="group bg-background hover:bg-muted p-6 md:p-8 flex flex-col justify-between h-full transition-colors duration-300">
               <div>
-                <span className="font-mono text-sm tracking-widest uppercase text-ink-500 font-bold">Governance</span>
-                <h3 className="font-serif text-2xl md:text-3xl font-light text-ink-900 mt-6 mb-4">Board & Leadership</h3>
-                <p className="font-sans text-role-body text-ink-500 leading-relaxed">
+                <span className="font-mono text-sm tracking-widest uppercase text-muted-foreground font-bold">Governance</span>
+                <h3 className="font-serif text-2xl md:text-3xl font-light text-foreground mt-6 mb-4">Board & Leadership</h3>
+                <p className="font-sans text-base text-muted-foreground leading-relaxed">
                   Registered NGO since 1988. Board composition, decision-making processes, and conflict of interest policies.
                 </p>
               </div>
-              <span className="inline-flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-widest text-ink-900 mt-8 group-hover:text-safety-orange transition-colors">
+              <span className="inline-flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-widest text-foreground mt-8 group-hover:text-destructive transition-colors">
                 View Governance <ArrowRight className="size-4" aria-hidden="true" />
               </span>
             </Link>
-            <Link href="/reports" className="group bg-paper hover:bg-surface p-6 md:p-8 flex flex-col justify-between h-full transition-colors duration-300">
+            <Link href="/reports" className="group bg-background hover:bg-muted p-6 md:p-8 flex flex-col justify-between h-full transition-colors duration-300">
               <div>
-                <span className="font-mono text-sm tracking-widest uppercase text-ink-500 font-bold">Field Reports</span>
-                <h3 className="font-serif text-2xl md:text-3xl font-light text-ink-900 mt-6 mb-4">Operational Audits</h3>
-                <p className="font-sans text-role-body text-ink-500 leading-relaxed">
+                <span className="font-mono text-sm tracking-widest uppercase text-muted-foreground font-bold">Field Reports</span>
+                <h3 className="font-serif text-2xl md:text-3xl font-light text-foreground mt-6 mb-4">Operational Audits</h3>
+                <p className="font-sans text-base text-muted-foreground leading-relaxed">
                   Downloadable field reports, impact reports, and financial statements published transparently as verified.
                 </p>
               </div>
-              <span className="inline-flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-widest text-ink-900 mt-8 group-hover:text-safety-orange transition-colors">
+              <span className="inline-flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-widest text-foreground mt-8 group-hover:text-destructive transition-colors">
                 View Reports <ArrowRight className="size-4" aria-hidden="true" />
               </span>
             </Link>
@@ -280,25 +280,25 @@ export default function Home() {
       </div>
 
       {/* 8. Closing CTA — Community Action */}
-      <section className="bg-ink-900 text-paper border-t border-border-default overflow-hidden relative">
+      <section className="bg-foreground text-background border-t border-border overflow-hidden relative">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
         <div className="relative mx-auto text-center max-w-4xl px-6 py-16 md:py-24 flex flex-col items-center">
           <div className="flex items-center gap-3 mb-6">
-            <span className="size-1.5 bg-safety-orange shrink-0" />
-            <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-safety-orange">Our Shared Future</span>
+            <span className="size-1.5 bg-destructive shrink-0" />
+            <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-destructive">Our Shared Future</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-paper mb-6 leading-[0.95] text-balance">
+          <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-background mb-6 leading-[0.95] text-balance">
             The future of our communities is something we build together.
           </h2>
-          <p className="font-sans text-base md:text-xl max-w-2xl mx-auto text-paper/70 mb-10 font-light leading-relaxed text-balance">
+          <p className="font-sans text-base md:text-xl max-w-2xl mx-auto text-background/70 mb-10 font-light leading-relaxed text-balance">
             One Vision is working with people across Manipur to create healthier communities, protect the environment, expand opportunity and develop solutions that can last. There is work to do. There is also a lot we can build.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center w-full sm:w-auto">
-            <Link href="/programmes" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-10 py-5 bg-safety-orange hover:bg-paper text-ink-900 font-bold uppercase tracking-widest text-xs transition-colors duration-300">
+            <Link href="/programmes" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-10 py-5 bg-destructive hover:bg-background text-foreground font-bold uppercase tracking-widest text-xs transition-colors duration-300">
               Explore Our Work
               <ArrowRight className="size-4" />
             </Link>
-            <Link href="/volunteer" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-10 py-5 bg-transparent border border-paper/30 text-paper hover:bg-paper hover:text-ink-900 font-bold uppercase tracking-widest text-xs transition-colors duration-300">
+            <Link href="/volunteer" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-10 py-5 bg-transparent border border-paper/30 text-background hover:bg-background hover:text-foreground font-bold uppercase tracking-widest text-xs transition-colors duration-300">
               Get Involved
             </Link>
           </div>

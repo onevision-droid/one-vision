@@ -17,7 +17,7 @@ export function MobileNavigation({ navLinks }: { navLinks: { href: string; label
         <SheetContent side="right" className="pr-0">
           <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
           <div className="flex flex-col gap-6 p-6">
-            <Link href="/" className="font-sans text-heading-md font-bold text-ink dark:text-paper">
+            <Link href="/" className="font-sans text-heading-md font-bold text-ink dark:text-background">
               One Vision
             </Link>
             <nav className="flex flex-col gap-4">

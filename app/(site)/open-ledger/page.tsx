@@ -34,8 +34,8 @@ export default async function OpenLedgerPage() {
   };
 
   return (
-    <div className="flex flex-col w-full bg-paper">
-      <Section tone="default" className="pt-24 pb-8 md:pt-26 md:pb-12 lg:pt-28 lg:pb-14 border-b border-border-default">
+    <div className="flex flex-col w-full bg-background">
+      <Section tone="default" className="pt-24 pb-8 md:pt-26 md:pb-12 lg:pt-28 lg:pb-14 border-b border-border">
         <Container>
           <div className="max-w-4xl mx-auto space-y-6">
             <Breadcrumbs items={[{ label: "Reports", href: "/reports" }, { label: "Open Ledger", href: "/open-ledger" }]} />
@@ -43,10 +43,10 @@ export default async function OpenLedgerPage() {
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
               <div>
                 <Badge className="mb-4">Financial Transparency</Badge>
-                <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-ink-900 leading-[1.1] mb-4">
+                <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-foreground leading-[1.1] mb-4">
                   Open Ledger
                 </h1>
-                <p className="text-body-lg text-ink-500 font-light leading-relaxed max-w-2xl">
+                <p className="text-body-lg text-muted-foreground font-light leading-relaxed max-w-2xl">
                   We believe in radical transparency. Every rupee we receive is accounted for. Here is our verified ledger of fund allocations across communities, reconciled and updated hourly.
                 </p>
               </div>
@@ -66,14 +66,14 @@ export default async function OpenLedgerPage() {
                     meta={`${formatDate(entry.date)} · ${entry.location}`}
                     action={
                       <div className="flex flex-col items-end gap-1 text-right">
-                        <span className="font-medium text-ink-900">{entry.amount}</span>
-                        <span className="text-caption text-ink-500">{entry.status}</span>
+                        <span className="font-medium text-foreground">{entry.amount}</span>
+                        <span className="text-caption text-muted-foreground">{entry.status}</span>
                       </div>
                     }
                   />
                 ))}
                 {(!ledgerEntries || ledgerEntries.length === 0) && (
-                  <div className="py-8 text-center text-ink-500 text-body-sm font-light">
+                  <div className="py-8 text-center text-muted-foreground text-body-sm font-light">
                     No allocations recorded yet.
                   </div>
                 )}

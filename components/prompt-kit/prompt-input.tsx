@@ -32,8 +32,8 @@ export function PromptInput({
     <PromptInputContext.Provider value={{ value, onValueChange, onSubmit, disabled }}>
       <div
         className={cn(
-          "relative flex rounded-xl border border-border-default/80 bg-surface/90 shadow-2xs backdrop-blur-xs transition-all duration-200",
-          "focus-within:border-ink-900/40 focus-within:shadow-xs dark:focus-within:border-white/30",
+          "relative flex rounded-xl border border-border/80 bg-muted/90 shadow-2xs backdrop-blur-xs transition-all duration-200",
+          "focus-within:border-foreground/40 focus-within:shadow-xs dark:focus-within:border-white/30",
           disabled && "opacity-60 cursor-not-allowed",
           className
         )}
@@ -102,8 +102,8 @@ export function PromptInputTextarea({
         ...style,
       }}
       className={cn(
-        "w-full resize-none bg-transparent font-sans text-xs sm:text-[13px] text-ink-900 placeholder:text-ink-400 outline-none leading-relaxed",
-        "dark:text-paper dark:placeholder:text-ink-500",
+        "w-full resize-none bg-transparent font-sans text-xs sm:text-[13px] text-foreground placeholder:text-ink-400 outline-none leading-relaxed",
+        "dark:text-background dark:placeholder:text-muted-foreground",
         className
       )}
       {...props}

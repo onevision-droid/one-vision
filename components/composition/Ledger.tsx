@@ -37,7 +37,7 @@ export function Ledger({
             className={cn(
               "flex flex-col md:flex-row justify-between items-start md:items-end gap-4",
               "border-b pb-8 mb-10 lg:mb-14",
-              dark ? "border-paper/20" : "border-border-default",
+              dark ? "border-paper/20" : "border-border",
             )}
           >
             {heading && (
@@ -106,7 +106,7 @@ export function LedgerRow({
       )}
     >
       {number && (
-        <span className="text-caption tabular-nums text-ink-500 font-sans shrink-0 w-8">
+        <span className="text-caption tabular-nums text-muted-foreground font-sans shrink-0 w-8">
           {number}
         </span>
       )}
@@ -118,7 +118,7 @@ export function LedgerRow({
           </span>
         </div>
         {meta && (
-          <div className="text-(length:--text-small) text-ink-500 leading-relaxed">
+          <div className="text-(length:--text-small) text-muted-foreground leading-relaxed">
             {meta}
           </div>
         )}

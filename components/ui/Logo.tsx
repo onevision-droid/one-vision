@@ -53,8 +53,8 @@ export function Logo({
   };
 
   const colorMap = {
-    default: "text-ink-900 dark:text-paper",
-    orange: "text-safety-orange",
+    default: "text-foreground dark:text-background",
+    orange: "text-destructive",
     blue: "text-[#1060C4]",
   };
 
@@ -175,10 +175,10 @@ export function Logo({
       {/* Brand Typographic Lockup */}
       {showText && (
         <div className="flex flex-col text-left">
-          <span className="font-sans text-[15px] font-extrabold tracking-widest uppercase text-ink-900 leading-none">
+          <span className="font-sans text-[15px] font-extrabold tracking-widest uppercase text-foreground leading-none">
             One Vision
           </span>
-          <span className="font-mono text-[9px] font-medium tracking-[0.16em] uppercase text-ink-500 leading-tight mt-1">
+          <span className="font-mono text-[9px] font-medium tracking-[0.16em] uppercase text-muted-foreground leading-tight mt-1">
             Humanitarian Vanguard
           </span>
         </div>

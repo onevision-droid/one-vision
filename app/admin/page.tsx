@@ -92,16 +92,16 @@ export default function AdminDashboard() {
 
   if (!session) {
     return (
-      <div className="bg-paper min-h-dvh flex flex-col px-4 md:px-8">
-        <header className="w-full max-w-5xl mx-auto py-6 border-b border-border-default/80 flex items-center justify-between">
+      <div className="bg-background min-h-dvh flex flex-col px-4 md:px-8">
+        <header className="w-full max-w-5xl mx-auto py-6 border-b border-border/80 flex items-center justify-between">
           <Link
             href="/"
             aria-label="Go home"
-            className="inline-block font-sans text-heading-sm font-bold text-ink-900"
+            className="inline-block font-sans text-heading-sm font-bold text-foreground"
           >
             One Vision
           </Link>
-          <span className="font-sans text-xs text-ink-500 uppercase tracking-wider">Secured Node</span>
+          <span className="font-sans text-xs text-muted-foreground uppercase tracking-wider">Secured Node</span>
         </header>
 
         <main className="flex-1 flex flex-col items-center justify-center pb-24">
@@ -131,9 +131,9 @@ export default function AdminDashboard() {
         {applications.length === 0 ? (
           <p className="text-muted-foreground">No applications found.</p>
         ) : (
-          <div className="border border-border-default bg-surface shadow-none overflow-hidden">
+          <div className="border border-border bg-muted shadow-none overflow-hidden">
             <table className="w-full text-left text-sm">
-              <thead className="bg-section-alt border-b border-border-default">
+              <thead className="bg-section-alt border-b border-border">
                 <tr>
                   <th className="p-4 font-medium">Name</th>
                   <th className="p-4 font-medium">Email</th>
@@ -149,7 +149,7 @@ export default function AdminDashboard() {
                     <td className="p-4">{app.skills?.join(", ")}</td>
                     <td className="p-4 capitalize">
                       <span className={`px-2 py-1 text-xs font-medium ${
-                        app.status === 'pending' ? 'bg-hazard-yellow/20 text-ink-900 border border-hazard-yellow/40' : 'bg-status-active/20 text-status-active border border-status-active/40'
+                        app.status === 'pending' ? 'bg-hazard-yellow/20 text-foreground border border-hazard-yellow/40' : 'bg-status-active/20 text-status-active border border-status-active/40'
                       }`}>
                         {app.status}
                       </span>
@@ -167,9 +167,9 @@ export default function AdminDashboard() {
         {requests.length === 0 ? (
           <p className="text-muted-foreground">No requests found.</p>
         ) : (
-          <div className="border border-border-default bg-surface shadow-none overflow-hidden">
+          <div className="border border-border bg-muted shadow-none overflow-hidden">
             <table className="w-full text-left text-sm">
-              <thead className="bg-section-alt border-b border-border-default">
+              <thead className="bg-section-alt border-b border-border">
                 <tr>
                   <th className="p-4 font-medium">Requester</th>
                   <th className="p-4 font-medium">Contact</th>
@@ -205,9 +205,9 @@ export default function AdminDashboard() {
         {donations.length === 0 ? (
           <p className="text-muted-foreground">No donations found.</p>
         ) : (
-          <div className="border border-border-default bg-surface shadow-none overflow-hidden">
+          <div className="border border-border bg-muted shadow-none overflow-hidden">
             <table className="w-full text-left text-sm">
-              <thead className="bg-section-alt border-b border-border-default">
+              <thead className="bg-section-alt border-b border-border">
                 <tr>
                   <th className="p-4 font-medium">Donor</th>
                   <th className="p-4 font-medium">Email</th>
@@ -225,7 +225,7 @@ export default function AdminDashboard() {
                     <td className="p-4">{don.is_recurring ? "Monthly" : "One-time"}</td>
                     <td className="p-4 capitalize">
                       <span className={`px-2 py-1 text-xs font-medium ${
-                        don.status === 'pending' ? 'bg-hazard-yellow/20 text-ink-900 border border-hazard-yellow/40' : 'bg-status-active/20 text-status-active border border-status-active/40'
+                        don.status === 'pending' ? 'bg-hazard-yellow/20 text-foreground border border-hazard-yellow/40' : 'bg-status-active/20 text-status-active border border-status-active/40'
                       }`}>
                         {don.status}
                       </span>

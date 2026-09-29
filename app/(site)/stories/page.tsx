@@ -17,7 +17,7 @@ export default function StoriesPage() {
   const [featured, ...rest] = stories;
 
   return (
-    <div className="flex flex-col w-full bg-paper">
+    <div className="flex flex-col w-full bg-background">
       <PageHero 
         badge="FIELD REPORTS"
         heading={
@@ -32,11 +32,11 @@ export default function StoriesPage() {
       />
 
       {/* Featured Story */}
-      <Section tone="default" className="border-t border-border-default">
+      <Section tone="default" className="border-t border-border">
         <Container className="px-0 md:px-0">
-          <Link href={`/stories/${featured.slug}`} className="group grid grid-cols-1 lg:grid-cols-12 overflow-hidden border-x border-border-default bg-surface hover:bg-ink-900 transition-colors duration-300">
+          <Link href={`/stories/${featured.slug}`} className="group grid grid-cols-1 lg:grid-cols-12 overflow-hidden border-x border-border bg-muted hover:bg-foreground transition-colors duration-300">
             {/* Image (7 cols) */}
-            <div className="relative h-64 md:h-96 lg:h-auto lg:col-span-7 w-full overflow-hidden border-b lg:border-b-0 lg:border-r border-border-default bg-ink-900 group-hover:border-ink-900">
+            <div className="relative h-64 md:h-96 lg:h-auto lg:col-span-7 w-full overflow-hidden border-b lg:border-b-0 lg:border-r border-border bg-foreground group-hover:border-foreground">
               <Image
                 src={featured.image}
                 alt={featured.title}
@@ -45,25 +45,25 @@ export default function StoriesPage() {
                 className="object-cover transition-all duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
                 priority
               />
-              <div className="absolute inset-0 bg-ink-900/10 mix-blend-multiply pointer-events-none group-hover:opacity-0 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-foreground/10 mix-blend-multiply pointer-events-none group-hover:opacity-0 transition-opacity duration-700" />
             </div>
             
             {/* Content (5 cols) */}
             <div className="lg:col-span-5 flex flex-col justify-center p-6 md:p-8 lg:p-10">
-              <div className="flex items-center gap-3 font-mono text-[10px] font-bold uppercase tracking-widest text-ink-500 group-hover:text-paper/60 transition-colors mb-4">
+              <div className="flex items-center gap-3 font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground group-hover:text-background/60 transition-colors mb-4">
                 <span>By {featured.author}</span>
-                <span className="size-1 bg-safety-orange group-hover:bg-safety-orange" />
+                <span className="size-1 bg-destructive group-hover:bg-destructive" />
                 <time dateTime={featured.date}>
                   {new Date(featured.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
                 </time>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-ink-900 group-hover:text-paper transition-colors leading-[0.98] mb-4 sm:mb-6 font-light">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-foreground group-hover:text-background transition-colors leading-[0.98] mb-4 sm:mb-6 font-light">
                 {featured.title}
               </h2>
-              <p className="font-sans text-role-body-lg text-ink-500 group-hover:text-paper/70 transition-colors leading-relaxed mb-6 sm:mb-8">
+              <p className="font-sans text-lg text-muted-foreground group-hover:text-background/70 transition-colors leading-relaxed mb-6 sm:mb-8">
                 {featured.excerpt}
               </p>
-              <div className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest text-ink-900 group-hover:text-safety-orange transition-colors mt-auto">
+              <div className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest text-foreground group-hover:text-destructive transition-colors mt-auto">
                 <span>Read full story</span>
                 <ArrowRight className="size-4" />
               </div>
@@ -73,12 +73,12 @@ export default function StoriesPage() {
       </Section>
 
       {/* Story Grid */}
-      <Section tone="default" className="border-t border-border-default">
+      <Section tone="default" className="border-t border-border">
         <Container className="px-0 md:px-0">
-          <div className="px-6 py-4 md:px-8 md:py-6 border-x border-border-default bg-surface">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-ink-900 leading-tight">More Stories</h2>
+          <div className="px-6 py-4 md:px-8 md:py-6 border-x border-border bg-muted">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-foreground leading-tight">More Stories</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-border-default *:border-b *:border-r *:border-border-default">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-border *:border-b *:border-r *:border-border">
             {rest.map((story) => (
               <StoryCard
                 key={story.id}
@@ -100,7 +100,7 @@ export default function StoriesPage() {
         heading="Have a story to tell?"
         description="We are always looking to amplify local voices and document community resilience. Reach out if you have a story that needs to be told."
         action={
-          <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-paper text-ink-900 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-safety-orange">
+          <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-background text-foreground font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-destructive">
             <span>Contact us</span>
             <ArrowRight className="size-4" />
           </Link>

@@ -52,7 +52,7 @@ export default async function CampaignPage({ params }: Props) {
   const progress = Math.min(100, Math.round(((campaign.raised || 0) / (campaign.goal || 1)) * 100));
 
   return (
-    <div className="flex flex-col w-full bg-paper pt-20">
+    <div className="flex flex-col w-full bg-background pt-20">
       
       {/* Campaign Header */}
       <Section tone="default" className="pb-12 pt-16">
@@ -69,26 +69,26 @@ export default async function CampaignPage({ params }: Props) {
               </div>
               
               <div className="space-y-4">
-                <span className="inline-block px-3 py-1 bg-surface-alt border border-border-default text-caption uppercase tracking-widest text-ink-500 font-semibold">
+                <span className="inline-block px-3 py-1 bg-muted-alt border border-border text-caption uppercase tracking-widest text-muted-foreground font-semibold">
                   {campaign.category}
                 </span>
-                <h1 className="font-sans text-display-md font-light tracking-tight text-ink-900 leading-[1.1]">
+                <h1 className="font-sans text-display-md font-light tracking-tight text-foreground leading-[1.1]">
                   {campaign.title}
                 </h1>
-                <p className="text-body-lg max-w-prose  text-ink-500 font-light leading-relaxed">
+                <p className="text-body-lg max-w-prose  text-muted-foreground font-light leading-relaxed">
                   {campaign.description}
                 </p>
               </div>
             </div>
 
             {/* Campaign Progress Card */}
-            <div className="bg-surface p-8 border border-border-default space-y-8">
+            <div className="bg-muted p-8 border border-border space-y-8">
               <div>
                 <div className="flex justify-between items-end mb-2">
-                  <p className="text-heading-lg font-sans font-light text-ink-900">
+                  <p className="text-heading-lg font-sans font-light text-foreground">
                     ₹{campaign.raised?.toLocaleString('en-IN')}
                   </p>
-                  <p className="text-body-sm max-w-prose text-ink-500">
+                  <p className="text-body-sm max-w-prose text-muted-foreground">
                     of ₹{campaign.goal?.toLocaleString('en-IN')} goal
                   </p>
                 </div>
@@ -100,16 +100,16 @@ export default async function CampaignPage({ params }: Props) {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-border-default">
+              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-border">
                 <div className="space-y-1">
-                  <div className="flex items-center gap-2 text-ink-500">
+                  <div className="flex items-center gap-2 text-muted-foreground">
                     <Users className="size-4" />
                     <span className="text-caption uppercase tracking-widest font-semibold">Donors</span>
                   </div>
                   <p className="text-heading-md font-sans">{campaign.donors}</p>
                 </div>
                 <div className="space-y-1">
-                  <div className="flex items-center gap-2 text-ink-500">
+                  <div className="flex items-center gap-2 text-muted-foreground">
                     <Calendar className="size-4" />
                     <span className="text-caption uppercase tracking-widest font-semibold">Ends</span>
                   </div>
@@ -130,7 +130,7 @@ export default async function CampaignPage({ params }: Props) {
 
       {/* Featured Image */}
       <Container className="px-0 md:px-8">
-        <div className="relative w-full aspect-video md:aspect-21/9 bg-surface-alt border-y md:border border-border-default overflow-hidden">
+        <div className="relative w-full aspect-video md:aspect-21/9 bg-muted-alt border-y md:border border-border overflow-hidden">
           <Image 
             src={campaign.image} 
             alt={campaign.title} 
@@ -143,7 +143,7 @@ export default async function CampaignPage({ params }: Props) {
 
       {/* Campaign Details */}
       {campaign.sections && campaign.sections.length > 0 && (
-        <Section tone="default" className="py-20 border-b border-border-default">
+        <Section tone="default" className="py-20 border-b border-border">
           <Container>
             <div className="max-w-2xl mx-auto prose prose-lg prose-headings:font-sans prose-headings:font-light prose-p:text-ink-700 prose-p:font-light prose-p:leading-relaxed">
               {campaign.sections.map((section) => (

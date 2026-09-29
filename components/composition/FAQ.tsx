@@ -26,24 +26,24 @@ export function FAQ({
   tone = "default",
 }: FAQProps) {
   return (
-    <Section tone={tone} className="border-t border-border-default">
+    <Section tone={tone} className="border-t border-border">
       <Container className="px-0 md:px-0">
-        <div className="flex flex-col lg:flex-row border-x border-border-default bg-surface">
-          <div className="w-full lg:w-5/12 flex flex-col p-6 md:p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-border-default">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-ink-900 mb-4 sm:mb-6 leading-tight">
+        <div className="flex flex-col lg:flex-row border-x border-border bg-muted">
+          <div className="w-full lg:w-5/12 flex flex-col p-6 md:p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-border">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-foreground mb-4 sm:mb-6 leading-tight">
               {heading}
             </h2>
             {description && (
-              <p className="font-sans text-role-body-lg text-ink-500 font-light leading-relaxed mb-6 sm:mb-8 max-w-prose">
+              <p className="font-sans text-lg text-muted-foreground font-light leading-relaxed mb-6 sm:mb-8 max-w-prose">
                 {description}
               </p>
             )}
             <div className="mt-auto pb-4">
-              <p className="font-sans text-role-body-sm text-ink-500 font-light">
+              <p className="font-sans text-base-sm text-muted-foreground font-light">
                 Have a different question?{" "}
                 <Link
                   href="/contact"
-                  className="font-bold text-ink-900 hover:text-safety-orange underline underline-offset-4 transition-colors"
+                  className="font-bold text-foreground hover:text-destructive underline underline-offset-4 transition-colors"
                 >
                   Contact us
                 </Link>
@@ -52,14 +52,14 @@ export function FAQ({
             </div>
           </div>
 
-          <div className="w-full lg:w-7/12 p-6 md:p-8 lg:p-10 bg-paper">
+          <div className="w-full lg:w-7/12 p-6 md:p-8 lg:p-10 bg-background">
             <Accordion className="w-full gap-0 divide-y divide-border-default">
               {items.map((item, i) => (
                 <AccordionItem key={i} value={`item-${i}`} className="border-0 bg-transparent rounded-none">
-                  <AccordionTrigger className="font-serif text-xl sm:text-2xl font-light text-ink-900 hover:bg-transparent hover:text-safety-orange transition-colors px-0 py-4 sm:py-5">
+                  <AccordionTrigger className="font-serif text-xl sm:text-2xl font-light text-foreground hover:bg-transparent hover:text-destructive transition-colors px-0 py-4 sm:py-5">
                     {item.question}
                   </AccordionTrigger>
-                  <AccordionContent className="font-sans text-role-body text-ink-500 leading-relaxed px-0 pb-6">
+                  <AccordionContent className="font-sans text-base text-muted-foreground leading-relaxed px-0 pb-6">
                     {item.answer}
                   </AccordionContent>
                 </AccordionItem>

@@ -94,10 +94,10 @@ export function VolunteerForm() {
           <CheckCircle2 className="w-6 h-6 text-status-active" />
         </div>
         <div className="space-y-2">
-          <h3 className="font-sans text-heading-md font-semibold text-ink-900">
+          <h3 className="font-sans text-heading-md font-semibold text-foreground">
             Application Received
           </h3>
-          <p className="text-body-sm text-ink-500 max-w-xs">
+          <p className="text-body-sm text-muted-foreground max-w-xs">
             Our volunteer coordinator will review your profile and be in touch
             shortly.
           </p>
@@ -131,13 +131,13 @@ export function VolunteerForm() {
             name="name"
             render={({ field }) => (
               <FormItem className="space-y-2">
-                <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">
-                  Full Name <span className="text-safety-orange">*</span>
+                <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">
+                  Full Name <span className="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
-                  <Input placeholder="Jane Doe" autoComplete="name" className="rounded-none border-border-default focus-visible:ring-safety-orange" {...field} />
+                  <Input placeholder="Jane Doe" autoComplete="name" className="rounded-none border-border focus-visible:ring-safety-orange" {...field} />
                 </FormControl>
-                <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+                <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
             )}
           />
@@ -146,13 +146,13 @@ export function VolunteerForm() {
             name="email"
             render={({ field }) => (
               <FormItem className="space-y-2">
-                <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">
-                  Email <span className="text-safety-orange">*</span>
+                <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">
+                  Email <span className="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
-                  <Input placeholder="jane@example.com" type="email" autoComplete="email" className="rounded-none border-border-default focus-visible:ring-safety-orange" {...field} />
+                  <Input placeholder="jane@example.com" type="email" autoComplete="email" className="rounded-none border-border focus-visible:ring-safety-orange" {...field} />
                 </FormControl>
-                <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+                <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
             )}
           />
@@ -164,13 +164,13 @@ export function VolunteerForm() {
           name="phone"
           render={({ field }) => (
             <FormItem className="space-y-2">
-              <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">
+              <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">
                 Phone Number
               </FormLabel>
               <FormControl>
-                <Input placeholder="+91 98765 43210" autoComplete="tel" className="rounded-none border-border-default focus-visible:ring-safety-orange" {...field} />
+                <Input placeholder="+91 98765 43210" autoComplete="tel" className="rounded-none border-border focus-visible:ring-safety-orange" {...field} />
               </FormControl>
-              <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+              <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
             </FormItem>
           )}
         />
@@ -182,14 +182,14 @@ export function VolunteerForm() {
           render={() => (
             <FormItem className="space-y-4">
               <div>
-                <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">
-                  Areas of Interest <span className="text-safety-orange">*</span>
+                <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">
+                  Areas of Interest <span className="text-destructive">*</span>
                 </FormLabel>
-                <p className="font-sans text-role-body-sm text-ink-500 mt-1">
+                <p className="font-sans text-base-sm text-muted-foreground mt-1">
                   Select all that apply.
                 </p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border border-border-default *:border-b *:border-r *:border-border-default bg-surface">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border border-border *:border-b *:border-r *:border-border bg-muted">
                 {areasOfInterest.map((item) => (
                   <FormField
                     key={item.id}
@@ -200,16 +200,16 @@ export function VolunteerForm() {
                       return (
                         <FormItem key={item.id} className="space-y-0">
                           <FormLabel
-                            className={`flex items-center gap-3 p-4 cursor-pointer transition-colors font-sans text-role-body-sm font-normal ${
+                            className={`flex items-center gap-3 p-4 cursor-pointer transition-colors font-sans text-base-sm font-normal ${
                               isChecked
-                                ? "bg-safety-orange text-ink-900"
-                                : "text-ink-700 hover:bg-paper"
+                                ? "bg-destructive text-foreground"
+                                : "text-ink-700 hover:bg-background"
                             }`}
                           >
                             <FormControl>
                               <Checkbox
                                 checked={isChecked}
-                                className="rounded-none border-ink-900 data-[state=checked]:bg-ink-900 data-[state=checked]:text-safety-orange"
+                                className="rounded-none border-foreground data-[state=checked]:bg-foreground data-[state=checked]:text-destructive"
                                 onCheckedChange={(checked) => {
                                   return checked
                                     ? field.onChange([...field.value, item.id])
@@ -229,7 +229,7 @@ export function VolunteerForm() {
                   />
                 ))}
               </div>
-              <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+              <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
             </FormItem>
           )}
         />
@@ -240,17 +240,17 @@ export function VolunteerForm() {
           name="experience"
           render={({ field }) => (
             <FormItem className="space-y-2">
-              <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">
+              <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">
                 Relevant Experience
               </FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="Tell us about any previous volunteering or relevant professional experience..."
-                  className="min-h-32 rounded-none border-border-default focus-visible:ring-safety-orange"
+                  className="min-h-32 rounded-none border-border focus-visible:ring-safety-orange"
                   {...field}
                 />
               </FormControl>
-              <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+              <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
             </FormItem>
           )}
         />
@@ -259,7 +259,7 @@ export function VolunteerForm() {
         <div className="pt-4">
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-ink-900 text-paper font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-safety-orange hover:text-ink-900"
+            className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-foreground text-background font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-destructive hover:text-foreground"
           >
             <span>Submit Application</span>
             <ArrowRight className="size-4" />

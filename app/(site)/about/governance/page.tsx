@@ -96,9 +96,9 @@ export const metadata: Metadata = {
 
 export default function GovernancePage() {
   return (
-    <div className="flex flex-col w-full bg-surface pt-20">
+    <div className="flex flex-col w-full bg-muted pt-20">
       {/* Intro Section */}
-      <Section tone="default" className="relative overflow-hidden py-16 md:py-20 border-b border-border-default">
+      <Section tone="default" className="relative overflow-hidden py-16 md:py-20 border-b border-border">
         <HalftoneBackground />
         <Container className="relative z-10">
           <div className="mb-6">
@@ -108,10 +108,10 @@ export default function GovernancePage() {
             <Badge className="mb-6">
               Governance & Leadership
             </Badge>
-            <h1 className="font-sans text-display-lg md:text-display-lg font-light leading-none tracking-tight text-ink-900 mb-8">
+            <h1 className="font-sans text-display-lg md:text-display-lg font-light leading-none tracking-tight text-foreground mb-8">
               Accountable.<br/> Community-led.
             </h1>
-            <p className="font-sans text-body-lg text-ink-500 leading-relaxed font-light max-w-2xl">
+            <p className="font-sans text-body-lg text-muted-foreground leading-relaxed font-light max-w-2xl">
               Committed to transparency, accountability, and making decisions that are rooted in the lived realities of the communities we serve in Manipur.
             </p>
           </div>
@@ -119,24 +119,24 @@ export default function GovernancePage() {
       </Section>
 
       {/* Leadership Grid */}
-      <Section tone="default" className="py-16 border-b border-border-default">
+      <Section tone="default" className="py-16 border-b border-border">
         <Container>
           <div className="mb-16 max-w-2xl">
-            <h2 className="font-sans text-display-md font-light tracking-tight mb-6 text-ink-900">
+            <h2 className="font-sans text-display-md font-light tracking-tight mb-6 text-foreground">
               Our Leadership
             </h2>
-            <p className="font-sans text-body-lg max-w-prose  text-ink-500 leading-relaxed">
+            <p className="font-sans text-body-lg max-w-prose  text-muted-foreground leading-relaxed">
               Our board and executive team bring decades of experience in healthcare, education, and community resilience within Manipur and beyond.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
             {leaders.map((leader, i) => (
-              <Card key={i} className="flex flex-col h-full border-border-default hover:border-text-primary transition-colors">
+              <Card key={i} className="flex flex-col h-full border-border hover:border-text-primary transition-colors">
                 <CardContent className="flex flex-col p-8 h-full gap-2">
-                  <h3 className="font-sans text-heading-lg font-medium text-ink-900">{leader.name}</h3>
-                  <p className="font-sans text-caption font-semibold tracking-wide uppercase text-ink-500">{leader.role}</p>
-                  <p className="font-sans text-body-lg max-w-prose  text-ink-500 leading-relaxed mt-2">
+                  <h3 className="font-sans text-heading-lg font-medium text-foreground">{leader.name}</h3>
+                  <p className="font-sans text-caption font-semibold tracking-wide uppercase text-muted-foreground">{leader.role}</p>
+                  <p className="font-sans text-body-lg max-w-prose  text-muted-foreground leading-relaxed mt-2">
                     {leader.bio}
                   </p>
                 </CardContent>
@@ -147,7 +147,7 @@ export default function GovernancePage() {
       </Section>
 
       {/* Institutional Timeline */}
-      <Section tone="default" className="py-16 border-b border-border-default">
+      <Section tone="default" className="py-16 border-b border-border">
         <Container>
           <Timeline
             heading="Institutional Journey & Milestones"
@@ -162,18 +162,18 @@ export default function GovernancePage() {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8">
             <div className="lg:col-span-1">
-              <h2 className="font-sans text-heading-xl font-medium tracking-tight mb-6 text-ink-900">
+              <h2 className="font-sans text-heading-xl font-medium tracking-tight mb-6 text-foreground">
                 Key Policies
               </h2>
-              <p className="font-sans text-body-lg max-w-prose  text-ink-500 leading-relaxed mb-8">
+              <p className="font-sans text-body-lg max-w-prose  text-muted-foreground leading-relaxed mb-8">
                 Our governance framework ensures that One Vision operates ethically, safely, and in alignment with our core mission.
               </p>
             </div>
             <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-10">
               {policies.map((policy, i) => (
                 <div key={i} className="flex flex-col">
-                  <h3 className="font-sans text-heading-md font-medium text-ink-900 mb-3">{policy.title}</h3>
-                  <p className="font-sans text-body-sm max-w-prose text-ink-500 leading-relaxed">
+                  <h3 className="font-sans text-heading-md font-medium text-foreground mb-3">{policy.title}</h3>
+                  <p className="font-sans text-body-sm max-w-prose text-muted-foreground leading-relaxed">
                     {policy.description}
                   </p>
                 </div>

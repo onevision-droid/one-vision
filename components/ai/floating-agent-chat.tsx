@@ -95,10 +95,10 @@ export function FloatingAgentChat() {
               onClick={() => setIsOpen(true)}
               aria-label="Open AI Assistant"
               aria-expanded={false}
-              className="relative size-12 sm:size-12.5 bg-ink-900 border border-ink-900/20 text-paper hover:bg-safety-orange hover:text-ink-900 hover:border-safety-orange dark:bg-paper dark:text-ink-900 dark:hover:bg-safety-orange dark:hover:text-ink-900 shadow-lg flex items-center justify-center transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-safety-orange"
+              className="relative size-12 sm:size-12.5 bg-foreground border border-foreground/20 text-background hover:bg-destructive hover:text-foreground hover:border-safety-orange dark:bg-background dark:text-foreground dark:hover:bg-destructive dark:hover:text-foreground shadow-lg flex items-center justify-center transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-safety-orange"
             >
               <div className="relative flex items-center justify-center">
-                <Bot className="size-5 text-safety-orange transition-colors" />
+                <Bot className="size-5 text-destructive transition-colors" />
                 <span className="absolute -top-1 -right-1 size-2 rounded-full bg-status-active ring-2 ring-ink-900 animate-pulse" />
               </div>
             </motion.button>
@@ -134,8 +134,8 @@ export function FloatingAgentChat() {
                 "fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50",
                 "w-[calc(100vw-2rem)] sm:w-105 md:w-110",
                 "h-125 sm:h-135 max-h-[calc(100dvh-3rem)]",
-                "border border-border-default/80 bg-paper/95 backdrop-blur-xl shadow-2xl",
-                "flex flex-col overflow-hidden dark:border-white/10 dark:bg-ink-900/95"
+                "border border-border/80 bg-background/95 backdrop-blur-xl shadow-2xl",
+                "flex flex-col overflow-hidden dark:border-white/10 dark:bg-foreground/95"
               )}
             >
               <AgentChat isDialog={true} onClose={() => setIsOpen(false)} />

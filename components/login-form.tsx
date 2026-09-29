@@ -40,10 +40,10 @@ export function LoginForm({
 }: LoginFormProps) {
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card className="border-border-default shadow-none bg-surface">
+      <Card className="border-border shadow-none bg-muted">
         <CardHeader>
           <CardTitle className="font-sans text-heading-lg font-semibold tracking-tight">Coordination Access</CardTitle>
-          <CardDescription className="text-body-sm text-ink-500 mt-2">
+          <CardDescription className="text-body-sm text-muted-foreground mt-2">
             Authorized personnel only. Enter your credentials to proceed.
           </CardDescription>
         </CardHeader>
@@ -59,7 +59,7 @@ export function LoginForm({
                 {error}
               </div>
               <Field>
-                <FieldLabel htmlFor="email" className="font-medium text-ink-900">Email address</FieldLabel>
+                <FieldLabel htmlFor="email" className="font-medium text-foreground">Email address</FieldLabel>
                 <Input
                   id="email"
                   type="email"
@@ -67,22 +67,22 @@ export function LoginForm({
                   required
                   value={email}
                   onChange={e => setEmail?.(e.target.value)}
-                  className="bg-surface border-border-default focus-visible:ring-1 focus-visible:ring-ink-900"
+                  className="bg-muted border-border focus-visible:ring-1 focus-visible:ring-ink-900"
                 />
               </Field>
               <Field>
-                <FieldLabel htmlFor="password" className="font-medium text-ink-900">Passphrase</FieldLabel>
+                <FieldLabel htmlFor="password" className="font-medium text-foreground">Passphrase</FieldLabel>
                 <Input 
                   id="password" 
                   type="password" 
                   required 
                   value={password}
                   onChange={e => setPassword?.(e.target.value)}
-                  className="bg-surface border-border-default focus-visible:ring-1 focus-visible:ring-ink-900"
+                  className="bg-muted border-border focus-visible:ring-1 focus-visible:ring-ink-900"
                 />
               </Field>
               <Field className="pt-2">
-                <Button type="submit" disabled={loading} className="w-full bg-ink-900 text-paper hover:bg-ink-700 transition-none font-medium text-sm">
+                <Button type="submit" disabled={loading} className="w-full bg-foreground text-background hover:bg-ink-700 transition-none font-medium text-sm">
                   {loading ? "Authenticating..." : "Authenticate"}
                 </Button>
               </Field>

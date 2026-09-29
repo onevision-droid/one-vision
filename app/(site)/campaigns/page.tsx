@@ -17,7 +17,7 @@ import { campaigns } from "@/lib/data/campaigns";
 
 export default function CampaignsPage() {
   return (
-    <div className="flex flex-col w-full bg-paper">
+    <div className="flex flex-col w-full bg-background">
       <PageHero 
         badge="Urgent Needs"
         heading={
@@ -29,7 +29,7 @@ export default function CampaignsPage() {
         description="Our targeted campaigns address immediate, short-term crises requiring rapid funding, volunteer deployment, or supply gathering."
       />
 
-      <Section tone="alt" className="py-16 border-b border-border-default">
+      <Section tone="alt" className="py-16 border-b border-border">
         <Container>
           <div className="mb-10">
             <Breadcrumbs items={[{ label: "Campaigns", href: "/campaigns" }]} />

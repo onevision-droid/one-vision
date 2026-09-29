@@ -41,7 +41,7 @@ export function Loader({
       return (
         <div className={cn("inline-flex items-center gap-2", className)} {...props}>
           <svg
-            className={cn("animate-spin text-safety-orange", sizeMap[size].split(" ")[0])}
+            className={cn("animate-spin text-destructive", sizeMap[size].split(" ")[0])}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -67,20 +67,20 @@ export function Loader({
     case "typing":
       return (
         <div
-          className={cn("inline-flex items-center gap-1 py-1 px-2 text-ink-500", className)}
+          className={cn("inline-flex items-center gap-1 py-1 px-2 text-muted-foreground", className)}
           {...props}
         >
-          <span className="size-1.5 rounded-full bg-safety-orange animate-bounce [animation-delay:-0.3s]" />
-          <span className="size-1.5 rounded-full bg-safety-orange animate-bounce [animation-delay:-0.15s]" />
-          <span className="size-1.5 rounded-full bg-safety-orange animate-bounce" />
+          <span className="size-1.5 rounded-full bg-destructive animate-bounce [animation-delay:-0.3s]" />
+          <span className="size-1.5 rounded-full bg-destructive animate-bounce [animation-delay:-0.15s]" />
+          <span className="size-1.5 rounded-full bg-destructive animate-bounce" />
         </div>
       );
 
     case "pulse-dot":
       return (
         <div className={cn("relative flex items-center justify-center size-3", className)} {...props}>
-          <span className="absolute inline-flex size-full rounded-full bg-safety-orange/40 animate-ping" />
-          <span className="relative inline-flex size-1.5 rounded-full bg-safety-orange" />
+          <span className="absolute inline-flex size-full rounded-full bg-destructive/40 animate-ping" />
+          <span className="relative inline-flex size-1.5 rounded-full bg-destructive" />
         </div>
       );
 
@@ -88,7 +88,7 @@ export function Loader({
       return (
         <div
           className={cn(
-            "rounded-md bg-ink-900/10 dark:bg-white/10 animate-pulse h-4 w-24",
+            "rounded-md bg-foreground/10 dark:bg-white/10 animate-pulse h-4 w-24",
             className
           )}
           {...props}
@@ -99,24 +99,24 @@ export function Loader({
     case "wave":
       return (
         <div className={cn("inline-flex items-end gap-1 h-4", className)} {...props}>
-          <span className="w-1 bg-safety-orange animate-[pulse_0.6s_ease-in-out_infinite] h-2" />
-          <span className="w-1 bg-safety-orange animate-[pulse_0.6s_ease-in-out_0.2s_infinite] h-4" />
-          <span className="w-1 bg-safety-orange animate-[pulse_0.6s_ease-in-out_0.4s_infinite] h-3" />
+          <span className="w-1 bg-destructive animate-[pulse_0.6s_ease-in-out_infinite] h-2" />
+          <span className="w-1 bg-destructive animate-[pulse_0.6s_ease-in-out_0.2s_infinite] h-4" />
+          <span className="w-1 bg-destructive animate-[pulse_0.6s_ease-in-out_0.4s_infinite] h-3" />
         </div>
       );
 
     case "terminal":
       return (
-        <div className={cn("inline-flex items-center font-mono text-xs text-ink-700 dark:text-paper/80", className)} {...props}>
-          <span className="text-safety-orange mr-1">&gt;</span>
+        <div className={cn("inline-flex items-center font-mono text-xs text-ink-700 dark:text-background/80", className)} {...props}>
+          <span className="text-destructive mr-1">&gt;</span>
           <span>{text}</span>
-          <span className="ml-1 inline-block w-1.5 h-3.5 bg-safety-orange animate-pulse" />
+          <span className="ml-1 inline-block w-1.5 h-3.5 bg-destructive animate-pulse" />
         </div>
       );
 
     case "text-blink":
       return (
-        <span className={cn("font-mono text-xs text-ink-500 animate-pulse", className)} {...props}>
+        <span className={cn("font-mono text-xs text-muted-foreground animate-pulse", className)} {...props}>
           {text}
         </span>
       );
@@ -144,7 +144,7 @@ export function Loader({
             <span className="size-1 rounded-full bg-ink-500 animate-pulse [animation-delay:200ms]" />
             <span className="size-1 rounded-full bg-ink-500 animate-pulse [animation-delay:400ms]" />
           </div>
-          {text && <span className="font-sans text-xs text-ink-500">{text}</span>}
+          {text && <span className="font-sans text-xs text-muted-foreground">{text}</span>}
         </div>
       );
   }

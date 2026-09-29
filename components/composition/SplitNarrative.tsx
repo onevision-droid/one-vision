@@ -26,12 +26,12 @@ export function SplitNarrative({
     >
       <Container className="px-0 md:px-0">
         {heading && (
-          <div className="border-b lg:border-x border-border-default px-6 py-4 md:px-8 md:py-5 bg-surface">
+          <div className="border-b lg:border-x border-border px-6 py-4 md:px-8 md:py-5 bg-muted">
             <div className="flex items-center gap-3">
-              <span className="size-1.5 bg-safety-orange shrink-0" />
+              <span className="size-1.5 bg-destructive shrink-0" />
               <h2
                 id={headingId}
-                className="font-mono text-[11px] uppercase tracking-widest text-ink-500 font-bold"
+                className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground font-bold"
               >
                 {heading}
               </h2>
@@ -41,16 +41,16 @@ export function SplitNarrative({
 
         <div
           className={cn(
-            "grid lg:grid-cols-12 overflow-hidden border-b lg:border-x border-border-default bg-paper",
+            "grid lg:grid-cols-12 overflow-hidden border-b lg:border-x border-border bg-background",
             reversed ? "lg:[direction:rtl] lg:*:[direction:ltr]" : "",
           )}
         >
           {/* Content: 6 columns — 50% */}
-          <div className="lg:col-span-6 p-6 md:p-10 lg:p-12 lg:border-r border-border-default flex flex-col justify-center">
+          <div className="lg:col-span-6 p-6 md:p-10 lg:p-12 lg:border-r border-border flex flex-col justify-center">
             <div
               className={cn(
                 "space-y-6",
-                "font-sans leading-relaxed text-ink-900",
+                "font-sans leading-relaxed text-foreground",
               )}
             >
               {content}
@@ -58,11 +58,11 @@ export function SplitNarrative({
           </div>
 
           {/* Media: 6 columns — 50% */}
-          <div className="lg:col-span-6 relative bg-ink-900 border-t lg:border-t-0 border-border-default">
+          <div className="lg:col-span-6 relative bg-foreground border-t lg:border-t-0 border-border">
             <div className="relative h-full min-h-75 lg:min-h-85 w-full overflow-hidden [&>img]:grayscale [&>img]:hover:grayscale-0 [&>img]:transition-all [&>img]:duration-700">
               {media}
               {/* Brutalist overlay */}
-              <div className="absolute inset-0 bg-ink-900/10 mix-blend-multiply pointer-events-none" />
+              <div className="absolute inset-0 bg-foreground/10 mix-blend-multiply pointer-events-none" />
             </div>
           </div>
         </div>

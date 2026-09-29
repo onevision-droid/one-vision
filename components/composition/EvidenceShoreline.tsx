@@ -51,7 +51,7 @@ export function EvidenceShoreline({
  <div className={cn("grid gap-8", media ? "lg:grid-cols-12" : "")}>
  {/* Metrics */}
  <div className={cn(media ? "lg:col-span-8" : "")}>
- <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px border border-border-default overflow-hidden">
+ <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px border border-border overflow-hidden">
  {metrics}
  </div>
  </div>
@@ -68,7 +68,7 @@ export function EvidenceShoreline({
 
  {/* Methodology footnote */}
  {footnote && (
- <div className="mt-6 text-caption text-ink-500">{footnote}</div>
+ <div className="mt-6 text-caption text-muted-foreground">{footnote}</div>
  )}
  </Container>
  </SectionWrapper>
