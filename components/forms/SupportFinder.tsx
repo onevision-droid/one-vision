@@ -43,22 +43,22 @@ export function SupportFinder() {
  <Link
  key={p.id}
  href={`/programmes/${p.slug}`}
- className="group p-6 bg-muted-alt border border-transparent hover:border-action-primary hover:bg-background transition-all flex justify-between items-center"
+ className="group p-6 bg-muted border border-transparent hover:border-primary hover:bg-background transition-all flex justify-between items-center"
  >
  <div>
- <h4 className="font-sans text-heading-md font-medium text-foreground group-hover:text-action-primary transition-colors mb-2">
+ <h4 className="font-sans text-heading-md font-medium text-foreground group-hover:text-primary transition-colors mb-2">
  {p.title}
  </h4>
  <p className="text-body-sm max-w-prose text-muted-foreground">{p.location}</p>
  </div>
- <div className="size-10 flex items-center justify-center shrink-0 border border-border group-hover:border-action-primary transition-colors">
- <ArrowRight className="size-4 text-foreground group-hover:text-action-primary transition-colors" />
+ <div className="size-10 flex items-center justify-center shrink-0 border border-border group-hover:border-primary transition-colors">
+ <ArrowRight className="size-4 text-foreground group-hover:text-primary transition-colors" />
  </div>
  </Link>
  ))}
  </div>
  ) : (
- <div className="p-8 bg-muted-alt border border-dashed border-ink-300 text-center mb-12">
+ <div className="p-8 bg-muted border border-dashed border-border text-center mb-12">
  <p className="text-body max-w-prose text-muted-foreground font-light">
  No specific programmes match this exactly right now, but please
  contact us directly so we can assist you.
@@ -119,13 +119,13 @@ export function SupportFinder() {
  ].map((cat) => (
  <button
  key={cat}
- className="group flex items-center justify-between p-6 border border-border hover:border-action-primary hover:bg-muted-alt transition-colors bg-muted text-left"
+ className="group flex items-center justify-between p-6 border border-border hover:border-primary hover:bg-muted/80 transition-colors bg-muted text-left"
  onClick={() => handleCategorySelect(cat)}
  >
- <span className="font-sans text-body font-medium text-foreground group-hover:text-action-primary transition-colors">
+ <span className="font-sans text-body font-medium text-foreground group-hover:text-primary transition-colors">
  {cat}
  </span>
- <ChevronRight className="size-4 text-muted group-hover:text-action-primary transition-colors group-hover:translate-x-1" />
+ <ChevronRight className="size-4 text-muted group-hover:text-primary transition-colors group-hover:translate-x-1" />
  </button>
  ))}
  </div>
@@ -146,13 +146,13 @@ export function SupportFinder() {
  ].map((ben) => (
  <button
  key={ben}
- className="group flex items-center justify-between p-6 border border-border hover:border-action-primary hover:bg-muted-alt transition-colors bg-muted text-left"
+ className="group flex items-center justify-between p-6 border border-border hover:border-primary hover:bg-muted/80 transition-colors bg-muted text-left"
  onClick={() => handleBeneficiarySelect(ben)}
  >
- <span className="font-sans text-body font-medium text-foreground group-hover:text-action-primary transition-colors">
+ <span className="font-sans text-body font-medium text-foreground group-hover:text-primary transition-colors">
  {ben}
  </span>
- <ChevronRight className="size-4 text-muted group-hover:text-action-primary transition-colors group-hover:translate-x-1" />
+ <ChevronRight className="size-4 text-muted group-hover:text-primary transition-colors group-hover:translate-x-1" />
  </button>
  ))}
  </div>

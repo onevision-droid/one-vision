@@ -69,7 +69,7 @@ export default async function CampaignPage({ params }: Props) {
               </div>
               
               <div className="space-y-4">
-                <span className="inline-block px-3 py-1 bg-muted-alt border border-border text-caption uppercase tracking-widest text-muted-foreground font-semibold">
+                <span className="inline-block px-3 py-1 bg-muted border border-border text-caption uppercase tracking-widest text-muted-foreground font-semibold">
                   {campaign.category}
                 </span>
                 <h1 className="font-sans text-display-md font-light tracking-tight text-foreground leading-[1.1]">
@@ -92,9 +92,9 @@ export default async function CampaignPage({ params }: Props) {
                     of ₹{campaign.goal?.toLocaleString('en-IN')} goal
                   </p>
                 </div>
-                <div className="h-2 w-full bg-ink-200 overflow-hidden">
+                <div className="h-2 w-full bg-muted overflow-hidden">
                   <div 
-                    className="h-full bg-action-primary transition-all duration-1000 ease-out" 
+                    className="h-full bg-primary transition-all duration-1000 ease-out" 
                     style={{ width: `${progress}%` }} 
                   />
                 </div>
@@ -130,7 +130,7 @@ export default async function CampaignPage({ params }: Props) {
 
       {/* Featured Image */}
       <Container className="px-0 md:px-8">
-        <div className="relative w-full aspect-video md:aspect-21/9 bg-muted-alt border-y md:border border-border overflow-hidden">
+        <div className="relative w-full aspect-video md:aspect-21/9 bg-muted border-y md:border border-border overflow-hidden">
           <Image 
             src={campaign.image} 
             alt={campaign.title} 
@@ -145,7 +145,7 @@ export default async function CampaignPage({ params }: Props) {
       {campaign.sections && campaign.sections.length > 0 && (
         <Section tone="default" className="py-20 border-b border-border">
           <Container>
-            <div className="max-w-2xl mx-auto prose prose-lg prose-headings:font-sans prose-headings:font-light prose-p:text-ink-700 prose-p:font-light prose-p:leading-relaxed">
+            <div className="max-w-2xl mx-auto prose prose-lg prose-headings:font-sans prose-headings:font-light prose-p:text-foreground prose-p:font-light prose-p:leading-relaxed">
               {campaign.sections.map((section) => (
                 <div key={section.id}>
                   <h2>{section.title}</h2>

@@ -54,25 +54,25 @@ export function Timeline({
  aria-hidden="true"
  className={cn(
 "absolute -left-1.75 top-1.5 size-3.5 transition-transform duration-200 group-hover:scale-125",
- isCompleted &&"bg-foreground border-2 border-surface",
- isActive &&"bg-action-primary ring-4 ring-action-primary/20 border-2 border-surface",
- isUpcoming &&"bg-muted border-2 border-ink-400"
+ isCompleted &&"bg-foreground border-2 border-border",
+ isActive &&"bg-primary ring-4 ring-primary/20 border-2 border-border",
+ isUpcoming &&"bg-muted border-2 border-muted-foreground"
  )}
  />
 
  <div className="flex flex-col space-y-2">
  <div className="flex flex-wrap items-center gap-3">
- <span className="font-sans text-caption uppercase tracking-wider font-semibold text-action-primary bg-action-primary/8 px-2 py-0.5">
+ <span className="font-sans text-caption uppercase tracking-wider font-semibold text-primary bg-primary/8 px-2 py-0.5">
  {item.year}
  </span>
  {item.tag && (
- <span className="font-sans text-caption uppercase tracking-wider text-ink-400">
+ <span className="font-sans text-caption uppercase tracking-wider text-muted-foreground">
  {item.tag}
  </span>
  )}
  {isActive && (
- <span className="inline-flex items-center gap-1.5 text-caption font-medium text-action-primary">
- <span className="size-1.5 bg-action-primary animate-pulse" />
+ <span className="inline-flex items-center gap-1.5 text-caption font-medium text-primary">
+ <span className="size-1.5 bg-primary animate-pulse" />
  Active Phase
  </span>
  )}

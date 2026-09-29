@@ -19,7 +19,7 @@ export function CommunityAction() {
  <Section tone="default" className="border-t border-border overflow-hidden bg-muted py-20">
  <Container>
  <div>
- <h2 className="text-ink-700 max-w-4xl text-balance text-heading-xl md:text-display-md font-extrabold font-sans tracking-tighter uppercase">
+ <h2 className="text-foreground max-w-4xl text-balance text-heading-xl md:text-display-md font-extrabold font-sans tracking-tighter uppercase">
  <span className="text-foreground">Community Support In Action.</span> <br />{""}
  Radical transparency, zero red tape.
  </h2>
@@ -34,7 +34,7 @@ export function CommunityAction() {
  </Card>
  </Link>
 
- <p className="text-ink-700 text-balance font-sans text-body-sm max-w-prose font-medium tracking-wide">
+ <p className="text-foreground text-balance font-sans text-body-sm max-w-prose font-medium tracking-wide">
  <span className="text-foreground font-bold uppercase">Get Help. </span>{""}
  Reach out via email, our frontline office phone, or submit an enquiry for general support and partnerships. Please do not submit medical or critical field data through the form.
  </p>
@@ -42,11 +42,11 @@ export function CommunityAction() {
 
  {/* Card 2: Transparent Funds */}
  <div className="row-span-2 grid grid-cols-1 gap-6 group">
- <Card className="aspect-4/3 bg-muted-alt relative overflow-hidden flex flex-col p-0 border border-border shadow-sm hover:translate-y-1 hover:shadow-sm transition-all">
+ <Card className="aspect-4/3 bg-muted relative overflow-hidden flex flex-col p-0 border border-border shadow-sm hover:translate-y-1 hover:shadow-sm transition-all">
  <FundTrackerIllustration />
  </Card>
 
- <p className="text-ink-700 text-balance font-sans text-body-sm max-w-prose font-medium tracking-wide">
+ <p className="text-foreground text-balance font-sans text-body-sm max-w-prose font-medium tracking-wide">
  <span className="text-foreground font-bold uppercase">
  Verified Allocation.{""}
  </span>{""}
@@ -62,7 +62,7 @@ export function CommunityAction() {
  <div className="absolute inset-0 bg-foreground opacity-5 group-hover:opacity-0 transition-opacity"></div>
  </Card>
 
- <p className="text-ink-700 text-balance font-sans text-body-sm max-w-prose font-medium tracking-wide">
+ <p className="text-foreground text-balance font-sans text-body-sm max-w-prose font-medium tracking-wide">
  <span className="text-foreground font-bold uppercase">
  Public Accountability.{""}
  </span>{""}
@@ -81,7 +81,7 @@ function DownloadIllustration() {
  <div className="z-10 absolute inset-0 m-auto size-fit flex flex-col items-center justify-center">
  <Button
  variant="secondary"
- className="bg-background border border-border z-20 relative hover:bg-destructive hover:text-background transition-colors font-sans font-bold tracking-widest uppercase h-12 px-6"
+ className="bg-background border border-border z-20 relative hover:bg-muted hover:text-foreground transition-colors font-sans font-bold tracking-widest uppercase h-12 px-6"
  size="sm"
  nativeButton={false}
  render={
@@ -96,7 +96,7 @@ function DownloadIllustration() {
  />
 
  <div className="mt-0 min-w-64 bg-background p-2 border border-border origin-top relative z-10 hidden group-hover:block translate-y-2">
- <div className="peer flex gap-4 px-4 py-3 hover:bg-destructive hover:text-background transition-colors cursor-pointer text-foreground">
+ <div className="peer flex gap-4 px-4 py-3 hover:bg-muted hover:text-foreground transition-colors cursor-pointer text-foreground">
  <FileText className="size-5 translate-y-0.5" />
  <div className="space-y-1">
  <div className="text-sm font-sans font-bold uppercase tracking-wider">
@@ -106,7 +106,7 @@ function DownloadIllustration() {
  </div>
  </div>
 
- <div className="flex gap-4 px-4 py-3 hover:bg-destructive hover:text-background transition-colors cursor-pointer text-foreground border-t-2 border-border">
+ <div className="flex gap-4 px-4 py-3 hover:bg-muted hover:text-foreground transition-colors cursor-pointer text-foreground border-t-2 border-border">
  <FileBarChart className="size-5 translate-y-0.5" />
  <div className="space-y-1">
  <div className="text-sm font-sans font-bold uppercase tracking-wider">

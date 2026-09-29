@@ -46,13 +46,13 @@ export function ConsentNotice() {
  >
  <div className="container max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-5 md:gap-8">
  <div className="flex items-start gap-4 flex-1">
- <div className="p-2 bg-muted-alt border border-border shrink-0 text-action-primary hidden md:flex mt-0.5">
+ <div className="p-2 bg-muted border border-border shrink-0 text-primary hidden md:flex mt-0.5">
  <ShieldCheck className="size-5" />
  </div>
 
  <div className="space-y-1.5">
  <h3 className="font-sans text-body-sm font-semibold text-foreground flex items-center gap-2">
- <ShieldCheck className="size-4 md:hidden text-action-primary" />
+ <ShieldCheck className="size-4 md:hidden text-primary" />
  Privacy & Trust First
  </h3>
  <p className="font-sans text-caption text-muted-foreground font-light leading-relaxed max-w-3xl pr-4">
@@ -71,7 +71,7 @@ export function ConsentNotice() {
  </Button>
  <Link
  href="/privacy"
- className="text-caption font-medium text-action-primary hover:text-action-hover underline underline-offset-4 px-2"
+ className="text-caption font-medium text-primary hover:text-primary/80 underline underline-offset-4 px-2"
  >
  Privacy Policy
  </Link>

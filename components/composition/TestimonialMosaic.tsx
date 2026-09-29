@@ -60,7 +60,7 @@ export function TestimonialMosaic({
                     />
                   </div>
                 ) : (
-                  <div className="w-12 h-12 shrink-0 bg-muted-alt border border-border flex items-center justify-center">
+                  <div className="w-12 h-12 shrink-0 bg-muted border border-border flex items-center justify-center">
                     <span className="font-sans text-body-lg text-foreground font-light">
                       {t.author.charAt(0)}
                     </span>

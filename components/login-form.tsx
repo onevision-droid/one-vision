@@ -67,7 +67,7 @@ export function LoginForm({
                   required
                   value={email}
                   onChange={e => setEmail?.(e.target.value)}
-                  className="bg-muted border-border focus-visible:ring-1 focus-visible:ring-ink-900"
+                  className="bg-muted border-border focus-visible:ring-1 focus-visible:ring-ring"
                 />
               </Field>
               <Field>
@@ -78,11 +78,11 @@ export function LoginForm({
                   required 
                   value={password}
                   onChange={e => setPassword?.(e.target.value)}
-                  className="bg-muted border-border focus-visible:ring-1 focus-visible:ring-ink-900"
+                  className="bg-muted border-border focus-visible:ring-1 focus-visible:ring-ring"
                 />
               </Field>
               <Field className="pt-2">
-                <Button type="submit" disabled={loading} className="w-full bg-foreground text-background hover:bg-ink-700 transition-none font-medium text-sm">
+                <Button type="submit" disabled={loading} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-sm">
                   {loading ?"Authenticating..." :"Authenticate"}
                 </Button>
               </Field>

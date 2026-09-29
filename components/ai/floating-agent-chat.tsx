@@ -95,11 +95,11 @@ export function FloatingAgentChat() {
               onClick={() => setIsOpen(true)}
               aria-label="Open AI Assistant"
               aria-expanded={false}
-              className="relative size-12 sm:size-12.5 bg-foreground border border-foreground/20 text-background hover:bg-destructive hover:text-foreground hover:border-safety-orange dark:bg-background dark:text-foreground dark:hover:bg-destructive dark:hover:text-foreground shadow-lg flex items-center justify-center transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-safety-orange"
+              className="relative size-12 sm:size-12.5 bg-foreground border border-foreground/20 text-background hover:bg-primary hover:text-primary-foreground hover:border-primary shadow-lg flex items-center justify-center transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-ring"
             >
               <div className="relative flex items-center justify-center">
                 <Bot className="size-5 text-destructive transition-colors" />
-                <span className="absolute -top-1 -right-1 size-2 rounded-full bg-status-active ring-2 ring-ink-900 animate-pulse" />
+                <span className="absolute -top-1 -right-1 size-2 rounded-full bg-status-active ring-2 ring-background animate-pulse" />
               </div>
             </motion.button>
           </motion.div>

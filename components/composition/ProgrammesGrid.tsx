@@ -48,7 +48,7 @@ export function ProgrammesGrid() {
               <div className="p-8 pb-0 space-y-3 z-10 relative">
                 {/* Metadata Pills */}
                 <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-                  <span className="inline-flex items-center gap-2 border border-border bg-background/80 backdrop-blur-sm px-3 py-1 font-medium text-ink-700 shadow-xs">
+                  <span className="inline-flex items-center gap-2 border border-border bg-background/80 backdrop-blur-sm px-3 py-1 font-medium text-foreground shadow-xs">
                     {programme.category}
                   </span>
                   <div className="flex items-center gap-2">

@@ -116,7 +116,7 @@ export function ChainOfThoughtTrigger({
       </div>
       <ChevronDown
         className={cn(
-         "size-3.5 text-ink-400 transition-transform duration-200 shrink-0",
+         "size-3.5 text-muted-foreground transition-transform duration-200 shrink-0",
           step?.isOpen &&"rotate-180 text-foreground"
         )}
       />

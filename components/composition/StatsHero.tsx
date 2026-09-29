@@ -41,7 +41,7 @@ export function StatsHero({
   <div className="mt-auto">
   <Link
   href={ctaHref}
-  className="inline-flex items-center gap-2 px-6 py-3.5 bg-foreground hover:bg-destructive text-background font-bold uppercase tracking-widest text-xs transition-colors duration-300"
+  className="inline-flex items-center gap-2 px-6 py-3.5 bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-widest text-xs transition-colors duration-300"
   >
   {ctaLabel}
   <ArrowRight className="size-4" />
@@ -55,7 +55,7 @@ export function StatsHero({
   {stats.map((stat, i) => (
   <li
   key={i}
-  className={`flex flex-col justify-center p-6 lg:p-8 border-b border-border transition-colors hover:bg-muted-alt ${
+  className={`flex flex-col justify-center p-6 lg:p-8 border-b border-border transition-colors hover:bg-muted/80 ${
   i % 2 !== 0 ?"sm:border-l" :""
   } ${
   i >= stats.length - (stats.length % 2 === 0 ? 2 : 1) ?"sm:border-b-0" :""

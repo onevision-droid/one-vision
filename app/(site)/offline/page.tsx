@@ -12,7 +12,7 @@ export default function OfflinePage() {
   return (
     <div className="min-h-[80vh] flex items-center justify-center">
       <div className="mx-auto max-w-lg px-6 py-16 text-center">
-        <div className="mx-auto mb-8 flex size-10 items-center justify-center bg-section-alt border border-border">
+        <div className="mx-auto mb-8 flex size-10 items-center justify-center bg-muted border border-border">
           <WifiOff className="size-8 text-muted-foreground" strokeWidth={1.5} />
         </div>
 
@@ -26,7 +26,7 @@ export default function OfflinePage() {
           Critical contact information is available below.
         </p>
 
-        <div className="bg-field-black text-background p-8 mb-8 text-left space-y-6">
+        <div className="bg-card text-background p-8 mb-8 text-left space-y-6">
           <div className="flex items-center gap-2 mb-2">
             <Lock className="size-4 text-destructive" />
             <span className="font-sans text-label uppercase tracking-widest text-destructive font-semibold">
@@ -52,7 +52,7 @@ export default function OfflinePage() {
 
         <Link
           href="/"
-          className="inline-flex items-center gap-2 font-sans text-body-sm font-medium text-foreground hover:text-action-primary transition-colors"
+          className="inline-flex items-center gap-2 font-sans text-body-sm font-medium text-foreground hover:text-primary transition-colors"
         >
           ← Try returning home
         </Link>

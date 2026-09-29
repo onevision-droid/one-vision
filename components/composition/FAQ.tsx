@@ -53,7 +53,7 @@ export function FAQ({
           </div>
 
           <div className="w-full lg:w-7/12 p-6 md:p-8 lg:p-10 bg-background">
-            <Accordion className="w-full gap-0 divide-y divide-border-default">
+            <Accordion className="w-full gap-0 divide-y divide-border">
               {items.map((item, i) => (
                 <AccordionItem key={i} value={`item-${i}`} className="border-0 bg-transparent rounded-none">
                   <AccordionTrigger className="font-serif text-xl sm:text-2xl font-light text-foreground hover:bg-transparent hover:text-destructive transition-colors px-0 py-4 sm:py-5">

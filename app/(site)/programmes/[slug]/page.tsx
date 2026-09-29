@@ -89,10 +89,10 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
               <header className="space-y-6">
                 <div className="flex flex-wrap items-center gap-4 text-[11px] font-mono font-bold uppercase tracking-widest text-muted-foreground">
                   <div className="flex items-center gap-2">
-                    <span className={cn("size-2", programme.status ==="Active" ?"bg-destructive" :"bg-ink-300")} />
+                    <span className={cn("size-2", programme.status ==="Active" ?"bg-destructive" :"bg-muted")} />
                     <span className="text-foreground">{programme.status}</span>
                   </div>
-                  <span className="text-border-default">•</span>
+                  <span className="text-muted-foreground">•</span>
                   <div className="flex items-center gap-1.5">
                     {programme.location}
                   </div>
@@ -106,7 +106,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
               </header>
 
               {/* Split Content */}
-              <div className="grid lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-border-default mt-8 md:mt-12">
+              <div className="grid lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-border mt-8 md:mt-12">
                 <article className="lg:col-span-8 p-0 md:pr-10 lg:pr-12 space-y-6 font-sans text-base leading-relaxed text-muted-foreground bg-background">
                   <p>
                     This initiative is actively running in <strong className="text-foreground">{programme.location}</strong>. 
@@ -117,7 +117,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
                   </p>
                   
                   {/* Embedded Callout Box */}
-                  <div className="border-l-4 border-safety-orange bg-foreground p-6 my-8">
+                  <div className="border-l-4 border-destructive bg-foreground p-6 my-8">
                     <p className="font-sans text-base font-bold text-background max-w-prose">
                       We are currently looking for partners and volunteers to help expand this programme&apos;s reach.
                     </p>
@@ -154,8 +154,8 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
                       </div>
                     </div>
                     
-                    <div className="flex flex-col divide-y divide-border-default">
-                      <Link href="/volunteer" className="group flex items-center justify-between p-6 bg-foreground hover:bg-destructive text-background transition-colors duration-300">
+                    <div className="flex flex-col divide-y divide-border">
+                      <Link href="/volunteer" className="group flex items-center justify-between p-6 bg-card hover:bg-muted text-foreground border border-border transition-colors duration-300">
                         <span className="font-mono text-[11px] font-bold uppercase tracking-widest">Volunteer here</span>
                         <ArrowRight className="size-4" />
                       </Link>

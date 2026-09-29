@@ -37,7 +37,7 @@ export function Ledger({
             className={cn(
              "flex flex-col md:flex-row justify-between items-start md:items-end gap-4",
              "border-b pb-8 mb-10 lg:mb-14",
-              dark ?"border-paper/20" :"border-border",
+              dark ?"border-border" :"border-border",
             )}
           >
             {heading && (
@@ -59,7 +59,7 @@ export function Ledger({
         <div
           className={cn(
            "divide-y",
-            dark ?"divide-paper/20" :"divide-border-default",
+            "divide-border",
           )}
         >
           {children}

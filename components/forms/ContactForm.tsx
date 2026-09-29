@@ -70,8 +70,8 @@ export function ContactForm() {
   if (isSubmitted) {
     return (
       <div className="bg-muted p-8 md:p-10 border border-border flex flex-col items-center justify-center gap-4 text-center min-h-75 py-12">
-        <div className="flex items-center justify-center w-12 h-12 bg-section-alt border border-border">
-          <CheckCircle2 className="w-6 h-6 text-action-primary" />
+        <div className="flex items-center justify-center w-12 h-12 bg-muted border border-border">
+          <CheckCircle2 className="w-6 h-6 text-primary" />
         </div>
         <div className="space-y-2">
           <h3 className="font-sans text-heading-md font-semibold text-foreground">
@@ -86,7 +86,7 @@ export function ContactForm() {
             form.reset();
             setIsSubmitted(false);
           }}
-          className="text-body-sm font-medium text-action-primary hover:text-action-hover transition-colors"
+          className="text-body-sm font-medium text-primary hover:text-primary/80 transition-colors"
         >
           Send another message
         </button>
@@ -169,7 +169,7 @@ export function ContactForm() {
                 <FormControl>
                   <select 
                     {...field}
-                    className="w-full border border-border-input bg-transparent px-3 py-2 text-body-sm text-foreground transition-colors duration-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-action-primary focus-visible:border-action-primary"
+                    className="w-full border border-border-input bg-transparent px-3 py-2 text-body-sm text-foreground transition-colors duration-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-primary"
                   >
                     <option value="General Inquiry">General Inquiry</option>
                     <option value="Partnership">Partnership</option>

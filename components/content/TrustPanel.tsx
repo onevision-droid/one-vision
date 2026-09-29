@@ -85,7 +85,7 @@ export function TrustPanel({ variant ="full", className }: TrustPanelProps) {
           >
             Governance & Board
           </Link>
-          <span className="text-border-default group-hover:text-border-default/20">·</span>
+          <span className="text-muted-foreground group-hover:text-muted-foreground">·</span>
           <Link
             href="/about/governance#safeguarding"
             className="font-mono text-[10px] font-bold uppercase tracking-widest text-foreground group-hover:text-destructive transition-colors"

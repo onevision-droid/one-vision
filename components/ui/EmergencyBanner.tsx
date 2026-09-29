@@ -88,7 +88,7 @@ export function EmergencyBanner({
  <button
  onClick={handleDismiss}
  aria-label="Dismiss emergency banner"
- className="p-1 text-background/60 hover:text-background transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-paper"
+ className="p-1 text-background/60 hover:text-background transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-ring"
  >
  <X className="h-4 w-4" />
  </button>

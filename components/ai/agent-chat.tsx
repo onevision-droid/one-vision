@@ -154,7 +154,7 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
       {/* Minimal Header */}
       <div className="shrink-0 flex items-center justify-between px-3.5 py-2.5 border-b border-border/60 bg-muted/90 dark:border-border dark:bg-foreground/90">
         <div className="flex items-center gap-2">
-          <div className="size-6 bg-destructive/10 border border-safety-orange/30 flex items-center justify-center text-destructive">
+          <div className="size-6 bg-destructive/10 border border-destructive/30 flex items-center justify-center text-destructive">
             <Bot className="size-3.5" />
           </div>
           <div className="flex items-center gap-1.5">
@@ -171,7 +171,7 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
               type="button"
               onClick={handleClear}
               style={{ minHeight:"28px" }}
-              className="size-7 flex items-center justify-center text-ink-400 hover:text-foreground dark:hover:text-background hover:bg-foreground/5 dark:hover:bg-foreground/10 transition-colors cursor-pointer"
+              className="size-7 flex items-center justify-center text-muted-foreground hover:text-foreground dark:hover:text-background hover:bg-foreground/5 dark:hover:bg-foreground/10 transition-colors cursor-pointer"
               title="Clear conversation"
               aria-label="Clear conversation"
             >
@@ -184,7 +184,7 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
               type="button"
               onClick={onClose}
               style={{ minHeight:"28px" }}
-              className="size-7 flex items-center justify-center text-ink-400 hover:text-foreground dark:hover:text-background hover:bg-foreground/5 dark:hover:bg-foreground/10 transition-colors cursor-pointer"
+              className="size-7 flex items-center justify-center text-muted-foreground hover:text-foreground dark:hover:text-background hover:bg-foreground/5 dark:hover:bg-foreground/10 transition-colors cursor-pointer"
               title="Close Assistant"
               aria-label="Close Assistant Dialog"
             >
@@ -195,11 +195,11 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
       </div>
 
       {/* Messages Scroll Area */}
-      <div className="flex-1 min-h-0 overflow-y-auto p-3.5 sm:p-4 space-y-3.5 scrollbar-thin [scrollbar-color:var(--color-border-default)_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-border-default/80 dark:[&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-track]:bg-transparent">
+      <div className="flex-1 min-h-0 overflow-y-auto p-3.5 sm:p-4 space-y-3.5 scrollbar-thin [scrollbar-color:var(--border)_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-border dark:[&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-track]:bg-transparent">
         {/* Minimalist Empty State */}
         {messages.length === 0 && (
           <div className="h-full min-h-65 flex flex-col items-center justify-center text-center px-4 py-8 space-y-4 my-auto">
-            <div className="size-10 bg-section-alt border border-border/80 flex items-center justify-center text-destructive shadow-2xs">
+            <div className="size-10 bg-muted border border-border/80 flex items-center justify-center text-destructive shadow-2xs">
               <Bot className="size-5" />
             </div>
 
@@ -220,10 +220,10 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
                   onClick={() => handleSend(item.query)}
                   disabled={isLoading}
                   style={{ minHeight:"28px" }}
-                  className="group flex items-center justify-between sm:justify-center gap-2 px-3 py-1 text-[11px] font-sans text-ink-600 text-muted-foreground bg-muted hover:bg-muted-alt border border-border/80 hover:border-foreground/40 dark:hover:border-white/30 transition-all cursor-pointer shadow-2xs text-left sm:text-center"
+                  className="group flex items-center justify-between sm:justify-center gap-2 px-3 py-1 text-[11px] font-sans text-foreground text-muted-foreground bg-muted hover:bg-muted/80 border border-border/80 hover:border-foreground/40 dark:hover:border-white/30 transition-all cursor-pointer shadow-2xs text-left sm:text-center"
                 >
                   <span>{item.label}</span>
-                  <span className="text-ink-400 group-hover:text-destructive transition-colors">→</span>
+                  <span className="text-muted-foreground group-hover:text-destructive transition-colors">→</span>
                 </button>
               ))}
             </div>
@@ -245,7 +245,7 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
                "size-6 rounded-full shrink-0 flex items-center justify-center font-mono text-[10px] border transition-colors mt-0.5",
                 msg.role ==="user"
                   ?"bg-foreground text-background border-foreground dark:bg-background dark:text-foreground"
-                  :"bg-destructive/10 text-destructive border-safety-orange/20"
+                  :"bg-destructive/10 text-destructive border-destructive/30"
               )}
             >
               {msg.role ==="user" ? <User className="size-3" /> : <Bot className="size-3" />}
@@ -268,7 +268,7 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
 
               {/* Assistant Message Meta */}
               {msg.role ==="assistant" && (
-                <div className="flex items-center justify-between gap-2 pt-1 border-t border-border/30  text-[9px] font-mono text-ink-400 text-muted-foreground">
+                <div className="flex items-center justify-between gap-2 pt-1 border-t border-border/30  text-[9px] font-mono text-muted-foreground text-muted-foreground">
                   <div className="flex items-center gap-1">
                     {msg.modelUsed && (
                       <span className="inline-flex items-center gap-0.5">
@@ -305,12 +305,12 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
         {/* Loading Indicator */}
         {isLoading && (
           <div className="flex gap-2 max-w-2xl mr-auto">
-            <div className="size-6 rounded-full shrink-0 flex items-center justify-center bg-destructive/10 text-destructive border border-safety-orange/20 mt-0.5">
+            <div className="size-6 rounded-full shrink-0 flex items-center justify-center bg-destructive/10 text-destructive border border-destructive/30 mt-0.5">
               <Bot className="size-3" />
             </div>
             <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-muted/80 border border-border/60 shadow-2xs  dark:border-border">
               <Loader variant="dots" size="sm" />
-              <span className="font-mono text-[11px] text-ink-400 animate-pulse">
+              <span className="font-mono text-[11px] text-muted-foreground animate-pulse">
                 Thinking...
               </span>
             </div>
@@ -327,7 +327,7 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
           onValueChange={setInputValue}
           onSubmit={() => handleSend()}
           disabled={isLoading}
-          className="flex-row items-center gap-2 pl-3 pr-1.5 py-1 border border-border/80 bg-muted dark:bg-ink-950/60 focus-within:border-foreground/40 dark:focus-within:border-white/30 focus-within:shadow-2xs transition-all"
+          className="flex-row items-center gap-2 pl-3 pr-1.5 py-1 border border-border/80 bg-muted dark:bg-foreground/60 focus-within:border-foreground/40 dark:focus-within:border-white/30 focus-within:shadow-2xs transition-all"
         >
           <PromptInputTextarea
             placeholder="Ask One Vision AI... (Enter to send)"
@@ -345,8 +345,8 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
               className={cn(
                "size-7 shrink-0 flex items-center justify-center transition-all duration-150 border",
                 inputValue.trim() && !isLoading
-                  ?"bg-destructive border-safety-orange text-background hover:bg-destructive-dim active:scale-95 cursor-pointer shadow-2xs"
-                  :"bg-muted-alt border-border/50 text-muted  dark:border-border dark:text-ink-600 cursor-not-allowed opacity-50"
+                  ?"bg-destructive border-destructive text-background hover:bg-destructive-dim active:scale-95 cursor-pointer shadow-2xs"
+                  :"bg-muted border-border/50 text-muted  dark:border-border dark:text-foreground cursor-not-allowed opacity-50"
               )}
             >
               <ArrowUpIcon className="size-3.5" />

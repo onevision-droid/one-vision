@@ -109,7 +109,7 @@ export default function ContactPage() {
                   className={cn(
                    "group relative flex flex-col justify-between h-full p-6 md:p-7 rounded-md bg-muted border transition-all duration-300 ease-out",
                     channel.primary
-                      ?"border-safety-orange/40 shadow-xs hover:border-safety-orange hover:shadow-md hover:-translate-y-1"
+                      ?"border-destructive/30 shadow-xs hover:border-destructive hover:shadow-md hover:-translate-y-1"
                       :"border-border/70 shadow-2xs hover:border-foreground/30 hover:shadow-sm hover:-translate-y-1"
                   )}
                 >
@@ -120,14 +120,14 @@ export default function ContactPage() {
                         className={cn(
                          "size-10 rounded-md flex items-center justify-center border transition-colors",
                           channel.primary
-                            ?"bg-destructive/10 text-destructive border-safety-orange/20"
+                            ?"bg-destructive/10 text-destructive border-destructive/30"
                             :"bg-foreground/5 text-foreground   border-black/5 dark:border-border"
                         )}
                       >
                         <Icon className="size-5" strokeWidth={1.5} />
                       </div>
                       {channel.primary && (
-                        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-destructive bg-destructive/10 rounded-full border border-safety-orange/20" data-badge="pill">
+                        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-destructive bg-destructive/10 rounded-full border border-destructive/30" data-badge="pill">
                           <span className="size-1.5 rounded-full bg-destructive animate-pulse" />
                           Active
                         </span>
@@ -156,7 +156,7 @@ export default function ContactPage() {
                     className={cn(
                      "inline-flex items-center justify-between w-full px-4 py-2.5 rounded-sm font-sans text-xs font-medium transition-all duration-200",
                       channel.primary
-                        ?"bg-action-primary text-background hover:bg-action-hover shadow-2xs"
+                        ?"bg-primary text-background hover:bg-primary/90 shadow-2xs"
                         :"border border-border/80 text-foreground hover:border-foreground/60 hover:bg-foreground/5"
                     )}
                   >

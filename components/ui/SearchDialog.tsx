@@ -163,7 +163,7 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  }}
  onKeyDown={handleKeyDown}
  placeholder="Search operations, reports, or field stories..."
- className="flex-1 bg-transparent border-none outline-none text-heading-sm font-sans text-foreground placeholder:text-ink-400 placeholder:font-light"
+ className="flex-1 bg-transparent border-none outline-none text-heading-sm font-sans text-foreground placeholder:text-muted-foreground placeholder:font-light"
  />
  <button
  onClick={onClose}
@@ -178,7 +178,7 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  <div ref={scrollRef} className="overflow-y-auto flex-1">
  {!query ? (
  <div className="p-10 text-center flex flex-col items-center justify-center">
- <span className="text-caption uppercase tracking-widest text-ink-400 font-semibold mb-2">
+ <span className="text-caption uppercase tracking-widest text-muted-foreground font-semibold mb-2">
  Global Search
  </span>
  <p className="text-body-sm text-muted-foreground font-light max-w-sm">
@@ -210,7 +210,7 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  onMouseEnter={() => setSelectedIndex(index)}
  onClick={onClose}
  className={`w-full text-left px-5 py-4 flex items-start gap-4 border-b border-border transition-colors ${
- isSelected ?"bg-foreground text-background" :"bg-transparent text-foreground hover:bg-muted-alt"
+ isSelected ?"bg-foreground text-background" :"bg-transparent text-foreground hover:bg-muted/80"
  }`}
  >
  <div className="flex-1 min-w-0">
@@ -218,14 +218,14 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  <span
  className={`text-[10px] font-sans font-medium uppercase tracking-wider px-1.5 py-0.5 border ${
  isSelected
- ?"border-paper/40 text-background/80"
+ ?"border-border text-background/80"
                     :"border-border text-muted-foreground"
  } `}
  >
  {result._type}
  </span>
  {result._type ==="programme" && (
- <span className={`text-caption font-semibold truncate ${isSelected ?"text-background/60" :"text-ink-400"}`}>
+ <span className={`text-caption font-semibold truncate ${isSelected ?"text-background/60" :"text-muted-foreground"}`}>
  {item.location}
  </span>
  )}

@@ -13,7 +13,7 @@ interface EmptyStateProps {
 export function EmptyState({ title, description, action, icon: Icon = FolderXIcon, className }: EmptyStateProps) {
   return (
     <div className={cn("flex flex-col items-center justify-center text-center p-8 border border-dashed border-border bg-muted", className)}>
-      <div className="bg-bg-section-alt p-3.5 mb-4 text-muted-foreground">
+      <div className="bg-bg-muted p-3.5 mb-4 text-muted-foreground">
         <Icon className="h-6 w-6" />
       </div>
       <h3 className="font-sans text-heading-md font-semibold text-foreground mb-2">{title}</h3>

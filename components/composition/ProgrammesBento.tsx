@@ -26,7 +26,7 @@ export function ProgrammesBento() {
       <Container className="px-0 md:px-0">
         <div className="border-b lg:border-x border-border p-6 md:p-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6 bg-background">
           <div>
-            <div className="flex items-center gap-3 mb-4 bg-foreground text-background w-fit px-3.5 py-1.5 border border-foreground">
+            <div className="flex items-center gap-3 mb-4 bg-muted text-foreground w-fit px-3.5 py-1.5 border border-border">
               <Activity className="size-4 text-primary" aria-hidden="true" />
               <span className="font-mono text-[10px] uppercase tracking-widest font-bold">
                 Operational Mandate 2026–2030
@@ -43,18 +43,18 @@ export function ProgrammesBento() {
         </div>
 
         {/* Pillar Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border-default border-x border-border border-b bg-background">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border border-x border-border border-b bg-background">
           {programmes.map((pillar, index) => {
             const Icon = icons[pillar.slug as keyof typeof icons] || Activity;
             return (
               <Link
                 key={pillar.id}
                 href={`/programmes/${pillar.slug}`}
-                className="group flex flex-col h-full bg-card border-b border-l-[3px] border-l-fjord border-r border-border hover:bg-background transition-colors duration-300"
+                className="group flex flex-col h-full bg-card border-b border-l-[3px] border-l-border hover:border-l-primary border-r border-border hover:bg-muted/30 transition-colors duration-300"
               >
                 {/* Header Bar */}
                 <div className="flex items-center justify-between p-6 border-b border-border">
-                  <span className="font-mono text-2xl font-bold tracking-tight text-foreground/40 group-hover:text-primary transition-colors">
+                  <span className="font-mono text-2xl font-bold tracking-tight text-muted-foreground group-hover:text-primary transition-colors">
                     0{index + 1}
                   </span>
                   <div className="flex items-center gap-2">

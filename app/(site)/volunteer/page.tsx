@@ -29,38 +29,38 @@ export default function VolunteerPage() {
         imageAlt="Volunteers engaged in local community education and outreach in Manipur"
       />
 
-      {/* 2 & 3. The Core Need & Mentorship Matrix (Merged Dark Canvas) */}
-      <Section tone="inverted" className="relative overflow-hidden bg-foreground">
+      {/* 2 & 3. The Core Need & Mentorship Matrix */}
+      <Section tone="alt" className="relative overflow-hidden bg-muted/30">
         <Container className="px-0 md:px-0">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border-x border-b border-border">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border-x border-b border-border bg-card">
             <div className="lg:col-span-5 flex flex-col justify-center p-6 md:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-border">
-              <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-destructive mb-4 block">
+              <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-primary mb-4 block">
                 The Community Network
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light mb-4 sm:mb-6 tracking-tight text-background leading-[0.98]">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light mb-4 sm:mb-6 tracking-tight text-foreground leading-[0.98]">
                 Your Skills Matter
               </h2>
-              <p className="font-sans text-lg max-w-prose text-background/70 font-light leading-relaxed mb-8 sm:mb-10">
+              <p className="font-sans text-lg max-w-prose text-muted-foreground font-light leading-relaxed mb-8 sm:mb-10">
                 Whether you have specialized skills in technology and education,
                 or simply the time and willingness to help your neighborhood,
                 there is a vital place for you here.
               </p>
 
-              <div className="p-6 border-l-2 border-safety-orange bg-white/3 rounded-r-xs">
-                <p className="font-sans text-lg max-w-prose font-light italic leading-relaxed text-background mb-6">
+              <div className="p-6 border-l-2 border-primary bg-muted/40 rounded-r-xs">
+                <p className="font-sans text-lg max-w-prose font-light italic leading-relaxed text-foreground mb-6">
                   &quot;Volunteering here isn&apos;t just about giving time;
                   it&apos;s about building the future of our own community with
                   dignity and shared purpose.&quot;
                 </p>
                 <div className="flex items-center gap-4">
-                  <div className="size-11 rounded-sm bg-destructive flex items-center justify-center font-mono font-bold text-foreground text-sm">
+                  <div className="size-11 rounded-sm bg-primary flex items-center justify-center font-mono font-bold text-primary-foreground text-sm">
                     SS
                   </div>
                   <div>
-                    <div className="font-medium text-background text-body-sm">
+                    <div className="font-medium text-foreground text-body-sm">
                       S. Singh
                     </div>
-                    <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-destructive mt-1">
+                    <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-primary mt-1">
                       FutureWorks Mentor
                     </div>
                   </div>
@@ -68,51 +68,51 @@ export default function VolunteerPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-7 relative h-96 lg:h-auto w-full overflow-hidden bg-foreground">
+            <div className="lg:col-span-7 relative h-96 lg:h-auto w-full overflow-hidden bg-muted">
               <Image
                 src="/volunteer-hero.jpg"
                 alt="Volunteers organizing community projects"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover grayscale mix-blend-luminosity opacity-50 transition-all duration-700 hover:grayscale-0 hover:mix-blend-normal hover:opacity-100"
+                className="object-cover grayscale mix-blend-luminosity opacity-75 transition-all duration-700 hover:grayscale-0 hover:mix-blend-normal hover:opacity-100"
               />
             </div>
           </div>
         </Container>
 
         <Container className="px-0 md:px-0">
-          <div className="border-x border-b border-border">
+          <div className="border-x border-b border-border bg-card">
             <div className="px-6 py-4 md:px-8 md:py-6 border-b border-border">
-              <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-destructive mb-3 block">
+              <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-primary mb-3 block">
                 What to Expect
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light tracking-tight text-background">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light tracking-tight text-foreground">
                 Our Commitment to You
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0 *:border-b *:md:border-b-0 *:border-r last:*:border-r-0 border-border *:border-border">
-              <div className="flex flex-col gap-4 p-6 md:p-8 hover:bg-muted/5 transition-colors">
-                <h3 className="font-serif text-xl sm:text-2xl font-light text-background">
+              <div className="flex flex-col gap-4 p-6 md:p-8 hover:bg-muted/50 transition-colors">
+                <h3 className="font-serif text-xl sm:text-2xl font-light text-foreground">
                   01. Mentorship & Growth
                 </h3>
-                <p className="font-sans text-base text-background/70 font-light leading-relaxed">
+                <p className="font-sans text-base text-muted-foreground font-light leading-relaxed">
                   Volunteers learn alongside professionals. You gain real-world experience while making a direct impact on your community.
                 </p>
               </div>
-              <div className="flex flex-col gap-4 p-6 md:p-8 hover:bg-muted/5 transition-colors">
-                <h3 className="font-serif text-xl sm:text-2xl font-light text-background">
+              <div className="flex flex-col gap-4 p-6 md:p-8 hover:bg-muted/50 transition-colors">
+                <h3 className="font-serif text-xl sm:text-2xl font-light text-foreground">
                   02. Clear Impact
                 </h3>
-                <p className="font-sans text-base text-background/70 font-light leading-relaxed">
+                <p className="font-sans text-base text-muted-foreground font-light leading-relaxed">
                   We only assign tasks that matter. You will see exactly how your time translates into community resilience and outcomes.
                 </p>
               </div>
-              <div className="flex flex-col gap-4 p-6 md:p-8 hover:bg-muted/5 transition-colors">
-                <h3 className="font-serif text-xl sm:text-2xl font-light text-background">
+              <div className="flex flex-col gap-4 p-6 md:p-8 hover:bg-muted/50 transition-colors">
+                <h3 className="font-serif text-xl sm:text-2xl font-light text-foreground">
                   03. Respect for Time
                 </h3>
-                <p className="font-sans text-base text-background/70 font-light leading-relaxed">
+                <p className="font-sans text-base text-muted-foreground font-light leading-relaxed">
                   We know your time is valuable. We offer flexible scheduling and prioritize efficient, focused community action.
                 </p>
               </div>

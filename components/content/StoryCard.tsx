@@ -27,7 +27,7 @@ export function StoryCard({ title, summary, author, date, href, image }: StoryCa
         </div>
       )}
       <div className="flex flex-col flex-1 p-5 lg:p-6 gap-4">
-        <div className="flex flex-col gap-2 border-b border-border group-hover:border-paper/20 transition-colors pb-4">
+        <div className="flex flex-col gap-2 border-b border-border group-hover:border-border transition-colors pb-4">
           <time className="font-mono text-[10px] font-bold tracking-widest uppercase text-destructive">{date}</time>
           <span className="font-mono text-[10px] font-bold tracking-widest uppercase text-muted-foreground group-hover:text-background/60 transition-colors">{author}</span>
         </div>
@@ -37,7 +37,7 @@ export function StoryCard({ title, summary, author, date, href, image }: StoryCa
         <p className="font-sans text-base-sm text-muted-foreground group-hover:text-background/70 transition-colors leading-relaxed flex-1 line-clamp-4">
           {summary}
         </p>
-        <div className="mt-auto pt-4 border-t border-border group-hover:border-paper/20 transition-colors">
+        <div className="mt-auto pt-4 border-t border-border group-hover:border-border transition-colors">
           <span className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-widest text-foreground group-hover:text-destructive transition-colors">
             Read more <ArrowRight className="size-3" />
           </span>

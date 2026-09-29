@@ -17,7 +17,7 @@ export function MobileNavigation({ navLinks }: { navLinks: { href: string; label
         <SheetContent side="right" className="pr-0">
           <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
           <div className="flex flex-col gap-6 p-6">
-            <Link href="/" className="font-sans text-heading-md font-bold text-ink">
+            <Link href="/" className="font-sans text-heading-md font-bold text-foreground">
               One Vision
             </Link>
             <nav className="flex flex-col gap-4">
@@ -32,7 +32,7 @@ export function MobileNavigation({ navLinks }: { navLinks: { href: string; label
               ))}
               <button
                 onClick={() => setSearchOpen(true)}
-                className="font-sans text-body-lg font-medium text-action-primary text-left cursor-pointer"
+                className="font-sans text-body-lg font-medium text-primary text-left cursor-pointer"
               >
                 Search
               </button>

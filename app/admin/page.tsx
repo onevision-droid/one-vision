@@ -133,7 +133,7 @@ export default function AdminDashboard() {
         ) : (
           <div className="border border-border bg-muted shadow-none overflow-hidden">
             <table className="w-full text-left text-sm">
-              <thead className="bg-section-alt border-b border-border">
+              <thead className="bg-muted border-b border-border">
                 <tr>
                   <th className="p-4 font-medium">Name</th>
                   <th className="p-4 font-medium">Email</th>
@@ -141,7 +141,7 @@ export default function AdminDashboard() {
                   <th className="p-4 font-medium">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-ink/10">
+              <tbody className="divide-y divide-border">
                 {applications.map((app) => (
                   <tr key={app.id}>
                     <td className="p-4">{app.first_name} {app.last_name}</td>
@@ -169,7 +169,7 @@ export default function AdminDashboard() {
         ) : (
           <div className="border border-border bg-muted shadow-none overflow-hidden">
             <table className="w-full text-left text-sm">
-              <thead className="bg-section-alt border-b border-border">
+              <thead className="bg-muted border-b border-border">
                 <tr>
                   <th className="p-4 font-medium">Requester</th>
                   <th className="p-4 font-medium">Contact</th>
@@ -178,7 +178,7 @@ export default function AdminDashboard() {
                   <th className="p-4 font-medium">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-border-default">
+              <tbody className="divide-y divide-border">
                 {requests.map((req) => (
                   <tr key={req.id}>
                     <td className="p-4">{req.requester_name}</td>
@@ -207,7 +207,7 @@ export default function AdminDashboard() {
         ) : (
           <div className="border border-border bg-muted shadow-none overflow-hidden">
             <table className="w-full text-left text-sm">
-              <thead className="bg-section-alt border-b border-border">
+              <thead className="bg-muted border-b border-border">
                 <tr>
                   <th className="p-4 font-medium">Donor</th>
                   <th className="p-4 font-medium">Email</th>
@@ -216,7 +216,7 @@ export default function AdminDashboard() {
                   <th className="p-4 font-medium">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-border-default">
+              <tbody className="divide-y divide-border">
                 {donations.map((don) => (
                   <tr key={don.id}>
                     <td className="p-4">{don.first_name} {don.last_name}</td>

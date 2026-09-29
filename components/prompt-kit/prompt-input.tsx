@@ -102,7 +102,7 @@ export function PromptInputTextarea({
         ...style,
       }}
       className={cn(
-       "w-full resize-none bg-transparent font-sans text-xs sm:text-[13px] text-foreground placeholder:text-ink-400 outline-none leading-relaxed",
+       "w-full resize-none bg-transparent font-sans text-xs sm:text-[13px] text-foreground placeholder:text-muted-foreground outline-none leading-relaxed",
        " dark:placeholder:text-muted-foreground",
         className
       )}

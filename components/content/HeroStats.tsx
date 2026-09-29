@@ -12,7 +12,7 @@ export function HeroStats() {
   return (
     <Section tone="default" className="w-full border-b-2 border-border bg-background py-0 md:py-0 lg:py-0">
       <Container>
-        <div className="flex flex-col sm:flex-row divide-y-2 sm:divide-y-0 sm:divide-x-2 divide-ink-900">
+        <div className="flex flex-col sm:flex-row divide-y-2 sm:divide-y-0 sm:divide-x-2 divide-border">
           {stats.map((stat) => (
             <div
               key={stat.label}

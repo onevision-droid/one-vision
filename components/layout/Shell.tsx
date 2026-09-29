@@ -17,8 +17,8 @@ export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
 export const Section = React.forwardRef<HTMLElement, SectionProps>(
   ({ tone ="default", className, children, ...props }, ref) => {
     const toneClasses = {
-      default:"bg-background text-ink-700",
-      alt:"bg-section-alt text-ink-700",
+      default:"bg-background text-foreground",
+      alt:"bg-muted text-foreground",
       inverted:"bg-foreground text-background",
     };
 

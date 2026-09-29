@@ -50,7 +50,7 @@ export default function ContactPage() {
  </div>
 
  {/* Sidebar Details */}
- <div className="lg:col-span-5 flex flex-col gap-10 p-8 md:p-12 bg-section-alt">
+ <div className="lg:col-span-5 flex flex-col gap-10 p-8 md:p-12 bg-muted">
  <div>
  <h3 className="font-sans text-heading-md font-medium text-foreground mb-8 tracking-wide">
  Direct Contact
@@ -64,7 +64,7 @@ export default function ContactPage() {
  <h4 className="font-medium text-foreground mb-1 mt-1 uppercase tracking-widest text-caption">
  Helpline
  </h4>
- <a href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, '')}`} className="text-body-sm text-muted-foreground hover:text-action-primary transition-colors block">
+ <a href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, '')}`} className="text-body-sm text-muted-foreground hover:text-primary transition-colors block">
  {siteSettings.contactPhone}
  </a>
  </div>
@@ -76,7 +76,7 @@ export default function ContactPage() {
  <h4 className="font-medium text-foreground mb-1 mt-1 uppercase tracking-widest text-caption">
  Email
  </h4>
- <a href={`mailto:${siteSettings.contactEmail}`} className="text-body-sm text-muted-foreground hover:text-action-primary transition-colors block">
+ <a href={`mailto:${siteSettings.contactEmail}`} className="text-body-sm text-muted-foreground hover:text-primary transition-colors block">
  {siteSettings.contactEmail}
  </a>
  </div>

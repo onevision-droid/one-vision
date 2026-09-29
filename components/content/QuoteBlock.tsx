@@ -10,7 +10,7 @@ interface QuoteBlockProps {
 
 export function QuoteBlock({ quote, attribution, role, className }: QuoteBlockProps) {
  return (
-  <div className={cn("space-y-4 border-l border-action-primary bg-destructive/5 p-6 md:p-8 my-12", className)}>
+  <div className={cn("space-y-4 border-l border-primary bg-destructive/5 p-6 md:p-8 my-12", className)}>
   <figure className="flex items-start gap-4 md:gap-6">
   <Quote className="mt-1 h-8 w-8 shrink-0 text-destructive opacity-60" />
  <div className="flex flex-col">

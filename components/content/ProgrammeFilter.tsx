@@ -26,7 +26,7 @@ export function ProgrammeFilter({ programmes }: { programmes: Programme[] }) {
             className={`px-6 py-3 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors ${
               selectedCategory === cat
                 ?"bg-foreground text-background"
-                :"bg-muted text-muted-foreground hover:bg-muted-alt hover:text-foreground"
+                :"bg-muted text-muted-foreground hover:bg-muted/80 hover:text-foreground"
             }`}
           >
             {cat}
@@ -57,7 +57,7 @@ export function ProgrammeFilter({ programmes }: { programmes: Programme[] }) {
             <p className="font-sans text-base-sm text-muted-foreground group-hover:text-background/70 transition-colors leading-relaxed font-light mb-6 max-w-50">
               Have an initiative that needs support? Let&apos;s collaborate.
             </p>
-            <div className="inline-flex items-center gap-2 px-6 py-3 border border-foreground group-hover:border-safety-orange group-hover:bg-destructive text-foreground group-hover:text-background font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300">
+            <div className="inline-flex items-center gap-2 px-6 py-3 border border-border bg-card group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground text-foreground font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300">
               <span>Contact us</span>
               <ArrowRight className="size-4" />
             </div>

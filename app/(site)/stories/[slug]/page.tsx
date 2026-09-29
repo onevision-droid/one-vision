@@ -135,7 +135,7 @@ export default async function StoryPage({ params }: Props) {
                   {story.content}
                 </p>
                 
-                <div className="border-l-4 border-safety-orange bg-foreground p-8 md:p-12 my-16">
+                <div className="border-l-4 border-destructive bg-foreground p-8 md:p-12 my-16">
                   <p className="font-serif text-3xl md:text-4xl font-light text-background leading-tight mb-8">
                     &quot;We didn&apos;t wait for permission to help our neighbors. We just looked at what was needed and started coordinating.&quot;
                   </p>
@@ -158,7 +158,7 @@ export default async function StoryPage({ params }: Props) {
         heading="Support Community Action"
         description="Every story of resilience is backed by community support. Your contribution directly funds these local initiatives."
         action={
-          <Link href="/donate" className="inline-flex items-center gap-2 px-8 py-4 bg-background text-foreground font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-destructive">
+          <Link href="/donate" className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300">
             <span>Donate to our fund</span>
             <ArrowRight className="size-4" />
           </Link>

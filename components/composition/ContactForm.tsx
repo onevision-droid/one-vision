@@ -81,7 +81,7 @@ export function ContactForm() {
               type="text" 
               name="name"
               required
-              className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-safety-orange focus:ring-1 focus:ring-safety-orange transition-colors rounded-none"
+              className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-destructive focus:ring-1 focus:ring-ring transition-colors rounded-none"
               placeholder="Jane Doe"
             />
           </div>
@@ -92,7 +92,7 @@ export function ContactForm() {
               type="email" 
               name="email"
               required
-              className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-safety-orange focus:ring-1 focus:ring-safety-orange transition-colors rounded-none"
+              className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-destructive focus:ring-1 focus:ring-ring transition-colors rounded-none"
               placeholder="jane@example.com"
             />
           </div>
@@ -104,7 +104,7 @@ export function ContactForm() {
             <select 
               id="subject"
               name="subject"
-              className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-safety-orange focus:ring-1 focus:ring-safety-orange transition-colors appearance-none rounded-none"
+              className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-destructive focus:ring-1 focus:ring-ring transition-colors appearance-none rounded-none"
             >
               <option>General Enquiry</option>
               <option>Partnership Proposal</option>
@@ -124,7 +124,7 @@ export function ContactForm() {
             name="message"
             rows={4}
             required
-            className="w-full flex-1 bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-safety-orange focus:ring-1 focus:ring-safety-orange transition-colors resize-none rounded-none min-h-30"
+            className="w-full flex-1 bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-destructive focus:ring-1 focus:ring-ring transition-colors resize-none rounded-none min-h-30"
             placeholder="How can we help?"
           />
         </div>
@@ -136,7 +136,7 @@ export function ContactForm() {
         >
           {isSubmitting ? (
             <span className="flex items-center gap-2">
-              <span className="size-3 border-2 border-paper/30 border-t-paper rounded-full animate-spin" />
+              <span className="size-3 border-2 border-border border-t-primary rounded-full animate-spin" />
               Sending...
             </span>
           ) : isSuccess ? (

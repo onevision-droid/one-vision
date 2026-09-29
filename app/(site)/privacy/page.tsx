@@ -26,7 +26,7 @@ export default function PrivacyPage() {
               </p>
             </div>
             
-            <div className="prose prose-lg prose-headings:font-sans prose-headings:font-light prose-p:text-ink-700 prose-p:font-light prose-p:leading-relaxed">
+            <div className="prose prose-lg prose-headings:font-sans prose-headings:font-light prose-p:text-foreground prose-p:font-light prose-p:leading-relaxed">
               <p>
                 At One Vision, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
               </p>

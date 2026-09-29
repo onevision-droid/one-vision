@@ -100,7 +100,7 @@ export default function StoriesPage() {
         heading="Have a story to tell?"
         description="We are always looking to amplify local voices and document community resilience. Reach out if you have a story that needs to be told."
         action={
-          <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-background text-foreground font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-destructive">
+          <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300">
             <span>Contact us</span>
             <ArrowRight className="size-4" />
           </Link>

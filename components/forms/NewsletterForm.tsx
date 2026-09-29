@@ -126,7 +126,7 @@ export function NewsletterForm({
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ?"newsletter-email-error" : undefined}
             disabled={status ==="loading"}
-            className="h-11 bg-muted border-border focus-visible:border-safety-orange text-body-sm"
+            className="h-11 bg-muted border-border focus-visible:border-destructive text-body-sm"
             {...register("email")}
           />
         </div>
@@ -158,7 +158,7 @@ export function NewsletterForm({
         </p>
       )}
 
-      <p className="text-caption text-ink-400 font-light">
+      <p className="text-caption text-muted-foreground font-light">
         Quarterly dispatches & annual audit reports. Zero spam. Unsubscribe at any time.
       </p>
     </form>

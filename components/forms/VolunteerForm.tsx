@@ -135,7 +135,7 @@ export function VolunteerForm() {
                   Full Name <span className="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
-                  <Input placeholder="Jane Doe" autoComplete="name" className="rounded-none border-border focus-visible:ring-safety-orange" {...field} />
+                  <Input placeholder="Jane Doe" autoComplete="name" className="rounded-none border-border focus-visible:ring-ring" {...field} />
                 </FormControl>
                 <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
@@ -150,7 +150,7 @@ export function VolunteerForm() {
                   Email <span className="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
-                  <Input placeholder="jane@example.com" type="email" autoComplete="email" className="rounded-none border-border focus-visible:ring-safety-orange" {...field} />
+                  <Input placeholder="jane@example.com" type="email" autoComplete="email" className="rounded-none border-border focus-visible:ring-ring" {...field} />
                 </FormControl>
                 <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
@@ -168,7 +168,7 @@ export function VolunteerForm() {
                 Phone Number
               </FormLabel>
               <FormControl>
-                <Input placeholder="+91 98765 43210" autoComplete="tel" className="rounded-none border-border focus-visible:ring-safety-orange" {...field} />
+                <Input placeholder="+91 98765 43210" autoComplete="tel" className="rounded-none border-border focus-visible:ring-ring" {...field} />
               </FormControl>
               <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
             </FormItem>
@@ -203,7 +203,7 @@ export function VolunteerForm() {
                             className={`flex items-center gap-3 p-4 cursor-pointer transition-colors font-sans text-base-sm font-normal ${
                               isChecked
                                 ?"bg-destructive text-foreground"
-                                :"text-ink-700 hover:bg-background"
+                                :"text-foreground hover:bg-background"
                             }`}
                           >
                             <FormControl>
@@ -246,7 +246,7 @@ export function VolunteerForm() {
               <FormControl>
                 <Textarea
                   placeholder="Tell us about any previous volunteering or relevant professional experience..."
-                  className="min-h-32 rounded-none border-border focus-visible:ring-safety-orange"
+                  className="min-h-32 rounded-none border-border focus-visible:ring-ring"
                   {...field}
                 />
               </FormControl>
@@ -259,7 +259,7 @@ export function VolunteerForm() {
         <div className="pt-4">
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-foreground text-background font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-destructive hover:text-foreground"
+            className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300"
           >
             <span>Submit Application</span>
             <ArrowRight className="size-4" />

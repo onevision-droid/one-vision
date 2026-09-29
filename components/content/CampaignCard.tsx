@@ -40,7 +40,7 @@ export function CampaignCard({ title, summary, status, href, image ="/home-hero-
         <p className="font-sans text-base-sm text-muted-foreground group-hover:text-background/70 transition-colors leading-relaxed flex-1">
           {summary}
         </p>
-        <div className="mt-auto pt-4 border-t border-border group-hover:border-paper/20 transition-colors">
+        <div className="mt-auto pt-4 border-t border-border group-hover:border-border transition-colors">
           <span className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-widest text-foreground group-hover:text-destructive transition-colors">
             Read more <ArrowRight className="size-3" />
           </span>

@@ -59,7 +59,7 @@ export function WhatWeDo() {
             <div className="mt-12 pt-12 border-t border-border">
               <Link 
                 href="/about"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-foreground hover:bg-destructive text-background font-bold uppercase tracking-widest text-[11px] transition-colors duration-300 w-fit"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-widest text-[11px] transition-colors duration-300 w-fit"
               >
                 <span>Read Our Mandate</span>
                 <ArrowRight className="size-4" aria-hidden="true" />
@@ -72,7 +72,7 @@ export function WhatWeDo() {
             {keyFacts.map((fact, index) => (
               <div
                 key={fact.label}
-                className={`flex-1 p-8 lg:p-12 flex flex-col justify-center transition-colors hover:bg-muted-alt ${index < 3 ? 'border-b border-border' : ''}`}
+                className={`flex-1 p-8 lg:p-12 flex flex-col justify-center transition-colors hover:bg-muted/80 ${index < 3 ? 'border-b border-border' : ''}`}
               >
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-4">
                   <p className="font-mono text-4xl md:text-5xl leading-none tracking-tight text-foreground font-bold">

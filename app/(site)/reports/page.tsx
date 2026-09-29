@@ -43,7 +43,7 @@ export default function ReportsPage() {
 
  <div className="p-8 md:p-12 space-y-6 bg-muted">
  {reports.map((report) => (
- <div key={report.id} className="group flex flex-col md:flex-row gap-6 p-6 bg-muted border border-border hover:border-action-primary/30 transition-all hover:shadow-md hover:bg-section-alt">
+ <div key={report.id} className="group flex flex-col md:flex-row gap-6 p-6 bg-muted border border-border hover:border-primary/30 transition-all hover:shadow-md hover:bg-muted">
  <div className="size-10 bg-background shadow-sm border border-border flex items-center justify-center shrink-0">
               <FileText className="size-5 text-foreground group-hover:text-destructive transition-colors" />
  </div>
@@ -51,9 +51,9 @@ export default function ReportsPage() {
  <div className="flex-1 space-y-3">
               <div className="flex flex-wrap items-center gap-3 text-xs tracking-widest uppercase text-destructive font-semibold">
  <span>{report.displayDate}</span>
- <span className="size-1 bg-ink-300" />
+ <span className="size-1 bg-muted" />
  <span>{report.type}</span>
- <span className="size-1 bg-ink-300" />
+ <span className="size-1 bg-muted" />
  <span>{report.size}</span>
  </div>
  <h3 className="font-sans text-heading-lg font-light text-foreground">{report.title}</h3>
@@ -75,7 +75,7 @@ export default function ReportsPage() {
 
  {/* Financial Overview Callout */}
  <div className="bg-foreground text-background p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 mt-auto border-t border-border">
- <div className="size-10 bg-background/10 flex items-center justify-center shrink-0 border border-paper/20">
+ <div className="size-10 bg-background/10 flex items-center justify-center shrink-0 border border-border">
  <TrendingUp className="size-8 text-background" />
  </div>
  <div>

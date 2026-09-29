@@ -29,7 +29,7 @@ export function ImageMosaic({
   return (
     <section className={cn("w-full py-8 lg:py-14 border-t border-border", className)} aria-label={heading ||"Image gallery"}>
       {(heading || subheading) && (
-        <div className="mb-6 lg:mb-8 border-l-4 border-safety-orange pl-6">
+        <div className="mb-6 lg:mb-8 border-l-4 border-destructive pl-6">
           {heading && (
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-foreground mb-3 leading-tight">
               {heading}
@@ -64,7 +64,7 @@ export function ImageMosaic({
           {(leadImage.caption || leadImage.location) && (
             <figcaption className="p-4 md:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-border bg-background">
               {leadImage.caption && (
-                <span className="font-sans text-base-sm text-ink-700 font-light leading-relaxed max-w-md">
+                <span className="font-sans text-base-sm text-foreground font-light leading-relaxed max-w-md">
                   {leadImage.caption}
                 </span>
               )}
@@ -78,7 +78,7 @@ export function ImageMosaic({
         </figure>
 
         {/* Satellites: span 5 columns */}
-        <div className="lg:col-span-5 flex flex-col divide-y divide-border-default border-b lg:border-b-0 border-border">
+        <div className="lg:col-span-5 flex flex-col divide-y divide-border border-b lg:border-b-0 border-border">
           {satellites.slice(0, 3).map((satellite, idx) => (
             <figure
               key={`${satellite.src}-${idx}`}
@@ -106,7 +106,7 @@ export function ImageMosaic({
               {(satellite.caption || satellite.location) && (
                 <figcaption className="p-4 sm:p-5 flex flex-col justify-between gap-4 bg-background sm:w-1/2 lg:w-full grow">
                   {satellite.caption && (
-                    <span className="font-sans text-base-sm text-ink-700 font-light line-clamp-3">
+                    <span className="font-sans text-base-sm text-foreground font-light line-clamp-3">
                       {satellite.caption}
                     </span>
                   )}

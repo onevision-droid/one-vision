@@ -44,11 +44,11 @@ export default function PatternsPage() {
  <Mosaic
  headingId="mosaic-preview"
  heading="A rigid, architectural approach to image galleries."
- lead={<div className="w-full h-full bg-section-alt flex items-center justify-center font-sans text-ink/50">Lead Image</div>}
+ lead={<div className="w-full h-full bg-muted flex items-center justify-center font-sans text-muted-foreground">Lead Image</div>}
  satellites={[
- <div key="1" className="w-full h-full bg-section-alt flex items-center justify-center font-sans text-ink/50">Satellite 1</div>,
- <div key="2" className="w-full h-full bg-section-alt flex items-center justify-center font-sans text-ink/50">Satellite 2</div>,
- <div key="3" className="w-full h-full bg-section-alt flex items-center justify-center font-sans text-ink/50">Satellite 3</div>
+ <div key="1" className="w-full h-full bg-muted flex items-center justify-center font-sans text-muted-foreground">Satellite 1</div>,
+ <div key="2" className="w-full h-full bg-muted flex items-center justify-center font-sans text-muted-foreground">Satellite 2</div>,
+ <div key="3" className="w-full h-full bg-muted flex items-center justify-center font-sans text-muted-foreground">Satellite 3</div>
  ]}
  />
 
@@ -61,7 +61,7 @@ export default function PatternsPage() {
  </p>
  }
  media={
- <div className="w-full h-full min-h-100 bg-section-alt flex items-center justify-center font-sans text-ink/50">Image</div>
+ <div className="w-full h-full min-h-100 bg-muted flex items-center justify-center font-sans text-muted-foreground">Image</div>
  }
  />
 

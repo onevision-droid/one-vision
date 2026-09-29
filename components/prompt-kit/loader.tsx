@@ -107,7 +107,7 @@ export function Loader({
 
     case"terminal":
       return (
-        <div className={cn("inline-flex items-center font-mono text-xs text-ink-700 text-muted-foreground", className)} {...props}>
+        <div className={cn("inline-flex items-center font-mono text-xs text-foreground text-muted-foreground", className)} {...props}>
           <span className="text-destructive mr-1">&gt;</span>
           <span>{text}</span>
           <span className="ml-1 inline-block w-1.5 h-3.5 bg-destructive animate-pulse" />
@@ -125,7 +125,7 @@ export function Loader({
       return (
         <span
           className={cn(
-           "font-sans text-xs font-medium bg-linear-to-r from-ink-400 via-safety-orange to-ink-400 bg-size-[200%_auto] bg-clip-text text-transparent animate-[shimmer_2s_linear_infinite]",
+           "font-sans text-xs font-medium bg-linear-to-r from-muted-foreground via-primary to-muted-foreground bg-size-[200%_auto] bg-clip-text text-transparent animate-[shimmer_2s_linear_infinite]",
             className
           )}
           {...props}
@@ -140,9 +140,9 @@ export function Loader({
       return (
         <div className={cn("inline-flex items-center gap-2", className)} {...props}>
           <div className="flex items-center gap-1">
-            <span className="size-1 rounded-full bg-ink-500 animate-pulse" />
-            <span className="size-1 rounded-full bg-ink-500 animate-pulse [animation-delay:200ms]" />
-            <span className="size-1 rounded-full bg-ink-500 animate-pulse [animation-delay:400ms]" />
+            <span className="size-1 rounded-full bg-muted-foreground animate-pulse" />
+            <span className="size-1 rounded-full bg-muted-foreground animate-pulse [animation-delay:200ms]" />
+            <span className="size-1 rounded-full bg-muted-foreground animate-pulse [animation-delay:400ms]" />
           </div>
           {text && <span className="font-sans text-xs text-muted-foreground">{text}</span>}
         </div>

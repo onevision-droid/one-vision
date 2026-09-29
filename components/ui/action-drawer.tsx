@@ -40,7 +40,7 @@ export function ActionDrawer({
  )}
  </div>
  
- <VaulDrawer.Close className="p-2 hover:bg-section-alt text-muted-foreground hover:text-foreground transition-colors">
+ <VaulDrawer.Close className="p-2 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors">
  <X className="size-5" />
  </VaulDrawer.Close>
  </div>

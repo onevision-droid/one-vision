@@ -124,7 +124,7 @@ export function SiteHeader() {
           {/* Logo & Brand Identity */}
           <Link
             href="/"
-            className="flex items-center shrink-0 mr-6 sm:mr-8 group focus-visible:outline-2 focus-visible:outline-safety-orange"
+            className="flex items-center shrink-0 mr-6 sm:mr-8 group focus-visible:outline-2 focus-visible:outline-ring"
             aria-label="One Vision home"
           >
             <Logo />
@@ -160,7 +160,7 @@ export function SiteHeader() {
                   {isActive && (
                     <motion.div
                       layoutId="activeNavIndicator"
-                      className="absolute bottom-0 left-3 right-3 h-0.5 bg-destructive z-20"
+                      className="absolute bottom-0 left-3 right-3 h-0.5 bg-primary z-20"
                       transition={{ type:"spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -190,7 +190,7 @@ export function SiteHeader() {
               <span className="hidden xl:inline font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                 Search
               </span>
-              <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 font-mono text-[9px] font-bold text-ink-400 bg-background border border-border">
+              <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 font-mono text-[9px] font-bold text-muted-foreground bg-background border border-border">
                 ⌘K
               </kbd>
             </motion.button>
@@ -200,7 +200,7 @@ export function SiteHeader() {
               <motion.div whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>
                 <Link
                   href="/donate"
-                  className="inline-flex items-center gap-2 px-5 py-2 bg-foreground hover:bg-destructive text-background hover:text-foreground font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300"
+                  className="inline-flex items-center gap-2 px-5 py-2 bg-primary hover:bg-primary/90 text-primary-foreground font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300"
                 >
                   <span>Donate</span>
                   <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -244,7 +244,7 @@ export function SiteHeader() {
             transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-x-0 top-16 bottom-0 z-40 bg-background/98 backdrop-blur-xl border-b border-border md:hidden flex flex-col justify-between p-6 overflow-y-auto"
           >
-            <nav className="flex flex-col divide-y divide-border-default" aria-label="Mobile Navigation">
+            <nav className="flex flex-col divide-y divide-border" aria-label="Mobile Navigation">
               {navLinks.map((link, idx) => {
                 const isActive =
                   pathname === link.href ||
@@ -278,7 +278,7 @@ export function SiteHeader() {
 
             {/* Mobile Bottom Quick Actions */}
             <div className="pt-6 mt-6 border-t border-border space-y-4">
-              <div className="grid grid-cols-2 gap-3 font-mono text-[10px] uppercase tracking-wider text-ink-600">
+              <div className="grid grid-cols-2 gap-3 font-mono text-[10px] uppercase tracking-wider text-foreground">
                 <a
                   href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g,"")}`}
                   className="flex items-center gap-2 p-3 border border-border bg-muted hover:border-foreground transition-colors"
@@ -299,7 +299,7 @@ export function SiteHeader() {
               <Link
                 href="/donate"
                 onClick={() => setMobileOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-3.5 bg-foreground hover:bg-destructive text-background hover:text-foreground font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300"
+                className="w-full flex items-center justify-center gap-2 py-3.5 bg-primary hover:bg-primary/90 text-primary-foreground font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300"
               >
                 <span>Donate to Resilience Fund</span>
                 <ArrowRight className="size-4" />
