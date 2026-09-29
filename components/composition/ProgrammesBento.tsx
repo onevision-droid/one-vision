@@ -26,10 +26,10 @@ export function ProgrammesBento() {
       <Container className="px-0 md:px-0">
         <div className="border-b lg:border-x border-border p-6 md:p-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6 bg-background">
           <div>
-            <div className="flex items-center gap-3 mb-4 bg-muted text-foreground w-fit px-3.5 py-1.5 border border-border">
-              <Activity className="size-4 text-primary" aria-hidden="true" />
-              <span className="font-mono text-[10px] uppercase tracking-widest font-bold">
-                Operational Mandate 2026–2030
+            <div className="flex items-center gap-2 mb-4">
+              <span className="size-2 rounded-full bg-primary shrink-0" />
+              <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground font-semibold">
+                Our Five Flagship Programmes
               </span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-[0.95] tracking-tight text-foreground">
@@ -37,8 +37,8 @@ export function ProgrammesBento() {
               One Shared Future.
             </h2>
           </div>
-          <p className="font-sans text-lg text-muted-foreground max-w-sm border-l-[3px] border-primary pl-6 py-2">
-            Our work is structured around five flagship programmes driving long-term community resilience.
+          <p className="font-sans text-base sm:text-lg text-muted-foreground max-w-sm border-l-2 border-primary pl-4 py-1">
+            Our initiatives are rooted in long-term community partnerships across health, environment, youth, and livelihoods.
           </p>
         </div>
 
@@ -54,43 +54,43 @@ export function ProgrammesBento() {
               >
                 {/* Header Bar */}
                 <div className="flex items-center justify-between p-6 border-b border-border">
-                  <span className="font-mono text-2xl font-bold tracking-tight text-muted-foreground group-hover:text-primary transition-colors">
-                    0{index + 1}
+                  <span className="font-sans text-xs font-bold uppercase tracking-wider text-muted-foreground group-hover:text-primary transition-colors">
+                    Priority 0{index + 1}
                   </span>
-                  <div className="flex items-center gap-2">
-                    <span className="size-2 bg-primary animate-pulse" />
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-                      {pillar.status}
+                  <div className="flex items-center gap-1.5">
+                    <span className="size-1.5 rounded-full bg-emerald-500" />
+                    <span className="font-sans text-xs font-medium text-muted-foreground">
+                      {pillar.category}
                     </span>
                   </div>
                 </div>
 
                 <div className="p-8 flex flex-col flex-1">
                   {/* Title & Icon */}
-                  <div className="flex items-start gap-4 mb-8">
-                    <div className="shrink-0 size-12 bg-background flex items-center justify-center text-foreground group-hover:text-primary transition-colors">
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="shrink-0 size-11 bg-background flex items-center justify-center text-foreground group-hover:text-primary transition-colors border border-border rounded-[2px]">
                       <Icon className="size-5" strokeWidth={1.5} />
                     </div>
-                    <h3 className="font-serif text-2xl font-light text-foreground mt-1 group-hover:text-primary transition-colors">
+                    <h3 className="font-serif text-2xl font-light text-foreground mt-0.5 group-hover:text-primary transition-colors">
                       {pillar.title}
                     </h3>
                   </div>
 
                   {/* Description */}
-                  <p className="font-sans text-base text-muted-foreground leading-relaxed mb-12 flex-1">
+                  <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-8 flex-1">
                     {pillar.description}
                   </p>
 
                   {/* Metrics / Read More */}
-                  <div className="border-t border-border pt-6 mt-auto">
-                    <p className="font-mono text-4xl font-bold tracking-tight text-foreground mb-2">
+                  <div className="border-t border-border pt-5 mt-auto">
+                    <p className="font-serif text-3xl font-light tracking-tight text-foreground mb-1">
                       {pillar.metrics[0].value}
                     </p>
-                    <p className="font-mono text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-6">
+                    <p className="font-sans text-xs font-medium text-muted-foreground mb-4">
                       {pillar.metrics[0].label}
                     </p>
-                    <span className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest text-primary group-hover:underline underline-offset-4 transition-all">
-                      Explore programme <ArrowRight className="size-4" />
+                    <span className="inline-flex items-center gap-1.5 font-sans text-xs font-semibold text-primary group-hover:underline underline-offset-4 transition-all">
+                      Learn about this initiative <ArrowRight className="size-3.5" />
                     </span>
                   </div>
                 </div>

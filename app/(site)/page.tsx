@@ -12,39 +12,39 @@ import Link from"next/link";
 import { ArrowRight, Shield, MessageCircle, ExternalLink, Phone, Mail } from"lucide-react";
 
 export const metadata: Metadata = {
-  title:"One Vision | Humanitarian Vanguard — Imphal, Manipur",
+  title: "One Vision | Community Health, Relief & Sustainable Development — Manipur",
   description:
-   "Decentralised crisis-resilient humanitarian vanguard operating across the Manipur polycrisis zone. 4 operational pillars: Health Equity, Energy Sovereignty, Ecological Restoration, Economic Dignity.",
+    "Serving Manipur's communities since 1988 (formerly Society for Health & Education Manipur). Working across healthcare, disaster relief, sustainable ecology, and youth livelihoods with complete financial transparency.",
   openGraph: {
-    title:"One Vision | Humanitarian Vanguard — Imphal",
+    title: "One Vision | Community Health & Sustainable Development — Manipur",
     description:
-     "12,400+ people reached. 18 decentralised health nodes. 240kW solar deployed. One vanguard operating in the Manipur polycrisis zone.",
-    url:"https://onevision.org",
-    siteName:"One Vision",
-    locale:"en_GB",
-    type:"website",
+      "12,400+ people supported. 18 community health centres. 25+ villages and neighbourhoods reached across Manipur since 1988.",
+    url: "https://onevision.org",
+    siteName: "One Vision",
+    locale: "en_GB",
+    type: "website",
   },
 };
 
 const organizationJsonLd = {
- "@context":"https://schema.org",
- "@type":"NGO",
-  name:"One Vision",
-  alternateName:"One Vision Manipur",
-  url:"https://onevision.org",
-  foundingDate:"1988",
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  name: "One Vision",
+  alternateName: "Society for Health & Education Manipur",
+  url: "https://onevision.org",
+  foundingDate: "1988",
   description:
-   "Decentralised crisis-resilient humanitarian vanguard. Formerly Society for Health & Education Manipur (1988). Operating across the Manipur polycrisis zone.",
+    "Community-led non-profit organisation working for health equity, environmental restoration, and resilient livelihoods across Manipur. Established in 1988 as the Society for Health & Education Manipur.",
   address: {
-   "@type":"PostalAddress",
-    addressLocality:"Imphal",
-    addressRegion:"Manipur",
-    addressCountry:"IN",
+    "@type": "PostalAddress",
+    addressLocality: "Imphal",
+    addressRegion: "Manipur",
+    addressCountry: "IN",
   },
   contactPoint: {
-   "@type":"ContactPoint",
+    "@type": "ContactPoint",
     telephone: orgData.contact.phone,
-    contactType:"humanitarian operations",
+    contactType: "community support and relief",
     email: orgData.contact.email,
   },
 };
@@ -58,29 +58,29 @@ export default function Home() {
       />
 
 
-      {/* 1. Hero — Crisis framing */}
+      {/* 1. Hero — Community framing */}
       <div className="border-b border-border">
         <Hero />
       </div>
 
-      {/* 1.5. Live Metrics Ticker (Telemetry) */}
-      <div className="bg-muted/40 text-foreground border-b border-border">
+      {/* 1.5. Community Reach & Impact Band */}
+      <div className="bg-muted/30 text-foreground border-b border-border">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border">
-          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-muted/80">
-            <span className="font-mono text-3xl font-bold text-foreground">18</span>
-            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-muted-foreground mt-2">Local Hubs</span>
+          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-muted/60">
+            <span className="font-serif text-3xl sm:text-4xl font-light text-foreground">25+</span>
+            <span className="font-sans text-xs font-semibold uppercase tracking-wider text-muted-foreground mt-2">Communities Reached</span>
           </div>
-          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-muted/80">
-            <span className="font-mono text-3xl font-bold text-foreground">240kW</span>
-            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-muted-foreground mt-2">Solar Deployed</span>
+          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-muted/60">
+            <span className="font-serif text-3xl sm:text-4xl font-light text-foreground">18</span>
+            <span className="font-sans text-xs font-semibold uppercase tracking-wider text-muted-foreground mt-2">Community Health Centres</span>
           </div>
-          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-muted/80">
-            <span className="font-mono text-3xl font-bold text-foreground">12,400+</span>
-            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-muted-foreground mt-2">People Reached</span>
+          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-muted/60">
+            <span className="font-serif text-3xl sm:text-4xl font-light text-foreground">12,400+</span>
+            <span className="font-sans text-xs font-semibold uppercase tracking-wider text-muted-foreground mt-2">People Supported</span>
           </div>
-          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-muted/80">
-            <span className="font-mono text-3xl font-bold text-foreground">4</span>
-            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-muted-foreground mt-2">Core Pillars</span>
+          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-muted/60">
+            <span className="font-serif text-3xl sm:text-4xl font-light text-foreground">500+</span>
+            <span className="font-sans text-xs font-semibold uppercase tracking-wider text-muted-foreground mt-2">Young People Mentored</span>
           </div>
         </div>
       </div>
@@ -88,19 +88,19 @@ export default function Home() {
       {/* 2. Key Metrics at a Glance */}
       <div className="border-b border-border">
         <StatsHero
-          heading="What does change look like?"
-          description="It looks like a student building their first digital product. A neighbourhood reducing waste. A family finding reliable health information. That's impact."
-          ctaLabel="Explore our field reports"
+          heading="What does community change look like?"
+          description="It looks like a young person gaining practical livelihood skills. A neighbourhood restoring clean waterways. A family accessing reliable medicine and preventative health care. That is lasting impact."
+          ctaLabel="Explore our community stories"
           ctaHref="/stories"
           stats={orgData.stats.map((stat) => ({
-            value: typeof stat.value ==="number" ? stat.value.toLocaleString("en-GB") : String(stat.value),
-            suffix: stat.suffix ||"",
+            value: typeof stat.value === "number" ? stat.value.toLocaleString("en-GB") : String(stat.value),
+            suffix: stat.suffix || "",
             label: stat.label,
           }))}
         />
       </div>
 
-      {/* 3. The 4 Pillars — Operational Dashboard */}
+      {/* 3. The 5 Programmes — Core Initiatives */}
       <div className="border-b border-border">
         <ProgrammesBento />
       </div>
@@ -125,21 +125,21 @@ export default function Home() {
                 alt="Community co-design session"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover grayscale contrast-125 sepia-[.15]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 pointer-events-none mix-blend-multiply bg-background/10" />
+              <div className="absolute inset-0 pointer-events-none bg-background/5" />
             </div>
           </div>
         </div>
       </div>
 
-      {/* 5. Featured Field Report */}
+      {/* 5. Featured Community Story */}
       <div className="border-b border-border">
         <SplitNarrative
-          heading="Field Report"
+          heading="Community Story"
           content={
             <div className="flex flex-col h-full justify-center">
-              <div className="font-mono text-[11px] uppercase tracking-widest text-destructive font-bold mb-6">
+              <div className="font-sans text-xs uppercase tracking-wider text-primary font-semibold mb-6">
                 {stories[0].date} — Youth & Future Skills
               </div>
               <h3 className="font-serif text-4xl md:text-5xl font-light text-foreground mb-8 leading-tight">
@@ -149,20 +149,20 @@ export default function Home() {
                 {stories[0].excerpt}
               </p>
               <div className="mt-auto">
-                <Link href={`/stories/${stories[0].slug}`} className="inline-flex w-fit items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-widest text-[11px] transition-colors duration-300">
-                  Read Full Report <ArrowRight className="size-4" />
+                <Link href={`/stories/${stories[0].slug}`} className="inline-flex w-fit items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-xs sm:text-[13px] transition-colors duration-300 rounded-[2px]">
+                  Read Full Story <ArrowRight className="size-4" />
                 </Link>
               </div>
               <div className="mt-12 pt-6 border-t border-border flex items-start gap-3 text-muted-foreground">
-                <Shield className="size-4 shrink-0 mt-0.5" aria-hidden="true" />
-                <span className="font-mono text-[11px] uppercase tracking-widest leading-relaxed font-bold">Identities anonymised.<br />Location withheld for OpSec.</span>
+                <Shield className="size-4 shrink-0 mt-0.5 text-primary" aria-hidden="true" />
+                <span className="font-sans text-xs leading-relaxed">Stories shared with community consent to celebrate local leadership and protect privacy.</span>
               </div>
             </div>
           }
           media={
             <Image
               src={stories[0].image}
-              alt="Field report visual — identities and locations anonymised"
+              alt="Community story visual"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
@@ -171,27 +171,27 @@ export default function Home() {
         />
       </div>
 
-      {/* 6. Secure Routing — Core differentiator */}
+      {/* 6. Grassroots Assistance & Contact */}
       <div className="border-b border-border bg-card text-foreground">
         <div className="mx-auto max-w-container px-0 md:px-0">
           <div className="grid lg:grid-cols-2 items-stretch">
             <div className="p-6 md:p-10 lg:p-14 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-border">
               <div className="flex items-center gap-3 mb-6">
-                <span className="size-1.5 bg-primary shrink-0" />
-                <span className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground font-semibold">
-                  OpSec-First
+                <span className="size-2 rounded-full bg-primary shrink-0" />
+                <span className="font-sans text-xs tracking-wider uppercase text-muted-foreground font-semibold">
+                  Grassroots Assistance
                 </span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-foreground tracking-tight leading-[0.95] mb-6">
-                Need help? Contact our field office.
+                Need help or looking to partner? Reach our community team.
               </h2>
               <p className="font-sans text-base md:text-lg max-w-prose text-muted-foreground font-light leading-relaxed mb-8">
-                This platform does not collect sensitive data. All crisis-related, health, or assistance requests should be directed to our frontline coordinators.
+                Whether you need health assistance, disaster relief, or want to collaborate on local community projects, our coordinators are on the ground across Manipur.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/get-help" className="inline-flex w-fit items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-widest text-[11px] transition-colors duration-300">
+                <Link href="/get-help" className="inline-flex w-fit items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-xs sm:text-[13px] transition-colors duration-300 rounded-[2px]">
                   <MessageCircle className="size-4" aria-hidden="true" />
-                  <span>Get Help</span>
+                  <span>Get Assistance</span>
                   <ExternalLink className="size-3.5" aria-hidden="true" />
                 </Link>
               </div>
@@ -199,23 +199,23 @@ export default function Home() {
             <div className="flex flex-col">
               <div className="flex-1 p-6 md:p-8 lg:p-10 border-b border-border hover:bg-muted/50 transition-colors flex flex-col justify-center group">
                 <div className="flex items-start gap-5">
-                  <div className="size-12 bg-muted flex items-center justify-center shrink-0 border border-border">
-                    <Phone className="size-5 text-foreground" strokeWidth={1.5} />
+                  <div className="size-12 bg-muted flex items-center justify-center shrink-0 border border-border rounded-[2px]">
+                    <Phone className="size-5 text-primary" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <p className="font-mono text-base font-bold uppercase tracking-wider text-foreground mb-1.5">Field Office Line</p>
-                    <p className="font-sans text-base text-muted-foreground leading-relaxed">Direct line for immediate community assistance.<br />{orgData.contact.phone}</p>
+                    <p className="font-sans text-base font-semibold text-foreground mb-1">Community Helpline</p>
+                    <p className="font-sans text-sm text-muted-foreground leading-relaxed">Direct line for healthcare support and emergency assistance.<br />{orgData.contact.phone}</p>
                   </div>
                 </div>
               </div>
               <div className="flex-1 p-6 md:p-8 lg:p-10 hover:bg-muted/50 transition-colors flex flex-col justify-center group">
                 <div className="flex items-start gap-5">
-                  <div className="size-12 bg-muted flex items-center justify-center shrink-0 border border-border">
-                    <Mail className="size-5 text-foreground" strokeWidth={1.5} />
+                  <div className="size-12 bg-muted flex items-center justify-center shrink-0 border border-border rounded-[2px]">
+                    <Mail className="size-5 text-primary" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <p className="font-mono text-base font-bold uppercase tracking-wider text-foreground mb-1.5">General Enquiries</p>
-                    <p className="font-sans text-base max-w-prose text-muted-foreground leading-relaxed">For public partnerships and general information.<br />{orgData.contact.email}</p>
+                    <p className="font-sans text-base font-semibold text-foreground mb-1">General Enquiries</p>
+                    <p className="font-sans text-sm max-w-prose text-muted-foreground leading-relaxed">For civil society partnerships, volunteer queries, and institutional relations.<br />{orgData.contact.email}</p>
                   </div>
                 </div>
               </div>
@@ -229,49 +229,52 @@ export default function Home() {
         <div className="mx-auto max-w-container px-0 md:px-0">
           <div className="p-6 md:p-10 lg:p-12 border-b border-border">
             <div className="flex items-center gap-3 mb-4">
-              <span className="size-1.5 bg-destructive shrink-0" />
-              <span className="font-mono text-[10px] tracking-widest uppercase text-destructive font-semibold">
-                Accountability
+              <span className="size-2 rounded-full bg-primary shrink-0" />
+              <span className="font-sans text-xs tracking-wider uppercase text-muted-foreground font-semibold">
+                Integrity & Trust
               </span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-foreground tracking-tight leading-[0.95]">
-              Trust is a feature.
+              Rooted in Transparency & Accountability
             </h2>
+            <p className="font-sans text-base text-muted-foreground mt-3 max-w-2xl">
+              Every rupee received is dedicated to grassroots impact in Manipur. Registered non-profit since 1988 with public financial reporting.
+            </p>
           </div>
           <div className="grid lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-border">
-            <Link href="/open-ledger" className="group bg-background hover:bg-muted p-6 md:p-8 flex flex-col justify-between h-full transition-colors duration-300">
+            <Link href="/open-ledger" className="group bg-background hover:bg-muted/40 p-6 md:p-8 flex flex-col justify-between h-full transition-colors duration-300">
               <div>
-                <span className="font-mono text-sm tracking-widest uppercase text-muted-foreground font-bold">Open Ledger</span>
-                <h3 className="font-serif text-2xl md:text-3xl font-light text-foreground mt-6 mb-4">Financial Transparency</h3>
-                <p className="font-sans text-base text-muted-foreground leading-relaxed">
-                  Every rupee tracked. Real-time allocation data. No hidden fees, no corporate overhead.
+                <span className="font-sans text-xs font-semibold tracking-wider uppercase text-primary">Open Ledger</span>
+                <h3 className="font-serif text-2xl md:text-3xl font-light text-foreground mt-4 mb-3">Transparent Accounting</h3>
+                <p className="font-sans text-sm text-muted-foreground leading-relaxed">
+                  Every donation and grant allocation tracked with hourly updates. No hidden costs, with maximum funding directed to field programmes.
                 </p>
               </div>
-              <span className="inline-flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-widest text-foreground mt-8 group-hover:text-destructive transition-colors">
-                View Ledger <ArrowRight className="size-4" aria-hidden="true" />
+              <span className="inline-flex items-center gap-2 font-sans text-xs font-semibold text-primary mt-8 group-hover:underline underline-offset-4 transition-colors">
+                View Live Ledger <ArrowRight className="size-4" aria-hidden="true" />
               </span>
             </Link>
-            <Link href="/about/governance" className="group bg-background hover:bg-muted p-6 md:p-8 flex flex-col justify-between h-full transition-colors duration-300">
+            <Link href="/about/governance" className="group bg-background hover:bg-muted/40 p-6 md:p-8 flex flex-col justify-between h-full transition-colors duration-300">
               <div>
-                <span className="font-mono text-sm tracking-widest uppercase text-muted-foreground font-bold">Governance</span>
-                <h3 className="font-serif text-2xl md:text-3xl font-light text-foreground mt-6 mb-4">Board & Leadership</h3>
-                <p className="font-sans text-base text-muted-foreground leading-relaxed">
-                  Registered NGO since 1988. Board composition, decision-making processes, and conflict of interest policies.
+                <span className="font-sans text-xs font-semibold tracking-wider uppercase text-primary">Governance</span>
+                <h3 className="font-serif text-2xl md:text-3xl font-light text-foreground mt-4 mb-3">Board & Leadership</h3>
+                <p className="font-sans text-sm text-muted-foreground leading-relaxed">
+                  Governed under the Manipur Societies Registration Act (1989). Independent board oversight, bylaws, and conflict of interest policies.
                 </p>
               </div>
-              <span className="inline-flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-widest text-foreground mt-8 group-hover:text-destructive transition-colors">
+              <span className="inline-flex items-center gap-2 font-sans text-xs font-semibold text-primary mt-8 group-hover:underline underline-offset-4 transition-colors">
                 View Governance <ArrowRight className="size-4" aria-hidden="true" />
               </span>
             </Link>
-            <Link href="/reports" className="group bg-background hover:bg-muted p-6 md:p-8 flex flex-col justify-between h-full transition-colors duration-300">
+            <Link href="/reports" className="group bg-background hover:bg-muted/40 p-6 md:p-8 flex flex-col justify-between h-full transition-colors duration-300">
               <div>
-                <span className="font-mono text-sm tracking-widest uppercase text-muted-foreground font-bold">Field Reports</span>
-                <h3 className="font-serif text-2xl md:text-3xl font-light text-foreground mt-6 mb-4">Operational Audits</h3>
-                <p className="font-sans text-base text-muted-foreground leading-relaxed">
-                  Downloadable field reports, impact reports, and financial statements published transparently as verified.
+                <span className="font-sans text-xs font-semibold tracking-wider uppercase text-primary">Reports</span>
+                <h3 className="font-serif text-2xl md:text-3xl font-light text-foreground mt-4 mb-3">Audited Statements</h3>
+                <p className="font-sans text-sm text-muted-foreground leading-relaxed">
+                  Download verified annual reports, statutory auditor certificates, and programme impact evaluations.
                 </p>
               </div>
-              <span className="inline-flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-widest text-foreground mt-8 group-hover:text-destructive transition-colors">
+              <span className="inline-flex items-center gap-2 font-sans text-xs font-semibold text-primary mt-8 group-hover:underline underline-offset-4 transition-colors">
                 View Reports <ArrowRight className="size-4" aria-hidden="true" />
               </span>
             </Link>
@@ -282,23 +285,23 @@ export default function Home() {
       {/* 8. Closing CTA — Community Action */}
       <section className="bg-muted/30 text-foreground border-t border-border overflow-hidden relative">
         <div className="relative mx-auto text-center max-w-4xl px-6 py-16 md:py-24 flex flex-col items-center">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="size-1.5 bg-primary shrink-0" />
-            <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Our Shared Future</span>
+          <div className="flex items-center gap-2 mb-4">
+            <span className="size-2 rounded-full bg-primary shrink-0" />
+            <span className="font-sans text-xs font-semibold uppercase tracking-wider text-muted-foreground">Our Shared Future</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-foreground mb-6 leading-[0.95] text-balance">
             The future of our communities is something we build together.
           </h2>
           <p className="font-sans text-base md:text-xl max-w-2xl mx-auto text-muted-foreground mb-10 font-light leading-relaxed text-balance">
-            One Vision is working with people across Manipur to create healthier communities, protect the environment, expand opportunity and develop solutions that can last. There is work to do. There is also a lot we can build.
+            One Vision is working with families, youth, and local leaders across Manipur to build healthier communities, restore fragile ecosystems, and expand economic opportunity.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center w-full sm:w-auto">
-            <Link href="/programmes" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-10 py-5 bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-widest text-xs transition-colors duration-300">
-              Explore Our Work
+          <div className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
+            <Link href="/programmes" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-xs sm:text-[13px] transition-colors duration-300 rounded-[2px]">
+              Explore Our Programmes
               <ArrowRight className="size-4" />
             </Link>
-            <Link href="/volunteer" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-10 py-5 bg-background border border-border text-foreground hover:bg-muted font-bold uppercase tracking-widest text-xs transition-colors duration-300">
-              Get Involved
+            <Link href="/volunteer" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-4 bg-background border border-border text-foreground hover:bg-muted font-medium text-xs sm:text-[13px] transition-colors duration-300 rounded-[2px]">
+              Volunteer With Us
             </Link>
           </div>
         </div>

@@ -10,12 +10,12 @@ import { Search, ArrowRight, Menu, X, Phone, MessageSquare } from"lucide-react";
 import { siteSettings } from"@/lib/data/site-settings";
 
 const navLinks = [
-  { href:"/programmes", label:"Our Programmes" },
-  { href:"/stories", label:"Field Reports" },
-  { href:"/volunteer", label:"Volunteer" },
-  { href:"/open-ledger", label:"Open Ledger" },
-  { href:"/get-help", label:"Contact" },
-  { href:"/about", label:"About" },
+  { href: "/programmes", label: "Our Programmes" },
+  { href: "/stories", label: "Community Stories" },
+  { href: "/open-ledger", label: "Transparency" },
+  { href: "/volunteer", label: "Volunteer" },
+  { href: "/about", label: "About Us" },
+  { href: "/get-help", label: "Contact" },
 ];
 
 export function SiteHeader() {
@@ -37,12 +37,12 @@ export function SiteHeader() {
   // Prevent background page scrolling when mobile drawer is open
   useEffect(() => {
     if (mobileOpen) {
-      document.body.style.overflow ="hidden";
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow ="unset";
+      document.body.style.overflow = "unset";
     }
     return () => {
-      document.body.style.overflow ="unset";
+      document.body.style.overflow = "unset";
     };
   }, [mobileOpen]);
 
@@ -64,7 +64,7 @@ export function SiteHeader() {
   }, [mobileOpen]);
 
   const handleDrawerKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key ==="Tab" && drawerRef.current) {
+    if (e.key === "Tab" && drawerRef.current) {
       const focusable = drawerRef.current.querySelectorAll<HTMLElement>(
         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
       );
@@ -98,11 +98,11 @@ export function SiteHeader() {
   // Global Cmd+K / Ctrl+K shortcut for Search Dialog & Escape for Mobile Menu
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() ==="k") {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
         setSearchOpen((prev) => !prev);
       }
-      if (e.key ==="Escape") {
+      if (e.key === "Escape") {
         setMobileOpen(false);
         setSearchOpen(false);
       }
@@ -116,8 +116,8 @@ export function SiteHeader() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
           isScrolled
-            ?"bg-background/95 backdrop-blur-md border-b border-border shadow-xs"
-            :"bg-background/85 backdrop-blur-sm border-b border-border"
+            ? "bg-background/95 backdrop-blur-md border-b border-border shadow-xs"
+            : "bg-background/85 backdrop-blur-sm border-b border-border"
         }`}
       >
         <div className="w-full max-w-container px-4 sm:px-6 lg:px-8 mx-auto flex items-center justify-between h-16">
@@ -130,7 +130,7 @@ export function SiteHeader() {
             <Logo />
           </Link>
 
-          {/* Desktop Navigation — Nordic Lagom with Motion Indicator */}
+          {/* Desktop Navigation — Warm, Humanist NGO Typography */}
           <nav
             className="hidden md:flex items-center gap-1 lg:gap-2 flex-1 relative h-full"
             aria-label="Main Navigation"
@@ -139,7 +139,7 @@ export function SiteHeader() {
             {navLinks.map((link) => {
               const isActive =
                 pathname === link.href ||
-                (link.href !=="/" && pathname.startsWith(`${link.href}/`));
+                (link.href !== "/" && pathname.startsWith(`${link.href}/`));
               const isHovered = hoveredPath === link.href;
 
               return (
@@ -147,29 +147,29 @@ export function SiteHeader() {
                   key={link.href}
                   href={link.href}
                   onMouseEnter={() => setHoveredPath(link.href)}
-                  aria-current={isActive ?"page" : undefined}
-                  className={`relative px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-200 ${
+                  aria-current={isActive ? "page" : undefined}
+                  className={`relative px-3 py-2 font-sans text-xs sm:text-[13px] font-medium tracking-normal transition-colors duration-200 ${
                     isActive
-                      ?"text-foreground"
-                      :"text-muted-foreground hover:text-foreground"
+                      ? "text-foreground font-semibold"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   <span className="relative z-10">{link.label}</span>
 
-                  {/* Active Motion Pill (Brutalist razor-sharp bottom notch) */}
+                  {/* Active Indicator */}
                   {isActive && (
                     <motion.div
                       layoutId="activeNavIndicator"
                       className="absolute bottom-0 left-3 right-3 h-0.5 bg-primary z-20"
-                      transition={{ type:"spring", stiffness: 380, damping: 30 }}
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
 
                   {isHovered && !isActive && (
                     <motion.div
                       layoutId="hoverNavIndicator"
-                      className="absolute inset-0 bg-muted/60 z-0"
-                      transition={{ type:"spring", stiffness: 450, damping: 35 }}
+                      className="absolute inset-0 bg-muted/60 z-0 rounded-[2px]"
+                      transition={{ type: "spring", stiffness: 450, damping: 35 }}
                     />
                   )}
                 </Link>
@@ -178,19 +178,27 @@ export function SiteHeader() {
           </nav>
 
           {/* Header Right Actions */}
-          <div className="flex items-center gap-2.5 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            {/* Quick Community Help Shortcut */}
+            <Link
+              href="/get-help"
+              className="hidden xl:inline-flex items-center text-xs font-medium text-muted-foreground hover:text-foreground transition-colors mr-1"
+            >
+              Need Help?
+            </Link>
+
             {/* Search Trigger with Keyboard Shortcut */}
             <motion.button
               whileTap={{ scale: 0.97 }}
               onClick={() => setSearchOpen(true)}
               aria-label="Search site (Press Ctrl+K or Cmd+K)"
-              className="flex items-center gap-2 px-2.5 py-1.5 border border-border bg-muted/60 hover:bg-muted hover:border-foreground transition-colors text-muted-foreground hover:text-foreground cursor-pointer"
+              className="flex items-center gap-2 px-2.5 py-1.5 border border-border bg-muted/60 hover:bg-muted hover:border-foreground transition-colors text-muted-foreground hover:text-foreground cursor-pointer rounded-[2px]"
             >
               <Search className="size-3.5" aria-hidden="true" />
-              <span className="hidden xl:inline font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+              <span className="hidden xl:inline font-sans text-xs text-muted-foreground">
                 Search
               </span>
-              <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 font-mono text-[9px] font-bold text-muted-foreground bg-background border border-border">
+              <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 font-mono text-[9px] font-bold text-muted-foreground bg-background border border-border rounded-[2px]">
                 ⌘K
               </kbd>
             </motion.button>
@@ -200,7 +208,7 @@ export function SiteHeader() {
               <motion.div whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>
                 <Link
                   href="/donate"
-                  className="inline-flex items-center gap-2 px-5 py-2 bg-primary hover:bg-primary/90 text-primary-foreground font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300"
+                  className="inline-flex items-center gap-2 px-5 py-2 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs sm:text-[13px] font-semibold tracking-normal transition-colors duration-300 rounded-[2px]"
                 >
                   <span>Donate</span>
                   <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -278,30 +286,30 @@ export function SiteHeader() {
 
             {/* Mobile Bottom Quick Actions */}
             <div className="pt-6 mt-6 border-t border-border space-y-4">
-              <div className="grid grid-cols-2 gap-3 font-mono text-[10px] uppercase tracking-wider text-foreground">
+              <div className="grid grid-cols-2 gap-3 font-sans text-xs text-foreground">
                 <a
-                  href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g,"")}`}
-                  className="flex items-center gap-2 p-3 border border-border bg-muted hover:border-foreground transition-colors"
+                  href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`}
+                  className="flex items-center gap-2 p-3 border border-border bg-muted hover:border-foreground transition-colors rounded-[2px]"
                 >
-                  <Phone className="size-3.5 text-destructive" />
-                  <span>Field Office</span>
+                  <Phone className="size-3.5 text-primary" />
+                  <span className="font-medium">24/7 Helpline</span>
                 </a>
                 <Link
                   href="/get-help"
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-2 p-3 border border-border bg-muted hover:border-foreground transition-colors"
+                  className="flex items-center gap-2 p-3 border border-border bg-muted hover:border-foreground transition-colors rounded-[2px]"
                 >
-                  <MessageSquare className="size-3.5 text-destructive" />
-                  <span>Direct Help</span>
+                  <MessageSquare className="size-3.5 text-primary" />
+                  <span className="font-medium">Get Assistance</span>
                 </Link>
               </div>
 
               <Link
                 href="/donate"
                 onClick={() => setMobileOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-3.5 bg-primary hover:bg-primary/90 text-primary-foreground font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300"
+                className="w-full flex items-center justify-center gap-2 py-3.5 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-sm font-semibold tracking-normal transition-colors duration-300 rounded-[2px]"
               >
-                <span>Donate to Resilience Fund</span>
+                <span>Support Our Community Mission</span>
                 <ArrowRight className="size-4" />
               </Link>
             </div>

@@ -5,160 +5,147 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { 
   ArrowRight, 
-  CornerDownLeft, 
-  ShieldAlert, 
-  Activity, 
-  Compass, 
-  Sparkles, 
-  Check, 
-  Flame, 
-  Layers, 
-  FileText, 
+  HeartHandshake, 
+  Heart, 
+  HelpCircle, 
   PhoneCall, 
-  ExternalLink 
+  FileText, 
+  Search, 
+  Sparkles,
+  AlertCircle
 } from "lucide-react";
 import { siteSettings } from "@/lib/data/site-settings";
 
-export interface RouteCandidate {
+export interface CommunityResourceCandidate {
   id: string;
-  category: "emergency" | "transparency" | "programmes" | "volunteer" | "governance" | "funding";
+  category: "health" | "relief" | "transparency" | "volunteer" | "programmes" | "governance";
   label: string;
   destination: string;
   actionText: string;
-  rationale: string;
+  description: string;
   keywords: string[];
 }
 
-export interface JevJudgment {
-  // Choice primitive: chosen destination from discrete set
-  candidate: RouteCandidate;
-  choiceConfidence: number; // 0.0 to 1.0 calibrated confidence
-
-  // Distribution runner-up (if competitive)
-  alternativeCandidate?: RouteCandidate;
+export interface JevCommunityJudgment {
+  candidate: CommunityResourceCandidate;
+  choiceConfidence: number; // 0.0 - 1.0
+  alternativeCandidate?: CommunityResourceCandidate;
   alternativeConfidence?: number;
-
-  // Noul primitive 1: Urgent distress probability
-  isUrgentNoul: number; // 0.0 to 1.0
-
-  // Noul primitive 2: Transparency / audit verification need
-  isAuditNoul: number; // 0.0 to 1.0
-
-  // Score primitive: Specificity level (1 = broad/exploratory, 5 = exact entity)
+  isUrgentNoul: number; // 0.0 - 1.0
+  isDonorNoul: number; // 0.0 - 1.0
   specificityScore: 1 | 2 | 3 | 4 | 5;
 }
 
-const CANDIDATE_ROUTES: RouteCandidate[] = [
+const RESOURCE_CANDIDATES: CommunityResourceCandidate[] = [
   {
-    id: "emergency-triage",
-    category: "emergency",
-    label: "Emergency Medical & Relief Triage",
-    destination: "/get-help",
-    actionText: "Open Frontline Assistance Node",
-    rationale: "Matches acute humanitarian needs, patient distress, emergency medicine, cold-chain transport, or crisis relief.",
-    keywords: ["emergency", "help", "crisis", "medicine", "doctor", "triage", "ambulance", "food", "shelter", "supplies", "urgent", "relief", "hospital", "clinic", "injured", "distress", "immediate"]
-  },
-  {
-    id: "open-ledger",
-    category: "transparency",
-    label: "Open Ledger & Rupee Accounting",
-    destination: "/open-ledger",
-    actionText: "Inspect Hourly Expenditure",
-    rationale: "Matches financial transparency, live rupee expenditure audits, fund tracking, or donor oversight requests.",
-    keywords: ["ledger", "money", "funds", "audit", "accounts", "expenditure", "rupee", "spending", "finance", "donation tracking", "transparency", "balance", "receipts", "inr", "bookkeeping", "expenses"]
-  },
-  {
-    id: "volunteer-action",
-    category: "volunteer",
-    label: "Fieldwork Deployment & Volunteer Network",
-    destination: "/volunteer",
-    actionText: "Access Volunteer Deployment",
-    rationale: "Matches skills contribution, technical engineering volunteering, community mentorship, or grassroots field deployment.",
-    keywords: ["volunteer", "join", "help out", "skills", "teach", "technician", "solar volunteer", "fieldwork", "deploy", "contribute time", "internship", "fellowship", "apply"]
-  },
-  {
-    id: "solar-energy",
-    category: "programmes",
-    label: "240kW Microgrid Infrastructure",
-    destination: "/programmes/local-enterprise-lab",
-    actionText: "View Decentralized Power Ops",
-    rationale: "Matches rural energy independence, off-grid battery installations, photovoltaic arrays, or power reliability.",
-    keywords: ["solar", "energy", "power", "grid", "microgrid", "electricity", "battery", "cold chain", "generator", "watts", "kw", "pv", "blackout", "inverter"]
-  },
-  {
-    id: "health-nodes",
-    category: "programmes",
-    label: "18 Decentralized Health Nodes",
+    id: "health-centres",
+    category: "health",
+    label: "Community Health Connect & Local Clinics",
     destination: "/programmes/community-health-connect",
-    actionText: "Review Primary Health Network",
-    rationale: "Matches primary healthcare hubs, sub-district clinic nodes, maternal care, or telemedicine field stations.",
-    keywords: ["health", "clinic", "node", "telemedicine", "nurse", "checkup", "patient", "wellness", "immunization", "hubs", "subcenter", "diagnostic", "telehealth"]
+    actionText: "View Health Centres & Services",
+    description: "Connects residents to 18 local healthcare hubs, maternal care, primary consultations, and preventative medicine in Manipur.",
+    keywords: ["health", "clinic", "doctor", "medicine", "nurse", "checkup", "patient", "wellness", "immunization", "hubs", "subcenter", "telemedicine", "hospital", "sick", "prescription"]
   },
   {
-    id: "field-reports",
-    category: "governance",
-    label: "Verified Operational Audits & Dispatches",
-    destination: "/stories",
-    actionText: "Browse Field Dispatches",
-    rationale: "Matches verified ground reports, beneficiary testimonials, operational case studies, or archival field dispatches.",
-    keywords: ["stories", "reports", "audit", "field report", "dispatch", "evidence", "case study", "documentation", "impact", "testimonials", "ground truth", "history"]
+    id: "emergency-relief",
+    category: "relief",
+    label: "Emergency Assistance & Crisis Relief",
+    destination: "/get-help",
+    actionText: "Request Community Assistance",
+    description: "Direct frontline assistance for families facing displacement, medical distress, severe flooding, or critical supply shortages.",
+    keywords: ["emergency", "relief", "crisis", "flood", "disaster", "supplies", "shelter", "food", "ambulance", "urgent", "help", "danger", "cut off", "immediate", "injured"]
   },
   {
-    id: "governance-bylaws",
-    category: "governance",
-    label: "Board & Conflict of Interest Policies",
-    destination: "/about/governance",
-    actionText: "Review NGO Governance",
-    rationale: "Matches FCRA compliance, board of trustees, legal registration, conflict of interest safeguards, or bylaws.",
-    keywords: ["board", "governance", "bylaws", "trustees", "legal", "registration", "conflict of interest", "fcra", "ngo", "charter", "officers", "trust", "policy"]
+    id: "transparency-audit",
+    category: "transparency",
+    label: "Open Ledger & Audited Financial Reports",
+    destination: "/open-ledger",
+    actionText: "Inspect Audited Accounts",
+    description: "Every rupee received and spent is transparently recorded. Download audit statements, 80G tax exemptions, and hourly project allocations.",
+    keywords: ["ledger", "money", "funds", "audit", "accounts", "expenditure", "rupee", "spending", "finance", "donation tracking", "transparency", "balance", "receipts", "inr", "tax exemption", "80g"]
   },
   {
-    id: "community-data",
+    id: "volunteer-deployment",
+    category: "volunteer",
+    label: "Volunteer With Our Grassroots Network",
+    destination: "/volunteer",
+    actionText: "Join Volunteer Network",
+    description: "Contribute your time, teaching skills, technical engineering, or medical training to support community initiatives across Manipur.",
+    keywords: ["volunteer", "join", "help out", "skills", "teach", "fellowship", "fieldwork", "contribute time", "youth mentor", "apply"]
+  },
+  {
+    id: "solar-livelihoods",
     category: "programmes",
-    label: "Community Data Lab & Public Metrics",
-    destination: "/programmes/community-data-lab",
-    actionText: "Explore Data Lab Assets",
-    rationale: "Matches community surveys, baseline indicators, open data telemetry, or regional health research.",
-    keywords: ["data", "metrics", "telemetry", "census", "survey", "open source", "sensors", "monitoring", "statistics", "dataset", "api"]
+    label: "Local Enterprise & Clean Solar Power",
+    destination: "/programmes/local-enterprise-lab",
+    actionText: "Explore Clean Energy & Livelihoods",
+    description: "Decentralized solar microgrids providing uninterrupted power to community health clinics, artisans, and rural enterprises.",
+    keywords: ["solar", "energy", "power", "grid", "microgrid", "electricity", "battery", "cold chain", "artisan", "cooperative", "enterprise", "livelihoods", "farmers"]
   },
   {
-    id: "donation-direct",
-    category: "funding",
-    label: "Direct Grassroots Support & UPI Giving",
+    id: "green-ecology",
+    category: "programmes",
+    label: "Green Manipur Lab & Ecological Conservation",
+    destination: "/programmes/green-manipur-lab",
+    actionText: "Explore Environmental Action",
+    description: "Community tree restoration, indigenous heirloom seed conservation, watershed preservation, and neighbourhood recycling.",
+    keywords: ["green", "ecology", "environment", "seeds", "trees", "forest", "nature", "conservation", "water", "soil", "organic", "biodiversity"]
+  },
+  {
+    id: "youth-futureworks",
+    category: "programmes",
+    label: "FutureWorks Youth Mentorship & Digital Skills",
+    destination: "/programmes/futureworks",
+    actionText: "Explore Youth Programmes",
+    description: "Hands-on project mentorship, digital education, and portfolio-building for Manipur's next generation of community leaders.",
+    keywords: ["youth", "futureworks", "skills", "education", "training", "jobs", "students", "portfolio", "computer", "digital", "vocational"]
+  },
+  {
+    id: "governance-leadership",
+    category: "governance",
+    label: "Governance, Board of Trustees & 1988 Charter",
+    destination: "/about/governance",
+    actionText: "View Governance & Bylaws",
+    description: "Registered under the Manipur Societies Registration Act (1989). Independent board oversight, bylaws, and conflict-of-interest policies.",
+    keywords: ["governance", "board", "trustees", "bylaws", "legal", "registration", "fcra", "ngo", "charter", "society", "trust", "leadership"]
+  },
+  {
+    id: "donate-grassroots",
+    category: "transparency",
+    label: "Donate to Community Resilience (80G Tax-Exempt)",
     destination: "/donate",
-    actionText: "Support Operational Costs",
-    rationale: "Matches direct giving, tax-exempt 80G donations, programmatic sponsorship, or infrastructure funding.",
-    keywords: ["donate", "give", "contribution", "support", "fund", "upi", "bank transfer", "tax exemption", "80g", "sponsor", "contribute money"]
+    actionText: "Make a Contribution",
+    description: "Directly fund grassroots medical kits, school supplies, clean water, and solar installations. All Indian donations qualify for 50% tax deduction under Section 80G.",
+    keywords: ["donate", "give", "contribution", "support", "fund", "upi", "bank transfer", "80g", "tax deduction", "sponsor"]
   }
 ];
 
-// Jev-style typed scoring function: Evaluates Choice, Noul, and Score primitives
-function evaluateJevJudgment(rawQuery: string): JevJudgment | null {
+function evaluateJevCommunityIntent(rawQuery: string): JevCommunityJudgment | null {
   const query = rawQuery.toLowerCase().trim();
   if (!query) return null;
 
-  // 1. Primitive: Noul (Urgent Distress Indicator)
-  const urgentKeywords = ["emergency", "urgent", "crisis", "sos", "ambulance", "hospital", "medicine", "danger", "cut off", "flood", "injured", "distress", "immediate", "bleeding", "starving"];
+  // 1. Primitive: Noul (Urgent Need Assessment)
+  const urgentKeywords = ["emergency", "urgent", "crisis", "sos", "ambulance", "hospital", "medicine", "danger", "cut off", "flood", "injured", "distress", "immediate", "bleeding", "food shortage"];
   let urgentHits = 0;
   for (const uk of urgentKeywords) {
     if (query.includes(uk)) urgentHits += 1;
   }
   const isUrgentNoul = urgentHits > 0 ? Math.min(0.96, 0.65 + urgentHits * 0.12) : 0.05;
 
-  // 2. Primitive: Noul (Audit / Transparency Indicator)
-  const auditKeywords = ["ledger", "audit", "accounts", "funds", "receipts", "expenditure", "rupee", "fraud", "corruption", "bylaws", "fcra", "spending", "balance"];
-  let auditHits = 0;
-  for (const ak of auditKeywords) {
-    if (query.includes(ak)) auditHits += 1;
+  // 2. Primitive: Noul (Donor / Tax Intent)
+  const donorKeywords = ["donate", "tax", "80g", "receipt", "contribution", "give", "support", "exemption", "upi"];
+  let donorHits = 0;
+  for (const dk of donorKeywords) {
+    if (query.includes(dk)) donorHits += 1;
   }
-  const isAuditNoul = auditHits > 0 ? Math.min(0.95, 0.60 + auditHits * 0.12) : 0.08;
+  const isDonorNoul = donorHits > 0 ? Math.min(0.95, 0.60 + donorHits * 0.12) : 0.08;
 
-  // 3. Primitive: Score (Specificity level: 1 to 5)
+  // 3. Primitive: Score (Query Specificity)
   const words = query.split(/\s+/).filter(Boolean);
   let specificityScore: 1 | 2 | 3 | 4 | 5 = 1;
-  if (words.length >= 8 || /node \d+|240kw|fcra|80g|imphal|churachandpur/i.test(query)) {
+  if (words.length >= 7 || /imphal|churachandpur|80g|seed|clinic|solar|futureworks/i.test(query)) {
     specificityScore = 5;
-  } else if (words.length >= 5) {
+  } else if (words.length >= 4) {
     specificityScore = 4;
   } else if (words.length >= 3) {
     specificityScore = 3;
@@ -166,16 +153,15 @@ function evaluateJevJudgment(rawQuery: string): JevJudgment | null {
     specificityScore = 2;
   }
 
-  // 4. Primitive: Choice (Candidate Ranking & Probability Distribution)
-  const scoredCandidates = CANDIDATE_ROUTES.map((candidate) => {
+  // 4. Primitive: Choice (Candidate Ranking)
+  const scoredCandidates = RESOURCE_CANDIDATES.map((candidate) => {
     let score = 0;
     for (const kw of candidate.keywords) {
       if (query === kw) {
-        score += 8; // Exact keyword match
+        score += 8;
       } else if (query.includes(kw)) {
-        score += 4; // Substring match
+        score += 4;
       } else {
-        // Partial word match
         for (const w of words) {
           if (w.length >= 3 && kw.includes(w)) {
             score += 1.5;
@@ -184,50 +170,41 @@ function evaluateJevJudgment(rawQuery: string): JevJudgment | null {
       }
     }
 
-    // Boost emergency candidate if urgent Noul is high
-    if (candidate.category === "emergency" && isUrgentNoul > 0.6) {
-      score += 6;
-    }
-    // Boost open ledger if audit Noul is high
-    if (candidate.category === "transparency" && isAuditNoul > 0.6) {
-      score += 5;
-    }
+    if (candidate.category === "relief" && isUrgentNoul > 0.6) score += 6;
+    if (candidate.id === "donate-grassroots" && isDonorNoul > 0.6) score += 5;
 
     return { candidate, score };
   });
 
   scoredCandidates.sort((a, b) => b.score - a.score);
-
   const best = scoredCandidates[0];
   const second = scoredCandidates[1];
 
-  // If no good match, provide calm general overview fallback
   if (!best || best.score <= 1) {
     return {
       candidate: {
-        id: "general-inquiry",
+        id: "general-overview",
         category: "programmes",
-        label: "Grassroots Operations & Founding Charter",
+        label: "About One Vision & Our Community Mission",
         destination: "/about",
-        actionText: "Explore Operational Mandate",
-        rationale: "Exploratory query mapped to the foundational charter, history, and community programmes overview.",
+        actionText: "Read About Our Work",
+        description: "Learn about our history serving Manipur since 1988 and our 5 core initiatives across health, youth, and ecology.",
         keywords: []
       },
-      choiceConfidence: 0.62,
+      choiceConfidence: 0.65,
       isUrgentNoul,
-      isAuditNoul,
+      isDonorNoul,
       specificityScore
     };
   }
 
-  // Calibrate confidence distribution
-  const choiceConfidence = Math.min(0.98, Math.max(0.68, 0.70 + best.score * 0.04));
-  let alternativeCandidate: RouteCandidate | undefined;
+  const choiceConfidence = Math.min(0.98, Math.max(0.70, 0.72 + best.score * 0.04));
+  let alternativeCandidate: CommunityResourceCandidate | undefined;
   let alternativeConfidence: number | undefined;
 
   if (second && second.score >= best.score * 0.45 && second.candidate.id !== best.candidate.id) {
     alternativeCandidate = second.candidate;
-    alternativeConfidence = Math.min(0.85, 0.50 + second.score * 0.03);
+    alternativeConfidence = Math.min(0.85, 0.52 + second.score * 0.03);
   }
 
   return {
@@ -236,7 +213,7 @@ function evaluateJevJudgment(rawQuery: string): JevJudgment | null {
     alternativeCandidate,
     alternativeConfidence,
     isUrgentNoul,
-    isAuditNoul,
+    isDonorNoul,
     specificityScore
   };
 }
@@ -245,20 +222,20 @@ export function FooterQuickRoute() {
   const router = useRouter();
   const inputId = useId();
   const [query, setQuery] = useState("");
-  const [judgment, setJudgment] = useState<JevJudgment | null>(null);
+  const [judgment, setJudgment] = useState<JevCommunityJudgment | null>(null);
   const [isPending, startTransition] = useTransition();
 
   const handleInputChange = (val: string) => {
     setQuery(val);
     startTransition(() => {
-      setJudgment(evaluateJevJudgment(val));
+      setJudgment(evaluateJevCommunityIntent(val));
     });
   };
 
   const handleSelectChip = (sampleText: string) => {
     setQuery(sampleText);
     startTransition(() => {
-      setJudgment(evaluateJevJudgment(sampleText));
+      setJudgment(evaluateJevCommunityIntent(sampleText));
     });
   };
 
@@ -274,42 +251,46 @@ export function FooterQuickRoute() {
 
   return (
     <section 
-      aria-labelledby="quick-route-heading"
-      className="w-full bg-muted/20 border border-border p-6 lg:p-8 mb-14 relative group transition-all duration-300"
+      aria-labelledby="community-guide-heading"
+      className="w-full bg-muted/20 border border-border p-6 lg:p-8 mb-12 relative transition-all duration-300 rounded-[2px]"
     >
-      {/* Header & Meta Bar */}
+      {/* Top Header */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-border">
         <div>
-          <div className="flex items-center gap-2 mb-2 font-mono text-[11px] font-bold uppercase tracking-widest text-primary">
-            <Compass className="size-3.5" aria-hidden="true" />
-            <span>Fast Operational Dispatch</span>
-            <span className="size-1 bg-border rounded-full" />
-            <span className="text-muted-foreground font-normal">TypeSafe Jev System One</span>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="size-2 rounded-full bg-primary" />
+            <span className="font-sans text-xs font-semibold uppercase tracking-wider text-primary">
+              Community Resource Guide
+            </span>
+            <span className="text-muted-foreground text-xs">·</span>
+            <span className="font-sans text-xs text-muted-foreground">
+              Intelligent Community Matching
+            </span>
           </div>
-          <h2 id="quick-route-heading" className="font-serif text-2xl sm:text-3xl font-light text-foreground tracking-tight">
-            Direct Intent Navigator
+          <h2 id="community-guide-heading" className="font-serif text-2xl sm:text-3xl font-light text-foreground tracking-tight">
+            How can we help you or your community?
           </h2>
           <p className="font-sans text-sm text-muted-foreground mt-1 max-w-xl leading-relaxed">
-            State your frontline requirement, verification inquiry, or resource query. Jev returns a calibrated typed routing judgment.
+            Search for local health centres, relief assistance, volunteer pathways, or download verified 80G audit statements.
           </p>
         </div>
 
-        {/* Quick Sample Chips */}
+        {/* Friendly Suggestion Chips */}
         <div className="flex flex-wrap gap-2 items-center">
-          <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground mr-1">
-            Intent Prompts:
+          <span className="font-sans text-xs text-muted-foreground mr-1">
+            Common questions:
           </span>
           {[
-            { label: "Crisis Triage", q: "Emergency clinic and medical relief near Imphal" },
-            { label: "Hourly Ledger", q: "Show me live rupee expenditure and audits" },
-            { label: "Solar Grid", q: "240kW microgrid battery telemetry and solar ops" },
-            { label: "Volunteer Deploy", q: "How can I join fieldwork and deploy skills?" }
+            { label: "Find a Health Centre", q: "Where can I find a community clinic in Imphal or nearby districts?" },
+            { label: "Urgent Relief Help", q: "Emergency food or medicine assistance for families in need" },
+            { label: "Donate (80G Tax Receipt)", q: "How to donate and receive 80G tax exemption certificate" },
+            { label: "Volunteer in Manipur", q: "How can I join fieldwork and volunteer my skills?" }
           ].map((item) => (
             <button
               key={item.label}
               type="button"
               onClick={() => handleSelectChip(item.q)}
-              className="font-mono text-[11px] px-2.5 py-1 bg-background hover:bg-muted border border-border hover:border-primary/50 text-foreground transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              className="font-sans text-xs px-3 py-1.5 bg-background hover:bg-muted border border-border hover:border-primary/50 text-foreground transition-all duration-200 cursor-pointer rounded-[2px] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
               {item.label}
             </button>
@@ -321,16 +302,19 @@ export function FooterQuickRoute() {
       <div className="pt-6">
         <div className="relative flex items-center w-full">
           <label htmlFor={inputId} className="sr-only">
-            What operational resource or assistance do you need?
+            What community support or resource do you need?
           </label>
+          <div className="absolute left-4 pointer-events-none text-muted-foreground">
+            <Search className="size-4" />
+          </div>
           <input
             id={inputId}
             type="text"
             value={query}
             onChange={(e) => handleInputChange(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Type your inquiry (e.g. 'Emergency clinic near Imphal West' or 'Download audited balance sheet')..."
-            className="w-full bg-background border border-border px-4 py-3.5 pr-20 text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-ring transition-colors"
+            placeholder="Type your question (e.g., 'Where is the nearest medical clinic?' or 'How do I get an 80G tax receipt?')..."
+            className="w-full bg-background border border-border pl-11 pr-24 py-3.5 text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-ring transition-colors rounded-[2px]"
           />
           {query ? (
             <button
@@ -339,73 +323,70 @@ export function FooterQuickRoute() {
                 setQuery("");
                 setJudgment(null);
               }}
-              className="absolute right-3 font-mono text-xs text-muted-foreground hover:text-foreground px-2 py-1 cursor-pointer transition-colors"
+              className="absolute right-3 font-sans text-xs text-muted-foreground hover:text-foreground px-2 py-1 cursor-pointer transition-colors"
             >
-              Clear [Esc]
+              Clear
             </button>
           ) : (
-            <span className="absolute right-3 font-mono text-[10px] uppercase tracking-wider text-muted-foreground/60 pointer-events-none hidden sm:inline">
+            <span className="absolute right-3 font-sans text-xs text-muted-foreground/60 pointer-events-none hidden sm:inline">
               Press [Enter ↵]
             </span>
           )}
         </div>
 
-        {/* Dynamic Typed Jev System One Judgement View */}
+        {/* Dynamic Matched Community Guidance Card */}
         {judgment && query.trim().length > 1 && (
           <div 
             aria-live="polite"
-            className="mt-4 p-5 sm:p-6 bg-card border border-border flex flex-col gap-4 animate-in fade-in-50 duration-200"
+            className="mt-4 p-5 sm:p-6 bg-card border border-border flex flex-col gap-4 animate-in fade-in-50 duration-200 rounded-[2px]"
           >
-            {/* Jev System One Telemetry Badges */}
-            <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-border text-[10px] font-mono">
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-primary">
-                  <span className="size-2 rounded-full bg-primary animate-pulse" />
-                  Choice: [{judgment.candidate.category.toUpperCase()}]
-                </span>
-                <span className="text-border">|</span>
-                <span className="text-muted-foreground">
-                  Confidence: <span className="text-foreground font-semibold">{(judgment.choiceConfidence * 100).toFixed(0)}%</span>
-                </span>
-                <span className="text-border">|</span>
-                <span className="text-muted-foreground">
-                  Specificity: <span className="text-foreground font-semibold">{judgment.specificityScore}/5</span>
-                </span>
-                {judgment.isAuditNoul > 0.5 && (
-                  <>
-                    <span className="text-border">|</span>
-                    <span className="text-primary font-semibold">
-                      Audit Intent: {(judgment.isAuditNoul * 100).toFixed(0)}%
-                    </span>
-                  </>
-                )}
-              </div>
-
-              {judgment.isUrgentNoul > 0.6 && (
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-destructive/10 border border-destructive/30 text-destructive font-bold uppercase tracking-wider">
-                  <Flame className="size-3" />
-                  <span>High Urgency Detected ({Math.round(judgment.isUrgentNoul * 100)}%)</span>
+            {/* Urgent Community Banner (if emergency is detected) */}
+            {judgment.isUrgentNoul > 0.6 && (
+              <div className="p-3.5 bg-destructive/10 border border-destructive/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-destructive rounded-[2px]">
+                <div className="flex items-center gap-2.5">
+                  <AlertCircle className="size-4 shrink-0" />
+                  <span className="font-sans text-xs font-semibold">
+                    Urgent Need Detected: For emergency medical relief or crisis response, please call our direct hotline immediately.
+                  </span>
                 </div>
-              )}
-            </div>
+                <a
+                  href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, '')}`}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-destructive text-destructive-foreground font-sans text-xs font-semibold rounded-[2px] shrink-0"
+                >
+                  <PhoneCall className="size-3.5" />
+                  <span>Call {siteSettings.contactPhone}</span>
+                </a>
+              </div>
+            )}
 
-            {/* Main Destination Details */}
+            {/* Matched Community Resource */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
               <div className="flex-1">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="size-1.5 rounded-full bg-primary" />
+                  <span className="font-sans text-xs font-semibold text-primary">
+                    Recommended Community Resource
+                  </span>
+                  <span className="text-muted-foreground text-xs">·</span>
+                  <span className="font-sans text-xs text-muted-foreground">
+                    {(judgment.choiceConfidence * 100).toFixed(0)}% Match
+                  </span>
+                </div>
+
                 <h3 className="font-serif text-xl sm:text-2xl font-light text-foreground tracking-tight">
                   {judgment.candidate.label}
                 </h3>
-                <p className="font-sans text-xs sm:text-sm text-muted-foreground mt-1 max-w-2xl leading-relaxed">
-                  {judgment.candidate.rationale}
+                <p className="font-sans text-sm text-muted-foreground mt-1 max-w-2xl leading-relaxed">
+                  {judgment.candidate.description}
                 </p>
 
-                {/* Alternative suggestion if competitive */}
+                {/* Alternative suggestion if relevant */}
                 {judgment.alternativeCandidate && (
-                  <div className="mt-3 flex items-center gap-2 text-xs text-muted-foreground font-mono">
-                    <span className="text-[10px] uppercase tracking-wider text-muted-foreground/80">Also Relevant:</span>
+                  <div className="mt-3 flex items-center gap-2 text-xs text-muted-foreground">
+                    <span className="font-medium text-muted-foreground">Also relevant:</span>
                     <Link
                       href={judgment.alternativeCandidate.destination}
-                      className="text-primary hover:underline font-sans text-xs inline-flex items-center gap-1"
+                      className="text-primary hover:underline font-medium inline-flex items-center gap-1"
                     >
                       <span>{judgment.alternativeCandidate.label}</span>
                       <ArrowRight className="size-3" />
@@ -414,20 +395,10 @@ export function FooterQuickRoute() {
                 )}
               </div>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
-                {judgment.isUrgentNoul > 0.6 && (
-                  <a
-                    href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, '')}`}
-                    className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-destructive/10 hover:bg-destructive/20 border border-destructive/30 text-destructive font-mono text-[11px] font-bold uppercase tracking-wider transition-colors duration-200"
-                  >
-                    <PhoneCall className="size-3.5" />
-                    <span>Direct Call Helpline</span>
-                  </a>
-                )}
-                
+              <div className="shrink-0">
                 <Link
                   href={judgment.candidate.destination}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-200"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs sm:text-[13px] font-semibold transition-colors duration-200 rounded-[2px]"
                 >
                   <span>{judgment.candidate.actionText}</span>
                   <ArrowRight className="size-3.5" />

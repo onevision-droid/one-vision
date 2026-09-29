@@ -178,8 +178,8 @@ export function Logo({
           <span className="font-sans text-[15px] font-extrabold tracking-widest uppercase text-foreground leading-none">
             One Vision
           </span>
-          <span className="font-mono text-[9px] font-medium tracking-[0.16em] uppercase text-muted-foreground leading-tight mt-1">
-            Humanitarian Vanguard
+          <span className="font-sans text-[10px] font-medium tracking-wide text-muted-foreground leading-tight mt-0.5">
+            Manipur · Est. 1988
           </span>
         </div>
       )}
