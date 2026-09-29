@@ -265,11 +265,6 @@
     @apply bg-background text-text-primary font-sans;
   }
   
-  /* Brutalist mandate: Zero border radius everywhere */
-  * {
-    border-radius: 0 !important;
-  }
-
   /* Focus visible: Safety Orange token */
   :focus-visible {
     outline: 2px solid var(--ring);

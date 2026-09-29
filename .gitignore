@@ -52,4 +52,5 @@ phase-2-changelist.md
 .agents/
 .superdesign/
 temp_gstack/
-
+audit-results.json
+audit-report.md

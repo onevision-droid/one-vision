@@ -1,22 +1,55 @@
 "use client";
 
 import { useState } from "react";
+import { supabase } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { trackEvent } from "@/lib/analytics/trackEvent";
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    if (honeypot) {
       setIsSuccess(true);
-      setTimeout(() => setIsSuccess(false), 5000);
-    }, 1500);
+      return;
+    }
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      firstName: (formData.get("name") as string)?.split(" ")[0] || "",
+      lastName: (formData.get("name") as string)?.split(" ").slice(1).join(" ") || "",
+      email: formData.get("email") as string,
+      subject: formData.get("subject") as string,
+      message: formData.get("message") as string,
+    };
+
+    setIsSubmitting(true);
+    trackEvent("contact_submit", { subject: data.subject });
+
+    const { error } = await supabase.from('contact_messages').insert({
+      first_name: data.firstName,
+      last_name: data.lastName,
+      email: data.email,
+      subject: data.subject,
+      message: data.message,
+      status: "unread"
+    });
+
+    setIsSubmitting(false);
+
+    if (error) {
+      console.error("Failed to submit contact message:", error);
+      alert("Failed to send message. Please try again.");
+      return;
+    }
+    
+    setIsSuccess(true);
+    e.currentTarget.reset();
+    setTimeout(() => setIsSuccess(false), 5000);
   };
 
   return (
@@ -30,12 +63,23 @@ export function ContactForm() {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6 relative z-10 flex-1 flex flex-col">
+        <input
+          type="text"
+          name="ov_system_field"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+          tabIndex={-1}
+          autoComplete="off"
+          className="sr-only"
+          aria-hidden="true"
+        />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="space-y-2">
             <label htmlFor="name" className="text-[10px] font-bold uppercase tracking-widest text-ink-900">Name</label>
             <input 
               id="name" 
               type="text" 
+              name="name"
               required
               className="w-full bg-background border border-border-default px-4 py-3 text-sm focus:outline-none focus:border-safety-orange focus:ring-1 focus:ring-safety-orange transition-colors rounded-none"
               placeholder="Jane Doe"
@@ -46,6 +90,7 @@ export function ContactForm() {
             <input 
               id="email" 
               type="email" 
+              name="email"
               required
               className="w-full bg-background border border-border-default px-4 py-3 text-sm focus:outline-none focus:border-safety-orange focus:ring-1 focus:ring-safety-orange transition-colors rounded-none"
               placeholder="jane@example.com"
@@ -58,6 +103,7 @@ export function ContactForm() {
           <div className="relative">
             <select 
               id="subject"
+              name="subject"
               className="w-full bg-background border border-border-default px-4 py-3 text-sm focus:outline-none focus:border-safety-orange focus:ring-1 focus:ring-safety-orange transition-colors appearance-none rounded-none"
             >
               <option>General Enquiry</option>
@@ -75,6 +121,7 @@ export function ContactForm() {
           <label htmlFor="message" className="text-[10px] font-bold uppercase tracking-widest text-ink-900">Message</label>
           <textarea 
             id="message" 
+            name="message"
             rows={4}
             required
             className="w-full flex-1 bg-background border border-border-default px-4 py-3 text-sm focus:outline-none focus:border-safety-orange focus:ring-1 focus:ring-safety-orange transition-colors resize-none rounded-none min-h-30"

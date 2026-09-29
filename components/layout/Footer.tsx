@@ -50,7 +50,7 @@ export function Footer() {
               <h3 className="text-xs font-semibold uppercase tracking-wider text-ink-900 dark:text-paper">Organization</h3>
               <Link href="/about" className="text-role-body text-ink-600 dark:text-paper/70 hover:text-safety-orange transition-colors duration-200">About Us</Link>
               <Link href="/volunteer" className="text-role-body text-ink-600 dark:text-paper/70 hover:text-safety-orange transition-colors duration-200">Deploy Support</Link>
-              <Link href="/governance" className="text-role-body text-ink-600 dark:text-paper/70 hover:text-safety-orange transition-colors duration-200">Governance</Link>
+              <Link href="/about/governance" className="text-role-body text-ink-600 dark:text-paper/70 hover:text-safety-orange transition-colors duration-200">Governance</Link>
             </div>
 
             {/* Contact Column */}

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-
-export const runtime = "nodejs";
+import { headers } from "next/headers";
+import { z } from "zod";export const runtime = "nodejs";
 
 const FALLBACK_MODELS = [
   "nvidia/nemotron-3.5-lightning:free",
@@ -23,21 +23,76 @@ Core Protocols:
 - Radical Transparency: All fund allocations are published hourly on the Open Ledger (/open-ledger).
 - Style & Tone: Nordic Lagom—calm, restrained, factual, compassionate, and precise. Never use marketing fluff, emotional manipulation, or empty corporate clichés. Provide actionable guidance.`;
 
-interface Message {
-  role: "user" | "assistant" | "system";
-  content: string;
+
+
+const BodySchema = z.object({
+  messages: z.array(z.object({
+    role: z.enum(["user", "assistant"]),
+    content: z.string().trim().min(1).max(4000),
+  })).min(1).max(50),
+});
+
+const rateLimitMap = new Map<string, { count: number, timestamp: number }>();
+const RATE_LIMIT = 5;
+const RATE_LIMIT_WINDOW = 60 * 1000;
+const MAX_MAP_SIZE = 1000;
+
+function cleanupRateLimitMap() {
+  const now = Date.now();
+  for (const [key, value] of rateLimitMap.entries()) {
+    if (now - value.timestamp > RATE_LIMIT_WINDOW) {
+      rateLimitMap.delete(key);
+    }
+  }
 }
 
 export async function POST(req: NextRequest) {
   const startTime = Date.now();
 
   try {
-    const { messages } = (await req.json()) as { messages: Message[] };
-
-    if (!messages || !Array.isArray(messages) || messages.length === 0) {
+    let parsed;
+    try {
+      parsed = BodySchema.safeParse(await req.json());
+    } catch {
       return NextResponse.json(
-        { error: "Invalid request: messages array is required." },
+        { error: "Invalid JSON body" },
         { status: 400 }
+      );
+    }
+
+    if (!parsed.success) {
+      return NextResponse.json(
+        { error: "Invalid request: messages array is required and must follow schema." },
+        { status: 400 }
+      );
+    }
+    const { messages } = parsed.data;
+
+    const headersList = await headers();
+    const ip = headersList.get("x-forwarded-for") || "unknown_ip";
+    const now = Date.now();
+    const userLimit = rateLimitMap.get(ip) || { count: 0, timestamp: now };
+    
+    if (now - userLimit.timestamp > RATE_LIMIT_WINDOW) {
+      userLimit.count = 1;
+      userLimit.timestamp = now;
+    } else {
+      userLimit.count += 1;
+    }
+
+    if (!rateLimitMap.has(ip) && rateLimitMap.size >= MAX_MAP_SIZE) {
+      cleanupRateLimitMap();
+      if (rateLimitMap.size >= MAX_MAP_SIZE) {
+        rateLimitMap.clear();
+      }
+    }
+    
+    rateLimitMap.set(ip, userLimit);
+
+    if (userLimit.count > RATE_LIMIT) {
+      return NextResponse.json(
+        { error: "Rate limit exceeded. Please try again later." },
+        { status: 429 }
       );
     }
 
@@ -61,10 +116,10 @@ export async function POST(req: NextRequest) {
 
     // Model fallback loop
     for (const model of FALLBACK_MODELS) {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 18000); // 18s timeout per model
+      
       try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 18000); // 18s timeout per model
-
         const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
           method: "POST",
           headers: {
@@ -82,8 +137,6 @@ export async function POST(req: NextRequest) {
           signal: controller.signal,
         });
 
-        clearTimeout(timeoutId);
-
         if (!response.ok) {
           const errData = await response.json().catch(() => ({}));
           console.warn(`[OpenRouter Fallback] ${model} failed (${response.status}):`, errData);
@@ -100,82 +153,13 @@ export async function POST(req: NextRequest) {
           continue;
         }
 
-        // Parse any embedded <think> tags or internal reflection blocks
-        let finalContent = rawContent;
-        const thoughtSteps: Array<{ title: string; items: string[] }> = [];
+        // Remove embedded <think> tags entirely, don't expose
+        let finalContent = rawContent.replace(/<think>[\s\S]*?<\/think>/gi, "").trim();
 
-        const thinkMatch = rawContent.match(/<think>([\s\S]*?)<\/think>/i);
-        if (thinkMatch) {
-          finalContent = rawContent.replace(/<think>[\s\S]*?<\/think>/i, "").trim();
-          const rawThoughts = thinkMatch[1].trim();
-          const items = rawThoughts
-            .split("\n")
-            .map((line: string) => line.trim().replace(/^[-*•\d.]\s*/, ""))
-            .filter((line: string) => line.length > 0)
-            .slice(0, 4);
-
-          thoughtSteps.push({
-            title: "Analysis & Intent Extraction",
-            items: items.length > 0 ? items : ["Parsed query against humanitarian coordination database"],
-          });
-        }
-
-        // Clean out trailing meta reflections/self-corrections if produced by raw free models
+        // Clean out trailing meta reflections/self-corrections
         const metaMatch = finalContent.match(/\n\n(?:\d+\.\s*)?\*\*(?:Self-Correction|Refinement|Thinking|Internal Review)[\s\S]*$/i);
         if (metaMatch) {
-          const metaText = metaMatch[0].trim();
           finalContent = finalContent.replace(metaMatch[0], "").trim();
-          const lines = metaText
-            .split("\n")
-            .map((l: string) => l.trim().replace(/^\**[^*]+\**:\s*/, "").replace(/^[-*•\d.]\s*/, ""))
-            .filter((l: string) => l.length > 0)
-            .slice(0, 3);
-          thoughtSteps.push({
-            title: "Self-Correction & Style Check",
-            items: lines.length > 0 ? lines : ["Verified against Nordic Lagom restrained tone"],
-          });
-        }
-
-        if (thoughtSteps.length === 0) {
-          // Construct calibrated thought steps based on prompt intent
-          const lastUserMsg = messages[messages.length - 1]?.content.toLowerCase() || "";
-          if (lastUserMsg.includes("health") || lastUserMsg.includes("emergency") || lastUserMsg.includes("medical")) {
-            thoughtSteps.push({
-              title: "Operational Triage Check",
-              items: [
-                "Identified emergency or healthcare query parameters",
-                "Referenced 18 decentralized health nodes and Signal hotline",
-                "Formatted triage response with priority contact protocols",
-              ],
-            });
-          } else if (lastUserMsg.includes("money") || lastUserMsg.includes("donate") || lastUserMsg.includes("ledger") || lastUserMsg.includes("fund")) {
-            thoughtSteps.push({
-              title: "Financial Integrity Verification",
-              items: [
-                "Parsed request relating to resource allocation or donations",
-                "Cross-referenced public Open Ledger protocol and hourly audits",
-                "Formulated transparent funding breakdown",
-              ],
-            });
-          } else if (lastUserMsg.includes("volunteer") || lastUserMsg.includes("join") || lastUserMsg.includes("help")) {
-            thoughtSteps.push({
-              title: "Volunteer Coordination Routing",
-              items: [
-                "Evaluated skill matching matrix (field mentorship vs remote technical)",
-                "Retrieved community hub onboarding requirements",
-                "Generated structured engagement guidance",
-              ],
-            });
-          } else {
-            thoughtSteps.push({
-              title: "Context Synthesis",
-              items: [
-                "Analyzed user query against One Vision knowledge graph",
-                "Applied Nordic Lagom factual communication guidelines",
-                "Validated frontline response accuracy",
-              ],
-            });
-          }
         }
 
         const executionTimeMs = Date.now() - startTime;
@@ -185,7 +169,6 @@ export async function POST(req: NextRequest) {
           modelUsed: model,
           fallbackAttempted: failedModels.length > 0,
           failedModels,
-          thoughtSteps,
           executionTimeMs,
         });
       } catch (err: unknown) {
@@ -193,6 +176,8 @@ export async function POST(req: NextRequest) {
         console.warn(`[OpenRouter Fallback] ${model} threw error:`, errorMsg);
         failedModels.push(model);
         lastError = errorMsg;
+      } finally {
+        clearTimeout(timeoutId);
       }
     }
 
@@ -208,7 +193,7 @@ export async function POST(req: NextRequest) {
   } catch (err: unknown) {
     console.error("[Chat API Fatal Error]:", err);
     return NextResponse.json(
-      { error: err instanceof Error ? err.message : "Internal server error" },
+      { error: "Internal server error" },
       { status: 500 }
     );
   }

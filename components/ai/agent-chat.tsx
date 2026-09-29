@@ -8,13 +8,7 @@ import {
   PromptInputTextarea,
 } from "@/components/prompt-kit/prompt-input";
 import { Loader } from "@/components/prompt-kit/loader";
-import {
-  ChainOfThought,
-  ChainOfThoughtStep,
-  ChainOfThoughtTrigger,
-  ChainOfThoughtContent,
-  ChainOfThoughtItem,
-} from "@/components/prompt-kit/chain-of-thought";
+
 import {
   ArrowUpIcon,
   Bot,
@@ -33,10 +27,6 @@ function createMessageId(prefix: string) {
   return `${prefix}-${messageCounter}`;
 }
 
-interface ThoughtStep {
-  title: string;
-  items: string[];
-}
 
 interface ChatMessage {
   id: string;
@@ -44,7 +34,6 @@ interface ChatMessage {
   content: string;
   modelUsed?: string;
   fallbackAttempted?: boolean;
-  thoughtSteps?: ThoughtStep[];
   executionTimeMs?: number;
 }
 
@@ -79,6 +68,10 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
   const handleSend = async (textToSend?: string) => {
     const text = (textToSend || inputValue).trim();
     if (!text || isLoading) return;
+    if (text.length > 4000) {
+      alert("Message is too long. Please keep it under 4000 characters.");
+      return;
+    }
 
     const userMessage: ChatMessage = {
       id: createMessageId("user"),
@@ -96,14 +89,16 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          messages: newMessages.map((m) => ({
-            role: m.role,
-            content: m.content,
-          })),
+          messages: newMessages
+            .filter((m) => !m.id.startsWith("error-"))
+            .map((m) => ({
+              role: m.role,
+              content: m.content,
+            })),
         }),
       });
 
-      const data = await response.json();
+      const data = await response.json().catch(() => ({}));
 
       if (!response.ok) {
         throw new Error(data.error || `HTTP error ${response.status}`);
@@ -115,7 +110,6 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
         content: data.content,
         modelUsed: data.modelUsed,
         fallbackAttempted: data.fallbackAttempted,
-        thoughtSteps: data.thoughtSteps,
         executionTimeMs: data.executionTimeMs,
       };
 
@@ -133,10 +127,14 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
     }
   };
 
-  const handleCopy = (id: string, text: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedId(id);
-    setTimeout(() => setCopiedId(null), 2000);
+  const handleCopy = async (id: string, text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedId(id);
+      setTimeout(() => setCopiedId(null), 2000);
+    } catch (err) {
+      console.error("Failed to copy", err);
+    }
   };
 
   const handleClear = () => {
@@ -262,23 +260,6 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
                   : "bg-surface/80 text-ink-900 rounded-tl-xs border border-border-default/60 shadow-2xs dark:bg-white/4 dark:text-paper dark:border-white/10"
               )}
             >
-              {/* Optional Chain of Thought Reasoning */}
-              {msg.role === "assistant" && msg.thoughtSteps && msg.thoughtSteps.length > 0 && (
-                <ChainOfThought defaultOpenAll={false}>
-                  {msg.thoughtSteps.map((step, sIdx) => (
-                    <ChainOfThoughtStep key={sIdx} id={`step-${msg.id}-${sIdx}`}>
-                      <ChainOfThoughtTrigger status="done">
-                        {step.title}
-                      </ChainOfThoughtTrigger>
-                      <ChainOfThoughtContent>
-                        {step.items.map((item, iIdx) => (
-                          <ChainOfThoughtItem key={iIdx}>{item}</ChainOfThoughtItem>
-                        ))}
-                      </ChainOfThoughtContent>
-                    </ChainOfThoughtStep>
-                  ))}
-                </ChainOfThought>
-              )}
 
               {/* Message Content */}
               <div className="whitespace-pre-wrap leading-relaxed font-sans font-light">

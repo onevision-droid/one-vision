@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Bot } from "lucide-react";
 import { AgentChat } from "@/components/ai/agent-chat";
@@ -20,6 +20,9 @@ export function openAgentChat() {
 
 export function FloatingAgentChat() {
   const [isOpen, setIsOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const prevFocusRef = useRef<HTMLElement | null>(null);
 
   // Listen for global open triggers
   useEffect(() => {
@@ -28,15 +31,49 @@ export function FloatingAgentChat() {
     return () => window.removeEventListener(AGENT_CHAT_OPEN_EVENT, handleOpen);
   }, []);
 
-  // Listen for Escape key to close dialog
+  // Listen for Escape key to close dialog and handle Focus Trapping
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
-        setIsOpen(false);
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    if (isOpen) {
+      prevFocusRef.current = document.activeElement as HTMLElement;
+      // Focus the textarea when opened
+      const timer = setTimeout(() => {
+        const input = dialogRef.current?.querySelector('textarea') as HTMLTextAreaElement;
+        if (input) input.focus();
+      }, 100);
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") {
+          setIsOpen(false);
+        } else if (e.key === "Tab" && dialogRef.current) {
+          const focusableElements = dialogRef.current.querySelectorAll(
+            'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])'
+          );
+          const firstElement = focusableElements[0] as HTMLElement;
+          const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+          if (e.shiftKey) {
+            if (document.activeElement === firstElement) {
+              lastElement.focus();
+              e.preventDefault();
+            }
+          } else {
+            if (document.activeElement === lastElement) {
+              firstElement.focus();
+              e.preventDefault();
+            }
+          }
+        }
+      };
+      
+      window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        window.removeEventListener("keydown", handleKeyDown);
+        clearTimeout(timer);
+        if (prevFocusRef.current) {
+          prevFocusRef.current.focus();
+        }
+      };
+    }
   }, [isOpen]);
 
   return (
@@ -52,6 +89,7 @@ export function FloatingAgentChat() {
             className="fixed bottom-6 right-6 z-40 sm:bottom-8 sm:right-8 print:hidden"
           >
             <motion.button
+              ref={triggerRef}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(true)}
@@ -84,6 +122,7 @@ export function FloatingAgentChat() {
 
             {/* Anchored Dialog Container */}
             <motion.div
+              ref={dialogRef}
               initial={{ opacity: 0, scale: 0.96, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 12 }}

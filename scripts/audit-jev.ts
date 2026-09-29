@@ -257,13 +257,21 @@ async function runAudit() {
     totalWarnings += staticViolations.filter((v) => v.severity === "warning").length;
 
     let jevResult: JevEvaluation | null = null;
+    let jevFailed = false;
     if (jevClient) {
       process.stdout.write(`[${i + 1}/${files.length}] Evaluating with Jev: ${file}... `);
       jevResult = await auditWithJev(jevClient, file, content);
       process.stdout.write("Done.\n");
+      if (!jevResult) {
+        jevFailed = true;
+        totalErrors++;
+      } else if (jevResult.lagomScore === 0) {
+        jevFailed = true;
+        totalErrors++;
+      }
     }
 
-    const status = hasError ? "fail" : hasWarn ? "warn" : "pass";
+    const status = (hasError || jevFailed) ? "fail" : hasWarn ? "warn" : "pass";
 
     results.push({
       filePath: fullPath,
