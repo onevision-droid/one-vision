@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Libre_Baskerville, Oswald } from "next/font/google";
+import { Inter, JetBrains_Mono, Libre_Baskerville, Oswald, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { SkipLink } from "@/components/ui/SkipLink";
 import { TooltipProvider } from "@/components/ui/tooltip";
+
+const dmSansHeading = DM_Sans({subsets:['latin'],variable:'--font-heading'});
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -71,7 +73,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en-GB"
-      className={cn("h-full antialiased overflow-x-hidden", inter.variable, jetbrainsMono.variable, libreBaskerville.variable, oswald.variable)}
+      className={cn("h-full antialiased overflow-x-hidden", inter.variable, jetbrainsMono.variable, libreBaskerville.variable, oswald.variable, dmSansHeading.variable)}
     >
       <body className="min-h-full flex flex-col font-sans bg-background text-text-primary overflow-x-hidden">
         <SkipLink />
