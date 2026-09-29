@@ -57,9 +57,9 @@ export function ProgrammeFilter({ programmes }: { programmes: Programme[] }) {
             <p className="font-sans text-base-sm text-muted-foreground leading-relaxed font-light mb-6 max-w-50">
               Have an initiative that needs community support? Let&apos;s collaborate.
             </p>
-            <div className="inline-flex items-center gap-2 px-6 py-3 border border-border bg-card group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground text-foreground font-sans text-xs font-medium tracking-wider uppercase transition-colors duration-300 rounded-sm shadow-2xs">
-              <span>Contact us</span>
-              <ArrowRight className="size-4" />
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 border border-border bg-card group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground text-foreground font-sans text-xs font-medium transition-colors duration-300 rounded-sm shadow-2xs">
+              <span>Contact</span>
+              <ArrowRight className="size-3.5" />
             </div>
           </Link>
         )}

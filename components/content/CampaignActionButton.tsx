@@ -13,7 +13,7 @@ interface CampaignActionButtonProps {
 export function CampaignActionButton({
   campaignSlug,
   campaignId,
-  label ="Donate to this campaign",
+  label = "Donate",
 }: CampaignActionButtonProps) {
   const handleClick = () => {
     trackEvent("campaign_action", {

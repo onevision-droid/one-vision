@@ -88,7 +88,7 @@ export function ContactForm() {
           }}
           className="text-body-sm font-medium text-primary hover:text-primary/80 transition-colors"
         >
-          Send another message
+          Send another
         </button>
       </div>
     );
@@ -202,10 +202,10 @@ export function ContactForm() {
             <Button
               type="submit"
               variant="primary"
-              className="w-full h-12 flex items-center justify-center gap-2 text-body-sm"
+              className="w-full h-10 flex items-center justify-center gap-2 text-xs font-medium"
             >
-              <span>Send Message</span>
-              <ArrowRight className="size-4" />
+              <span>Send</span>
+              <ArrowRight className="size-3.5" />
             </Button>
           </div>
         </form>

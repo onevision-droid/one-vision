@@ -18,12 +18,11 @@ export default function NotFound() {
  </p>
  <Button
  variant="primary"
- size="lg"
  nativeButton={false}
- className="gap-2 px-6"
+ className="gap-2"
  render={<Link href="/" />}
  >
- <ArrowLeft className="size-4" />
+ <ArrowLeft className="size-3.5" />
  Return Home
  </Button>
  </Container>

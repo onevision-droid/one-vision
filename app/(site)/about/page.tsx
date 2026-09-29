@@ -169,9 +169,9 @@ export default function AboutPage() {
         heading="Support our work."
         description="Your contribution helps us expand our reach and build more resilient communities in Manipur."
         action={
-          <Link href="/donate" className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-xs sm:text-[13px] transition-colors duration-300 rounded-[2px]">
-            <span>Make a donation</span>
-            <ArrowRight className="size-4" />
+          <Link href="/donate" className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-xs transition-colors rounded-sm">
+            <span>Donate</span>
+            <ArrowRight className="size-3.5" />
           </Link>
         }
       />

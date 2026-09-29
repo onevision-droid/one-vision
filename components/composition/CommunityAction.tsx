@@ -81,16 +81,15 @@ function DownloadIllustration() {
  <div className="z-10 absolute inset-0 m-auto size-fit flex flex-col items-center justify-center">
  <Button
  variant="secondary"
- className="bg-background border border-border z-20 relative hover:bg-muted hover:text-foreground transition-colors font-sans font-bold tracking-widest uppercase h-12 px-6"
- size="sm"
+ className="bg-background border border-border z-20 relative hover:bg-muted hover:text-foreground transition-colors font-sans font-medium text-xs h-10 px-4 rounded-sm"
  nativeButton={false}
  render={
- <div className="flex items-center gap-3 text-current">
- <HardDriveDownload className="size-5" />
- <span className="border-r-2 border-current pr-3 font-bold text-sm">
- Download Data
+ <div className="flex items-center gap-2.5 text-current">
+ <HardDriveDownload className="size-4" />
+ <span className="border-r border-border pr-2.5 font-medium text-xs">
+ Export Data
  </span>
- <ChevronDown className="size-5" />
+ <ChevronDown className="size-4" />
  </div>
  }
  />

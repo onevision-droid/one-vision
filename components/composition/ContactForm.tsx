@@ -132,7 +132,7 @@ export function ContactForm() {
         <Button 
           type="submit" 
           disabled={isSubmitting || isSuccess}
-          className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium tracking-wider uppercase transition-colors flex items-center justify-center gap-2 rounded-sm mt-auto shadow-xs"
+          className="w-full h-10 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium transition-colors flex items-center justify-center gap-2 rounded-sm mt-auto shadow-xs"
         >
           {isSubmitting ? (
             <span className="flex items-center gap-2">
@@ -142,11 +142,11 @@ export function ContactForm() {
           ) : isSuccess ? (
             <span className="flex items-center gap-2">
               <CheckCircle2 className="size-4" />
-              Message Sent
+              Sent
             </span>
           ) : (
             <>
-              Send Message
+              Send
               <ArrowRight className="size-3.5" />
             </>
           )}

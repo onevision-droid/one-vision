@@ -83,8 +83,8 @@ export default function ReportsPage() {
               <p className="text-body-sm text-muted-foreground font-light leading-relaxed mb-6 max-w-xl">
                 We maintain an open public ledger of all fund allocations. Every rupee donated is audited, verified, and directed towards maximum community impact in Manipur.
               </p>
-              <Button variant="secondary" className="gap-2 px-6" nativeButton={false} render={<Link href="/open-ledger" />}>
-                View Open Ledger <ArrowRight className="size-4" />
+              <Button variant="secondary" className="gap-2" nativeButton={false} render={<Link href="/open-ledger" />}>
+                Open Ledger <ArrowRight className="size-3.5" />
               </Button>
             </div>
           </div>
@@ -98,11 +98,11 @@ export default function ReportsPage() {
  action={
  <Button
  nativeButton={false}
- className="gap-2 px-6"
+ className="gap-2"
  render={
  <Link href="/donate" className="flex items-center">
- <span>Make a donation</span>
- <ArrowRight className="size-4" />
+ <span>Donate</span>
+ <ArrowRight className="size-3.5" />
  </Link>
  }
  />

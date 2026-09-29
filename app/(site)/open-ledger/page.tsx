@@ -52,8 +52,8 @@ export default async function OpenLedgerPage() {
               </div>
               
               <Button variant="secondary" className="gap-2 shrink-0" nativeButton={false} render={<a href="/api/download-ledger" />}>
-                <Download className="size-4" />
-                Download CSV
+                <Download className="size-3.5" />
+                Export CSV
               </Button>
             </div>
             

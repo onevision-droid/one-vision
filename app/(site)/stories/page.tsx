@@ -62,9 +62,9 @@ export default function StoriesPage() {
               <p className="font-sans text-lg text-muted-foreground font-light leading-relaxed mb-6 sm:mb-8">
                 {featured.excerpt}
               </p>
-              <div className="inline-flex items-center gap-2 font-sans text-xs font-medium uppercase tracking-wider text-primary group-hover:translate-x-0.5 transition-all mt-auto">
-                <span>Read full story</span>
-                <ArrowRight className="size-4" />
+              <div className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-primary group-hover:translate-x-0.5 transition-all mt-auto">
+                <span>Read Story</span>
+                <ArrowRight className="size-3.5" />
               </div>
             </div>
           </Link>
@@ -99,9 +99,9 @@ export default function StoriesPage() {
         heading="Have a story to tell?"
         description="We are always looking to amplify local voices and document community resilience. Reach out if you have a story that needs to be told."
         action={
-          <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300">
-            <span>Contact us</span>
-            <ArrowRight className="size-4" />
+          <Link href="/contact" className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium transition-colors rounded-sm">
+            <span>Contact</span>
+            <ArrowRight className="size-3.5" />
           </Link>
         }
       />

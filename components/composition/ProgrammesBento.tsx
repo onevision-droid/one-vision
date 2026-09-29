@@ -89,8 +89,8 @@ export function ProgrammesBento() {
                     <p className="font-sans text-xs font-medium text-muted-foreground mb-4">
                       {pillar.metrics[0].label}
                     </p>
-                    <span className="inline-flex items-center gap-1.5 font-sans text-xs font-semibold text-primary group-hover:underline underline-offset-4 transition-all">
-                      Learn about this initiative <ArrowRight className="size-3.5" />
+                    <span className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-primary group-hover:underline underline-offset-4 transition-all">
+                      Learn More <ArrowRight className="size-3.5" />
                     </span>
                   </div>
                 </div>

@@ -56,11 +56,11 @@ export default function CampaignsPage() {
         action={
           <Button
             nativeButton={false}
-            className="gap-2 px-6"
+            className="gap-2"
             render={
               <Link href="/donate" className="flex items-center">
-                <span>Donate now</span>
-                <ArrowRight className="size-4" />
+                <span>Donate</span>
+                <ArrowRight className="size-3.5" />
               </Link>
             }
           />

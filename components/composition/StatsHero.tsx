@@ -41,10 +41,10 @@ export function StatsHero({
           <div className="mt-auto pt-2">
             <Link
               href={ctaHref}
-              className="inline-flex items-center gap-2 px-5 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-xs transition-colors duration-300 rounded-[2px]"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-xs transition-colors duration-300 rounded-sm"
             >
               {ctaLabel}
-              <ArrowRight className="size-4" />
+              <ArrowRight className="size-3.5" />
             </Link>
           </div>
         )}

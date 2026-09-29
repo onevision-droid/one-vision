@@ -259,10 +259,10 @@ export function VolunteerForm() {
         <div className="pt-4">
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium uppercase tracking-widest transition-colors duration-300 rounded-sm shadow-xs"
+            className="w-full flex items-center justify-center gap-2 h-10 px-5 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium transition-colors rounded-sm shadow-xs"
           >
-            <span>Submit Application</span>
-            <ArrowRight className="size-4" />
+            <span>Apply Now</span>
+            <ArrowRight className="size-3.5" />
           </button>
         </div>
       </form>

@@ -37,7 +37,7 @@ const RESOURCE_CANDIDATES: CommunityResourceCandidate[] = [
     category: "health",
     label: "Community Health Connect & Local Clinics",
     destination: "/programmes/community-health-connect",
-    actionText: "View Health Centres & Services",
+    actionText: "View Clinics",
     description: "Connects residents to 18 local healthcare hubs, maternal care, primary consultations, and preventative medicine in Manipur.",
     keywords: ["health", "clinic", "doctor", "medicine", "nurse", "checkup", "patient", "wellness", "immunization", "hubs", "subcenter", "telemedicine", "hospital", "sick", "prescription"]
   },
@@ -46,7 +46,7 @@ const RESOURCE_CANDIDATES: CommunityResourceCandidate[] = [
     category: "relief",
     label: "Emergency Assistance & Crisis Relief",
     destination: "/get-help",
-    actionText: "Request Community Assistance",
+    actionText: "Get Help",
     description: "Direct frontline assistance for families facing displacement, medical distress, severe flooding, or critical supply shortages.",
     keywords: ["emergency", "relief", "crisis", "flood", "disaster", "supplies", "shelter", "food", "ambulance", "urgent", "help", "danger", "cut off", "immediate", "injured"]
   },
@@ -55,7 +55,7 @@ const RESOURCE_CANDIDATES: CommunityResourceCandidate[] = [
     category: "transparency",
     label: "Open Ledger & Audited Financial Reports",
     destination: "/open-ledger",
-    actionText: "Inspect Audited Accounts",
+    actionText: "Open Ledger",
     description: "Every rupee received and spent is transparently recorded. Download audit statements, 80G tax exemptions, and hourly project allocations.",
     keywords: ["ledger", "money", "funds", "audit", "accounts", "expenditure", "rupee", "spending", "finance", "donation tracking", "transparency", "balance", "receipts", "inr", "tax exemption", "80g"]
   },
@@ -64,7 +64,7 @@ const RESOURCE_CANDIDATES: CommunityResourceCandidate[] = [
     category: "volunteer",
     label: "Volunteer With Our Grassroots Network",
     destination: "/volunteer",
-    actionText: "Join Volunteer Network",
+    actionText: "Volunteer",
     description: "Contribute your time, teaching skills, technical engineering, or medical training to support community initiatives across Manipur.",
     keywords: ["volunteer", "join", "help out", "skills", "teach", "fellowship", "fieldwork", "contribute time", "youth mentor", "apply"]
   },
@@ -73,7 +73,7 @@ const RESOURCE_CANDIDATES: CommunityResourceCandidate[] = [
     category: "programmes",
     label: "Local Enterprise & Clean Solar Power",
     destination: "/programmes/local-enterprise-lab",
-    actionText: "Explore Clean Energy & Livelihoods",
+    actionText: "Explore Lab",
     description: "Decentralized solar microgrids providing uninterrupted power to community health clinics, artisans, and rural enterprises.",
     keywords: ["solar", "energy", "power", "grid", "microgrid", "electricity", "battery", "cold chain", "artisan", "cooperative", "enterprise", "livelihoods", "farmers"]
   },
@@ -82,7 +82,7 @@ const RESOURCE_CANDIDATES: CommunityResourceCandidate[] = [
     category: "programmes",
     label: "Green Manipur Lab & Ecological Conservation",
     destination: "/programmes/green-manipur-lab",
-    actionText: "Explore Environmental Action",
+    actionText: "Explore Lab",
     description: "Community tree restoration, indigenous heirloom seed conservation, watershed preservation, and neighbourhood recycling.",
     keywords: ["green", "ecology", "environment", "seeds", "trees", "forest", "nature", "conservation", "water", "soil", "organic", "biodiversity"]
   },
@@ -91,7 +91,7 @@ const RESOURCE_CANDIDATES: CommunityResourceCandidate[] = [
     category: "programmes",
     label: "FutureWorks Youth Mentorship & Digital Skills",
     destination: "/programmes/futureworks",
-    actionText: "Explore Youth Programmes",
+    actionText: "Explore Youth",
     description: "Hands-on project mentorship, digital education, and portfolio-building for Manipur's next generation of community leaders.",
     keywords: ["youth", "futureworks", "skills", "education", "training", "jobs", "students", "portfolio", "computer", "digital", "vocational"]
   },
@@ -100,7 +100,7 @@ const RESOURCE_CANDIDATES: CommunityResourceCandidate[] = [
     category: "governance",
     label: "Governance, Board of Trustees & 1988 Charter",
     destination: "/about/governance",
-    actionText: "View Governance & Bylaws",
+    actionText: "View Charter",
     description: "Registered under the Manipur Societies Registration Act (1989). Independent board oversight, bylaws, and conflict-of-interest policies.",
     keywords: ["governance", "board", "trustees", "bylaws", "legal", "registration", "fcra", "ngo", "charter", "society", "trust", "leadership"]
   },
@@ -109,7 +109,7 @@ const RESOURCE_CANDIDATES: CommunityResourceCandidate[] = [
     category: "transparency",
     label: "Donate to Community Resilience (80G Tax-Exempt)",
     destination: "/donate",
-    actionText: "Make a Contribution",
+    actionText: "Donate",
     description: "Directly fund grassroots medical kits, school supplies, clean water, and solar installations. All Indian donations qualify for 50% tax deduction under Section 80G.",
     keywords: ["donate", "give", "contribution", "support", "fund", "upi", "bank transfer", "80g", "tax deduction", "sponsor"]
   }

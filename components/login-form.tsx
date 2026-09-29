@@ -82,8 +82,8 @@ export function LoginForm({
                 />
               </Field>
               <Field className="pt-2">
-                <Button type="submit" disabled={loading} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-sm">
-                  {loading ?"Authenticating..." :"Authenticate"}
+                <Button type="submit" disabled={loading} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-xs">
+                  {loading ? "Signing in..." : "Sign In"}
                 </Button>
               </Field>
             </FieldGroup>

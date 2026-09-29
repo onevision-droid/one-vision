@@ -188,7 +188,7 @@ export function Footer() {
                   href="/get-help"
                   className="inline-flex items-center gap-1.5 text-xs font-sans font-medium text-primary hover:text-primary/80 transition-colors group"
                 >
-                  <span>Request Community Support</span>
+                  <span>Get Help</span>
                   <span className="transition-transform group-hover:translate-x-0.5">&rarr;</span>
                 </Link>
               </div>

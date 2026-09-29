@@ -208,7 +208,7 @@ export function SiteHeader() {
               <motion.div whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>
                 <Link
                   href="/donate"
-                  className="inline-flex items-center gap-2 px-5 py-2 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs sm:text-[13px] font-semibold tracking-normal transition-colors duration-300 rounded-[2px]"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium tracking-normal transition-colors rounded-sm"
                 >
                   <span>Donate</span>
                   <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -297,20 +297,20 @@ export function SiteHeader() {
                 <Link
                   href="/get-help"
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-2 p-3 border border-border bg-muted hover:border-foreground transition-colors rounded-[2px]"
+                  className="flex items-center gap-2 p-2.5 border border-border bg-muted hover:border-foreground transition-colors rounded-sm text-xs"
                 >
                   <MessageSquare className="size-3.5 text-primary" />
-                  <span className="font-medium">Get Assistance</span>
+                  <span className="font-medium">Get Help</span>
                 </Link>
               </div>
 
               <Link
                 href="/donate"
                 onClick={() => setMobileOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-3.5 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-sm font-semibold tracking-normal transition-colors duration-300 rounded-[2px]"
+                className="w-full flex items-center justify-center gap-2 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium tracking-normal transition-colors rounded-sm"
               >
-                <span>Support Our Community Mission</span>
-                <ArrowRight className="size-4" />
+                <span>Donate</span>
+                <ArrowRight className="size-3.5" />
               </Link>
             </div>
           </motion.div>

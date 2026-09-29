@@ -113,11 +113,10 @@ export default function TeamPage() {
           <Button
             nativeButton={false}
             variant="primary"
-            size="lg"
-            className="px-8 gap-2"
+            className="gap-2"
             render={
               <Link href="/contact" className="inline-flex items-center justify-center">
-                Contact the Team <ArrowRight aria-hidden="true" />
+                Contact Us <ArrowRight aria-hidden="true" className="size-3.5 ml-1" />
               </Link>
             }
           />

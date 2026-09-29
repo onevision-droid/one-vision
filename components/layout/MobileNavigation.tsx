@@ -37,7 +37,7 @@ export function MobileNavigation({ navLinks }: { navLinks: { href: string; label
                 Search
               </button>
             </nav>
-            <Button variant="primary" className="mt-4 font-sans w-full">Support Us</Button>
+            <Button variant="primary" className="mt-4 w-full">Donate</Button>
           </div>
         </SheetContent>
       </Sheet>

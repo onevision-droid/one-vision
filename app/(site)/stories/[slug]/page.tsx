@@ -158,9 +158,9 @@ export default async function StoryPage({ params }: Props) {
         heading="Support Community Action"
         description="Every story of resilience is backed by community support. Your contribution directly funds these local initiatives."
         action={
-          <Link href="/donate" className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300">
-            <span>Donate to our fund</span>
-            <ArrowRight className="size-4" />
+          <Link href="/donate" className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium transition-colors rounded-sm">
+            <span>Donate</span>
+            <ArrowRight className="size-3.5" />
           </Link>
         }
       />

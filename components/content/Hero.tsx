@@ -24,20 +24,20 @@ export function Hero() {
               Serving the communities of Manipur with healthcare, sustainable livelihoods, ecological restoration, and youth mentorship.
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-4 shrink-0">
+            <div className="mt-6 flex flex-wrap gap-3 shrink-0">
               <Link
                 href="/programmes"
-                className="bg-primary text-primary-foreground hover:bg-opacity-90 hover:-translate-y-px transition-all flex items-center justify-center gap-2 px-6 py-2.5 rounded-[3px] font-sans text-xs sm:text-[13px] font-semibold"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 hover:-translate-y-px transition-all flex items-center justify-center gap-2 px-5 py-2.5 rounded-sm font-sans text-xs font-medium"
               >
-                Explore Our Work
-                <ArrowRight aria-hidden="true" className="size-4" />
+                Our Work
+                <ArrowRight aria-hidden="true" className="size-3.5" />
               </Link>
               <Link 
                 href="/volunteer"
-                className="bg-transparent text-foreground border border-border hover:bg-muted hover:-translate-y-px transition-all flex items-center justify-center gap-2 px-6 py-2.5 rounded-[3px] font-sans text-xs sm:text-[13px] font-medium"
+                className="bg-transparent text-foreground border border-border hover:bg-muted hover:-translate-y-px transition-all flex items-center justify-center gap-2 px-5 py-2.5 rounded-sm font-sans text-xs font-medium"
               >
-                Get Involved
-                <ArrowUpRight className="size-4" aria-hidden="true" />
+                Volunteer
+                <ArrowUpRight className="size-3.5" aria-hidden="true" />
               </Link>
             </div>
           </div>

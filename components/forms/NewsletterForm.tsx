@@ -126,17 +126,17 @@ export function NewsletterForm({
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ?"newsletter-email-error" : undefined}
             disabled={status ==="loading"}
-            className="h-11 bg-muted border-border focus-visible:border-destructive text-body-sm"
+            className="h-10 bg-muted border-border focus-visible:border-destructive text-xs"
             {...register("email")}
           />
         </div>
         <Button
           type="submit"
           variant="primary"
-          disabled={status ==="loading"}
-          className="h-11 px-5 text-body-sm font-medium shrink-0"
+          disabled={status === "loading"}
+          className="h-10 px-4 text-xs font-medium shrink-0"
         >
-          {status ==="loading" ?"Subscribing..." :"Subscribe"}
+          {status === "loading" ? "Subscribing..." : "Subscribe"}
         </Button>
       </div>
 

@@ -92,7 +92,7 @@ export default function Home() {
         <StatsHero
           heading="What does community change look like?"
           description="It looks like a young person gaining practical livelihood skills. A neighbourhood restoring clean waterways. A family accessing reliable medicine and preventative health care. That is lasting impact."
-          ctaLabel="Explore our community stories"
+          ctaLabel="Read Stories"
           ctaHref="/stories"
           stats={orgData.stats.map((stat) => ({
             value: typeof stat.value === "number" ? stat.value.toLocaleString("en-GB") : String(stat.value),
@@ -151,8 +151,8 @@ export default function Home() {
                 {stories[0].excerpt}
               </p>
               <div className="mt-auto">
-                <Link href={`/stories/${stories[0].slug}`} className="inline-flex w-fit items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-xs sm:text-[13px] transition-colors duration-300 rounded-[2px]">
-                  Read Full Story <ArrowRight className="size-4" />
+                <Link href={`/stories/${stories[0].slug}`} className="inline-flex w-fit items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-xs transition-colors rounded-sm">
+                  Read Story <ArrowRight className="size-3.5" />
                 </Link>
               </div>
               <div className="mt-12 pt-6 border-t border-border flex items-start gap-3 text-muted-foreground">
@@ -191,10 +191,10 @@ export default function Home() {
                 Whether you need health assistance, disaster relief, or want to collaborate on local community projects, our coordinators are on the ground across Manipur.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/get-help" className="inline-flex w-fit items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-xs sm:text-[13px] transition-colors duration-300 rounded-[2px]">
-                  <MessageCircle className="size-4" aria-hidden="true" />
-                  <span>Get Assistance</span>
-                  <ExternalLink className="size-3.5" aria-hidden="true" />
+                <Link href="/get-help" className="inline-flex w-fit items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-xs transition-colors rounded-sm">
+                  <MessageCircle className="size-3.5" aria-hidden="true" />
+                  <span>Get Help</span>
+                  <ExternalLink className="size-3" aria-hidden="true" />
                 </Link>
               </div>
             </div>
@@ -252,8 +252,8 @@ export default function Home() {
                   Every donation and grant allocation tracked with hourly updates. No hidden costs, with maximum funding directed to field programmes.
                 </p>
               </div>
-              <span className="inline-flex items-center gap-2 font-sans text-xs font-semibold text-primary mt-8 group-hover:underline underline-offset-4 transition-colors">
-                View Live Ledger <ArrowRight className="size-4" aria-hidden="true" />
+              <span className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-primary mt-8 group-hover:underline underline-offset-4 transition-colors">
+                Open Ledger <ArrowRight className="size-3.5" aria-hidden="true" />
               </span>
             </Link>
             <Link href="/about/governance" className="group bg-background hover:bg-muted/40 p-6 md:p-8 flex flex-col justify-between h-full transition-colors duration-300">
@@ -264,8 +264,8 @@ export default function Home() {
                   Governed under the Manipur Societies Registration Act (1989). Independent board oversight, bylaws, and conflict of interest policies.
                 </p>
               </div>
-              <span className="inline-flex items-center gap-2 font-sans text-xs font-semibold text-primary mt-8 group-hover:underline underline-offset-4 transition-colors">
-                View Governance <ArrowRight className="size-4" aria-hidden="true" />
+              <span className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-primary mt-8 group-hover:underline underline-offset-4 transition-colors">
+                Governance <ArrowRight className="size-3.5" aria-hidden="true" />
               </span>
             </Link>
             <Link href="/reports" className="group bg-background hover:bg-muted/40 p-6 md:p-8 flex flex-col justify-between h-full transition-colors duration-300">
@@ -276,8 +276,8 @@ export default function Home() {
                   Download verified annual reports, statutory auditor certificates, and programme impact evaluations.
                 </p>
               </div>
-              <span className="inline-flex items-center gap-2 font-sans text-xs font-semibold text-primary mt-8 group-hover:underline underline-offset-4 transition-colors">
-                View Reports <ArrowRight className="size-4" aria-hidden="true" />
+              <span className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-primary mt-8 group-hover:underline underline-offset-4 transition-colors">
+                Reports <ArrowRight className="size-3.5" aria-hidden="true" />
               </span>
             </Link>
           </div>
@@ -297,13 +297,13 @@ export default function Home() {
           <p className="font-sans text-base md:text-xl max-w-2xl mx-auto text-muted-foreground mb-10 font-light leading-relaxed text-balance">
             One Vision is working with families, youth, and local leaders across Manipur to build healthier communities, restore fragile ecosystems, and expand economic opportunity.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
-            <Link href="/programmes" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-xs sm:text-[13px] transition-colors duration-300 rounded-[2px]">
-              Explore Our Programmes
-              <ArrowRight className="size-4" />
+          <div className="flex flex-col sm:flex-row gap-3 justify-center w-full sm:w-auto">
+            <Link href="/programmes" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-xs transition-colors rounded-sm">
+              Our Work
+              <ArrowRight className="size-3.5" />
             </Link>
-            <Link href="/volunteer" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-4 bg-background border border-border text-foreground hover:bg-muted font-medium text-xs sm:text-[13px] transition-colors duration-300 rounded-[2px]">
-              Volunteer With Us
+            <Link href="/volunteer" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 py-2.5 bg-background border border-border text-foreground hover:bg-muted font-medium text-xs transition-colors rounded-sm">
+              Volunteer
             </Link>
           </div>
         </div>

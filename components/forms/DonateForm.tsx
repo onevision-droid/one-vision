@@ -122,11 +122,11 @@ export function DonateForm({
                       type="button"
                       onClick={() => field.onChange("one-time")}
                       className={cn(
-                        "px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors",
+                        "px-4 py-2.5 font-sans text-xs font-medium transition-colors",
                         field.value === "one-time" ? "bg-primary text-primary-foreground shadow-xs" : "text-muted-foreground hover:bg-background"
                       )}
                     >
-                      One-time Giving
+                      One-time
                     </button>
                     <button
                       type="button"
@@ -138,14 +138,14 @@ export function DonateForm({
                       disabled={!recurringEnabled}
                       title={!recurringEnabled ? "Monthly recurring giving is coming soon" : undefined}
                       className={cn(
-                        "px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors",
+                        "px-4 py-2.5 font-sans text-xs font-medium transition-colors",
                         field.value === "monthly"
                           ? "bg-primary text-primary-foreground shadow-xs"
                           : "text-muted-foreground hover:bg-background",
                         !recurringEnabled && "opacity-50 cursor-not-allowed hover:bg-transparent"
                       )}
                     >
-                      Monthly Support {!recurringEnabled && <span className="text-[9px] text-muted-foreground ml-1">(Coming Soon)</span>}
+                      Monthly {!recurringEnabled && <span className="text-[10px] text-muted-foreground ml-1">(Soon)</span>}
                     </button>
                   </div>
                 </FormControl>
@@ -284,10 +284,10 @@ export function DonateForm({
         </div>
 
         {/* Submit Action */}
-        <div className="pt-8">
-          <button type="submit" className="w-full flex items-center justify-center gap-2 px-8 py-5 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium uppercase tracking-widest transition-colors duration-300 rounded-sm shadow-xs">
-            <span>Proceed to Contribution</span>
-            <ArrowRight className="size-4" />
+        <div className="pt-6">
+          <button type="submit" className="w-full flex items-center justify-center gap-2 h-10 px-5 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium transition-colors rounded-sm shadow-xs">
+            <span>Donate</span>
+            <ArrowRight className="size-3.5" />
           </button>
           <p className="text-center font-mono text-[10px] text-muted-foreground mt-6 flex items-center justify-center gap-2 uppercase tracking-widest font-bold">
             <Lock className="size-3" /> Secure 256-Bit Encrypted Giving · Official 80G Receipt Issued

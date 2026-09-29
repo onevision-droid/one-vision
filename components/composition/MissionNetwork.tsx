@@ -32,11 +32,11 @@ export function MissionNetwork() {
  </p>
  <Button
  nativeButton={false}
- className="bg-primary hover:bg-primary/90 text-background font-sans font-bold tracking-widest uppercase h-12 px-8 border-2 border-transparent transition-colors"
+ className="bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium h-10 px-5 rounded-sm transition-colors"
  render={
  <Link href="/about" className="flex items-center gap-2">
- <span>Read our manifesto</span>
- <ArrowRight className="size-5" />
+ <span>Our Mission</span>
+ <ArrowRight className="size-3.5" />
  </Link>
  }
  />

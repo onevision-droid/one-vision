@@ -125,8 +125,8 @@ export default function EventsPage() {
                       className="w-full md:w-auto"
                       nativeButton={false}
                       render={
-                        <Link href={evt.registrationUrl ||"/contact"}>
-                          Register to Attend <ArrowRight className="size-4 ml-1.5" />
+                        <Link href={evt.registrationUrl || "/contact"}>
+                          Register <ArrowRight className="size-3.5 ml-1" />
                         </Link>
                       }
                     />
@@ -212,10 +212,10 @@ export default function EventsPage() {
         action={
           <Button
             nativeButton={false}
-            className="gap-2 px-6"
+            className="gap-2"
             render={
               <Link href="/contact" className="flex items-center">
-                Contact Coordination Team <ArrowRight className="size-4 ml-1.5" />
+                Contact Us <ArrowRight className="size-3.5 ml-1" />
               </Link>
             }
           />

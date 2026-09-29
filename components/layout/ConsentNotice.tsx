@@ -65,9 +65,9 @@ export function ConsentNotice() {
  <Button
  onClick={handleAcknowledge}
  variant="primary"
- className="px-6 py-2.5 text-body-sm font-semibold flex-1 md:flex-none"
+ className="flex-1 md:flex-none"
  >
- Acknowledge
+ Accept
  </Button>
  <Link
  href="/privacy"

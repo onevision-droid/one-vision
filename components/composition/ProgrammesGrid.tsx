@@ -26,8 +26,8 @@ export function ProgrammesGrid() {
             nativeButton={false}
             render={
               <Link href="/programmes" className="flex items-center gap-2">
-                <span>See full directory</span>
-                <ArrowRight className="size-4" />
+                <span>All Programmes</span>
+                <ArrowRight className="size-3.5" />
               </Link>
             }
           />

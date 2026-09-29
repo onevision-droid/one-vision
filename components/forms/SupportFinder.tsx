@@ -80,7 +80,7 @@ export function SupportFinder() {
  className="shrink-0"
  render={<Link href="/contact" />}
  >
- Contact Support
+ Contact Us
  </Button>
  </div>
  </div>
