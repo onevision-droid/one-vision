@@ -24,11 +24,11 @@ export function SplitNarrative({
       aria-labelledby={headingId}
       className={className}
     >
-      <Container className="px-0 md:px-0">
+      <Container>
         {heading && (
-          <div className="border-b lg:border-x border-border px-6 py-4 md:px-8 md:py-5 bg-muted">
+          <div className="border border-b-0 border-border px-6 py-4 md:px-8 md:py-5 bg-muted">
             <div className="flex items-center gap-3">
-              <span className="size-1.5 bg-destructive shrink-0" />
+              <span className="size-1.5 bg-primary shrink-0" />
               <h2
                 id={headingId}
                 className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground font-bold"
@@ -41,8 +41,8 @@ export function SplitNarrative({
 
         <div
           className={cn(
-           "grid lg:grid-cols-12 overflow-hidden border-b lg:border-x border-border bg-background",
-            reversed ?"lg:[direction:rtl] lg:*:[direction:ltr]" :"",
+            "grid lg:grid-cols-12 overflow-hidden border border-border bg-background",
+            reversed ? "lg:[direction:rtl] lg:*:[direction:ltr]" : "",
           )}
         >
           {/* Content: 6 columns — 50% */}

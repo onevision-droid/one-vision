@@ -23,8 +23,8 @@ const icons = {
 export function ProgrammesBento() {
   return (
     <Section tone="default" className="py-8 lg:py-14 border-t border-border bg-background">
-      <Container className="px-0 md:px-0">
-        <div className="border-b lg:border-x border-border p-6 md:p-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6 bg-background">
+      <Container>
+        <div className="border border-border p-6 md:p-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6 bg-background">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <span className="size-2 rounded-full bg-primary shrink-0" />
@@ -43,14 +43,14 @@ export function ProgrammesBento() {
         </div>
 
         {/* Pillar Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border border-x border-border border-b bg-background">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-x border-b border-border bg-background">
           {programmes.map((pillar, index) => {
             const Icon = icons[pillar.slug as keyof typeof icons] || Activity;
             return (
               <Link
                 key={pillar.id}
                 href={`/programmes/${pillar.slug}`}
-                className="group flex flex-col h-full bg-card border-b border-l-[3px] border-l-border hover:border-l-primary border-r border-border hover:bg-muted/30 transition-colors duration-300"
+                className="group flex flex-col h-full bg-card border-b border-border md:border-r hover:bg-muted/30 transition-colors duration-300"
               >
                 {/* Header Bar */}
                 <div className="flex items-center justify-between p-6 border-b border-border">

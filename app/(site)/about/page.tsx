@@ -91,37 +91,37 @@ export default function AboutPage() {
 
       {/* Image Mosaic: Field Presence */}
       <Section tone="default">
-        <Container className="px-0 md:px-0">
+        <Container>
           <ImageMosaic
             heading="Deeply Rooted in Manipur"
             subheading="Our initiatives operate through trusted community networks in Imphal and surrounding districts, upholding local dignity and collective autonomy."
             leadImage={{
-              src:"/home-hero-2026.jpg",
-              alt:"Community gathering in Imphal streetscape",
-              caption:"Local logistics hub and supply coordination point in Imphal.",
-              location:"Imphal, Manipur",
+              src: "/home-hero-2026.jpg",
+              alt: "Community gathering in Imphal streetscape",
+              caption: "Local logistics hub and supply coordination point in Imphal.",
+              location: "Imphal, Manipur",
             }}
             satellites={[
               {
-                src:"/volunteer-hero.jpg",
-                alt:"Youth volunteers organizing",
-                caption:"Youth volunteer team planning a community initiative.",
-                location:"Community Center",
-                aspectRatio:"square",
+                src: "/volunteer-hero.jpg",
+                alt: "Youth volunteers organizing",
+                caption: "Youth volunteer team planning a community initiative.",
+                location: "Community Center",
+                aspectRatio: "square",
               },
               {
-                src:"/community-voices.jpg",
-                alt:"Women community leaders",
-                caption:"Local leaders coordinating health outreach.",
-                location:"District Network",
-                aspectRatio:"landscape",
+                src: "/community-voices.jpg",
+                alt: "Women community leaders",
+                caption: "Local leaders coordinating health outreach.",
+                location: "District Network",
+                aspectRatio: "landscape",
               },
               {
-                src:"/programmes-hero.jpg",
-                alt:"Community learning workshop",
-                caption:"Decentralized training sessions in future skills.",
-                location:"FutureWorks Hub",
-                aspectRatio:"landscape",
+                src: "/programmes-hero.jpg",
+                alt: "Community learning workshop",
+                caption: "Decentralized training sessions in future skills.",
+                location: "FutureWorks Hub",
+                aspectRatio: "landscape",
               },
             ]}
           />
@@ -130,13 +130,13 @@ export default function AboutPage() {
 
       {/* Structure & People */}
       <Section tone="default" className="border-t border-border">
-        <Container className="px-0 md:px-0">
+        <Container>
           <div className="flex flex-col">
-            <div className="px-6 py-4 md:px-8 md:py-6 border-x border-border bg-muted">
+            <div className="px-6 py-4 md:px-8 md:py-6 border border-b-0 border-border bg-muted">
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-foreground leading-tight">The People</h2>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-l border-border *:border-b *:border-r *:border-border">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-b border-l border-border *:border-b *:border-r *:border-border">
               <Link href="/about/governance" className="group block p-6 md:p-8 lg:p-10 bg-card hover:bg-muted/50 transition-colors duration-300">
                 <h3 className="font-serif text-2xl sm:text-3xl font-light text-foreground mb-3 sm:mb-4 group-hover:text-primary transition-colors">Governance & Leadership</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed">

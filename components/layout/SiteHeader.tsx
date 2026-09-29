@@ -132,7 +132,7 @@ export function SiteHeader() {
 
           {/* Desktop Navigation — Warm, Humanist NGO Typography */}
           <nav
-            className="hidden md:flex items-center gap-1 lg:gap-2 flex-1 relative h-full"
+            className="hidden lg:flex items-center gap-1 xl:gap-2 flex-1 relative h-full"
             aria-label="Main Navigation"
             onMouseLeave={() => setHoveredPath(null)}
           >
@@ -224,7 +224,7 @@ export function SiteHeader() {
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav-drawer"
               aria-label={mobileOpen ?"Close menu" :"Open menu"}
-              className="md:hidden flex items-center justify-center size-9 border border-border bg-muted text-foreground hover:border-foreground transition-colors cursor-pointer"
+              className="lg:hidden flex items-center justify-center size-9 border border-border bg-muted text-foreground hover:border-foreground transition-colors cursor-pointer"
             >
               {mobileOpen ? (
                 <X className="size-5" aria-hidden="true" />
@@ -250,7 +250,7 @@ export function SiteHeader() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-x-0 top-16 bottom-0 z-40 bg-background/98 backdrop-blur-xl border-b border-border md:hidden flex flex-col justify-between p-6 overflow-y-auto"
+            className="fixed inset-x-0 top-16 bottom-0 z-40 bg-background/98 backdrop-blur-xl border-b border-border lg:hidden flex flex-col justify-between p-6 overflow-y-auto"
           >
             <nav className="flex flex-col divide-y divide-border" aria-label="Mobile Navigation">
               {navLinks.map((link, idx) => {
@@ -270,8 +270,8 @@ export function SiteHeader() {
                       onClick={() => setMobileOpen(false)}
                       className={`flex items-center justify-between py-4 text-left transition-colors ${
                         isActive
-                          ?"text-destructive font-bold"
-                          :"text-foreground hover:text-destructive font-medium"
+                          ? "text-primary font-semibold"
+                          : "text-foreground hover:text-primary font-normal"
                       }`}
                     >
                       <span className="font-serif text-2xl font-light tracking-tight">

@@ -57,11 +57,11 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
 
   return (
     <div className="flex flex-col w-full bg-background pt-20">
-      <Container className="px-0 md:px-0">
-        <div className="border-b lg:border-x border-border bg-muted px-6 py-4 md:px-8 md:py-4">
+      <Container>
+        <div className="border border-b-0 border-border bg-muted px-6 py-4 md:px-8 md:py-4">
           <Breadcrumbs
             items={[
-              { label:"Programmes", href:"/programmes" },
+              { label: "Programmes", href: "/programmes" },
               { label: programme.title },
             ]}
           />
@@ -70,8 +70,8 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
 
       {/* ── Document Shell Layout ── */}
       <section className="w-full">
-        <Container className="px-0 md:px-0">
-          <div className="border-x border-border bg-muted">
+        <Container>
+          <div className="border border-border bg-muted">
             
             {/* Cinematic Header */}
             <div className="relative h-64 sm:h-80 md:h-96 w-full border-b border-border group overflow-hidden">
@@ -174,12 +174,12 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
 
       {/* Other Programmes Section */}
       <Section tone="default" className="border-t border-border">
-        <Container className="px-0 md:px-0">
+        <Container>
           <div className="flex flex-col">
-            <div className="px-6 py-4 md:px-8 md:py-6 border-x border-border bg-muted">
+            <div className="px-6 py-4 md:px-8 md:py-6 border border-b-0 border-border bg-muted">
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-foreground leading-tight">Other Programmes</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-l border-border *:border-b *:border-r *:border-border">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-b border-l border-border *:border-b *:border-r *:border-border">
               {otherProgrammes.map((p) => (
                 <CampaignCard
                   key={p.id}

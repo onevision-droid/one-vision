@@ -18,7 +18,7 @@ export function QuietClose({
 }: QuietCloseProps) {
   return (
     <Section tone="default" className={cn("py-8 lg:py-14 bg-muted", className)}>
-      <Container className="max-w-4xl px-0 md:px-0">
+      <Container className="max-w-4xl">
         <div className="p-8 md:p-12 lg:p-14 border border-border bg-card text-foreground flex flex-col items-center text-center">
           {label && (
             <div className="flex items-center gap-3 mb-6">

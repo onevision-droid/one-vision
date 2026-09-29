@@ -31,8 +31,8 @@ export default function VolunteerPage() {
 
       {/* 2 & 3. The Core Need & Mentorship Matrix */}
       <Section tone="alt" className="relative overflow-hidden bg-muted/30">
-        <Container className="px-0 md:px-0">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border-x border-b border-border bg-card">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-border bg-card">
             <div className="lg:col-span-5 flex flex-col justify-center p-6 md:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-border">
               <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-primary mb-4 block">
                 The Community Network
@@ -80,8 +80,8 @@ export default function VolunteerPage() {
           </div>
         </Container>
 
-        <Container className="px-0 md:px-0">
-          <div className="border-x border-b border-border bg-card">
+        <Container className="mt-8">
+          <div className="border border-border bg-card">
             <div className="px-6 py-4 md:px-8 md:py-6 border-b border-border">
               <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-primary mb-3 block">
                 What to Expect
@@ -123,8 +123,8 @@ export default function VolunteerPage() {
 
       {/* 4. Volunteer Form (Document Shell Layout) */}
       <Section tone="default" className="border-t border-border">
-        <Container className="px-0 md:px-0">
-          <div className="border-x border-border bg-muted">
+        <Container>
+          <div className="border border-border bg-muted">
             <div className="p-6 md:p-10 lg:p-12 border-b border-border bg-background">
               <div className="flex items-center gap-3 mb-4">
                 <span className="size-2 bg-primary animate-pulse rounded-full" />

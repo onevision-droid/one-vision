@@ -29,8 +29,8 @@ const keyFacts = [
 export function WhatWeDo() {
   return (
     <Section tone="default" className="border-t border-border py-8 lg:py-14 bg-background">
-      <Container className="px-0 md:px-0">
-        <div className="grid lg:grid-cols-2 items-stretch border-x border-border bg-muted">
+      <Container>
+        <div className="grid lg:grid-cols-2 items-stretch border border-border bg-muted">
           {/* Left: Context Statement */}
           <div className="flex flex-col p-6 md:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-border">
             <div className="flex items-center gap-2 mb-4">

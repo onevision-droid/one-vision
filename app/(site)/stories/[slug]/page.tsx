@@ -57,11 +57,11 @@ export default async function StoryPage({ params }: Props) {
     <div className="flex flex-col w-full bg-background pt-20">
       <StoryTracker slug={story.slug} title={story.title} />
 
-      <Container className="px-0 md:px-0">
-        <div className="border-b lg:border-x border-border bg-muted px-6 py-4 md:px-8 md:py-4">
+      <Container>
+        <div className="border border-b-0 border-border bg-muted px-6 py-4 md:px-8 md:py-4">
           <Breadcrumbs 
             items={[
-              { label:"Stories", href:"/stories" },
+              { label: "Stories", href: "/stories" },
               { label: story.title }
             ]} 
           />
@@ -70,8 +70,8 @@ export default async function StoryPage({ params }: Props) {
       
       {/* ── Document Shell Layout ── */}
       <section className="w-full">
-        <Container className="px-0 md:px-0">
-          <div className="border-x border-border bg-muted">
+        <Container>
+          <div className="border border-border bg-muted">
             
             {/* Cinematic Header */}
             <div className="relative h-64 sm:h-80 md:h-96 w-full border-b border-border group overflow-hidden">

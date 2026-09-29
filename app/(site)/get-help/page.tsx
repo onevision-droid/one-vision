@@ -61,8 +61,8 @@ export default function ContactPage() {
 
       {/* 2. Notice */}
       <Section tone="alt" className="border-b border-border">
-        <Container className="px-0 md:px-0">
-          <div className="flex flex-col md:flex-row md:items-center gap-6 p-6 md:p-8 lg:p-10 border-x border-border bg-card">
+        <Container>
+          <div className="flex flex-col md:flex-row md:items-center gap-6 p-6 md:p-8 lg:p-10 border border-border bg-card">
             <div className="size-14 shrink-0 bg-primary/10 text-primary border border-primary/20 flex items-center justify-center rounded-sm">
               <Info
                 className="size-7"

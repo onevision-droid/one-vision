@@ -33,8 +33,8 @@ export default function StoriesPage() {
 
       {/* Featured Story */}
       <Section tone="default" className="border-t border-border">
-        <Container className="px-0 md:px-0">
-          <Link href={`/stories/${featured.slug}`} className="group grid grid-cols-1 lg:grid-cols-12 overflow-hidden border-x border-border bg-card hover:bg-muted/30 transition-colors duration-300">
+        <Container>
+          <Link href={`/stories/${featured.slug}`} className="group grid grid-cols-1 lg:grid-cols-12 overflow-hidden border border-border bg-card hover:bg-muted/30 transition-colors duration-300">
             {/* Image (7 cols) */}
             <div className="relative h-64 md:h-96 lg:h-auto lg:col-span-7 w-full overflow-hidden border-b lg:border-b-0 lg:border-r border-border bg-muted">
               <Image
@@ -73,8 +73,8 @@ export default function StoriesPage() {
 
       {/* Story Grid */}
       <Section tone="default" className="border-t border-border">
-        <Container className="px-0 md:px-0">
-          <div className="px-6 py-4 md:px-8 md:py-6 border-x border-border bg-muted">
+        <Container>
+          <div className="px-6 py-4 md:px-8 md:py-6 border border-b-0 border-border bg-muted">
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-foreground leading-tight">More Stories</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-border *:border-b *:border-r *:border-border">

@@ -65,22 +65,24 @@ export default function Home() {
 
       {/* 1.5. Community Reach & Impact Band */}
       <div className="bg-muted/30 text-foreground border-b border-border">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border">
-          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-muted/60">
-            <span className="font-serif text-3xl sm:text-4xl font-light text-foreground">25+</span>
-            <span className="font-sans text-xs font-semibold uppercase tracking-wider text-muted-foreground mt-2">Communities Reached</span>
-          </div>
-          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-muted/60">
-            <span className="font-serif text-3xl sm:text-4xl font-light text-foreground">18</span>
-            <span className="font-sans text-xs font-semibold uppercase tracking-wider text-muted-foreground mt-2">Community Health Centres</span>
-          </div>
-          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-muted/60">
-            <span className="font-serif text-3xl sm:text-4xl font-light text-foreground">12,400+</span>
-            <span className="font-sans text-xs font-semibold uppercase tracking-wider text-muted-foreground mt-2">People Supported</span>
-          </div>
-          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-muted/60">
-            <span className="font-serif text-3xl sm:text-4xl font-light text-foreground">500+</span>
-            <span className="font-sans text-xs font-semibold uppercase tracking-wider text-muted-foreground mt-2">Young People Mentored</span>
+        <div className="mx-auto max-w-container">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border">
+            <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-muted/60">
+              <span className="font-serif text-3xl sm:text-4xl font-light text-foreground">25+</span>
+              <span className="font-sans text-xs font-semibold uppercase tracking-wider text-muted-foreground mt-2">Communities Reached</span>
+            </div>
+            <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-muted/60">
+              <span className="font-serif text-3xl sm:text-4xl font-light text-foreground">18</span>
+              <span className="font-sans text-xs font-semibold uppercase tracking-wider text-muted-foreground mt-2">Community Health Centres</span>
+            </div>
+            <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-muted/60">
+              <span className="font-serif text-3xl sm:text-4xl font-light text-foreground">12,400+</span>
+              <span className="font-sans text-xs font-semibold uppercase tracking-wider text-muted-foreground mt-2">People Supported</span>
+            </div>
+            <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-muted/60">
+              <span className="font-serif text-3xl sm:text-4xl font-light text-foreground">500+</span>
+              <span className="font-sans text-xs font-semibold uppercase tracking-wider text-muted-foreground mt-2">Young People Mentored</span>
+            </div>
           </div>
         </div>
       </div>
@@ -112,7 +114,7 @@ export default function Home() {
 
       {/* 4.5 The One Vision Method */}
       <div className="border-b border-border bg-muted">
-        <div className="mx-auto max-w-container px-0 md:px-0">
+        <div className="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 items-stretch">
             <div className="p-8 md:p-14 lg:p-24 flex flex-col justify-center items-center text-center border-b lg:border-b-0 lg:border-r border-border transition-colors duration-500">
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-foreground tracking-tight leading-tight max-w-xl">
@@ -173,7 +175,7 @@ export default function Home() {
 
       {/* 6. Grassroots Assistance & Contact */}
       <div className="border-b border-border bg-card text-foreground">
-        <div className="mx-auto max-w-container px-0 md:px-0">
+        <div className="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 items-stretch">
             <div className="p-6 md:p-10 lg:p-14 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-border">
               <div className="flex items-center gap-3 mb-6">
@@ -226,7 +228,7 @@ export default function Home() {
 
       {/* 7. Trust & Transparency */}
       <div className="border-b border-border bg-background">
-        <div className="mx-auto max-w-container px-0 md:px-0">
+        <div className="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
           <div className="p-6 md:p-10 lg:p-12 border-b border-border">
             <div className="flex items-center gap-3 mb-4">
               <span className="size-2 rounded-full bg-primary shrink-0" />

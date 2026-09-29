@@ -40,8 +40,8 @@ export default async function DonatePage(
       />
 
       <Section tone="default">
-        <Container className="px-0 md:px-0">
-          <div className="grid lg:grid-cols-[1fr_380px] gap-0 items-start border-x border-b border-border">
+        <Container>
+          <div className="grid lg:grid-cols-[1fr_380px] gap-0 items-start border border-border">
             {/* Main Donation Form */}
             <div className="p-6 md:p-8 lg:p-10 w-full max-w-3xl lg:border-r border-border bg-card">
               <DonateForm recurringEnabled={env.DONATE_RECURRING_ENABLED} allocationPreference={campaign} />
