@@ -64,23 +64,23 @@ export default function Home() {
       </div>
 
       {/* 1.5. Live Metrics Ticker (Telemetry) */}
-      <div className="border-b border-border-default bg-surface">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border-default border-t sm:border-t-0 border-border-default">
-          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center border-b sm:border-b-0 border-border-default transition-colors hover:bg-surface-alt">
-            <span className="font-mono text-3xl font-bold text-ink-900">18</span>
-            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-ink-500 mt-2">Local Hubs</span>
+      <div className="bg-graphite">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/10">
+          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-white/5">
+            <span className="font-mono text-3xl font-bold text-fjord">18</span>
+            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-[#A9A49C] mt-2">Local Hubs</span>
           </div>
-          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center border-b sm:border-b-0 border-border-default transition-colors hover:bg-surface-alt">
-            <span className="font-mono text-3xl font-bold text-ink-900">240kW</span>
-            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-ink-500 mt-2">Solar Deployed</span>
+          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-white/5">
+            <span className="font-mono text-3xl font-bold text-white">240kW</span>
+            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-[#A9A49C] mt-2">Solar Deployed</span>
           </div>
-          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center border-b sm:border-b-0 border-border-default transition-colors hover:bg-surface-alt">
-            <span className="font-mono text-3xl font-bold text-ink-900">12,400+</span>
-            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-ink-500 mt-2">People Reached</span>
+          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-white/5">
+            <span className="font-mono text-3xl font-bold text-white">12,400+</span>
+            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-[#A9A49C] mt-2">People Reached</span>
           </div>
-          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-surface-alt">
-            <span className="font-mono text-3xl font-bold text-ink-900">4</span>
-            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-ink-500 mt-2">Core Pillars</span>
+          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-white/5">
+            <span className="font-mono text-3xl font-bold text-white">4</span>
+            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-[#A9A49C] mt-2">Core Pillars</span>
           </div>
         </div>
       </div>
@@ -111,50 +111,23 @@ export default function Home() {
       </div>
 
       {/* 4.5 The One Vision Method */}
-      <div className="border-b border-border-default bg-paper">
+      <div className="border-b border-border-default bg-surface">
         <div className="mx-auto max-w-container px-0 md:px-0">
           <div className="grid lg:grid-cols-2 items-stretch">
-            <div className="p-6 md:p-10 lg:p-14 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-border-default transition-colors duration-500 hover:bg-surface">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="size-1.5 bg-safety-orange shrink-0" />
-                <span className="font-mono text-[10px] uppercase tracking-widest text-safety-orange font-semibold">
-                  The One Vision Method
-                </span>
-              </div>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-ink-900 tracking-tight leading-[0.95] mb-6">
-                We don&apos;t arrive with answers. We build them with communities.
+            <div className="p-8 md:p-14 lg:p-24 flex flex-col justify-center items-center text-center border-b lg:border-b-0 lg:border-r border-stone transition-colors duration-500">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-graphite tracking-tight leading-tight max-w-xl">
+                We don&apos;t arrive with answers. We build them with <span className="underline decoration-fjord decoration-2 underline-offset-8">communities</span>.
               </h2>
-              <p className="font-sans text-role-body md:text-role-body-lg text-ink-500 leading-relaxed mb-8">
-                Good decisions begin with good information. Communities often know what is wrong. What they need is a better way to document it, understand it and act on it. One Vision builds tools that turn community knowledge into usable evidence.
-              </p>
-              <div className="grid grid-cols-2 gap-y-6 gap-x-6 pt-6 border-t border-border-default">
-                <div>
-                  <div className="font-mono text-2xl font-bold text-ink-900 mb-2">01 Listen</div>
-                  <div className="font-sans text-role-body-sm text-ink-500">Understand what people experience.</div>
-                </div>
-                <div>
-                  <div className="font-mono text-2xl font-bold text-ink-900 mb-2">02 Map</div>
-                  <div className="font-sans text-role-body-sm text-ink-500">Document the problem & systems.</div>
-                </div>
-                <div>
-                  <div className="font-mono text-2xl font-bold text-ink-900 mb-2">03 Co-design</div>
-                  <div className="font-sans text-role-body-sm text-ink-500">Develop solutions together.</div>
-                </div>
-                <div>
-                  <div className="font-mono text-2xl font-bold text-ink-900 mb-2">04 Test & Scale</div>
-                  <div className="font-sans text-role-body-sm text-ink-500">Start small, measure, improve, scale.</div>
-                </div>
-              </div>
             </div>
-            <div className="relative w-full h-[40vh] lg:h-auto min-h-85 bg-ink-900">
+            <div className="relative w-full h-[40vh] lg:h-auto min-h-85 bg-graphite">
               <Image
                 src="/community_voices.jpg"
                 alt="Community co-design session"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover grayscale contrast-125"
+                className="object-cover grayscale contrast-125 sepia-[.15]"
               />
-              <div className="absolute inset-0 pointer-events-none mix-blend-multiply bg-ink-900/20" />
+              <div className="absolute inset-0 pointer-events-none mix-blend-multiply bg-snow/10" />
             </div>
           </div>
         </div>

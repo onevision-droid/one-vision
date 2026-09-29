@@ -16,7 +16,7 @@ export function Hero() {
             </div>
 
             <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-light tracking-tight text-ink-900 mb-4 leading-[0.95] shrink-0">
-              Shared<br/>Vision.
+              Shared<br/>Vision<span className="text-fjord">.</span>
             </h1>
             <p className="font-sans text-role-body md:text-role-body-lg text-ink-500 max-w-prose font-light leading-relaxed shrink-0">
               Building resilient communities through local action, shared knowledge and collective purpose.
@@ -25,14 +25,14 @@ export function Hero() {
             <div className="mt-6 flex flex-wrap gap-4 shrink-0">
               <Link
                 href="/programmes"
-                className="btn-dark-filled hover:-translate-y-px transition-all flex items-center justify-center gap-2 px-6 py-2.5"
+                className="bg-fjord text-white hover:bg-opacity-90 hover:-translate-y-px transition-all flex items-center justify-center gap-2 px-6 py-2.5 rounded-[3px]"
               >
                 Explore Our Work
                 <ArrowRight aria-hidden="true" className="size-4" />
               </Link>
               <Link 
                 href="/volunteer"
-                className="btn-outline hover:-translate-y-px transition-all flex items-center justify-center gap-2 px-6 py-2.5"
+                className="bg-transparent text-ink-900 border border-stone hover:bg-surface hover:-translate-y-px transition-all flex items-center justify-center gap-2 px-6 py-2.5 rounded-[3px]"
               >
                 Get Involved
                 <ArrowUpRight className="size-4" aria-hidden="true" />

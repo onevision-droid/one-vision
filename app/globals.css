@@ -10,58 +10,79 @@
    ────────────────────────────────────────────────────────────────────────── */
 
 :root {
-  /* Nordic Lagom Light Mode — Utilitarian Emergency */
-  --background: oklch(0.970 0.010 85.0); /* Paper / warm off-white */
-  --foreground: oklch(0.200 0.010 260.0); /* Ink 900 / deep slate */
-  --card: oklch(0.995 0.005 85.0); /* Surface / pure white */
-  --card-foreground: oklch(0.200 0.010 260.0);
-  --popover: oklch(0.995 0.005 85.0);
-  --popover-foreground: oklch(0.200 0.010 260.0);
+  /* Nordic Lagom Redesign — Quiet Chrome, Warm Neutrals */
   
-  --primary: oklch(0.680 0.190 45.0); /* Safety Orange — Utilitarian Action */
-  --primary-foreground: oklch(0.990 0.005 85.0);
-  --secondary: oklch(0.930 0.010 85.0); /* Section Alt / warm grey */
-  --secondary-foreground: oklch(0.250 0.015 260.0);
-  --muted: oklch(0.950 0.008 85.0);
-  --muted-foreground: oklch(0.480 0.015 260.0); /* Ink 500 */
-  --accent: oklch(0.680 0.190 45.0); /* Safety Orange / Action */
-  --accent-foreground: oklch(0.990 0.005 85.0);
+  /* Core Neutrals — 90% of the page */
+  --snow: #F9F7F4;     /* Primary page background */
+  --birch: #EFEBE4;    /* Card surfaces, alt sections */
+  --stone: #DDD7CD;    /* Hairline borders, dividers */
+  --graphite: #22252A; /* Headlines, primary text */
+  --slate: #5F5B54;    /* Body/secondary text */
+
+  /* Accents — 10% of the page */
+  --fjord: #46626F;    /* Primary accent (links, CTA, key numbers) */
+  --sage: #94A390;     /* Tag backgrounds only */
+  --clay: #B07D62;     /* Optional single warm moment */
+
+  /* Tonal ramp for priorities (Option B) */
+  --tone-1: #E3E9EB;
+  --tone-2: #CBD6DA;
+  --tone-3: #A9BCC3;
+  --tone-4: #8AA3AD;
+  --tone-5: #6B8894;
+
+  /* Theme mappings (Light Mode defaults) */
+  --background: var(--snow);
+  --foreground: var(--graphite);
+  --card: var(--birch);
+  --card-foreground: var(--graphite);
+  --popover: var(--birch);
+  --popover-foreground: var(--graphite);
   
-  --destructive: oklch(0.580 0.220 25.0); /* Alert Red */
-  --destructive-foreground: oklch(1.000 0 0);
+  --primary: var(--fjord);
+  --primary-foreground: var(--snow);
+  --secondary: var(--birch);
+  --secondary-foreground: var(--slate);
+  --muted: var(--stone);
+  --muted-foreground: var(--slate);
+  --accent: var(--fjord);
+  --accent-foreground: var(--snow);
   
-  --border: oklch(0.880 0.008 85.0); /* Ink 100 border */
-  --input: oklch(0.880 0.008 85.0);
-  --ring: oklch(0.680 0.190 45.0); /* Safety Orange focus ring */
+  --destructive: #B03020; 
+  --destructive-foreground: var(--snow);
   
-  --radius: 0.25rem; /* Nordic Lagom: Subtle, disciplined refined radius */
+  --border: var(--stone);
+  --input: var(--stone);
+  --ring: var(--fjord);
+  
+  --radius: 0.25rem; /* Nordic Lagom: 2-6px */
   --ease-lagom: cubic-bezier(.2, .7, .2, 1);
 }
 
 .dark {
-  /* Nordic Lagom Dark Mode — Field Black Canvas */
-  --background: oklch(0.180 0.010 260.0); /* Field Black */
-  --foreground: oklch(0.960 0.008 85.0); /* Paper */
-  --card: oklch(0.220 0.015 260.0);
-  --card-foreground: oklch(0.960 0.008 85.0);
-  --popover: oklch(0.220 0.015 260.0);
-  --popover-foreground: oklch(0.960 0.008 85.0);
+  /* Dark Mode mapping (maintaining B&W / Graphite structure) */
+  --background: #1A1D20;
+  --foreground: var(--snow);
+  --card: var(--graphite);
+  --card-foreground: var(--snow);
+  --popover: var(--graphite);
+  --popover-foreground: var(--snow);
   
-  --primary: oklch(0.720 0.190 45.0); /* Safety Orange */
-  --primary-foreground: oklch(0.180 0.010 260.0);
-  --secondary: oklch(0.260 0.015 260.0);
-  --secondary-foreground: oklch(0.960 0.008 85.0);
-  --muted: oklch(0.240 0.015 260.0);
-  --muted-foreground: oklch(0.680 0.010 260.0);
-  --accent: oklch(0.720 0.190 45.0);
-  --accent-foreground: oklch(0.180 0.010 260.0);
+  --primary: var(--fjord);
+  --primary-foreground: var(--snow);
+  --secondary: #22252A;
+  --secondary-foreground: var(--snow);
+  --muted: #2A2E35;
+  --muted-foreground: #A9BCC3;
+  --accent: var(--fjord);
+  --accent-foreground: var(--snow);
   
-  --destructive: oklch(0.520 0.220 25.0);
-  --destructive-foreground: oklch(1.000 0 0);
+  --destructive: #B03020;
+  --destructive-foreground: var(--snow);
   
-  --border: oklch(0.320 0.015 260.0);
-  --input: oklch(0.320 0.015 260.0);
-  --ring: oklch(0.720 0.190 45.0);
+  --border: #3A3F48;
+  --input: #3A3F48;
+  --ring: var(--fjord);
 }
 
 @theme inline {
@@ -83,54 +104,71 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* Core Palette Tokens (DESIGN.md Section 4) */
-  --color-paper: var(--background);
-  --color-surface: var(--card);
-  --color-surface-alt: var(--secondary);
-  --color-section-alt: var(--secondary);
-  --color-field-black: oklch(0.180 0.010 260.0);
+  /* Custom Color Tokens */
+  --color-snow: var(--snow);
+  --color-birch: var(--birch);
+  --color-stone: var(--stone);
+  --color-graphite: var(--graphite);
+  --color-slate: var(--slate);
+  
+  --color-fjord: var(--fjord);
+  --color-sage: var(--sage);
+  --color-clay: var(--clay);
+  
+  --color-tone-1: var(--tone-1);
+  --color-tone-2: var(--tone-2);
+  --color-tone-3: var(--tone-3);
+  --color-tone-4: var(--tone-4);
+  --color-tone-5: var(--tone-5);
 
-  --color-ink-900: var(--foreground);
-  --color-ink-700: oklch(0.270 0.010 260.0);
-  --color-ink-500: var(--muted-foreground);
-  --color-ink-300: oklch(0.700 0.010 260.0);
-  --color-ink-100: var(--border);
-  --color-ink-dark: var(--foreground);
-  --color-ink-2b: var(--foreground);
+  /* Core Palette Tokens (Legacy mapping) */
+  --color-paper: var(--snow);
+  --color-surface: var(--birch);
+  --color-surface-alt: var(--birch);
+  --color-section-alt: var(--birch);
+  --color-field-black: #1A1D20;
 
-  --color-safety-orange: oklch(0.680 0.190 45.0);
-  --color-safety-orange-dim: oklch(0.600 0.190 45.0);
-  --color-alert-red: oklch(0.580 0.220 25.0);
-  --color-hazard-yellow: oklch(0.800 0.160 85.0);
-  --color-status-active: oklch(0.620 0.170 142.0);
+  --color-ink-900: var(--graphite);
+  --color-ink-700: var(--graphite);
+  --color-ink-500: var(--slate);
+  --color-ink-300: var(--stone);
+  --color-ink-100: var(--stone);
+  --color-ink-dark: var(--graphite);
+  --color-ink-2b: var(--graphite);
 
-  --color-action-primary: var(--color-safety-orange);
-  --color-action-hover: var(--color-safety-orange-dim);
-  --color-border-default: var(--border);
-  --color-border-strong: var(--foreground);
-  --color-border-input: var(--border);
-  --color-line-strong: var(--border);
+  --color-safety-orange: var(--fjord); /* Map old orange to fjord */
+  --color-safety-orange-dim: #354D57; /* Darker fjord */
+  --color-alert-red: #B03020;
+  --color-hazard-yellow: var(--clay);
+  --color-status-active: var(--fjord);
+
+  --color-action-primary: var(--fjord);
+  --color-action-hover: #354D57;
+  --color-border-default: var(--stone);
+  --color-border-strong: var(--graphite);
+  --color-border-input: var(--stone);
+  --color-line-strong: var(--stone);
 
   /* Compatibility Aliases for Legacy Components */
   --color-danger: var(--color-alert-red);
   --color-bg-section-alt: var(--color-section-alt);
-  --color-line: var(--border);
-  --color-ink-600: oklch(0.450 0.010 260.0);
-  --color-ink-400: oklch(0.600 0.010 260.0);
+  --color-line: var(--stone);
+  --color-ink-600: var(--slate);
+  --color-ink-400: var(--slate);
   --duration-fast: 150ms;
   --duration-base: 200ms;
-  --color-text-primary: var(--foreground);
-  --color-text-secondary: var(--muted-foreground);
-  --color-text-heading: var(--foreground);
-  --color-accent-teal: var(--color-status-active);
-  --color-accent-navy: var(--foreground);
-  --color-clay-500: var(--color-safety-orange);
-  --color-clay-600: var(--color-safety-orange-dim);
-  --color-moss-400: var(--color-status-active);
-  --color-ok: var(--color-status-active);
-  --color-warm: var(--color-hazard-yellow);
-  --color-stone: var(--color-ink-500);
-  --color-teal-soft: var(--border);
+  --color-text-primary: var(--graphite);
+  --color-text-secondary: var(--slate);
+  --color-text-heading: var(--graphite);
+  --color-accent-teal: var(--fjord);
+  --color-accent-navy: var(--graphite);
+  --color-clay-500: var(--clay);
+  --color-clay-600: var(--clay);
+  --color-moss-400: var(--sage);
+  --color-ok: var(--fjord);
+  --color-warm: var(--clay);
+  --color-stone: var(--slate);
+  --color-teal-soft: var(--stone);
 
   /* Typography Scale */
   --text-display-xl: 72px;

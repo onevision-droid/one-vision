@@ -24,21 +24,20 @@ export function ProgrammesBento() {
   return (
     <Section tone="default" className="py-8 lg:py-14 border-t border-border-default bg-paper">
       <Container className="px-0 md:px-0">
-        {/* Header */}
-        <div className="border-b lg:border-x border-border-default p-6 md:p-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6 bg-surface">
+        <div className="border-b lg:border-x border-border-default p-6 md:p-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6 bg-snow">
           <div>
-            <div className="flex items-center gap-3 mb-4 bg-ink-900 text-paper w-fit px-3.5 py-1.5 border border-ink-900">
-              <Activity className="size-4 text-safety-orange" aria-hidden="true" />
+            <div className="flex items-center gap-3 mb-4 bg-graphite text-snow w-fit px-3.5 py-1.5 border border-graphite">
+              <Activity className="size-4 text-fjord" aria-hidden="true" />
               <span className="font-mono text-[10px] uppercase tracking-widest font-bold">
                 Operational Mandate 2026–2030
               </span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-[0.95] tracking-tight text-ink-900">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-[0.95] tracking-tight text-graphite">
               Five Priorities.<br />
               One Shared Future.
             </h2>
           </div>
-          <p className="font-sans text-role-body-lg text-ink-500 max-w-sm border-l-4 border-safety-orange pl-6 py-2">
+          <p className="font-sans text-role-body-lg text-slate max-w-sm border-l-[3px] border-fjord pl-6 py-2">
             Our work is structured around five flagship programmes driving long-term community resilience.
           </p>
         </div>
@@ -51,16 +50,16 @@ export function ProgrammesBento() {
               <Link
                 key={pillar.id}
                 href={`/programmes/${pillar.slug}`}
-                className="group flex flex-col h-full bg-paper border-b border-border-default hover:bg-ink-900 transition-colors duration-300"
+                className="group flex flex-col h-full bg-surface border-b border-l-[3px] border-l-fjord border-r border-border-default hover:bg-snow transition-colors duration-300"
               >
                 {/* Header Bar */}
-                <div className="flex items-center justify-between p-6 border-b border-border-default group-hover:border-paper/20 transition-colors">
-                  <span className="font-mono text-2xl font-bold tracking-tight text-ink-900 group-hover:text-paper transition-colors">
+                <div className="flex items-center justify-between p-6 border-b border-border-default">
+                  <span className="font-mono text-2xl font-bold tracking-tight text-graphite/40 group-hover:text-fjord transition-colors">
                     0{index + 1}
                   </span>
                   <div className="flex items-center gap-2">
-                    <span className="size-2 bg-safety-orange animate-pulse" />
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink-500 group-hover:text-paper/60 transition-colors">
+                    <span className="size-2 bg-fjord animate-pulse" />
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-slate">
                       {pillar.status}
                     </span>
                   </div>
@@ -69,28 +68,28 @@ export function ProgrammesBento() {
                 <div className="p-8 flex flex-col flex-1">
                   {/* Title & Icon */}
                   <div className="flex items-start gap-4 mb-8">
-                    <div className="shrink-0 size-12 bg-surface flex items-center justify-center text-ink-900 group-hover:bg-safety-orange transition-colors">
+                    <div className="shrink-0 size-12 bg-snow flex items-center justify-center text-graphite group-hover:text-fjord transition-colors">
                       <Icon className="size-5" strokeWidth={1.5} />
                     </div>
-                    <h3 className="font-serif text-2xl font-light text-ink-900 mt-1 group-hover:text-paper transition-colors">
+                    <h3 className="font-serif text-2xl font-light text-graphite mt-1 group-hover:text-fjord transition-colors">
                       {pillar.title}
                     </h3>
                   </div>
 
                   {/* Description */}
-                  <p className="font-sans text-role-body text-ink-500 leading-relaxed mb-12 flex-1 group-hover:text-paper/70 transition-colors">
+                  <p className="font-sans text-role-body text-slate leading-relaxed mb-12 flex-1">
                     {pillar.description}
                   </p>
 
                   {/* Metrics / Read More */}
-                  <div className="border-t border-border-default pt-6 mt-auto group-hover:border-paper/20 transition-colors">
-                    <p className="font-mono text-4xl font-bold tracking-tight text-ink-900 mb-2 group-hover:text-paper transition-colors">
+                  <div className="border-t border-border-default pt-6 mt-auto">
+                    <p className="font-mono text-4xl font-bold tracking-tight text-graphite mb-2">
                       {pillar.metrics[0].value}
                     </p>
-                    <p className="font-mono text-[11px] font-bold uppercase tracking-widest text-ink-500 mb-6 group-hover:text-paper/60 transition-colors">
+                    <p className="font-mono text-[11px] font-bold uppercase tracking-widest text-slate mb-6">
                       {pillar.metrics[0].label}
                     </p>
-                    <span className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest text-ink-900 group-hover:text-safety-orange transition-colors">
+                    <span className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest text-fjord group-hover:underline underline-offset-4 transition-all">
                       Explore programme <ArrowRight className="size-4" />
                     </span>
                   </div>
