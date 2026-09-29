@@ -10,8 +10,8 @@ function Card({
     <div
       data-slot="card"
       className={cn(
-        "flex flex-col border border-border-default bg-surface",
-        size === "default" ? "p-5" : "p-6",
+        "flex flex-col rounded-sm border border-border-default/70 bg-surface shadow-2xs",
+        size === "default" ? "p-6" : "p-8",
         className
       )}
       {...props}

@@ -178,7 +178,7 @@ export function SiteHeader() {
           </nav>
 
           {/* Header Right Actions */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2.5 shrink-0">
             {/* Search Trigger with Keyboard Shortcut */}
             <motion.button
               whileTap={{ scale: 0.97 }}

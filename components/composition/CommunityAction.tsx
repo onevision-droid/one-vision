@@ -35,9 +35,8 @@ export function CommunityAction() {
  </Link>
 
  <p className="text-ink-700 text-balance font-sans text-body-sm max-w-prose font-medium tracking-wide">
- <span className="text-ink-900 font-bold uppercase">Secure Contact. </span>{" "}
- All assistance requests are routed through encrypted channels
- (Signal / ProtonMail) for your safety.
+ <span className="text-ink-900 font-bold uppercase">Get Help. </span>{" "}
+ Reach out via email, our frontline office phone, or submit an enquiry for general support and partnerships. Please do not submit medical or critical field data through the form.
  </p>
  </div>
 

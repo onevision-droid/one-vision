@@ -3,7 +3,7 @@ import orgData from "../../content/org.json";
 
 export const siteSettings: SiteSettings = {
   emergencyMode: true,
-  emergencyMessage: "Polycrisis active across Manipur. 12,400+ people reached. Secure contact via Signal or ProtonMail only.",
+  emergencyMessage: "Polycrisis active across Manipur. 12,400+ people reached.",
   contactEmail: orgData.contact.email,
   contactPhone: orgData.contact.phone,
   address: orgData.org.location,

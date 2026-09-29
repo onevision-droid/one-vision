@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { WifiOff, Lock, MessageCircle, Phone } from "lucide-react";
+import { WifiOff, Lock, Phone } from "lucide-react";
 import { siteSettings } from "@/lib/data/site-settings";
 
 export const metadata: Metadata = {
@@ -36,29 +36,11 @@ export default function OfflinePage() {
 
           <div className="space-y-4">
             <div className="flex items-start gap-3">
-              <MessageCircle className="size-5 text-paper/60 mt-0.5 shrink-0" />
-              <div>
-                <p className="font-sans text-body-sm max-w-prose font-semibold text-paper">Signal (Recommended)</p>
-                <p className="font-mono text-body max-w-prose text-paper tracking-widest my-1 select-all">{siteSettings.contactPhone}</p>
-                <p className="font-sans text-body-sm max-w-prose text-paper/60">End-to-end encrypted messaging</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <Lock className="size-5 text-paper/60 mt-0.5 shrink-0" />
-              <div>
-                <p className="font-sans text-body-sm max-w-prose font-semibold text-paper">ProtonMail</p>
-                <p className="font-mono text-body max-w-prose text-paper tracking-widest my-1 select-all">secure@onevision.proton.me</p>
-                <p className="font-sans text-body-sm max-w-prose text-paper/60">Encrypted email</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3">
               <Phone className="size-5 text-paper/60 mt-0.5 shrink-0" />
               <div>
                 <p className="font-sans text-body-sm max-w-prose font-semibold text-paper">Field Phone</p>
                 <p className="font-mono text-body max-w-prose text-paper tracking-widest my-1 select-all">{siteSettings.contactPhone}</p>
-                <p className="font-sans text-body-sm max-w-prose text-paper/60">Non-sensitive queries only</p>
+                <p className="font-sans text-body-sm max-w-prose text-paper/60">Contact frontline office directly</p>
               </div>
             </div>
           </div>

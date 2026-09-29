@@ -9,7 +9,7 @@ import { stories } from "@/lib/data/stories";
 import orgData from "@/content/org.json";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Shield, Lock, MessageCircle, ExternalLink } from "lucide-react";
+import { ArrowRight, Shield, MessageCircle, ExternalLink, Phone, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "One Vision | Humanitarian Vanguard — Imphal, Manipur",
@@ -210,15 +210,15 @@ export default function Home() {
                 </span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-paper tracking-tight leading-[0.95] mb-6">
-                Need help? Use encrypted channels.
+                Need help? Contact our field office.
               </h2>
               <p className="font-sans text-role-body md:text-role-body-lg max-w-prose text-paper/70 font-light leading-relaxed mb-8">
-                This platform does not collect sensitive data. All crisis-related, health, or assistance requests must use encrypted channels only. We operate in a conflict zone with active digital surveillance.
+                This platform does not collect sensitive data. All crisis-related, health, or assistance requests should be directed to our frontline coordinators.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/get-help" className="inline-flex w-fit items-center gap-2 px-8 py-4 bg-safety-orange hover:bg-paper text-ink-900 font-bold uppercase tracking-widest text-[11px] transition-colors duration-300">
                   <MessageCircle className="size-4" aria-hidden="true" />
-                  <span>Secure Contact</span>
+                  <span>Get Help</span>
                   <ExternalLink className="size-3.5" aria-hidden="true" />
                 </Link>
               </div>
@@ -227,22 +227,22 @@ export default function Home() {
               <div className="flex-1 p-6 md:p-8 lg:p-10 border-b border-paper/10 hover:bg-paper/5 transition-colors flex flex-col justify-center group">
                 <div className="flex items-start gap-5">
                   <div className="size-12 bg-safety-orange flex items-center justify-center shrink-0">
-                    <MessageCircle className="size-5 text-ink-900" strokeWidth={1.5} />
+                    <Phone className="size-5 text-ink-900" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <p className="font-mono text-base font-bold uppercase tracking-wider text-paper mb-1.5">Signal (Recommended)</p>
-                    <p className="font-sans text-role-body text-paper/70 leading-relaxed">End-to-end encrypted. 24/7 Response. <br />Number provided upon verification.</p>
+                    <p className="font-mono text-base font-bold uppercase tracking-wider text-paper mb-1.5">Field Office Line</p>
+                    <p className="font-sans text-role-body text-paper/70 leading-relaxed">Direct line for immediate community assistance.<br />{orgData.contact.phone}</p>
                   </div>
                 </div>
               </div>
               <div className="flex-1 p-6 md:p-8 lg:p-10 hover:bg-paper/5 transition-colors flex flex-col justify-center group">
                 <div className="flex items-start gap-5">
                   <div className="size-12 bg-paper/10 flex items-center justify-center shrink-0">
-                    <Lock className="size-5 text-paper" strokeWidth={1.5} />
+                    <Mail className="size-5 text-paper" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <p className="font-mono text-base font-bold uppercase tracking-wider text-paper mb-1.5">ProtonMail</p>
-                    <p className="font-sans text-role-body max-w-prose text-paper/70 leading-relaxed">For end-to-end encrypted email, send via Proton-to-Proton or PGP; for urgent requests, use Signal.<br />secure@onevision.proton.me</p>
+                    <p className="font-mono text-base font-bold uppercase tracking-wider text-paper mb-1.5">General Enquiries</p>
+                    <p className="font-sans text-role-body max-w-prose text-paper/70 leading-relaxed">For public partnerships and general information.<br />{orgData.contact.email}</p>
                   </div>
                 </div>
               </div>

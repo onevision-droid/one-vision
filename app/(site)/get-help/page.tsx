@@ -3,13 +3,13 @@ import { siteSettings } from "@/lib/data/site-settings";
 import { Section, Container } from "@/components/layout/Shell";
 import { PageHero } from "@/components/composition/PageHero";
 import { FAQ } from "@/components/composition/FAQ";
+import { ContactForm } from "@/components/composition/ContactForm";
+import { cn } from "@/lib/utils";
 import {
-  MessageCircle,
   Mail,
   Phone,
   Info,
   ExternalLink,
-  Lock,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -18,41 +18,17 @@ export const metadata: Metadata = {
     "Reach out to partner, volunteer, or request support for your community project.",
 };
 
-const signalNumber = siteSettings.contactPhone;
-
 const contactChannels = [
-  {
-    id: "signal",
-    icon: MessageCircle,
-    label: "Encrypted Support (Signal)",
-    value: signalNumber,
-    description:
-      "End-to-end encrypted direct messaging for urgent, medical, or community assistance.",
-    action: "Message via Signal",
-    href: `https://signal.me/#p/${signalNumber}`,
-    primary: true,
-  },
-  {
-    id: "protonmail",
-    icon: Lock,
-    label: "Encrypted Email (ProtonMail)",
-    value: "secure@onevision.proton.me",
-    description:
-      "For sensitive documentation and confidential reports. Standard email is unencrypted.",
-    action: "Send Secure Email",
-    href: "mailto:secure@onevision.proton.me",
-    primary: false,
-  },
   {
     id: "email",
     icon: Mail,
     label: "General Enquiries",
     value: "hello@onevision.org",
     description:
-      "For public partnerships, media inquiries, and general non-sensitive project information.",
+      "For public partnerships, media inquiries, and general project information.",
     action: "Send Email",
     href: "mailto:hello@onevision.org",
-    primary: false,
+    primary: true,
   },
   {
     id: "phone",
@@ -106,55 +82,94 @@ export default function ContactPage() {
       </Section>
 
       {/* 3. Channels */}
-      <Section tone="default">
-        <Container className="px-0 md:px-0">
-          <div className="px-6 py-4 md:px-8 md:py-6 border-x border-border-default bg-paper">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-ink-900 tracking-tight leading-tight">
-              Ways to reach us.
-            </h2>
+      {/* 3. Channels (Nordic Lagom) */}
+      <Section tone="default" className="py-12 md:py-16">
+        <Container>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 sm:mb-10">
+            <div>
+              <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-safety-orange mb-2 block">
+                Direct Channels
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-ink-900 tracking-tight leading-tight">
+                Ways to reach us.
+              </h2>
+            </div>
+            <p className="font-sans text-body-sm text-ink-500 font-light max-w-md leading-relaxed">
+              Frontline communication protocols for verified coordination, medical assistance, and operational enquiries.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-l border-border-default *:border-b *:border-r *:border-border-default">
-            {contactChannels.map((channel) => {
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            <div className="lg:col-span-5 flex flex-col gap-5">
+              {contactChannels.map((channel) => {
               const Icon = channel.icon;
               return (
-                <div key={channel.id} className="bg-surface p-6 md:p-8 flex flex-col h-full group hover:bg-ink-900 transition-colors duration-500">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div
-                      className={`shrink-0 size-12 flex items-center justify-center ${
-                        channel.primary ? "bg-safety-orange text-ink-900" : "bg-ink-900 text-paper group-hover:bg-safety-orange group-hover:text-ink-900 transition-colors"
-                      }`}
-                    >
-                      <Icon className="size-5" strokeWidth={1.5} />
+                <div
+                  key={channel.id}
+                  className={cn(
+                    "group relative flex flex-col justify-between h-full p-6 md:p-7 rounded-md bg-surface border transition-all duration-300 ease-out",
+                    channel.primary
+                      ? "border-safety-orange/40 shadow-xs hover:border-safety-orange hover:shadow-md hover:-translate-y-1"
+                      : "border-border-default/70 shadow-2xs hover:border-ink-900/30 hover:shadow-sm hover:-translate-y-1"
+                  )}
+                >
+                  <div>
+                    {/* Quiet Chrome Header */}
+                    <div className="flex items-center justify-between gap-3 mb-5">
+                      <div
+                        className={cn(
+                          "size-10 rounded-md flex items-center justify-center border transition-colors",
+                          channel.primary
+                            ? "bg-safety-orange/10 text-safety-orange border-safety-orange/20"
+                            : "bg-ink-900/5 text-ink-900 dark:bg-white/5 dark:text-paper border-black/5 dark:border-white/10"
+                        )}
+                      >
+                        <Icon className="size-5" strokeWidth={1.5} />
+                      </div>
+                      {channel.primary && (
+                        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-safety-orange bg-safety-orange/10 rounded-full border border-safety-orange/20" data-badge="pill">
+                          <span className="size-1.5 rounded-full bg-safety-orange animate-pulse" />
+                          Active
+                        </span>
+                      )}
                     </div>
-                    <div>
-                      <h3 className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink-500 group-hover:text-paper/50 transition-colors mb-1">
-                        {channel.label}
-                      </h3>
-                      <p className="font-sans text-role-body font-medium text-ink-900 group-hover:text-paper transition-colors">
-                        {channel.value}
-                      </p>
-                    </div>
+
+                    {/* Channel Category & Value */}
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-ink-500 block mb-1">
+                      {channel.label}
+                    </span>
+                    <p className="font-mono text-sm font-bold text-ink-900 break-all mb-3 select-all">
+                      {channel.value}
+                    </p>
+
+                    {/* Description */}
+                    <p className="font-sans text-body-sm text-ink-500 font-light leading-relaxed mb-6">
+                      {channel.description}
+                    </p>
                   </div>
-                  <p className="font-sans text-role-body-sm text-ink-500 font-light leading-relaxed mb-6 sm:mb-8 group-hover:text-paper/70 transition-colors">
-                    {channel.description}
-                  </p>
+
+                  {/* Modern Hairline Action Button */}
                   <a
                     href={channel.href}
                     target={channel.id !== "phone" ? "_blank" : undefined}
                     rel={channel.id !== "phone" ? "noopener noreferrer" : undefined}
-                    className={`inline-flex items-center justify-between mt-auto px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300 ${
+                    className={cn(
+                      "inline-flex items-center justify-between w-full px-4 py-2.5 rounded-sm font-sans text-xs font-medium transition-all duration-200",
                       channel.primary
-                        ? "bg-ink-900 text-paper hover:bg-safety-orange hover:text-ink-900 group-hover:bg-safety-orange group-hover:text-ink-900"
-                        : "bg-paper text-ink-900 hover:bg-safety-orange group-hover:bg-paper"
-                    }`}
+                        ? "bg-action-primary text-paper hover:bg-action-hover shadow-2xs"
+                        : "border border-border-default/80 text-ink-900 hover:border-ink-900/60 hover:bg-black/2 dark:hover:bg-white/4"
+                    )}
                   >
                     <span>{channel.action}</span>
-                    <ExternalLink className="size-4" aria-hidden="true" />
+                    <ExternalLink className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 opacity-70 group-hover:opacity-100" />
                   </a>
                 </div>
               );
             })}
+            </div>
+            <div className="lg:col-span-7">
+              <ContactForm />
+            </div>
           </div>
         </Container>
       </Section>

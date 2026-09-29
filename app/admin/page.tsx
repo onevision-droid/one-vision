@@ -92,8 +92,8 @@ export default function AdminDashboard() {
 
   if (!session) {
     return (
-      <div className="bg-paper min-h-screen flex flex-col px-4 md:px-8">
-        <header className="w-full max-w-5xl mx-auto py-6 border-b border-border-default flex items-center justify-between">
+      <div className="bg-paper min-h-dvh flex flex-col px-4 md:px-8">
+        <header className="w-full max-w-5xl mx-auto py-6 border-b border-border-default/80 flex items-center justify-between">
           <Link
             href="/"
             aria-label="Go home"

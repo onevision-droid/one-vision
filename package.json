@@ -12,6 +12,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "vitest run",
+    "audit": "tsx scripts/audit-jev.ts",
+    "audit:static": "tsx scripts/audit-jev.ts --static-only",
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
@@ -57,6 +59,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@typesafe-ai/sdk": "^0.6.0",
     "@vitest/browser-playwright": "5.0.1",
     "@vitest/coverage-v8": "5.0.1",
     "chromatic": "^18.9.5",
@@ -69,6 +72,7 @@
     "stylelint": "^17.15.0",
     "stylelint-config-standard": "^40.0.0",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5",
     "vite": "latest",
     "vitest": "^5.0.1"
