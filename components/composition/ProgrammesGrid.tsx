@@ -1,12 +1,12 @@
-import { Section, Container } from "@/components/layout/Shell";
-import { cn } from "@/lib/utils";
-import React from "react";
-import { Card } from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { programmes } from "@/lib/data/programmes";
+import { Section, Container } from"@/components/layout/Shell";
+import { cn } from"@/lib/utils";
+import React from"react";
+import { Card } from"@/components/ui/card";
+import { ArrowRight } from"lucide-react";
+import Link from"next/link";
+import Image from"next/image";
+import { Button } from"@/components/ui/button";
+import { programmes } from"@/lib/data/programmes";
 export function ProgrammesGrid() {
   return (
     <Section tone="default" className="border-t border-border">
@@ -52,7 +52,7 @@ export function ProgrammesGrid() {
                     {programme.category}
                   </span>
                   <div className="flex items-center gap-2">
-                    <span className={cn("size-2", programme.status === "Active" ? "bg-status-active" : "bg-hazard-yellow")} />
+                    <span className={cn("size-2", programme.status ==="Active" ?"bg-status-active" :"bg-hazard-yellow")} />
                     {programme.status}
                   </div>
                   <span className="text-border-strong">•</span>

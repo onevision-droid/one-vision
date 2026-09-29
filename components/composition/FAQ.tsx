@@ -1,11 +1,11 @@
-import { Section, Container } from "@/components/layout/Shell";
+import { Section, Container } from"@/components/layout/Shell";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import Link from "next/link";
+} from"@/components/ui/accordion";
+import Link from"next/link";
 
 interface FAQItem {
   question: string;
@@ -16,14 +16,14 @@ interface FAQProps {
   heading?: string;
   description?: string;
   items: FAQItem[];
-  tone?: "default" | "alt" | "inverted";
+  tone?:"default" |"alt" |"inverted";
 }
 
 export function FAQ({
-  heading = "Frequently Asked Questions",
+  heading ="Frequently Asked Questions",
   description,
   items,
-  tone = "default",
+  tone ="default",
 }: FAQProps) {
   return (
     <Section tone={tone} className="border-t border-border">
@@ -40,7 +40,7 @@ export function FAQ({
             )}
             <div className="mt-auto pb-4">
               <p className="font-sans text-base-sm text-muted-foreground font-light">
-                Have a different question?{" "}
+                Have a different question?{""}
                 <Link
                   href="/contact"
                   className="font-bold text-foreground hover:text-destructive underline underline-offset-4 transition-colors"

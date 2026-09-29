@@ -1,28 +1,28 @@
-import React from "react";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { Section, Container } from "@/components/layout/Shell";
+import React from"react";
+import Link from"next/link";
+import { ArrowRight } from"lucide-react";
+import { Section, Container } from"@/components/layout/Shell";
 
 const keyFacts = [
   {
-    stat: "CLIMATE",
-    label: "Extreme Weather",
-    detail: "Floods and landslides threaten communities, homes, and everyday livelihoods.",
+    stat:"CLIMATE",
+    label:"Extreme Weather",
+    detail:"Floods and landslides threaten communities, homes, and everyday livelihoods.",
   },
   {
-    stat: "ECOLOGY",
-    label: "Environmental Stress",
-    detail: "Pollution and degradation threaten clean air, water, and natural infrastructure.",
+    stat:"ECOLOGY",
+    label:"Environmental Stress",
+    detail:"Pollution and degradation threaten clean air, water, and natural infrastructure.",
   },
   {
-    stat: "YOUTH",
-    label: "Future Skills",
-    detail: "Young people need practical pathways and mentorship into new digital industries.",
+    stat:"YOUTH",
+    label:"Future Skills",
+    detail:"Young people need practical pathways and mentorship into new digital industries.",
   },
   {
-    stat: "COMMUNITY",
-    label: "Access to Services",
-    detail: "Communities need better access to reliable information, services and opportunities.",
+    stat:"COMMUNITY",
+    label:"Access to Services",
+    detail:"Communities need better access to reliable information, services and opportunities.",
   },
 ];
 

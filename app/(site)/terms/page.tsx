@@ -1,11 +1,11 @@
-import { Metadata } from "next";
-import { Section, Container } from "@/components/layout/Shell";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Badge } from "@/components/ui/badge";
+import { Metadata } from"next";
+import { Section, Container } from"@/components/layout/Shell";
+import { Breadcrumbs } from"@/components/ui/Breadcrumbs";
+import { Badge } from"@/components/ui/badge";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | One Vision",
-  description: "Terms and conditions for using the One Vision website and services.",
+  title:"Terms of Service | One Vision",
+  description:"Terms and conditions for using the One Vision website and services.",
 };
 
 export default function TermsPage() {
@@ -14,7 +14,7 @@ export default function TermsPage() {
       <Section tone="default" className="pt-16 pb-24">
         <Container>
           <div className="max-w-3xl mx-auto space-y-8">
-            <Breadcrumbs items={[{ label: "Terms of Service", href: "/terms" }]} />
+            <Breadcrumbs items={[{ label:"Terms of Service", href:"/terms" }]} />
             
             <div>
               <Badge className="mb-6">Legal</Badge>

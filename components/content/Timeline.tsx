@@ -1,10 +1,10 @@
-import { cn } from "@/lib/utils";
+import { cn } from"@/lib/utils";
 
 export interface TimelineItem {
  year: string;
  title: string;
  description: string;
- status?: "completed" | "active" | "upcoming";
+ status?:"completed" |"active" |"upcoming";
  tag?: string;
 }
 
@@ -40,9 +40,9 @@ export function Timeline({
 
  <ol role="list" className="relative border-l border-border ml-3 sm:ml-4 space-y-12 sm:space-y-16">
  {items.map((item, index) => {
- const isCompleted = item.status === "completed" || (!item.status && index < items.length - 1);
- const isActive = item.status === "active";
- const isUpcoming = item.status === "upcoming";
+ const isCompleted = item.status ==="completed" || (!item.status && index < items.length - 1);
+ const isActive = item.status ==="active";
+ const isUpcoming = item.status ==="upcoming";
 
  return (
  <li
@@ -53,16 +53,16 @@ export function Timeline({
  <div
  aria-hidden="true"
  className={cn(
- "absolute -left-1.75 top-1.5 size-3.5 transition-transform duration-200 group-hover:scale-125",
- isCompleted && "bg-foreground border-2 border-surface",
- isActive && "bg-action-primary ring-4 ring-action-primary/20 border-2 border-surface",
- isUpcoming && "bg-muted border-2 border-ink-400"
+"absolute -left-1.75 top-1.5 size-3.5 transition-transform duration-200 group-hover:scale-125",
+ isCompleted &&"bg-foreground border-2 border-surface",
+ isActive &&"bg-action-primary ring-4 ring-action-primary/20 border-2 border-surface",
+ isUpcoming &&"bg-muted border-2 border-ink-400"
  )}
  />
 
  <div className="flex flex-col space-y-2">
  <div className="flex flex-wrap items-center gap-3">
- <span className="font-sans text-caption uppercase tracking-wider font-semibold text-action-primary bg-action-primary/8 px-2 py-0.5 ">
+ <span className="font-sans text-caption uppercase tracking-wider font-semibold text-action-primary bg-action-primary/8 px-2 py-0.5">
  {item.year}
  </span>
  {item.tag && (

@@ -1,8 +1,8 @@
 "use client";
 
-import { NumberTicker } from "@/components/ui/number-ticker";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { InfoIcon } from "lucide-react";
+import { NumberTicker } from"@/components/ui/number-ticker";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from"@/components/ui/tooltip";
+import { InfoIcon } from"lucide-react";
 
 interface ImpactMetricProps {
  value: number;
@@ -13,7 +13,7 @@ interface ImpactMetricProps {
  methodology?: string;
 }
 
-export function ImpactMetric({ value, prefix = "", suffix = "", label, date, methodology }: ImpactMetricProps) {
+export function ImpactMetric({ value, prefix ="", suffix ="", label, date, methodology }: ImpactMetricProps) {
  return (
  <div className="flex flex-col items-center justify-center text-center p-8 border-b md:border-b-0 md:border-r border-ink/10 last:border-0 relative">
  <div className="flex items-center gap-2 mb-6">

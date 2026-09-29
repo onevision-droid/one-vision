@@ -1,5 +1,5 @@
-import { Section, Container } from "@/components/layout/Shell";
-import Image from "next/image";
+import { Section, Container } from"@/components/layout/Shell";
+import Image from"next/image";
 
 interface Testimonial {
   quote: string;
@@ -12,14 +12,14 @@ interface TestimonialMosaicProps {
   heading: React.ReactNode;
   description?: string;
   testimonials: Testimonial[];
-  tone?: "default" | "alt" | "inverted";
+  tone?:"default" |"alt" |"inverted";
 }
 
 export function TestimonialMosaic({
   heading,
   description,
   testimonials,
-  tone = "alt",
+  tone ="alt",
 }: TestimonialMosaicProps) {
   // We'll structure a masonry-like CSS grid
   return (
@@ -43,7 +43,7 @@ export function TestimonialMosaic({
               key={idx}
               className={`bg-background p-8 border border-border flex flex-col justify-between ${
                 // Add some staggered height simulation or specific spans if desired
-                idx === 1 || idx === 4 ? "md:mt-8" : ""
+                idx === 1 || idx === 4 ?"md:mt-8" :""
               }`}
             >
               <blockquote className="font-sans text-heading-md font-light text-foreground leading-relaxed mb-8">

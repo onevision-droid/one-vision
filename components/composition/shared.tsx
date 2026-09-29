@@ -1,8 +1,8 @@
-import { Section } from "@/components/layout/Shell";
-import type { SectionTone } from "@/components/layout/Shell";
+import { Section } from"@/components/layout/Shell";
+import type { SectionTone } from"@/components/layout/Shell";
 
 export type Surface =
-  "paper" | "white" | "ink" | "forest" | "mist" | "sand" | "transparent";
+ "paper" |"white" |"ink" |"forest" |"mist" |"sand" |"transparent";
 
 export interface CompositionProps {
   surface?: Surface;
@@ -16,7 +16,7 @@ export interface CompositionProps {
  * Maps legacy `Surface` to new `SectionTone`.
  */
 export function isDarkSurface(surface: Surface | string): boolean {
-  return surface === "forest" || surface === "ink";
+  return surface ==="forest" || surface ==="ink";
 }
 
 /**
@@ -24,16 +24,16 @@ export function isDarkSurface(surface: Surface | string): boolean {
  * Use `<Section>` and `<Container>` from `@/components/layout/Shell` directly in new code.
  */
 export function SectionWrapper({
-  surface = "paper",
+  surface ="paper",
   className,
   children,
   id,
-  "aria-labelledby": ariaLabelledBy,
-}: CompositionProps & { "aria-labelledby"?: string }) {
+ "aria-labelledby": ariaLabelledBy,
+}: CompositionProps & {"aria-labelledby"?: string }) {
   // Map old surfaces to new tones
-  let tone: SectionTone = "default";
-  if (surface === "ink" || surface === "forest") tone = "inverted";
-  if (surface === "mist" || surface === "sand") tone = "alt";
+  let tone: SectionTone ="default";
+  if (surface ==="ink" || surface ==="forest") tone ="inverted";
+  if (surface ==="mist" || surface ==="sand") tone ="alt";
 
   return (
     <Section

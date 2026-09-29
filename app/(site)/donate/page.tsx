@@ -1,16 +1,16 @@
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { env } from "@/lib/env";
-import { DonateForm } from "@/components/forms/DonateForm";
-import Link from "next/link";
-import { Section, Container } from "@/components/layout/Shell";
-import { PageHero } from "@/components/composition/PageHero";
-import { TrustPanel } from "@/components/content/TrustPanel";
+import { Metadata } from"next";
+import { notFound } from"next/navigation";
+import { env } from"@/lib/env";
+import { DonateForm } from"@/components/forms/DonateForm";
+import Link from"next/link";
+import { Section, Container } from"@/components/layout/Shell";
+import { PageHero } from"@/components/composition/PageHero";
+import { TrustPanel } from"@/components/content/TrustPanel";
 
 export const metadata: Metadata = {
-  title: "Donate | One Vision",
+  title:"Donate | One Vision",
   description:
-    "Support community resilience in Manipur. Transparent, direct, and accountable allocation of resources.",
+   "Support community resilience in Manipur. Transparent, direct, and accountable allocation of resources.",
 };
 
 export default async function DonatePage(

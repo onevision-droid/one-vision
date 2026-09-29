@@ -1,9 +1,9 @@
 "use client";
 
-import { supabase } from "@/lib/supabase/client";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+import { supabase } from"@/lib/supabase/client";
+import { useForm } from"react-hook-form";
+import { zodResolver } from"@hookform/resolvers/zod";
+import * as z from"zod";
 import {
   Form,
   FormControl,
@@ -11,31 +11,31 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
-import { trackEvent } from "@/lib/analytics/trackEvent";
-import { useState } from "react";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+} from"@/components/ui/form";
+import { Input } from"@/components/ui/input";
+import { Textarea } from"@/components/ui/textarea";
+import { Checkbox } from"@/components/ui/checkbox";
+import { trackEvent } from"@/lib/analytics/trackEvent";
+import { useState } from"react";
+import { ArrowRight, CheckCircle2 } from"lucide-react";
 
 const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters."),
+  name: z.string().min(2,"Name must be at least 2 characters."),
   email: z.string().email("Please provide a valid email address."),
   phone: z.string().optional(),
   interests: z.array(z.string()).refine((value) => value.some((item) => item), {
-    message: "You have to select at least one area of interest.",
+    message:"You have to select at least one area of interest.",
   }),
   experience: z.string().optional(),
 });
 
 const areasOfInterest = [
-  { id: "health", label: "Health & Medical" },
-  { id: "education", label: "Education & Teaching" },
-  { id: "logistics", label: "Logistics & Supply" },
-  { id: "admin", label: "Administrative Support" },
-  { id: "counseling", label: "Counseling & Mental Health" },
-  { id: "community", label: "Community Organizing" },
+  { id:"health", label:"Health & Medical" },
+  { id:"education", label:"Education & Teaching" },
+  { id:"logistics", label:"Logistics & Supply" },
+  { id:"admin", label:"Administrative Support" },
+  { id:"counseling", label:"Counseling & Mental Health" },
+  { id:"community", label:"Community Organizing" },
 ];
 
 export function VolunteerForm() {
@@ -46,11 +46,11 @@ export function VolunteerForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
+      name:"",
+      email:"",
+      phone:"",
       interests: [],
-      experience: "",
+      experience:"",
     },
   });
 
@@ -68,16 +68,16 @@ export function VolunteerForm() {
     }
     trackEvent("volunteer_complete", { interestsCount: values.interests.length });
 
-    const [firstName, ...lastNameParts] = values.name.split(" ");
+    const [firstName, ...lastNameParts] = values.name.split("");
 
     const { error } = await supabase.from("volunteer_applications").insert({
-      first_name: firstName || "Unknown",
-      last_name: lastNameParts.join(" ") || "Unknown",
+      first_name: firstName ||"Unknown",
+      last_name: lastNameParts.join("") ||"Unknown",
       email: values.email,
-      phone: values.phone || "",
+      phone: values.phone ||"",
       skills: values.interests,
-      message: values.experience || "",
-      status: "pending",
+      message: values.experience ||"",
+      status:"pending",
     });
 
     if (error) {
@@ -202,8 +202,8 @@ export function VolunteerForm() {
                           <FormLabel
                             className={`flex items-center gap-3 p-4 cursor-pointer transition-colors font-sans text-base-sm font-normal ${
                               isChecked
-                                ? "bg-destructive text-foreground"
-                                : "text-ink-700 hover:bg-background"
+                                ?"bg-destructive text-foreground"
+                                :"text-ink-700 hover:bg-background"
                             }`}
                           >
                             <FormControl>

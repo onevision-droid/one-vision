@@ -1,12 +1,12 @@
-import Image from "next/image";
-import { cn } from "@/lib/utils";
+import Image from"next/image";
+import { cn } from"@/lib/utils";
 
 export interface MosaicImageItem {
   src: string;
   alt: string;
   caption?: string;
   location?: string;
-  aspectRatio?: "square" | "portrait" | "landscape" | "video";
+  aspectRatio?:"square" |"portrait" |"landscape" |"video";
 }
 
 export interface ImageMosaicProps {
@@ -27,7 +27,7 @@ export function ImageMosaic({
   className,
 }: ImageMosaicProps) {
   return (
-    <section className={cn("w-full py-8 lg:py-14 border-t border-border", className)} aria-label={heading || "Image gallery"}>
+    <section className={cn("w-full py-8 lg:py-14 border-t border-border", className)} aria-label={heading ||"Image gallery"}>
       {(heading || subheading) && (
         <div className="mb-6 lg:mb-8 border-l-4 border-safety-orange pl-6">
           {heading && (
@@ -45,8 +45,8 @@ export function ImageMosaic({
 
       <div
         className={cn(
-          "grid grid-cols-1 lg:grid-cols-12 gap-0 border-x border-border",
-          reversed && "lg:[direction:rtl] lg:*:[direction:ltr]"
+         "grid grid-cols-1 lg:grid-cols-12 gap-0 border-x border-border",
+          reversed &&"lg:[direction:rtl] lg:*:[direction:ltr]"
         )}
       >
         {/* Lead Image: spans 7 columns */}
@@ -86,12 +86,12 @@ export function ImageMosaic({
             >
               <div
                 className={cn(
-                  "relative overflow-hidden bg-foreground sm:w-1/2 lg:w-full border-b sm:border-b-0 lg:border-b sm:border-r lg:border-r-0 border-border",
-                  satellite.aspectRatio === "portrait"
-                    ? "aspect-3/4"
-                    : satellite.aspectRatio === "square"
-                    ? "aspect-square"
-                    : "aspect-video"
+                 "relative overflow-hidden bg-foreground sm:w-1/2 lg:w-full border-b sm:border-b-0 lg:border-b sm:border-r lg:border-r-0 border-border",
+                  satellite.aspectRatio ==="portrait"
+                    ?"aspect-3/4"
+                    : satellite.aspectRatio ==="square"
+                    ?"aspect-square"
+                    :"aspect-video"
                 )}
               >
                 <Image

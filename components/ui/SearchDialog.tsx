@@ -1,17 +1,17 @@
 "use client";
 
-import { useState, useEffect, useMemo, useRef } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { useState, useEffect, useMemo, useRef } from"react";
+import { useRouter } from"next/navigation";
+import Link from"next/link";
 
-import { Search, X, CornerDownLeft } from "lucide-react";
-import MiniSearch from "minisearch";
+import { Search, X, CornerDownLeft } from"lucide-react";
+import MiniSearch from"minisearch";
 
-import { programmes } from "@/lib/data/programmes";
-import { campaigns } from "@/lib/data/campaigns";
-import { stories } from "@/lib/data/stories";
-import { reports } from "@/lib/data/reports";
-import { events } from "@/lib/data/events";
+import { programmes } from"@/lib/data/programmes";
+import { campaigns } from"@/lib/data/campaigns";
+import { stories } from"@/lib/data/stories";
+import { reports } from"@/lib/data/reports";
+import { events } from"@/lib/data/events";
 
 interface SearchDialogProps {
  isOpen: boolean;
@@ -28,9 +28,9 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  // Initialize MiniSearch once
  const miniSearch = useMemo(() => {
  const ms = new MiniSearch({
- fields: ["title", "description", "category", "location", "excerpt", "content", "author", "type"],
- storeFields: ["_type", "_original", "_sectionId"],
- idField: "_uid",
+ fields: ["title","description","category","location","excerpt","content","author","type"],
+ storeFields: ["_type","_original","_sectionId"],
+ idField:"_uid",
  searchOptions: {
  prefix: true,
  fuzzy: 0.2,
@@ -58,11 +58,11 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  });
  };
 
- addWithSections(programmes, "programme", "prog");
- addWithSections(campaigns, "campaign", "camp");
- addWithSections(stories, "story", "story");
- addWithSections(reports, "report", "rep");
- addWithSections(events, "event", "evt");
+ addWithSections(programmes,"programme","prog");
+ addWithSections(campaigns,"campaign","camp");
+ addWithSections(stories,"story","story");
+ addWithSections(reports,"report","rep");
+ addWithSections(events,"event","evt");
 
  ms.addAll(allDocs);
  return ms;
@@ -75,9 +75,9 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  useEffect(() => {
  if (isOpen) {
  setTimeout(() => inputRef.current?.focus(), 50);
- document.body.style.overflow = "hidden";
+ document.body.style.overflow ="hidden";
  } else {
- document.body.style.overflow = "unset";
+ document.body.style.overflow ="unset";
  // Clear state after exit animation to prevent content flashing
  const timer = setTimeout(() => {
  setQuery("");
@@ -96,13 +96,13 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  const handleKeyDown = (e: React.KeyboardEvent) => {
  if (results.length === 0) return;
 
- if (e.key === "ArrowDown") {
+ if (e.key ==="ArrowDown") {
  e.preventDefault();
  setSelectedIndex((prev) => (prev + 1) % results.length);
- } else if (e.key === "ArrowUp") {
+ } else if (e.key ==="ArrowUp") {
  e.preventDefault();
  setSelectedIndex((prev) => (prev - 1 + results.length) % results.length);
- } else if (e.key === "Enter") {
+ } else if (e.key ==="Enter") {
  e.preventDefault();
  handleSelectResult(results[selectedIndex]);
  }
@@ -112,26 +112,26 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  const getResultUrl = (result: any) => {
  const type = result._type;
  const item = result._original;
- const hash = result._sectionId ? `#${result._sectionId}` : "";
+ const hash = result._sectionId ? `#${result._sectionId}` :"";
  
  switch (type) {
- case "programme": return `/programmes/${item.slug}${hash}`;
- case "campaign": return `/campaigns/${item.slug}${hash}`;
- case "story": return `/stories/${item.slug}${hash}`;
- case "report": return item.downloadUrl || "/reports";
- case "event": return `/events#${result._sectionId || item.slug}`;
- default: return "/";
+ case"programme": return `/programmes/${item.slug}${hash}`;
+ case"campaign": return `/campaigns/${item.slug}${hash}`;
+ case"story": return `/stories/${item.slug}${hash}`;
+ case"report": return item.downloadUrl ||"/reports";
+ case"event": return `/events#${result._sectionId || item.slug}`;
+ default: return"/";
  }
  };
 
  // eslint-disable-next-line @typescript-eslint/no-explicit-any
  const handleSelectResult = (result: any) => {
  const url = getResultUrl(result);
- const isPdf = result._type === "report" && url.endsWith(".pdf");
+ const isPdf = result._type ==="report" && url.endsWith(".pdf");
  
  onClose();
  if (isPdf) {
- window.open(url, "_blank");
+ window.open(url,"_blank");
  } else {
  router.push(url);
  }
@@ -146,7 +146,7 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  onClick={onClose}
  />
  <div
-        className="relative w-full max-w-2xl bg-background border-2 border-border shadow-2xl flex flex-col max-h-[80vh] overflow-hidden "
+        className="relative w-full max-w-2xl bg-background border-2 border-border shadow-2xl flex flex-col max-h-[80vh] overflow-hidden"
         role="dialog"
         aria-modal="true"
       >
@@ -200,17 +200,17 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  const isSelected = index === selectedIndex;
  const item = result._original;
  const url = getResultUrl(result);
- const isPdf = result._type === "report" && url.endsWith(".pdf");
+ const isPdf = result._type ==="report" && url.endsWith(".pdf");
  
  return (
  <li key={result.id}>
  <Link
  href={url}
- target={isPdf ? "_blank" : undefined}
+ target={isPdf ?"_blank" : undefined}
  onMouseEnter={() => setSelectedIndex(index)}
  onClick={onClose}
  className={`w-full text-left px-5 py-4 flex items-start gap-4 border-b border-border transition-colors ${
- isSelected ? "bg-foreground text-background" : "bg-transparent text-foreground hover:bg-muted-alt"
+ isSelected ?"bg-foreground text-background" :"bg-transparent text-foreground hover:bg-muted-alt"
  }`}
  >
  <div className="flex-1 min-w-0">
@@ -218,19 +218,19 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  <span
  className={`text-[10px] font-sans font-medium uppercase tracking-wider px-1.5 py-0.5 border ${
  isSelected
- ? "border-paper/40 text-background/80"
-                    : "border-border text-muted-foreground"
+ ?"border-paper/40 text-background/80"
+                    :"border-border text-muted-foreground"
  } `}
  >
  {result._type}
  </span>
- {result._type === "programme" && (
- <span className={`text-caption font-semibold truncate ${isSelected ? "text-background/60" : "text-ink-400"}`}>
+ {result._type ==="programme" && (
+ <span className={`text-caption font-semibold truncate ${isSelected ?"text-background/60" :"text-ink-400"}`}>
  {item.location}
  </span>
  )}
  </div>
- <h4 className={`font-sans text-body-sm font-semibold truncate ${isSelected ? "text-background" : "text-foreground"}`}>
+ <h4 className={`font-sans text-body-sm font-semibold truncate ${isSelected ?"text-background" :"text-foreground"}`}>
  {item.title}
  </h4>
  </div>
@@ -252,16 +252,16 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  <span>{results.length} results</span>
  <div className="hidden sm:flex items-center gap-4">
  <span className="flex items-center gap-1">
- <kbd className="px-1.5 py-0.5 border border-border bg-background ">↑</kbd>
- <kbd className="px-1.5 py-0.5 border border-border bg-background ">↓</kbd>
+ <kbd className="px-1.5 py-0.5 border border-border bg-background">↑</kbd>
+ <kbd className="px-1.5 py-0.5 border border-border bg-background">↓</kbd>
  Navigate
  </span>
  <span className="flex items-center gap-1">
- <kbd className="px-1.5 py-0.5 border border-border bg-background ">↵</kbd>
+ <kbd className="px-1.5 py-0.5 border border-border bg-background">↵</kbd>
  Select
  </span>
  <span className="flex items-center gap-1">
- <kbd className="px-1.5 py-0.5 border border-border bg-background ">ESC</kbd>
+ <kbd className="px-1.5 py-0.5 border border-border bg-background">ESC</kbd>
  Close
  </span>
  </div>

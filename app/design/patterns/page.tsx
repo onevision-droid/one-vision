@@ -1,17 +1,17 @@
-import { Metadata } from "next";
-import { Shoreline } from "@/components/composition/Shoreline";
-import { EvidenceShoreline } from "@/components/composition/EvidenceShoreline";
-import { DepthBand } from "@/components/composition/DepthBand";
-import { Mosaic } from "@/components/composition/Mosaic";
-import { SplitNarrative } from "@/components/composition/SplitNarrative";
-import { Ledger, LedgerRow } from "@/components/composition/Ledger";
-import { QuietClose } from "@/components/composition/QuietClose";
-import { ImpactMetric } from "@/components/content/ImpactMetric";
-import { Button } from "@/components/ui/button";
+import { Metadata } from"next";
+import { Shoreline } from"@/components/composition/Shoreline";
+import { EvidenceShoreline } from"@/components/composition/EvidenceShoreline";
+import { DepthBand } from"@/components/composition/DepthBand";
+import { Mosaic } from"@/components/composition/Mosaic";
+import { SplitNarrative } from"@/components/composition/SplitNarrative";
+import { Ledger, LedgerRow } from"@/components/composition/Ledger";
+import { QuietClose } from"@/components/composition/QuietClose";
+import { ImpactMetric } from"@/components/content/ImpactMetric";
+import { Button } from"@/components/ui/button";
 
 export const metadata: Metadata = {
- title: "Composition Patterns",
- description: "Design system preview of Nordic Lagoon composition patterns.",
+ title:"Composition Patterns",
+ description:"Design system preview of Nordic Lagoon composition patterns.",
 };
 
 export default function PatternsPage() {
@@ -61,7 +61,7 @@ export default function PatternsPage() {
  </p>
  }
  media={
- <div className="w-full h-full min-h-100 bg-section-alt flex items-center justify-center font-sans text-ink/50 ">Image</div>
+ <div className="w-full h-full min-h-100 bg-section-alt flex items-center justify-center font-sans text-ink/50">Image</div>
  }
  />
 

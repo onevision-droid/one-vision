@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
-import { SectionWrapper, type CompositionProps } from "./shared";
+import { cn } from"@/lib/utils";
+import { SectionWrapper, type CompositionProps } from"./shared";
 
 /**
  * Depth Band — Alternating full-width band carrying a single idea.
@@ -14,7 +14,7 @@ interface DepthBandProps extends CompositionProps {
 }
 
 export function DepthBand({
-  surface = "mist",
+  surface ="mist",
   className,
   children,
   heading,
@@ -31,9 +31,9 @@ export function DepthBand({
           <h2
             id={headingId}
             className={cn(
-              "font-sans font-light tracking-tight",
-              "text-display-md",
-              "mb-12 lg:mb-16",
+             "font-sans font-light tracking-tight",
+             "text-display-md",
+             "mb-12 lg:mb-16",
             )}
           >
             {heading}

@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { Section, Container } from "@/components/layout/Shell";
-import Image from "next/image";
+import Link from"next/link";
+import { ArrowRight, ArrowUpRight } from"lucide-react";
+import { Section, Container } from"@/components/layout/Shell";
+import Image from"next/image";
 
 export function Hero() {
   return (
@@ -51,7 +51,7 @@ export function Hero() {
               priority
             />
             {/* Brutalist hard overlay scrim */}
-            <div className="absolute inset-0 pointer-events-none mix-blend-multiply bg-black/20" />
+            <div className="absolute inset-0 pointer-events-none mix-blend-multiply bg-foreground/20" />
           </div>
         </div>
       </Container>

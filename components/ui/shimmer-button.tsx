@@ -1,7 +1,7 @@
-import React, { type ComponentPropsWithoutRef, type CSSProperties } from "react"
-import { Slot, Slottable } from "@radix-ui/react-slot"
+import React, { type ComponentPropsWithoutRef, type CSSProperties } from"react"
+import { Slot, Slottable } from"@radix-ui/react-slot"
 
-import { cn } from "@/lib/utils"
+import { cn } from"@/lib/utils"
 
 export interface ShimmerButtonProps extends ComponentPropsWithoutRef<"button"> {
  shimmerColor?: string
@@ -20,11 +20,11 @@ export const ShimmerButton = React.forwardRef<
 >(
  (
  {
-    shimmerColor = "hsl(var(--background))",
-    shimmerSize = "0.05em",
-    shimmerDuration = "3s",
-    borderRadius = "0px",
-    background = "hsl(var(--foreground))",
+    shimmerColor ="hsl(var(--background))",
+    shimmerSize ="0.05em",
+    shimmerDuration ="3s",
+    borderRadius ="0px",
+    background ="hsl(var(--foreground))",
  className,
  children,
  asChild = false,
@@ -32,22 +32,22 @@ export const ShimmerButton = React.forwardRef<
  },
  ref
  ) => {
- const Comp = asChild ? Slot : "button"
+ const Comp = asChild ? Slot :"button"
  return (
  <Comp
  style={
  {
- "--spread": "90deg",
- "--shimmer-color": shimmerColor,
- "--radius": borderRadius,
- "--speed": shimmerDuration,
- "--cut": shimmerSize,
- "--bg": background,
+"--spread":"90deg",
+"--shimmer-color": shimmerColor,
+"--radius": borderRadius,
+"--speed": shimmerDuration,
+"--cut": shimmerSize,
+"--bg": background,
  } as CSSProperties
  }
  className={cn(
- "group relative z-0 flex cursor-pointer items-center justify-center overflow-hidden -(--radius) border border-border px-6 py-3 whitespace-nowrap text-primary-foreground [background:var(--bg)]",
- "transform-gpu transition-transform duration-300 ease-in-out active:translate-y-px",
+"group relative z-0 flex cursor-pointer items-center justify-center overflow-hidden -(--radius) border border-border px-6 py-3 whitespace-nowrap text-primary-foreground [background:var(--bg)]",
+"transform-gpu transition-transform duration-300 ease-in-out active:translate-y-px",
  className
  )}
  ref={ref}
@@ -56,8 +56,8 @@ export const ShimmerButton = React.forwardRef<
  {/* spark container */}
  <div
  className={cn(
- "-z-30 blur-[2px]",
- "@container-size absolute inset-0 overflow-visible"
+"-z-30 blur-[2px]",
+"@container-size absolute inset-0 overflow-visible"
  )}
  >
  {/* spark */}
@@ -71,17 +71,17 @@ export const ShimmerButton = React.forwardRef<
  {/* Highlight */}
  <div
  className={cn(
- "absolute inset-0 size-full",
- "px-4 py-1.5 text-sm font-medium",
+"absolute inset-0 size-full",
+"px-4 py-1.5 text-sm font-medium",
  // transition
- "transform-gpu transition-all duration-300 ease-in-out"
+"transform-gpu transition-all duration-300 ease-in-out"
  )}
  />
 
  {/* backdrop */}
  <div
  className={cn(
- "absolute inset-(--cut) -z-20 -(--radius) [background:var(--bg)]"
+"absolute inset-(--cut) -z-20 -(--radius) [background:var(--bg)]"
  )}
  />
  </Comp>
@@ -89,4 +89,4 @@ export const ShimmerButton = React.forwardRef<
  }
 )
 
-ShimmerButton.displayName = "ShimmerButton"
+ShimmerButton.displayName ="ShimmerButton"

@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { siteSettings } from "@/lib/data/site-settings";
-import orgData from "@/content/org.json";
-import { ShieldAlert, Mail, MapPin } from "lucide-react";
+import Link from"next/link";
+import { siteSettings } from"@/lib/data/site-settings";
+import orgData from"@/content/org.json";
+import { ShieldAlert, Mail, MapPin } from"lucide-react";
 
 export function Footer() {
   return (
@@ -62,7 +62,7 @@ export function Footer() {
                 <span>{siteSettings.contactEmail}</span>
               </a>
               
-              <div className="inline-flex items-start gap-2 text-base text-background/70 pt-2 border-t border-white/10 mt-2">
+              <div className="inline-flex items-start gap-2 text-base text-background/70 pt-2 border-t border-border mt-2">
                 <MapPin className="size-4 shrink-0 mt-1" />
                 <span className="text-sm">{siteSettings.address}</span>
               </div>
@@ -71,7 +71,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Tier: Legal & Registration */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 text-xs text-background/50 text-center md:text-left">
             <p>&copy; {new Date().getFullYear()} {orgData.org.legal}.</p>
             <span className="hidden md:inline-block w-px h-3 bg-white/10"></span>

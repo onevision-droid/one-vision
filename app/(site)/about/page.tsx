@@ -1,19 +1,19 @@
-import orgData from "@/content/org.json";
-import { Metadata } from "next";
-import { Section, Container } from "@/components/layout/Shell";
-import { PageHero } from "@/components/composition/PageHero";
-import { QuietClose } from "@/components/composition/QuietClose";
-import { PartnerLogoRow } from "@/components/content/PartnerLogoRow";
-import { SplitNarrative } from "@/components/composition/SplitNarrative";
-import Link from "next/link";
-import { ArrowRight, CheckCircle2, Mail } from "lucide-react";
-import Image from "next/image";
+import orgData from"@/content/org.json";
+import { Metadata } from"next";
+import { Section, Container } from"@/components/layout/Shell";
+import { PageHero } from"@/components/composition/PageHero";
+import { QuietClose } from"@/components/composition/QuietClose";
+import { PartnerLogoRow } from"@/components/content/PartnerLogoRow";
+import { SplitNarrative } from"@/components/composition/SplitNarrative";
+import Link from"next/link";
+import { ArrowRight, CheckCircle2, Mail } from"lucide-react";
+import Image from"next/image";
 
-import { ImageMosaic } from "@/components/content/ImageMosaic";
+import { ImageMosaic } from"@/components/content/ImageMosaic";
 
 export const metadata: Metadata = {
-  title: "About | One Vision",
-  description: "One Vision is a community-led organisation working for a healthier, greener and more resilient Manipur.",
+  title:"About | One Vision",
+  description:"One Vision is a community-led organisation working for a healthier, greener and more resilient Manipur.",
 };
 
 export default function AboutPage() {
@@ -96,32 +96,32 @@ export default function AboutPage() {
             heading="Deeply Rooted in Manipur"
             subheading="Our initiatives operate through trusted community networks in Imphal and surrounding districts, upholding local dignity and collective autonomy."
             leadImage={{
-              src: "/home-hero-2026.jpg",
-              alt: "Community gathering in Imphal streetscape",
-              caption: "Local logistics hub and supply coordination point in Imphal.",
-              location: "Imphal, Manipur",
+              src:"/home-hero-2026.jpg",
+              alt:"Community gathering in Imphal streetscape",
+              caption:"Local logistics hub and supply coordination point in Imphal.",
+              location:"Imphal, Manipur",
             }}
             satellites={[
               {
-                src: "/volunteer-hero.jpg",
-                alt: "Youth volunteers organizing",
-                caption: "Youth volunteer team planning a community initiative.",
-                location: "Community Center",
-                aspectRatio: "square",
+                src:"/volunteer-hero.jpg",
+                alt:"Youth volunteers organizing",
+                caption:"Youth volunteer team planning a community initiative.",
+                location:"Community Center",
+                aspectRatio:"square",
               },
               {
-                src: "/community-voices.jpg",
-                alt: "Women community leaders",
-                caption: "Local leaders coordinating health outreach.",
-                location: "District Network",
-                aspectRatio: "landscape",
+                src:"/community-voices.jpg",
+                alt:"Women community leaders",
+                caption:"Local leaders coordinating health outreach.",
+                location:"District Network",
+                aspectRatio:"landscape",
               },
               {
-                src: "/programmes-hero.jpg",
-                alt: "Community learning workshop",
-                caption: "Decentralized training sessions in future skills.",
-                location: "FutureWorks Hub",
-                aspectRatio: "landscape",
+                src:"/programmes-hero.jpg",
+                alt:"Community learning workshop",
+                caption:"Decentralized training sessions in future skills.",
+                location:"FutureWorks Hub",
+                aspectRatio:"landscape",
               },
             ]}
           />

@@ -1,13 +1,13 @@
-import { notFound } from "next/navigation";
-import { programmes } from "@/lib/data/programmes";
-import { Section, Container } from "@/components/layout/Shell";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { CampaignCard } from "@/components/content/CampaignCard";
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { Metadata } from "next";
-import { cn } from "@/lib/utils";
+import { notFound } from"next/navigation";
+import { programmes } from"@/lib/data/programmes";
+import { Section, Container } from"@/components/layout/Shell";
+import { Breadcrumbs } from"@/components/ui/Breadcrumbs";
+import { CampaignCard } from"@/components/content/CampaignCard";
+import { ArrowRight } from"lucide-react";
+import Image from"next/image";
+import Link from"next/link";
+import { Metadata } from"next";
+import { cn } from"@/lib/utils";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -61,7 +61,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
         <div className="border-b lg:border-x border-border bg-muted px-6 py-4 md:px-8 md:py-4">
           <Breadcrumbs
             items={[
-              { label: "Programmes", href: "/programmes" },
+              { label:"Programmes", href:"/programmes" },
               { label: programme.title },
             ]}
           />
@@ -89,7 +89,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
               <header className="space-y-6">
                 <div className="flex flex-wrap items-center gap-4 text-[11px] font-mono font-bold uppercase tracking-widest text-muted-foreground">
                   <div className="flex items-center gap-2">
-                    <span className={cn("size-2", programme.status === "Active" ? "bg-destructive" : "bg-ink-300")} />
+                    <span className={cn("size-2", programme.status ==="Active" ?"bg-destructive" :"bg-ink-300")} />
                     <span className="text-foreground">{programme.status}</span>
                   </div>
                   <span className="text-border-default">•</span>

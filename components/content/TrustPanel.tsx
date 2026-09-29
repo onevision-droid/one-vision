@@ -1,19 +1,19 @@
-import { cn } from "@/lib/utils";
-import { ShieldCheckIcon, BuildingIcon, FileTextIcon } from "lucide-react";
-import Link from "next/link";
-import { siteSettings } from "@/lib/data/site-settings";
+import { cn } from"@/lib/utils";
+import { ShieldCheckIcon, BuildingIcon, FileTextIcon } from"lucide-react";
+import Link from"next/link";
+import { siteSettings } from"@/lib/data/site-settings";
 
 interface TrustPanelProps {
-  variant?: "compact" | "full";
+  variant?:"compact" |"full";
   className?: string;
 }
 
-export function TrustPanel({ variant = "full", className }: TrustPanelProps) {
-  if (variant === "compact") {
+export function TrustPanel({ variant ="full", className }: TrustPanelProps) {
+  if (variant ==="compact") {
     return (
       <div
         className={cn(
-          "bg-muted border border-border flex flex-col md:flex-row gap-0 items-stretch justify-between",
+         "bg-muted border border-border flex flex-col md:flex-row gap-0 items-stretch justify-between",
           className
         )}
       >
@@ -56,7 +56,7 @@ export function TrustPanel({ variant = "full", className }: TrustPanelProps) {
   return (
     <div
       className={cn(
-        "bg-muted border-t border-l border-border grid grid-cols-1 md:grid-cols-3 gap-0 *:border-b *:border-r *:border-border",
+       "bg-muted border-t border-l border-border grid grid-cols-1 md:grid-cols-3 gap-0 *:border-b *:border-r *:border-border",
         className
       )}
     >

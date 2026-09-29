@@ -1,16 +1,16 @@
-import { Metadata } from "next";
-import { StoryCard } from "@/components/content/StoryCard";
-import { Section, Container } from "@/components/layout/Shell";
-import { PageHero } from "@/components/composition/PageHero";
-import { QuietClose } from "@/components/composition/QuietClose";
-import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-import { stories } from "@/lib/data/stories";
+import { Metadata } from"next";
+import { StoryCard } from"@/components/content/StoryCard";
+import { Section, Container } from"@/components/layout/Shell";
+import { PageHero } from"@/components/composition/PageHero";
+import { QuietClose } from"@/components/composition/QuietClose";
+import Link from"next/link";
+import Image from"next/image";
+import { ArrowRight } from"lucide-react";
+import { stories } from"@/lib/data/stories";
 
 export const metadata: Metadata = {
-  title: "Stories | One Vision",
-  description: "Long-form stories documenting community resilience, grassroots action, and the people driving change in Imphal and Manipur.",
+  title:"Stories | One Vision",
+  description:"Long-form stories documenting community resilience, grassroots action, and the people driving change in Imphal and Manipur.",
 };
 
 export default function StoriesPage() {
@@ -54,7 +54,7 @@ export default function StoriesPage() {
                 <span>By {featured.author}</span>
                 <span className="size-1 bg-destructive group-hover:bg-destructive" />
                 <time dateTime={featured.date}>
-                  {new Date(featured.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
+                  {new Date(featured.date).toLocaleDateString("en-GB", { day:"numeric", month:"long", year:"numeric" })}
                 </time>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-foreground group-hover:text-background transition-colors leading-[0.98] mb-4 sm:mb-6 font-light">
@@ -85,7 +85,7 @@ export default function StoriesPage() {
                 title={story.title}
                 summary={story.excerpt}
                 author={story.author}
-                date={new Date(story.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
+                date={new Date(story.date).toLocaleDateString("en-GB", { day:"numeric", month:"long", year:"numeric" })}
                 href={`/stories/${story.slug}`}
                 image={story.image}
               />

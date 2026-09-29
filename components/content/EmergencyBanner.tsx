@@ -1,1 +1,1 @@
-export { EmergencyBanner } from "@/components/ui/EmergencyBanner";
+export { EmergencyBanner } from"@/components/ui/EmergencyBanner";

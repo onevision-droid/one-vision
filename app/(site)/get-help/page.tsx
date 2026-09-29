@@ -1,44 +1,44 @@
-import { Metadata } from "next";
-import { siteSettings } from "@/lib/data/site-settings";
-import { Section, Container } from "@/components/layout/Shell";
-import { PageHero } from "@/components/composition/PageHero";
-import { FAQ } from "@/components/composition/FAQ";
-import { ContactForm } from "@/components/composition/ContactForm";
-import { cn } from "@/lib/utils";
+import { Metadata } from"next";
+import { siteSettings } from"@/lib/data/site-settings";
+import { Section, Container } from"@/components/layout/Shell";
+import { PageHero } from"@/components/composition/PageHero";
+import { FAQ } from"@/components/composition/FAQ";
+import { ContactForm } from"@/components/composition/ContactForm";
+import { cn } from"@/lib/utils";
 import {
   Mail,
   Phone,
   Info,
   ExternalLink,
-} from "lucide-react";
+} from"lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact | One Vision",
+  title:"Contact | One Vision",
   description:
-    "Reach out to partner, volunteer, or request support for your community project.",
+   "Reach out to partner, volunteer, or request support for your community project.",
 };
 
 const contactChannels = [
   {
-    id: "email",
+    id:"email",
     icon: Mail,
-    label: "General Enquiries",
-    value: "hello@onevision.org",
+    label:"General Enquiries",
+    value:"hello@onevision.org",
     description:
-      "For public partnerships, media inquiries, and general project information.",
-    action: "Send Email",
-    href: "mailto:hello@onevision.org",
+     "For public partnerships, media inquiries, and general project information.",
+    action:"Send Email",
+    href:"mailto:hello@onevision.org",
     primary: true,
   },
   {
-    id: "phone",
+    id:"phone",
     icon: Phone,
-    label: "Field Office Line",
+    label:"Field Office Line",
     value: siteSettings.contactPhone,
     description:
-      "Our main operational desk in Imphal. Available during standard operating hours.",
-    action: "Call Office",
-    href: `tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`,
+     "Our main operational desk in Imphal. Available during standard operating hours.",
+    action:"Call Office",
+    href: `tel:${siteSettings.contactPhone.replace(/[^0-9+]/g,"")}`,
     primary: false,
   },
 ];
@@ -107,10 +107,10 @@ export default function ContactPage() {
                 <div
                   key={channel.id}
                   className={cn(
-                    "group relative flex flex-col justify-between h-full p-6 md:p-7 rounded-md bg-muted border transition-all duration-300 ease-out",
+                   "group relative flex flex-col justify-between h-full p-6 md:p-7 rounded-md bg-muted border transition-all duration-300 ease-out",
                     channel.primary
-                      ? "border-safety-orange/40 shadow-xs hover:border-safety-orange hover:shadow-md hover:-translate-y-1"
-                      : "border-border/70 shadow-2xs hover:border-foreground/30 hover:shadow-sm hover:-translate-y-1"
+                      ?"border-safety-orange/40 shadow-xs hover:border-safety-orange hover:shadow-md hover:-translate-y-1"
+                      :"border-border/70 shadow-2xs hover:border-foreground/30 hover:shadow-sm hover:-translate-y-1"
                   )}
                 >
                   <div>
@@ -118,10 +118,10 @@ export default function ContactPage() {
                     <div className="flex items-center justify-between gap-3 mb-5">
                       <div
                         className={cn(
-                          "size-10 rounded-md flex items-center justify-center border transition-colors",
+                         "size-10 rounded-md flex items-center justify-center border transition-colors",
                           channel.primary
-                            ? "bg-destructive/10 text-destructive border-safety-orange/20"
-                            : "bg-foreground/5 text-foreground dark:bg-white/5 dark:text-background border-black/5 dark:border-white/10"
+                            ?"bg-destructive/10 text-destructive border-safety-orange/20"
+                            :"bg-foreground/5 text-foreground   border-black/5 dark:border-border"
                         )}
                       >
                         <Icon className="size-5" strokeWidth={1.5} />
@@ -151,13 +151,13 @@ export default function ContactPage() {
                   {/* Modern Hairline Action Button */}
                   <a
                     href={channel.href}
-                    target={channel.id !== "phone" ? "_blank" : undefined}
-                    rel={channel.id !== "phone" ? "noopener noreferrer" : undefined}
+                    target={channel.id !=="phone" ?"_blank" : undefined}
+                    rel={channel.id !=="phone" ?"noopener noreferrer" : undefined}
                     className={cn(
-                      "inline-flex items-center justify-between w-full px-4 py-2.5 rounded-sm font-sans text-xs font-medium transition-all duration-200",
+                     "inline-flex items-center justify-between w-full px-4 py-2.5 rounded-sm font-sans text-xs font-medium transition-all duration-200",
                       channel.primary
-                        ? "bg-action-primary text-background hover:bg-action-hover shadow-2xs"
-                        : "border border-border/80 text-foreground hover:border-foreground/60 hover:bg-black/2 dark:hover:bg-white/4"
+                        ?"bg-action-primary text-background hover:bg-action-hover shadow-2xs"
+                        :"border border-border/80 text-foreground hover:border-foreground/60 hover:bg-foreground/5"
                     )}
                   >
                     <span>{channel.action}</span>
@@ -180,19 +180,19 @@ export default function ContactPage() {
         heading="Common Questions"
         items={[
           {
-            question: "How can I partner with One Vision?",
+            question:"How can I partner with One Vision?",
             answer:
-              "We work with local organizations, businesses, and community leaders. Send an email to our general enquiries address with details about your initiative and how you'd like to collaborate.",
+             "We work with local organizations, businesses, and community leaders. Send an email to our general enquiries address with details about your initiative and how you'd like to collaborate.",
           },
           {
-            question: "Can I volunteer from outside Manipur?",
+            question:"Can I volunteer from outside Manipur?",
             answer:
-              "Yes. While our field operations are entirely local, we have a remote network of professionals (designers, developers, data scientists) supporting our digital tools and infrastructure. Reach out via email.",
+             "Yes. While our field operations are entirely local, we have a remote network of professionals (designers, developers, data scientists) supporting our digital tools and infrastructure. Reach out via email.",
           },
           {
-            question: "How quickly will you respond?",
+            question:"How quickly will you respond?",
             answer:
-              "We aim to respond to all inquiries within 2-3 business days. If you are reaching out regarding an active community project, please mention this in your subject line.",
+             "We aim to respond to all inquiries within 2-3 business days. If you are reaching out regarding an active community project, please mention this in your subject line.",
           },
         ]}
       />

@@ -1,5 +1,5 @@
-import { Section, Container } from "@/components/layout/Shell";
-import Image from "next/image";
+import { Section, Container } from"@/components/layout/Shell";
+import Image from"next/image";
 
 interface PageHeroProps {
   badge: string;
@@ -53,7 +53,7 @@ export function PageHero({
                 priority
               />
               {/* Brutalist hard overlay scrim */}
-              <div className="absolute inset-0 pointer-events-none mix-blend-multiply bg-black/20" />
+              <div className="absolute inset-0 pointer-events-none mix-blend-multiply bg-foreground/20" />
             </div>
           </div>
         </Container>

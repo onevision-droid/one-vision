@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-import { LoginForm } from "@/components/login-form";
-import { supabase } from "@/lib/supabase/client";
+import { useState } from"react";
+import { useRouter } from"next/navigation";
+import Link from"next/link";
+import { LoginForm } from"@/components/login-form";
+import { supabase } from"@/lib/supabase/client";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -29,7 +29,7 @@ export default function LoginPage() {
         router.push("/admin");
       }
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : "An unexpected error occurred during authentication.");
+      setError(err instanceof Error ? err.message :"An unexpected error occurred during authentication.");
       setLoading(false);
     }
   }

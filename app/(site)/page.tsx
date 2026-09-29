@@ -1,50 +1,50 @@
-import { Metadata } from "next";
-import { Hero } from "@/components/content/Hero";
-import { StatsHero } from "@/components/composition/StatsHero";
-import { WhatWeDo } from "@/components/composition/WhatWeDo";
-import { SplitNarrative } from "@/components/composition/SplitNarrative";
-import { ProgrammesBento } from "@/components/composition/ProgrammesBento";
-import { stories } from "@/lib/data/stories";
+import { Metadata } from"next";
+import { Hero } from"@/components/content/Hero";
+import { StatsHero } from"@/components/composition/StatsHero";
+import { WhatWeDo } from"@/components/composition/WhatWeDo";
+import { SplitNarrative } from"@/components/composition/SplitNarrative";
+import { ProgrammesBento } from"@/components/composition/ProgrammesBento";
+import { stories } from"@/lib/data/stories";
 
-import orgData from "@/content/org.json";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, Shield, MessageCircle, ExternalLink, Phone, Mail } from "lucide-react";
+import orgData from"@/content/org.json";
+import Image from"next/image";
+import Link from"next/link";
+import { ArrowRight, Shield, MessageCircle, ExternalLink, Phone, Mail } from"lucide-react";
 
 export const metadata: Metadata = {
-  title: "One Vision | Humanitarian Vanguard — Imphal, Manipur",
+  title:"One Vision | Humanitarian Vanguard — Imphal, Manipur",
   description:
-    "Decentralised crisis-resilient humanitarian vanguard operating across the Manipur polycrisis zone. 4 operational pillars: Health Equity, Energy Sovereignty, Ecological Restoration, Economic Dignity.",
+   "Decentralised crisis-resilient humanitarian vanguard operating across the Manipur polycrisis zone. 4 operational pillars: Health Equity, Energy Sovereignty, Ecological Restoration, Economic Dignity.",
   openGraph: {
-    title: "One Vision | Humanitarian Vanguard — Imphal",
+    title:"One Vision | Humanitarian Vanguard — Imphal",
     description:
-      "12,400+ people reached. 18 decentralised health nodes. 240kW solar deployed. One vanguard operating in the Manipur polycrisis zone.",
-    url: "https://onevision.org",
-    siteName: "One Vision",
-    locale: "en_GB",
-    type: "website",
+     "12,400+ people reached. 18 decentralised health nodes. 240kW solar deployed. One vanguard operating in the Manipur polycrisis zone.",
+    url:"https://onevision.org",
+    siteName:"One Vision",
+    locale:"en_GB",
+    type:"website",
   },
 };
 
 const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "NGO",
-  name: "One Vision",
-  alternateName: "One Vision Manipur",
-  url: "https://onevision.org",
-  foundingDate: "1988",
+ "@context":"https://schema.org",
+ "@type":"NGO",
+  name:"One Vision",
+  alternateName:"One Vision Manipur",
+  url:"https://onevision.org",
+  foundingDate:"1988",
   description:
-    "Decentralised crisis-resilient humanitarian vanguard. Formerly Society for Health & Education Manipur (1988). Operating across the Manipur polycrisis zone.",
+   "Decentralised crisis-resilient humanitarian vanguard. Formerly Society for Health & Education Manipur (1988). Operating across the Manipur polycrisis zone.",
   address: {
-    "@type": "PostalAddress",
-    addressLocality: "Imphal",
-    addressRegion: "Manipur",
-    addressCountry: "IN",
+   "@type":"PostalAddress",
+    addressLocality:"Imphal",
+    addressRegion:"Manipur",
+    addressCountry:"IN",
   },
   contactPoint: {
-    "@type": "ContactPoint",
+   "@type":"ContactPoint",
     telephone: orgData.contact.phone,
-    contactType: "humanitarian operations",
+    contactType:"humanitarian operations",
     email: orgData.contact.email,
   },
 };
@@ -66,20 +66,20 @@ export default function Home() {
       {/* 1.5. Live Metrics Ticker (Telemetry) */}
       <div className="bg-foreground text-background">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/10">
-          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-white/5">
+          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-foreground/5">
             <span className="font-mono text-3xl font-bold text-primary">18</span>
             <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-muted-foreground mt-2">Local Hubs</span>
           </div>
-          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-white/5">
-            <span className="font-mono text-3xl font-bold text-white">240kW</span>
+          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-foreground/5">
+            <span className="font-mono text-3xl font-bold text-background">240kW</span>
             <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-muted-foreground mt-2">Solar Deployed</span>
           </div>
-          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-white/5">
-            <span className="font-mono text-3xl font-bold text-white">12,400+</span>
+          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-foreground/5">
+            <span className="font-mono text-3xl font-bold text-background">12,400+</span>
             <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-muted-foreground mt-2">People Reached</span>
           </div>
-          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-white/5">
-            <span className="font-mono text-3xl font-bold text-white">4</span>
+          <div className="p-6 md:p-8 flex flex-col justify-center items-center text-center transition-colors hover:bg-foreground/5">
+            <span className="font-mono text-3xl font-bold text-background">4</span>
             <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-muted-foreground mt-2">Core Pillars</span>
           </div>
         </div>
@@ -93,8 +93,8 @@ export default function Home() {
           ctaLabel="Explore our field reports"
           ctaHref="/stories"
           stats={orgData.stats.map((stat) => ({
-            value: typeof stat.value === "number" ? stat.value.toLocaleString("en-GB") : String(stat.value),
-            suffix: stat.suffix || "",
+            value: typeof stat.value ==="number" ? stat.value.toLocaleString("en-GB") : String(stat.value),
+            suffix: stat.suffix ||"",
             label: stat.label,
           }))}
         />

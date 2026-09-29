@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
-import { trackEvent } from "@/lib/analytics/trackEvent";
+import { useEffect } from"react";
+import { trackEvent } from"@/lib/analytics/trackEvent";
 
 interface SearchTrackerProps {
   query: string;

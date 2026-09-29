@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { Programme } from "@/lib/data/types";
-import { CampaignCard } from "@/components/content/CampaignCard";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { useState } from"react";
+import { Programme } from"@/lib/data/types";
+import { CampaignCard } from"@/components/content/CampaignCard";
+import Link from"next/link";
+import { ArrowRight } from"lucide-react";
 
 export function ProgrammeFilter({ programmes }: { programmes: Programme[] }) {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -12,7 +12,7 @@ export function ProgrammeFilter({ programmes }: { programmes: Programme[] }) {
   const categories = ["All", ...Array.from(new Set(programmes.map((p) => p.category)))];
 
   const filteredProgrammes =
-    selectedCategory === "All"
+    selectedCategory ==="All"
       ? programmes
       : programmes.filter((p) => p.category === selectedCategory);
 
@@ -25,8 +25,8 @@ export function ProgrammeFilter({ programmes }: { programmes: Programme[] }) {
             onClick={() => setSelectedCategory(cat)}
             className={`px-6 py-3 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors ${
               selectedCategory === cat
-                ? "bg-foreground text-background"
-                : "bg-muted text-muted-foreground hover:bg-muted-alt hover:text-foreground"
+                ?"bg-foreground text-background"
+                :"bg-muted text-muted-foreground hover:bg-muted-alt hover:text-foreground"
             }`}
           >
             {cat}
@@ -46,7 +46,7 @@ export function ProgrammeFilter({ programmes }: { programmes: Programme[] }) {
           />
         ))}
 
-        {selectedCategory === "All" && (
+        {selectedCategory ==="All" && (
           <Link
             href="/contact"
             className="group flex flex-col bg-muted hover:bg-foreground transition-colors duration-300 p-6 md:p-8 justify-center items-center text-center min-h-75 h-full"

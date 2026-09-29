@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils";
-import { Marquee } from "@/components/ui/marquee";
-import { TrendingUp, ShieldCheck, Activity } from "lucide-react";
+import { cn } from"@/lib/utils";
+import { Marquee } from"@/components/ui/marquee";
+import { TrendingUp, ShieldCheck, Activity } from"lucide-react";
 
 type Partner = {
  name: string;
@@ -12,46 +12,46 @@ type Partner = {
 
 const partners: Partner[] = [
  {
- name: "Local Health Initiative",
- focus: "Medical & Camps",
- status: "Active Response",
+ name:"Local Health Initiative",
+ focus:"Medical & Camps",
+ status:"Active Response",
  icon: Activity,
-    logoClass: "bg-destructive-dim",
+    logoClass:"bg-destructive-dim",
  },
  {
- name: "Manipur Relief Fund",
- focus: "Resource Routing",
- status: "Verified Partner",
+ name:"Manipur Relief Fund",
+ focus:"Resource Routing",
+ status:"Verified Partner",
  icon: ShieldCheck,
-    logoClass: "bg-foreground",
+    logoClass:"bg-foreground",
  },
  {
- name: "Imphal Valley Assoc.",
- focus: "Shelter & Water",
- status: "Scaling Up",
+ name:"Imphal Valley Assoc.",
+ focus:"Shelter & Water",
+ status:"Scaling Up",
  icon: TrendingUp,
-    logoClass: "bg-status-active",
+    logoClass:"bg-status-active",
  },
  {
- name: "Community Care Trust",
- focus: "Trauma Care",
- status: "Active Response",
+ name:"Community Care Trust",
+ focus:"Trauma Care",
+ status:"Active Response",
  icon: Activity,
-    logoClass: "bg-hazard-yellow text-foreground",
+    logoClass:"bg-hazard-yellow text-foreground",
  },
  {
- name: "Education First NGO",
- focus: "Student Support",
- status: "Verified Partner",
+ name:"Education First NGO",
+ focus:"Student Support",
+ status:"Verified Partner",
  icon: ShieldCheck,
-    logoClass: "bg-destructive",
+    logoClass:"bg-destructive",
  },
  {
- name: "Rural Dev Corp",
- focus: "Livelihood Recovery",
- status: "Scaling Up",
+ name:"Rural Dev Corp",
+ focus:"Livelihood Recovery",
+ status:"Scaling Up",
  icon: TrendingUp,
-    logoClass: "bg-ink-700",
+    logoClass:"bg-ink-700",
  },
 ];
 
@@ -60,7 +60,7 @@ const PartnerTickerItem = ({ name, focus, status, icon: Icon, logoClass }: Partn
  <div className="flex items-center gap-4 px-8">
  <div
  className={cn(
- "flex size-8 shrink-0 items-center justify-center text-xs font-sans text-white",
+"flex size-8 shrink-0 items-center justify-center text-xs font-sans text-background",
  logoClass
  )}
  >

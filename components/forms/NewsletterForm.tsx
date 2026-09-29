@@ -1,15 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { supabase } from "@/lib/supabase/client";
-import { trackEvent } from "@/lib/analytics/trackEvent";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { CheckCircle2, AlertCircle } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useState } from"react";
+import { useForm } from"react-hook-form";
+import { zodResolver } from"@hookform/resolvers/zod";
+import * as z from"zod";
+import { supabase } from"@/lib/supabase/client";
+import { trackEvent } from"@/lib/analytics/trackEvent";
+import { Button } from"@/components/ui/button";
+import { Input } from"@/components/ui/input";
+import { CheckCircle2, AlertCircle } from"lucide-react";
+import { cn } from"@/lib/utils";
 
 const newsletterSchema = z.object({
   email: z.string().email("Please provide a valid email address."),
@@ -19,14 +19,14 @@ type NewsletterFormData = z.infer<typeof newsletterSchema>;
 
 interface NewsletterFormProps {
   className?: string;
-  variant?: "footer" | "card";
+  variant?:"footer" |"card";
 }
 
 export function NewsletterForm({
   className,
-  variant = "footer",
+  variant ="footer",
 }: NewsletterFormProps) {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" |"loading" |"success" |"error">("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [honeypot, setHoneypot] = useState<string>("");
 
@@ -37,7 +37,7 @@ export function NewsletterForm({
     formState: { errors },
   } = useForm<NewsletterFormData>({
     resolver: zodResolver(newsletterSchema),
-    defaultValues: { email: "" },
+    defaultValues: { email:"" },
   });
 
   const onSubmit = async (data: NewsletterFormData) => {
@@ -57,7 +57,7 @@ export function NewsletterForm({
       const { error } = await supabase.from("newsletter_subscribers").insert({
         email: data.email,
         source: variant,
-        status: "active"
+        status:"active"
       });
 
       if (error) {
@@ -73,11 +73,11 @@ export function NewsletterForm({
     }
   };
 
-  if (status === "success") {
+  if (status ==="success") {
     return (
       <div
         className={cn(
-          "flex items-center gap-3 p-4 bg-muted border border-border text-foreground",
+         "flex items-center gap-3 p-4 bg-muted border border-border text-foreground",
           className
         )}
         role="status"
@@ -124,8 +124,8 @@ export function NewsletterForm({
             placeholder="Enter your email for field updates"
             autoComplete="email"
             aria-invalid={!!errors.email}
-            aria-describedby={errors.email ? "newsletter-email-error" : undefined}
-            disabled={status === "loading"}
+            aria-describedby={errors.email ?"newsletter-email-error" : undefined}
+            disabled={status ==="loading"}
             className="h-11 bg-muted border-border focus-visible:border-safety-orange text-body-sm"
             {...register("email")}
           />
@@ -133,10 +133,10 @@ export function NewsletterForm({
         <Button
           type="submit"
           variant="primary"
-          disabled={status === "loading"}
+          disabled={status ==="loading"}
           className="h-11 px-5 text-body-sm font-medium shrink-0"
         >
-          {status === "loading" ? "Subscribing..." : "Subscribe"}
+          {status ==="loading" ?"Subscribing..." :"Subscribe"}
         </Button>
       </div>
 
@@ -151,7 +151,7 @@ export function NewsletterForm({
         </p>
       )}
 
-      {status === "error" && (
+      {status ==="error" && (
         <p className="text-caption text-crimson flex items-center gap-1.5" role="alert">
           <AlertCircle className="size-3.5" />
           {errorMessage}

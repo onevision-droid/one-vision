@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils";
-import { Container } from "@/components/layout/Shell";
-import { SectionWrapper, type CompositionProps } from "./shared";
+import { cn } from"@/lib/utils";
+import { Container } from"@/components/layout/Shell";
+import { SectionWrapper, type CompositionProps } from"./shared";
 
 interface SplitNarrativeProps extends CompositionProps {
   content: React.ReactNode;
@@ -10,7 +10,7 @@ interface SplitNarrativeProps extends CompositionProps {
 }
 
 export function SplitNarrative({
-  surface = "paper",
+  surface ="paper",
   reversed = false,
   className,
   content,
@@ -41,16 +41,16 @@ export function SplitNarrative({
 
         <div
           className={cn(
-            "grid lg:grid-cols-12 overflow-hidden border-b lg:border-x border-border bg-background",
-            reversed ? "lg:[direction:rtl] lg:*:[direction:ltr]" : "",
+           "grid lg:grid-cols-12 overflow-hidden border-b lg:border-x border-border bg-background",
+            reversed ?"lg:[direction:rtl] lg:*:[direction:ltr]" :"",
           )}
         >
           {/* Content: 6 columns — 50% */}
           <div className="lg:col-span-6 p-6 md:p-10 lg:p-12 lg:border-r border-border flex flex-col justify-center">
             <div
               className={cn(
-                "space-y-6",
-                "font-sans leading-relaxed text-foreground",
+               "space-y-6",
+               "font-sans leading-relaxed text-foreground",
               )}
             >
               {content}

@@ -1,11 +1,11 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
-import Link from "next/link";
-import { ShieldCheck } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useSyncExternalStore } from"react";
+import Link from"next/link";
+import { ShieldCheck } from"lucide-react";
+import { Button } from"@/components/ui/button";
 
-const STORAGE_KEY = "ov_privacy_consent_acknowledged";
+const STORAGE_KEY ="ov_privacy_consent_acknowledged";
 
 function subscribe(callback: () => void) {
  window.addEventListener("storage", callback);
@@ -14,7 +14,7 @@ function subscribe(callback: () => void) {
 
 function getSnapshot() {
  try {
- return localStorage.getItem(STORAGE_KEY) === "true";
+ return localStorage.getItem(STORAGE_KEY) ==="true";
  } catch {
  return true;
  }
@@ -29,7 +29,7 @@ export function ConsentNotice() {
 
  const handleAcknowledge = () => {
  try {
- localStorage.setItem(STORAGE_KEY, "true");
+ localStorage.setItem(STORAGE_KEY,"true");
  window.dispatchEvent(new Event("storage"));
  } catch {
  // Ignore write errors

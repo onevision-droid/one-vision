@@ -1,10 +1,10 @@
 "use client";
 
-import { supabase } from "@/lib/supabase/client";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+import { supabase } from"@/lib/supabase/client";
+import { useState } from"react";
+import { useForm } from"react-hook-form";
+import { zodResolver } from"@hookform/resolvers/zod";
+import * as z from"zod";
 import {
   Form,
   FormControl,
@@ -12,19 +12,19 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { trackEvent } from "@/lib/analytics/trackEvent";
+} from"@/components/ui/form";
+import { Input } from"@/components/ui/input";
+import { Button } from"@/components/ui/button";
+import { Textarea } from"@/components/ui/textarea";
+import { ArrowRight, CheckCircle2 } from"lucide-react";
+import { trackEvent } from"@/lib/analytics/trackEvent";
 
 const formSchema = z.object({
-  firstName: z.string().min(2, "First name must be at least 2 characters."),
-  lastName: z.string().min(2, "Last name must be at least 2 characters."),
+  firstName: z.string().min(2,"First name must be at least 2 characters."),
+  lastName: z.string().min(2,"Last name must be at least 2 characters."),
   email: z.string().email("Please provide a valid email address."),
   subject: z.string(),
-  message: z.string().min(10, "Message is too short."),
+  message: z.string().min(10,"Message is too short."),
 });
 
 export function ContactForm() {
@@ -34,11 +34,11 @@ export function ContactForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      subject: "General Inquiry",
-      message: "",
+      firstName:"",
+      lastName:"",
+      email:"",
+      subject:"General Inquiry",
+      message:"",
     },
   });
 
@@ -55,7 +55,7 @@ export function ContactForm() {
       email: values.email,
       subject: values.subject,
       message: values.message,
-      status: "unread"
+      status:"unread"
     });
 
     if (error) {

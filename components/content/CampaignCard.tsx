@@ -1,6 +1,6 @@
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
+import { ArrowRight } from"lucide-react";
+import Link from"next/link";
+import Image from"next/image";
 
 interface CampaignCardProps {
   title: string;
@@ -10,7 +10,7 @@ interface CampaignCardProps {
   image?: string;
 }
 
-export function CampaignCard({ title, summary, status, href, image = "/home-hero-2026.jpg" }: CampaignCardProps) {
+export function CampaignCard({ title, summary, status, href, image ="/home-hero-2026.jpg" }: CampaignCardProps) {
   return (
     <Link href={href} className="group flex flex-col h-full border border-border hover:border-foreground transition-colors bg-muted hover:bg-foreground overflow-hidden">
       <div className="relative aspect-16/10 w-full overflow-hidden border-b border-border group-hover:border-foreground">

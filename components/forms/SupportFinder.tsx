@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { programmes } from "@/lib/data/programmes";
-import Link from "next/link";
-import { trackEvent } from "@/lib/analytics/trackEvent";
-import { ArrowRight, ChevronRight, RefreshCcw } from "lucide-react";
+import { useState } from"react";
+import { Button } from"@/components/ui/button";
+import { programmes } from"@/lib/data/programmes";
+import Link from"next/link";
+import { trackEvent } from"@/lib/analytics/trackEvent";
+import { ArrowRight, ChevronRight, RefreshCcw } from"lucide-react";
 
 export function SupportFinder() {
  const [step, setStep] = useState(1);
@@ -23,7 +23,7 @@ export function SupportFinder() {
  };
 
  const matchedProgrammes = programmes.filter(
- (p) => p.category === category || category === "Other",
+ (p) => p.category === category || category ==="Other",
  );
 
  if (step === 3) {
@@ -110,12 +110,12 @@ export function SupportFinder() {
  </h3>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
  {[
- "Health",
- "Education",
- "Community",
- "Emergency Response",
- "Relief Supply",
- "Other",
+"Health",
+"Education",
+"Community",
+"Emergency Response",
+"Relief Supply",
+"Other",
  ].map((cat) => (
  <button
  key={cat}
@@ -139,10 +139,10 @@ export function SupportFinder() {
  </h3>
  <div className="grid grid-cols-1 gap-4">
  {[
- "Myself",
- "My family",
- "A community member",
- "Multiple families / A whole community",
+"Myself",
+"My family",
+"A community member",
+"Multiple families / A whole community",
  ].map((ben) => (
  <button
  key={ben}

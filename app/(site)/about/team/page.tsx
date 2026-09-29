@@ -1,43 +1,43 @@
-import { Metadata } from "next";
-import { Section, Container } from "@/components/layout/Shell";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { HalftoneBackground } from "@/components/composition/HalftoneBackground";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { Metadata } from"next";
+import { Section, Container } from"@/components/layout/Shell";
+import { Badge } from"@/components/ui/badge";
+import { Button } from"@/components/ui/button";
+import { Card, CardContent } from"@/components/ui/card";
+import { HalftoneBackground } from"@/components/composition/HalftoneBackground";
+import { Breadcrumbs } from"@/components/ui/Breadcrumbs";
+import Link from"next/link";
+import { ArrowRight } from"lucide-react";
 
 export const metadata: Metadata = {
-  title: "Our Team | One Vision",
-  description: "Meet the dedicated staff, field workers, and volunteers driving One Vision's community programmes in Manipur.",
+  title:"Our Team | One Vision",
+  description:"Meet the dedicated staff, field workers, and volunteers driving One Vision's community programmes in Manipur.",
 };
 
 const departments = [
   {
-    name: "Medical Operations",
-    description: "Coordinating the mobile health clinics, emergency response protocols, and clinical partnerships.",
+    name:"Medical Operations",
+    description:"Coordinating the mobile health clinics, emergency response protocols, and clinical partnerships.",
     members: [
-      { name: "Dr. Bembem Chanu", role: "Clinical Director", bio: "Leads our mobile health strategy and disaster response protocols." },
-      { name: "Sushila Devi", role: "Head Nurse", bio: "Manages field triage and pediatric nutrition assessments." },
-      { name: "Tomba Singh", role: "Pharmacy Logistics", bio: "Ensures the secure and timely distribution of essential medicines." }
+      { name:"Dr. Bembem Chanu", role:"Clinical Director", bio:"Leads our mobile health strategy and disaster response protocols." },
+      { name:"Sushila Devi", role:"Head Nurse", bio:"Manages field triage and pediatric nutrition assessments." },
+      { name:"Tomba Singh", role:"Pharmacy Logistics", bio:"Ensures the secure and timely distribution of essential medicines." }
     ]
   },
   {
-    name: "Community Outreach & Education",
-    description: "Running the youth technology literacy programs, the School Aushadhi Lab, and grassroots organizing.",
+    name:"Community Outreach & Education",
+    description:"Running the youth technology literacy programs, the School Aushadhi Lab, and grassroots organizing.",
     members: [
-      { name: "Lin Laishram", role: "Community Operations Lead", bio: "Specializes in youth technology literacy and community resilience networks." },
-      { name: "Bikramjit Meitei", role: "Field Educator", bio: "Translates complex environmental topics into accessible local workshops." },
-      { name: "Sanatombi Chanu", role: "Volunteer Coordinator", bio: "Onboards, trains, and deploys our network of 500+ local volunteers." }
+      { name:"Lin Laishram", role:"Community Operations Lead", bio:"Specializes in youth technology literacy and community resilience networks." },
+      { name:"Bikramjit Meitei", role:"Field Educator", bio:"Translates complex environmental topics into accessible local workshops." },
+      { name:"Sanatombi Chanu", role:"Volunteer Coordinator", bio:"Onboards, trains, and deploys our network of 500+ local volunteers." }
     ]
   },
   {
-    name: "Administration & Logistics",
-    description: "The backbone of One Vision, ensuring transparent accounting, fleet management, and operational security.",
+    name:"Administration & Logistics",
+    description:"The backbone of One Vision, ensuring transparent accounting, fleet management, and operational security.",
     members: [
-      { name: "Kiran Kumar", role: "Fleet Manager", bio: "Maintains the mobile clinic vehicles and ensures safe transport in remote areas." },
-      { name: "Anita Leima", role: "Accounts Officer", bio: "Oversees financial transparency and statutory grant reporting." }
+      { name:"Kiran Kumar", role:"Fleet Manager", bio:"Maintains the mobile clinic vehicles and ensures safe transport in remote areas." },
+      { name:"Anita Leima", role:"Accounts Officer", bio:"Oversees financial transparency and statutory grant reporting." }
     ]
   }
 ];
@@ -51,7 +51,7 @@ export default function TeamPage() {
         <HalftoneBackground />
         <Container className="relative z-10">
           <div className="mb-6">
-            <Breadcrumbs items={[{ label: "About", href: "/about" }, { label: "Team", href: "/about/team" }]} />
+            <Breadcrumbs items={[{ label:"About", href:"/about" }, { label:"Team", href:"/about/team" }]} />
           </div>
           <div className="text-center max-w-4xl mx-auto">
             <Badge variant="default" className="mb-6 mx-auto">Our People</Badge>

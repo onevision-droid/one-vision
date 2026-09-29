@@ -1,47 +1,47 @@
-import { Metadata } from "next";
-import { PageHero } from "@/components/composition/PageHero";
-import { Section, Container } from "@/components/layout/Shell";
-import { QuietClose } from "@/components/composition/QuietClose";
-import { Button } from "@/components/ui/button";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Calendar, MapPin, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
-import Link from "next/link";
-import { events } from "@/lib/data/events";
+import { Metadata } from"next";
+import { PageHero } from"@/components/composition/PageHero";
+import { Section, Container } from"@/components/layout/Shell";
+import { QuietClose } from"@/components/composition/QuietClose";
+import { Button } from"@/components/ui/button";
+import { Breadcrumbs } from"@/components/ui/Breadcrumbs";
+import { Calendar, MapPin, Clock, ArrowRight, CheckCircle2 } from"lucide-react";
+import Link from"next/link";
+import { events } from"@/lib/data/events";
 
 export const metadata: Metadata = {
-  title: "Events & Community Assemblies | One Vision",
+  title:"Events & Community Assemblies | One Vision",
   description:
-    "Upcoming townhalls, volunteer orientations, and community workshops organised by One Vision in Imphal and surrounding districts.",
+   "Upcoming townhalls, volunteer orientations, and community workshops organised by One Vision in Imphal and surrounding districts.",
 };
 
 export default function EventsPage() {
-  const upcomingEvents = events.filter((e) => e.status === "upcoming");
-  const pastEvents = events.filter((e) => e.status === "past");
+  const upcomingEvents = events.filter((e) => e.status ==="upcoming");
+  const pastEvents = events.filter((e) => e.status ==="past");
 
   // Generate Event JSON-LD structured data for upcoming events
   const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": upcomingEvents.map((evt) => ({
-      "@type": "Event",
+   "@context":"https://schema.org",
+   "@graph": upcomingEvents.map((evt) => ({
+     "@type":"Event",
       name: evt.title,
       description: evt.description,
       startDate: evt.date,
-      eventStatus: "https://schema.org/EventScheduled",
-      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      eventStatus:"https://schema.org/EventScheduled",
+      eventAttendanceMode:"https://schema.org/OfflineEventAttendanceMode",
       location: {
-        "@type": "Place",
+       "@type":"Place",
         name: evt.location,
         address: {
-          "@type": "PostalAddress",
-          addressLocality: "Imphal",
-          addressRegion: "Manipur",
-          addressCountry: "IN",
+         "@type":"PostalAddress",
+          addressLocality:"Imphal",
+          addressRegion:"Manipur",
+          addressCountry:"IN",
         },
       },
       organizer: {
-        "@type": "Organization",
-        name: "One Vision",
-        url: "https://onevision.org",
+       "@type":"Organization",
+        name:"One Vision",
+        url:"https://onevision.org",
       },
     })),
   };
@@ -68,7 +68,7 @@ export default function EventsPage() {
       <Section tone="default" className="py-16 border-b border-border">
         <Container>
           <div className="mb-12">
-            <Breadcrumbs items={[{ label: "Events", href: "/events" }]} />
+            <Breadcrumbs items={[{ label:"Events", href:"/events" }]} />
           </div>
 
           <div className="max-w-4xl mx-auto space-y-12">
@@ -125,7 +125,7 @@ export default function EventsPage() {
                       className="w-full md:w-auto"
                       nativeButton={false}
                       render={
-                        <Link href={evt.registrationUrl || "/contact"}>
+                        <Link href={evt.registrationUrl ||"/contact"}>
                           Register to Attend <ArrowRight className="size-4 ml-1.5" />
                         </Link>
                       }

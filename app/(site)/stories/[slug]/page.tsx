@@ -1,13 +1,13 @@
-import { notFound } from "next/navigation";
-import { Metadata } from "next";
-import Image from "next/image";
-import { stories } from "@/lib/data/stories";
-import { QuietClose } from "@/components/composition/QuietClose";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Container } from "@/components/layout/Shell";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { StoryTracker } from "@/components/content/StoryTracker";
+import { notFound } from"next/navigation";
+import { Metadata } from"next";
+import Image from"next/image";
+import { stories } from"@/lib/data/stories";
+import { QuietClose } from"@/components/composition/QuietClose";
+import { Breadcrumbs } from"@/components/ui/Breadcrumbs";
+import { Container } from"@/components/layout/Shell";
+import Link from"next/link";
+import { ArrowRight } from"lucide-react";
+import { StoryTracker } from"@/components/content/StoryTracker";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const story = stories.find((s) => s.slug === slug);
   
-  if (!story) return { title: "Not Found | One Vision" };
+  if (!story) return { title:"Not Found | One Vision" };
 
   return {
     title: `${story.title} | One Vision`,
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${story.title} | One Vision`,
       description: story.excerpt,
-      type: "article",
+      type:"article",
       publishedTime: story.date,
       authors: [story.author],
       images: [
@@ -61,7 +61,7 @@ export default async function StoryPage({ params }: Props) {
         <div className="border-b lg:border-x border-border bg-muted px-6 py-4 md:px-8 md:py-4">
           <Breadcrumbs 
             items={[
-              { label: "Stories", href: "/stories" },
+              { label:"Stories", href:"/stories" },
               { label: story.title }
             ]} 
           />
@@ -109,23 +109,23 @@ export default async function StoryPage({ params }: Props) {
                   type="application/ld+json"
                   dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
-                      "@context": "https://schema.org",
-                      "@type": "Article",
-                      "headline": story.title,
-                      "description": story.excerpt,
-                      "image": story.image,
-                      "datePublished": story.date,
-                      "author": {
-                        "@type": "Person",
-                        "name": story.author,
+                     "@context":"https://schema.org",
+                     "@type":"Article",
+                     "headline": story.title,
+                     "description": story.excerpt,
+                     "image": story.image,
+                     "datePublished": story.date,
+                     "author": {
+                       "@type":"Person",
+                       "name": story.author,
                       },
-                      "publisher": {
-                        "@type": "Organization",
-                        "name": "One Vision",
+                     "publisher": {
+                       "@type":"Organization",
+                       "name":"One Vision",
                       },
-                      "mainEntityOfPage": {
-                        "@type": "WebPage",
-                        "@id": `https://onevision.org/stories/${story.slug}`,
+                     "mainEntityOfPage": {
+                       "@type":"WebPage",
+                       "@id": `https://onevision.org/stories/${story.slug}`,
                       },
                     }),
                   }}

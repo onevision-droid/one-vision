@@ -1,7 +1,7 @@
-import { Section, Container } from "@/components/layout/Shell";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { AlertCircle, ArrowLeft } from "lucide-react";
+import { Section, Container } from"@/components/layout/Shell";
+import { Button } from"@/components/ui/button";
+import Link from"next/link";
+import { AlertCircle, ArrowLeft } from"lucide-react";
 
 export default function NotFound() {
  return (

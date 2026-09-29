@@ -1,11 +1,11 @@
-import { Metadata } from "next";
-import Link from "next/link";
-import { WifiOff, Lock, Phone } from "lucide-react";
-import { siteSettings } from "@/lib/data/site-settings";
+import { Metadata } from"next";
+import Link from"next/link";
+import { WifiOff, Lock, Phone } from"lucide-react";
+import { siteSettings } from"@/lib/data/site-settings";
 
 export const metadata: Metadata = {
-  title: "Offline | One Vision",
-  description: "You are currently offline. Critical contact information is available on this page.",
+  title:"Offline | One Vision",
+  description:"You are currently offline. Critical contact information is available on this page.",
 };
 
 export default function OfflinePage() {

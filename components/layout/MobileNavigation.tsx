@@ -1,9 +1,9 @@
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { useState } from "react";
-import { SearchDialog } from "@/components/ui/SearchDialog";
-import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
-import Link from "next/link";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from"@/components/ui/sheet";
+import { useState } from"react";
+import { SearchDialog } from"@/components/ui/SearchDialog";
+import { Button } from"@/components/ui/button";
+import { Menu } from"lucide-react";
+import Link from"next/link";
 
 export function MobileNavigation({ navLinks }: { navLinks: { href: string; label: string }[] }) {
   const [isSearchOpen, setSearchOpen] = useState(false);
@@ -17,7 +17,7 @@ export function MobileNavigation({ navLinks }: { navLinks: { href: string; label
         <SheetContent side="right" className="pr-0">
           <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
           <div className="flex flex-col gap-6 p-6">
-            <Link href="/" className="font-sans text-heading-md font-bold text-ink dark:text-background">
+            <Link href="/" className="font-sans text-heading-md font-bold text-ink">
               One Vision
             </Link>
             <nav className="flex flex-col gap-4">

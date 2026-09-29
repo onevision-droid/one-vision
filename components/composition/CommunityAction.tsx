@@ -1,8 +1,8 @@
 "use client";
 
-import { Section, Container } from "@/components/layout/Shell";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Section, Container } from"@/components/layout/Shell";
+import { Card } from"@/components/ui/card";
+import { Button } from"@/components/ui/button";
 import {
  ArrowUp,
  ChevronDown,
@@ -11,8 +11,8 @@ import {
  Package,
  Stethoscope,
  FileBarChart,
-} from "lucide-react";
-import Link from "next/link";
+} from"lucide-react";
+import Link from"next/link";
 
 export function CommunityAction() {
  return (
@@ -20,7 +20,7 @@ export function CommunityAction() {
  <Container>
  <div>
  <h2 className="text-ink-700 max-w-4xl text-balance text-heading-xl md:text-display-md font-extrabold font-sans tracking-tighter uppercase">
- <span className="text-foreground">Community Support In Action.</span> <br />{" "}
+ <span className="text-foreground">Community Support In Action.</span> <br />{""}
  Radical transparency, zero red tape.
  </h2>
  </div>
@@ -35,7 +35,7 @@ export function CommunityAction() {
  </Link>
 
  <p className="text-ink-700 text-balance font-sans text-body-sm max-w-prose font-medium tracking-wide">
- <span className="text-foreground font-bold uppercase">Get Help. </span>{" "}
+ <span className="text-foreground font-bold uppercase">Get Help. </span>{""}
  Reach out via email, our frontline office phone, or submit an enquiry for general support and partnerships. Please do not submit medical or critical field data through the form.
  </p>
  </div>
@@ -48,8 +48,8 @@ export function CommunityAction() {
 
  <p className="text-ink-700 text-balance font-sans text-body-sm max-w-prose font-medium tracking-wide">
  <span className="text-foreground font-bold uppercase">
- Verified Allocation.{" "}
- </span>{" "}
+ Verified Allocation.{""}
+ </span>{""}
  Every resource and rupee is tracked and publicly visible on our
  ledger.
  </p>
@@ -64,8 +64,8 @@ export function CommunityAction() {
 
  <p className="text-ink-700 text-balance font-sans text-body-sm max-w-prose font-medium tracking-wide">
  <span className="text-foreground font-bold uppercase">
- Public Accountability.{" "}
- </span>{" "}
+ Public Accountability.{""}
+ </span>{""}
  Download our monthly impact audits and detailed field reports
  instantly.
  </p>
@@ -151,7 +151,7 @@ function FundTrackerIllustration() {
  return (
  <div className="z-10 bg-muted absolute inset-x-6 bottom-0 mx-auto mt-auto h-[70%] w-[90%] origin-bottom border-t border-l border-r border-border p-6 shadow-[0px_-4px_0px_0px_rgba(23,23,23,0.1)]">
  <div className="relative h-full w-full">
- <div className=" bg-background p-4 border border-border shadow-sm">
+ <div className="bg-background p-4 border border-border shadow-sm">
  <div className="flex gap-4 flex-col sm:flex-row">
  <div className="w-full sm:w-1/3 aspect-square shrink-0 relative overflow-hidden border-2 border-border bg-muted flex items-center justify-center">
  <span className="font-sans font-bold text-muted-foreground uppercase tracking-widest text-xs">NO IMAGE</span>

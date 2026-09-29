@@ -1,9 +1,9 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import type { CSSProperties, HTMLAttributes } from "react"
+import { useEffect, useRef, useState } from"react"
+import type { CSSProperties, HTMLAttributes } from"react"
 
-import { cn } from "@/lib/utils"
+import { cn } from"@/lib/utils"
 
 const ANIMATION_DURATION_SECONDS = 15
 const GRID_HEIGHT_RATIO = 3
@@ -17,7 +17,7 @@ const MAX_ANGLE = 89
 const MAX_DEVICE_PIXEL_RATIO = 2
 const MIN_ANGLE = 1
 const PERSPECTIVE_PX = 200
-const FALLBACK_ANIMATION_NAME = "retro-grid-fallback-scroll"
+const FALLBACK_ANIMATION_NAME ="retro-grid-fallback-scroll"
 const FALLBACK_STYLES = `
 @keyframes ${FALLBACK_ANIMATION_NAME} {
   from {
@@ -270,12 +270,12 @@ interface RetroGridProps extends HTMLAttributes<HTMLDivElement> {
   opacity?: number
   /**
    * Grid line color in light mode
-   * @default "gray"
+   * @default"gray"
    */
   lightLineColor?: string
   /**
    * Grid line color in dark mode
-   * @default "gray"
+   * @default"gray"
    */
   darkLineColor?: string
 }
@@ -356,17 +356,17 @@ function getProgramInfo(
   gl: WebGLRenderingContext,
   program: WebGLProgram
 ): ProgramInfo | null {
-  const attributeLocation = gl.getAttribLocation(program, "a_position")
-  const angle = gl.getUniformLocation(program, "u_angle")
-  const cellSize = gl.getUniformLocation(program, "u_cell_size")
-  const containerSize = gl.getUniformLocation(program, "u_container_size")
+  const attributeLocation = gl.getAttribLocation(program,"a_position")
+  const angle = gl.getUniformLocation(program,"u_angle")
+  const cellSize = gl.getUniformLocation(program,"u_cell_size")
+  const containerSize = gl.getUniformLocation(program,"u_container_size")
   const devicePixelRatio = gl.getUniformLocation(
     program,
-    "u_device_pixel_ratio"
+   "u_device_pixel_ratio"
   )
-  const lineColor = gl.getUniformLocation(program, "u_line_color")
-  const time = gl.getUniformLocation(program, "u_time")
-  const viewportSize = gl.getUniformLocation(program, "u_viewport_size")
+  const lineColor = gl.getUniformLocation(program,"u_line_color")
+  const time = gl.getUniformLocation(program,"u_time")
+  const viewportSize = gl.getUniformLocation(program,"u_viewport_size")
 
   if (
     attributeLocation < 0 ||
@@ -428,9 +428,9 @@ function getColorResolveContext() {
 function resolveLineColor(color: string, element: HTMLElement) {
   const resolver = document.createElement("span")
   resolver.style.color = color
-  resolver.style.opacity = "0"
-  resolver.style.pointerEvents = "none"
-  resolver.style.position = "absolute"
+  resolver.style.opacity ="0"
+  resolver.style.pointerEvents ="none"
+  resolver.style.position ="absolute"
   element.appendChild(resolver)
 
   const resolvedColor = getComputedStyle(resolver).color
@@ -461,9 +461,9 @@ function createFallbackGridStyle(
   return {
     animation: `${FALLBACK_ANIMATION_NAME} ${ANIMATION_DURATION_SECONDS}s linear infinite`,
     backgroundImage: `linear-gradient(to right, ${lineColor} 1px, transparent 0), linear-gradient(to bottom, ${lineColor} 1px, transparent 0)`,
-    backgroundRepeat: "repeat",
+    backgroundRepeat:"repeat",
     backgroundSize: `${cellSize}px ${cellSize}px`,
-    transform: "translateY(-50%)",
+    transform:"translateY(-50%)",
   }
 }
 
@@ -472,8 +472,8 @@ export function RetroGrid({
   angle = 65,
   cellSize = 60,
   opacity = 0.5,
-  lightLineColor = "gray",
-  darkLineColor = "gray",
+  lightLineColor ="gray",
+  darkLineColor ="gray",
   style,
   ...props
 }: RetroGridProps) {
@@ -830,7 +830,7 @@ export function RetroGrid({
     <div
       ref={containerRef}
       className={cn(
-        "pointer-events-none absolute size-full overflow-hidden",
+       "pointer-events-none absolute size-full overflow-hidden",
         className
       )}
       style={gridStyles}
@@ -856,8 +856,8 @@ export function RetroGrid({
       <canvas
         ref={canvasRef}
         className={cn(
-          "absolute inset-0 size-full",
-          isWebGlReady ? "opacity-100" : "opacity-0"
+         "absolute inset-0 size-full",
+          isWebGlReady ?"opacity-100" :"opacity-0"
         )}
       />
       <div className="absolute inset-0 bg-linear-to-t from-white to-transparent to-90% dark:from-black" />

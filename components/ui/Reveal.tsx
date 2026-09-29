@@ -1,7 +1,7 @@
 "use client";
 
-import { useInView } from "@/lib/hooks/useInView";
-import { cn } from "@/lib/utils";
+import { useInView } from"@/lib/hooks/useInView";
+import { cn } from"@/lib/utils";
 
 interface RevealProps {
   children: React.ReactNode;
@@ -21,7 +21,7 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
   return (
     <div
       ref={ref}
-      className={cn("reveal", isInView && "in-view", className)}
+      className={cn("reveal", isInView &&"in-view", className)}
       style={delay > 0 ? { transitionDelay: `${delay * 1000}ms` } : undefined}
     >
       {children}

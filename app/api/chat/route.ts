@@ -1,12 +1,12 @@
-import { NextRequest, NextResponse } from "next/server";
-import { headers } from "next/headers";
-import { z } from "zod";export const runtime = "nodejs";
+import { NextRequest, NextResponse } from"next/server";
+import { headers } from"next/headers";
+import { z } from"zod";export const runtime ="nodejs";
 
 const FALLBACK_MODELS = [
-  "nvidia/nemotron-3.5-lightning:free",
-  "inclusionai/ling-3.0-flash-sante:free",
-  "liquid/lfm-2.5-2.6b:free",
-  "google/gemma-4-31b-it:free",
+ "nvidia/nemotron-3.5-lightning:free",
+ "inclusionai/ling-3.0-flash-sante:free",
+ "liquid/lfm-2.5-2.6b:free",
+ "google/gemma-4-31b-it:free",
 ];
 
 const SYSTEM_PROMPT = `You are the One Vision Operations AI Assistant (One Vision Vanguard Agent).
@@ -27,7 +27,7 @@ Core Protocols:
 
 const BodySchema = z.object({
   messages: z.array(z.object({
-    role: z.enum(["user", "assistant"]),
+    role: z.enum(["user","assistant"]),
     content: z.string().trim().min(1).max(4000),
   })).min(1).max(50),
 });
@@ -55,21 +55,21 @@ export async function POST(req: NextRequest) {
       parsed = BodySchema.safeParse(await req.json());
     } catch {
       return NextResponse.json(
-        { error: "Invalid JSON body" },
+        { error:"Invalid JSON body" },
         { status: 400 }
       );
     }
 
     if (!parsed.success) {
       return NextResponse.json(
-        { error: "Invalid request: messages array is required and must follow schema." },
+        { error:"Invalid request: messages array is required and must follow schema." },
         { status: 400 }
       );
     }
     const { messages } = parsed.data;
 
     const headersList = await headers();
-    const ip = headersList.get("x-forwarded-for") || "unknown_ip";
+    const ip = headersList.get("x-forwarded-for") ||"unknown_ip";
     const now = Date.now();
     const userLimit = rateLimitMap.get(ip) || { count: 0, timestamp: now };
     
@@ -91,7 +91,7 @@ export async function POST(req: NextRequest) {
 
     if (userLimit.count > RATE_LIMIT) {
       return NextResponse.json(
-        { error: "Rate limit exceeded. Please try again later." },
+        { error:"Rate limit exceeded. Please try again later." },
         { status: 429 }
       );
     }
@@ -100,14 +100,14 @@ export async function POST(req: NextRequest) {
     if (!apiKey) {
       return NextResponse.json(
         {
-          error: "OPENROUTER_API_KEY is not configured on the server.",
+          error:"OPENROUTER_API_KEY is not configured on the server.",
         },
         { status: 500 }
       );
     }
 
     const formattedMessages = [
-      { role: "system", content: SYSTEM_PROMPT },
+      { role:"system", content: SYSTEM_PROMPT },
       ...messages.slice(-10), // keep last 10 messages for context
     ];
 
@@ -121,12 +121,12 @@ export async function POST(req: NextRequest) {
       
       try {
         const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-          method: "POST",
+          method:"POST",
           headers: {
             Authorization: `Bearer ${apiKey}`,
-            "Content-Type": "application/json",
-            "HTTP-Referer": "https://onevision.org",
-            "X-Title": "One Vision Vanguard",
+           "Content-Type":"application/json",
+           "HTTP-Referer":"https://onevision.org",
+           "X-Title":"One Vision Vanguard",
           },
           body: JSON.stringify({
             model,
@@ -146,7 +146,7 @@ export async function POST(req: NextRequest) {
         }
 
         const data = await response.json();
-        const rawContent = data.choices?.[0]?.message?.content || "";
+        const rawContent = data.choices?.[0]?.message?.content ||"";
 
         if (!rawContent.trim()) {
           failedModels.push(model);
@@ -154,12 +154,12 @@ export async function POST(req: NextRequest) {
         }
 
         // Remove embedded <think> tags entirely, don't expose
-        let finalContent = rawContent.replace(/<think>[\s\S]*?<\/think>/gi, "").trim();
+        let finalContent = rawContent.replace(/<think>[\s\S]*?<\/think>/gi,"").trim();
 
         // Clean out trailing meta reflections/self-corrections
         const metaMatch = finalContent.match(/\n\n(?:\d+\.\s*)?\*\*(?:Self-Correction|Refinement|Thinking|Internal Review)[\s\S]*$/i);
         if (metaMatch) {
-          finalContent = finalContent.replace(metaMatch[0], "").trim();
+          finalContent = finalContent.replace(metaMatch[0],"").trim();
         }
 
         const executionTimeMs = Date.now() - startTime;
@@ -184,7 +184,7 @@ export async function POST(req: NextRequest) {
     // If all models failed, return graceful error
     return NextResponse.json(
       {
-        error: "All free AI models are currently rate-limited or unavailable. Please retry in a few moments.",
+        error:"All free AI models are currently rate-limited or unavailable. Please retry in a few moments.",
         failedModels,
         lastError,
       },
@@ -193,7 +193,7 @@ export async function POST(req: NextRequest) {
   } catch (err: unknown) {
     console.error("[Chat API Fatal Error]:", err);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { error:"Internal server error" },
       { status: 500 }
     );
   }

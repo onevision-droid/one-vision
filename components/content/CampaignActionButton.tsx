@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { trackEvent } from "@/lib/analytics/trackEvent";
+import Link from"next/link";
+import { Button } from"@/components/ui/button";
+import { trackEvent } from"@/lib/analytics/trackEvent";
 
 interface CampaignActionButtonProps {
   campaignSlug: string;
@@ -13,12 +13,12 @@ interface CampaignActionButtonProps {
 export function CampaignActionButton({
   campaignSlug,
   campaignId,
-  label = "Donate to this campaign",
+  label ="Donate to this campaign",
 }: CampaignActionButtonProps) {
   const handleClick = () => {
     trackEvent("campaign_action", {
       campaign: campaignSlug,
-      action: "donate_intent",
+      action:"donate_intent",
     });
   };
 

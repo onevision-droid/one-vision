@@ -1,8 +1,8 @@
-import { cn } from "@/lib/utils";
-import { Skeleton } from "./skeleton";
+import { cn } from"@/lib/utils";
+import { Skeleton } from"./skeleton";
 
-export function LoadingSkeleton({ className, type = "card" }: { className?: string, type?: "card" | "list" | "detail" }) {
- if (type === "list") {
+export function LoadingSkeleton({ className, type ="card" }: { className?: string, type?:"card" |"list" |"detail" }) {
+ if (type ==="list") {
  return (
  <div className={cn("space-y-6", className)}>
  {[...Array(3)].map((_, i) => (
@@ -19,14 +19,14 @@ export function LoadingSkeleton({ className, type = "card" }: { className?: stri
  );
  }
 
- if (type === "detail") {
+ if (type ==="detail") {
  return (
  <div className={cn("space-y-8", className)}>
  <div className="space-y-4">
  <Skeleton className="h-12 w-3/4" />
  <Skeleton className="h-6 w-1/4" />
  </div>
- <Skeleton className="h-100 w-full " />
+ <Skeleton className="h-100 w-full" />
  <div className="space-y-4">
  <Skeleton className="h-4 w-full" />
  <Skeleton className="h-4 w-full" />
@@ -40,7 +40,7 @@ export function LoadingSkeleton({ className, type = "card" }: { className?: stri
  // Default: card
  return (
  <div className={cn("flex flex-col space-y-4", className)}>
- <Skeleton className="h-48 w-full " />
+ <Skeleton className="h-48 w-full" />
  <div className="space-y-2">
  <Skeleton className="h-5 w-2/3" />
  <Skeleton className="h-4 w-full" />

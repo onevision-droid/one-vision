@@ -1,15 +1,15 @@
-import { Metadata } from "next";
-import { programmes } from "@/lib/data/programmes";
-import { Section, Container } from "@/components/layout/Shell";
-import { PageHero } from "@/components/composition/PageHero";
-import { QuietClose } from "@/components/composition/QuietClose";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { ProgrammeFilter } from "@/components/content/ProgrammeFilter";
+import { Metadata } from"next";
+import { programmes } from"@/lib/data/programmes";
+import { Section, Container } from"@/components/layout/Shell";
+import { PageHero } from"@/components/composition/PageHero";
+import { QuietClose } from"@/components/composition/QuietClose";
+import Link from"next/link";
+import { ArrowRight } from"lucide-react";
+import { ProgrammeFilter } from"@/components/content/ProgrammeFilter";
 
 export const metadata: Metadata = {
-  title: "Programmes | One Vision",
-  description: "Active and upcoming community initiatives across Manipur — from emergency relief to youth education and mobile health clinics.",
+  title:"Programmes | One Vision",
+  description:"Active and upcoming community initiatives across Manipur — from emergency relief to youth education and mobile health clinics.",
 };
 
 export default function ProgrammesPage() {

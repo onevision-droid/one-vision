@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
-import { Quote } from "lucide-react";
+import { cn } from"@/lib/utils";
+import { Quote } from"lucide-react";
 
 interface QuoteBlockProps {
  quote: string;

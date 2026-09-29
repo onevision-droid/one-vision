@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { supabase } from "@/lib/supabase/client";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { trackEvent } from "@/lib/analytics/trackEvent";
+import { useState } from"react";
+import { supabase } from"@/lib/supabase/client";
+import { Button } from"@/components/ui/button";
+import { ArrowRight, CheckCircle2 } from"lucide-react";
+import { trackEvent } from"@/lib/analytics/trackEvent";
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -20,8 +20,8 @@ export function ContactForm() {
 
     const formData = new FormData(e.currentTarget);
     const data = {
-      firstName: (formData.get("name") as string)?.split(" ")[0] || "",
-      lastName: (formData.get("name") as string)?.split(" ").slice(1).join(" ") || "",
+      firstName: (formData.get("name") as string)?.split("")[0] ||"",
+      lastName: (formData.get("name") as string)?.split("").slice(1).join("") ||"",
       email: formData.get("email") as string,
       subject: formData.get("subject") as string,
       message: formData.get("message") as string,
@@ -36,7 +36,7 @@ export function ContactForm() {
       email: data.email,
       subject: data.subject,
       message: data.message,
-      status: "unread"
+      status:"unread"
     });
 
     setIsSubmitting(false);

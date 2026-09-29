@@ -1,16 +1,16 @@
-import { Metadata } from "next";
-import { VolunteerForm } from "@/components/forms/VolunteerForm";
-import { Section, Container } from "@/components/layout/Shell";
-import { PageHero } from "@/components/composition/PageHero";
-import { FAQ } from "@/components/composition/FAQ";
-import Image from "next/image";
-import { siteSettings } from "@/lib/data/site-settings";
-import Link from "next/link";
+import { Metadata } from"next";
+import { VolunteerForm } from"@/components/forms/VolunteerForm";
+import { Section, Container } from"@/components/layout/Shell";
+import { PageHero } from"@/components/composition/PageHero";
+import { FAQ } from"@/components/composition/FAQ";
+import Image from"next/image";
+import { siteSettings } from"@/lib/data/site-settings";
+import Link from"next/link";
 
 export const metadata: Metadata = {
-  title: "Volunteer | One Vision",
+  title:"Volunteer | One Vision",
   description:
-    "Join our network of volunteers and make a tangible impact in your community.",
+   "Join our network of volunteers and make a tangible impact in your community.",
 };
 
 export default function VolunteerPage() {
@@ -32,8 +32,8 @@ export default function VolunteerPage() {
       {/* 2 & 3. The Core Need & Mentorship Matrix (Merged Dark Canvas) */}
       <Section tone="inverted" className="relative overflow-hidden bg-foreground">
         <Container className="px-0 md:px-0">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border-x border-b border-white/10">
-            <div className="lg:col-span-5 flex flex-col justify-center p-6 md:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-white/10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border-x border-b border-border">
+            <div className="lg:col-span-5 flex flex-col justify-center p-6 md:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-border">
               <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-destructive mb-4 block">
                 The Community Network
               </span>
@@ -81,8 +81,8 @@ export default function VolunteerPage() {
         </Container>
 
         <Container className="px-0 md:px-0">
-          <div className="border-x border-b border-white/10">
-            <div className="px-6 py-4 md:px-8 md:py-6 border-b border-white/10">
+          <div className="border-x border-b border-border">
+            <div className="px-6 py-4 md:px-8 md:py-6 border-b border-border">
               <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-destructive mb-3 block">
                 What to Expect
               </span>
@@ -91,7 +91,7 @@ export default function VolunteerPage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 *:border-b *:md:border-b-0 *:border-r last:*:border-r-0 border-white/10 *:border-white/10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 *:border-b *:md:border-b-0 *:border-r last:*:border-r-0 border-border *:border-border">
               <div className="flex flex-col gap-4 p-6 md:p-8 hover:bg-muted/5 transition-colors">
                 <h3 className="font-serif text-xl sm:text-2xl font-light text-background">
                   01. Mentorship & Growth
@@ -173,7 +173,7 @@ export default function VolunteerPage() {
                         Coordinator Phone
                       </h4>
                       <Link
-                        href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`}
+                        href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g,"")}`}
                         className="font-sans text-base font-medium text-foreground hover:text-destructive transition-colors"
                       >
                         {siteSettings.contactPhone}
@@ -213,19 +213,19 @@ export default function VolunteerPage() {
         heading="Volunteer FAQs"
         items={[
           {
-            question: "How much time commitment is required?",
+            question:"How much time commitment is required?",
             answer:
-              "We offer flexible volunteering. You can commit to a regular schedule (e.g., 4 hours a week) or join specific, one-off events as your time permits.",
+             "We offer flexible volunteering. You can commit to a regular schedule (e.g., 4 hours a week) or join specific, one-off events as your time permits.",
           },
           {
-            question: "Is training provided?",
+            question:"Is training provided?",
             answer:
-              "Yes, all volunteers undergo a brief orientation on our code of conduct, safety protocols, and specific task requirements.",
+             "Yes, all volunteers undergo a brief orientation on our code of conduct, safety protocols, and specific task requirements.",
           },
           {
-            question: "Are there opportunities for remote volunteering?",
+            question:"Are there opportunities for remote volunteering?",
             answer:
-              "While many of our needs are on the ground in Imphal, we occasionally need help with digital outreach, coordination, or translation tasks. Let us know your skills in the application.",
+             "While many of our needs are on the ground in Imphal, we occasionally need help with digital outreach, coordination, or translation tasks. Let us know your skills in the application.",
           },
         ]}
       />

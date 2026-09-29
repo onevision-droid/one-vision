@@ -1,21 +1,21 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Logo } from "@/components/ui/Logo";
-import { SearchDialog } from "@/components/ui/SearchDialog";
-import { Search, ArrowRight, Menu, X, Phone, MessageSquare } from "lucide-react";
-import { siteSettings } from "@/lib/data/site-settings";
+import Link from"next/link";
+import { usePathname } from"next/navigation";
+import { useState, useEffect, useRef } from"react";
+import { motion, AnimatePresence } from"framer-motion";
+import { Logo } from"@/components/ui/Logo";
+import { SearchDialog } from"@/components/ui/SearchDialog";
+import { Search, ArrowRight, Menu, X, Phone, MessageSquare } from"lucide-react";
+import { siteSettings } from"@/lib/data/site-settings";
 
 const navLinks = [
-  { href: "/programmes", label: "Our Programmes" },
-  { href: "/stories", label: "Field Reports" },
-  { href: "/volunteer", label: "Volunteer" },
-  { href: "/open-ledger", label: "Open Ledger" },
-  { href: "/get-help", label: "Contact" },
-  { href: "/about", label: "About" },
+  { href:"/programmes", label:"Our Programmes" },
+  { href:"/stories", label:"Field Reports" },
+  { href:"/volunteer", label:"Volunteer" },
+  { href:"/open-ledger", label:"Open Ledger" },
+  { href:"/get-help", label:"Contact" },
+  { href:"/about", label:"About" },
 ];
 
 export function SiteHeader() {
@@ -37,12 +37,12 @@ export function SiteHeader() {
   // Prevent background page scrolling when mobile drawer is open
   useEffect(() => {
     if (mobileOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow ="hidden";
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow ="unset";
     }
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow ="unset";
     };
   }, [mobileOpen]);
 
@@ -64,7 +64,7 @@ export function SiteHeader() {
   }, [mobileOpen]);
 
   const handleDrawerKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === "Tab" && drawerRef.current) {
+    if (e.key ==="Tab" && drawerRef.current) {
       const focusable = drawerRef.current.querySelectorAll<HTMLElement>(
         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
       );
@@ -98,11 +98,11 @@ export function SiteHeader() {
   // Global Cmd+K / Ctrl+K shortcut for Search Dialog & Escape for Mobile Menu
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() ==="k") {
         e.preventDefault();
         setSearchOpen((prev) => !prev);
       }
-      if (e.key === "Escape") {
+      if (e.key ==="Escape") {
         setMobileOpen(false);
         setSearchOpen(false);
       }
@@ -116,8 +116,8 @@ export function SiteHeader() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
           isScrolled
-            ? "bg-background/95 backdrop-blur-md border-b border-border shadow-xs"
-            : "bg-background/85 backdrop-blur-sm border-b border-border"
+            ?"bg-background/95 backdrop-blur-md border-b border-border shadow-xs"
+            :"bg-background/85 backdrop-blur-sm border-b border-border"
         }`}
       >
         <div className="w-full max-w-container px-4 sm:px-6 lg:px-8 mx-auto flex items-center justify-between h-16">
@@ -139,7 +139,7 @@ export function SiteHeader() {
             {navLinks.map((link) => {
               const isActive =
                 pathname === link.href ||
-                (link.href !== "/" && pathname.startsWith(`${link.href}/`));
+                (link.href !=="/" && pathname.startsWith(`${link.href}/`));
               const isHovered = hoveredPath === link.href;
 
               return (
@@ -147,11 +147,11 @@ export function SiteHeader() {
                   key={link.href}
                   href={link.href}
                   onMouseEnter={() => setHoveredPath(link.href)}
-                  aria-current={isActive ? "page" : undefined}
+                  aria-current={isActive ?"page" : undefined}
                   className={`relative px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-200 ${
                     isActive
-                      ? "text-foreground"
-                      : "text-muted-foreground hover:text-foreground"
+                      ?"text-foreground"
+                      :"text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   <span className="relative z-10">{link.label}</span>
@@ -161,7 +161,7 @@ export function SiteHeader() {
                     <motion.div
                       layoutId="activeNavIndicator"
                       className="absolute bottom-0 left-3 right-3 h-0.5 bg-destructive z-20"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      transition={{ type:"spring", stiffness: 380, damping: 30 }}
                     />
                   )}
 
@@ -169,7 +169,7 @@ export function SiteHeader() {
                     <motion.div
                       layoutId="hoverNavIndicator"
                       className="absolute inset-0 bg-muted/60 z-0"
-                      transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                      transition={{ type:"spring", stiffness: 450, damping: 35 }}
                     />
                   )}
                 </Link>
@@ -215,7 +215,7 @@ export function SiteHeader() {
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav-drawer"
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-label={mobileOpen ?"Close menu" :"Open menu"}
               className="md:hidden flex items-center justify-center size-9 border border-border bg-muted text-foreground hover:border-foreground transition-colors cursor-pointer"
             >
               {mobileOpen ? (
@@ -248,7 +248,7 @@ export function SiteHeader() {
               {navLinks.map((link, idx) => {
                 const isActive =
                   pathname === link.href ||
-                  (link.href !== "/" && pathname.startsWith(`${link.href}/`));
+                  (link.href !=="/" && pathname.startsWith(`${link.href}/`));
 
                 return (
                   <motion.div
@@ -262,8 +262,8 @@ export function SiteHeader() {
                       onClick={() => setMobileOpen(false)}
                       className={`flex items-center justify-between py-4 text-left transition-colors ${
                         isActive
-                          ? "text-destructive font-bold"
-                          : "text-foreground hover:text-destructive font-medium"
+                          ?"text-destructive font-bold"
+                          :"text-foreground hover:text-destructive font-medium"
                       }`}
                     >
                       <span className="font-serif text-2xl font-light tracking-tight">
@@ -280,7 +280,7 @@ export function SiteHeader() {
             <div className="pt-6 mt-6 border-t border-border space-y-4">
               <div className="grid grid-cols-2 gap-3 font-mono text-[10px] uppercase tracking-wider text-ink-600">
                 <a
-                  href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`}
+                  href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g,"")}`}
                   className="flex items-center gap-2 p-3 border border-border bg-muted hover:border-foreground transition-colors"
                 >
                   <Phone className="size-3.5 text-destructive" />

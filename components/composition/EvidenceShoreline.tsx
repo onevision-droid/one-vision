@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils";
-import { Container } from "@/components/layout/Shell";
-import { SectionWrapper, type CompositionProps } from "./shared";
+import { cn } from"@/lib/utils";
+import { Container } from"@/components/layout/Shell";
+import { SectionWrapper, type CompositionProps } from"./shared";
 
 /**
  * Evidence Shoreline — metric row (2–4 ImpactMetrics) + optional supporting image.
@@ -20,7 +20,7 @@ interface EvidenceShorelineProps extends CompositionProps {
 }
 
 export function EvidenceShoreline({
- surface = "mist",
+ surface ="mist",
  className,
  heading,
  headingId,
@@ -39,18 +39,18 @@ export function EvidenceShoreline({
  <h2
  id={headingId}
  className={cn(
- "font-sans font-light tracking-tight",
- "text-display-md",
- "mb-12 lg:mb-16",
+"font-sans font-light tracking-tight",
+"text-display-md",
+"mb-12 lg:mb-16",
  )}
  >
  {heading}
  </h2>
  )}
 
- <div className={cn("grid gap-8", media ? "lg:grid-cols-12" : "")}>
+ <div className={cn("grid gap-8", media ?"lg:grid-cols-12" :"")}>
  {/* Metrics */}
- <div className={cn(media ? "lg:col-span-8" : "")}>
+ <div className={cn(media ?"lg:col-span-8" :"")}>
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px border border-border overflow-hidden">
  {metrics}
  </div>
@@ -59,7 +59,7 @@ export function EvidenceShoreline({
  {/* Optional media */}
  {media && (
  <div className="lg:col-span-4">
- <div className="relative aspect-video overflow-hidden ">
+ <div className="relative aspect-video overflow-hidden">
  {media}
  </div>
  </div>

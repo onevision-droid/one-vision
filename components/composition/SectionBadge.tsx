@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from"@/lib/utils";
 
 interface SectionBadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ export function SectionBadge({
   return (
     <div
       className={cn(
-        "inline-flex items-center border border-border/50 bg-muted/50 px-3 py-1 text-sm font-medium mb-6 shadow-sm backdrop-blur-sm",
+       "inline-flex items-center border border-border/50 bg-muted/50 px-3 py-1 text-sm font-medium mb-6 shadow-sm backdrop-blur-sm",
         className,
       )}
       {...props}

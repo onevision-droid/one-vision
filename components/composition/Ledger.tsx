@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
-import { SectionWrapper, isDarkSurface, type CompositionProps } from "./shared";
+import { cn } from"@/lib/utils";
+import { SectionWrapper, isDarkSurface, type CompositionProps } from"./shared";
 
 /**
  * Ledger — Editorial list rows with hairline dividers.
@@ -16,7 +16,7 @@ interface LedgerProps extends CompositionProps {
 }
 
 export function Ledger({
-  surface = "paper",
+  surface ="paper",
   className,
   children,
   heading,
@@ -35,17 +35,17 @@ export function Ledger({
         {(heading || headerAction) && (
           <div
             className={cn(
-              "flex flex-col md:flex-row justify-between items-start md:items-end gap-4",
-              "border-b pb-8 mb-10 lg:mb-14",
-              dark ? "border-paper/20" : "border-border",
+             "flex flex-col md:flex-row justify-between items-start md:items-end gap-4",
+             "border-b pb-8 mb-10 lg:mb-14",
+              dark ?"border-paper/20" :"border-border",
             )}
           >
             {heading && (
               <h2
                 id={headingId}
                 className={cn(
-                  "font-sans font-light tracking-tight",
-                  "text-display-md",
+                 "font-sans font-light tracking-tight",
+                 "text-display-md",
                 )}
               >
                 {heading}
@@ -58,8 +58,8 @@ export function Ledger({
         {/* Ledger rows rendered as children */}
         <div
           className={cn(
-            "divide-y",
-            dark ? "divide-paper/20" : "divide-border-default",
+           "divide-y",
+            dark ?"divide-paper/20" :"divide-border-default",
           )}
         >
           {children}
@@ -74,7 +74,7 @@ export function Ledger({
  * Renders title, meta info, and an optional action.
  */
 interface LedgerRowProps {
-  /** Row number (e.g., "01") for numbered ledgers */
+  /** Row number (e.g.,"01") for numbered ledgers */
   number?: string;
   /** Primary title */
   title: React.ReactNode;
@@ -99,9 +99,9 @@ export function LedgerRow({
   return (
     <div
       className={cn(
-        "flex flex-col md:flex-row md:items-center gap-3 md:gap-6",
-        "py-5 lg:py-6",
-        "group",
+       "flex flex-col md:flex-row md:items-center gap-3 md:gap-6",
+       "py-5 lg:py-6",
+       "group",
         className,
       )}
     >

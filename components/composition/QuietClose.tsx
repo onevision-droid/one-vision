@@ -1,5 +1,5 @@
-import { Section, Container } from "@/components/layout/Shell";
-import { cn } from "@/lib/utils";
+import { Section, Container } from"@/components/layout/Shell";
+import { cn } from"@/lib/utils";
 
 interface QuietCloseProps {
   label?: string;

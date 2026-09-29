@@ -1,11 +1,11 @@
-import { notFound } from "next/navigation";
-import { Metadata } from "next";
-import Image from "next/image";
-import { campaigns } from "@/lib/data/campaigns";
-import { Section, Container } from "@/components/layout/Shell";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Users, Calendar } from "lucide-react";
-import { CampaignActionButton } from "@/components/content/CampaignActionButton";
+import { notFound } from"next/navigation";
+import { Metadata } from"next";
+import Image from"next/image";
+import { campaigns } from"@/lib/data/campaigns";
+import { Section, Container } from"@/components/layout/Shell";
+import { Breadcrumbs } from"@/components/ui/Breadcrumbs";
+import { Users, Calendar } from"lucide-react";
+import { CampaignActionButton } from"@/components/content/CampaignActionButton";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const campaign = campaigns.find((c) => c.slug === slug);
   
-  if (!campaign) return { title: "Not Found | One Vision" };
+  if (!campaign) return { title:"Not Found | One Vision" };
 
   return {
     title: `${campaign.title} | One Vision`,
@@ -62,7 +62,7 @@ export default async function CampaignPage({ params }: Props) {
               <div className="mb-6">
                 <Breadcrumbs 
                   items={[
-                    { label: "Campaigns", href: "/campaigns" },
+                    { label:"Campaigns", href:"/campaigns" },
                     { label: campaign.title }
                   ]} 
                 />

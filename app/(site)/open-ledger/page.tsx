@@ -1,16 +1,16 @@
-import { Metadata } from "next";
-import { Section, Container } from "@/components/layout/Shell";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Badge } from "@/components/ui/badge";
-import { Ledger, LedgerRow } from "@/components/composition/Ledger";
-import { Button } from "@/components/ui/button";
-import { Tables } from "@/lib/supabase/database.types";
-import { Download } from "lucide-react";
-import { supabase } from "@/lib/supabase/client";
+import { Metadata } from"next";
+import { Section, Container } from"@/components/layout/Shell";
+import { Breadcrumbs } from"@/components/ui/Breadcrumbs";
+import { Badge } from"@/components/ui/badge";
+import { Ledger, LedgerRow } from"@/components/composition/Ledger";
+import { Button } from"@/components/ui/button";
+import { Tables } from"@/lib/supabase/database.types";
+import { Download } from"lucide-react";
+import { supabase } from"@/lib/supabase/client";
 
 export const metadata: Metadata = {
-  title: "Open Ledger | One Vision",
-  description: "Transparent view of our fund allocations and impact.",
+  title:"Open Ledger | One Vision",
+  description:"Transparent view of our fund allocations and impact.",
 };
 
 export const revalidate = 3600;
@@ -38,7 +38,7 @@ export default async function OpenLedgerPage() {
       <Section tone="default" className="pt-24 pb-8 md:pt-26 md:pb-12 lg:pt-28 lg:pb-14 border-b border-border">
         <Container>
           <div className="max-w-4xl mx-auto space-y-6">
-            <Breadcrumbs items={[{ label: "Reports", href: "/reports" }, { label: "Open Ledger", href: "/open-ledger" }]} />
+            <Breadcrumbs items={[{ label:"Reports", href:"/reports" }, { label:"Open Ledger", href:"/open-ledger" }]} />
             
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
               <div>

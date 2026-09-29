@@ -1,17 +1,17 @@
-import { Metadata } from "next";
-import { PageHero } from "@/components/composition/PageHero";
+import { Metadata } from"next";
+import { PageHero } from"@/components/composition/PageHero";
 
-import { QuietClose } from "@/components/composition/QuietClose";
-import { Button } from "@/components/ui/button";
-import { FileText, ArrowRight, TrendingUp } from "lucide-react";
-import Link from "next/link";
-import { reports } from "@/lib/data/reports";
-import { ReportDownloadButton } from "@/components/content/ReportDownloadButton";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { QuietClose } from"@/components/composition/QuietClose";
+import { Button } from"@/components/ui/button";
+import { FileText, ArrowRight, TrendingUp } from"lucide-react";
+import Link from"next/link";
+import { reports } from"@/lib/data/reports";
+import { ReportDownloadButton } from"@/components/content/ReportDownloadButton";
+import { Breadcrumbs } from"@/components/ui/Breadcrumbs";
 
 export const metadata: Metadata = {
- title: "Reports & Impact | One Vision",
- description: "Transparency reports, impact metrics, and financial ledgers from One Vision.",
+ title:"Reports & Impact | One Vision",
+ description:"Transparency reports, impact metrics, and financial ledgers from One Vision.",
 };
 
 export default function ReportsPage() {
@@ -32,7 +32,7 @@ export default function ReportsPage() {
  <section className="w-full px-4 py-12 md:py-20 bg-background">
  <div className="mx-auto max-w-5xl overflow-hidden border border-border bg-muted shadow-xl shadow-black/5">
         <div className="bg-destructive/5 px-8 py-10 md:px-12 md:py-12 border-b border-border">
- <Breadcrumbs items={[{ label: "Reports", href: "/reports" }]} className="mb-4" />
+ <Breadcrumbs items={[{ label:"Reports", href:"/reports" }]} className="mb-4" />
  <h2 className="text-3xl md:text-4xl font-sans text-foreground mb-4 tracking-tight">
  Published Reports
  </h2>

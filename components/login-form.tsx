@@ -1,21 +1,21 @@
 "use client"
 
-import { cn } from "@/lib/utils"
+import { cn } from"@/lib/utils"
 
-import { Button } from "@/components/ui/button"
+import { Button } from"@/components/ui/button"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from"@/components/ui/card"
 import {
   Field,
   FieldGroup,
   FieldLabel,
-} from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
+} from"@/components/ui/field"
+import { Input } from"@/components/ui/input"
 
 interface LoginFormProps extends React.ComponentProps<"div"> {
   email?: string;
@@ -54,7 +54,7 @@ export function LoginForm({
                 role="alert"
                 aria-live="assertive"
                 aria-atomic="true"
-                className={error ? "p-3 bg-red-500/10 border border-red-500/30 text-red-600 dark:text-red-400 text-xs font-mono" : "sr-only"}
+                className={error ?"p-3 bg-destructive/10 border border-destructive/30 text-destructive  text-xs font-mono" :"sr-only"}
               >
                 {error}
               </div>
@@ -83,7 +83,7 @@ export function LoginForm({
               </Field>
               <Field className="pt-2">
                 <Button type="submit" disabled={loading} className="w-full bg-foreground text-background hover:bg-ink-700 transition-none font-medium text-sm">
-                  {loading ? "Authenticating..." : "Authenticate"}
+                  {loading ?"Authenticating..." :"Authenticate"}
                 </Button>
               </Field>
             </FieldGroup>

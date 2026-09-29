@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase/client";
-import { Button } from "@/components/ui/button";
-import { Database } from "@/lib/supabase/database.types";
-import { Session } from "@supabase/supabase-js";
-import Link from "next/link";
-import { LoginForm } from "@/components/login-form";
+import { useEffect, useState } from"react";
+import { supabase } from"@/lib/supabase/client";
+import { Button } from"@/components/ui/button";
+import { Database } from"@/lib/supabase/database.types";
+import { Session } from"@supabase/supabase-js";
+import Link from"next/link";
+import { LoginForm } from"@/components/login-form";
 
 type VolunteerApp = Database["public"]["Tables"]["volunteer_applications"]["Row"];
 type HelpRequest = Database["public"]["Tables"]["help_requests"]["Row"];
@@ -146,7 +146,7 @@ export default function AdminDashboard() {
                   <tr key={app.id}>
                     <td className="p-4">{app.first_name} {app.last_name}</td>
                     <td className="p-4">{app.email}</td>
-                    <td className="p-4">{app.skills?.join(", ")}</td>
+                    <td className="p-4">{app.skills?.join(",")}</td>
                     <td className="p-4 capitalize">
                       <span className={`px-2 py-1 text-xs font-medium ${
                         app.status === 'pending' ? 'bg-hazard-yellow/20 text-foreground border border-hazard-yellow/40' : 'bg-status-active/20 text-status-active border border-status-active/40'
@@ -222,7 +222,7 @@ export default function AdminDashboard() {
                     <td className="p-4">{don.first_name} {don.last_name}</td>
                     <td className="p-4">{don.email}</td>
                     <td className="p-4">{don.amount} {don.currency}</td>
-                    <td className="p-4">{don.is_recurring ? "Monthly" : "One-time"}</td>
+                    <td className="p-4">{don.is_recurring ?"Monthly" :"One-time"}</td>
                     <td className="p-4 capitalize">
                       <span className={`px-2 py-1 text-xs font-medium ${
                         don.status === 'pending' ? 'bg-hazard-yellow/20 text-foreground border border-hazard-yellow/40' : 'bg-status-active/20 text-status-active border border-status-active/40'

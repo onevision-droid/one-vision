@@ -1,97 +1,97 @@
-import { Metadata } from "next";
-import { Section, Container } from "@/components/layout/Shell";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { HalftoneBackground } from "@/components/composition/HalftoneBackground";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Timeline, type TimelineItem } from "@/components/content/Timeline";
+import { Metadata } from"next";
+import { Section, Container } from"@/components/layout/Shell";
+import { Badge } from"@/components/ui/badge";
+import { Card, CardContent } from"@/components/ui/card";
+import { HalftoneBackground } from"@/components/composition/HalftoneBackground";
+import { Breadcrumbs } from"@/components/ui/Breadcrumbs";
+import { Timeline, type TimelineItem } from"@/components/content/Timeline";
 
 const leaders = [
   {
-    name: "Oinam Thoiba Singh",
-    role: "President, One Vision Manipur",
-    bio: "Guiding the strategic vision and institutional partnerships of One Vision since its establishment in 1988.",
+    name:"Oinam Thoiba Singh",
+    role:"President, One Vision Manipur",
+    bio:"Guiding the strategic vision and institutional partnerships of One Vision since its establishment in 1988.",
   },
   {
-    name: "Thaibal Singh",
-    role: "General Secretary",
-    bio: "Overseeing daily operations, community outreach, and administrative governance for the organization.",
+    name:"Thaibal Singh",
+    role:"General Secretary",
+    bio:"Overseeing daily operations, community outreach, and administrative governance for the organization.",
   },
   {
-    name: "Sapam Chital Singh",
-    role: "Project Investigator",
-    bio: "Leading scientific research and ecological integration. Alumnus of D.M. College of Science.",
+    name:"Sapam Chital Singh",
+    role:"Project Investigator",
+    bio:"Leading scientific research and ecological integration. Alumnus of D.M. College of Science.",
   },
   {
-    name: "Lamnganbi Ngangom",
-    role: "Project Coordinator",
-    bio: "Managing fieldwork, educational integration, and pedagogical outcomes. Alumnus of G.P. Women's College, Imphal.",
+    name:"Lamnganbi Ngangom",
+    role:"Project Coordinator",
+    bio:"Managing fieldwork, educational integration, and pedagogical outcomes. Alumnus of G.P. Women's College, Imphal.",
   }
 ];
 
 const policies = [
   {
-    title: "Financial Transparency",
-    description: "Annual audited financial statements are published publicly. We enforce strict caps on administrative overhead to ensure funds reach programs directly."
+    title:"Financial Transparency",
+    description:"Annual audited financial statements are published publicly. We enforce strict caps on administrative overhead to ensure funds reach programs directly."
   },
   {
-    title: "Safeguarding",
-    description: "Zero-tolerance policy for abuse or exploitation. Strict safeguarding protocols apply to all staff, volunteers, and partners interacting with vulnerable groups."
+    title:"Safeguarding",
+    description:"Zero-tolerance policy for abuse or exploitation. Strict safeguarding protocols apply to all staff, volunteers, and partners interacting with vulnerable groups."
   },
   {
-    title: "Conflict of Interest",
-    description: "Board members and executives must declare all potential conflicts annually. Recusal is mandatory for any decisions involving affiliated entities."
+    title:"Conflict of Interest",
+    description:"Board members and executives must declare all potential conflicts annually. Recusal is mandatory for any decisions involving affiliated entities."
   }
 ];
 
 const milestones: TimelineItem[] = [
   {
-    year: "1988",
-    tag: "Founding",
-    title: "Origins as Community Mutual Aid",
-    description: "Established by local educators and community elders in Imphal to coordinate informal education, youth mentorship, and emergency relief during seasonal flash floods.",
-    status: "completed",
+    year:"1988",
+    tag:"Founding",
+    title:"Origins as Community Mutual Aid",
+    description:"Established by local educators and community elders in Imphal to coordinate informal education, youth mentorship, and emergency relief during seasonal flash floods.",
+    status:"completed",
   },
   {
-    year: "1997",
-    tag: "Incorporation",
-    title: "Legal Registration under Societies Act",
-    description: "Formally incorporated under the Manipur Societies Registration Act (Reg No: 1883/SR/1997) with a community-elected board and an open governance charter.",
-    status: "completed",
+    year:"1997",
+    tag:"Incorporation",
+    title:"Legal Registration under Societies Act",
+    description:"Formally incorporated under the Manipur Societies Registration Act (Reg No: 1883/SR/1997) with a community-elected board and an open governance charter.",
+    status:"completed",
   },
   {
-    year: "2015",
-    tag: "Scale",
-    title: "Decentralized Youth & Field Volunteers",
-    description: "Expanded outreach into rural valley districts, training over 250 youth coordinators in rapid emergency response and digital inventory tracking.",
-    status: "completed",
+    year:"2015",
+    tag:"Scale",
+    title:"Decentralized Youth & Field Volunteers",
+    description:"Expanded outreach into rural valley districts, training over 250 youth coordinators in rapid emergency response and digital inventory tracking.",
+    status:"completed",
   },
   {
-    year: "2023",
-    tag: "Crisis Response",
-    title: "Emergency Relief & Mobile Clinics",
-    description: "Mobilized continuous humanitarian aid, distributing emergency food rations, medicine, and establishing makeshift learning classrooms across relief centers.",
-    status: "completed",
+    year:"2023",
+    tag:"Crisis Response",
+    title:"Emergency Relief & Mobile Clinics",
+    description:"Mobilized continuous humanitarian aid, distributing emergency food rations, medicine, and establishing makeshift learning classrooms across relief centers.",
+    status:"completed",
   },
   {
-    year: "2026",
-    tag: "Current",
-    title: "Open Platform & Verified Dispatches",
-    description: "Launched our open financial ledger, transparent field dispatch tracking, and direct grassroots help-request infrastructure.",
-    status: "active",
+    year:"2026",
+    tag:"Current",
+    title:"Open Platform & Verified Dispatches",
+    description:"Launched our open financial ledger, transparent field dispatch tracking, and direct grassroots help-request infrastructure.",
+    status:"active",
   },
   {
-    year: "2027",
-    tag: "Roadmap",
-    title: "Permanent Women-Led Wellness Hubs",
-    description: "Transitioning temporary relief facilities into 12 self-sustaining community clinics and skill-building centers across Manipur.",
-    status: "upcoming",
+    year:"2027",
+    tag:"Roadmap",
+    title:"Permanent Women-Led Wellness Hubs",
+    description:"Transitioning temporary relief facilities into 12 self-sustaining community clinics and skill-building centers across Manipur.",
+    status:"upcoming",
   },
 ];
 
 export const metadata: Metadata = {
-  title: "Governance & Leadership | One Vision",
-  description: "Meet the board and executive team guiding One Vision. Committed to transparency, accountability, and community-led decision making.",
+  title:"Governance & Leadership | One Vision",
+  description:"Meet the board and executive team guiding One Vision. Committed to transparency, accountability, and community-led decision making.",
 };
 
 export default function GovernancePage() {
@@ -102,7 +102,7 @@ export default function GovernancePage() {
         <HalftoneBackground />
         <Container className="relative z-10">
           <div className="mb-6">
-            <Breadcrumbs items={[{ label: "About", href: "/about" }, { label: "Governance", href: "/about/governance" }]} />
+            <Breadcrumbs items={[{ label:"About", href:"/about" }, { label:"Governance", href:"/about/governance" }]} />
           </div>
           <div className="max-w-4xl">
             <Badge className="mb-6">

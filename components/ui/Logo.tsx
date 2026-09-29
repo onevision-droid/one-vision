@@ -1,13 +1,13 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { motion, useReducedMotion } from"framer-motion";
+import { cn } from"@/lib/utils";
 
 interface LogoProps {
   className?: string;
   showText?: boolean;
-  size?: "sm" | "md" | "lg";
-  variant?: "default" | "orange" | "blue";
+  size?:"sm" |"md" |"lg";
+  variant?:"default" |"orange" |"blue";
 }
 
 // Precision SVG path of the Ocular Visor Housing from the reference design
@@ -36,26 +36,26 @@ M 50 26
 A 24 24 0 0 0 50 74
 A 24 24 0 0 0 50 26
 Z
-`.trim().replace(/\s+/g, " ");
+`.trim().replace(/\s+/g,"");
 
 export function Logo({
   className,
   showText = true,
-  size = "md",
-  variant = "default",
+  size ="md",
+  variant ="default",
 }: LogoProps) {
   const shouldReduceMotion = useReducedMotion();
 
   const sizeMap = {
-    sm: "size-6",
-    md: "size-8",
-    lg: "size-10",
+    sm:"size-6",
+    md:"size-8",
+    lg:"size-10",
   };
 
   const colorMap = {
-    default: "text-foreground dark:text-background",
-    orange: "text-destructive",
-    blue: "text-primary",
+    default:"text-foreground",
+    orange:"text-destructive",
+    blue:"text-primary",
   };
 
   return (
@@ -64,7 +64,7 @@ export function Logo({
       <motion.div
         className={cn("relative shrink-0 flex items-center justify-center", sizeMap[size])}
         whileHover={shouldReduceMotion ? undefined : { scale: 1.08 }}
-        transition={{ type: "spring", stiffness: 400, damping: 25 }}
+        transition={{ type:"spring", stiffness: 400, damping: 25 }}
       >
         <svg
           viewBox="0 0 100 100"
@@ -100,10 +100,10 @@ export function Logo({
                 : {
                     duration: 4.5,
                     repeat: Infinity,
-                    ease: "easeInOut",
+                    ease:"easeInOut",
                   }
             }
-            style={{ transformOrigin: "50px 50px" }}
+            style={{ transformOrigin:"50px 50px" }}
           />
 
           {/* Contrast Spacer Ring (White / Paper Sclera) */}
@@ -130,7 +130,7 @@ export function Logo({
                 : {
                     duration: 5.5,
                     repeat: Infinity,
-                    ease: "easeInOut",
+                    ease:"easeInOut",
                     times: [0, 0.22, 0.35, 0.5, 0.72, 0.85, 1],
                   }
             }
@@ -163,10 +163,10 @@ export function Logo({
                   : {
                       duration: 2.75,
                       repeat: Infinity,
-                      ease: "easeInOut",
+                      ease:"easeInOut",
                     }
               }
-              style={{ transformOrigin: "56.5px 43.5px" }}
+              style={{ transformOrigin:"56.5px 43.5px" }}
             />
           </motion.g>
         </svg>

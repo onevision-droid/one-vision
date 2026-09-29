@@ -1,11 +1,11 @@
-import { Metadata } from "next";
-import { Section, Container } from "@/components/layout/Shell";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Badge } from "@/components/ui/badge";
+import { Metadata } from"next";
+import { Section, Container } from"@/components/layout/Shell";
+import { Breadcrumbs } from"@/components/ui/Breadcrumbs";
+import { Badge } from"@/components/ui/badge";
 
 export const metadata: Metadata = {
-  title: "Accessibility Statement | One Vision",
-  description: "One Vision's commitment to digital accessibility for all users.",
+  title:"Accessibility Statement | One Vision",
+  description:"One Vision's commitment to digital accessibility for all users.",
 };
 
 export default function AccessibilityPage() {
@@ -14,7 +14,7 @@ export default function AccessibilityPage() {
       <Section tone="default" className="pt-16 pb-24">
         <Container>
           <div className="max-w-3xl mx-auto space-y-8">
-            <Breadcrumbs items={[{ label: "Accessibility", href: "/accessibility" }]} />
+            <Breadcrumbs items={[{ label:"Accessibility", href:"/accessibility" }]} />
             
             <div>
               <Badge className="mb-6">Legal</Badge>

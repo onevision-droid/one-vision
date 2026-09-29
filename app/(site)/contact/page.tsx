@@ -1,14 +1,14 @@
-import { Metadata } from "next";
-import { PageHero } from "@/components/composition/PageHero";
+import { Metadata } from"next";
+import { PageHero } from"@/components/composition/PageHero";
 
-import { siteSettings } from "@/lib/data/site-settings";
-import { ContactForm } from "@/components/forms/ContactForm";
-import { ArrowRight } from "lucide-react";
+import { siteSettings } from"@/lib/data/site-settings";
+import { ContactForm } from"@/components/forms/ContactForm";
+import { ArrowRight } from"lucide-react";
 
 
 export const metadata: Metadata = {
- title: "Contact Us | One Vision",
- description: "Get in touch with One Vision for partnerships, press inquiries, or general questions.",
+ title:"Contact Us | One Vision",
+ description:"Get in touch with One Vision for partnerships, press inquiries, or general questions.",
 };
 
 export default function ContactPage() {

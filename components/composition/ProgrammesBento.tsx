@@ -1,5 +1,5 @@
-import { Section, Container } from "@/components/layout/Shell";
-import React from "react";
+import { Section, Container } from"@/components/layout/Shell";
+import React from"react";
 import {
   HeartPulse,
   Leaf,
@@ -8,16 +8,16 @@ import {
   LineChart,
   Activity,
   ArrowRight
-} from "lucide-react";
-import Link from "next/link";
-import { programmes } from "@/lib/data/programmes";
+} from"lucide-react";
+import Link from"next/link";
+import { programmes } from"@/lib/data/programmes";
 
 const icons = {
-  "community-health-connect": HeartPulse,
-  "green-manipur-lab": Leaf,
-  "futureworks": Laptop,
-  "local-enterprise-lab": HandCoins,
-  "community-data-lab": LineChart,
+ "community-health-connect": HeartPulse,
+ "green-manipur-lab": Leaf,
+ "futureworks": Laptop,
+ "local-enterprise-lab": HandCoins,
+ "community-data-lab": LineChart,
 };
 
 export function ProgrammesBento() {

@@ -1,7 +1,7 @@
-import { SiteHeader } from "@/components/layout/SiteHeader";
-import { Footer } from "@/components/layout/Footer";
-import { ConsentNotice } from "@/components/layout/ConsentNotice";
-import { FloatingAgentChat } from "@/components/ai/floating-agent-chat";
+import { SiteHeader } from"@/components/layout/SiteHeader";
+import { Footer } from"@/components/layout/Footer";
+import { ConsentNotice } from"@/components/layout/ConsentNotice";
+import { FloatingAgentChat } from"@/components/ai/floating-agent-chat";
 
 export default function SiteLayout({
   children,

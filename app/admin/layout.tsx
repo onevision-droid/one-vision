@@ -1,7 +1,7 @@
-import { Metadata } from "next";
+import { Metadata } from"next";
 
 export const metadata: Metadata = {
-  title: "Admin Dashboard | One Vision",
+  title:"Admin Dashboard | One Vision",
   robots: { index: false, follow: false },
 };
 

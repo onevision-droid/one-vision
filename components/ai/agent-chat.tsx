@@ -1,13 +1,13 @@
 "use client";
 
-import * as React from "react";
-import { useState, useRef, useEffect } from "react";
+import * as React from"react";
+import { useState, useRef, useEffect } from"react";
 import {
   PromptInput,
   PromptInputActions,
   PromptInputTextarea,
-} from "@/components/prompt-kit/prompt-input";
-import { Loader } from "@/components/prompt-kit/loader";
+} from"@/components/prompt-kit/prompt-input";
+import { Loader } from"@/components/prompt-kit/loader";
 
 import {
   ArrowUpIcon,
@@ -18,8 +18,8 @@ import {
   Check,
   Cpu,
   X,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
+} from"lucide-react";
+import { cn } from"@/lib/utils";
 
 let messageCounter = 0;
 function createMessageId(prefix: string) {
@@ -30,7 +30,7 @@ function createMessageId(prefix: string) {
 
 interface ChatMessage {
   id: string;
-  role: "user" | "assistant";
+  role:"user" |"assistant";
   content: string;
   modelUsed?: string;
   fallbackAttempted?: boolean;
@@ -38,9 +38,9 @@ interface ChatMessage {
 }
 
 const MINIMAL_SUGGESTIONS = [
-  { label: "Health Nodes", query: "How does One Vision maintain decentralized health nodes?" },
-  { label: "Open Ledger", query: "What is the Open Ledger and how are funds audited?" },
-  { label: "Volunteer", query: "How can I volunteer or mentor in Imphal?" },
+  { label:"Health Nodes", query:"How does One Vision maintain decentralized health nodes?" },
+  { label:"Open Ledger", query:"What is the Open Ledger and how are funds audited?" },
+  { label:"Volunteer", query:"How can I volunteer or mentor in Imphal?" },
 ];
 
 export interface AgentChatProps {
@@ -58,7 +58,7 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
 
   // Auto-scroll to bottom of chat
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current?.scrollIntoView({ behavior:"smooth" });
   };
 
   useEffect(() => {
@@ -75,7 +75,7 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
 
     const userMessage: ChatMessage = {
       id: createMessageId("user"),
-      role: "user",
+      role:"user",
       content: text,
     };
 
@@ -86,8 +86,8 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
 
     try {
       const response = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+        method:"POST",
+        headers: {"Content-Type":"application/json" },
         body: JSON.stringify({
           messages: newMessages
             .filter((m) => !m.id.startsWith("error-"))
@@ -106,7 +106,7 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
 
       const assistantMessage: ChatMessage = {
         id: createMessageId("assistant"),
-        role: "assistant",
+        role:"assistant",
         content: data.content,
         modelUsed: data.modelUsed,
         fallbackAttempted: data.fallbackAttempted,
@@ -115,10 +115,10 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
 
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (err: unknown) {
-      const errorText = err instanceof Error ? err.message : "Timeout or network failure";
+      const errorText = err instanceof Error ? err.message :"Timeout or network failure";
       const errorMessage: ChatMessage = {
         id: createMessageId("error"),
-        role: "assistant",
+        role:"assistant",
         content: `⚠️ **Notice:** Unable to reach AI models at this moment (${errorText}). Please retry or contact our frontline office.`,
       };
       setMessages((prev) => [...prev, errorMessage]);
@@ -144,21 +144,21 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
   return (
     <div
       className={cn(
-        "flex flex-col h-full w-full",
+       "flex flex-col h-full w-full",
         isDialog
-          ? "rounded-none border-none bg-transparent shadow-none"
-          : "max-w-2xl mx-auto rounded-lg border border-border/80 bg-background/60 backdrop-blur-md shadow-xs overflow-hidden dark:border-white/10 dark:bg-foreground/60",
+          ?"rounded-none border-none bg-transparent shadow-none"
+          :"max-w-2xl mx-auto rounded-lg border border-border/80 bg-background/60 backdrop-blur-md shadow-xs overflow-hidden dark:border-border dark:bg-foreground/60",
         className
       )}
     >
       {/* Minimal Header */}
-      <div className="shrink-0 flex items-center justify-between px-3.5 py-2.5 border-b border-border/60 bg-muted/90 dark:border-white/10 dark:bg-foreground/90">
+      <div className="shrink-0 flex items-center justify-between px-3.5 py-2.5 border-b border-border/60 bg-muted/90 dark:border-border dark:bg-foreground/90">
         <div className="flex items-center gap-2">
           <div className="size-6 bg-destructive/10 border border-safety-orange/30 flex items-center justify-center text-destructive">
             <Bot className="size-3.5" />
           </div>
           <div className="flex items-center gap-1.5">
-            <h3 className="font-sans text-xs font-semibold text-foreground dark:text-background tracking-tight">
+            <h3 className="font-sans text-xs font-semibold text-foreground  tracking-tight">
               One Vision AI
             </h3>
             <span className="size-1.5 rounded-full bg-status-active animate-pulse" title="Active" />
@@ -170,8 +170,8 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
             <button
               type="button"
               onClick={handleClear}
-              style={{ minHeight: "28px" }}
-              className="size-7 flex items-center justify-center text-ink-400 hover:text-foreground dark:hover:text-background hover:bg-black/5 dark:hover:bg-white/10 transition-colors cursor-pointer"
+              style={{ minHeight:"28px" }}
+              className="size-7 flex items-center justify-center text-ink-400 hover:text-foreground dark:hover:text-background hover:bg-foreground/5 dark:hover:bg-foreground/10 transition-colors cursor-pointer"
               title="Clear conversation"
               aria-label="Clear conversation"
             >
@@ -183,8 +183,8 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
             <button
               type="button"
               onClick={onClose}
-              style={{ minHeight: "28px" }}
-              className="size-7 flex items-center justify-center text-ink-400 hover:text-foreground dark:hover:text-background hover:bg-black/5 dark:hover:bg-white/10 transition-colors cursor-pointer"
+              style={{ minHeight:"28px" }}
+              className="size-7 flex items-center justify-center text-ink-400 hover:text-foreground dark:hover:text-background hover:bg-foreground/5 dark:hover:bg-foreground/10 transition-colors cursor-pointer"
               title="Close Assistant"
               aria-label="Close Assistant Dialog"
             >
@@ -204,7 +204,7 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
             </div>
 
             <div className="space-y-1.5 max-w-72">
-              <h4 className="font-sans text-xs font-semibold uppercase tracking-wider text-foreground dark:text-background">
+              <h4 className="font-sans text-xs font-semibold uppercase tracking-wider text-foreground">
                 One Vision Assistant
               </h4>
               <p className="font-sans text-xs text-muted-foreground font-light leading-relaxed">
@@ -219,8 +219,8 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
                   type="button"
                   onClick={() => handleSend(item.query)}
                   disabled={isLoading}
-                  style={{ minHeight: "28px" }}
-                  className="group flex items-center justify-between sm:justify-center gap-2 px-3 py-1 text-[11px] font-sans text-ink-600 dark:text-background/80 bg-muted hover:bg-muted-alt border border-border/80 hover:border-foreground/40 dark:hover:border-white/30 transition-all cursor-pointer shadow-2xs text-left sm:text-center"
+                  style={{ minHeight:"28px" }}
+                  className="group flex items-center justify-between sm:justify-center gap-2 px-3 py-1 text-[11px] font-sans text-ink-600 text-muted-foreground bg-muted hover:bg-muted-alt border border-border/80 hover:border-foreground/40 dark:hover:border-white/30 transition-all cursor-pointer shadow-2xs text-left sm:text-center"
                 >
                   <span>{item.label}</span>
                   <span className="text-ink-400 group-hover:text-destructive transition-colors">→</span>
@@ -235,29 +235,29 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
           <div
             key={msg.id}
             className={cn(
-              "flex gap-2.5 max-w-2xl",
-              msg.role === "user" ? "ml-auto flex-row-reverse" : "mr-auto"
+             "flex gap-2.5 max-w-2xl",
+              msg.role ==="user" ?"ml-auto flex-row-reverse" :"mr-auto"
             )}
           >
             {/* Avatar */}
             <div
               className={cn(
-                "size-6 rounded-full shrink-0 flex items-center justify-center font-mono text-[10px] border transition-colors mt-0.5",
-                msg.role === "user"
-                  ? "bg-foreground text-background border-foreground dark:bg-background dark:text-foreground"
-                  : "bg-destructive/10 text-destructive border-safety-orange/20"
+               "size-6 rounded-full shrink-0 flex items-center justify-center font-mono text-[10px] border transition-colors mt-0.5",
+                msg.role ==="user"
+                  ?"bg-foreground text-background border-foreground dark:bg-background dark:text-foreground"
+                  :"bg-destructive/10 text-destructive border-safety-orange/20"
               )}
             >
-              {msg.role === "user" ? <User className="size-3" /> : <Bot className="size-3" />}
+              {msg.role ==="user" ? <User className="size-3" /> : <Bot className="size-3" />}
             </div>
 
             {/* Bubble */}
             <div
               className={cn(
-                "flex flex-col space-y-1.5 rounded-xl px-3 py-2 text-xs sm:text-body-sm transition-all max-w-[88%]",
-                msg.role === "user"
-                  ? "bg-foreground text-background rounded-tr-xs dark:bg-background dark:text-foreground"
-                  : "bg-muted/80 text-foreground rounded-tl-xs border border-border/60 shadow-2xs dark:bg-white/4 dark:text-background dark:border-white/10"
+               "flex flex-col space-y-1.5 rounded-xl px-3 py-2 text-xs sm:text-body-sm transition-all max-w-[88%]",
+                msg.role ==="user"
+                  ?"bg-foreground text-background rounded-tr-xs dark:bg-background dark:text-foreground"
+                  :"bg-muted/80 text-foreground rounded-tl-xs border border-border/60 shadow-2xs   dark:border-border"
               )}
             >
 
@@ -267,13 +267,13 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
               </div>
 
               {/* Assistant Message Meta */}
-              {msg.role === "assistant" && (
-                <div className="flex items-center justify-between gap-2 pt-1 border-t border-border/30 dark:border-white/5 text-[9px] font-mono text-ink-400 dark:text-background/40">
+              {msg.role ==="assistant" && (
+                <div className="flex items-center justify-between gap-2 pt-1 border-t border-border/30  text-[9px] font-mono text-ink-400 text-muted-foreground">
                   <div className="flex items-center gap-1">
                     {msg.modelUsed && (
                       <span className="inline-flex items-center gap-0.5">
                         <Cpu className="size-2.5 text-destructive" />
-                        <span>{msg.modelUsed.split("/").pop()?.replace(":free", "")}</span>
+                        <span>{msg.modelUsed.split("/").pop()?.replace(":free","")}</span>
                       </span>
                     )}
                   </div>
@@ -308,7 +308,7 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
             <div className="size-6 rounded-full shrink-0 flex items-center justify-center bg-destructive/10 text-destructive border border-safety-orange/20 mt-0.5">
               <Bot className="size-3" />
             </div>
-            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-muted/80 border border-border/60 shadow-2xs dark:bg-white/4 dark:border-white/10">
+            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-muted/80 border border-border/60 shadow-2xs  dark:border-border">
               <Loader variant="dots" size="sm" />
               <span className="font-mono text-[11px] text-ink-400 animate-pulse">
                 Thinking...
@@ -321,7 +321,7 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
       </div>
 
       {/* Sleek, Minimalist Input Footer */}
-      <div className="shrink-0 p-2 sm:p-2.5 border-t border-border/60 bg-background/95 dark:border-white/10 dark:bg-foreground/95 backdrop-blur-md">
+      <div className="shrink-0 p-2 sm:p-2.5 border-t border-border/60 bg-background/95 dark:border-border dark:bg-foreground/95 backdrop-blur-md">
         <PromptInput
           value={inputValue}
           onValueChange={setInputValue}
@@ -341,12 +341,12 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
               onClick={() => handleSend()}
               disabled={!inputValue.trim() || isLoading}
               aria-label="Send Message"
-              style={{ minHeight: "28px", height: "28px", width: "28px" }}
+              style={{ minHeight:"28px", height:"28px", width:"28px" }}
               className={cn(
-                "size-7 shrink-0 flex items-center justify-center transition-all duration-150 border",
+               "size-7 shrink-0 flex items-center justify-center transition-all duration-150 border",
                 inputValue.trim() && !isLoading
-                  ? "bg-destructive border-safety-orange text-white hover:bg-destructive-dim active:scale-95 cursor-pointer shadow-2xs"
-                  : "bg-muted-alt border-border/50 text-muted dark:bg-white/5 dark:border-white/10 dark:text-ink-600 cursor-not-allowed opacity-50"
+                  ?"bg-destructive border-safety-orange text-background hover:bg-destructive-dim active:scale-95 cursor-pointer shadow-2xs"
+                  :"bg-muted-alt border-border/50 text-muted  dark:border-border dark:text-ink-600 cursor-not-allowed opacity-50"
               )}
             >
               <ArrowUpIcon className="size-3.5" />

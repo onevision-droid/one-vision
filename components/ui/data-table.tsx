@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import * as React from"react"
 import {
  ColumnDef,
  ColumnFiltersState,
@@ -12,7 +12,7 @@ import {
  getPaginationRowModel,
  getSortedRowModel,
  useReactTable,
-} from "@tanstack/react-table"
+} from"@tanstack/react-table"
 
 import {
  Table,
@@ -21,9 +21,9 @@ import {
  TableHead,
  TableHeader,
  TableRow,
-} from "@/components/ui/table"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+} from"@/components/ui/table"
+import { Button } from"@/components/ui/button"
+import { Input } from"@/components/ui/input"
 
 interface DataTableProps<TData, TValue> {
  columns: ColumnDef<TData, TValue>[]
@@ -67,7 +67,7 @@ export function DataTable<TData, TValue>({
  <div className="flex items-center">
  <Input
  placeholder={`Filter ${searchKey}...`}
- value={(table.getColumn(searchKey)?.getFilterValue() as string) ?? ""}
+ value={(table.getColumn(searchKey)?.getFilterValue() as string) ??""}
  onChange={(event) =>
  table.getColumn(searchKey)?.setFilterValue(event.target.value)
  }
@@ -75,7 +75,7 @@ export function DataTable<TData, TValue>({
  />
  </div>
  )}
- <div className=" border border-border bg-card">
+ <div className="border border-border bg-card">
  <Table>
  <TableHeader>
  {table.getHeaderGroups().map((headerGroup) => (
@@ -100,7 +100,7 @@ export function DataTable<TData, TValue>({
  table.getRowModel().rows.map((row) => (
  <TableRow
  key={row.id}
- data-state={row.getIsSelected() && "selected"}
+ data-state={row.getIsSelected() &&"selected"}
  >
  {row.getVisibleCells().map((cell) => (
  <TableCell key={cell.id}>
@@ -127,7 +127,7 @@ export function DataTable<TData, TValue>({
  </div>
  <div className="flex items-center justify-end space-x-2 py-4">
  <div className="flex-1 text-sm text-muted-foreground">
- {table.getFilteredSelectedRowModel().rows.length} of{" "}
+ {table.getFilteredSelectedRowModel().rows.length} of{""}
  {table.getFilteredRowModel().rows.length} row(s) selected.
  </div>
  <div className="space-x-2">

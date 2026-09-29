@@ -1,7 +1,7 @@
 "use client";
 
-import { Section, Container } from "@/components/layout/Shell";
-import React from "react";
+import { Section, Container } from"@/components/layout/Shell";
+import React from"react";
 import {
  Package,
  HeartHandshake,
@@ -10,10 +10,10 @@ import {
  Users,
  ArrowRight,
  LineChart,
-} from "lucide-react";
-import { Logo } from "@/components/ui/Logo";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+} from"lucide-react";
+import { Logo } from"@/components/ui/Logo";
+import { Button } from"@/components/ui/button";
+import Link from"next/link";
 
 export function MissionNetwork() {
  return (

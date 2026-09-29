@@ -1,6 +1,6 @@
-import { Section, Container } from "@/components/layout/Shell";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { Section, Container } from"@/components/layout/Shell";
+import { ArrowRight } from"lucide-react";
+import Link from"next/link";
 
 interface StatProps {
  value: string | number;
@@ -15,7 +15,7 @@ interface StatsHeroProps {
  stats: StatProps[];
  ctaLabel?: string;
  ctaHref?: string;
- tone?: "default" | "alt" | "inverted";
+ tone?:"default" |"alt" |"inverted";
 }
 
 export function StatsHero({
@@ -24,7 +24,7 @@ export function StatsHero({
  stats,
  ctaLabel,
  ctaHref,
- tone = "alt",
+ tone ="alt",
 }: StatsHeroProps) {
  return (
   <Section tone={tone} className="py-8 lg:py-14 bg-background">
@@ -56,9 +56,9 @@ export function StatsHero({
   <li
   key={i}
   className={`flex flex-col justify-center p-6 lg:p-8 border-b border-border transition-colors hover:bg-muted-alt ${
-  i % 2 !== 0 ? "sm:border-l" : ""
+  i % 2 !== 0 ?"sm:border-l" :""
   } ${
-  i >= stats.length - (stats.length % 2 === 0 ? 2 : 1) ? "sm:border-b-0" : ""
+  i >= stats.length - (stats.length % 2 === 0 ? 2 : 1) ?"sm:border-b-0" :""
   }`}
   >
   <h3 className="font-mono text-5xl md:text-6xl font-bold tracking-tight text-foreground mb-4">

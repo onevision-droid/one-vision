@@ -1,7 +1,7 @@
-import { cn } from "@/lib/utils";
-import { AlertTriangleIcon } from "lucide-react";
-import React from "react";
-import { Button } from "./button";
+import { cn } from"@/lib/utils";
+import { AlertTriangleIcon } from"lucide-react";
+import React from"react";
+import { Button } from"./button";
 
 interface ErrorStateProps {
   title?: string;
@@ -11,8 +11,8 @@ interface ErrorStateProps {
 }
 
 export function ErrorState({ 
-  title = "Something went wrong", 
-  description = "We couldn't load this content. Please try again later.", 
+  title ="Something went wrong", 
+  description ="We couldn't load this content. Please try again later.", 
   onRetry, 
   className 
 }: ErrorStateProps) {

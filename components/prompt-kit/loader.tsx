@@ -1,47 +1,47 @@
 "use client";
 
-import * as React from "react";
-import { cn } from "@/lib/utils";
+import * as React from"react";
+import { cn } from"@/lib/utils";
 
 export type LoaderVariant =
-  | "circular"
-  | "classic"
-  | "pulse"
-  | "pulse-dot"
-  | "dots"
-  | "typing"
-  | "wave"
-  | "bars"
-  | "terminal"
-  | "text-blink"
-  | "text-shimmer"
-  | "loading-dots";
+  |"circular"
+  |"classic"
+  |"pulse"
+  |"pulse-dot"
+  |"dots"
+  |"typing"
+  |"wave"
+  |"bars"
+  |"terminal"
+  |"text-blink"
+  |"text-shimmer"
+  |"loading-dots";
 
 export interface LoaderProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: LoaderVariant;
-  size?: "sm" | "md" | "lg";
+  size?:"sm" |"md" |"lg";
   text?: string;
 }
 
 export function Loader({
-  variant = "typing",
-  size = "md",
-  text = "Thinking...",
+  variant ="typing",
+  size ="md",
+  text ="Thinking...",
   className,
   ...props
 }: LoaderProps) {
   const sizeMap = {
-    sm: "size-4 text-xs",
-    md: "size-5 text-sm",
-    lg: "size-6 text-base",
+    sm:"size-4 text-xs",
+    md:"size-5 text-sm",
+    lg:"size-6 text-base",
   };
 
   switch (variant) {
-    case "circular":
+    case"circular":
       return (
         <div className={cn("inline-flex items-center gap-2", className)} {...props}>
           <svg
-            className={cn("animate-spin text-destructive", sizeMap[size].split(" ")[0])}
+            className={cn("animate-spin text-destructive", sizeMap[size].split("")[0])}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -63,8 +63,8 @@ export function Loader({
         </div>
       );
 
-    case "dots":
-    case "typing":
+    case"dots":
+    case"typing":
       return (
         <div
           className={cn("inline-flex items-center gap-1 py-1 px-2 text-muted-foreground", className)}
@@ -76,7 +76,7 @@ export function Loader({
         </div>
       );
 
-    case "pulse-dot":
+    case"pulse-dot":
       return (
         <div className={cn("relative flex items-center justify-center size-3", className)} {...props}>
           <span className="absolute inline-flex size-full rounded-full bg-destructive/40 animate-ping" />
@@ -84,19 +84,19 @@ export function Loader({
         </div>
       );
 
-    case "pulse":
+    case"pulse":
       return (
         <div
           className={cn(
-            "rounded-md bg-foreground/10 dark:bg-white/10 animate-pulse h-4 w-24",
+           "rounded-md bg-foreground/10  animate-pulse h-4 w-24",
             className
           )}
           {...props}
         />
       );
 
-    case "bars":
-    case "wave":
+    case"bars":
+    case"wave":
       return (
         <div className={cn("inline-flex items-end gap-1 h-4", className)} {...props}>
           <span className="w-1 bg-destructive animate-[pulse_0.6s_ease-in-out_infinite] h-2" />
@@ -105,27 +105,27 @@ export function Loader({
         </div>
       );
 
-    case "terminal":
+    case"terminal":
       return (
-        <div className={cn("inline-flex items-center font-mono text-xs text-ink-700 dark:text-background/80", className)} {...props}>
+        <div className={cn("inline-flex items-center font-mono text-xs text-ink-700 text-muted-foreground", className)} {...props}>
           <span className="text-destructive mr-1">&gt;</span>
           <span>{text}</span>
           <span className="ml-1 inline-block w-1.5 h-3.5 bg-destructive animate-pulse" />
         </div>
       );
 
-    case "text-blink":
+    case"text-blink":
       return (
         <span className={cn("font-mono text-xs text-muted-foreground animate-pulse", className)} {...props}>
           {text}
         </span>
       );
 
-    case "text-shimmer":
+    case"text-shimmer":
       return (
         <span
           className={cn(
-            "font-sans text-xs font-medium bg-linear-to-r from-ink-400 via-safety-orange to-ink-400 bg-size-[200%_auto] bg-clip-text text-transparent animate-[shimmer_2s_linear_infinite]",
+           "font-sans text-xs font-medium bg-linear-to-r from-ink-400 via-safety-orange to-ink-400 bg-size-[200%_auto] bg-clip-text text-transparent animate-[shimmer_2s_linear_infinite]",
             className
           )}
           {...props}
@@ -134,8 +134,8 @@ export function Loader({
         </span>
       );
 
-    case "classic":
-    case "loading-dots":
+    case"classic":
+    case"loading-dots":
     default:
       return (
         <div className={cn("inline-flex items-center gap-2", className)} {...props}>

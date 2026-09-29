@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
-import { AlertTriangleIcon, X } from "lucide-react";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { useState, useSyncExternalStore } from"react";
+import { AlertTriangleIcon, X } from"lucide-react";
+import Link from"next/link";
+import { cn } from"@/lib/utils";
 
 interface EmergencyBannerProps {
  title?: string;
@@ -15,8 +15,8 @@ interface EmergencyBannerProps {
 }
 
 export function EmergencyBanner({
- title = "Immediate Crisis & Emergency Guidance",
- description = "One Vision provides community aid and relief logistics, not first-response emergency dispatch. For life-threatening emergencies, call official services immediately.",
+ title ="Immediate Crisis & Emergency Guidance",
+ description ="One Vision provides community aid and relief logistics, not first-response emergency dispatch. For life-threatening emergencies, call official services immediately.",
  actionLabel,
  actionHref,
  dismissible = true,
@@ -27,7 +27,7 @@ export function EmergencyBanner({
  // hydration mismatch and no setState-in-effect lint violation.
  const storedDismissed = useSyncExternalStore(
  () => () => {}, // sessionStorage has no push updates — no-op subscribe
- () => dismissible && sessionStorage.getItem("ov_emergency_banner_dismissed") === "true",
+ () => dismissible && sessionStorage.getItem("ov_emergency_banner_dismissed") ==="true",
  () => false, // server snapshot: always render banner on SSR
  );
  const [manualDismissed, setManualDismissed] = useState(false);
@@ -36,7 +36,7 @@ export function EmergencyBanner({
  const handleDismiss = () => {
  setManualDismissed(true);
  if (dismissible) {
- sessionStorage.setItem("ov_emergency_banner_dismissed", "true");
+ sessionStorage.setItem("ov_emergency_banner_dismissed","true");
  }
  };
 
@@ -50,7 +50,7 @@ export function EmergencyBanner({
  role="region"
  aria-label="Emergency information"
  className={cn(
- "bg-foreground text-background border-b border-border px-4 py-3 md:py-4 w-full z-30 transition-all",
+"bg-foreground text-background border-b border-border px-4 py-3 md:py-4 w-full z-30 transition-all",
  className
  )}
  >

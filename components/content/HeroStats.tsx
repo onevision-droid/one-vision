@@ -1,10 +1,10 @@
 "use client";
 
-import { Section, Container } from "@/components/layout/Shell";
-import orgData from "@/content/org.json";
+import { Section, Container } from"@/components/layout/Shell";
+import orgData from"@/content/org.json";
 
 const stats = orgData.stats.slice(0, 3).map((s) => ({
-  value: `${s.value.toLocaleString()}${s.suffix || ""}`,
+  value: `${s.value.toLocaleString()}${s.suffix ||""}`,
   label: s.label,
 }));
 

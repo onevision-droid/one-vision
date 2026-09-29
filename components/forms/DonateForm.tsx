@@ -1,11 +1,11 @@
 "use client";
 
-import { supabase } from "@/lib/supabase/client";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { Button } from "@/components/ui/button";
+import { supabase } from"@/lib/supabase/client";
+import { useState } from"react";
+import { useForm } from"react-hook-form";
+import { zodResolver } from"@hookform/resolvers/zod";
+import * as z from"zod";
+import { Button } from"@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -13,19 +13,19 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { ArrowRight, Lock } from "lucide-react";
-import { trackEvent } from "@/lib/analytics/trackEvent";
-import { cn } from "@/lib/utils";
+} from"@/components/ui/form";
+import { Input } from"@/components/ui/input";
+import { ArrowRight, Lock } from"lucide-react";
+import { trackEvent } from"@/lib/analytics/trackEvent";
+import { cn } from"@/lib/utils";
 
 const donationAmounts = [500, 1000, 2500, 5000];
 
 const formSchema = z.object({
-  frequency: z.enum(["one-time", "monthly"]),
-  amount: z.string().min(1, "Please select or enter an amount."),
-  firstName: z.string().min(2, "First name must be at least 2 characters."),
-  lastName: z.string().min(2, "Last name must be at least 2 characters."),
+  frequency: z.enum(["one-time","monthly"]),
+  amount: z.string().min(1,"Please select or enter an amount."),
+  firstName: z.string().min(2,"First name must be at least 2 characters."),
+  lastName: z.string().min(2,"Last name must be at least 2 characters."),
   email: z.string().email("Please provide a valid email address."),
   pan: z.string().optional(),
 });
@@ -33,7 +33,7 @@ const formSchema = z.object({
 export function DonateForm({
   onSubmitOverride,
   recurringEnabled = false,
-  allocationPreference = "general",
+  allocationPreference ="general",
 }: {
   onSubmitOverride?: (values: z.infer<typeof formSchema>) => void;
   recurringEnabled?: boolean;
@@ -45,12 +45,12 @@ export function DonateForm({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      frequency: "one-time",
-      amount: "",
-      firstName: "",
-      lastName: "",
-      email: "",
-      pan: "",
+      frequency:"one-time",
+      amount:"",
+      firstName:"",
+      lastName:"",
+      email:"",
+      pan:"",
     },
   });
 
@@ -122,8 +122,8 @@ export function DonateForm({
                       type="button"
                       onClick={() => field.onChange("one-time")}
                       className={cn(
-                        "px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors",
-                        field.value === "one-time" ? "bg-destructive text-foreground" : "text-muted-foreground hover:bg-background"
+                       "px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors",
+                        field.value ==="one-time" ?"bg-destructive text-foreground" :"text-muted-foreground hover:bg-background"
                       )}
                     >
                       One-time
@@ -136,13 +136,13 @@ export function DonateForm({
                         }
                       }}
                       disabled={!recurringEnabled}
-                      title={!recurringEnabled ? "Monthly recurring giving is coming soon" : undefined}
+                      title={!recurringEnabled ?"Monthly recurring giving is coming soon" : undefined}
                       className={cn(
-                        "px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors",
-                        field.value === "monthly"
-                          ? "bg-destructive text-foreground"
-                          : "text-muted-foreground hover:bg-background",
-                        !recurringEnabled && "opacity-50 cursor-not-allowed hover:bg-muted"
+                       "px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors",
+                        field.value ==="monthly"
+                          ?"bg-destructive text-foreground"
+                          :"text-muted-foreground hover:bg-background",
+                        !recurringEnabled &&"opacity-50 cursor-not-allowed hover:bg-muted"
                       )}
                     >
                       Monthly {!recurringEnabled && <span className="text-[9px] text-ink-400 ml-1">(Soon)</span>}
@@ -160,10 +160,10 @@ export function DonateForm({
                 key={amt}
                 type="button"
                 className={cn(
-                  "py-6 text-2xl font-serif transition-colors",
+                 "py-6 text-2xl font-serif transition-colors",
                   selectedPreset === amt 
-                    ? "bg-foreground text-background" 
-                    : "text-foreground hover:bg-background"
+                    ?"bg-foreground text-background" 
+                    :"text-foreground hover:bg-background"
                 )}
                 onClick={() => {
                   setSelectedPreset(amt);
