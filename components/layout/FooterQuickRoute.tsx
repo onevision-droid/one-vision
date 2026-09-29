@@ -5,13 +5,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { 
   ArrowRight, 
-  HeartHandshake, 
-  Heart, 
-  HelpCircle, 
   PhoneCall, 
-  FileText, 
   Search, 
-  Sparkles,
   AlertCircle
 } from "lucide-react";
 import { siteSettings } from "@/lib/data/site-settings";
@@ -223,7 +218,7 @@ export function FooterQuickRoute() {
   const inputId = useId();
   const [query, setQuery] = useState("");
   const [judgment, setJudgment] = useState<JevCommunityJudgment | null>(null);
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   const handleInputChange = (val: string) => {
     setQuery(val);
