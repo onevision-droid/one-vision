@@ -1,13 +1,13 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { motion, useReducedMotion } from"framer-motion";
+import { cn } from"@/lib/utils";
 
 interface LogoProps {
   className?: string;
   showText?: boolean;
-  size?: "sm" | "md" | "lg";
-  variant?: "default" | "orange" | "blue";
+  size?:"sm" |"md" |"lg";
+  variant?:"default" |"orange" |"blue";
 }
 
 // Precision SVG path of the Ocular Visor Housing from the reference design
@@ -36,26 +36,26 @@ M 50 26
 A 24 24 0 0 0 50 74
 A 24 24 0 0 0 50 26
 Z
-`.trim().replace(/\s+/g, " ");
+`.trim().replace(/\s+/g,"");
 
 export function Logo({
   className,
   showText = true,
-  size = "md",
-  variant = "default",
+  size ="md",
+  variant ="default",
 }: LogoProps) {
   const shouldReduceMotion = useReducedMotion();
 
   const sizeMap = {
-    sm: "size-6",
-    md: "size-8",
-    lg: "size-10",
+    sm:"size-6",
+    md:"size-8",
+    lg:"size-10",
   };
 
   const colorMap = {
-    default: "text-ink-900 dark:text-paper",
-    orange: "text-safety-orange",
-    blue: "text-[#1060C4]",
+    default:"text-foreground",
+    orange:"text-destructive",
+    blue:"text-primary",
   };
 
   return (
@@ -64,7 +64,7 @@ export function Logo({
       <motion.div
         className={cn("relative shrink-0 flex items-center justify-center", sizeMap[size])}
         whileHover={shouldReduceMotion ? undefined : { scale: 1.08 }}
-        transition={{ type: "spring", stiffness: 400, damping: 25 }}
+        transition={{ type:"spring", stiffness: 400, damping: 25 }}
       >
         <svg
           viewBox="0 0 100 100"
@@ -100,10 +100,10 @@ export function Logo({
                 : {
                     duration: 4.5,
                     repeat: Infinity,
-                    ease: "easeInOut",
+                    ease:"easeInOut",
                   }
             }
-            style={{ transformOrigin: "50px 50px" }}
+            style={{ transformOrigin:"50px 50px" }}
           />
 
           {/* Contrast Spacer Ring (White / Paper Sclera) */}
@@ -111,7 +111,7 @@ export function Logo({
             cx="50"
             cy="50"
             r="23.5"
-            className="fill-paper dark:fill-surface"
+            className="fill-background dark:fill-muted"
           />
 
           {/* Sentinel Eye Pupil & Specular Glint (Continuous Scanning Loop) */}
@@ -130,7 +130,7 @@ export function Logo({
                 : {
                     duration: 5.5,
                     repeat: Infinity,
-                    ease: "easeInOut",
+                    ease:"easeInOut",
                     times: [0, 0.22, 0.35, 0.5, 0.72, 0.85, 1],
                   }
             }
@@ -148,7 +148,7 @@ export function Logo({
               cx="56.5"
               cy="43.5"
               r="4.2"
-              fill="#FFFFFF"
+              className="fill-background"
               animate={
                 shouldReduceMotion
                   ? undefined
@@ -163,10 +163,10 @@ export function Logo({
                   : {
                       duration: 2.75,
                       repeat: Infinity,
-                      ease: "easeInOut",
+                      ease:"easeInOut",
                     }
               }
-              style={{ transformOrigin: "56.5px 43.5px" }}
+              style={{ transformOrigin:"56.5px 43.5px" }}
             />
           </motion.g>
         </svg>
@@ -175,11 +175,11 @@ export function Logo({
       {/* Brand Typographic Lockup */}
       {showText && (
         <div className="flex flex-col text-left">
-          <span className="font-sans text-[15px] font-extrabold tracking-widest uppercase text-ink-900 leading-none">
+          <span className="font-sans text-[15px] font-extrabold tracking-widest uppercase text-foreground leading-none">
             One Vision
           </span>
-          <span className="font-mono text-[9px] font-medium tracking-[0.16em] uppercase text-ink-500 leading-tight mt-1">
-            Humanitarian Vanguard
+          <span className="font-sans text-[10px] font-medium tracking-wide text-muted-foreground leading-tight mt-0.5">
+            Manipur · Est. 1988
           </span>
         </div>
       )}

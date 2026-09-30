@@ -1,9 +1,9 @@
 "use client";
 
-import * as React from "react";
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Bot } from "lucide-react";
+import * as React from"react";
+import { useState, useEffect, useRef } from"react";
+import { motion, AnimatePresence } from"framer-motion";
+import { Sparkles } from "lucide-react";
 import { AgentChat } from "@/components/ai/agent-chat";
 import { cn } from "@/lib/utils";
 
@@ -82,24 +82,29 @@ export function FloatingAgentChat() {
       <AnimatePresence>
         {!isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.85 }}
-            transition={{ duration: 0.15 }}
-            className="fixed bottom-6 right-6 z-40 sm:bottom-8 sm:right-8 print:hidden"
+            initial={{ opacity: 0, scale: 0.9, y: 8 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 8 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 print:hidden"
           >
             <motion.button
               ref={triggerRef}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ y: -2, scale: 1.02 }}
+              whileTap={{ scale: 0.96 }}
               onClick={() => setIsOpen(true)}
-              aria-label="Open AI Assistant"
+              aria-label="Open Community Guide Assistant"
               aria-expanded={false}
-              className="relative size-12 sm:size-12.5 bg-ink-900 border border-ink-900/20 text-paper hover:bg-safety-orange hover:text-ink-900 hover:border-safety-orange dark:bg-paper dark:text-ink-900 dark:hover:bg-safety-orange dark:hover:text-ink-900 shadow-lg flex items-center justify-center transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-safety-orange"
+              className="group relative flex items-center gap-2.5 px-3 py-2 sm:px-4 sm:py-2.5 bg-card/95 hover:bg-card text-foreground border border-border/80 hover:border-primary/50 shadow-md hover:shadow-lg backdrop-blur-md rounded-sm transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary/40"
             >
-              <div className="relative flex items-center justify-center">
-                <Bot className="size-5 text-safety-orange transition-colors" />
-                <span className="absolute -top-1 -right-1 size-2 rounded-full bg-status-active ring-2 ring-ink-900 animate-pulse" />
+              <div className="relative flex items-center justify-center size-6 rounded-sm bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-200">
+                <Sparkles className="size-3.5" />
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="font-sans text-xs font-medium text-foreground tracking-normal hidden sm:inline">
+                  Community Guide
+                </span>
+                <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" title="Active" />
               </div>
             </motion.button>
           </motion.div>
@@ -116,7 +121,7 @@ export function FloatingAgentChat() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/20 backdrop-blur-2xs z-40"
+              className="fixed inset-0 bg-foreground/20 backdrop-blur-2xs z-40"
               aria-hidden="true"
             />
 
@@ -126,7 +131,7 @@ export function FloatingAgentChat() {
               initial={{ opacity: 0, scale: 0.96, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 12 }}
-              transition={{ type: "spring", stiffness: 420, damping: 32 }}
+              transition={{ type:"spring", stiffness: 420, damping: 32 }}
               role="dialog"
               aria-modal="true"
               aria-label="One Vision AI Assistant"
@@ -134,8 +139,8 @@ export function FloatingAgentChat() {
                 "fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50",
                 "w-[calc(100vw-2rem)] sm:w-105 md:w-110",
                 "h-125 sm:h-135 max-h-[calc(100dvh-3rem)]",
-                "border border-border-default/80 bg-paper/95 backdrop-blur-xl shadow-2xl",
-                "flex flex-col overflow-hidden dark:border-white/10 dark:bg-ink-900/95"
+                "border border-border/80 bg-background/95 backdrop-blur-xl shadow-2xl rounded-md",
+                "flex flex-col overflow-hidden dark:border-border dark:bg-foreground/95"
               )}
             >
               <AgentChat isDialog={true} onClose={() => setIsOpen(false)} />

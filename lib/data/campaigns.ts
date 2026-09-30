@@ -1,9 +1,9 @@
 import { Campaign } from "./types";
 
 /**
- * One Vision — Active Funding Campaigns (2026 Polycrisis)
- * Campaigns target structural gaps in conflict-affected communities —
- * not IDP welfare (covered by government and established NGOs).
+ * One Vision — Active Funding Campaigns (Manipur Community Resilience)
+ * Frontline community initiatives providing clean solar power, mobile tele-health,
+ * and ecological seed preservation for underserved villages across Manipur.
  */
 export const campaigns: (Campaign & { status?: string; pillar?: string })[] = [
   {

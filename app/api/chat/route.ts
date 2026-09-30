@@ -1,33 +1,34 @@
-import { NextRequest, NextResponse } from "next/server";
-import { headers } from "next/headers";
-import { z } from "zod";export const runtime = "nodejs";
+import { NextRequest, NextResponse } from"next/server";
+import { headers } from"next/headers";
+import { z } from"zod";export const runtime ="nodejs";
 
 const FALLBACK_MODELS = [
-  "nvidia/nemotron-3.5-lightning:free",
-  "inclusionai/ling-3.0-flash-sante:free",
-  "liquid/lfm-2.5-2.6b:free",
-  "google/gemma-4-31b-it:free",
+ "nvidia/nemotron-3.5-lightning:free",
+ "inclusionai/ling-3.0-flash-sante:free",
+ "liquid/lfm-2.5-2.6b:free",
+ "google/gemma-4-31b-it:free",
 ];
 
-const SYSTEM_PROMPT = `You are the One Vision Operations AI Assistant (One Vision Vanguard Agent).
-One Vision is a decentralized, crisis-resilient humanitarian organization operating across the Manipur polycrisis zone (established 1988, formerly Society for Health & Education Manipur).
+const SYSTEM_PROMPT = `You are the One Vision Community Care AI Assistant.
+One Vision is a registered, community-led non-profit organisation working across Manipur, India (established 1988, formerly Society for Health & Education Manipur).
 
-Your Core Operational Pillars:
-1. Health Equity: 18 decentralized frontline health nodes, emergency medical triage, telemedicine connectivity.
-2. Energy Sovereignty: 240kW decentralized solar microgrids powering critical relief nodes and cold-chain medicine.
-3. Ecological Restoration: Community nursery networks, water catchment and soil stabilization in disaster zones.
-4. Economic Dignity: Vocational mentorship, community-led innovation hubs (FutureWorks), transparent mutual aid.
+Our Core Community Programmes:
+1. Community Health Connect: 18 local healthcare centres providing preventative care, maternal health, medicine, and telemedicine access across rural and urban Manipur.
+2. Local Enterprise & Solar Lab: Rural clean energy microgrids powering health centres and cold-chain medicine, combined with micro-grant support for local artisanal and farming cooperatives.
+3. Green Manipur Lab: Community seed banks preserving 340+ heirloom crops, neighbourhood tree planting, watershed restoration, and environmental education.
+4. FutureWorks: Youth skills lab providing real-world project mentorship, digital education, and vocational pathways.
+5. Community Data Lab: Open evidence and participatory surveys empowering local village councils with accurate data.
 
-Core Protocols:
-- Emergency Support: Direct messaging via our frontline office (+91 98765 43210).
-- Radical Transparency: All fund allocations are published hourly on the Open Ledger (/open-ledger).
-- Style & Tone: Nordic Lagom—calm, restrained, factual, compassionate, and precise. Never use marketing fluff, emotional manipulation, or empty corporate clichés. Provide actionable guidance.`;
+Key Guidelines:
+- Emergency Support: Direct inquiries to our 24/7 Community Helpline (+91 98765 43210) or /get-help.
+- Radical Transparency: 100% of donations are publicly accounted for with hourly updates on the Open Ledger (/open-ledger). Donations are eligible for 50% tax deduction under Section 80G.
+- Tone & Demeanour: Warm, compassionate, respectful, calm, and grounded in Manipur's local community context. Never use tech jargon, military terms, or marketing fluff. Speak as a trusted non-profit coordinator helping people find genuine support.`;
 
 
 
 const BodySchema = z.object({
   messages: z.array(z.object({
-    role: z.enum(["user", "assistant"]),
+    role: z.enum(["user","assistant"]),
     content: z.string().trim().min(1).max(4000),
   })).min(1).max(50),
 });
@@ -55,21 +56,21 @@ export async function POST(req: NextRequest) {
       parsed = BodySchema.safeParse(await req.json());
     } catch {
       return NextResponse.json(
-        { error: "Invalid JSON body" },
+        { error:"Invalid JSON body" },
         { status: 400 }
       );
     }
 
     if (!parsed.success) {
       return NextResponse.json(
-        { error: "Invalid request: messages array is required and must follow schema." },
+        { error:"Invalid request: messages array is required and must follow schema." },
         { status: 400 }
       );
     }
     const { messages } = parsed.data;
 
     const headersList = await headers();
-    const ip = headersList.get("x-forwarded-for") || "unknown_ip";
+    const ip = headersList.get("x-forwarded-for") ||"unknown_ip";
     const now = Date.now();
     const userLimit = rateLimitMap.get(ip) || { count: 0, timestamp: now };
     
@@ -91,7 +92,7 @@ export async function POST(req: NextRequest) {
 
     if (userLimit.count > RATE_LIMIT) {
       return NextResponse.json(
-        { error: "Rate limit exceeded. Please try again later." },
+        { error:"Rate limit exceeded. Please try again later." },
         { status: 429 }
       );
     }
@@ -100,14 +101,14 @@ export async function POST(req: NextRequest) {
     if (!apiKey) {
       return NextResponse.json(
         {
-          error: "OPENROUTER_API_KEY is not configured on the server.",
+          error:"OPENROUTER_API_KEY is not configured on the server.",
         },
         { status: 500 }
       );
     }
 
     const formattedMessages = [
-      { role: "system", content: SYSTEM_PROMPT },
+      { role:"system", content: SYSTEM_PROMPT },
       ...messages.slice(-10), // keep last 10 messages for context
     ];
 
@@ -121,12 +122,12 @@ export async function POST(req: NextRequest) {
       
       try {
         const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-          method: "POST",
+          method:"POST",
           headers: {
             Authorization: `Bearer ${apiKey}`,
-            "Content-Type": "application/json",
-            "HTTP-Referer": "https://onevision.org",
-            "X-Title": "One Vision Vanguard",
+           "Content-Type":"application/json",
+           "HTTP-Referer":"https://onevision.org",
+           "X-Title": "One Vision Community Care Assistant",
           },
           body: JSON.stringify({
             model,
@@ -146,7 +147,7 @@ export async function POST(req: NextRequest) {
         }
 
         const data = await response.json();
-        const rawContent = data.choices?.[0]?.message?.content || "";
+        const rawContent = data.choices?.[0]?.message?.content ||"";
 
         if (!rawContent.trim()) {
           failedModels.push(model);
@@ -154,12 +155,12 @@ export async function POST(req: NextRequest) {
         }
 
         // Remove embedded <think> tags entirely, don't expose
-        let finalContent = rawContent.replace(/<think>[\s\S]*?<\/think>/gi, "").trim();
+        let finalContent = rawContent.replace(/<think>[\s\S]*?<\/think>/gi,"").trim();
 
         // Clean out trailing meta reflections/self-corrections
         const metaMatch = finalContent.match(/\n\n(?:\d+\.\s*)?\*\*(?:Self-Correction|Refinement|Thinking|Internal Review)[\s\S]*$/i);
         if (metaMatch) {
-          finalContent = finalContent.replace(metaMatch[0], "").trim();
+          finalContent = finalContent.replace(metaMatch[0],"").trim();
         }
 
         const executionTimeMs = Date.now() - startTime;
@@ -184,7 +185,7 @@ export async function POST(req: NextRequest) {
     // If all models failed, return graceful error
     return NextResponse.json(
       {
-        error: "All free AI models are currently rate-limited or unavailable. Please retry in a few moments.",
+        error:"All free AI models are currently rate-limited or unavailable. Please retry in a few moments.",
         failedModels,
         lastError,
       },
@@ -193,7 +194,7 @@ export async function POST(req: NextRequest) {
   } catch (err: unknown) {
     console.error("[Chat API Fatal Error]:", err);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { error:"Internal server error" },
       { status: 500 }
     );
   }

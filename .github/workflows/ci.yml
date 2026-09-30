@@ -1,0 +1,67 @@
+name: CI Quality Gate
+
+on:
+  push:
+    branches:
+      - main
+      - 'feature/**'
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality-gate:
+    name: Code Quality, A11y & Build Gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 1. Nordic Lagom & Static Anti-Pattern Audit
+        run: pnpm audit:static
+
+      - name: 2. Dead Code & Unused Dependencies Audit (Knip)
+        run: pnpm audit:deadcode
+
+      - name: 3. CSS Stylelint Validation
+        run: pnpm lint:css
+
+      - name: 4. ESLint Quality Check
+        run: pnpm lint
+
+      - name: 5. Unit & Component Test Suite (Vitest)
+        run: pnpm test
+
+      - name: 6. Next.js Production Build
+        run: pnpm build
+
+      - name: 7. Install Playwright Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: 8. Run Production Visual & Accessibility Audit
+        run: |
+          pnpm start &
+          for i in $(seq 1 30); do
+            if curl -s http://localhost:3000 > /dev/null; then
+              echo "Server is ready on port 3000"
+              break
+            fi
+            sleep 1
+          done
+          pnpm audit:ui

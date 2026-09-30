@@ -12,14 +12,14 @@ export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 /**
- * Section wrapper enforcing the strict padding rules: 96px desktop / 64px mobile.
+ * Section wrapper enforcing Nordic Lagom vertical rhythm: py-12 md:py-16 lg:py-20.
  */
 export const Section = React.forwardRef<HTMLElement, SectionProps>(
   ({ tone = "default", className, children, ...props }, ref) => {
     const toneClasses = {
-      default: "bg-paper text-ink-700",
-      alt: "bg-section-alt text-ink-700",
-      inverted: "bg-ink-900 text-paper",
+      default: "bg-background text-foreground",
+      alt: "bg-muted text-foreground",
+      inverted: "bg-foreground text-background",
     };
 
     return (
@@ -27,7 +27,7 @@ export const Section = React.forwardRef<HTMLElement, SectionProps>(
         ref={ref}
         data-tone={tone}
         className={cn(
-          "py-10 md:py-12 lg:py-14 overflow-hidden",
+          "py-12 md:py-16 lg:py-20",
           toneClasses[tone],
           className
         )}

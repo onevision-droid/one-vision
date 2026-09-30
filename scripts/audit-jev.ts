@@ -49,8 +49,8 @@ const ANTI_PATTERNS = [
     severity: "warning" as const,
     message: "Avoid extreme cartoonish rounding on structural layout containers. Nordic Lagom prioritizes subtle, serene hairline structure and disciplined geometry.",
     filter: (line: string, filePath?: string) =>
-      !/avatar|badge|pill|icon|checkbox|radio|pulse|dot|indicator/i.test(line) &&
-      !/badge|avatar/i.test(filePath || ""),
+      !/avatar|badge|pill|icon|checkbox|radio|pulse|dot|indicator|spinner|spin|bounce|ping|size-1|size-2|size-3|size-4/i.test(line) &&
+      !/badge|avatar|loader|prompt-kit/i.test(filePath || ""),
   },
   {
     id: "anti-pattern-w-screen",

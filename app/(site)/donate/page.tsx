@@ -1,16 +1,16 @@
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { env } from "@/lib/env";
-import { DonateForm } from "@/components/forms/DonateForm";
-import Link from "next/link";
-import { Section, Container } from "@/components/layout/Shell";
-import { PageHero } from "@/components/composition/PageHero";
-import { TrustPanel } from "@/components/content/TrustPanel";
+import { Metadata } from"next";
+import { notFound } from"next/navigation";
+import { env } from"@/lib/env";
+import { DonateForm } from"@/components/forms/DonateForm";
+import Link from"next/link";
+import { Section, Container } from"@/components/layout/Shell";
+import { PageHero } from"@/components/composition/PageHero";
+import { TrustPanel } from"@/components/content/TrustPanel";
 
 export const metadata: Metadata = {
-  title: "Donate | One Vision",
+  title:"Donate | One Vision",
   description:
-    "Support community resilience in Manipur. Transparent, direct, and accountable allocation of resources.",
+   "Support community resilience in Manipur. Transparent, direct, and accountable allocation of resources.",
 };
 
 export default async function DonatePage(
@@ -25,52 +25,55 @@ export default async function DonatePage(
   }
 
   return (
-    <div className="flex flex-col w-full bg-paper">
+    <div className="flex flex-col w-full bg-background">
       <PageHero
-        badge="SUPPORT US"
+        badge="COMMUNITY GIVING · 80G TAX EXEMPT"
         heading={
           <>
-            Fund<br/>
-            Resilience.
+            Every Rupee<br/>
+            Powers Community.
           </>
         }
-        description="Directly fund community-led innovation, health programs, and youth development. We build for the long term."
+        description="Support frontline community health centres, youth mentorship, and sustainable grassroots livelihoods in Manipur. 100% transparent, audited, and tax-exempt."
         image="/donate-hero.jpg"
         imageAlt="Community aid distribution and sustainable support in Manipur"
       />
 
       <Section tone="default">
-        <Container className="px-0 md:px-0">
-          <div className="grid lg:grid-cols-[1fr_380px] gap-0 items-start border-x border-b border-border-default">
+        <Container>
+          <div className="grid lg:grid-cols-[1fr_380px] gap-0 items-start border border-border">
             {/* Main Donation Form */}
-            <div className="p-6 md:p-8 lg:p-10 w-full max-w-3xl lg:border-r border-border-default bg-surface">
+            <div className="p-6 md:p-8 lg:p-10 w-full max-w-3xl lg:border-r border-border bg-card">
               <DonateForm recurringEnabled={env.DONATE_RECURRING_ENABLED} allocationPreference={campaign} />
             </div>
 
             {/* Sidebar Information */}
-            <div className="flex flex-col h-full bg-paper">
-              <div className="p-6 md:p-8 border-b border-border-default group hover:bg-ink-900 transition-colors duration-500">
-                <h4 className="font-serif text-xl sm:text-2xl font-light text-ink-900 mb-3 sm:mb-4 group-hover:text-paper transition-colors">
-                  Prefer to donate resources?
+            <div className="flex flex-col h-full bg-background">
+              <div className="p-6 md:p-8 border-b border-border bg-card hover:bg-muted/40 transition-colors">
+                <h4 className="font-serif text-xl sm:text-2xl font-light text-foreground mb-3 sm:mb-4">
+                  Prefer to donate supplies?
                 </h4>
-                <p className="font-sans text-role-body text-ink-500 font-light mb-4 sm:mb-6 leading-relaxed group-hover:text-paper/70 transition-colors">
-                  We accept books, computers, and medical supplies for our community hubs and health connect programs.
+                <p className="font-sans text-base text-muted-foreground font-light mb-4 sm:mb-6 leading-relaxed">
+                  We accept educational materials, clinic supplies, solar lamps, and medical hardware for our 18 community health centres.
                 </p>
                 <Link
                   href="/contact"
-                  className="font-mono text-[11px] font-bold uppercase tracking-widest text-ink-900 hover:text-safety-orange group-hover:text-safety-orange underline underline-offset-4 transition-colors"
+                  className="font-sans text-xs font-medium uppercase tracking-wider text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1.5 min-h-10 py-2"
                 >
-                  Inquire about physical drop-offs &rarr;
+                  <span>Inquire</span> &rarr;
                 </Link>
               </div>
 
-              <div className="p-6 md:p-8 bg-ink-900 group">
-                <h4 className="font-serif text-xl sm:text-2xl font-light text-paper mb-3 sm:mb-4">
-                  Statutory Exemption
+              <div className="p-6 md:p-8 bg-muted/40 border-b border-border">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-primary block mb-2">
+                  Tax Deduction
+                </span>
+                <h4 className="font-serif text-xl sm:text-2xl font-light text-foreground mb-3 sm:mb-4">
+                  Section 80G Exemption
                 </h4>
-                <p className="font-sans text-role-body text-paper/70 font-light leading-relaxed">
+                <p className="font-sans text-base text-muted-foreground font-light leading-relaxed">
                   Donations from Indian residents qualify for 50% tax deduction
-                  under Section 80G of the Income Tax Act. A stamped receipt is
+                  under Section 80G of the Income Tax Act. A verified, digitally stamped receipt is
                   emailed immediately upon transaction settlement.
                 </p>
               </div>
@@ -78,8 +81,8 @@ export default async function DonatePage(
           </div>
 
           {/* Full Prominent Trust Panel */}
-          <div className="pt-8 lg:pt-10 border-t border-border-default">
-            <span className="text-caption uppercase tracking-widest text-ink-500 font-semibold mb-3 block">
+          <div className="pt-8 lg:pt-10 border-t border-border">
+            <span className="text-caption uppercase tracking-widest text-muted-foreground font-semibold mb-3 block">
               Governance & Integrity
             </span>
             <TrustPanel variant="full" />

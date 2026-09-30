@@ -1,25 +1,25 @@
-import { Metadata } from "next";
-import { Shoreline } from "@/components/composition/Shoreline";
-import { EvidenceShoreline } from "@/components/composition/EvidenceShoreline";
-import { DepthBand } from "@/components/composition/DepthBand";
-import { Mosaic } from "@/components/composition/Mosaic";
-import { SplitNarrative } from "@/components/composition/SplitNarrative";
-import { Ledger, LedgerRow } from "@/components/composition/Ledger";
-import { QuietClose } from "@/components/composition/QuietClose";
-import { ImpactMetric } from "@/components/content/ImpactMetric";
-import { Button } from "@/components/ui/button";
+import { Metadata } from"next";
+import { Shoreline } from"@/components/composition/Shoreline";
+import { EvidenceShoreline } from"@/components/composition/EvidenceShoreline";
+import { DepthBand } from"@/components/composition/DepthBand";
+import { Mosaic } from"@/components/composition/Mosaic";
+import { SplitNarrative } from"@/components/composition/SplitNarrative";
+import { Ledger, LedgerRow } from"@/components/composition/Ledger";
+import { QuietClose } from"@/components/composition/QuietClose";
+import { ImpactMetric } from"@/components/content/ImpactMetric";
+import { Button } from"@/components/ui/button";
 
 export const metadata: Metadata = {
- title: "Composition Patterns",
- description: "Design system preview of Nordic Lagoon composition patterns.",
+ title:"Composition Patterns",
+ description:"Design system preview of Nordic Lagoon composition patterns.",
 };
 
 export default function PatternsPage() {
  return (
  <div className="flex flex-col pb-20">
  <div className="max-w-7xl mx-auto px-5 xl:px-6 py-12">
- <h1 className="font-sans text-display-lg font-light text-ink-900">Composition Patterns</h1>
- <p className="text-body text-ink-500 max-w-2xl mt-4">
+ <h1 className="font-sans text-display-lg font-light text-foreground">Composition Patterns</h1>
+ <p className="text-body text-muted-foreground max-w-2xl mt-4">
  Preview of the Nordic Lagoon composition patterns. These are the macro-layout 
  components used to construct pages.
  </p>
@@ -44,11 +44,11 @@ export default function PatternsPage() {
  <Mosaic
  headingId="mosaic-preview"
  heading="A rigid, architectural approach to image galleries."
- lead={<div className="w-full h-full bg-section-alt flex items-center justify-center font-sans text-ink/50">Lead Image</div>}
+ lead={<div className="w-full h-full bg-muted flex items-center justify-center font-sans text-muted-foreground">Lead Image</div>}
  satellites={[
- <div key="1" className="w-full h-full bg-section-alt flex items-center justify-center font-sans text-ink/50">Satellite 1</div>,
- <div key="2" className="w-full h-full bg-section-alt flex items-center justify-center font-sans text-ink/50">Satellite 2</div>,
- <div key="3" className="w-full h-full bg-section-alt flex items-center justify-center font-sans text-ink/50">Satellite 3</div>
+ <div key="1" className="w-full h-full bg-muted flex items-center justify-center font-sans text-muted-foreground">Satellite 1</div>,
+ <div key="2" className="w-full h-full bg-muted flex items-center justify-center font-sans text-muted-foreground">Satellite 2</div>,
+ <div key="3" className="w-full h-full bg-muted flex items-center justify-center font-sans text-muted-foreground">Satellite 3</div>
  ]}
  />
 
@@ -61,7 +61,7 @@ export default function PatternsPage() {
  </p>
  }
  media={
- <div className="w-full h-full min-h-100 bg-section-alt flex items-center justify-center font-sans text-ink/50 ">Image</div>
+ <div className="w-full h-full min-h-100 bg-muted flex items-center justify-center font-sans text-muted-foreground">Image</div>
  }
  />
 

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema-jsonc.json",
+  "entry": [
+    "app/**/{page,layout,loading,error,not-found,template,route,default}.{js,jsx,ts,tsx}",
+    "app/robots.{js,jsx,ts,tsx}",
+    "app/sitemap.{js,jsx,ts,tsx}",
+    "scripts/**/*.{ts,js,mjs}",
+    ".storybook/**/*.{ts,js}",
+    "stories/**/*.stories.{ts,tsx}"
+  ],
+  "project": [
+    "app/**/*.{js,jsx,ts,tsx}",
+    "components/**/*.{js,jsx,ts,tsx}",
+    "lib/**/*.{js,jsx,ts,tsx}",
+    "scripts/**/*.{ts,js,mjs}"
+  ],
+  "ignore": [
+    "**/*.d.ts",
+    ".agent/**",
+    ".agents/**",
+    ".claude/**",
+    ".cursor/**",
+    ".gemini/**",
+    ".grok/**",
+    ".opencode/**",
+    "temp_gstack/**",
+    "testsprite_tests/**",
+    "storybook-static/**",
+    "public/**"
+  ],
+  "rules": {
+    "files": "error",
+    "dependencies": "error",
+    "unlisted": "error",
+    "unresolved": "error",
+    "exports": "warn",
+    "types": "warn"
+  },
+  "ignoreDependencies": [
+    "server-only",
+    "chromatic",
+    "puppeteer",
+    "shadcn",
+    "tailwindcss-animate",
+    "tw-animate-css"
+  ]
+}

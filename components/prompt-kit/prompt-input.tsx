@@ -1,7 +1,7 @@
 "use client";
 
-import * as React from "react";
-import { cn } from "@/lib/utils";
+import * as React from"react";
+import { cn } from"@/lib/utils";
 
 interface PromptInputContextType {
   value: string;
@@ -32,9 +32,9 @@ export function PromptInput({
     <PromptInputContext.Provider value={{ value, onValueChange, onSubmit, disabled }}>
       <div
         className={cn(
-          "relative flex rounded-xl border border-border-default/80 bg-surface/90 shadow-2xs backdrop-blur-xs transition-all duration-200",
-          "focus-within:border-ink-900/40 focus-within:shadow-xs dark:focus-within:border-white/30",
-          disabled && "opacity-60 cursor-not-allowed",
+         "relative flex rounded-xl border border-border/80 bg-muted/90 shadow-2xs backdrop-blur-xs transition-all duration-200",
+         "focus-within:border-foreground/40 focus-within:shadow-xs dark:focus-within:border-white/30",
+          disabled &&"opacity-60 cursor-not-allowed",
           className
         )}
         {...props}
@@ -46,14 +46,14 @@ export function PromptInput({
 }
 
 export interface PromptInputTextareaProps
-  extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, "value" | "onChange"> {
+  extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>,"value" |"onChange"> {
   maxHeight?: number;
   minHeight?: number;
 }
 
 export function PromptInputTextarea({
   className,
-  placeholder = "Type a message...",
+  placeholder ="Type a message...",
   maxHeight = 120,
   minHeight = 22,
   onKeyDown,
@@ -63,7 +63,7 @@ export function PromptInputTextarea({
   const context = React.useContext(PromptInputContext);
   const textareaRef = React.useRef<HTMLTextAreaElement>(null);
 
-  const value = context?.value ?? "";
+  const value = context?.value ??"";
   const onValueChange = context?.onValueChange;
   const onSubmit = context?.onSubmit;
   const disabled = context?.disabled;
@@ -72,7 +72,7 @@ export function PromptInputTextarea({
   React.useEffect(() => {
     const el = textareaRef.current;
     if (el) {
-      el.style.height = "auto";
+      el.style.height ="auto";
       const targetHeight = Math.max(minHeight, Math.min(el.scrollHeight, maxHeight));
       el.style.height = `${targetHeight}px`;
     }
@@ -80,7 +80,7 @@ export function PromptInputTextarea({
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     onKeyDown?.(e);
-    if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
+    if (e.key ==="Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
       e.preventDefault();
       if (value.trim() && onSubmit && !disabled) {
         onSubmit();
@@ -102,8 +102,8 @@ export function PromptInputTextarea({
         ...style,
       }}
       className={cn(
-        "w-full resize-none bg-transparent font-sans text-xs sm:text-[13px] text-ink-900 placeholder:text-ink-400 outline-none leading-relaxed",
-        "dark:text-paper dark:placeholder:text-ink-500",
+       "w-full resize-none bg-transparent font-sans text-xs sm:text-[13px] text-foreground placeholder:text-muted-foreground outline-none leading-relaxed",
+       " dark:placeholder:text-muted-foreground",
         className
       )}
       {...props}

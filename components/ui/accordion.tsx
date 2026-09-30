@@ -1,12 +1,12 @@
-import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion"
+import { Accordion as AccordionPrimitive } from"@base-ui/react/accordion"
 import { cn } from "@/lib/utils"
-import { ChevronDownIcon, ChevronUpIcon } from "lucide-react"
+import { ChevronDownIcon, ChevronUpIcon } from"lucide-react"
 
 function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
   return (
     <AccordionPrimitive.Root
       data-slot="accordion"
-      className={cn("flex w-full flex-col gap-3", className)}
+      className={cn("flex w-full flex-col", className)}
       {...props}
     />
   )
@@ -16,7 +16,7 @@ function AccordionItem({ className, ...props }: AccordionPrimitive.Item.Props) {
   return (
     <AccordionPrimitive.Item
       data-slot="accordion-item"
-      className={cn("overflow-hidden border border-border-default bg-surface", className)}
+      className={cn("not-last:border-b", className)}
       {...props}
     />
   )
@@ -32,14 +32,14 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "group/accordion-trigger relative flex w-full items-center justify-between gap-3 px-5 py-4 text-left font-sans text-body-lg font-medium text-ink-900 transition-colors outline-none hover:bg-section-alt focus-visible:bg-section-alt focus-visible:ring-2 focus-visible:ring-action-primary/20 aria-disabled:pointer-events-none aria-disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:shrink-0 **:data-[slot=accordion-trigger-icon]:size-5 **:data-[slot=accordion-trigger-icon]:text-ink-500",
+         "group/accordion-trigger relative flex flex-1 items-start justify-between rounded-none border border-transparent py-2.5 text-left text-xs font-medium transition-all outline-none hover:underline focus-visible:border-ring focus-visible:ring-1 focus-visible:ring-ring/50 focus-visible:after:border-ring aria-disabled:pointer-events-none aria-disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4 **:data-[slot=accordion-trigger-icon]:text-muted-foreground",
           className
         )}
         {...props}
       >
         {children}
-        <ChevronDownIcon data-slot="accordion-trigger-icon" className="pointer-events-none group-aria-expanded/accordion-trigger:hidden transition-colors" />
-        <ChevronUpIcon data-slot="accordion-trigger-icon" className="pointer-events-none hidden group-aria-expanded/accordion-trigger:block transition-colors" />
+        <ChevronDownIcon data-slot="accordion-trigger-icon" className="pointer-events-none shrink-0 group-aria-expanded/accordion-trigger:hidden" />
+        <ChevronUpIcon data-slot="accordion-trigger-icon" className="pointer-events-none hidden shrink-0 group-aria-expanded/accordion-trigger:inline" />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   )
@@ -53,12 +53,12 @@ function AccordionContent({
   return (
     <AccordionPrimitive.Panel
       data-slot="accordion-content"
-      className="overflow-hidden data-open:animate-accordion-down data-closed:animate-accordion-up"
+      className="overflow-hidden text-xs data-open:animate-accordion-down data-closed:animate-accordion-up"
       {...props}
     >
       <div
         className={cn(
-          "h-(--accordion-panel-height) px-5 pb-5 pt-1 text-body font-light text-ink-500 leading-relaxed data-ending-style:h-0 data-starting-style:h-0 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-ink-900 [&_p:not(:last-child)]:mb-4",
+         "h-(--accordion-panel-height) pt-0 pb-2.5 data-ending-style:h-0 data-starting-style:h-0 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4",
           className
         )}
       >

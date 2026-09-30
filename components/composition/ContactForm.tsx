@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { supabase } from "@/lib/supabase/client";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { trackEvent } from "@/lib/analytics/trackEvent";
+import { useState } from"react";
+import { supabase } from"@/lib/supabase/client";
+import { Button } from"@/components/ui/button";
+import { ArrowRight, CheckCircle2 } from"lucide-react";
+import { trackEvent } from"@/lib/analytics/trackEvent";
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -20,8 +20,8 @@ export function ContactForm() {
 
     const formData = new FormData(e.currentTarget);
     const data = {
-      firstName: (formData.get("name") as string)?.split(" ")[0] || "",
-      lastName: (formData.get("name") as string)?.split(" ").slice(1).join(" ") || "",
+      firstName: (formData.get("name") as string)?.split("")[0] ||"",
+      lastName: (formData.get("name") as string)?.split("").slice(1).join("") ||"",
       email: formData.get("email") as string,
       subject: formData.get("subject") as string,
       message: formData.get("message") as string,
@@ -36,7 +36,7 @@ export function ContactForm() {
       email: data.email,
       subject: data.subject,
       message: data.message,
-      status: "unread"
+      status:"unread"
     });
 
     setIsSubmitting(false);
@@ -53,12 +53,11 @@ export function ContactForm() {
   };
 
   return (
-    <div className="bg-surface border border-border-default p-6 md:p-8 relative h-full flex flex-col justify-between">
+    <div className="bg-card border border-border p-6 md:p-8 relative h-full flex flex-col justify-between rounded-md">
       <div className="mb-8">
-        <h3 className="font-sans text-xl font-bold text-ink-900 mb-2">Send a Message</h3>
-        <p className="text-role-body text-ink-500 max-w-sm">
-          For partnerships, general inquiries, or non-sensitive operations. 
-          <span className="block mt-1 text-safety-orange font-semibold">Do not submit critical field data here.</span>
+        <h3 className="font-sans text-xl font-bold text-foreground mb-2">Send a Message</h3>
+        <p className="text-base text-muted-foreground max-w-sm font-light leading-relaxed">
+          Whether you need healthcare guidance, want to volunteer, or wish to explore a community partnership, our coordinators are here.
         </p>
       </div>
 
@@ -75,86 +74,84 @@ export function ContactForm() {
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <label htmlFor="name" className="text-[10px] font-bold uppercase tracking-widest text-ink-900">Name</label>
+            <label htmlFor="name" className="text-[10px] font-bold uppercase tracking-widest text-foreground font-mono">Name</label>
             <input 
               id="name" 
               type="text" 
               name="name"
               required
-              className="w-full bg-background border border-border-default px-4 py-3 text-sm focus:outline-none focus:border-safety-orange focus:ring-1 focus:ring-safety-orange transition-colors rounded-none"
+              className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors rounded-sm"
               placeholder="Jane Doe"
             />
           </div>
           <div className="space-y-2">
-            <label htmlFor="email" className="text-[10px] font-bold uppercase tracking-widest text-ink-900">Email</label>
+            <label htmlFor="email" className="text-[10px] font-bold uppercase tracking-widest text-foreground font-mono">Email</label>
             <input 
               id="email" 
               type="email" 
               name="email"
               required
-              className="w-full bg-background border border-border-default px-4 py-3 text-sm focus:outline-none focus:border-safety-orange focus:ring-1 focus:ring-safety-orange transition-colors rounded-none"
+              className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors rounded-sm"
               placeholder="jane@example.com"
             />
           </div>
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="subject" className="text-[10px] font-bold uppercase tracking-widest text-ink-900">Subject</label>
+          <label htmlFor="subject" className="text-[10px] font-bold uppercase tracking-widest text-foreground font-mono">Subject</label>
           <div className="relative">
             <select 
-              id="subject"
+              id="subject" 
               name="subject"
-              className="w-full bg-background border border-border-default px-4 py-3 text-sm focus:outline-none focus:border-safety-orange focus:ring-1 focus:ring-safety-orange transition-colors appearance-none rounded-none"
+              className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors appearance-none rounded-sm"
             >
-              <option>General Enquiry</option>
-              <option>Partnership Proposal</option>
-              <option>Media & Press</option>
-              <option>Other</option>
+              <option>Community Support & Healthcare Guidance</option>
+              <option>Volunteer & Skills Contribution</option>
+              <option>Donation & 80G Tax Exemption</option>
+              <option>Community Project & CSR Partnership</option>
+              <option>General Question / Other</option>
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-ink-500">
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-muted-foreground">
               <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
             </div>
           </div>
         </div>
 
         <div className="space-y-2 flex-1 flex flex-col">
-          <label htmlFor="message" className="text-[10px] font-bold uppercase tracking-widest text-ink-900">Message</label>
+          <label htmlFor="message" className="text-[10px] font-bold uppercase tracking-widest text-foreground font-mono">Message</label>
           <textarea 
             id="message" 
             name="message"
             rows={4}
             required
-            className="w-full flex-1 bg-background border border-border-default px-4 py-3 text-sm focus:outline-none focus:border-safety-orange focus:ring-1 focus:ring-safety-orange transition-colors resize-none rounded-none min-h-30"
-            placeholder="How can we help?"
+            className="w-full flex-1 bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors resize-none rounded-sm min-h-30"
+            placeholder="How can our community team support you?"
           />
         </div>
 
         <Button 
           type="submit" 
           disabled={isSubmitting || isSuccess}
-          className="w-full h-12 bg-safety-orange hover:bg-ink-900 text-paper font-bold uppercase tracking-widest text-[11px] transition-colors flex items-center justify-center gap-2 rounded-none mt-auto"
+          className="w-full h-10 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium transition-colors flex items-center justify-center gap-2 rounded-sm mt-auto shadow-xs"
         >
           {isSubmitting ? (
             <span className="flex items-center gap-2">
-              <span className="size-3 border-2 border-paper/30 border-t-paper rounded-full animate-spin" />
+              <span className="size-3 border-2 border-border border-t-primary rounded-full animate-spin" />
               Sending...
             </span>
           ) : isSuccess ? (
             <span className="flex items-center gap-2">
               <CheckCircle2 className="size-4" />
-              Message Sent
+              Sent
             </span>
           ) : (
             <>
-              Send Message
+              Send
               <ArrowRight className="size-3.5" />
             </>
           )}
         </Button>
       </form>
-
-      {/* Brutalist structural accent */}
-      <div className="absolute top-0 right-0 w-8 h-8 border-l border-b border-border-default bg-background" />
     </div>
   );
 }

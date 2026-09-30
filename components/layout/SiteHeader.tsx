@@ -1,21 +1,20 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Logo } from "@/components/ui/Logo";
-import { SearchDialog } from "@/components/ui/SearchDialog";
-import { Search, ArrowRight, Menu, X, Phone, MessageSquare } from "lucide-react";
-import { siteSettings } from "@/lib/data/site-settings";
+import Link from"next/link";
+import { usePathname } from"next/navigation";
+import { useState, useEffect, useRef } from"react";
+import { motion, AnimatePresence } from"framer-motion";
+import { Logo } from"@/components/ui/Logo";
+import { SearchDialog } from"@/components/ui/SearchDialog";
+import { Search, ArrowRight, Menu, X, Phone, MessageSquare } from"lucide-react";
+import { siteSettings } from"@/lib/data/site-settings";
 
 const navLinks = [
-  { href: "/programmes", label: "Our Programmes" },
-  { href: "/stories", label: "Field Reports" },
-  { href: "/volunteer", label: "Volunteer" },
-  { href: "/open-ledger", label: "Open Ledger" },
-  { href: "/get-help", label: "Contact" },
+  { href: "/programmes", label: "Programmes" },
+  { href: "/stories", label: "Stories" },
   { href: "/about", label: "About" },
+  { href: "/volunteer", label: "Get Involved" },
+  { href: "/get-help", label: "Contact" },
 ];
 
 export function SiteHeader() {
@@ -116,23 +115,23 @@ export function SiteHeader() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
           isScrolled
-            ? "bg-paper/95 backdrop-blur-md border-b border-border-default shadow-xs"
-            : "bg-paper/85 backdrop-blur-sm border-b border-border-default"
+            ? "bg-background/95 backdrop-blur-md border-b border-border shadow-xs"
+            : "bg-background/85 backdrop-blur-sm border-b border-border"
         }`}
       >
         <div className="w-full max-w-container px-4 sm:px-6 lg:px-8 mx-auto flex items-center justify-between h-16">
           {/* Logo & Brand Identity */}
           <Link
             href="/"
-            className="flex items-center shrink-0 mr-6 sm:mr-8 group focus-visible:outline-2 focus-visible:outline-safety-orange"
+            className="flex items-center shrink-0 mr-6 sm:mr-8 group focus-visible:outline-2 focus-visible:outline-ring min-h-11"
             aria-label="One Vision home"
           >
             <Logo />
           </Link>
 
-          {/* Desktop Navigation — Nordic Lagom with Motion Indicator */}
+          {/* Desktop Navigation — Warm, Humanist NGO Typography */}
           <nav
-            className="hidden md:flex items-center gap-1 lg:gap-2 flex-1 relative h-full"
+            className="hidden lg:flex items-center gap-1 xl:gap-2 flex-1 relative h-full"
             aria-label="Main Navigation"
             onMouseLeave={() => setHoveredPath(null)}
           >
@@ -148,19 +147,19 @@ export function SiteHeader() {
                   href={link.href}
                   onMouseEnter={() => setHoveredPath(link.href)}
                   aria-current={isActive ? "page" : undefined}
-                  className={`relative px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-200 ${
+                  className={`relative px-3 py-2 font-sans text-xs sm:text-[13px] font-medium tracking-normal transition-colors duration-200 ${
                     isActive
-                      ? "text-ink-900"
-                      : "text-ink-500 hover:text-ink-900"
+                      ? "text-foreground font-semibold"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   <span className="relative z-10">{link.label}</span>
 
-                  {/* Active Motion Pill (Brutalist razor-sharp bottom notch) */}
+                  {/* Active Indicator */}
                   {isActive && (
                     <motion.div
                       layoutId="activeNavIndicator"
-                      className="absolute bottom-0 left-3 right-3 h-0.5 bg-safety-orange z-20"
+                      className="absolute bottom-0 left-3 right-3 h-0.5 bg-primary z-20"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -168,7 +167,7 @@ export function SiteHeader() {
                   {isHovered && !isActive && (
                     <motion.div
                       layoutId="hoverNavIndicator"
-                      className="absolute inset-0 bg-surface/60 z-0"
+                      className="absolute inset-0 bg-muted/60 z-0 rounded-[2px]"
                       transition={{ type: "spring", stiffness: 450, damping: 35 }}
                     />
                   )}
@@ -178,19 +177,19 @@ export function SiteHeader() {
           </nav>
 
           {/* Header Right Actions */}
-          <div className="flex items-center gap-2.5 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             {/* Search Trigger with Keyboard Shortcut */}
             <motion.button
               whileTap={{ scale: 0.97 }}
               onClick={() => setSearchOpen(true)}
               aria-label="Search site (Press Ctrl+K or Cmd+K)"
-              className="flex items-center gap-2 px-2.5 py-1.5 border border-border-default bg-surface/60 hover:bg-surface hover:border-ink-900 transition-colors text-ink-500 hover:text-ink-900 cursor-pointer"
+              className="flex items-center gap-2 px-2.5 py-2 min-h-9.5 border border-border bg-muted/60 hover:bg-muted hover:border-foreground transition-colors text-muted-foreground hover:text-foreground cursor-pointer rounded-[2px]"
             >
               <Search className="size-3.5" aria-hidden="true" />
-              <span className="hidden xl:inline font-mono text-[10px] uppercase tracking-wider text-ink-500">
+              <span className="hidden xl:inline font-sans text-xs text-muted-foreground">
                 Search
               </span>
-              <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 font-mono text-[9px] font-bold text-ink-400 bg-paper border border-border-default">
+              <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 font-mono text-[9px] font-bold text-muted-foreground bg-background border border-border rounded-[2px]">
                 ⌘K
               </kbd>
             </motion.button>
@@ -200,7 +199,7 @@ export function SiteHeader() {
               <motion.div whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>
                 <Link
                   href="/donate"
-                  className="inline-flex items-center gap-2 px-5 py-2 bg-ink-900 hover:bg-safety-orange text-paper hover:text-ink-900 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium tracking-normal transition-colors rounded-sm"
                 >
                   <span>Donate</span>
                   <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -215,8 +214,8 @@ export function SiteHeader() {
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav-drawer"
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              className="md:hidden flex items-center justify-center size-9 border border-border-default bg-surface text-ink-900 hover:border-ink-900 transition-colors cursor-pointer"
+              aria-label={mobileOpen ?"Close menu" :"Open menu"}
+              className="lg:hidden flex items-center justify-center size-9 border border-border bg-muted text-foreground hover:border-foreground transition-colors cursor-pointer"
             >
               {mobileOpen ? (
                 <X className="size-5" aria-hidden="true" />
@@ -242,13 +241,13 @@ export function SiteHeader() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-x-0 top-16 bottom-0 z-40 bg-paper/98 backdrop-blur-xl border-b border-border-default md:hidden flex flex-col justify-between p-6 overflow-y-auto"
+            className="fixed inset-x-0 top-16 bottom-0 z-40 bg-background/98 backdrop-blur-xl border-b border-border lg:hidden flex flex-col justify-between p-6 overflow-y-auto"
           >
-            <nav className="flex flex-col divide-y divide-border-default" aria-label="Mobile Navigation">
+            <nav className="flex flex-col divide-y divide-border" aria-label="Mobile Navigation">
               {navLinks.map((link, idx) => {
                 const isActive =
                   pathname === link.href ||
-                  (link.href !== "/" && pathname.startsWith(`${link.href}/`));
+                  (link.href !=="/" && pathname.startsWith(`${link.href}/`));
 
                 return (
                   <motion.div
@@ -262,8 +261,8 @@ export function SiteHeader() {
                       onClick={() => setMobileOpen(false)}
                       className={`flex items-center justify-between py-4 text-left transition-colors ${
                         isActive
-                          ? "text-safety-orange font-bold"
-                          : "text-ink-900 hover:text-safety-orange font-medium"
+                          ? "text-primary font-semibold"
+                          : "text-foreground hover:text-primary font-normal"
                       }`}
                     >
                       <span className="font-serif text-2xl font-light tracking-tight">
@@ -277,32 +276,32 @@ export function SiteHeader() {
             </nav>
 
             {/* Mobile Bottom Quick Actions */}
-            <div className="pt-6 mt-6 border-t border-border-default space-y-4">
-              <div className="grid grid-cols-2 gap-3 font-mono text-[10px] uppercase tracking-wider text-ink-600">
+            <div className="pt-6 mt-6 border-t border-border space-y-4">
+              <div className="grid grid-cols-2 gap-3 font-sans text-xs text-foreground">
                 <a
                   href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`}
-                  className="flex items-center gap-2 p-3 border border-border-default bg-surface hover:border-ink-900 transition-colors"
+                  className="flex items-center gap-2 p-3 border border-border bg-muted hover:border-foreground transition-colors rounded-[2px]"
                 >
-                  <Phone className="size-3.5 text-safety-orange" />
-                  <span>Field Office</span>
+                  <Phone className="size-3.5 text-primary" />
+                  <span className="font-medium">24/7 Helpline</span>
                 </a>
                 <Link
                   href="/get-help"
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-2 p-3 border border-border-default bg-surface hover:border-ink-900 transition-colors"
+                  className="flex items-center gap-2 p-2.5 border border-border bg-muted hover:border-foreground transition-colors rounded-sm text-xs"
                 >
-                  <MessageSquare className="size-3.5 text-safety-orange" />
-                  <span>Direct Help</span>
+                  <MessageSquare className="size-3.5 text-primary" />
+                  <span className="font-medium">Get Help</span>
                 </Link>
               </div>
 
               <Link
                 href="/donate"
                 onClick={() => setMobileOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-3.5 bg-ink-900 hover:bg-safety-orange text-paper hover:text-ink-900 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300"
+                className="w-full flex items-center justify-center gap-2 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium tracking-normal transition-colors rounded-sm"
               >
-                <span>Donate to Resilience Fund</span>
-                <ArrowRight className="size-4" />
+                <span>Donate</span>
+                <ArrowRight className="size-3.5" />
               </Link>
             </div>
           </motion.div>

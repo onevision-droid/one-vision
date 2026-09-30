@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { Section, Container } from "@/components/layout/Shell";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Badge } from "@/components/ui/badge";
+import { siteSettings } from "@/lib/data/site-settings";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | One Vision",
@@ -10,61 +11,50 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="flex flex-col w-full bg-paper pt-20">
-      <Section tone="default" className="pt-16 pb-24">
+    <div className="flex flex-col w-full bg-background pt-20">
+      <Section tone="default" className="pt-12 pb-20">
         <Container>
           <div className="max-w-3xl mx-auto space-y-8">
             <Breadcrumbs items={[{ label: "Privacy Policy", href: "/privacy" }]} />
             
             <div>
-              <Badge className="mb-6">Legal</Badge>
-              <h1 className="font-sans text-display-md font-light tracking-tight text-ink-900 leading-[1.1] mb-6">
+              <Badge className="mb-4">Legal</Badge>
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-foreground leading-tight mb-4">
                 Privacy Policy
               </h1>
-              <p className="text-body-lg max-w-prose  text-ink-500 font-light leading-relaxed">
+              <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed">
                 Last updated: October 2026
               </p>
             </div>
             
-            <div className="prose prose-lg prose-headings:font-sans prose-headings:font-light prose-p:text-ink-700 prose-p:font-light prose-p:leading-relaxed">
+            <div className="prose prose-lg prose-headings:font-serif prose-headings:font-light prose-p:text-muted-foreground prose-p:font-light prose-p:leading-relaxed">
               <p>
-                At One Vision, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+                At One Vision, we operate with a privacy-first mindset. This policy describes how we collect, use, and safeguard personal information across our website and community contact points.
               </p>
 
-              <h2>1. Information We Collect</h2>
+              <h2 className="text-foreground font-serif text-2xl font-light">1. Information We Collect</h2>
               <p>
-                We may collect personal identification information from you in a variety of ways, including, but not limited to, when you visit our site, register on the site, place a donation, fill out a form, and in connection with other activities, services, features or resources we make available on our Site.
+                We minimize data collection strictly to what is necessary for community service delivery and donor reporting:
               </p>
-              <ul>
-                <li><strong>Personal Data:</strong> Name, email address, mailing address, phone number.</li>
-                <li><strong>Payment Data:</strong> Financial information is collected directly by our payment processor. We do not store full credit card numbers on our servers.</li>
-                <li><strong>Usage Data:</strong> Information about how you use our website, collected through cookies and similar tracking technologies.</li>
+              <ul className="text-muted-foreground space-y-1">
+                <li><strong>Contact Inquiries:</strong> Name, email address, and voluntary message text.</li>
+                <li><strong>Donations:</strong> Name, email, and PAN number for statutory 80G tax receipting. Payment transactions are processed by RBI-licensed payment gateways — we never store credit card credentials.</li>
+                <li><strong>Volunteer Applications:</strong> Professional background and areas of interest provided voluntarily.</li>
               </ul>
 
-              <h2>2. How We Use Your Information</h2>
+              <h2 className="text-foreground font-serif text-2xl font-light">2. How We Use Data</h2>
               <p>
-                One Vision uses the collected data for various purposes:
-              </p>
-              <ul>
-                <li>To process donations and issue tax receipts.</li>
-                <li>To send periodic emails, such as newsletters or updates on our campaigns.</li>
-                <li>To respond to your inquiries and support requests.</li>
-                <li>To improve our website and services.</li>
-              </ul>
-
-              <h2>3. Data Security</h2>
-              <p>
-                We adopt appropriate data collection, storage and processing practices and security measures to protect against unauthorized access, alteration, disclosure or destruction of your personal information.
+                Information collected is used solely to coordinate healthcare assistance, deploy volunteer teams, issue tax exemption receipts, and improve site reliability. We do not sell or rent personal information to any third parties.
               </p>
 
-              <h2>4. Sharing Your Personal Information</h2>
+              <h2 className="text-foreground font-serif text-2xl font-light">3. Community Privacy & Safeguarding</h2>
               <p>
-                We do not sell, trade, or rent your personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information regarding visitors and users with our trusted affiliates and advertisers.
+                Beneficiary stories and photography published on this website are shared with verified, informed community consent. Personal identifiers of vulnerable individuals in need of emergency relief are strictly protected.
               </p>
 
-              <h2>5. Contact Us</h2>
+              <h2 className="text-foreground font-serif text-2xl font-light">4. Contact & Inquiries</h2>
               <p>
-                If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at: <a href="mailto:privacy@onevision.org">privacy@onevision.org</a>.
+                To request data deletion or inquire about our privacy practices, contact our team at <a href={`mailto:${siteSettings.contactEmail}`} className="text-primary hover:underline">{siteSettings.contactEmail}</a>.
               </p>
             </div>
           </div>

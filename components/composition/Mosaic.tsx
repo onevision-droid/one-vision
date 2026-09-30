@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
-import { SectionWrapper, type CompositionProps } from "./shared";
+import { cn } from"@/lib/utils";
+import { SectionWrapper, type CompositionProps } from"./shared";
 
 /**
  * Mosaic — 1×(4:5) lead + 3 satellites, asymmetric on 12-col grid.
@@ -19,7 +19,7 @@ interface MosaicProps extends CompositionProps {
 }
 
 export function Mosaic({
- surface = "paper",
+ surface ="paper",
  reversed = false,
  className,
  lead,
@@ -39,9 +39,9 @@ export function Mosaic({
  <h2
  id={headingId}
  className={cn(
- "font-sans font-light tracking-tight",
- "text-display-md",
- "mb-12 lg:mb-16",
+"font-sans font-light tracking-tight",
+"text-display-md",
+"mb-12 lg:mb-16",
  )}
  >
  {heading}
@@ -50,14 +50,14 @@ export function Mosaic({
 
  <div
  className={cn(
- "grid gap-6 lg:gap-8",
- "lg:grid-cols-12",
- reversed && "lg:[direction:rtl] lg:*:[direction:ltr]",
+"grid gap-6 lg:gap-8",
+"lg:grid-cols-12",
+ reversed &&"lg:[direction:rtl] lg:*:[direction:ltr]",
  )}
  >
  {/* Lead image: spans 7 columns */}
  <div className="lg:col-span-7">
- <div className="aspect-4/5 relative overflow-hidden ">
+ <div className="aspect-4/5 relative overflow-hidden">
  {lead}
  </div>
  </div>
@@ -69,8 +69,8 @@ export function Mosaic({
  <div
  key={i}
  className={cn(
- "relative overflow-hidden ",
- i === 0 ? "aspect-square" : "aspect-3/2",
+"relative overflow-hidden",
+ i === 0 ?"aspect-square" :"aspect-3/2",
  )}
  >
  {satellite}

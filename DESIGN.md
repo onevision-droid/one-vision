@@ -81,10 +81,11 @@ Safety Orange is the primary accent. It marks actions and urgency. Alert Red is 
 
 ## 5. Typography
 
-**UI/Body:** Inter — utilitarian grotesk sans-serif
-**Data/Metrics:** JetBrains Mono or IBM Plex Mono — for all numerical data, stats, codes, reference IDs
+**Headings:** System serif (Georgia/Times New Roman) — warm, trustworthy, appropriate for NGO communication. Used for h1–h3 headings with `font-light` weight.
+**UI/Body:** Inter — utilitarian grotesk sans-serif for body text, labels, and interface elements.
+**Data/Metrics:** JetBrains Mono or IBM Plex Mono — for all numerical data, stats, codes, reference IDs.
 
-No serif fonts. The editorial serif era is deprecated.
+Serif headings provide the warmth and humanity appropriate for a community-focused NGO, while sans-serif body text maintains readability and information density.
 
 Typography hierarchy:
 - Display XL: 72px desktop, fluid scale to ~40px mobile;
@@ -189,11 +190,11 @@ Mobile:
 
 Header must remain under 64px height. Fixed position with transparent-to-solid scroll treatment.
 
-## 12. Homepage composition
+## 12. Homepage composition (Lagom — 6 sections)
 
-### Section 01 — Hero (Crisis Beacon)
-Large utilitarian statement with key metrics.
-Actions: Deploy Support, Secure Contact.
+### Section 01 — Hero (Layout Locked)
+Community-framing statement with action buttons.
+Actions: Our Work, Volunteer.
 
 **Layout Lock (Immutable):**
 - Proportions: Asymmetrical card with `flex-1` content on the left and 1:1 `aspect-square` image container on the right (`lg:h-95 xl:h-100`).
@@ -201,27 +202,21 @@ Actions: Deploy Support, Secure Contact.
 - Section Clearance: `pt-24 md:pt-26 lg:pt-28 pb-4 md:pb-6 lg:pb-6` ensuring full viewport fit on compact laptop displays (1280x585) without vertical scroll.
 - Rule: Layout, geometry, height, and width are permanently frozen across all pages (`Hero.tsx` and `PageHero.tsx`). Only internal content may change.
 
-### Section 02 — Key Metrics (StatsHero)
-Q3 2026 ground reality data. Verifiable, dated, sourced.
+### Section 02 — Impact at a Glance (StatsHero)
+Single merged stats section. Concise heading + 4 key metrics. CTA to /stories.
 
-### Section 03 — The 4 Pillars (ProgrammesBento)
-Operational dashboard: Health Equity, Energy Sovereignty, Ecological Restoration, Economic Dignity.
-Each pillar shows: status, metric, description, link.
+### Section 03 — Our Programmes (ProgrammesBento)
+Five community programmes with status, metric, description, link. Concise card descriptions.
 
-### Section 04 — Ground Reality (WhatWeDo)
-Current deployments and active operations.
+### Section 04 — Community Approach (WhatWeDo)
+Merged WhatWeDo + Method. Challenge statement + key facts grid.
 
-### Section 05 — Field Report (SplitNarrative)
-One featured story with anonymised imagery.
+### Section 05 — Community Story (SplitNarrative)
+One featured story with anonymised imagery. Trimmed consent notice.
 
-### Section 06 — Secure Routing
-Link to /get-help with OpSec messaging. This is the core differentiator.
+### Section 06 — Trust, Transparency & Action (merged)
+Trust cards (Open Ledger, Governance, Reports) + closing CTA + contact buttons. Single unified closing section.
 
-### Section 07 — Trust & Transparency
-Governance, funding deployment, reports, open ledger links.
-
-### Section 08 — Closing CTA (QuietClose)
-Single clear action: Deploy Support.
 
 ## 13. Information architecture
 
@@ -303,7 +298,7 @@ Do not:
 - modify or alter the Hero section layout, height, width, padding, or 1:1 image aspect ratio (layout is permanently locked);
 - use rounded corners anywhere;
 - use gradients as decoration;
-- use serif fonts;
+- use serif fonts for body text, data, or UI controls (serifs are reserved for h1–h3 headings);
 - use generic charity imagery;
 - use excessive shadows;
 - make every CTA red;

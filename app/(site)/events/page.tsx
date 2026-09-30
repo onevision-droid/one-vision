@@ -1,53 +1,53 @@
-import { Metadata } from "next";
-import { PageHero } from "@/components/composition/PageHero";
-import { Section, Container } from "@/components/layout/Shell";
-import { QuietClose } from "@/components/composition/QuietClose";
-import { Button } from "@/components/ui/button";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Calendar, MapPin, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
-import Link from "next/link";
-import { events } from "@/lib/data/events";
+import { Metadata } from"next";
+import { PageHero } from"@/components/composition/PageHero";
+import { Section, Container } from"@/components/layout/Shell";
+import { QuietClose } from"@/components/composition/QuietClose";
+import { Button } from"@/components/ui/button";
+import { Breadcrumbs } from"@/components/ui/Breadcrumbs";
+import { Calendar, MapPin, Clock, ArrowRight, CheckCircle2 } from"lucide-react";
+import Link from"next/link";
+import { events } from"@/lib/data/events";
 
 export const metadata: Metadata = {
-  title: "Events & Community Assemblies | One Vision",
+  title:"Events & Community Assemblies | One Vision",
   description:
-    "Upcoming townhalls, volunteer orientations, and community workshops organised by One Vision in Imphal and surrounding districts.",
+   "Upcoming townhalls, volunteer orientations, and community workshops organised by One Vision in Imphal and surrounding districts.",
 };
 
 export default function EventsPage() {
-  const upcomingEvents = events.filter((e) => e.status === "upcoming");
-  const pastEvents = events.filter((e) => e.status === "past");
+  const upcomingEvents = events.filter((e) => e.status ==="upcoming");
+  const pastEvents = events.filter((e) => e.status ==="past");
 
   // Generate Event JSON-LD structured data for upcoming events
   const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": upcomingEvents.map((evt) => ({
-      "@type": "Event",
+   "@context":"https://schema.org",
+   "@graph": upcomingEvents.map((evt) => ({
+     "@type":"Event",
       name: evt.title,
       description: evt.description,
       startDate: evt.date,
-      eventStatus: "https://schema.org/EventScheduled",
-      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      eventStatus:"https://schema.org/EventScheduled",
+      eventAttendanceMode:"https://schema.org/OfflineEventAttendanceMode",
       location: {
-        "@type": "Place",
+       "@type":"Place",
         name: evt.location,
         address: {
-          "@type": "PostalAddress",
-          addressLocality: "Imphal",
-          addressRegion: "Manipur",
-          addressCountry: "IN",
+         "@type":"PostalAddress",
+          addressLocality:"Imphal",
+          addressRegion:"Manipur",
+          addressCountry:"IN",
         },
       },
       organizer: {
-        "@type": "Organization",
-        name: "One Vision",
-        url: "https://onevision.org",
+       "@type":"Organization",
+        name:"One Vision",
+        url:"https://onevision.org",
       },
     })),
   };
 
   return (
-    <div className="flex flex-col w-full bg-paper">
+    <div className="flex flex-col w-full bg-background">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -65,18 +65,18 @@ export default function EventsPage() {
       />
 
       {/* Upcoming Events */}
-      <Section tone="default" className="py-16 border-b border-border-default">
+      <Section tone="default" className="py-16 border-b border-border">
         <Container>
           <div className="mb-12">
-            <Breadcrumbs items={[{ label: "Events", href: "/events" }]} />
+            <Breadcrumbs items={[{ label:"Events", href:"/events" }]} />
           </div>
 
           <div className="max-w-4xl mx-auto space-y-12">
             <div>
-              <span className="text-caption tracking-widest uppercase text-ink-500 font-semibold mb-2 block">
+              <span className="text-caption tracking-widest uppercase text-muted-foreground font-semibold mb-2 block">
                 Public Schedule
               </span>
-              <h2 className="font-sans text-heading-xl font-medium text-ink-900">
+              <h2 className="font-sans text-heading-xl font-medium text-foreground">
                 Upcoming Assemblies & Workshops
               </h2>
             </div>
@@ -86,35 +86,35 @@ export default function EventsPage() {
                 <article
                   key={evt.id}
                   id={evt.slug}
-                  className="bg-surface border border-border-default hover:border-action-primary transition-colors p-6 md:p-8 flex flex-col md:flex-row gap-6 md:items-start justify-between scroll-mt-24"
+                  className="bg-muted border border-border hover:border-primary transition-colors p-6 md:p-8 flex flex-col md:flex-row gap-6 md:items-start justify-between scroll-mt-24"
                 >
                   <div className="space-y-4 max-w-xl">
-                    <div className="flex flex-wrap items-center gap-3 text-caption font-semibold uppercase tracking-wider text-ink-500">
-                      <span className="inline-flex items-center gap-1.5 text-action-primary">
+                    <div className="flex flex-wrap items-center gap-3 text-caption font-semibold uppercase tracking-wider text-muted-foreground">
+                      <span className="inline-flex items-center gap-1.5 text-primary">
                         <Calendar className="size-3.5" />
                         <time dateTime={evt.date}>{evt.displayDate}</time>
                       </span>
                       {evt.time && (
                         <>
-                          <span className="size-1 bg-ink-300" />
+                          <span className="size-1 bg-muted" />
                           <span className="inline-flex items-center gap-1.5">
                             <Clock className="size-3.5" />
                             {evt.time}
                           </span>
                         </>
                       )}
-                      <span className="size-1 bg-ink-300" />
+                      <span className="size-1 bg-muted" />
                       <span className="inline-flex items-center gap-1.5">
                         <MapPin className="size-3.5" />
                         {evt.location}
                       </span>
                     </div>
 
-                    <h3 className="font-sans text-heading-lg font-light text-ink-900 leading-snug">
+                    <h3 className="font-sans text-heading-lg font-light text-foreground leading-snug">
                       {evt.title}
                     </h3>
 
-                    <p className="text-body-sm max-w-prose text-ink-500 font-light leading-relaxed">
+                    <p className="text-body-sm max-w-prose text-muted-foreground font-light leading-relaxed">
                       {evt.description}
                     </p>
                   </div>
@@ -126,7 +126,7 @@ export default function EventsPage() {
                       nativeButton={false}
                       render={
                         <Link href={evt.registrationUrl || "/contact"}>
-                          Register to Attend <ArrowRight className="size-4 ml-1.5" />
+                          Register <ArrowRight className="size-3.5 ml-1" />
                         </Link>
                       }
                     />
@@ -139,17 +139,17 @@ export default function EventsPage() {
       </Section>
 
       {/* Past Events & Documented Outcomes */}
-      <Section tone="alt" className="py-16 border-b border-border-default">
+      <Section tone="alt" className="py-16 border-b border-border">
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
             <div>
-              <span className="text-caption tracking-widest uppercase text-ink-500 font-semibold mb-2 block">
+              <span className="text-caption tracking-widest uppercase text-muted-foreground font-semibold mb-2 block">
                 Accountability Archive
               </span>
-              <h2 className="font-sans text-heading-xl font-medium text-ink-900">
+              <h2 className="font-sans text-heading-xl font-medium text-foreground">
                 Past Assemblies & Documented Outcomes
               </h2>
-              <p className="text-body text-ink-500 font-light mt-2 max-w-2xl">
+              <p className="text-body text-muted-foreground font-light mt-2 max-w-2xl">
                 Every event we conduct must yield measurable community value. Here is the public record of past assemblies and their delivered outcomes.
               </p>
             </div>
@@ -159,40 +159,40 @@ export default function EventsPage() {
                 <article
                   key={evt.id}
                   id={evt.slug}
-                  className="bg-surface border border-border-default p-6 md:p-8 space-y-4 scroll-mt-24"
+                  className="bg-muted border border-border p-6 md:p-8 space-y-4 scroll-mt-24"
                 >
-                  <div className="flex flex-wrap items-center gap-3 text-caption font-semibold uppercase tracking-wider text-ink-500">
+                  <div className="flex flex-wrap items-center gap-3 text-caption font-semibold uppercase tracking-wider text-muted-foreground">
                     <span className="inline-flex items-center gap-1.5">
                       <Calendar className="size-3.5" />
                       <time dateTime={evt.date}>{evt.displayDate}</time>
                     </span>
-                    <span className="size-1 bg-ink-300" />
+                    <span className="size-1 bg-muted" />
                     <span className="inline-flex items-center gap-1.5">
                       <MapPin className="size-3.5" />
                       {evt.location}
                     </span>
-                    <span className="size-1 bg-ink-300" />
-                    <span className="text-caption uppercase px-2 py-0.5 bg-surface-alt border border-border-default">
+                    <span className="size-1 bg-muted" />
+                    <span className="text-caption uppercase px-2 py-0.5 bg-muted border border-border">
                       Completed
                     </span>
                   </div>
 
-                  <h3 className="font-sans text-heading-lg font-light text-ink-900">
+                  <h3 className="font-sans text-heading-lg font-light text-foreground">
                     {evt.title}
                   </h3>
 
-                  <p className="text-body-sm max-w-prose text-ink-500 font-light leading-relaxed">
+                  <p className="text-body-sm max-w-prose text-muted-foreground font-light leading-relaxed">
                     {evt.description}
                   </p>
 
                   {evt.outcome && (
-                    <div className="bg-surface-alt border border-border-default p-4 flex items-start gap-3 mt-4">
-                      <CheckCircle2 className="size-5 text-action-primary shrink-0 mt-0.5" />
+                    <div className="bg-muted border border-border p-4 flex items-start gap-3 mt-4">
+                      <CheckCircle2 className="size-5 text-primary shrink-0 mt-0.5" />
                       <div>
-                        <span className="text-caption uppercase tracking-wider text-ink-900 font-semibold block mb-0.5">
+                        <span className="text-caption uppercase tracking-wider text-foreground font-semibold block mb-0.5">
                           Verified Outcome
                         </span>
-                        <p className="text-body-sm max-w-prose text-ink-700 font-light leading-relaxed">
+                        <p className="text-body-sm max-w-prose text-foreground font-light leading-relaxed">
                           {evt.outcome}
                         </p>
                       </div>
@@ -212,10 +212,10 @@ export default function EventsPage() {
         action={
           <Button
             nativeButton={false}
-            className="gap-2 px-6"
+            className="gap-2"
             render={
               <Link href="/contact" className="flex items-center">
-                Contact Coordination Team <ArrowRight className="size-4 ml-1.5" />
+                Contact Us <ArrowRight className="size-3.5 ml-1" />
               </Link>
             }
           />

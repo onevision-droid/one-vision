@@ -54,3 +54,4 @@ phase-2-changelist.md
 temp_gstack/
 audit-results.json
 audit-report.md
+.audit/

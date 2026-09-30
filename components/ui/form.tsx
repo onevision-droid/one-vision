@@ -1,5 +1,5 @@
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
+import * as React from"react"
+import { Slot } from"@radix-ui/react-slot"
 import {
   Controller,
   ControllerProps,
@@ -7,10 +7,10 @@ import {
   FieldValues,
   FormProvider,
   useFormContext,
-} from "react-hook-form"
+} from"react-hook-form"
 
-import { cn } from "@/lib/utils"
-import { Label } from "@/components/ui/label"
+import { cn } from"@/lib/utils"
+import { Label } from"@/components/ui/label"
 
 const Form = FormProvider
 
@@ -81,7 +81,7 @@ const FormItem = React.forwardRef<
     </FormItemContext.Provider>
   )
 })
-FormItem.displayName = "FormItem"
+FormItem.displayName ="FormItem"
 
 const FormLabel = React.forwardRef<
   React.ElementRef<typeof Label>,
@@ -92,13 +92,13 @@ const FormLabel = React.forwardRef<
   return (
     <Label
       ref={ref}
-      className={cn(error && "text-destructive", className)}
+      className={cn(error &&"text-destructive", className)}
       htmlFor={formItemId}
       {...props}
     />
   )
 })
-FormLabel.displayName = "FormLabel"
+FormLabel.displayName ="FormLabel"
 
 const FormControl = React.forwardRef<
   React.ElementRef<typeof Slot>,
@@ -120,7 +120,7 @@ const FormControl = React.forwardRef<
     />
   )
 })
-FormControl.displayName = "FormControl"
+FormControl.displayName ="FormControl"
 
 const FormDescription = React.forwardRef<
   HTMLParagraphElement,
@@ -137,7 +137,7 @@ const FormDescription = React.forwardRef<
     />
   )
 })
-FormDescription.displayName = "FormDescription"
+FormDescription.displayName ="FormDescription"
 
 const FormMessage = React.forwardRef<
   HTMLParagraphElement,
@@ -159,7 +159,7 @@ const FormMessage = React.forwardRef<
     />
   )
 })
-FormMessage.displayName = "FormMessage"
+FormMessage.displayName ="FormMessage"
 
 export {
   useFormField,

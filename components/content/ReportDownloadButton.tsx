@@ -1,8 +1,8 @@
 "use client";
 
-import { Download } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { trackEvent } from "@/lib/analytics/trackEvent";
+import { Download } from"lucide-react";
+import { Button } from"@/components/ui/button";
+import { trackEvent } from"@/lib/analytics/trackEvent";
 
 interface ReportDownloadButtonProps {
   id: string;

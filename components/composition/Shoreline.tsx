@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
-import { SectionWrapper, isDarkSurface, type CompositionProps } from "./shared";
+import { cn } from"@/lib/utils";
+import { SectionWrapper, isDarkSurface, type CompositionProps } from"./shared";
 
 /**
  * Shoreline — Full-bleed hero composition.
@@ -22,7 +22,7 @@ interface ShorelineProps extends CompositionProps {
 }
 
 export function Shoreline({
- surface = "paper",
+ surface ="paper",
  reversed = false,
  className,
  eyebrow,
@@ -43,16 +43,16 @@ export function Shoreline({
  <div className="mx-auto w-full max-w-7xl px-5 xl:px-6">
  <div
  className={cn(
- "grid gap-12 items-center",
- "lg:grid-cols-[1fr_1fr]",
- reversed && "lg:[direction:rtl] lg:*:[direction:ltr]",
+"grid gap-12 items-center",
+"lg:grid-cols-[1fr_1fr]",
+ reversed &&"lg:[direction:rtl] lg:*:[direction:ltr]",
  )}
  >
  {/* Content */}
  <div className="flex flex-col justify-center space-y-6 lg:space-y-8">
  {eyebrow && (
  <div
-          className={cn("eyebrow", dark ? "text-paper" : "text-ink-500")}
+          className={cn("eyebrow", dark ?"text-background" :"text-muted-foreground")}
  >
  {eyebrow}
  </div>
@@ -60,8 +60,8 @@ export function Shoreline({
  <h1
  id={headingId}
  className={cn(
- "font-sans font-light tracking-tight leading-[1.05]",
- "text-display-lg",
+"font-sans font-light tracking-tight leading-[1.05]",
+"text-display-lg",
  )}
  >
  {headline}
@@ -69,8 +69,8 @@ export function Shoreline({
  {description && (
  <p
  className={cn(
- "max-w-135 text-body leading-relaxed",
-                dark ? "text-paper/80" : "text-ink-500",
+"max-w-135 text-body leading-relaxed",
+                dark ?"text-background/80" :"text-muted-foreground",
  )}
  >
  {description}
@@ -85,7 +85,7 @@ export function Shoreline({
 
  {/* Media */}
  {media && (
- <div className="relative w-full aspect-4/3 lg:aspect-square overflow-hidden ">
+ <div className="relative w-full aspect-4/3 lg:aspect-square overflow-hidden">
  {media}
  </div>
  )}

@@ -1,9 +1,9 @@
 "use client";
 
-import { supabase } from "@/lib/supabase/client";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+import { supabase } from"@/lib/supabase/client";
+import { useForm } from"react-hook-form";
+import { zodResolver } from"@hookform/resolvers/zod";
+import * as z from"zod";
 import {
   Form,
   FormControl,
@@ -11,31 +11,31 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
-import { trackEvent } from "@/lib/analytics/trackEvent";
-import { useState } from "react";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+} from"@/components/ui/form";
+import { Input } from"@/components/ui/input";
+import { Textarea } from"@/components/ui/textarea";
+import { Checkbox } from"@/components/ui/checkbox";
+import { trackEvent } from"@/lib/analytics/trackEvent";
+import { useState } from"react";
+import { ArrowRight, CheckCircle2 } from"lucide-react";
 
 const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters."),
+  name: z.string().min(2,"Name must be at least 2 characters."),
   email: z.string().email("Please provide a valid email address."),
   phone: z.string().optional(),
   interests: z.array(z.string()).refine((value) => value.some((item) => item), {
-    message: "You have to select at least one area of interest.",
+    message:"You have to select at least one area of interest.",
   }),
   experience: z.string().optional(),
 });
 
 const areasOfInterest = [
-  { id: "health", label: "Health & Medical" },
-  { id: "education", label: "Education & Teaching" },
-  { id: "logistics", label: "Logistics & Supply" },
-  { id: "admin", label: "Administrative Support" },
-  { id: "counseling", label: "Counseling & Mental Health" },
-  { id: "community", label: "Community Organizing" },
+  { id:"health", label:"Health & Medical" },
+  { id:"education", label:"Education & Teaching" },
+  { id:"logistics", label:"Logistics & Supply" },
+  { id:"admin", label:"Administrative Support" },
+  { id:"counseling", label:"Counseling & Mental Health" },
+  { id:"community", label:"Community Organizing" },
 ];
 
 export function VolunteerForm() {
@@ -46,11 +46,11 @@ export function VolunteerForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
+      name:"",
+      email:"",
+      phone:"",
       interests: [],
-      experience: "",
+      experience:"",
     },
   });
 
@@ -68,16 +68,16 @@ export function VolunteerForm() {
     }
     trackEvent("volunteer_complete", { interestsCount: values.interests.length });
 
-    const [firstName, ...lastNameParts] = values.name.split(" ");
+    const [firstName, ...lastNameParts] = values.name.split("");
 
     const { error } = await supabase.from("volunteer_applications").insert({
-      first_name: firstName || "Unknown",
-      last_name: lastNameParts.join(" ") || "Unknown",
+      first_name: firstName ||"Unknown",
+      last_name: lastNameParts.join("") ||"Unknown",
       email: values.email,
-      phone: values.phone || "",
+      phone: values.phone ||"",
       skills: values.interests,
-      message: values.experience || "",
-      status: "pending",
+      message: values.experience ||"",
+      status:"pending",
     });
 
     if (error) {
@@ -94,10 +94,10 @@ export function VolunteerForm() {
           <CheckCircle2 className="w-6 h-6 text-status-active" />
         </div>
         <div className="space-y-2">
-          <h3 className="font-sans text-heading-md font-semibold text-ink-900">
+          <h3 className="font-sans text-heading-md font-semibold text-foreground">
             Application Received
           </h3>
-          <p className="text-body-sm text-ink-500 max-w-xs">
+          <p className="text-body-sm text-muted-foreground max-w-xs">
             Our volunteer coordinator will review your profile and be in touch
             shortly.
           </p>
@@ -131,13 +131,13 @@ export function VolunteerForm() {
             name="name"
             render={({ field }) => (
               <FormItem className="space-y-2">
-                <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">
-                  Full Name <span className="text-safety-orange">*</span>
+                <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">
+                  Full Name <span className="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
-                  <Input placeholder="Jane Doe" autoComplete="name" className="rounded-none border-border-default focus-visible:ring-safety-orange" {...field} />
+                  <Input placeholder="Jane Doe" autoComplete="name" className="rounded-sm border-border focus-visible:ring-primary/20" {...field} />
                 </FormControl>
-                <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+                <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
             )}
           />
@@ -146,13 +146,13 @@ export function VolunteerForm() {
             name="email"
             render={({ field }) => (
               <FormItem className="space-y-2">
-                <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">
-                  Email <span className="text-safety-orange">*</span>
+                <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">
+                  Email <span className="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
-                  <Input placeholder="jane@example.com" type="email" autoComplete="email" className="rounded-none border-border-default focus-visible:ring-safety-orange" {...field} />
+                  <Input placeholder="jane@example.com" type="email" autoComplete="email" className="rounded-sm border-border focus-visible:ring-primary/20" {...field} />
                 </FormControl>
-                <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+                <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
             )}
           />
@@ -164,13 +164,13 @@ export function VolunteerForm() {
           name="phone"
           render={({ field }) => (
             <FormItem className="space-y-2">
-              <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">
+              <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">
                 Phone Number
               </FormLabel>
               <FormControl>
-                <Input placeholder="+91 98765 43210" autoComplete="tel" className="rounded-none border-border-default focus-visible:ring-safety-orange" {...field} />
+                <Input placeholder="+91 98765 43210" autoComplete="tel" className="rounded-sm border-border focus-visible:ring-primary/20" {...field} />
               </FormControl>
-              <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+              <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
             </FormItem>
           )}
         />
@@ -182,14 +182,14 @@ export function VolunteerForm() {
           render={() => (
             <FormItem className="space-y-4">
               <div>
-                <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">
-                  Areas of Interest <span className="text-safety-orange">*</span>
+                <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">
+                  Areas of Interest <span className="text-destructive">*</span>
                 </FormLabel>
-                <p className="font-sans text-role-body-sm text-ink-500 mt-1">
+                <p className="font-sans text-base-sm text-muted-foreground mt-1">
                   Select all that apply.
                 </p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border border-border-default *:border-b *:border-r *:border-border-default bg-surface">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border border-border *:border-b *:border-r *:border-border bg-card rounded-sm overflow-hidden">
                 {areasOfInterest.map((item) => (
                   <FormField
                     key={item.id}
@@ -200,16 +200,17 @@ export function VolunteerForm() {
                       return (
                         <FormItem key={item.id} className="space-y-0">
                           <FormLabel
-                            className={`flex items-center gap-3 p-4 cursor-pointer transition-colors font-sans text-role-body-sm font-normal ${
+                            className={`flex items-center gap-3 p-4 cursor-pointer transition-colors font-sans text-base-sm font-normal ${
                               isChecked
-                                ? "bg-safety-orange text-ink-900"
-                                : "text-ink-700 hover:bg-paper"
+                                ? "bg-primary/10 text-primary"
+                                : "text-foreground hover:bg-muted/40"
                             }`}
                           >
                             <FormControl>
                               <Checkbox
                                 checked={isChecked}
-                                className="rounded-none border-ink-900 data-[state=checked]:bg-ink-900 data-[state=checked]:text-safety-orange"
+                                aria-label={item.label}
+                                className="rounded-xs border-border data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
                                 onCheckedChange={(checked) => {
                                   return checked
                                     ? field.onChange([...field.value, item.id])
@@ -229,7 +230,7 @@ export function VolunteerForm() {
                   />
                 ))}
               </div>
-              <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+              <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
             </FormItem>
           )}
         />
@@ -240,17 +241,17 @@ export function VolunteerForm() {
           name="experience"
           render={({ field }) => (
             <FormItem className="space-y-2">
-              <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">
+              <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">
                 Relevant Experience
               </FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="Tell us about any previous volunteering or relevant professional experience..."
-                  className="min-h-32 rounded-none border-border-default focus-visible:ring-safety-orange"
+                  className="min-h-32 rounded-sm border-border focus-visible:ring-primary/20"
                   {...field}
                 />
               </FormControl>
-              <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+              <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
             </FormItem>
           )}
         />
@@ -259,10 +260,10 @@ export function VolunteerForm() {
         <div className="pt-4">
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-ink-900 text-paper font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-safety-orange hover:text-ink-900"
+            className="w-full flex items-center justify-center gap-2 h-10 px-5 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium transition-colors rounded-sm shadow-xs"
           >
-            <span>Submit Application</span>
-            <ArrowRight className="size-4" />
+            <span>Apply Now</span>
+            <ArrowRight className="size-3.5" />
           </button>
         </div>
       </form>

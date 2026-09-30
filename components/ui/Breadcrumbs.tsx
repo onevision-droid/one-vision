@@ -5,9 +5,9 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import React from "react";
-import { cn } from "@/lib/utils";
+} from"@/components/ui/breadcrumb";
+import React from"react";
+import { cn } from"@/lib/utils";
 
 export interface BreadcrumbLinkProps {
   label: string;

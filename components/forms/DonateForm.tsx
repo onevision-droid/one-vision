@@ -1,11 +1,11 @@
 "use client";
 
-import { supabase } from "@/lib/supabase/client";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { Button } from "@/components/ui/button";
+import { supabase } from"@/lib/supabase/client";
+import { useState } from"react";
+import { useForm } from"react-hook-form";
+import { zodResolver } from"@hookform/resolvers/zod";
+import * as z from"zod";
+import { Button } from"@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -13,19 +13,17 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { ArrowRight, Lock } from "lucide-react";
-import { trackEvent } from "@/lib/analytics/trackEvent";
-import { cn } from "@/lib/utils";
-
-const donationAmounts = [500, 1000, 2500, 5000];
+} from"@/components/ui/form";
+import { Input } from"@/components/ui/input";
+import { ArrowRight, Lock } from"lucide-react";
+import { trackEvent } from"@/lib/analytics/trackEvent";
+import { cn } from"@/lib/utils";
 
 const formSchema = z.object({
-  frequency: z.enum(["one-time", "monthly"]),
-  amount: z.string().min(1, "Please select or enter an amount."),
-  firstName: z.string().min(2, "First name must be at least 2 characters."),
-  lastName: z.string().min(2, "Last name must be at least 2 characters."),
+  frequency: z.enum(["one-time","monthly"]),
+  amount: z.string().min(1,"Please select or enter an amount."),
+  firstName: z.string().min(2,"First name must be at least 2 characters."),
+  lastName: z.string().min(2,"Last name must be at least 2 characters."),
   email: z.string().email("Please provide a valid email address."),
   pan: z.string().optional(),
 });
@@ -33,7 +31,7 @@ const formSchema = z.object({
 export function DonateForm({
   onSubmitOverride,
   recurringEnabled = false,
-  allocationPreference = "general",
+  allocationPreference ="general",
 }: {
   onSubmitOverride?: (values: z.infer<typeof formSchema>) => void;
   recurringEnabled?: boolean;
@@ -45,12 +43,12 @@ export function DonateForm({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      frequency: "one-time",
-      amount: "",
-      firstName: "",
-      lastName: "",
-      email: "",
-      pan: "",
+      frequency:"one-time",
+      amount:"",
+      firstName:"",
+      lastName:"",
+      email:"",
+      pan:"",
     },
   });
 
@@ -89,9 +87,9 @@ export function DonateForm({
 
   if (isSubmitted) {
     return (
-      <div className="bg-surface p-8 border border-border-default text-center space-y-4">
-        <h3 className="font-sans text-heading-lg font-semibold text-ink-900">Proceeding to Gateway...</h3>
-        <p className="font-sans text-ink-500">
+      <div className="bg-muted p-8 border border-border text-center space-y-4">
+        <h3 className="font-sans text-heading-lg font-semibold text-foreground">Proceeding to Gateway...</h3>
+        <p className="font-sans text-muted-foreground">
           In a live environment, you would be redirected to a secure payment provider.
         </p>
         <Button variant="secondary" onClick={() => setIsSubmitted(false)} className="mt-4">
@@ -107,8 +105,8 @@ export function DonateForm({
         
         {/* Section 1: Amount Selection */}
         <div className="space-y-8">
-          <div className="flex items-center justify-between border-b border-border-default pb-4">
-            <h2 className="font-serif text-3xl font-light text-ink-900">1. Select Amount</h2>
+          <div className="flex items-center justify-between border-b border-border pb-4">
+            <h2 className="font-serif text-3xl font-light text-foreground">1. Select Contribution</h2>
           </div>
           
           <FormField
@@ -117,13 +115,13 @@ export function DonateForm({
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <div className="grid grid-cols-2 gap-0 border border-border-default bg-surface *:border-r last:*:border-r-0 *:border-border-default">
+                  <div className="grid grid-cols-2 gap-0 border border-border bg-muted/40 rounded-sm overflow-hidden *:border-r last:*:border-r-0 *:border-border">
                     <button
                       type="button"
                       onClick={() => field.onChange("one-time")}
                       className={cn(
-                        "px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors",
-                        field.value === "one-time" ? "bg-safety-orange text-ink-900" : "text-ink-500 hover:bg-paper"
+                        "px-4 py-2.5 font-sans text-xs font-medium transition-colors",
+                        field.value === "one-time" ? "bg-primary text-primary-foreground shadow-xs" : "text-muted-foreground hover:bg-background"
                       )}
                     >
                       One-time
@@ -138,46 +136,57 @@ export function DonateForm({
                       disabled={!recurringEnabled}
                       title={!recurringEnabled ? "Monthly recurring giving is coming soon" : undefined}
                       className={cn(
-                        "px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors",
+                        "px-4 py-2.5 font-sans text-xs font-medium transition-colors",
                         field.value === "monthly"
-                          ? "bg-safety-orange text-ink-900"
-                          : "text-ink-500 hover:bg-paper",
-                        !recurringEnabled && "opacity-50 cursor-not-allowed hover:bg-surface"
+                          ? "bg-primary text-primary-foreground shadow-xs"
+                          : "text-muted-foreground hover:bg-background",
+                        !recurringEnabled && "opacity-50 cursor-not-allowed hover:bg-transparent"
                       )}
                     >
-                      Monthly {!recurringEnabled && <span className="text-[9px] text-ink-400 ml-1">(Soon)</span>}
+                      Monthly {!recurringEnabled && <span className="text-[10px] text-muted-foreground ml-1">(Soon)</span>}
                     </button>
                   </div>
                 </FormControl>
-                <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+                <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
             )}
           />
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border border-border-default *:border-r *:border-b md:*:border-b-0 last:*:border-r-0 *:border-border-default bg-surface">
-            {donationAmounts.map((amt) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-border rounded-sm overflow-hidden *:border-b sm:*:border-b-0 *:border-r last:*:border-r-0 *:border-border bg-card">
+            {[
+              { amount: 500, impact: "Maternal Health Kit" },
+              { amount: 1000, impact: "Clinic Medicine Supply" },
+              { amount: 2500, impact: "Youth Lab Toolkit" },
+              { amount: 5000, impact: "Solar Power Hub Node" },
+            ].map((preset) => (
               <button
-                key={amt}
+                key={preset.amount}
                 type="button"
                 className={cn(
-                  "py-6 text-2xl font-serif transition-colors",
-                  selectedPreset === amt 
-                    ? "bg-ink-900 text-paper" 
-                    : "text-ink-900 hover:bg-paper"
+                  "p-5 flex flex-col items-center justify-center text-center transition-all duration-200",
+                  selectedPreset === preset.amount 
+                    ? "bg-primary text-primary-foreground shadow-xs" 
+                    : "text-foreground hover:bg-muted/40"
                 )}
                 onClick={() => {
-                  setSelectedPreset(amt);
-                  form.setValue("amount", amt.toString(), { shouldValidate: true });
-                  trackEvent("donate_start", { amount: amt, frequency: form.getValues("frequency") });
+                  setSelectedPreset(preset.amount);
+                  form.setValue("amount", preset.amount.toString(), { shouldValidate: true });
+                  trackEvent("donate_start", { amount: preset.amount, frequency: form.getValues("frequency") });
                 }}
               >
-                ₹{amt.toLocaleString()}
+                <span className="text-2xl font-serif tracking-tight mb-1">₹{preset.amount.toLocaleString()}</span>
+                <span className={cn(
+                  "text-[11px] font-sans font-light leading-tight",
+                  selectedPreset === preset.amount ? "text-primary-foreground/90" : "text-muted-foreground"
+                )}>
+                  {preset.impact}
+                </span>
               </button>
             ))}
           </div>
 
-          <p className="font-sans text-role-body-sm text-ink-500 font-light border-l-2 border-safety-orange pl-4">
-            Fee transparency: 100% of your donation is allocated to community relief. Processing fees (~2%) are absorbed by foundation reserves.
+          <p className="font-sans text-body-sm text-muted-foreground font-light border-l-2 border-primary pl-4 leading-relaxed">
+            100% of your donation is deployed directly into frontline healthcare, youth initiatives, and community relief in Manipur. All transaction costs are absorbed by organizational reserves.
           </p>
           
           <FormField
@@ -185,16 +194,16 @@ export function DonateForm({
             name="amount"
             render={({ field }) => (
               <FormItem className="space-y-2">
-                <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">Or enter a custom amount (INR)</FormLabel>
+                <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">Or enter a custom donation amount (INR)</FormLabel>
                 <FormControl>
                   <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 font-sans font-medium text-ink-500">₹</span>
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 font-sans font-medium text-muted-foreground">₹</span>
                     <Input 
                       {...field} 
                       type="number" 
                       min="100" 
-                      placeholder="0" 
-                      className="pl-8 rounded-none border-border-default focus-visible:ring-safety-orange h-14 font-sans text-lg"
+                      placeholder="Custom amount" 
+                      className="pl-8 rounded-sm border-border focus-visible:ring-primary/20 h-14 font-sans text-lg"
                       onChange={(e) => {
                         setSelectedPreset(null);
                         field.onChange(e);
@@ -202,7 +211,7 @@ export function DonateForm({
                     />
                   </div>
                 </FormControl>
-                <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+                <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
             )}
           />
@@ -210,8 +219,8 @@ export function DonateForm({
 
         {/* Section 2: Personal Details */}
         <div className="space-y-8">
-          <div className="flex items-center justify-between border-b border-border-default pb-4">
-            <h2 className="font-serif text-3xl font-light text-ink-900">2. Your Details</h2>
+          <div className="flex items-center justify-between border-b border-border pb-4">
+            <h2 className="font-serif text-3xl font-light text-foreground">2. Your Details</h2>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -220,11 +229,11 @@ export function DonateForm({
               name="firstName"
               render={({ field }) => (
                 <FormItem className="space-y-2">
-                  <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">First Name <span className="text-safety-orange">*</span></FormLabel>
+                  <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">First Name <span className="text-destructive">*</span></FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Jane" autoComplete="given-name" className="rounded-none border-border-default focus-visible:ring-safety-orange h-12" />
+                    <Input {...field} placeholder="Jane" autoComplete="given-name" className="rounded-sm border-border focus-visible:ring-primary/20 h-12" />
                   </FormControl>
-                  <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+                  <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
                 </FormItem>
               )}
             />
@@ -233,11 +242,11 @@ export function DonateForm({
               name="lastName"
               render={({ field }) => (
                 <FormItem className="space-y-2">
-                  <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">Last Name <span className="text-safety-orange">*</span></FormLabel>
+                  <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">Last Name <span className="text-destructive">*</span></FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Doe" autoComplete="family-name" className="rounded-none border-border-default focus-visible:ring-safety-orange h-12" />
+                    <Input {...field} placeholder="Doe" autoComplete="family-name" className="rounded-sm border-border focus-visible:ring-primary/20 h-12" />
                   </FormControl>
-                  <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+                  <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
                 </FormItem>
               )}
             />
@@ -248,11 +257,11 @@ export function DonateForm({
             name="email"
             render={({ field }) => (
               <FormItem className="space-y-2">
-                <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">Email Address (for tax receipt) <span className="text-safety-orange">*</span></FormLabel>
+                <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">Email Address (for 80G tax receipt) <span className="text-destructive">*</span></FormLabel>
                 <FormControl>
-                  <Input {...field} type="email" placeholder="jane@example.com" autoComplete="email" className="rounded-none border-border-default focus-visible:ring-safety-orange h-12" />
+                  <Input {...field} type="email" placeholder="jane@example.com" autoComplete="email" className="rounded-sm border-border focus-visible:ring-primary/20 h-12" />
                 </FormControl>
-                <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+                <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
             )}
           />
@@ -262,24 +271,24 @@ export function DonateForm({
             name="pan"
             render={({ field }) => (
               <FormItem className="space-y-2">
-                <FormLabel className="font-mono text-[10px] font-bold text-ink-900 uppercase tracking-widest block">PAN Number (Required for 80G Exemption)</FormLabel>
+                <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">PAN Number (Required for 80G Tax Exemption Certificate)</FormLabel>
                 <FormControl>
-                  <Input {...field} className="uppercase rounded-none border-border-default focus-visible:ring-safety-orange h-12" placeholder="ABCDE1234F" />
+                  <Input {...field} className="uppercase rounded-sm border-border focus-visible:ring-primary/20 h-12" placeholder="ABCDE1234F" />
                 </FormControl>
-                <FormMessage className="font-mono text-[10px] text-safety-orange uppercase" />
+                <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
             )}
           />
         </div>
 
         {/* Submit Action */}
-        <div className="pt-8">
-          <button type="submit" className="w-full flex items-center justify-center gap-2 px-8 py-5 bg-ink-900 text-paper font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-safety-orange hover:text-ink-900">
-            <span>Proceed to Payment</span>
-            <ArrowRight className="size-4" />
+        <div className="pt-6">
+          <button type="submit" className="w-full flex items-center justify-center gap-2 h-10 px-5 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium transition-colors rounded-sm shadow-xs">
+            <span>Donate</span>
+            <ArrowRight className="size-3.5" />
           </button>
-          <p className="text-center font-mono text-[10px] text-ink-500 mt-6 flex items-center justify-center gap-2 uppercase tracking-widest font-bold">
-            <Lock className="size-3" /> Payments are securely processed via certified gateway.
+          <p className="text-center font-mono text-[10px] text-muted-foreground mt-6 flex items-center justify-center gap-2 uppercase tracking-widest font-bold">
+            <Lock className="size-3" /> Secure 256-Bit Encrypted Giving · Official 80G Receipt Issued
           </p>
         </div>
       </form>
