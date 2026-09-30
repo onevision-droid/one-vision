@@ -82,5 +82,8 @@
     "vite": "latest",
     "vitest": "^5.0.1"
   },
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "packageManager": "pnpm@11.25.0"
 }
