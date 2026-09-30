@@ -1,16 +1,16 @@
-import { Metadata } from"next";
-import { Section, Container } from"@/components/layout/Shell";
-import { Breadcrumbs } from"@/components/ui/Breadcrumbs";
-import { Badge } from"@/components/ui/badge";
-import { Ledger, LedgerRow } from"@/components/composition/Ledger";
-import { Button } from"@/components/ui/button";
-import { Tables } from"@/lib/supabase/database.types";
-import { Download } from"lucide-react";
-import { supabase } from"@/lib/supabase/client";
+import { Metadata } from "next";
+import { Section, Container } from "@/components/layout/Shell";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { Badge } from "@/components/ui/badge";
+import { Ledger, LedgerRow } from "@/components/composition/Ledger";
+import { Button } from "@/components/ui/button";
+import { Tables } from "@/lib/supabase/database.types";
+import { Download } from "lucide-react";
+import { supabase } from "@/lib/supabase/client";
 
 export const metadata: Metadata = {
-  title:"Open Ledger | One Vision",
-  description:"Transparent view of our fund allocations and impact.",
+  title: "Open Ledger | One Vision",
+  description: "Transparent view of our fund allocations and impact.",
 };
 
 export const revalidate = 3600;
@@ -35,23 +35,23 @@ export default async function OpenLedgerPage() {
 
   return (
     <div className="flex flex-col w-full bg-background">
-      <Section tone="default" className="pt-24 pb-8 md:pt-26 md:pb-12 lg:pt-28 lg:pb-14 border-b border-border">
+      <Section tone="default" className="pt-24 pb-12 md:pt-28 md:pb-16 lg:pt-32 lg:pb-20">
         <Container>
           <div className="max-w-4xl mx-auto space-y-6">
-            <Breadcrumbs items={[{ label:"Reports", href:"/reports" }, { label:"Open Ledger", href:"/open-ledger" }]} />
+            <Breadcrumbs items={[{ label: "Reports", href: "/reports" }, { label: "Open Ledger", href: "/open-ledger" }]} />
             
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
               <div>
                 <Badge className="mb-4">Financial Transparency</Badge>
-                <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-foreground leading-[1.1] mb-4">
+                <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-foreground leading-tight mb-4">
                   Open Ledger
                 </h1>
-                <p className="text-body-lg text-muted-foreground font-light leading-relaxed max-w-2xl">
+                <p className="font-sans text-base sm:text-lg text-muted-foreground font-light leading-relaxed max-w-2xl">
                   We believe in radical transparency. Every rupee we receive is accounted for. Here is our verified ledger of fund allocations across communities, reconciled and updated hourly.
                 </p>
               </div>
               
-              <Button variant="secondary" className="gap-2 shrink-0" nativeButton={false} render={<a href="/api/download-ledger" />}>
+              <Button variant="secondary" className="gap-2 shrink-0 font-sans text-xs" nativeButton={false} render={<a href="/api/download-ledger" />}>
                 <Download className="size-3.5" />
                 Export CSV
               </Button>

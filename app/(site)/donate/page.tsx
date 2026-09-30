@@ -58,9 +58,9 @@ export default async function DonatePage(
                 </p>
                 <Link
                   href="/contact"
-                  className="font-sans text-xs font-medium uppercase tracking-wider text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1.5"
+                  className="font-sans text-xs font-medium uppercase tracking-wider text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1.5 min-h-10 py-2"
                 >
-                  <span>Inquire about physical drop-offs</span> &rarr;
+                  <span>Inquire</span> &rarr;
                 </Link>
               </div>
 

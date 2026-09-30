@@ -69,12 +69,12 @@ export function ConsentNotice() {
  >
  Accept
  </Button>
- <Link
- href="/privacy"
- className="text-caption font-medium text-primary hover:text-primary/80 underline underline-offset-4 px-2"
- >
- Privacy Policy
- </Link>
+          <Link
+            href="/privacy"
+            className="text-caption font-medium text-primary hover:text-primary/80 underline underline-offset-4 px-2 min-h-10 inline-flex items-center"
+          >
+            Privacy Policy
+          </Link>
  </div>
  </div>
  </aside>

@@ -59,31 +59,31 @@ export default function ContactPage() {
 
                 <div className="space-y-8 border-l-2 border-primary/30 ml-4 relative">
                   <div className="relative pl-8">
-                    <span className="absolute -left-3 top-0.5 size-6 bg-background border border-border rounded-full flex items-center justify-center font-mono text-primary font-bold text-xs">
+                    <span className="absolute -left-3 top-0.5 size-6 bg-background border border-border rounded-sm flex items-center justify-center font-mono text-primary font-bold text-xs">
                       #
                     </span>
                     <h4 className="font-mono text-[10px] font-bold text-muted-foreground mb-1 mt-1 uppercase tracking-widest">
                       Field Office Line
                     </h4>
-                    <a href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, '')}`} className="font-sans text-base font-medium text-foreground hover:text-primary transition-colors block">
+                    <a href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, '')}`} className="font-sans text-base font-medium text-foreground hover:text-primary transition-colors min-h-10 flex items-center">
                       {siteSettings.contactPhone}
                     </a>
                   </div>
 
                   <div className="relative pl-8">
-                    <span className="absolute -left-3 top-0.5 size-6 bg-background border border-border rounded-full flex items-center justify-center font-mono text-primary font-bold text-xs">
+                    <span className="absolute -left-3 top-0.5 size-6 bg-background border border-border rounded-sm flex items-center justify-center font-mono text-primary font-bold text-xs">
                       @
                     </span>
                     <h4 className="font-mono text-[10px] font-bold text-muted-foreground mb-1 mt-1 uppercase tracking-widest">
-                      Official Email
+                       Official Email
                     </h4>
-                    <a href={`mailto:${siteSettings.contactEmail}`} className="font-sans text-base font-medium text-foreground hover:text-primary transition-colors block">
+                    <a href={`mailto:${siteSettings.contactEmail}`} className="font-sans text-base font-medium text-foreground hover:text-primary transition-colors min-h-10 flex items-center">
                       {siteSettings.contactEmail}
                     </a>
                   </div>
 
                   <div className="relative pl-8">
-                    <span className="absolute -left-3 top-0.5 size-6 bg-background border border-border rounded-full flex items-center justify-center font-mono text-primary font-bold text-xs">
+                    <span className="absolute -left-3 top-0.5 size-6 bg-background border border-border rounded-sm flex items-center justify-center font-mono text-primary font-bold text-xs">
                       *
                     </span>
                     <h4 className="font-mono text-[10px] font-bold text-muted-foreground mb-1 mt-1 uppercase tracking-widest">
@@ -109,7 +109,7 @@ export default function ContactPage() {
                     href="/get-help"
                     className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground text-xs font-medium uppercase tracking-wider px-5 py-2.5 rounded-sm hover:bg-primary/90 transition-colors shadow-2xs"
                   >
-                    <span>Community Care Desk</span>
+                    <span>Care Desk</span>
                     <ArrowRight className="size-3.5" />
                   </Link>
                 </div>

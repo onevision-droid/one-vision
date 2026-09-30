@@ -26,7 +26,7 @@ export function FAQ({
   tone ="default",
 }: FAQProps) {
   return (
-    <Section tone={tone} className="border-t border-border">
+    <Section tone={tone}>
       <Container>
         <div className="flex flex-col lg:flex-row border border-border bg-muted">
           <div className="w-full lg:w-5/12 flex flex-col p-6 md:p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-border">
@@ -43,7 +43,7 @@ export function FAQ({
                 Have a different question?{" "}
                 <Link
                   href="/contact"
-                  className="font-medium text-foreground hover:text-primary underline underline-offset-4 transition-colors"
+                  className="font-medium text-foreground hover:text-primary underline underline-offset-4 transition-colors py-1.5 inline-block"
                 >
                   Contact us
                 </Link>

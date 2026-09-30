@@ -33,7 +33,7 @@ export default function AboutPage() {
       />
 
       {/* Trust Panel (Document Shell via SplitNarrative) */}
-      <div className="w-full bg-background border-b border-border">
+      <div className="w-full bg-background">
         <SplitNarrative
           heading={
             <>
@@ -129,7 +129,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Structure & People */}
-      <Section tone="default" className="border-t border-border">
+      <Section tone="default">
         <Container>
           <div className="flex flex-col">
             <div className="px-6 py-4 md:px-8 md:py-6 border border-b-0 border-border bg-muted">

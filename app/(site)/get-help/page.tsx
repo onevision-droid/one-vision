@@ -26,7 +26,7 @@ const contactChannels = [
     value: siteSettings.contactPhone,
     description:
       "Direct line to our primary clinic navigators and field emergency support desk in Imphal.",
-    action: "Call Community Desk",
+    action: "Call",
     href: `tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`,
     primary: true,
   },
@@ -37,7 +37,7 @@ const contactChannels = [
     value: siteSettings.contactEmail,
     description:
       "For family assistance queries, clinic visits, and local community coordinator requests.",
-    action: "Send Request",
+    action: "Email",
     href: `mailto:${siteSettings.contactEmail}`,
     primary: false,
   },
@@ -60,7 +60,7 @@ export default function ContactPage() {
       />
 
       {/* 2. Notice */}
-      <Section tone="alt" className="border-b border-border">
+      <Section tone="alt">
         <Container>
           <div className="flex flex-col md:flex-row md:items-center gap-6 p-6 md:p-8 lg:p-10 border border-border bg-card">
             <div className="size-14 shrink-0 bg-primary/10 text-primary border border-primary/20 flex items-center justify-center rounded-sm">
@@ -82,7 +82,7 @@ export default function ContactPage() {
       </Section>
 
       {/* 3. Channels */}
-      <Section tone="default" className="py-12 md:py-16">
+      <Section tone="default">
         <Container>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 sm:mb-10">
             <div>

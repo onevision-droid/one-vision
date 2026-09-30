@@ -1,34 +1,34 @@
-import React from"react";
-import Link from"next/link";
-import { ArrowRight } from"lucide-react";
-import { Section, Container } from"@/components/layout/Shell";
+import React from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Section, Container } from "@/components/layout/Shell";
 
 const keyFacts = [
   {
-    stat:"CLIMATE",
-    label:"Extreme Weather",
-    detail:"Floods and landslides threaten communities, homes, and everyday livelihoods.",
+    stat: "CLIMATE",
+    label: "Extreme Weather",
+    detail: "Floods and landslides threaten communities, homes, and everyday livelihoods.",
   },
   {
-    stat:"ECOLOGY",
-    label:"Environmental Stress",
-    detail:"Pollution and degradation threaten clean air, water, and natural infrastructure.",
+    stat: "ECOLOGY",
+    label: "Environmental Stress",
+    detail: "Pollution and degradation threaten clean air, water, and natural infrastructure.",
   },
   {
-    stat:"YOUTH",
-    label:"Future Skills",
-    detail:"Young people need practical pathways and mentorship into new digital industries.",
+    stat: "YOUTH",
+    label: "Future Skills",
+    detail: "Young people need practical pathways and mentorship into new digital industries.",
   },
   {
-    stat:"COMMUNITY",
-    label:"Access to Services",
-    detail:"Communities need better access to reliable information, services and opportunities.",
+    stat: "COMMUNITY",
+    label: "Access to Services",
+    detail: "Communities need better access to reliable information, services and opportunities.",
   },
 ];
 
 export function WhatWeDo() {
   return (
-    <Section tone="default" className="border-t border-border py-8 lg:py-14 bg-background">
+    <Section tone="default" className="bg-background">
       <Container>
         <div className="grid lg:grid-cols-2 items-stretch border border-border bg-muted">
           {/* Left: Context Statement */}
@@ -39,12 +39,12 @@ export function WhatWeDo() {
                 Community Reality in Manipur
               </span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light leading-[0.95] tracking-tight mb-6 text-foreground">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light leading-tight tracking-tight mb-6 text-foreground">
               The challenges are evolving.<br />
               Our grassroots response must meet them.
             </h2>
             
-            <div className="space-y-6 text-lg text-muted-foreground font-light leading-relaxed flex-1">
+            <div className="space-y-6 text-base sm:text-lg text-muted-foreground font-light leading-relaxed flex-1">
               <p>
                 Manipur has extraordinary cultural heritage, vibrant communities, and young people eager to build a brighter future.
               </p>
@@ -56,7 +56,7 @@ export function WhatWeDo() {
               </p>
             </div>
 
-            <div className="mt-12 pt-8 border-t border-border">
+            <div className="mt-10 pt-6 border-t border-border">
               <Link 
                 href="/about"
                 className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-xs transition-colors duration-300 w-fit rounded-sm"
@@ -72,17 +72,17 @@ export function WhatWeDo() {
             {keyFacts.map((fact, index) => (
               <div
                 key={fact.label}
-                className={`flex-1 p-8 lg:p-10 flex flex-col justify-center transition-colors hover:bg-muted/50 ${index < 3 ? 'border-b border-border' : ''}`}
+                className={`flex-1 p-6 lg:p-8 flex flex-col justify-center transition-colors hover:bg-muted/50 ${index < 3 ? 'border-b border-border' : ''}`}
               >
                 <div className="flex items-baseline justify-between gap-4 mb-2">
-                  <h3 className="font-serif text-2xl sm:text-3xl leading-snug tracking-tight text-foreground font-light">
+                  <h3 className="font-serif text-xl sm:text-2xl leading-snug tracking-tight text-foreground font-light">
                     {fact.label}
                   </h3>
                   <span className="font-sans text-xs uppercase tracking-wider font-semibold text-primary shrink-0">
                     {fact.stat}
                   </span>
                 </div>
-                <p className="font-sans text-base text-muted-foreground leading-relaxed max-w-md">
+                <p className="font-sans text-sm text-muted-foreground leading-relaxed max-w-md font-light">
                   {fact.detail}
                 </p>
               </div>

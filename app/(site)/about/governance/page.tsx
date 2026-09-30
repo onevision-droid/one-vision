@@ -98,7 +98,7 @@ export default function GovernancePage() {
   return (
     <div className="flex flex-col w-full bg-muted pt-20">
       {/* Intro Section */}
-      <Section tone="default" className="relative overflow-hidden py-16 md:py-20 border-b border-border">
+      <Section tone="default" className="relative overflow-hidden">
         <HalftoneBackground />
         <Container className="relative z-10">
           <div className="mb-6">
@@ -108,10 +108,10 @@ export default function GovernancePage() {
             <Badge className="mb-6">
               Governance & Leadership
             </Badge>
-            <h1 className="font-sans text-display-lg md:text-display-lg font-light leading-none tracking-tight text-foreground mb-8">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light leading-tight tracking-tight text-foreground mb-6">
               Accountable.<br/> Community-led.
             </h1>
-            <p className="font-sans text-body-lg text-muted-foreground leading-relaxed font-light max-w-2xl">
+            <p className="font-sans text-base sm:text-lg text-muted-foreground leading-relaxed font-light max-w-2xl">
               Committed to transparency, accountability, and making decisions that are rooted in the lived realities of the communities we serve in Manipur.
             </p>
           </div>
@@ -119,13 +119,13 @@ export default function GovernancePage() {
       </Section>
 
       {/* Leadership Grid */}
-      <Section tone="default" className="py-16 border-b border-border">
+      <Section tone="default">
         <Container>
-          <div className="mb-16 max-w-2xl">
-            <h2 className="font-sans text-display-md font-light tracking-tight mb-6 text-foreground">
+          <div className="mb-12 max-w-2xl">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light tracking-tight mb-4 text-foreground">
               Our Leadership
             </h2>
-            <p className="font-sans text-body-lg max-w-prose  text-muted-foreground leading-relaxed">
+            <p className="font-sans text-base sm:text-lg text-muted-foreground font-light leading-relaxed">
               Our board and executive team bring decades of experience in healthcare, education, and community resilience within Manipur and beyond.
             </p>
           </div>
@@ -147,7 +147,7 @@ export default function GovernancePage() {
       </Section>
 
       {/* Institutional Timeline */}
-      <Section tone="default" className="py-16 border-b border-border">
+      <Section tone="default">
         <Container>
           <Timeline
             heading="Institutional Journey & Milestones"
@@ -158,11 +158,11 @@ export default function GovernancePage() {
       </Section>
 
       {/* Policies */}
-      <Section tone="alt" id="safeguarding" className="py-16">
+      <Section tone="alt" id="safeguarding">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8">
             <div className="lg:col-span-1">
-              <h2 className="font-sans text-heading-xl font-medium tracking-tight mb-6 text-foreground">
+              <h2 className="font-serif text-2xl sm:text-3xl font-light tracking-tight mb-4 text-foreground">
                 Key Policies
               </h2>
               <p className="font-sans text-body-lg max-w-prose  text-muted-foreground leading-relaxed mb-8">

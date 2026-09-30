@@ -28,7 +28,7 @@ export default function ProgrammesPage() {
         imageAlt="Community initiative participants working together in Manipur"
       />
 
-      <Section tone="alt" className="py-8 lg:py-12 border-b border-border">
+      <Section tone="alt">
         <Container>
           <ProgrammeFilter programmes={programmes} />
         </Container>

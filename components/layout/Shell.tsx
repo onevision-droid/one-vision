@@ -1,25 +1,25 @@
-import * as React from"react";
-import { cn } from"@/lib/utils";
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
-export type SectionTone ="default" |"alt" |"inverted";
+export type SectionTone = "default" | "alt" | "inverted";
 
 export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   /**
    * The semantic tone of the section, determining background and text colors.
-   * @default"default"
+   * @default "default"
    */
   tone?: SectionTone;
 }
 
 /**
- * Section wrapper enforcing the strict padding rules: 96px desktop / 64px mobile.
+ * Section wrapper enforcing Nordic Lagom vertical rhythm: py-12 md:py-16 lg:py-20.
  */
 export const Section = React.forwardRef<HTMLElement, SectionProps>(
-  ({ tone ="default", className, children, ...props }, ref) => {
+  ({ tone = "default", className, children, ...props }, ref) => {
     const toneClasses = {
-      default:"bg-background text-foreground",
-      alt:"bg-muted text-foreground",
-      inverted:"bg-foreground text-background",
+      default: "bg-background text-foreground",
+      alt: "bg-muted text-foreground",
+      inverted: "bg-foreground text-background",
     };
 
     return (
@@ -27,7 +27,7 @@ export const Section = React.forwardRef<HTMLElement, SectionProps>(
         ref={ref}
         data-tone={tone}
         className={cn(
-         "py-10 md:py-12 lg:py-14 overflow-hidden",
+          "py-12 md:py-16 lg:py-20",
           toneClasses[tone],
           className
         )}
@@ -38,7 +38,7 @@ export const Section = React.forwardRef<HTMLElement, SectionProps>(
     );
   }
 );
-Section.displayName ="Section";
+Section.displayName = "Section";
 
 export type ContainerProps = React.HTMLAttributes<HTMLDivElement>;
 
@@ -51,7 +51,7 @@ export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
       <div
         ref={ref}
         className={cn(
-         "mx-auto w-full max-w-container px-4 sm:px-6 lg:px-8",
+          "mx-auto w-full max-w-container px-4 sm:px-6 lg:px-8",
           className
         )}
         {...props}
@@ -61,4 +61,4 @@ export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
     );
   }
 );
-Container.displayName ="Container";
+Container.displayName = "Container";

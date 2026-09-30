@@ -10,11 +10,10 @@ import { Search, ArrowRight, Menu, X, Phone, MessageSquare } from"lucide-react";
 import { siteSettings } from"@/lib/data/site-settings";
 
 const navLinks = [
-  { href: "/programmes", label: "Our Programmes" },
-  { href: "/stories", label: "Community Stories" },
-  { href: "/open-ledger", label: "Transparency" },
-  { href: "/volunteer", label: "Volunteer" },
-  { href: "/about", label: "About Us" },
+  { href: "/programmes", label: "Programmes" },
+  { href: "/stories", label: "Stories" },
+  { href: "/about", label: "About" },
+  { href: "/volunteer", label: "Get Involved" },
   { href: "/get-help", label: "Contact" },
 ];
 
@@ -124,7 +123,7 @@ export function SiteHeader() {
           {/* Logo & Brand Identity */}
           <Link
             href="/"
-            className="flex items-center shrink-0 mr-6 sm:mr-8 group focus-visible:outline-2 focus-visible:outline-ring"
+            className="flex items-center shrink-0 mr-6 sm:mr-8 group focus-visible:outline-2 focus-visible:outline-ring min-h-11"
             aria-label="One Vision home"
           >
             <Logo />
@@ -179,20 +178,12 @@ export function SiteHeader() {
 
           {/* Header Right Actions */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            {/* Quick Community Help Shortcut */}
-            <Link
-              href="/get-help"
-              className="hidden xl:inline-flex items-center text-xs font-medium text-muted-foreground hover:text-foreground transition-colors mr-1"
-            >
-              Need Help?
-            </Link>
-
             {/* Search Trigger with Keyboard Shortcut */}
             <motion.button
               whileTap={{ scale: 0.97 }}
               onClick={() => setSearchOpen(true)}
               aria-label="Search site (Press Ctrl+K or Cmd+K)"
-              className="flex items-center gap-2 px-2.5 py-1.5 border border-border bg-muted/60 hover:bg-muted hover:border-foreground transition-colors text-muted-foreground hover:text-foreground cursor-pointer rounded-[2px]"
+              className="flex items-center gap-2 px-2.5 py-2 min-h-9.5 border border-border bg-muted/60 hover:bg-muted hover:border-foreground transition-colors text-muted-foreground hover:text-foreground cursor-pointer rounded-[2px]"
             >
               <Search className="size-3.5" aria-hidden="true" />
               <span className="hidden xl:inline font-sans text-xs text-muted-foreground">

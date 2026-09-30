@@ -95,9 +95,9 @@ export function FloatingAgentChat() {
               onClick={() => setIsOpen(true)}
               aria-label="Open Community Guide Assistant"
               aria-expanded={false}
-              className="group relative flex items-center gap-2.5 px-3 py-2 sm:px-4 sm:py-2.5 bg-card/95 hover:bg-card text-foreground border border-border/80 hover:border-primary/50 shadow-md hover:shadow-lg backdrop-blur-md rounded-full transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary/40"
+              className="group relative flex items-center gap-2.5 px-3 py-2 sm:px-4 sm:py-2.5 bg-card/95 hover:bg-card text-foreground border border-border/80 hover:border-primary/50 shadow-md hover:shadow-lg backdrop-blur-md rounded-sm transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary/40"
             >
-              <div className="relative flex items-center justify-center size-6 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-200">
+              <div className="relative flex items-center justify-center size-6 rounded-sm bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-200">
                 <Sparkles className="size-3.5" />
               </div>
               <div className="flex items-center gap-2">

@@ -4,6 +4,7 @@ import"./globals.css";
 import { cn } from"@/lib/utils";
 import { SkipLink } from"@/components/ui/SkipLink";
 import { TooltipProvider } from"@/components/ui/tooltip";
+import { DevTooling } from "@/components/providers/DevTooling";
 
 const dmSansHeading = DM_Sans({subsets:['latin'],variable:'--font-heading'});
 
@@ -80,6 +81,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <TooltipProvider>
           {children}
         </TooltipProvider>
+        <DevTooling />
         <script
           dangerouslySetInnerHTML={{
             __html: `if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js')})}`

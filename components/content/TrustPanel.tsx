@@ -78,17 +78,17 @@ export function TrustPanel({ variant ="full", className }: TrustPanelProps) {
         <p className="font-sans text-base text-muted-foreground leading-relaxed group-hover:text-background/70 transition-colors mb-8">
           Governed by local civil society leaders based in Imphal, Manipur. Zero-tolerance safeguarding policies strictly enforced across all operations.
         </p>
-        <div className="flex items-center gap-4 mt-auto pt-4 border-t border-border/50">
+        <div className="flex flex-wrap items-center gap-4 mt-auto pt-4 border-t border-border/50">
           <Link
             href="/about/governance"
-            className="font-mono text-[10px] font-bold uppercase tracking-widest text-foreground group-hover:text-destructive transition-colors"
+            className="font-mono text-[10px] font-bold uppercase tracking-widest text-foreground group-hover:text-destructive transition-colors min-h-10 inline-flex items-center"
           >
             Governance & Board
           </Link>
           <span className="text-muted-foreground group-hover:text-muted-foreground">·</span>
           <Link
             href="/about/governance#safeguarding"
-            className="font-mono text-[10px] font-bold uppercase tracking-widest text-foreground group-hover:text-destructive transition-colors"
+            className="font-mono text-[10px] font-bold uppercase tracking-widest text-foreground group-hover:text-destructive transition-colors min-h-10 inline-flex items-center"
           >
             Safeguarding
           </Link>
@@ -105,7 +105,7 @@ export function TrustPanel({ variant ="full", className }: TrustPanelProps) {
         </p>
         <Link
           href="/reports"
-          className="font-mono text-[10px] font-bold uppercase tracking-widest text-foreground group-hover:text-destructive transition-colors mt-auto pt-4 border-t border-border/50"
+          className="font-mono text-[10px] font-bold uppercase tracking-widest text-foreground group-hover:text-destructive transition-colors mt-auto pt-4 border-t border-border/50 min-h-10 inline-flex items-center"
         >
           Read Latest Annual Report
         </Link>

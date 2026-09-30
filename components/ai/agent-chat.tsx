@@ -242,7 +242,7 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
             {/* Avatar */}
             <div
               className={cn(
-                "size-6 rounded-full shrink-0 flex items-center justify-center font-mono text-[10px] border transition-colors mt-0.5",
+                "size-6 rounded-sm shrink-0 flex items-center justify-center font-mono text-[10px] border transition-colors mt-0.5",
                 msg.role === "user"
                   ? "bg-foreground text-background border-foreground dark:bg-background dark:text-foreground"
                   : "bg-primary/10 text-primary border-primary/20"
@@ -305,10 +305,10 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
         {/* Loading Indicator */}
         {isLoading && (
           <div className="flex gap-2 max-w-2xl mr-auto">
-            <div className="size-6 rounded-full shrink-0 flex items-center justify-center bg-primary/10 text-primary border border-primary/20 mt-0.5">
+            <div className="size-6 rounded-sm shrink-0 flex items-center justify-center bg-primary/10 text-primary border border-primary/20 mt-0.5">
               <Sparkles className="size-3" />
             </div>
-            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-muted/80 border border-border/60 shadow-2xs  dark:border-border">
+            <div className="flex items-center gap-2 px-3 py-2 rounded-sm bg-muted/80 border border-border/60 shadow-2xs dark:border-border">
               <Loader variant="dots" size="sm" />
               <span className="font-mono text-[11px] text-muted-foreground animate-pulse">
                 Thinking...

@@ -209,6 +209,7 @@ export function VolunteerForm() {
                             <FormControl>
                               <Checkbox
                                 checked={isChecked}
+                                aria-label={item.label}
                                 className="rounded-xs border-border data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
                                 onCheckedChange={(checked) => {
                                   return checked

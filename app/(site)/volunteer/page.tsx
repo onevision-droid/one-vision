@@ -74,7 +74,7 @@ export default function VolunteerPage() {
                 alt="Volunteers organizing community projects"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover grayscale mix-blend-luminosity opacity-75 transition-all duration-700 hover:grayscale-0 hover:mix-blend-normal hover:opacity-100"
+                className="object-cover transition-all duration-700 hover:scale-105"
               />
             </div>
           </div>
@@ -122,7 +122,7 @@ export default function VolunteerPage() {
       </Section>
 
       {/* 4. Volunteer Form (Document Shell Layout) */}
-      <Section tone="default" className="border-t border-border">
+      <Section tone="default">
         <Container>
           <div className="border border-border bg-muted">
             <div className="p-6 md:p-10 lg:p-12 border-b border-border bg-background">
@@ -162,7 +162,7 @@ export default function VolunteerPage() {
                       </h4>
                       <Link
                         href={`mailto:${siteSettings.contactEmail}`}
-                        className="font-sans text-base font-medium text-foreground hover:text-primary transition-colors"
+                        className="font-sans text-base font-medium text-foreground hover:text-primary transition-colors min-h-10 inline-flex items-center"
                       >
                         {siteSettings.contactEmail}
                       </Link>
@@ -174,7 +174,7 @@ export default function VolunteerPage() {
                       </h4>
                       <Link
                         href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`}
-                        className="font-sans text-base font-medium text-foreground hover:text-primary transition-colors"
+                        className="font-sans text-base font-medium text-foreground hover:text-primary transition-colors min-h-10 inline-flex items-center"
                       >
                         {siteSettings.contactPhone}
                       </Link>

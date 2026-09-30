@@ -1,16 +1,16 @@
-import { Metadata } from"next";
-import { StoryCard } from"@/components/content/StoryCard";
-import { Section, Container } from"@/components/layout/Shell";
-import { PageHero } from"@/components/composition/PageHero";
-import { QuietClose } from"@/components/composition/QuietClose";
-import Link from"next/link";
-import Image from"next/image";
-import { ArrowRight } from"lucide-react";
-import { stories } from"@/lib/data/stories";
+import { Metadata } from "next";
+import { StoryCard } from "@/components/content/StoryCard";
+import { Section, Container } from "@/components/layout/Shell";
+import { PageHero } from "@/components/composition/PageHero";
+import { QuietClose } from "@/components/composition/QuietClose";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+import { stories } from "@/lib/data/stories";
 
 export const metadata: Metadata = {
-  title:"Stories | One Vision",
-  description:"Long-form stories documenting community resilience, grassroots action, and the people driving change in Imphal and Manipur.",
+  title: "Stories | One Vision",
+  description: "Long-form stories documenting community resilience, grassroots action, and the people driving change in Imphal and Manipur.",
 };
 
 export default function StoriesPage() {
@@ -32,7 +32,7 @@ export default function StoriesPage() {
       />
 
       {/* Featured Story */}
-      <Section tone="default" className="border-t border-border">
+      <Section tone="default">
         <Container>
           <Link href={`/stories/${featured.slug}`} className="group grid grid-cols-1 lg:grid-cols-12 overflow-hidden border border-border bg-card hover:bg-muted/30 transition-colors duration-300">
             {/* Image (7 cols) */}
@@ -56,10 +56,10 @@ export default function StoriesPage() {
                   {new Date(featured.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
                 </time>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-foreground leading-[0.98] mb-4 sm:mb-6 font-light">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight mb-4 sm:mb-6 font-light">
                 {featured.title}
               </h2>
-              <p className="font-sans text-lg text-muted-foreground font-light leading-relaxed mb-6 sm:mb-8">
+              <p className="font-sans text-base sm:text-lg text-muted-foreground font-light leading-relaxed mb-6 sm:mb-8">
                 {featured.excerpt}
               </p>
               <div className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-primary group-hover:translate-x-0.5 transition-all mt-auto">
@@ -72,19 +72,19 @@ export default function StoriesPage() {
       </Section>
 
       {/* Story Grid */}
-      <Section tone="default" className="border-t border-border">
+      <Section tone="default">
         <Container>
           <div className="px-6 py-4 md:px-8 md:py-6 border border-b-0 border-border bg-muted">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-foreground leading-tight">More Stories</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-foreground leading-tight">More Stories</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-border *:border-b *:border-r *:border-border">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-l border-border *:border-b *:border-r *:border-border">
             {rest.map((story) => (
               <StoryCard
                 key={story.id}
                 title={story.title}
                 summary={story.excerpt}
                 author={story.author}
-                date={new Date(story.date).toLocaleDateString("en-GB", { day:"numeric", month:"long", year:"numeric" })}
+                date={new Date(story.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
                 href={`/stories/${story.slug}`}
                 image={story.image}
               />
@@ -92,7 +92,6 @@ export default function StoriesPage() {
           </div>
         </Container>
       </Section>
-
 
       <QuietClose
         label="Share your story"

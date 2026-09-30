@@ -19,8 +19,6 @@ import { ArrowRight, Lock } from"lucide-react";
 import { trackEvent } from"@/lib/analytics/trackEvent";
 import { cn } from"@/lib/utils";
 
-const donationAmounts = [500, 1000, 2500, 5000];
-
 const formSchema = z.object({
   frequency: z.enum(["one-time","monthly"]),
   amount: z.string().min(1,"Please select or enter an amount."),

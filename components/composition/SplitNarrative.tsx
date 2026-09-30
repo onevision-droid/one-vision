@@ -1,6 +1,6 @@
-import { cn } from"@/lib/utils";
-import { Container } from"@/components/layout/Shell";
-import { SectionWrapper, type CompositionProps } from"./shared";
+import { cn } from "@/lib/utils";
+import { Container } from "@/components/layout/Shell";
+import { SectionWrapper, type CompositionProps } from "./shared";
 
 interface SplitNarrativeProps extends CompositionProps {
   content: React.ReactNode;
@@ -10,7 +10,7 @@ interface SplitNarrativeProps extends CompositionProps {
 }
 
 export function SplitNarrative({
-  surface ="paper",
+  surface = "paper",
   reversed = false,
   className,
   content,
@@ -49,8 +49,8 @@ export function SplitNarrative({
           <div className="lg:col-span-6 p-6 md:p-10 lg:p-12 lg:border-r border-border flex flex-col justify-center">
             <div
               className={cn(
-               "space-y-6",
-               "font-sans leading-relaxed text-foreground",
+                "space-y-6",
+                "font-sans leading-relaxed text-foreground",
               )}
             >
               {content}
@@ -58,11 +58,9 @@ export function SplitNarrative({
           </div>
 
           {/* Media: 6 columns — 50% */}
-          <div className="lg:col-span-6 relative bg-foreground border-t lg:border-t-0 border-border">
-            <div className="relative h-full min-h-75 lg:min-h-85 w-full overflow-hidden [&>img]:grayscale [&>img]:hover:grayscale-0 [&>img]:transition-all [&>img]:duration-700">
+          <div className="lg:col-span-6 relative bg-muted border-t lg:border-t-0 border-border">
+            <div className="relative h-full min-h-75 lg:min-h-85 w-full overflow-hidden">
               {media}
-              {/* Brutalist overlay */}
-              <div className="absolute inset-0 bg-foreground/10 mix-blend-multiply pointer-events-none" />
             </div>
           </div>
         </div>

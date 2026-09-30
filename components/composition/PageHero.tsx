@@ -43,17 +43,17 @@ export function PageHero({
             </div>
 
             {/* Right Pane: 1:1 Aspect Ratio Image */}
-            <div className="w-full lg:w-auto lg:aspect-square lg:h-full shrink-0 relative bg-foreground border-t lg:border-t-0 border-border overflow-hidden aspect-square max-h-80 sm:max-h-96 lg:max-h-none">
+            <div className="w-full lg:w-auto lg:aspect-square lg:h-full shrink-0 relative bg-muted border-t lg:border-t-0 border-border overflow-hidden aspect-square max-h-80 sm:max-h-96 lg:max-h-none">
               <Image 
                 src={image} 
                 alt={imageAlt || `${badge} photographic overview`} 
                 fill
                 sizes="(max-width: 1024px) 100vw, 400px"
-                className="object-cover object-center grayscale hover:grayscale-0 contrast-125 transition-all duration-700 group-hover:scale-105"
+                className="object-cover object-center transition-all duration-700 group-hover:scale-105"
                 priority
               />
-              {/* Brutalist hard overlay scrim */}
-              <div className="absolute inset-0 pointer-events-none mix-blend-multiply bg-foreground/20" />
+              {/* Subtle soft scrim */}
+              <div className="absolute inset-0 pointer-events-none bg-linear-to-t from-background/20 to-transparent" />
             </div>
           </div>
         </Container>
