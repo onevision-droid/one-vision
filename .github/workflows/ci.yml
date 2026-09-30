@@ -17,6 +17,10 @@ jobs:
   quality-gate:
     name: Code Quality, A11y & Build Gate
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: https://mock-ci.supabase.co
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: mock-ci-anon-key
+      NEXT_PUBLIC_SITE_URL: https://onevision.org
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
