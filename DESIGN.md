@@ -111,13 +111,13 @@ Do not enclose content blocks in cards simply because they have a title and text
 
 ---
 
-## 7. Hero Section Layout Lock (Immutable Contract)
+## 7. Hero Section 50/50 Architecture Lock (Immutable Contract)
 
-As mandated by `AGENTS.md` Rule 8, all Hero sections across the entire platform (`components/content/Hero.tsx` and `components/composition/PageHero.tsx`) are permanently locked as Full-Viewport Heroes:
+As mandated by `AGENTS.md` Rule 8, all Hero sections across the entire platform (`components/content/Hero.tsx` and `components/composition/PageHero.tsx`) are locked as Full-Viewport Heroes with an exact 50/50 desktop split:
 - **Viewport Layout:** `min-h-dvh pt-20 pb-6 md:pt-22 md:pb-8 lg:pt-24 lg:pb-10 flex flex-col justify-center`
 - **Hero Container Dimensions:** `lg:h-95 xl:h-100`
-- **Image Aspect Ratio:** 1:1 square (`aspect-square`) with dynamic full-viewport centering.
-- **Strict Rule:** Never alter the structural layout classes, container dimensions, or 1:1 image ratio. Only text copy, badges, button links/labels, and image source paths within the hero sections can be modified.
+- **50/50 Desktop Split:** `w-full lg:w-1/2` for the content pane, and `w-full lg:w-1/2` for the hero image pane.
+- **Typographic Subtitle:** Subtitles must remain concise and formatted across two balanced lines.
 
 ---
 
