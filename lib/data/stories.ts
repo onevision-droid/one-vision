@@ -26,7 +26,7 @@ export const stories: Story[] = [
       "Our network of decentralized community health hubs has officially provided continuous, reliable health information and preventative care access to over 12,000 residents this year.",
     author: "Community Health Connect Team",
     date: "2026-08-28",
-    image: "/hero-realistic.jpg",
+    image: "/community-health.jpg",
     content:
       "Health equity begins at the neighbourhood level. The Community Health Connect initiative was designed to decentralize access to preventative care and reliable health information. As of August 2026, the network's 18 local hubs have officially served over 12,000 residents. Rather than waiting for patients to travel to centralized hospitals for basic consultations, our community health workers bring digital triage, nutritional education, and maternal care directly to the community. Local health data indicates a 40% reduction in preventable acute hospital visits in our most active coverage zones. By empowering local women as health coordinators, the programme is building a sustainable lattice of care.",
   },

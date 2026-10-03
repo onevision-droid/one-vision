@@ -39,3 +39,4 @@ All text follows ASD-STE100 Plain Technical English rules.
 - **Configure PR-Agent OpenRouter Authentication**: Added .pr_agent.toml and updated qodo-review.yml to authenticate PR-Agent through OpenRouter. Configured repository secrets on GitHub Actions.
 - **Generate PR Description with PR-Agent**: Ran PR-Agent on GitHub Actions workflow run 37155827726. The agent generated the full PR description for PR 6. Updated model selection to non-reasoning instruction models and increased output token limit to prevent truncated YAML output.
 - **Update OpenRouter Credentials and Verified Models**: Updated repository secrets with a fresh OpenRouter API key. Configured verified free models across .pr_agent.toml and qodo-review.yml.
+- **Replace Community Health Story Image**: Replaced the mismatched relief camp image with an authentic documentary photograph of a Manipur community health hub in public/community-health.jpg and updated lib/data/stories.ts.
