@@ -43,4 +43,5 @@ All text follows ASD-STE100 Plain Technical English rules.
 - **Replace About Hero Photo with Manipur Heritage Photography**: Replaced public/about-hero.jpg with an authentic documentary photograph of Manipuri community elders and organizers collaborating around community records in a village veranda.
 - **Invalidate Next.js Image Cache for About Page Hero**: Copied authentic documentary image to public/manipur-foundations.jpg. Updated app/(site)/about/page.tsx to point directly to /manipur-foundations.jpg. Cleared .next/cache/images to stop browsers and Next.js from serving stale cached stone construction imagery.
 - **Eliminate Empty Space on About Page**: Rebalanced the Deeply Rooted photo essay into a full-width lead feature with three satellite cards to remove the 500px dead void. Added a four-column verified milestones metrics band to Transparency and Trust. Expanded The People into a three-pillar leadership structure with local presence metrics.
+- **Apply Canonical Tailwind Aspect Ratio**: Replaced aspect-16/9 with canonical utility aspect-video in app/(site)/about/page.tsx.
 

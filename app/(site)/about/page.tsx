@@ -121,7 +121,7 @@ export default function AboutPage() {
           <div className="space-y-8">
             {/* Primary Panoramic Lead Image (Full Width) */}
             <div className="flex flex-col border border-border bg-card overflow-hidden">
-              <div className="relative aspect-16/9 md:aspect-21/9 w-full bg-muted">
+              <div className="relative aspect-video md:aspect-21/9 w-full bg-muted">
                 <Image
                   src="/home-hero-2026.jpg"
                   alt="Community gathering and field logistics in Imphal"
