@@ -1,0 +1,13 @@
+[config]
+model = "openrouter/meta-llama/llama-3.1-8b-instruct:free"
+fallback_models = ["openrouter/google/gemini-2.0-flash-exp:free", "openrouter/meta-llama/llama-3.3-70b-instruct:free"]
+git_provider = "github"
+
+[pr_reviewer]
+extra_instructions = "Follow ASD-STE100 Plain Technical English. Maintain strict zero-radius architecture."
+
+[pr_description]
+extra_instructions = "Follow ASD-STE100 Plain Technical English."
+
+[pr_code_suggestions]
+extra_instructions = "Comply with strict zero-radius architecture (0px border radius, rounded-none)."

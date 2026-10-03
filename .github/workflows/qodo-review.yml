@@ -25,17 +25,20 @@ jobs:
             echo "No API key configured. The review step will be skipped."
           fi
         env:
-          KEY: ${{ secrets.OPENROUTER_API_KEY || secrets.OPENAI_KEY }}
+          KEY: ${{ secrets.OPENROUTER_API_KEY || secrets.OPENROUTER__KEY || secrets.OPENAI_KEY }}
       - name: PR Agent action step
         if: steps.check_key.outputs.has_key == 'true'
         id: pragent
         uses: Codium-ai/pr-agent@main
         env:
-          OPENAI_KEY: ${{ secrets.OPENROUTER_API_KEY || secrets.OPENAI_KEY }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY || secrets.OPENAI_KEY }}
+          OPENAI_KEY: ${{ secrets.OPENROUTER_API_KEY || secrets.OPENROUTER__KEY || secrets.OPENAI_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY || secrets.OPENROUTER__KEY || secrets.OPENAI_KEY }}
+          OPENROUTER__KEY: ${{ secrets.OPENROUTER_API_KEY || secrets.OPENROUTER__KEY || secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_BASE: "https://openrouter.ai/api/v1"
           OPENAI_MODEL: "openrouter/meta-llama/llama-3.1-8b-instruct:free"
+          config.model: "openrouter/meta-llama/llama-3.1-8b-instruct:free"
+          config.fallback_models: '["openrouter/google/gemini-2.0-flash-exp:free", "openrouter/meta-llama/llama-3.3-70b-instruct:free"]'
           github_action_config.auto_review: "true"
           github_action_config.auto_describe: "true"
           github_action_config.auto_improve: "true"

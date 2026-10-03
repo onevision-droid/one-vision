@@ -36,4 +36,5 @@ All text follows ASD-STE100 Plain Technical English rules.
 - **Guard Review Workflow Execution**: Added an environment check in qodo-review.yml. The step skips when API keys are not present.
 - **Eliminate Em-Dashes in Documentation**: Replaced em-dashes with colons across documentation specifications and the README file. This satisfies the plain technical English directive.
 - **Restore WCAG Principle Name**: Replaced Reliable with Robust in docs/ACCESSIBILITY.md. This update aligns with the official WCAG 2.2 principle name.
+- **Configure PR-Agent OpenRouter Authentication**: Added .pr_agent.toml and updated qodo-review.yml to authenticate PR-Agent via OpenRouter. Configured repository secrets on GitHub Actions.
 
