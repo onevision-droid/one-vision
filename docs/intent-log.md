@@ -44,4 +44,5 @@ All text follows ASD-STE100 Plain Technical English rules.
 - **Invalidate Next.js Image Cache for About Page Hero**: Copied authentic documentary image to public/manipur-foundations.jpg. Updated app/(site)/about/page.tsx to point directly to /manipur-foundations.jpg. Cleared .next/cache/images to stop browsers and Next.js from serving stale cached stone construction imagery.
 - **Eliminate Empty Space on About Page**: Rebalanced the Deeply Rooted photo essay into a full-width lead feature with three satellite cards to remove the 500px dead void. Added a four-column verified milestones metrics band to Transparency and Trust. Expanded The People into a three-pillar leadership structure with local presence metrics.
 - **Apply Canonical Tailwind Aspect Ratio**: Replaced aspect-16/9 with canonical utility aspect-video in app/(site)/about/page.tsx.
+- **Implement Full OKLCH Primary Color Ramp**: Added wide-gamut OKLCH primary tokens 50 through 950 at hue 280.06 in app/globals.css. Updated badge dark mode contrast to use semantic primary-200 token.
 

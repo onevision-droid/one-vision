@@ -9,7 +9,7 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary-light text-primary hover:bg-primary/20 dark:bg-primary/20 dark:text-indigo-200 dark:hover:bg-primary/30",
+        default: "bg-primary-light text-primary hover:bg-primary/20 dark:bg-primary/20 dark:text-primary-200 dark:hover:bg-primary/30",
         secondary: "bg-muted text-foreground hover:bg-muted/80",
         destructive: "bg-destructive/15 text-destructive hover:bg-destructive/25 font-badge",
         outline: "border border-border bg-card text-foreground hover:bg-muted",
@@ -17,7 +17,7 @@ const badgeVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
 
         /* ═══ Nordic Purposeful Category Pills (Section 06) ═══ */
-        programme: "bg-primary-light text-primary dark:bg-primary/20 dark:text-indigo-200",
+        programme: "bg-primary-light text-primary dark:bg-primary/20 dark:text-primary-200",
         story: "bg-muted text-foreground",
         impact: "bg-ov-moss-light text-ov-moss dark:bg-emerald-950/50 dark:text-emerald-300",
         volunteer: "bg-badge-volunteer-bg text-badge-volunteer",
