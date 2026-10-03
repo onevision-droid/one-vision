@@ -219,11 +219,14 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
                       }
                     }}
                     onKeyDown={(e) => {
-                      if (link.hasMegaMenu && (e.key === "Enter" || e.key === " ")) {
-                        if (!isMegaMenuOpen) {
-                          e.preventDefault();
-                          setIsMegaMenuOpen(true);
-                        }
+                      if (!link.hasMegaMenu) return;
+                      if (e.key === " ") {
+                        // Space does not activate a native link, so toggle the menu and block page scroll.
+                        e.preventDefault();
+                        setIsMegaMenuOpen((prev) => !prev);
+                      } else if (e.key === "Enter" && !isMegaMenuOpen) {
+                        e.preventDefault();
+                        setIsMegaMenuOpen(true);
                       }
                     }}
                     aria-current={isActive ? "page" : undefined}
