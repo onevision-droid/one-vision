@@ -1,7 +1,7 @@
 [config]
-model = "openrouter/meta-llama/llama-3.1-8b-instruct:free"
-fallback_models = ["openrouter/google/gemini-2.0-flash-exp:free", "openrouter/qwen/qwen-2.5-coder-32b-instruct:free"]
-custom_model_max_tokens = 128000
+model = "openrouter/qwen/qwen3.8-27b:free"
+fallback_models = ["openrouter/cohere/north-mini-code:free", "openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"]
+custom_model_max_tokens = 262144
 max_output_tokens = 2000
 enable_large_pr_handling = true
 git_provider = "github"
