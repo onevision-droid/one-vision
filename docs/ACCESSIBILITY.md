@@ -11,7 +11,7 @@
 1. **Perceivable:** Information and UI components must be presentable to users in ways they can perceive (high contrast, text alternatives, no color-only state signaling).
 2. **Operable:** All functionality must be operable through keyboard navigation and touch gestures, with ample time and zero traps.
 3. **Understandable:** Layouts and language must be predictable, clear, and reassuring.
-4. **Reliable:** Code must parse cleanly across browsers, screen readers, and assistive devices.
+4. **Robust:** Code must parse cleanly across browsers, screen readers, and assistive devices.
 
 ---
 
