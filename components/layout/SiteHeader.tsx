@@ -212,14 +212,18 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
                     href={link.href}
                     onClick={(e) => {
                       if (link.hasMegaMenu) {
-                        e.preventDefault();
-                        setIsMegaMenuOpen((prev) => !prev);
+                        if (!isMegaMenuOpen) {
+                          e.preventDefault();
+                          setIsMegaMenuOpen(true);
+                        }
                       }
                     }}
                     onKeyDown={(e) => {
                       if (link.hasMegaMenu && (e.key === "Enter" || e.key === " ")) {
-                        e.preventDefault();
-                        setIsMegaMenuOpen((prev) => !prev);
+                        if (!isMegaMenuOpen) {
+                          e.preventDefault();
+                          setIsMegaMenuOpen(true);
+                        }
                       }
                     }}
                     aria-current={isActive ? "page" : undefined}

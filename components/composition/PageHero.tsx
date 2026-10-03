@@ -29,14 +29,14 @@ export function PageHero({
                 <span className="size-2 rounded-none bg-primary shrink-0" aria-hidden="true" />
                 <span className="font-sans text-xs font-medium tracking-normal text-muted-foreground">{badge}</span>
               </div>
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-normal tracking-tight text-foreground mb-4 leading-[1.05] shrink-0">
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-light tracking-tight text-foreground mb-4 leading-[0.95] shrink-0">
                 {heading}
               </h1>
-              <p className="font-sans text-base md:text-lg text-muted-foreground max-w-prose font-normal leading-relaxed shrink-0">
+              <p className="font-sans text-base md:text-lg text-muted-foreground max-w-prose font-light leading-relaxed shrink-0">
                 {description}
               </p>
               {actions && (
-                <div className="mt-6 flex flex-wrap gap-3 shrink-0">
+                <div className="mt-6 flex flex-wrap gap-4 shrink-0">
                   {actions}
                 </div>
               )}
@@ -71,14 +71,14 @@ export function PageHero({
             <span className="size-2 rounded-none bg-primary shrink-0" aria-hidden="true" />
             <span className="font-sans text-xs font-medium tracking-normal text-muted-foreground">{badge}</span>
           </div>
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-foreground mb-4 leading-[1.05] shrink-0">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground mb-4 leading-[0.95] shrink-0">
             {heading}
           </h1>
           <p className="font-sans text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl shrink-0">
             {description}
           </p>
           {actions && (
-            <div className="mt-6 flex flex-wrap gap-3 shrink-0 justify-center">
+            <div className="mt-6 flex flex-wrap gap-4 shrink-0 justify-center">
               {actions}
             </div>
           )}

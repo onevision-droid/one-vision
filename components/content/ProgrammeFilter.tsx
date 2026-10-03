@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Programme } from "@/lib/data/types";
 import Link from "next/link";
 import Image from "next/image";
@@ -15,13 +15,26 @@ export function ProgrammeFilter({
 }) {
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
 
-  const categories = ["All", ...Array.from(new Set(programmes.map((p) => p.category)))];
+  const categories = useMemo(
+    () => ["All", ...Array.from(new Set(programmes.map((p) => p.category)))],
+    [programmes]
+  );
 
+  // Sync with initialCategory prop changes
   useEffect(() => {
-    if (initialCategory && (initialCategory === "All" || categories.includes(initialCategory))) {
-      setSelectedCategory(initialCategory);
-    }
-  }, [initialCategory, categories]);
+    setSelectedCategory(initialCategory);
+  }, [initialCategory]);
+
+  // Sync with browser back/forward history navigation
+  useEffect(() => {
+    const handlePopState = () => {
+      const url = new URL(window.location.href);
+      const cat = url.searchParams.get("category") || "All";
+      setSelectedCategory(cat);
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
 
   const handleCategorySelect = (cat: string) => {
     setSelectedCategory(cat);
@@ -32,7 +45,7 @@ export function ProgrammeFilter({
       } else {
         url.searchParams.set("category", cat);
       }
-      window.history.replaceState({}, "", url.toString());
+      window.history.pushState({}, "", url.toString());
     }
   };
 
