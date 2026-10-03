@@ -41,7 +41,7 @@ export function Loader({
       return (
         <div className={cn("inline-flex items-center gap-2", className)} {...props}>
           <svg
-            className={cn("animate-spin text-destructive", sizeMap[size].split("")[0])}
+            className={cn("animate-spin text-destructive", sizeMap[size].split(" ")[0])}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -70,17 +70,17 @@ export function Loader({
           className={cn("inline-flex items-center gap-1 py-1 px-2 text-muted-foreground", className)}
           {...props}
         >
-          <span className="size-1.5 rounded-full bg-destructive animate-bounce [animation-delay:-0.3s]" />
-          <span className="size-1.5 rounded-full bg-destructive animate-bounce [animation-delay:-0.15s]" />
-          <span className="size-1.5 rounded-full bg-destructive animate-bounce" />
+          <span className="size-1.5 rounded-none bg-destructive animate-bounce [animation-delay:-0.3s]" />
+          <span className="size-1.5 rounded-none bg-destructive animate-bounce [animation-delay:-0.15s]" />
+          <span className="size-1.5 rounded-none bg-destructive animate-bounce" />
         </div>
       );
 
     case"pulse-dot":
       return (
         <div className={cn("relative flex items-center justify-center size-3", className)} {...props}>
-          <span className="absolute inline-flex size-full rounded-full bg-destructive/40 animate-ping" />
-          <span className="relative inline-flex size-1.5 rounded-full bg-destructive" />
+          <span className="absolute inline-flex size-full rounded-none bg-destructive/40 animate-ping" />
+          <span className="relative inline-flex size-1.5 rounded-none bg-destructive" />
         </div>
       );
 
@@ -88,7 +88,7 @@ export function Loader({
       return (
         <div
           className={cn(
-           "rounded-md bg-foreground/10  animate-pulse h-4 w-24",
+           "rounded-none bg-foreground/10  animate-pulse h-4 w-24",
             className
           )}
           {...props}
@@ -105,9 +105,9 @@ export function Loader({
         </div>
       );
 
-    case"terminal":
+    case "terminal":
       return (
-        <div className={cn("inline-flex items-center font-mono text-xs text-foreground text-muted-foreground", className)} {...props}>
+        <div className={cn("inline-flex items-center font-mono text-xs text-muted-foreground", className)} {...props}>
           <span className="text-destructive mr-1">&gt;</span>
           <span>{text}</span>
           <span className="ml-1 inline-block w-1.5 h-3.5 bg-destructive animate-pulse" />
@@ -140,9 +140,9 @@ export function Loader({
       return (
         <div className={cn("inline-flex items-center gap-2", className)} {...props}>
           <div className="flex items-center gap-1">
-            <span className="size-1 rounded-full bg-muted-foreground animate-pulse" />
-            <span className="size-1 rounded-full bg-muted-foreground animate-pulse [animation-delay:200ms]" />
-            <span className="size-1 rounded-full bg-muted-foreground animate-pulse [animation-delay:400ms]" />
+            <span className="size-1 rounded-none bg-muted-foreground animate-pulse" />
+            <span className="size-1 rounded-none bg-muted-foreground animate-pulse [animation-delay:200ms]" />
+            <span className="size-1 rounded-none bg-muted-foreground animate-pulse [animation-delay:400ms]" />
           </div>
           {text && <span className="font-sans text-xs text-muted-foreground">{text}</span>}
         </div>

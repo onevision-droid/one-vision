@@ -11,7 +11,7 @@ export function Hero() {
           {/* Left Pane: Content */}
           <div className="flex-1 relative flex flex-col justify-center p-6 md:p-8 lg:p-10 xl:p-12 lg:border-r border-border z-10 transition-colors duration-500 hover:bg-muted overflow-hidden">
             <div className="flex items-center gap-3 mb-3 shrink-0">
-              <span className="size-2 rounded-full bg-primary shrink-0" aria-hidden="true" />
+              <span className="size-2 rounded-none bg-primary shrink-0" aria-hidden="true" />
               <span className="font-sans text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 Manipur Community NGO · Est. 1988
               </span>
@@ -27,16 +27,16 @@ export function Hero() {
             <div className="mt-6 flex flex-wrap gap-3 shrink-0">
               <Link
                 href="/programmes"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 hover:-translate-y-px transition-all flex items-center justify-center gap-2 px-5 py-2.5 rounded-sm font-sans text-xs font-medium"
+                className="bg-primary text-primary-foreground hover:bg-primary-hover shadow-xs hover:-translate-y-px transition-all flex items-center justify-center gap-2 px-5 py-2.5 rounded-none font-sans text-xs font-medium"
               >
-                Our Work
+                <span>Our Work</span>
                 <ArrowRight aria-hidden="true" className="size-3.5" />
               </Link>
               <Link 
                 href="/volunteer"
-                className="bg-transparent text-foreground border border-border hover:bg-muted hover:-translate-y-px transition-all flex items-center justify-center gap-2 px-5 py-2.5 rounded-sm font-sans text-xs font-medium"
+                className="bg-card text-foreground border border-border hover:bg-muted shadow-xs hover:-translate-y-px transition-all flex items-center justify-center gap-2 px-5 py-2.5 rounded-none font-sans text-xs font-medium"
               >
-                Volunteer
+                <span>Volunteer</span>
                 <ArrowUpRight className="size-3.5" aria-hidden="true" />
               </Link>
             </div>
@@ -51,6 +51,7 @@ export function Hero() {
               sizes="(max-width: 1024px) 100vw, 400px"
               className="object-cover object-center transition-all duration-700 group-hover:scale-105"
               priority
+              loading="eager"
             />
             {/* Subtle soft scrim */}
             <div className="absolute inset-0 pointer-events-none bg-linear-to-t from-background/20 to-transparent" />

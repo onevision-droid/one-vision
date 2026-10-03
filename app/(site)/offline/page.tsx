@@ -46,7 +46,7 @@ export default function OfflinePage() {
           </div>
         </div>
 
-        <p className="text-caption text-muted mb-6">
+        <p className="text-caption text-muted-foreground mb-6">
           Previously visited pages may still be available from cache.
         </p>
 

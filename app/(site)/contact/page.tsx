@@ -25,13 +25,12 @@ export default function ContactPage() {
         }
         description="Whether you are a community organization, volunteer, researcher, donor, or partner institution, we welcome your collaboration with our team in Imphal."
       />
-
-      {/* Contact Form (Document Shell Layout) */}
+      {/* Contact Form (Document Shell Layout) */}
       <section className="w-full px-4 py-12 md:py-20 bg-background">
-        <div className="mx-auto max-w-6xl overflow-hidden border border-border bg-card shadow-xs rounded-sm">
+        <div className="mx-auto max-w-6xl overflow-hidden border border-border bg-card shadow-xs rounded-none">
           <div className="bg-muted/40 px-8 py-10 md:px-12 md:py-12 border-b border-border">
             <div className="flex items-center gap-2 mb-3">
-              <span className="size-2 bg-primary rounded-full animate-pulse" />
+              <span className="size-2 bg-primary rounded-none animate-pulse" />
               <span className="font-mono text-[10px] tracking-widest uppercase text-primary font-bold">
                 General & Partner Inquiries
               </span>
@@ -59,7 +58,7 @@ export default function ContactPage() {
 
                 <div className="space-y-8 border-l-2 border-primary/30 ml-4 relative">
                   <div className="relative pl-8">
-                    <span className="absolute -left-3 top-0.5 size-6 bg-background border border-border rounded-sm flex items-center justify-center font-mono text-primary font-bold text-xs">
+                    <span className="absolute -left-3 top-0.5 size-6 bg-background border border-border rounded-none flex items-center justify-center font-mono text-primary font-bold text-xs">
                       #
                     </span>
                     <h4 className="font-mono text-[10px] font-bold text-muted-foreground mb-1 mt-1 uppercase tracking-widest">
@@ -71,7 +70,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="relative pl-8">
-                    <span className="absolute -left-3 top-0.5 size-6 bg-background border border-border rounded-sm flex items-center justify-center font-mono text-primary font-bold text-xs">
+                    <span className="absolute -left-3 top-0.5 size-6 bg-background border border-border rounded-none flex items-center justify-center font-mono text-primary font-bold text-xs">
                       @
                     </span>
                     <h4 className="font-mono text-[10px] font-bold text-muted-foreground mb-1 mt-1 uppercase tracking-widest">
@@ -83,7 +82,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="relative pl-8">
-                    <span className="absolute -left-3 top-0.5 size-6 bg-background border border-border rounded-sm flex items-center justify-center font-mono text-primary font-bold text-xs">
+                    <span className="absolute -left-3 top-0.5 size-6 bg-background border border-border rounded-none flex items-center justify-center font-mono text-primary font-bold text-xs">
                       *
                     </span>
                     <h4 className="font-mono text-[10px] font-bold text-muted-foreground mb-1 mt-1 uppercase tracking-widest">
@@ -97,7 +96,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="border border-border bg-card p-6 flex flex-col items-start gap-4 mt-auto rounded-sm">
+              <div className="border border-border bg-card p-6 flex flex-col items-start gap-4 mt-auto rounded-none shadow-xs">
                 <div>
                   <h4 className="font-serif text-xl font-light text-foreground mb-2">
                     Need Family Support or Healthcare?
@@ -107,7 +106,7 @@ export default function ContactPage() {
                   </p>
                   <Link 
                     href="/get-help"
-                    className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground text-xs font-medium uppercase tracking-wider px-5 py-2.5 rounded-sm hover:bg-primary/90 transition-colors shadow-2xs"
+                    className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground text-xs font-medium uppercase tracking-wider px-5 py-2.5 rounded-none hover:bg-primary-hover transition-colors shadow-xs"
                   >
                     <span>Care Desk</span>
                     <ArrowRight className="size-3.5" />

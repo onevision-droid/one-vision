@@ -1,29 +1,28 @@
-import orgData from"@/content/org.json";
-import { Metadata } from"next";
-import { Section, Container } from"@/components/layout/Shell";
-import { PageHero } from"@/components/composition/PageHero";
-import { QuietClose } from"@/components/composition/QuietClose";
-import { PartnerLogoRow } from"@/components/content/PartnerLogoRow";
-import { SplitNarrative } from"@/components/composition/SplitNarrative";
-import Link from"next/link";
-import { ArrowRight, CheckCircle2, Mail } from"lucide-react";
-import Image from"next/image";
-
-import { ImageMosaic } from"@/components/content/ImageMosaic";
+import orgData from "@/content/org.json";
+import { Metadata } from "next";
+import { Section, Container } from "@/components/layout/Shell";
+import { PageHero } from "@/components/composition/PageHero";
+import { QuietClose } from "@/components/composition/QuietClose";
+import { PartnerLogoRow } from "@/components/content/PartnerLogoRow";
+import Link from "next/link";
+import { ArrowRight, CheckCircle2, Mail, MapPin } from "lucide-react";
+import Image from "next/image";
 
 export const metadata: Metadata = {
-  title:"About | One Vision",
-  description:"One Vision is a community-led organisation working for a healthier, greener and more resilient Manipur.",
+  title: "About | One Vision",
+  description:
+    "One Vision is a community-led organisation working for a healthier, greener and more resilient Manipur.",
 };
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col w-full bg-page">
-      <PageHero 
+    <div className="flex flex-col w-full bg-background">
+      {/* ═══ 01 — Hero (Layout Locked) ═══ */}
+      <PageHero
         badge="ABOUT ONE VISION · EST. 1988"
         heading={
           <>
-            Our<br/>
+            Our<br />
             Foundations.
           </>
         }
@@ -32,144 +31,218 @@ export default function AboutPage() {
         imageAlt="Community volunteers and organizers collaborating in Manipur"
       />
 
-      {/* Trust Panel (Document Shell via SplitNarrative) */}
-      <div className="w-full bg-background">
-        <SplitNarrative
-          heading={
-            <>
-              Transparency<br/>& Trust
-            </>
-          }
-          content={
-            <div className="space-y-6 sm:space-y-8">
-              <p className="font-sans text-lg max-w-prose text-muted-foreground font-light leading-relaxed">
+      {/* ═══ 02 — Transparency & Trust ═══ */}
+      <Section tone="default" className="py-16 md:py-20 border-b border-border">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+            <div className="lg:col-span-5">
+              <h2 className="font-serif text-3xl sm:text-4xl font-light text-foreground leading-tight">
+                Transparency<br />& Trust
+              </h2>
+            </div>
+            <div className="lg:col-span-7 space-y-6 text-muted-foreground font-light text-base sm:text-lg leading-relaxed">
+              <p>
                 We believe in evidence over claims. Our outcomes are documented, and our processes are open. We connect government systems and community innovation.
               </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-t border-l border-border *:border-b *:border-r *:border-border">
-                <div className="p-5 md:p-6 space-y-4 flex flex-col h-full bg-muted">
-                  <div className="flex items-center gap-3">
+              <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="p-4 border border-border bg-card flex flex-col gap-3">
+                  <div className="flex items-center gap-2 text-foreground font-medium text-xs font-sans uppercase tracking-wider">
                     <CheckCircle2 className="size-4 text-primary" />
-                    <h3 className="font-sans text-xs uppercase tracking-wider font-semibold text-foreground">Registration</h3>
+                    <h3>Registration</h3>
                   </div>
-                  <div className="space-y-2 mt-auto">
+                  <div className="space-y-1">
                     <p className="font-sans text-sm text-muted-foreground">{orgData.org.legal}</p>
                     <p className="font-sans text-sm font-medium text-foreground">Reg No: {orgData.org.regNo}</p>
                     <p className="font-sans text-sm text-muted-foreground">{orgData.org.location}</p>
                   </div>
                 </div>
-                <div className="p-5 md:p-6 space-y-4 flex flex-col h-full bg-muted">
-                  <div className="flex items-center gap-3">
+                <div className="p-4 border border-border bg-card flex flex-col gap-3">
+                  <div className="flex items-center gap-2 text-foreground font-medium text-xs font-sans uppercase tracking-wider">
                     <Mail className="size-4 text-primary" />
-                    <h3 className="font-sans text-xs uppercase tracking-wider font-semibold text-foreground">Contact</h3>
+                    <h3>Contact</h3>
                   </div>
-                  <div className="space-y-2 mt-auto">
+                  <div className="space-y-1">
                     <p className="font-sans text-sm text-muted-foreground">{orgData.contact.email}</p>
                     <p className="font-sans text-sm text-muted-foreground">{orgData.contact.phone}</p>
                   </div>
                 </div>
               </div>
             </div>
-          }
-          media={
-            <div className="relative w-full h-full min-h-75 lg:min-h-85 bg-muted group overflow-hidden">
-              <Image 
-                src="/about-hero.jpg" 
-                alt="Community trust" 
-                fill 
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-all duration-700 group-hover:scale-105" 
-              />
-              <div className="absolute inset-0 bg-background/5 pointer-events-none" />
-            </div>
-          }
-        />
-      </div>
-      
-      {/* Partner Marquee */}
-      <PartnerLogoRow />
-
-      {/* Image Mosaic: Field Presence */}
-      <Section tone="default">
-        <Container>
-          <ImageMosaic
-            heading="Deeply Rooted in Manipur"
-            subheading="Our initiatives operate through trusted community networks in Imphal and surrounding districts, upholding local dignity and collective autonomy."
-            leadImage={{
-              src: "/home-hero-2026.jpg",
-              alt: "Community gathering in Imphal streetscape",
-              caption: "Local logistics hub and supply coordination point in Imphal.",
-              location: "Imphal, Manipur",
-            }}
-            satellites={[
-              {
-                src: "/volunteer-hero.jpg",
-                alt: "Youth volunteers organizing",
-                caption: "Youth volunteer team planning a community initiative.",
-                location: "Community Center",
-                aspectRatio: "square",
-              },
-              {
-                src: "/community-voices.jpg",
-                alt: "Women community leaders",
-                caption: "Local leaders coordinating health outreach.",
-                location: "District Network",
-                aspectRatio: "landscape",
-              },
-              {
-                src: "/programmes-hero.jpg",
-                alt: "Community learning workshop",
-                caption: "Decentralized training sessions in future skills.",
-                location: "FutureWorks Hub",
-                aspectRatio: "landscape",
-              },
-            ]}
-          />
+          </div>
         </Container>
       </Section>
 
-      {/* Structure & People */}
-      <Section tone="default">
+      {/* ═══ 03 — Image Essay: Deeply Rooted in Manipur ═══ */}
+      <Section tone="alt" className="py-16 md:py-24 border-b border-border">
         <Container>
-          <div className="flex flex-col">
-            <div className="px-6 py-4 md:px-8 md:py-6 border border-b-0 border-border bg-muted">
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-foreground leading-tight">The People</h2>
+          <div className="max-w-2xl mb-12">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-foreground leading-tight mb-4">
+              Deeply Rooted in Manipur
+            </h2>
+            <p className="font-sans text-base text-muted-foreground font-light leading-relaxed">
+              Our initiatives operate through trusted community networks in Imphal and surrounding districts, upholding local dignity and collective autonomy.
+            </p>
+          </div>
+
+          {/* Editorial Photo Essay: 1 Lead + 3 Satellites */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* Primary Lead Image (7 Columns) */}
+            <div className="lg:col-span-7 flex flex-col border border-border bg-card overflow-hidden">
+              <div className="relative aspect-4/3 w-full bg-muted">
+                <Image
+                  src="/home-hero-2026.jpg"
+                  alt="Community gathering in Imphal streetscape"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 58vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-5 flex items-start justify-between gap-4 border-t border-border">
+                <p className="font-sans text-xs sm:text-sm text-foreground font-light">
+                  Local logistics hub and supply coordination point in Imphal.
+                </p>
+                <span className="font-sans text-[11px] text-muted-foreground flex items-center gap-1 shrink-0">
+                  <MapPin className="size-3 text-primary" />
+                  Imphal, Manipur
+                </span>
+              </div>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-b border-l border-border *:border-b *:border-r *:border-border">
-              <Link href="/about/governance" className="group block p-6 md:p-8 lg:p-10 bg-card hover:bg-muted/50 transition-colors duration-300">
-                <h3 className="font-serif text-2xl sm:text-3xl font-light text-foreground mb-3 sm:mb-4 group-hover:text-primary transition-colors">Governance & Leadership</h3>
-                <p className="font-sans text-base text-muted-foreground leading-relaxed">
+
+            {/* Supporting Images (5 Columns) */}
+            <div className="lg:col-span-5 flex flex-col gap-8">
+              <div className="flex flex-col border border-border bg-card overflow-hidden">
+                <div className="relative aspect-16/10 w-full bg-muted">
+                  <Image
+                    src="/volunteer-hero.jpg"
+                    alt="Youth volunteers organizing"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4 flex items-start justify-between gap-4 border-t border-border">
+                  <p className="font-sans text-xs text-foreground font-light">
+                    Youth volunteer team planning a community initiative.
+                  </p>
+                  <span className="font-sans text-[11px] text-muted-foreground flex items-center gap-1 shrink-0">
+                    <MapPin className="size-3 text-primary" />
+                    Community Center
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex flex-col border border-border bg-card overflow-hidden">
+                <div className="relative aspect-16/10 w-full bg-muted">
+                  <Image
+                    src="/community-voices.jpg"
+                    alt="Women community leaders"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4 flex items-start justify-between gap-4 border-t border-border">
+                  <p className="font-sans text-xs text-foreground font-light">
+                    Local leaders coordinating health outreach.
+                  </p>
+                  <span className="font-sans text-[11px] text-muted-foreground flex items-center gap-1 shrink-0">
+                    <MapPin className="size-3 text-primary" />
+                    District Network
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex flex-col border border-border bg-card overflow-hidden">
+                <div className="relative aspect-16/10 w-full bg-muted">
+                  <Image
+                    src="/programmes-hero.jpg"
+                    alt="Community learning workshop"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4 flex items-start justify-between gap-4 border-t border-border">
+                  <p className="font-sans text-xs text-foreground font-light">
+                    Decentralized training sessions in future skills.
+                  </p>
+                  <span className="font-sans text-[11px] text-muted-foreground flex items-center gap-1 shrink-0">
+                    <MapPin className="size-3 text-primary" />
+                    FutureWorks Hub
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* ═══ 04 — Partner Ecosystem ═══ */}
+      <PartnerLogoRow />
+
+      {/* ═══ 05 — The People ═══ */}
+      <Section tone="default" className="py-16 md:py-20 border-b border-border">
+        <Container>
+          <div className="mb-10 pb-4 border-b border-border">
+            <h2 className="font-serif text-3xl sm:text-4xl font-light text-foreground">
+              The People
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 divide-y md:divide-y-0 md:divide-x divide-border">
+            {/* Column 1: Governance */}
+            <div className="flex flex-col justify-between pt-6 md:pt-0 md:pr-8">
+              <div>
+                <span className="font-mono text-xs text-primary font-semibold">01</span>
+                <h3 className="font-serif text-2xl font-light text-foreground mt-2 mb-3">
+                  Governance & Leadership
+                </h3>
+                <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed mb-6">
                   Meet the Board of Trustees shaping our strategic vision and maintaining institutional integrity.
                 </p>
-                <div className="mt-6">
-                  <span className="inline-flex items-center gap-2 font-sans text-xs font-semibold text-primary transition-colors">
-                    Read more <ArrowRight className="size-4" />
-                  </span>
-                </div>
+              </div>
+              <Link
+                href="/about/governance"
+                className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-primary hover:underline underline-offset-4 py-2 min-h-9"
+              >
+                <span>Read more about Governance</span>
+                <ArrowRight className="size-3.5" />
               </Link>
-              <Link href="/about/team" className="group block p-6 md:p-8 lg:p-10 bg-card hover:bg-muted/50 transition-colors duration-300">
-                <h3 className="font-serif text-2xl sm:text-3xl font-light text-foreground mb-3 sm:mb-4 group-hover:text-primary transition-colors">Operational Team</h3>
-                <p className="font-sans text-base text-muted-foreground leading-relaxed">
+            </div>
+
+            {/* Column 2: Operational Team */}
+            <div className="flex flex-col justify-between pt-6 md:pt-0 md:pl-8">
+              <div>
+                <span className="font-mono text-xs text-primary font-semibold">02</span>
+                <h3 className="font-serif text-2xl font-light text-foreground mt-2 mb-3">
+                  Operational Team
+                </h3>
+                <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed mb-6">
                   Discover the dedicated staff, field workers, and community navigators executing our mission across Manipur.
                 </p>
-                <div className="mt-6">
-                  <span className="inline-flex items-center gap-2 font-sans text-xs font-semibold text-primary transition-colors">
-                    Read more <ArrowRight className="size-4" />
-                  </span>
-                </div>
+              </div>
+              <Link
+                href="/about/team"
+                className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-primary hover:underline underline-offset-4 py-2 min-h-9"
+              >
+                <span>Read more about our Team</span>
+                <ArrowRight className="size-3.5" />
               </Link>
             </div>
           </div>
         </Container>
       </Section>
-      
+
+      {/* ═══ 06 — Closing Action ═══ */}
       <QuietClose
         label="Join the Network"
         heading="Support our work."
         description="Your contribution helps us expand our reach and build more resilient communities in Manipur."
         action={
-          <Link href="/donate" className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-xs transition-colors rounded-sm">
+          <Link
+            href="/donate"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary-hover text-primary-foreground font-sans text-xs font-medium transition-colors rounded-none"
+          >
             <span>Donate</span>
             <ArrowRight className="size-3.5" />
           </Link>

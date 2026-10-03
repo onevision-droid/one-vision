@@ -28,7 +28,7 @@ export function FAQ({
   return (
     <Section tone={tone}>
       <Container>
-        <div className="flex flex-col lg:flex-row border border-border bg-muted">
+        <div className="flex flex-col lg:flex-row border border-border bg-muted rounded-none overflow-hidden shadow-xs">
           <div className="w-full lg:w-5/12 flex flex-col p-6 md:p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-border">
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-foreground mb-4 sm:mb-6 leading-tight">
               {heading}
@@ -39,7 +39,7 @@ export function FAQ({
               </p>
             )}
             <div className="mt-auto pb-4">
-              <p className="font-sans text-base-sm text-muted-foreground font-light">
+              <p className="font-sans text-sm text-muted-foreground font-light">
                 Have a different question?{" "}
                 <Link
                   href="/contact"

@@ -1,36 +1,65 @@
 "use client";
 
-import Link from"next/link";
-import { usePathname } from"next/navigation";
-import { useState, useEffect, useRef } from"react";
-import { motion, AnimatePresence } from"framer-motion";
-import { Logo } from"@/components/ui/Logo";
-import { SearchDialog } from"@/components/ui/SearchDialog";
-import { Search, ArrowRight, Menu, X, Phone, MessageSquare } from"lucide-react";
-import { siteSettings } from"@/lib/data/site-settings";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Logo } from "@/components/ui/Logo";
+import { SearchDialog } from "@/components/ui/SearchDialog";
+import { MegaMenu } from "@/components/layout/MegaMenu";
+import {
+  Search,
+  ArrowRight,
+  ArrowLeft,
+  ChevronRight,
+  Menu,
+  X,
+  Phone,
+  MessageSquare,
+} from "lucide-react";
+import { siteSettings } from "@/lib/data/site-settings";
 
 const navLinks = [
-  { href: "/programmes", label: "Programmes" },
+  { href: "/programmes", label: "Programmes", hasMegaMenu: true },
   { href: "/stories", label: "Stories" },
   { href: "/about", label: "About" },
   { href: "/volunteer", label: "Get Involved" },
-  { href: "/get-help", label: "Contact" },
+  { href: "/contact", label: "Contact" },
 ];
 
-export function SiteHeader() {
+const mobileProgrammeCategories = [
+  { label: "All Programmes", href: "/programmes" },
+  { label: "Healthy Communities", href: "/programmes?category=Healthy+Communities" },
+  { label: "Climate & Environment", href: "/programmes?category=Climate+%26+Environment" },
+  { label: "Youth & Future Skills", href: "/programmes?category=Youth+%26+Future+Skills" },
+  { label: "Livelihoods & Enterprise", href: "/programmes?category=Livelihoods+%26+Enterprise" },
+  { label: "Innovation & Evidence", href: "/programmes?category=Innovation+%26+Evidence" },
+];
+
+interface SiteHeaderProps {
+  transparent?: boolean;
+}
+
+export function SiteHeader({ transparent = false }: SiteHeaderProps) {
   const pathname = usePathname();
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileView, setMobileView] = useState<"main" | "programmes">("main");
   const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredPath, setHoveredPath] = useState<string | null>(null);
+  const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const [prevPathname, setPrevPathname] = useState(pathname);
+  const megaMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
 
-  // Close mobile nav on route change during render
+  // Close mobile nav and mega menu on route change
   if (prevPathname !== pathname) {
     setPrevPathname(pathname);
     setMobileOpen(false);
+    setMobileView("main");
+    setIsMegaMenuOpen(false);
   }
 
   // Prevent background page scrolling when mobile drawer is open
@@ -94,7 +123,7 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Global Cmd+K / Ctrl+K shortcut for Search Dialog & Escape for Mobile Menu
+  // Global Cmd+K / Ctrl+K shortcut for Search Dialog & Escape
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
@@ -103,6 +132,7 @@ export function SiteHeader() {
       }
       if (e.key === "Escape") {
         setMobileOpen(false);
+        setIsMegaMenuOpen(false);
         setSearchOpen(false);
       }
     };
@@ -110,16 +140,47 @@ export function SiteHeader() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  // Handlers for MegaMenu hover with delay
+  const handleMouseEnterNav = (href: string, hasMegaMenu?: boolean) => {
+    if (megaMenuTimeoutRef.current) {
+      clearTimeout(megaMenuTimeoutRef.current);
+    }
+    setHoveredPath(href);
+    if (hasMegaMenu) {
+      setIsMegaMenuOpen(true);
+    } else {
+      setIsMegaMenuOpen(false);
+    }
+  };
+
+  const handleMouseLeaveNav = () => {
+    setHoveredPath(null);
+    megaMenuTimeoutRef.current = setTimeout(() => {
+      setIsMegaMenuOpen(false);
+    }, 200);
+  };
+
+  const handleMegaMenuMouseEnter = () => {
+    if (megaMenuTimeoutRef.current) {
+      clearTimeout(megaMenuTimeoutRef.current);
+    }
+    setIsMegaMenuOpen(true);
+  };
+
+  const isTransparentActive = transparent && !isScrolled;
+
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
-          isScrolled
-            ? "bg-background/95 backdrop-blur-md border-b border-border shadow-xs"
-            : "bg-background/85 backdrop-blur-sm border-b border-border"
+        className={`fixed top-0 left-0 right-0 z-50 w-full transition-colors duration-300 will-change-transform ${
+          isTransparentActive
+            ? "bg-transparent border-b border-white/10 text-white"
+            : isScrolled
+              ? "bg-background border-b border-border shadow-xs text-foreground"
+              : "bg-background/98 border-b border-border text-foreground"
         }`}
       >
-        <div className="w-full max-w-container px-4 sm:px-6 lg:px-8 mx-auto flex items-center justify-between h-16">
+        <div className="w-full max-w-container px-4 sm:px-6 lg:px-8 mx-auto flex items-center justify-between h-16 relative">
           {/* Logo & Brand Identity */}
           <Link
             href="/"
@@ -129,11 +190,11 @@ export function SiteHeader() {
             <Logo />
           </Link>
 
-          {/* Desktop Navigation — Warm, Humanist NGO Typography */}
+          {/* Desktop Navigation — Nordic Lagom States */}
           <nav
             className="hidden lg:flex items-center gap-1 xl:gap-2 flex-1 relative h-full"
             aria-label="Main Navigation"
-            onMouseLeave={() => setHoveredPath(null)}
+            onMouseLeave={handleMouseLeaveNav}
           >
             {navLinks.map((link) => {
               const isActive =
@@ -142,54 +203,95 @@ export function SiteHeader() {
               const isHovered = hoveredPath === link.href;
 
               return (
-                <Link
+                <div
                   key={link.href}
-                  href={link.href}
-                  onMouseEnter={() => setHoveredPath(link.href)}
-                  aria-current={isActive ? "page" : undefined}
-                  className={`relative px-3 py-2 font-sans text-xs sm:text-[13px] font-medium tracking-normal transition-colors duration-200 ${
-                    isActive
-                      ? "text-foreground font-semibold"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
+                  className="relative h-full flex items-center"
+                  onMouseEnter={() => handleMouseEnterNav(link.href, link.hasMegaMenu)}
                 >
-                  <span className="relative z-10">{link.label}</span>
+                  <Link
+                    href={link.href}
+                    onClick={(e) => {
+                      if (link.hasMegaMenu) {
+                        if (!isMegaMenuOpen) {
+                          e.preventDefault();
+                          setIsMegaMenuOpen(true);
+                        }
+                      }
+                    }}
+                    onKeyDown={(e) => {
+                      if (!link.hasMegaMenu) return;
+                      if (e.key === " ") {
+                        // Space does not activate a native link, so toggle the menu and block page scroll.
+                        e.preventDefault();
+                        setIsMegaMenuOpen((prev) => !prev);
+                      } else if (e.key === "Enter" && !isMegaMenuOpen) {
+                        e.preventDefault();
+                        setIsMegaMenuOpen(true);
+                      }
+                    }}
+                    aria-current={isActive ? "page" : undefined}
+                    aria-haspopup={link.hasMegaMenu ? "true" : undefined}
+                    aria-expanded={link.hasMegaMenu ? isMegaMenuOpen : undefined}
+                    aria-controls={link.hasMegaMenu ? "programmes-mega-menu" : undefined}
+                    className={`relative px-3 py-2 font-sans text-xs sm:text-[13px] font-medium tracking-normal transition-colors duration-200 ${
+                      isActive
+                        ? isTransparentActive
+                          ? "text-white font-semibold"
+                          : "text-foreground font-semibold"
+                        : isHovered
+                          ? "text-primary"
+                          : isTransparentActive
+                            ? "text-white/80 hover:text-white"
+                            : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    <span className="relative z-10">{link.label}</span>
 
-                  {/* Active Indicator */}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeNavIndicator"
-                      className="absolute bottom-0 left-3 right-3 h-0.5 bg-primary z-20"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
+                    {/* Section 04: Active Underline Indicator */}
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeNavIndicator"
+                        className="absolute bottom-0 left-3 right-3 h-0.5 bg-primary rounded-none z-20"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
 
-                  {isHovered && !isActive && (
-                    <motion.div
-                      layoutId="hoverNavIndicator"
-                      className="absolute inset-0 bg-muted/60 z-0 rounded-[2px]"
-                      transition={{ type: "spring", stiffness: 450, damping: 35 }}
-                    />
-                  )}
-                </Link>
+                    {/* Section 03: Hover Dot Indicator (when not active) */}
+                    {isHovered && !isActive && (
+                      <motion.span
+                        layoutId="hoverNavDot"
+                        className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 size-1 rounded-none bg-primary z-20"
+                        transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                        aria-hidden="true"
+                      />
+                    )}
+                  </Link>
+                </div>
               );
             })}
+
+            {/* Section 06: Programmes Mega Menu Dropdown */}
+            <div onMouseEnter={handleMegaMenuMouseEnter} onMouseLeave={handleMouseLeaveNav}>
+              <MegaMenu isOpen={isMegaMenuOpen} onClose={() => setIsMegaMenuOpen(false)} />
+            </div>
           </nav>
 
-          {/* Header Right Actions */}
+          {/* Header Right Utilities */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             {/* Search Trigger with Keyboard Shortcut */}
             <motion.button
               whileTap={{ scale: 0.97 }}
               onClick={() => setSearchOpen(true)}
               aria-label="Search site (Press Ctrl+K or Cmd+K)"
-              className="flex items-center gap-2 px-2.5 py-2 min-h-9.5 border border-border bg-muted/60 hover:bg-muted hover:border-foreground transition-colors text-muted-foreground hover:text-foreground cursor-pointer rounded-[2px]"
+              className={`flex items-center gap-2 px-3 py-1.5 h-9 border rounded-none transition-colors cursor-pointer shadow-2xs ${
+                isTransparentActive
+                  ? "border-white/20 bg-white/10 text-white hover:bg-white/20"
+                  : "border-border bg-card hover:border-primary/50 text-muted-foreground hover:text-foreground"
+              }`}
             >
               <Search className="size-3.5" aria-hidden="true" />
-              <span className="hidden xl:inline font-sans text-xs text-muted-foreground">
-                Search
-              </span>
-              <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 font-mono text-[9px] font-bold text-muted-foreground bg-background border border-border rounded-[2px]">
+              <span className="font-sans text-xs">Search...</span>
+              <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 font-mono text-[9px] font-bold text-foreground/85 bg-muted border border-border rounded-none ml-1">
                 ⌘K
               </kbd>
             </motion.button>
@@ -199,7 +301,7 @@ export function SiteHeader() {
               <motion.div whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>
                 <Link
                   href="/donate"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium tracking-normal transition-colors rounded-sm"
+                  className="inline-flex items-center gap-1.5 px-4 h-9 bg-primary hover:bg-primary-hover text-white font-sans text-xs sm:text-sm font-medium tracking-normal transition-colors rounded-none shadow-xs"
                 >
                   <span>Donate</span>
                   <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -214,8 +316,12 @@ export function SiteHeader() {
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav-drawer"
-              aria-label={mobileOpen ?"Close menu" :"Open menu"}
-              className="lg:hidden flex items-center justify-center size-9 border border-border bg-muted text-foreground hover:border-foreground transition-colors cursor-pointer"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              className={`lg:hidden flex items-center justify-center size-9 border rounded-none transition-colors cursor-pointer ${
+                isTransparentActive
+                  ? "border-white/20 bg-white/10 text-white hover:bg-white/20"
+                  : "border-border bg-card text-foreground hover:border-primary/50"
+              }`}
             >
               {mobileOpen ? (
                 <X className="size-5" aria-hidden="true" />
@@ -227,7 +333,7 @@ export function SiteHeader() {
         </div>
       </header>
 
-      {/* Mobile Animated Navigation Drawer */}
+      {/* ═══ Section 07: Mobile Multi-Level Navigation Drawer ═══ */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -241,68 +347,173 @@ export function SiteHeader() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-x-0 top-16 bottom-0 z-40 bg-background/98 backdrop-blur-xl border-b border-border lg:hidden flex flex-col justify-between p-6 overflow-y-auto"
+            className="fixed inset-x-0 top-16 bottom-0 z-40 bg-background border-b border-border lg:hidden flex flex-col justify-between p-6 overflow-y-auto scroll-fade-y will-change-transform"
           >
-            <nav className="flex flex-col divide-y divide-border" aria-label="Mobile Navigation">
-              {navLinks.map((link, idx) => {
-                const isActive =
-                  pathname === link.href ||
-                  (link.href !=="/" && pathname.startsWith(`${link.href}/`));
+            {/* Screen 1: Main Menu View */}
+            {mobileView === "main" && (
+              <motion.div
+                key="main-menu"
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -16 }}
+                transition={{ duration: 0.2 }}
+                className="flex flex-col space-y-4"
+              >
+                <nav className="flex flex-col divide-y divide-border" aria-label="Mobile Navigation">
+                  {navLinks.map((link) => {
+                    const isActive =
+                      pathname === link.href ||
+                      (link.href !== "/" && pathname.startsWith(`${link.href}/`));
 
-                return (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.035, duration: 0.2 }}
-                  >
+                    if (link.hasMegaMenu) {
+                      return (
+                        <button
+                          key={link.href}
+                          type="button"
+                          onClick={() => setMobileView("programmes")}
+                          className={`flex items-center justify-between py-4 text-left transition-colors cursor-pointer ${
+                            isActive
+                              ? "text-primary font-semibold"
+                              : "text-foreground hover:text-primary font-normal"
+                          }`}
+                        >
+                          <span className="font-serif text-2xl font-light tracking-tight">
+                            {link.label}
+                          </span>
+                          <ChevronRight className="size-5 text-muted-foreground" />
+                        </button>
+                      );
+                    }
+
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setMobileOpen(false)}
+                        className={`flex items-center justify-between py-4 text-left transition-colors ${
+                          isActive
+                            ? "text-primary font-semibold"
+                            : "text-foreground hover:text-primary font-normal"
+                        }`}
+                      >
+                        <span className="font-serif text-2xl font-light tracking-tight">
+                          {link.label}
+                        </span>
+                        <ChevronRight className="size-5 text-muted-foreground opacity-50" />
+                      </Link>
+                    );
+                  })}
+                </nav>
+              </motion.div>
+            )}
+
+            {/* Screen 2: Programmes Sub-Menu Drilldown */}
+            {mobileView === "programmes" && (
+              <motion.div
+                key="programmes-submenu"
+                initial={{ opacity: 0, x: 16 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 16 }}
+                transition={{ duration: 0.2 }}
+                className="flex flex-col space-y-4"
+              >
+                {/* Back to main menu header */}
+                <button
+                  type="button"
+                  onClick={() => setMobileView("main")}
+                  className="flex items-center gap-2 py-2 text-primary font-sans text-xs font-semibold uppercase tracking-wider cursor-pointer hover:underline"
+                >
+                  <ArrowLeft className="size-4" />
+                  <span>Back to Main Menu</span>
+                </button>
+
+                <h3 className="font-serif text-2xl font-light text-foreground border-b border-border pb-3">
+                  Programmes
+                </h3>
+
+                <div className="flex flex-col divide-y divide-border/60">
+                  {mobileProgrammeCategories.map((cat) => (
                     <Link
-                      href={link.href}
+                      key={cat.label}
+                      href={cat.href}
                       onClick={() => setMobileOpen(false)}
-                      className={`flex items-center justify-between py-4 text-left transition-colors ${
-                        isActive
-                          ? "text-primary font-semibold"
-                          : "text-foreground hover:text-primary font-normal"
-                      }`}
+                      className="flex items-center justify-between py-3 text-foreground hover:text-primary transition-colors text-sm font-sans"
                     >
-                      <span className="font-serif text-2xl font-light tracking-tight">
-                        {link.label}
-                      </span>
-                      <ArrowRight className="size-4 opacity-50" />
+                      <span>{cat.label}</span>
+                      <ChevronRight className="size-4 text-muted-foreground" />
                     </Link>
-                  </motion.div>
-                );
-              })}
-            </nav>
+                  ))}
+                </div>
 
-            {/* Mobile Bottom Quick Actions */}
-            <div className="pt-6 mt-6 border-t border-border space-y-4">
-              <div className="grid grid-cols-2 gap-3 font-sans text-xs text-foreground">
-                <a
-                  href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`}
-                  className="flex items-center gap-2 p-3 border border-border bg-muted hover:border-foreground transition-colors rounded-[2px]"
-                >
-                  <Phone className="size-3.5 text-primary" />
-                  <span className="font-medium">24/7 Helpline</span>
-                </a>
-                <Link
-                  href="/get-help"
-                  onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-2 p-2.5 border border-border bg-muted hover:border-foreground transition-colors rounded-sm text-xs"
-                >
-                  <MessageSquare className="size-3.5 text-primary" />
-                  <span className="font-medium">Get Help</span>
-                </Link>
-              </div>
+                {/* Submenu Spotlight Thumbnail Card */}
+                <div className="p-4 bg-card border border-border rounded-none shadow-xs mt-2">
+                  <div className="relative aspect-16/10 w-full overflow-hidden rounded-none bg-muted mb-2">
+                    <Image
+                      src="/home-hero-2026.jpg"
+                      alt="Community solutions in Manipur"
+                      fill
+                      sizes="300px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <h4 className="font-serif text-sm text-foreground font-normal leading-snug">
+                    Community-led solutions for a stronger Manipur.
+                  </h4>
+                  <Link
+                    href="/programmes"
+                    onClick={() => setMobileOpen(false)}
+                    className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:text-primary-hover mt-2"
+                  >
+                    <span>View all programmes</span>
+                    <ArrowRight className="size-3" />
+                  </Link>
+                </div>
+              </motion.div>
+            )}
 
+            {/* Mobile Bottom Actions (Always Accessible) */}
+            <div className="pt-6 mt-6 border-t border-border space-y-3">
+              {/* Full-width Donate CTA Button */}
               <Link
                 href="/donate"
                 onClick={() => setMobileOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium tracking-normal transition-colors rounded-sm"
+                className="w-full flex items-center justify-center gap-2 py-3 bg-primary hover:bg-primary-hover text-white font-sans text-sm font-medium tracking-normal transition-colors rounded-none shadow-xs"
               >
                 <span>Donate</span>
-                <ArrowRight className="size-3.5" />
+                <ArrowRight className="size-4" />
               </Link>
+
+              {/* Inline Search Input Trigger */}
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileOpen(false);
+                  setSearchOpen(true);
+                }}
+                className="w-full flex items-center gap-2 px-3 py-2.5 bg-card border border-border hover:border-primary/50 text-muted-foreground text-xs font-sans rounded-none transition-colors cursor-pointer"
+              >
+                <Search className="size-3.5 text-muted-foreground" />
+                <span>Search stories, programmes...</span>
+              </button>
+
+              {/* Helpline & Direct Contact */}
+              <div className="grid grid-cols-2 gap-2 font-sans text-xs text-foreground pt-1">
+                <a
+                  href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`}
+                  className="flex items-center gap-1.5 p-2.5 border border-border bg-card hover:border-primary/50 transition-colors rounded-none"
+                >
+                  <Phone className="size-3.5 text-primary shrink-0" />
+                  <span className="truncate">24/7 Helpline</span>
+                </a>
+                <Link
+                  href="/contact"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center gap-1.5 p-2.5 border border-border bg-card hover:border-primary/50 transition-colors rounded-none"
+                >
+                  <MessageSquare className="size-3.5 text-primary shrink-0" />
+                  <span className="truncate">Contact Desk</span>
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}

@@ -1,26 +1,27 @@
-import { Metadata } from"next";
-import { VolunteerForm } from"@/components/forms/VolunteerForm";
-import { Section, Container } from"@/components/layout/Shell";
-import { PageHero } from"@/components/composition/PageHero";
-import { FAQ } from"@/components/composition/FAQ";
-import Image from"next/image";
-import { siteSettings } from"@/lib/data/site-settings";
-import Link from"next/link";
+import { Metadata } from "next";
+import { VolunteerForm } from "@/components/forms/VolunteerForm";
+import { Section, Container } from "@/components/layout/Shell";
+import { PageHero } from "@/components/composition/PageHero";
+import { FAQ } from "@/components/composition/FAQ";
+import Image from "next/image";
+import { siteSettings } from "@/lib/data/site-settings";
+import { Phone, Mail, MapPin, HeartHandshake } from "lucide-react";
 
 export const metadata: Metadata = {
-  title:"Volunteer | One Vision",
+  title: "Volunteer | One Vision",
   description:
-   "Join our network of volunteers and make a tangible impact in your community.",
+    "Join our network of volunteers and make a tangible impact in your community across Manipur.",
 };
 
 export default function VolunteerPage() {
   return (
     <div className="flex flex-col w-full bg-background">
+      {/* ═══ 01 — Hero (Layout Locked) ═══ */}
       <PageHero
-        badge="JOIN US"
+        badge="JOIN US · VOLUNTEER NETWORK"
         heading={
           <>
-            Local<br/>
+            Local<br />
             Action.
           </>
         }
@@ -29,203 +30,165 @@ export default function VolunteerPage() {
         imageAlt="Volunteers engaged in local community education and outreach in Manipur"
       />
 
-      {/* 2 & 3. The Core Need & Mentorship Matrix */}
-      <Section tone="alt" className="relative overflow-hidden bg-muted/30">
+      {/* ═══ 02 — Why Volunteer (Concise Narrative + Field Image) ═══ */}
+      <Section tone="default" className="py-16 md:py-20 border-b border-border">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-border bg-card">
-            <div className="lg:col-span-5 flex flex-col justify-center p-6 md:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-border">
-              <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-primary mb-4 block">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+            <div className="lg:col-span-6 flex flex-col justify-center">
+              <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground font-semibold block mb-2">
                 The Community Network
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light mb-4 sm:mb-6 tracking-tight text-foreground leading-[0.98]">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-foreground leading-tight tracking-tight mb-6">
                 Your Skills Matter
               </h2>
-              <p className="font-sans text-lg max-w-prose text-muted-foreground font-light leading-relaxed mb-8 sm:mb-10">
-                Whether you have specialized skills in technology and education,
-                or simply the time and willingness to help your neighborhood,
-                there is a vital place for you here.
+              <p className="font-sans text-base sm:text-lg text-muted-foreground font-light leading-relaxed mb-8">
+                Whether you have specialized skills in technology, nursing, education, or simply the time and willingness to help your neighborhood, there is an essential place for you here.
               </p>
 
-              <div className="p-6 border-l-2 border-primary bg-muted/40 rounded-r-xs">
-                <p className="font-sans text-lg max-w-prose font-light italic leading-relaxed text-foreground mb-6">
-                  &quot;Volunteering here isn&apos;t just about giving time;
-                  it&apos;s about building the future of our own community with
-                  dignity and shared purpose.&quot;
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="size-11 rounded-sm bg-primary flex items-center justify-center font-mono font-bold text-primary-foreground text-sm">
-                    SS
-                  </div>
-                  <div>
-                    <div className="font-medium text-foreground text-body-sm">
-                      S. Singh
-                    </div>
-                    <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-primary mt-1">
-                      FutureWorks Mentor
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <blockquote className="p-6 border-l-2 border-primary bg-muted/40 text-foreground font-serif text-lg font-light italic leading-relaxed">
+                &ldquo;Volunteering with One Vision isn&rsquo;t just about giving hours; it&rsquo;s about building the future of our own neighborhoods with dignity and collective purpose.&rdquo;
+                <footer className="mt-3 font-sans text-xs font-semibold text-primary not-italic tracking-wide">
+                  — S. Singh, FutureWorks Mentor
+                </footer>
+              </blockquote>
             </div>
 
-            <div className="lg:col-span-7 relative h-96 lg:h-auto w-full overflow-hidden bg-muted">
+            <div className="lg:col-span-6 relative aspect-4/3 w-full border border-border bg-muted overflow-hidden">
               <Image
                 src="/volunteer-hero.jpg"
-                alt="Volunteers organizing community projects"
+                alt="Volunteers organizing community relief supplies"
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-all duration-700 hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover"
               />
             </div>
           </div>
         </Container>
-
-        <Container className="mt-8">
-          <div className="border border-border bg-card">
-            <div className="px-6 py-4 md:px-8 md:py-6 border-b border-border">
-              <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-primary mb-3 block">
-                What to Expect
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light tracking-tight text-foreground">
-                Our Commitment to You
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 *:border-b *:md:border-b-0 *:border-r last:*:border-r-0 border-border *:border-border">
-              <div className="flex flex-col gap-4 p-6 md:p-8 hover:bg-muted/50 transition-colors">
-                <h3 className="font-serif text-xl sm:text-2xl font-light text-foreground">
-                  01. Mentorship & Growth
-                </h3>
-                <p className="font-sans text-base text-muted-foreground font-light leading-relaxed">
-                  Volunteers learn alongside professionals. You gain real-world experience while making a direct impact on your community.
-                </p>
-              </div>
-              <div className="flex flex-col gap-4 p-6 md:p-8 hover:bg-muted/50 transition-colors">
-                <h3 className="font-serif text-xl sm:text-2xl font-light text-foreground">
-                  02. Clear Impact
-                </h3>
-                <p className="font-sans text-base text-muted-foreground font-light leading-relaxed">
-                  We only assign tasks that matter. You will see exactly how your time translates into community resilience and outcomes.
-                </p>
-              </div>
-              <div className="flex flex-col gap-4 p-6 md:p-8 hover:bg-muted/50 transition-colors">
-                <h3 className="font-serif text-xl sm:text-2xl font-light text-foreground">
-                  03. Respect for Time
-                </h3>
-                <p className="font-sans text-base text-muted-foreground font-light leading-relaxed">
-                  We know your time is valuable. We offer flexible scheduling and prioritize efficient, focused community action.
-                </p>
-              </div>
-            </div>
-          </div>
-        </Container>
       </Section>
 
-      {/* 4. Volunteer Form (Document Shell Layout) */}
-      <Section tone="default">
+      {/* ═══ 03 — Three Editorial Commitments (Open Principles, No Boxes) ═══ */}
+      <Section tone="alt" className="py-16 md:py-20 border-b border-border">
         <Container>
-          <div className="border border-border bg-muted">
-            <div className="p-6 md:p-10 lg:p-12 border-b border-border bg-background">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="size-2 bg-primary animate-pulse rounded-full" />
-                <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-primary">
-                  Registration
-                </span>
-              </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-light text-foreground mb-4 tracking-tight leading-tight">
-                Volunteer Application
-              </h2>
-              <p className="font-sans text-lg text-muted-foreground font-light leading-relaxed max-w-2xl">
-                Fill out the form below. Our volunteer coordinator will review
-                your profile and contact you with upcoming opportunities that
-                match your interests.
+          <div className="mb-10 pb-4 border-b border-border">
+            <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground font-semibold block mb-1">
+              Mutual Respect
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-light text-foreground">
+              Our Commitment to You
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-border">
+            <div className="flex flex-col justify-between pt-6 md:pt-0 md:pr-8 first:pr-8 first:pl-0">
+              <span className="font-mono text-sm font-semibold text-primary">01</span>
+              <h3 className="font-serif text-xl sm:text-2xl font-light text-foreground mt-2 mb-3">
+                Mentorship & Growth
+              </h3>
+              <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed">
+                Volunteers work alongside experienced coordinators and mentors. You acquire practical, field-tested experience while making a direct impact.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
-              {/* Form */}
-              <div className="lg:col-span-7 p-6 md:p-8 lg:p-10 lg:border-r border-border">
-                <VolunteerForm />
+            <div className="flex flex-col justify-between pt-6 md:pt-0 md:px-8">
+              <span className="font-mono text-sm font-semibold text-primary">02</span>
+              <h3 className="font-serif text-xl sm:text-2xl font-light text-foreground mt-2 mb-3">
+                Clear, Measurable Impact
+              </h3>
+              <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed">
+                We only assign tasks that have verified utility. You will see firsthand how your contributions strengthen community resilience.
+              </p>
+            </div>
+
+            <div className="flex flex-col justify-between pt-6 md:pt-0 md:pl-8">
+              <span className="font-mono text-sm font-semibold text-primary">03</span>
+              <h3 className="font-serif text-xl sm:text-2xl font-light text-foreground mt-2 mb-3">
+                Respect for Your Time
+              </h3>
+              <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed">
+                Your time is valuable. We support flexible scheduling, prioritize focused sessions, and respect your personal and professional boundaries.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* ═══ 04 — Streamlined Application Form ═══ */}
+      <Section tone="default" className="py-16 border-b border-border">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            {/* Form Column (6 Cols) */}
+            <div className="lg:col-span-6 border border-border bg-card p-6 sm:p-8">
+              <div className="mb-5 pb-4 border-b border-border">
+                <span className="font-sans text-xs uppercase tracking-wider text-primary font-semibold block mb-1">
+                  Join the Network
+                </span>
+                <h2 className="font-serif text-2xl sm:text-3xl font-light text-foreground">
+                  Volunteer Application
+                </h2>
+                <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed mt-2">
+                  Complete the short profile below. Our volunteer coordinator will connect with you regarding matching opportunities.
+                </p>
               </div>
 
-              {/* Trust / Contact Sidebar */}
-              <div className="lg:col-span-5 flex flex-col p-6 md:p-8 lg:p-10 bg-background">
-                <div>
-                  <h3 className="font-serif text-2xl font-light text-foreground mb-6 sm:mb-8 tracking-wide">
-                    Get in Touch
+              <VolunteerForm />
+            </div>
+
+            {/* Quiet Side Reassurance & Contact (6 Cols) */}
+            <div className="lg:col-span-6 flex flex-col gap-6">
+              <div className="p-6 border border-border bg-card space-y-5">
+                <div className="flex items-center gap-3 text-primary">
+                  <HeartHandshake className="size-5 shrink-0" />
+                  <h3 className="font-serif text-xl font-light text-foreground">
+                    Community First
                   </h3>
-
-                  <div className="space-y-6 sm:space-y-8">
-                    <div>
-                      <h4 className="font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">
-                        Coordinator Email
-                      </h4>
-                      <Link
-                        href={`mailto:${siteSettings.contactEmail}`}
-                        className="font-sans text-base font-medium text-foreground hover:text-primary transition-colors min-h-10 inline-flex items-center"
-                      >
-                        {siteSettings.contactEmail}
-                      </Link>
-                    </div>
-
-                    <div>
-                      <h4 className="font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">
-                        Coordinator Phone
-                      </h4>
-                      <Link
-                        href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`}
-                        className="font-sans text-base font-medium text-foreground hover:text-primary transition-colors min-h-10 inline-flex items-center"
-                      >
-                        {siteSettings.contactPhone}
-                      </Link>
-                    </div>
-
-                    <div>
-                      <h4 className="font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">
-                        Headquarters
-                      </h4>
-                      <p className="font-sans text-base font-medium text-foreground max-w-xs leading-relaxed">
-                        {siteSettings.address}
-                      </p>
-                    </div>
+                </div>
+                <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed">
+                  By joining One Vision, you become part of an indigenous network dedicated to lasting resilience, dignity, and care for every family in Manipur.
+                </p>
+                <div className="pt-4 border-t border-border space-y-3 font-sans text-xs text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <Mail className="size-3.5 text-primary shrink-0" />
+                    <span>Direct: {siteSettings.contactEmail}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone className="size-3.5 text-primary shrink-0" />
+                    <span>Helpline: {siteSettings.contactPhone}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MapPin className="size-3.5 text-primary shrink-0" />
+                    <span>{siteSettings.address}</span>
                   </div>
                 </div>
+              </div>
 
-                <div className="border border-border bg-card p-6 flex flex-col items-start gap-4 mt-8 sm:mt-10 rounded-sm">
-                  <div>
-                    <h4 className="font-serif text-xl sm:text-2xl font-light text-foreground mb-3">
-                      Community First
-                    </h4>
-                    <p className="font-sans text-base text-muted-foreground font-light leading-relaxed">
-                      By volunteering with One Vision, you join a network dedicated to long-term resilience and dignity for all in Manipur.
-                    </p>
-                  </div>
-                </div>
+              <div className="p-6 bg-muted/40 border border-border text-xs text-muted-foreground leading-relaxed font-light">
+                <strong className="text-foreground font-medium block mb-1">Confidentiality Guarantee:</strong>
+                Your contact details and profile data are stored securely and used exclusively for coordinating community volunteer initiatives.
               </div>
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* 5. FAQs */}
+      {/* ═══ 05 — FAQs ═══ */}
       <FAQ
         tone="alt"
         heading="Volunteer FAQs"
         items={[
           {
-            question:"How much time commitment is required?",
+            question: "How much time commitment is required?",
             answer:
-             "We offer flexible volunteering. You can commit to a regular schedule (e.g., 4 hours a week) or join specific, one-off events as your time permits.",
+              "We offer flexible volunteering options. You can participate in weekly scheduled programmes (e.g., 4 hours per week) or join specific seasonal relief and education initiatives.",
           },
           {
-            question:"Is training provided?",
+            question: "Is orientation or training provided?",
             answer:
-             "Yes, all volunteers undergo a brief orientation on our code of conduct, safety protocols, and specific task requirements.",
+              "Yes. Every volunteer participates in a comprehensive orientation covering safeguarding, ethical community engagement, and practical task preparation.",
           },
           {
-            question:"Are there opportunities for remote volunteering?",
+            question: "Are there opportunities for remote or digital volunteering?",
             answer:
-             "While many of our needs are on the ground in Imphal, we occasionally need help with digital outreach, coordination, or translation tasks. Let us know your skills in the application.",
+              "Yes. While frontline fieldwork occurs across Manipur, we regularly collaborate with remote volunteers for curriculum development, data analysis, open mapping, and translation.",
           },
         ]}
       />

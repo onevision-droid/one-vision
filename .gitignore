@@ -55,3 +55,15 @@ temp_gstack/
 audit-results.json
 audit-report.md
 .audit/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# MCP server credentials & local overrides
+.mcp.json
+*.mcp.json
+.vscode/mcp.json
+.cursor/mcp.json
+

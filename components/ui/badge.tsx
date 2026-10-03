@@ -1,48 +1,68 @@
-import { mergeProps } from"@base-ui/react/merge-props"
-import { useRender } from"@base-ui/react/use-render"
-import { cva, type VariantProps } from"class-variance-authority"
+import * as React from "react"
+import { mergeProps } from "@base-ui/react/merge-props"
+import { useRender } from "@base-ui/react/use-render"
+import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
- "group/badge inline-flex h-5 w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-none border border-transparent px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&>svg]:pointer-events-none [&>svg]:size-3!",
+  "inline-flex w-fit shrink-0 items-center justify-center gap-1.5 overflow-hidden text-xs font-semibold tracking-[0.05em] font-ui whitespace-nowrap transition-all rounded-none px-3 py-1 [&>svg]:size-3",
   {
     variants: {
       variant: {
-        default:"bg-primary text-primary-foreground [a]:hover:bg-primary/80",
-        secondary:
-         "bg-secondary text-secondary-foreground [a]:hover:bg-secondary/80",
-        destructive:
-         "bg-destructive/10 text-destructive focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:focus-visible:ring-destructive/40 [a]:hover:bg-destructive/20",
-        outline:
-         "border-border text-foreground [a]:hover:bg-muted [a]:hover:text-muted-foreground",
-        ghost:
-         "hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50",
-        link:"text-primary underline-offset-4 hover:underline",
+        default: "bg-[#EDE9FE] text-[#4338CA] hover:bg-[#DDD6FE]",
+        secondary: "bg-[#F1F5F9] text-[#1E293B] hover:bg-[#E2E8F0]",
+        destructive: "bg-[#FEE2E2] text-[#B91C1C] hover:bg-[#FECACA] font-badge",
+        outline: "border border-[#E5E7EB] bg-white text-[#0F172A] hover:bg-[#F8FAFC]",
+        ghost: "hover:bg-muted text-muted-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
+
+        /* ═══ Nordic Purposeful Category Pills (Section 06) ═══ */
+        programme: "bg-[#EDE9FE] text-[#4338CA]",
+        story: "bg-[#F1F5F9] text-[#1E293B]",
+        impact: "bg-[#D1FAE5] text-[#065F46]",
+        volunteer: "bg-[#FEF3C7] text-[#92400E]",
+        community: "bg-[#DBEAFE] text-[#1D4ED8]",
+        urgent: "bg-[#FEE2E2] text-[#B91C1C] font-badge tracking-[0.06em]",
+
+        /* ═══ Status Dots (Section 06) ═══ */
+        active: "bg-transparent text-[#15803D] px-1 py-0.5 font-sans font-medium gap-1.5 [&>span]:size-1.5 [&>span]:rounded-none [&>span]:bg-[#15803D]",
+        pending: "bg-transparent text-[#9A3412] px-1 py-0.5 font-sans font-medium gap-1.5 [&>span]:size-1.5 [&>span]:rounded-none [&>span]:bg-[#9A3412]",
+        completed: "bg-transparent text-[#475569] px-1 py-0.5 font-sans font-medium gap-1.5 [&>span]:size-1.5 [&>span]:rounded-none [&>span]:bg-[#475569]",
       },
     },
     defaultVariants: {
-      variant:"default",
+      variant: "default",
     },
   }
 )
 
 function Badge({
   className,
-  variant ="default",
+  variant = "default",
   render,
+  children,
   ...props
 }: useRender.ComponentProps<"span"> & VariantProps<typeof badgeVariants>) {
+  // Automatically prepend status dot if status variant
+  const isStatus = variant === "active" || variant === "pending" || variant === "completed"
+
   return useRender({
-    defaultTagName:"span",
+    defaultTagName: "span",
     props: mergeProps<"span">(
       {
         className: cn(badgeVariants({ variant }), className),
+        children: (
+          <>
+            {isStatus && <span aria-hidden="true" />}
+            {children}
+          </>
+        ),
       },
       props
     ),
     render,
     state: {
-      slot:"badge",
+      slot: "badge",
       variant,
     },
   })

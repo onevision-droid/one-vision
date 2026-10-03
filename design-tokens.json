@@ -1,99 +1,61 @@
 {
+  "name": "One Vision — Nordic Purposeful Design",
+  "edition": "October 2026",
   "colors": {
-    "paper": "#FAF8F4",
+    "primaryIndigo": "#4F46E5",
+    "primaryHover": "#4338CA",
+    "primaryLight": "#EDE9FE",
+    "secondarySlate": "#334155",
+    "accentTeal": "#10B981",
+    "accentLight": "#D1FAE5",
+    "background": "#FAFAF9",
     "surface": "#FFFFFF",
-    "ink": {
-      "900": "#16140F",
-      "700": "#2D2A24",
-      "500": "#4A4840",
-      "300": "#6E695F",
-      "100": "#A39D90"
-    },
-    "line": {
-      "DEFAULT": "#E6E1D6",
-      "strong": "#CFC8BA"
-    },
-    "navy": {
-      "600": "#1B3A5B",
-      "800": "#122A44"
-    },
-    "clay": {
-      "500": "#B85C33"
-    },
-    "moss": {
-      "400": "#5C6B54"
-    },
-    "danger": {
-      "DEFAULT": "#A62B1F"
-    },
-    "section": {
-      "alt": "#F2EFE8"
-    }
-  },
-  "semanticColors": {
-    "bg-page": "#FAF8F4",
-    "bg-section-alt": "#F2EFE8",
-    "bg-inverted": "#16140F",
-    "text-primary": "#16140F",
-    "text-body": "#2D2A24",
-    "text-muted": "#4A4840",
-    "text-caption": "#6E695F",
-    "text-inverted": "#FAF8F4",
-    "action-primary": "#1B3A5B",
-    "action-hover": "#122A44",
-    "border-default": "#E6E1D6",
-    "border-input": "#CFC8BA"
+    "muted": "#F1F5F9",
+    "border": "#E5E7EB",
+    "textPrimary": "#0F172A",
+    "textSecondary": "#64748B",
+    "success": "#16A34A",
+    "warning": "#F59E0B",
+    "error": "#EF4444",
+    "info": "#3B82F6"
   },
   "fonts": {
-    "sans": ["Inter", "system-ui", "sans-serif"],
-    "serif": ["Fraunces", "Georgia", "serif"]
+    "headingsSerif": "DM Serif Display",
+    "headingsWarm": "Plus Jakarta Sans",
+    "bodySans": "Inter",
+    "uiButtons": "DM Sans",
+    "badgesUrgent": "Space Grotesk",
+    "monospace": "JetBrains Mono"
   },
-  "typography": {
-    "display-xl": { "fontSize": "64px", "lineHeight": "68px", "fontWeight": "400", "letterSpacing": "-0.02em" },
-    "display-lg": { "fontSize": "48px", "lineHeight": "56px", "fontWeight": "400", "letterSpacing": "-0.02em" },
-    "display-md": { "fontSize": "32px", "lineHeight": "40px", "fontWeight": "400", "letterSpacing": "-0.01em" },
-    "heading-xl": { "fontSize": "32px", "lineHeight": "40px", "fontWeight": "600", "letterSpacing": "-0.01em" },
-    "heading-lg": { "fontSize": "24px", "lineHeight": "32px", "fontWeight": "600", "letterSpacing": "0" },
-    "heading-md": { "fontSize": "20px", "lineHeight": "28px", "fontWeight": "600", "letterSpacing": "0" },
-    "body-lg": { "fontSize": "18px", "lineHeight": "28px", "fontWeight": "400", "letterSpacing": "0" },
-    "body": { "fontSize": "16px", "lineHeight": "26px", "fontWeight": "400", "letterSpacing": "0" },
-    "body-sm": { "fontSize": "14px", "lineHeight": "22px", "fontWeight": "400", "letterSpacing": "0" },
-    "label": { "fontSize": "12px", "lineHeight": "16px", "fontWeight": "600", "letterSpacing": "0.08em" },
-    "caption": { "fontSize": "12px", "lineHeight": "16px", "fontWeight": "400", "letterSpacing": "0.02em" }
+  "typeScale": {
+    "h1Display": { "fontSize": "64px", "lineHeight": "72px", "letterSpacing": "-0.02em" },
+    "h2Heading": { "fontSize": "48px", "lineHeight": "56px", "letterSpacing": "-0.02em" },
+    "h3Heading": { "fontSize": "32px", "lineHeight": "40px", "letterSpacing": "-0.01em" },
+    "h4Heading": { "fontSize": "24px", "lineHeight": "32px", "letterSpacing": "0em" },
+    "bodyLarge": { "fontSize": "18px", "lineHeight": "28px", "letterSpacing": "0em" },
+    "body": { "fontSize": "16px", "lineHeight": "24px", "letterSpacing": "0em" },
+    "caption": { "fontSize": "14px", "lineHeight": "20px", "letterSpacing": "0em" }
+  },
+  "borderRadius": {
+    "none": "0px",
+    "sm": "0px",
+    "md": "0px",
+    "lg": "0px",
+    "pill": "0px"
   },
   "spacing": {
-    "0": "0px",
     "1": "4px",
     "2": "8px",
     "3": "12px",
     "4": "16px",
-    "5": "24px",
-    "6": "32px",
-    "7": "48px",
-    "8": "64px",
-    "9": "96px",
-    "10": "128px"
+    "6": "24px",
+    "8": "32px",
+    "12": "48px",
+    "16": "64px"
   },
-  "borderRadius": {
-    "none": "0px",
-    "sm": "4px",
-    "md": "8px",
-    "pill": "999px"
-  },
-  "buttonSizes": {
-    "sm": "36px",
-    "md": "44px",
-    "lg": "52px"
-  },
-  "boxShadow": {
-    "none": "none",
-    "1": "0 8px 24px rgba(22, 20, 15, 0.12)"
-  },
-  "transitionDuration": {
-    "fast": "150ms",
-    "base": "250ms"
-  },
-  "transitionTimingFunction": {
-    "default": "cubic-bezier(.22, .61, .36, 1)"
+  "shadows": {
+    "sm": "0 1px 2px 0 rgba(15, 23, 42, 0.05)",
+    "md": "0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04)",
+    "lg": "0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.03)"
   }
 }

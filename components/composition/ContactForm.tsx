@@ -53,7 +53,7 @@ export function ContactForm() {
   };
 
   return (
-    <div className="bg-card border border-border p-6 md:p-8 relative h-full flex flex-col justify-between rounded-md">
+    <div className="bg-card border border-border p-6 md:p-8 relative h-full flex flex-col justify-between rounded-none">
       <div className="mb-8">
         <h3 className="font-sans text-xl font-bold text-foreground mb-2">Send a Message</h3>
         <p className="text-base text-muted-foreground max-w-sm font-light leading-relaxed">
@@ -62,7 +62,11 @@ export function ContactForm() {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6 relative z-10 flex-1 flex flex-col">
+        <label htmlFor="contact-composition-honeypot" className="sr-only">
+          Leave this field blank
+        </label>
         <input
+          id="contact-composition-honeypot"
           type="text"
           name="ov_system_field"
           value={honeypot}
@@ -71,6 +75,7 @@ export function ContactForm() {
           autoComplete="off"
           className="sr-only"
           aria-hidden="true"
+          aria-label="Do not fill this field"
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="space-y-2">
@@ -80,7 +85,7 @@ export function ContactForm() {
               type="text" 
               name="name"
               required
-              className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors rounded-sm"
+              className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors rounded-none"
               placeholder="Jane Doe"
             />
           </div>
@@ -91,7 +96,7 @@ export function ContactForm() {
               type="email" 
               name="email"
               required
-              className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors rounded-sm"
+              className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors rounded-none"
               placeholder="jane@example.com"
             />
           </div>
@@ -103,7 +108,7 @@ export function ContactForm() {
             <select 
               id="subject" 
               name="subject"
-              className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors appearance-none rounded-sm"
+              className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors appearance-none rounded-none"
             >
               <option>Community Support & Healthcare Guidance</option>
               <option>Volunteer & Skills Contribution</option>
@@ -112,7 +117,7 @@ export function ContactForm() {
               <option>General Question / Other</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-muted-foreground">
-              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              <svg className="fill-current h-4 w-4" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
             </div>
           </div>
         </div>
@@ -124,7 +129,7 @@ export function ContactForm() {
             name="message"
             rows={4}
             required
-            className="w-full flex-1 bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors resize-none rounded-sm min-h-30"
+            className="w-full flex-1 bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors resize-none rounded-none min-h-30"
             placeholder="How can our community team support you?"
           />
         </div>
@@ -132,11 +137,11 @@ export function ContactForm() {
         <Button 
           type="submit" 
           disabled={isSubmitting || isSuccess}
-          className="w-full h-10 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium transition-colors flex items-center justify-center gap-2 rounded-sm mt-auto shadow-xs"
+          className="w-full h-10 bg-primary hover:bg-primary-hover text-primary-foreground font-sans text-xs sm:text-sm font-medium transition-colors flex items-center justify-center gap-2 rounded-none mt-auto shadow-xs"
         >
           {isSubmitting ? (
             <span className="flex items-center gap-2">
-              <span className="size-3 border-2 border-border border-t-primary rounded-full animate-spin" />
+              <span className="size-3 border-2 border-border border-t-primary rounded-none animate-spin" />
               Sending...
             </span>
           ) : isSuccess ? (

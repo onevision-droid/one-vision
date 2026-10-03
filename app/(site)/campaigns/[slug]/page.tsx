@@ -137,6 +137,7 @@ export default async function CampaignPage({ params }: Props) {
             fill 
             className="object-cover"
             priority 
+            loading="eager"
           />
         </div>
       </Container>

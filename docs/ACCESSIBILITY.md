@@ -1,119 +1,73 @@
-# ACCESSIBILITY.md — One Vision
+# ACCESSIBILITY.md — One Vision: Field Edition
 
-## Target
+**Project:** One Vision — Society for Health & Education Manipur  
+**Standard:** WCAG 2.2 AA (Full Conformance)  
+**Philosophy:** Accessibility is an inherent architectural foundation, not a post-launch cosmetic patch.
 
-WCAG 2.2 AA — intent, not just checklist compliance.
+---
 
-## Principles
+## 1. Core Principles
 
-1. Accessibility is acceptance criteria, not a follow-up task.
-2. Every interactive element must be keyboard-operable with visible focus.
-3. Content must be perceivable without relying on colour alone.
-4. The site must remain functional on assistive technology.
-5. Low-bandwidth and low-spec devices are first-class targets.
+1. **Perceivable:** Information and UI components must be presentable to users in ways they can perceive (high contrast, text alternatives, no color-only state signaling).
+2. **Operable:** All functionality must be operable through keyboard navigation and touch gestures, with ample time and zero traps.
+3. **Understandable:** Layouts and language must be predictable, clear, and reassuring.
+4. **Robust:** Code must parse cleanly across browsers, screen readers, and assistive devices.
 
-## Structural requirements
+---
 
-### Landmarks & headings
-- `<header>` with `<nav>` for site navigation
-- `<main id="main">` for primary content
-- `<footer>` for site footer
-- Single `<h1>` per page
-- Proper heading hierarchy (no skipped levels)
-- `aria-labelledby` on sections with headings
+## 2. Contrast Ratios & Color Compliance (Field Edition)
 
-### Skip link
-- First focusable element in the DOM
-- Visible on `:focus`
-- Target: `#main`
+All primary, secondary, and accent combinations are tested against WCAG 2.2 AA (minimum 4.5:1 for normal text, 3.0:1 for large text / graphical UI indicators):
 
-### Focus management
-- Global focus-visible ring: 2px `--color-terra` + 2px offset
-- Never `outline: none` without a replacement
-- Focus returns to trigger after modal/dialog close
-- Form errors: focus moves to first error or error summary
+| Color Combination | Foreground / Background | Contrast Ratio | Conformance Status | Usage Guidelines |
+|---|---|---|---|---|
+| **Ink on Bone** | `#1B1C19` on `#F2EFE7` | **15.0:1** | AAA Pass | Primary headings, body copy, reading blocks |
+| **Ink on Paper** | `#1B1C19` on `#FAF8F2` | **16.2:1** | AAA Pass | Elevated cards, forms, content panels |
+| **Slate on Bone** | `#55564F` on `#F2EFE7` | **6.5:1** | AA Pass | Secondary text, subtitles, footnotes |
+| **Slate on Oat** | `#55564F` on `#E9E4D9` | **5.8:1** | AA Pass | Secondary text on alternating section wells |
+| **White on Indigo** | `#FFFFFF` on `#5752BC` | **6.3:1** | AA Pass (AAA Large) | Primary interactive buttons, badges, active tabs |
+| **White on Indigo Dark** | `#FFFFFF` on `#403B92` | **8.5:1** | AAA Pass | Button hover, pressed states, high-contrast actions |
+| **Moss on Bone** | `#586653` on `#F2EFE7` | **5.2:1** | AA Pass | Environmental badges, status tags, icons |
+| **Clay on Bone** | `#A65B4F` on `#F2EFE7` | **4.2:1** | AA Pass (Large text & UI) | Warning banners, urgent notice headers |
+| **Stone on Bone** | `#D8D2C8` on `#F2EFE7` | **1.2:1** | N/A (Decorative divider) | Structural hairlines; never used for text |
 
-## Contrast rules
+*Strict Rule:* Never use light gray text for functional or narrative copy. Never convey system state using color alone—always pair with text labels or distinct icons.
 
-| Combination | Ratio | Usage |
-|---|---|---|
-| Ink (#10201E) on Paper (#F7F3EA) | ~17:1 | Body text — passes AAA |
-| Stone (#6F7672) on Paper (#F7F3EA) | ~4.6:1 | Secondary text — passes AA |
-| Terra (#C85B3F) on Paper (#F7F3EA) | ~4.6:1 | **Large text only** (≥18.66px bold or ≥24px regular) |
-| Marigold (#D7A43A) on Paper (#F7F3EA) | ~2.2:1 | **Never for text** — graphics/icons on dark fields only |
-| Mist (#DCE8E5) on Forest (#123E3A) | ~5.6:1 | Text on dark sections — passes AA |
-| Paper (#F7F3EA) on Forest (#123E3A) | ~8.5:1 | CTA text on dark sections — passes AAA |
+---
 
-## Reduced motion
+## 3. Keyboard Navigation & Focus Management
 
-- All CSS animations inside `@media (prefers-reduced-motion: no-preference)` or with instant fallbacks
-- All JS-driven animations check `prefers-reduced-motion` via `matchMedia` and render final state immediately when reduced
-- Count-up animations (ImpactMetric) disabled by default under reduced motion
+- **Global Focus Ring:**
+  `focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background`
+  (2px Quiet Indigo outline with 2px offset).
+- **Never suppress outlines:** `outline: none` without a visible `:focus-visible` replacement is strictly banned.
+- **Skip Link:** A persistent skip-to-content anchor sits as the first element in the DOM, immediately revealed upon Tab key press:
+  `<a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 ...">Skip to content</a>`.
+- **Focus Restoration:** Modals, sheets, and mobile drawers return focus to their triggering elements upon dismissal.
+- **Form Error Focus:** Upon submission failure, keyboard focus shifts smoothly to the first erroneous input field or error summary banner.
 
-## Touch targets
+---
 
-- Minimum 48×48px desktop, 44×44px mobile
-- Navigation links, buttons, cards, and form controls must meet this minimum
-- Enforced as a design token
+## 4. Touch Targets & Responsive Interaction
 
-## Forms
+- **Target Sizing:** All interactive elements (links, buttons, filter chips, accordion headers) must provide an active hit target of at least **44 × 44px** on mobile viewports (`min-h-11 min-w-11` or generous padding).
+- **Target Spacing:** Minimum 8px spacing between adjacent touch targets to eliminate erroneous taps.
+- **Single-Axis Reading:** Mobile viewports must never trigger horizontal scrolling. All content flows along a singular, vertical reading axis.
 
-- Every input has a visible `<label>` (not placeholder-only)
-- Error messages use `aria-describedby` linking to the input
-- Error summaries use `role="alert"` for screen-reader announcement
-- Focus moves to first error on submit failure
-- Required fields use `aria-required="true"`
-- Progressive disclosure steps announce new content
+---
 
-## Modals & dialogs
+## 5. Reduced Motion & Sensory Considerations
 
-- Focus trapped while open
-- ESC closes
-- Focus returns to trigger element on close
-- `aria-modal="true"` and appropriate role
-- Body scroll locked while open
+- All CSS motion and framer-motion transitions must respect the `prefers-reduced-motion: reduce` media query.
+- Under reduced motion:
+  - Animation durations collapse to `0ms`.
+  - Content appears immediately without opacity or positional transitions.
+  - Count-up metric animations render their final target values immediately.
 
-## Images & media
+---
 
-- All content images require authored `alt` text (CMS field is mandatory)
-- Decorative images use `alt=""`
-- No text inside images
-- Video: captions/transcripts for meaningful content
-- No autoplay video with sound
+## 6. Forms & Interactive Inputs
 
-## Testing protocol
-
-### Automated
-- axe-core scan on every page (target: 0 critical/serious violations)
-- Lighthouse accessibility score ≥ 95
-
-### Manual keyboard pass
-- [ ] Tab through entire page — all interactive elements reachable
-- [ ] Visible focus ring on every focused element
-- [ ] Enter/Space activates buttons and links
-- [ ] Arrow keys navigate within radio groups, tabs, accordions
-- [ ] ESC closes modals, sheets, dropdowns
-- [ ] Skip link works and is visible on focus
-- [ ] Forms completable by keyboard alone
-
-### Screen reader
-- Spot check with NVDA (Windows) and VoiceOver (macOS/iOS) on:
-  1. Homepage navigation and hero
-  2. Support Finder (Get Help) complete flow
-  3. Volunteer form submission
-
-### Responsive
-- Test at 320px, 375px, 768px, 1024px, 1440px
-- No horizontal scroll at any breakpoint
-- Touch targets remain ≥ 44px on mobile
-
-## Accessibility statement page
-
-Route: `/accessibility`
-
-Content:
-- Commitment to WCAG 2.2 AA
-- Known limitations (if any)
-- How to report accessibility issues
-- Contact information
-- Date of last review
+- **Explicit Labels:** Every input, textarea, and select control possesses a permanent, visible `<label>` element connected via `htmlFor`. Placeholder text is supplementary and never a replacement for a label.
+- **Accessible Error Messaging:** Error descriptions link directly to inputs using `aria-describedby="[input-id]-error"`.
+- **Field Grouping:** Related checkboxes and radio controls are wrapped in `<fieldset>` with descriptive `<legend>` tags.

@@ -111,9 +111,13 @@ export function VolunteerForm() {
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         onFocusCapture={handleStart}
-        className="space-y-8"
+        className="space-y-5"
       >
+        <label htmlFor="volunteer-form-honeypot" className="sr-only">
+          Leave this field blank
+        </label>
         <input
+          id="volunteer-form-honeypot"
           type="text"
           name="ov_system_field"
           value={honeypot}
@@ -122,20 +126,21 @@ export function VolunteerForm() {
           autoComplete="off"
           className="sr-only"
           aria-hidden="true"
+          aria-label="Do not fill this field"
         />
 
         {/* Row 1: Name + Email */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <FormField
             control={form.control}
             name="name"
             render={({ field }) => (
-              <FormItem className="space-y-2">
+              <FormItem className="space-y-1.5">
                 <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">
                   Full Name <span className="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
-                  <Input placeholder="Jane Doe" autoComplete="name" className="rounded-sm border-border focus-visible:ring-primary/20" {...field} />
+                  <Input placeholder="Jane Doe" autoComplete="name" className="rounded-none border-border focus-visible:ring-primary/20" {...field} />
                 </FormControl>
                 <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
@@ -145,12 +150,12 @@ export function VolunteerForm() {
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem className="space-y-2">
+              <FormItem className="space-y-1.5">
                 <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">
                   Email <span className="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
-                  <Input placeholder="jane@example.com" type="email" autoComplete="email" className="rounded-sm border-border focus-visible:ring-primary/20" {...field} />
+                  <Input placeholder="jane@example.com" type="email" autoComplete="email" className="rounded-none border-border focus-visible:ring-primary/20" {...field} />
                 </FormControl>
                 <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
@@ -158,17 +163,17 @@ export function VolunteerForm() {
           />
         </div>
 
-        {/* Row 2: Phone */}
+        {/* Row 2: Phone (half-width) */}
         <FormField
           control={form.control}
           name="phone"
           render={({ field }) => (
-            <FormItem className="space-y-2">
+            <FormItem className="space-y-1.5 sm:max-w-[50%]">
               <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">
                 Phone Number
               </FormLabel>
               <FormControl>
-                <Input placeholder="+91 98765 43210" autoComplete="tel" className="rounded-sm border-border focus-visible:ring-primary/20" {...field} />
+                <Input placeholder="+91 98765 43210" autoComplete="tel" className="rounded-none border-border focus-visible:ring-primary/20" {...field} />
               </FormControl>
               <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
             </FormItem>
@@ -180,16 +185,16 @@ export function VolunteerForm() {
           control={form.control}
           name="interests"
           render={() => (
-            <FormItem className="space-y-4">
+            <FormItem className="space-y-2">
               <div>
                 <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">
                   Areas of Interest <span className="text-destructive">*</span>
                 </FormLabel>
-                <p className="font-sans text-base-sm text-muted-foreground mt-1">
+                <p className="font-sans text-xs text-muted-foreground mt-0.5">
                   Select all that apply.
                 </p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border border-border *:border-b *:border-r *:border-border bg-card rounded-sm overflow-hidden">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 border border-border bg-card rounded-none p-1.5">
                 {areasOfInterest.map((item) => (
                   <FormField
                     key={item.id}
@@ -200,17 +205,17 @@ export function VolunteerForm() {
                       return (
                         <FormItem key={item.id} className="space-y-0">
                           <FormLabel
-                            className={`flex items-center gap-3 p-4 cursor-pointer transition-colors font-sans text-base-sm font-normal ${
+                            className={`flex items-center gap-2.5 px-3 py-2 rounded-none cursor-pointer transition-colors font-sans text-xs font-normal border ${
                               isChecked
-                                ? "bg-primary/10 text-primary"
-                                : "text-foreground hover:bg-muted/40"
+                                ? "bg-primary/10 border-primary/30 text-primary"
+                                : "border-transparent text-foreground hover:bg-muted/50"
                             }`}
                           >
                             <FormControl>
                               <Checkbox
                                 checked={isChecked}
                                 aria-label={item.label}
-                                className="rounded-xs border-border data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                                className="rounded-none border-border data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
                                 onCheckedChange={(checked) => {
                                   return checked
                                     ? field.onChange([...field.value, item.id])
@@ -240,14 +245,14 @@ export function VolunteerForm() {
           control={form.control}
           name="experience"
           render={({ field }) => (
-            <FormItem className="space-y-2">
+            <FormItem className="space-y-1.5">
               <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">
                 Relevant Experience
               </FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="Tell us about any previous volunteering or relevant professional experience..."
-                  className="min-h-32 rounded-sm border-border focus-visible:ring-primary/20"
+                  className="min-h-20 rounded-none border-border focus-visible:ring-primary/20"
                   {...field}
                 />
               </FormControl>
@@ -257,10 +262,10 @@ export function VolunteerForm() {
         />
 
         {/* Submit */}
-        <div className="pt-4">
+        <div className="pt-2">
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 h-10 px-5 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium transition-colors rounded-sm shadow-xs"
+            className="w-full flex items-center justify-center gap-2 h-10 px-5 bg-primary hover:bg-primary-hover text-primary-foreground font-sans text-xs sm:text-sm font-medium transition-colors rounded-none shadow-xs"
           >
             <span>Apply Now</span>
             <ArrowRight className="size-3.5" />

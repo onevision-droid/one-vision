@@ -1,310 +1,146 @@
-# DESIGN.md — One Vision Design System
+# DESIGN.md — One Vision Design System: Field Edition
 
-## 1. Design thesis
+**Project:** One Vision, Society for Health & Education Manipur  
+**Document Type:** Canonical Master Design System & Architecture Specification  
+**Edition:** Field Edition (September 2026 Redesign)  
+**Philosophy:** Nordic Lagom ("Just the right amount": neither sterile nor decorative, neither sparse nor crowded)  
+**Working Concept:** "Quiet Humanism": Grounded, Editorial, Warm, Clear, Restrained, Human, Durable
 
-**One Vision is a crisis beacon: stark, data-heavy, utilitarian. Every pixel must serve survival, coordination, or truth. Urgency and resilience over spectacle.**
+---
+
+## 1. Design Thesis
+
+**One Vision moves away from a generic "minimal NGO website made of cards" to an authoritative editorial civic journal for Manipur: documentary, human, trustworthy, useful, and beautifully restrained.**
 
 The visual system combines:
-- the high-contrast, dashboard-like composition of frontline humanitarian operations (MSF, ICRC field reporting);
-- the data integrity and transparency of crisis data platforms;
-- the accessibility and cognitive-load awareness of emergency communication systems;
-- a distinct Imphal/Manipur operational context.
+- **Nordic Lagom:** Disciplined functional restraint, generous breathing room, serene balance, and zero unnecessary visual noise.
+- **Editorial Web Design:** Elegant publication-grade typographic pacing, narrative structure, and deliberate asymmetric balance over rigid card matrices.
+- **Documentary Storytelling:** Authentic photographic evidence capturing real community members, field workers, and tangible outcomes across Manipur.
+- **Warm Mineral Color:** Eliminates clinical white glare with comforting mineral foundations (Bone, Paper, Oat, Stone) and a focused Quiet Indigo action accent.
+- **Accessibility-First Engineering:** Native WCAG 2.2 AA compliance, visible high-contrast focus rings, and robust mobile-first interaction.
 
-Do not soften this system. It is not a marketing site. It is a public data beacon for a polycrisis zone.
+---
 
-## 2. Brand personality
+## 2. Brand Personality: "Quiet Humanism"
 
-Three words:
-**Stark · Resilient · Accountable**
+Three core values:
+**Grounded · Editorial · Restrained**
 
 Supporting traits:
-- urgent, not performative;
-- factual, not emotional;
-- utilitarian, not decorative;
-- transparent, not polished;
-- local, not generic.
+- **Human:** People, stories, field notes, and real evidence are the emotional center.
+- **Clear:** The user's next action is obvious without aggressive visual screaming.
+- **Warm:** Avoids clinical white surfaces and cold blue-gray palettes.
+- **Durable:** Designed to remain contemporary, functional, and dignified for years to come.
+- **Local:** Rooted in the lived reality, landscapes, and culture of Manipur.
 
-## 3. Logo direction
+---
 
-### Primary concept: The Open V
+## 3. Logo & Brand Mark
 
-Typography-led wordmark:
+### Typography-Led Wordmark:
+**ONE VISION**  
+*Society for Health & Education Manipur · Est. 1988*
 
-**ONE VISION**
+- **Visual Anchor:** Clean, architectural typography with understated geometry.
+- **Prohibitions:** Generic globes, puzzle pieces, clipart hands, gradients, or heavy decorative drop-shadows.
+- **Application:** Rendered in deep Ink (`#1B1C19`) on light mineral backgrounds; clean and legible at any scale.
 
-The "V" is the visual anchor. Two clean strokes suggesting convergence, collective action, forward movement.
+---
 
-The mark must work in one colour at any size. Brutalist — no rounded treatments, no embellishments.
+## 4. Color System — Warm Mineral Foundations
 
-Avoid:
-- generic hands, globes, hearts, puzzle pieces;
-- literal eye icons;
-- NGO clip-art;
-- complex emblems;
-- any rounded or soft treatment.
+The color system transitions away from high-glare white and electric violet toward a warm neutral foundation balanced by a single quiet brand action color:
 
-### Lockups
+| Token | CSS Variable | Hex | Role & Usage | Contrast Ratio |
+|---|---|---|---|---|
+| **Bone** | `--ov-bone` | `#F2EFE7` | Primary canvas & page background | Base |
+| **Paper** | `--ov-paper` | `#FAF8F2` | Primary content surface & elevated panels | Highlight |
+| **Oat** | `--ov-oat` | `#E9E4D9` | Soft alternating section wells & backgrounds | Muted ground |
+| **Stone** | `--ov-stone` | `#D8D2C8` | Hairline 1px structural borders & dividers | Subtle rule |
+| **Ink** | `--ov-ink` | `#1B1C19` | Primary headings, body copy, and structural anchors | 15.0:1 (AAA) |
+| **Slate** | `--ov-slate` | `#55564F` | Secondary copy, metadata, subtitles | 6.5:1 (AA) |
+| **Moss** | `--ov-moss` | `#586653` | Environmental resilience & community trust signals | 5.2:1 (AA) |
+| **Indigo** | `--ov-indigo` | `#5752BC` | Primary brand action (CTA, active nav, focus ring) | 5.5:1 on light / 6.3:1 with white |
+| **Indigo Dark** | `--ov-indigo-dark` | `#403B92` | Pressed / hover state for primary CTAs | 8.5:1 with white |
+| **Clay** | `--ov-clay` | `#A65B4F` | Important alerts & human warmth accent | 4.2:1 (AA Large) |
+| **White** | `--ov-white` | `#FFFFFF` | Rare high-contrast utility highlight | Accent |
 
-1. Horizontal: symbol/wordmark + descriptor
-2. Wordmark-only
-3. Compact V monogram
-4. One-colour stamp for documents/social avatars
+### Usage Ratios:
+- **Warm Neutrals (Bone, Paper, Oat):** ~70% dominant field.
+- **Ink / Slate:** ~20% typographic hierarchy and structural grounding.
+- **Quiet Indigo:** ~7% selective interactive actions and key status indicators.
+- **Moss & Clay:** ~3% meaningful context and operational alerts.
 
-## 4. Colour system
+---
 
-### Core palette (Utilitarian Emergency)
+## 5. Typography System
 
-| Token | Hex | Role |
-|---|---|---|
-| Paper | #FAFAFA | Primary base (off-white, prevents halation) |
-| Surface | #FFFFFF | Raised cards/elements |
-| Ink 900 | #171717 | Primary text, headers |
-| Ink 700 | #262626 | Body text |
-| Ink 500 | #525252 | Muted text, secondary |
-| Ink 300 | #A3A3A3 | Disabled/captions |
-| Ink 100 | #E5E5E5 | Borders, dividers |
-| Safety Orange | #F97316 | Primary action, urgency |
-| Safety Orange Dim | #EA580C | Action hover |
-| Alert Red | #DC2626 | Critical/destructive |
-| Field Black | #171717 | Inverted backgrounds |
-| Hazard Yellow | #EAB308 | Warning state |
-| Status Active | #16A34A | Operational status |
+- **Display & Headings:** Contemporary editorial serif (Newsreader / Instrument Serif). Used for narrative authority, headlines, and pull-quotes.
+- **UI & Body:** Clean, humanist or neo-grotesk sans (Geist / Manrope / Inter). Used for body copy, UI controls, navigation, and form labels.
+- **Data & Metrics:** Tabular monospace (JetBrains Mono / IBM Plex Mono). Used for financial ledger figures, dates, and registration numbers.
 
-### Usage ratio
+### Fluid Typographic Hierarchy
+| Level | CSS Fluid Clamp / Value | Line Height | Tracking | Usage Role |
+|---|---|---|---|---|
+| **Display XL** | `clamp(3rem, 7vw, 7rem)` | 0.95–1.05 | `-0.025em` | Hero main statements |
+| **Display L** | `clamp(2.75rem, 5vw, 5rem)` | 1.05–1.15 | `-0.02em` | Page primary titles |
+| **Heading H2** | `clamp(1.75rem, 3vw, 3rem)` | 1.15–1.25 | `-0.015em` | Major section headers |
+| **Heading H3** | `clamp(1.25rem, 2vw, 2rem)` | 1.25–1.35 | `-0.01em` | Subsection & story headers |
+| **Body Large** | `1.125rem–1.25rem` | 1.55–1.65 | `0` | Editorial lead paragraphs (max 65ch) |
+| **Body Regular** | `1rem–1.0625rem` | 1.6 | `0` | Base reading copy (max 68ch) |
+| **Small / Meta** | `0.875rem` | 1.45 | `+0.01em` | Metadata & image captions |
+| **Eyebrow / Badge** | `0.75rem–0.8125rem` | 1.2 | `+0.12em` | Uppercase category identifiers |
 
-- 60% Paper/Surface/Ink (neutral base);
-- 25% Field Black (inverted sections, header, footer);
-- 10% Safety Orange (action, urgency);
-- 5% Alert Red/Status Active (status indicators only).
+---
 
-Safety Orange is the primary accent. It marks actions and urgency. Alert Red is reserved for critical states. Do not use accent colours decoratively.
+## 6. Containment Hierarchy & Geometry (Anti-Card Soup)
 
-## 5. Typography
+Do not enclose content blocks in cards simply because they have a title and text. Adhere to the **4-Level Containment Hierarchy**:
+1. **Level 1 — Open Editorial Section (Default):** No border, no card container. Fluid typography, generous spacing, and whitespace alignment carry the content.
+2. **Level 2 — Soft Surface Block:** Background shift only (e.g., Oat `#E9E4D9` on Bone `#F2EFE7`). No border.
+3. **Level 3 — Bordered Module:** Subtle hairline rule (`1px solid var(--ov-stone)`). Applied strictly when grouping or interaction requires explicit demarcation.
+4. **Level 4 — Elevated Object (Rare):** Extremely subtle shadow reserved strictly for floating utility elements (modals, dropdown popovers, mobile navigation overlays).
 
-**Headings:** System serif (Georgia/Times New Roman) — warm, trustworthy, appropriate for NGO communication. Used for h1–h3 headings with `font-light` weight.
-**UI/Body:** Inter — utilitarian grotesk sans-serif for body text, labels, and interface elements.
-**Data/Metrics:** JetBrains Mono or IBM Plex Mono — for all numerical data, stats, codes, reference IDs.
+### Radii & Borders:
+- **Default Border:** Hairline rule (`1px solid var(--ov-stone)`).
+- **Strict Zero-Radius Architecture (Zero Curved Lines / 0px Corner Radii):**
+  - All corners throughout the design system are strictly orthogonal 90-degree right angles (`border-radius: 0px` / `rounded-none`).
+  - Rounded corners (`rounded-*`), pill shapes (`rounded-full`), circles, and organic curved lines are strictly forbidden.
+  - Buttons, cards, images, badges, tabs, dialogs, inputs, textareas, status dots, and popovers must have a border radius of zero (`0px`).
 
-Serif headings provide the warmth and humanity appropriate for a community-focused NGO, while sans-serif body text maintains readability and information density.
 
-Typography hierarchy:
-- Display XL: 72px desktop, fluid scale to ~40px mobile;
-- Display LG: 56px desktop;
-- Display MD: 40px desktop;
-- Heading XL: 32px;
-- Heading LG: 24px;
-- Heading MD: 20px;
-- Body LG: 18px;
-- Body: 16px;
-- Body SM: 14px;
-- Label: 12px uppercase tracking-widest;
-- Caption: 12px.
+---
 
-Mobile sizes should scale fluidly using `clamp()`, not abrupt breakpoint jumps.
+## 7. Hero Section Layout Lock (Immutable Contract)
 
-## 6. Grid
+As mandated by `AGENTS.md` Rule 8, all Hero sections across the entire platform (`components/content/Hero.tsx` and `components/composition/PageHero.tsx`) are permanently locked as Full-Viewport Heroes:
+- **Viewport Layout:** `min-h-dvh pt-20 pb-6 md:pt-22 md:pb-8 lg:pt-24 lg:pb-10 flex flex-col justify-center`
+- **Hero Container Dimensions:** `lg:h-95 xl:h-100`
+- **Image Aspect Ratio:** 1:1 square (`aspect-square`) with dynamic full-viewport centering.
+- **Strict Rule:** Never alter the structural layout classes, container dimensions, or 1:1 image ratio. Only text copy, badges, button links/labels, and image source paths within the hero sections can be modified.
 
-Desktop:
-- 12-column grid;
-- max content width: 1200px;
-- 24–32px gutters.
+---
 
-Tablet:
-- 8 columns.
+## 8. Documentary Photography System
 
-Mobile:
-- 4 columns;
-- 20px outer padding.
+- **Monochrome Documentary:** Standard for archival history, infrastructure, and governance records.
+- **Warm Monochrome:** Used for community stories, elder narratives, and craft features.
+- **Natural Muted Color:** Used for youth education, clinic care, and environmental projects where vitality is key.
+- **Hierarchy:** 1 Hero Image per route → 1 Featured Story Visual → Compact Supporting Images.
 
-Use dense, dashboard-like compositions. Minimise negative space in favour of vital data.
+---
 
-## 7. Spacing
+## 9. Motion & Interaction: "Quiet Motion"
 
-Base unit: 4px.
+- **Durations:** 160ms–240ms for micro-interactions; 300ms–500ms for editorial entry reveals.
+- **Transitions:** Native CSS transitions preferred over bulky runtime animation libraries.
+- **Reduced Motion:** Full compliance with `prefers-reduced-motion: reduce`. All animated transitions collapse immediately to zero duration when enabled.
 
-Common values:
-4, 8, 12, 16, 24, 32, 48, 64, 96, 128.
+---
 
-Sections should use 64–96px vertical spacing. No "editorial breathing room" — density is a feature.
+## 10. Accessibility & Core Web Vitals (WCAG 2.2 AA)
 
-## 8. Photography direction
-
-Photography must feel documentary and operationally secure.
-
-Required:
-- real field operations;
-- anonymised subjects (hands, environments, blurred faces);
-- equipment, infrastructure, solar arrays, health stations;
-- data displays, maps, operational dashboards;
-- before/after only when genuinely meaningful.
-
-Forbidden:
-- exploitative suffering imagery;
-- generic stock charity scenes;
-- posed group photos;
-- over-saturated filters;
-- exact geographic coordinates of vulnerable sites in metadata.
-
-All photography must pass OpSec review before publication.
-
-## 9. Border radius
-
-**Zero everywhere.** Brutalist mandate.
-
-`border-radius: 0px` is enforced globally via `!important`. Do not use `rounded-*` Tailwind classes. They are dead code.
-
-## 10. Motion
-
-Motion budget is minimal. This site targets inexpensive phones and slow connections.
-
-Allowed:
-- 150–250ms hover transitions (opacity, background-color);
-- state-change feedback (button press, toast entry, focus ring) at ~100ms;
-- subtle section entrance (opacity 0→1, no spatial transform).
-
-Forbidden:
-- parallax;
-- spring physics;
-- staggered reveals;
-- scroll-driven transforms;
-- any animation that delays access to content;
-- any animation that adds >5KB to the JS bundle.
-
-Respect `prefers-reduced-motion`:
-- Decorative animations: disabled entirely;
-- State-change feedback: preserved at ~100ms;
-- Never use a global 0.01ms kill switch — it destroys useful feedback.
-
-## 11. Header
-
-Desktop:
-- ONE VISION wordmark left;
-- Navigation items: Field Reports, The 4 Pillars, Secure Contact, About;
-- "Deploy Support" action button (right);
-- Search (Cmd+K).
-
-Mobile:
-- Wordmark;
-- Hamburger menu;
-- Search icon.
-
-Header must remain under 64px height. Fixed position with transparent-to-solid scroll treatment.
-
-## 12. Homepage composition (Lagom — 6 sections)
-
-### Section 01 — Hero (Layout Locked)
-Community-framing statement with action buttons.
-Actions: Our Work, Volunteer.
-
-**Layout Lock (Immutable):**
-- Proportions: Asymmetrical card with `flex-1` content on the left and 1:1 `aspect-square` image container on the right (`lg:h-95 xl:h-100`).
-- Sizing: Card height strictly locked to `380px` (`lg:h-95`) and `400px` (`xl:h-100`).
-- Section Clearance: `pt-24 md:pt-26 lg:pt-28 pb-4 md:pb-6 lg:pb-6` ensuring full viewport fit on compact laptop displays (1280x585) without vertical scroll.
-- Rule: Layout, geometry, height, and width are permanently frozen across all pages (`Hero.tsx` and `PageHero.tsx`). Only internal content may change.
-
-### Section 02 — Impact at a Glance (StatsHero)
-Single merged stats section. Concise heading + 4 key metrics. CTA to /stories.
-
-### Section 03 — Our Programmes (ProgrammesBento)
-Five community programmes with status, metric, description, link. Concise card descriptions.
-
-### Section 04 — Community Approach (WhatWeDo)
-Merged WhatWeDo + Method. Challenge statement + key facts grid.
-
-### Section 05 — Community Story (SplitNarrative)
-One featured story with anonymised imagery. Trimmed consent notice.
-
-### Section 06 — Trust, Transparency & Action (merged)
-Trust cards (Open Ledger, Governance, Reports) + closing CTA + contact buttons. Single unified closing section.
-
-
-## 13. Information architecture
-
-Top-level routes:
-
-/
- /about
- /programmes
- /programmes/[slug]
- /campaigns
- /campaigns/[slug]
- /stories
- /stories/[slug]
- /get-help (Secure Contact — routes to Signal/ProtonMail)
- /volunteer
- /donate
- /events
- /reports
- /open-ledger
- /contact
- /search
- /privacy
- /accessibility
- /terms
-
-## 14. Get Help / Secure Contact
-
-**No in-app intake forms.** All sensitive communications route to:
-1. Signal (recommended, end-to-end encrypted);
-2. ProtonMail (for detailed case submissions);
-3. Field phone (non-sensitive only).
-
-The page must explain:
-- why web forms are not used (active surveillance);
-- what to include in messages;
-- what NOT to include (GPS, full names, diagnoses);
-- expected response times.
-
-## 15. Donation experience
-
-Design for trust:
-- explain what donations support (which pillar/operation);
-- one-time donations (recurring when legally cleared);
-- fee transparency;
-- organisation identity and registration;
-- route to certified payment gateway;
-- never store card/UPI details in-app.
-
-## 16. Forms
-
-All forms follow a single pattern:
-- Labels: `text-body-sm font-semibold text-ink-900 uppercase tracking-widest`
-- Inputs: `h-12` height, `border-border-default`, `bg-transparent`
-- Submit: `<Button variant="primary">` with Lucide arrow icon
-- Honeypot: `name="ov_system_field"`, `sr-only`, `aria-hidden`
-- Validation: Zod schema, inline error messages
-
-## 17. Accessibility
-
-Minimum target: WCAG 2.2 AA.
-Required:
-- stark contrast ratios (4.5:1 minimum for text);
-- semantic headings and landmarks;
-- `<main id="main-content">` target for skip link;
-- clear, unambiguous labels;
-- no information conveyed by colour alone;
-- 44×44px minimum touch targets;
-- keyboard navigation with visible focus indicators;
-- `prefers-reduced-motion` respected intentionally.
-
-## 18. Content rules
-
-See CONTENT.md for full editorial system.
-Key: factual, urgent, evidence-led. No marketing language.
-
-## 19. Design anti-patterns
-
-Do not:
-- modify or alter the Hero section layout, height, width, padding, or 1:1 image aspect ratio (layout is permanently locked);
-- use rounded corners anywhere;
-- use gradients as decoration;
-- use serif fonts for body text, data, or UI controls (serifs are reserved for h1–h3 headings);
-- use generic charity imagery;
-- use excessive shadows;
-- make every CTA red;
-- bury contact information;
-- create fake impact numbers;
-- collect sensitive data in web forms;
-- add animations that delay content access;
-- use parallax or spring physics;
-- load unnecessary font weights.
+- **Contrast:** Normal text ≥ 4.5:1; large text ≥ 3.0:1.
+- **Visible Focus:** 2px Quiet Indigo ring with 2px offset.
+- **Touch Targets:** Minimum 44×44px on mobile viewports.
+- **Web Vitals Targets:** LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1.

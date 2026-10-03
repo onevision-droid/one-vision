@@ -1,38 +1,49 @@
 import type { Metadata } from"next";
-import { Inter, JetBrains_Mono, Libre_Baskerville, Oswald, DM_Sans } from"next/font/google";
-import"./globals.css";
-import { cn } from"@/lib/utils";
-import { SkipLink } from"@/components/ui/SkipLink";
-import { TooltipProvider } from"@/components/ui/tooltip";
+import { Inter, JetBrains_Mono, DM_Serif_Display, Plus_Jakarta_Sans, DM_Sans, Space_Grotesk } from "next/font/google";
+import "./globals.css";
+import { cn } from "@/lib/utils";
+import { SkipLink } from "@/components/ui/SkipLink";
 import { DevTooling } from "@/components/providers/DevTooling";
-
-const dmSansHeading = DM_Sans({subsets:['latin'],variable:'--font-heading'});
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable:"--font-jetbrains-mono",
-  display:"swap",
-  weight: ["400","500","700"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+  weight: ["400", "500", "700"],
 });
 
 const inter = Inter({
   subsets: ["latin"],
-  variable:"--font-inter",
-  display:"swap",
+  variable: "--font-inter",
+  display: "swap",
 });
 
-const libreBaskerville = Libre_Baskerville({
+const dmSerifDisplay = DM_Serif_Display({
   subsets: ["latin"],
-  variable:"--font-libre-baskerville",
-  display:"swap",
-  weight: ["400","700"],
+  variable: "--font-dm-serif",
+  display: "swap",
+  weight: ["400"],
 });
 
-const oswald = Oswald({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable:"--font-oswald",
-  display:"swap",
-  weight: ["400","500"],
+  variable: "--font-plus-jakarta",
+  display: "swap",
+  weight: ["500", "600", "700"],
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
+  weight: ["500", "600", "700"],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -74,13 +85,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en-GB"
-      className={cn("h-full antialiased overflow-x-hidden", inter.variable, jetbrainsMono.variable, libreBaskerville.variable, oswald.variable, dmSansHeading.variable)}
+      className={cn(
+        "h-full antialiased overflow-x-hidden",
+        inter.variable,
+        jetbrainsMono.variable,
+        dmSerifDisplay.variable,
+        plusJakartaSans.variable,
+        dmSans.variable,
+        spaceGrotesk.variable
+      )}
     >
       <body className="min-h-full flex flex-col font-sans bg-background text-text-primary overflow-x-hidden">
         <SkipLink />
-        <TooltipProvider>
-          {children}
-        </TooltipProvider>
+        {children}
         <DevTooling />
         <script
           dangerouslySetInnerHTML={{

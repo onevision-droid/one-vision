@@ -59,7 +59,7 @@ export default function TermsPage() {
 
               <h2 className="text-foreground font-serif text-2xl font-light">6. Contact Information</h2>
               <p>
-                For questions regarding these Terms, contact us at <a href={`mailto:${siteSettings.contactEmail}`} className="text-primary hover:underline">{siteSettings.contactEmail}</a>.
+                For questions regarding these Terms, contact us at <a href={`mailto:${siteSettings.contactEmail}`} className="text-primary underline underline-offset-2 hover:text-primary-hover font-medium">{siteSettings.contactEmail}</a>.
               </p>
             </div>
           </div>

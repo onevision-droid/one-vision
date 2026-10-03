@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge",
+  "type": "registry:ui",
+  "title": "Badge",
+  "description": "Zero-radius semantic badge with status indicators and purpose-driven tints.",
+  "dependencies": [
+    "@base-ui/react",
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "components/ui/badge.tsx",
+      "content": "import * as React from \"react\"\nimport { mergeProps } from \"@base-ui/react/merge-props\"\nimport { useRender } from \"@base-ui/react/use-render\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { cn } from \"@/lib/utils\"\n\nconst badgeVariants = cva(\n  \"inline-flex w-fit shrink-0 items-center justify-center gap-1.5 overflow-hidden text-xs font-semibold tracking-[0.05em] font-ui whitespace-nowrap transition-all rounded-none px-3 py-1 [&>svg]:size-3\",\n  {\n    variants: {\n      variant: {\n        default: \"bg-[#EDE9FE] text-[#4338CA] hover:bg-[#DDD6FE]\",\n        secondary: \"bg-[#F1F5F9] text-[#1E293B] hover:bg-[#E2E8F0]\",\n        destructive: \"bg-[#FEE2E2] text-[#B91C1C] hover:bg-[#FECACA] font-badge\",\n        outline: \"border border-[#E5E7EB] bg-white text-[#0F172A] hover:bg-[#F8FAFC]\",\n        ghost: \"hover:bg-muted text-muted-foreground\",\n        link: \"text-primary underline-offset-4 hover:underline\",\n\n        /* ═══ Nordic Purposeful Category Pills (Section 06) ═══ */\n        programme: \"bg-[#EDE9FE] text-[#4338CA]\",\n        story: \"bg-[#F1F5F9] text-[#1E293B]\",\n        impact: \"bg-[#D1FAE5] text-[#065F46]\",\n        volunteer: \"bg-[#FEF3C7] text-[#92400E]\",\n        community: \"bg-[#DBEAFE] text-[#1D4ED8]\",\n        urgent: \"bg-[#FEE2E2] text-[#B91C1C] font-badge tracking-[0.06em]\",\n\n        /* ═══ Status Dots (Section 06) ═══ */\n        active: \"bg-transparent text-[#15803D] px-1 py-0.5 font-sans font-medium gap-1.5 [&>span]:size-1.5 [&>span]:rounded-none [&>span]:bg-[#15803D]\",\n        pending: \"bg-transparent text-[#9A3412] px-1 py-0.5 font-sans font-medium gap-1.5 [&>span]:size-1.5 [&>span]:rounded-none [&>span]:bg-[#9A3412]\",\n        completed: \"bg-transparent text-[#475569] px-1 py-0.5 font-sans font-medium gap-1.5 [&>span]:size-1.5 [&>span]:rounded-none [&>span]:bg-[#475569]\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n    },\n  }\n)\n\nfunction Badge({\n  className,\n  variant = \"default\",\n  render,\n  children,\n  ...props\n}: useRender.ComponentProps<\"span\"> & VariantProps<typeof badgeVariants>) {\n  // Automatically prepend status dot if status variant\n  const isStatus = variant === \"active\" || variant === \"pending\" || variant === \"completed\"\n\n  return useRender({\n    defaultTagName: \"span\",\n    props: mergeProps<\"span\">(\n      {\n        className: cn(badgeVariants({ variant }), className),\n        children: (\n          <>\n            {isStatus && <span aria-hidden=\"true\" />}\n            {children}\n          </>\n        ),\n      },\n      props\n    ),\n    render,\n    state: {\n      slot: \"badge\",\n      variant,\n    },\n  })\n}\n\nexport { Badge, badgeVariants }\n",
+      "type": "registry:ui",
+      "target": "components/ui/badge.tsx"
+    }
+  ]
+}

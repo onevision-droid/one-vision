@@ -1,15 +1,14 @@
-import { Metadata } from"next";
-import { Hero } from"@/components/content/Hero";
-import { StatsHero } from"@/components/composition/StatsHero";
-import { WhatWeDo } from"@/components/composition/WhatWeDo";
-import { SplitNarrative } from"@/components/composition/SplitNarrative";
-import { ProgrammesBento } from"@/components/composition/ProgrammesBento";
-import { stories } from"@/lib/data/stories";
-
-import orgData from"@/content/org.json";
-import Image from"next/image";
-import Link from"next/link";
-import { ArrowRight, Shield, MessageCircle } from"lucide-react";
+import { Metadata } from "next";
+import { Hero } from "@/components/content/Hero";
+import { ImpactStrip } from "@/components/composition/ImpactStrip";
+import { EditorialIndex } from "@/components/composition/EditorialIndex";
+import { SplitNarrative } from "@/components/composition/SplitNarrative";
+import { QuietClose } from "@/components/composition/QuietClose";
+import { stories } from "@/lib/data/stories";
+import orgData from "@/content/org.json";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Shield } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "One Vision | Community Health, Relief & Sustainable Development — Manipur",
@@ -50,6 +49,8 @@ const organizationJsonLd = {
 };
 
 export default function Home() {
+  const featuredStory = stories[0];
+
   return (
     <div className="flex flex-col w-full bg-background">
       <script
@@ -57,141 +58,164 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
 
-      {/* ═══ Section 1: Hero (Layout Locked) ═══ */}
+      {/* ═══ 01 — Editorial Hero (Layout Locked) ═══ */}
       <Hero />
 
-      {/* ═══ Section 2: Impact at a Glance ═══ */}
-      <StatsHero
-        heading="Community impact, measured."
-        description="Healthcare access, ecological restoration, and youth mentorship — this is what lasting change looks like across Manipur."
-        ctaLabel="Stories"
-        ctaHref="/stories"
-        stats={orgData.stats.map((stat) => ({
-          value: typeof stat.value === "number" ? stat.value.toLocaleString("en-GB") : String(stat.value),
-          suffix: stat.suffix || "",
-          label: stat.label,
-        }))}
+      {/* ═══ 02 — Proof of Impact (Compact Horizontal Strip) ═══ */}
+      <ImpactStrip
+        tone="alt"
+        stats={[
+          { value: "2,500+", label: "People engaged" },
+          { value: "500+", label: "Young people trained" },
+          { value: "25+", label: "Communities engaged" },
+          { value: "22+", label: "Local projects supported" },
+        ]}
       />
 
-      {/* ═══ Section 3: Our Programmes ═══ */}
-      <ProgrammesBento />
+      {/* ═══ 03 — Five Priorities (Editorial Programme Index) ═══ */}
+      <EditorialIndex />
 
-      {/* ═══ Section 4: Community Approach (merged WhatWeDo + Method) ═══ */}
-      <WhatWeDo />
-
-      {/* ═══ Section 5: Community Story ═══ */}
+      {/* ═══ 04 — One Human Story (Asymmetric Editorial Feature) ═══ */}
       <SplitNarrative
         heading="Community Story"
         content={
           <div className="flex flex-col h-full justify-center">
-            <div className="font-sans text-xs uppercase tracking-wider text-primary font-semibold mb-6">
-              {stories[0].date} — Youth & Future Skills
+            <div className="font-sans text-xs uppercase tracking-wider text-primary font-semibold mb-4 sm:mb-6">
+              {featuredStory.date} — Youth & Future Skills
             </div>
-            <h3 className="font-serif text-3xl md:text-4xl font-light text-foreground mb-6 leading-tight">
-              {stories[0].title}
+            <h3 className="font-serif text-3xl sm:text-4xl font-light text-foreground mb-4 sm:mb-6 leading-tight">
+              {featuredStory.title}
             </h3>
-            <p className="font-sans text-base text-muted-foreground leading-relaxed mb-8">
-              {stories[0].excerpt}
+            <p className="font-sans text-base sm:text-lg text-muted-foreground font-light leading-relaxed mb-6 sm:mb-8">
+              {featuredStory.excerpt}
             </p>
             <div className="mt-auto flex items-center gap-4">
-              <Link href={`/stories/${stories[0].slug}`} className="inline-flex w-fit items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-xs transition-colors">
-                Read Story <ArrowRight className="size-3.5" />
+              <Link
+                href={`/stories/${featuredStory.slug}`}
+                className="inline-flex w-fit items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-xs transition-colors rounded-none"
+              >
+                <span>Read Story</span>
+                <ArrowRight className="size-3.5" />
               </Link>
             </div>
-            <p className="mt-8 pt-4 border-t border-border font-sans text-xs text-muted-foreground leading-relaxed flex items-start gap-2">
-              <Shield className="size-3.5 shrink-0 mt-0.5 text-primary" aria-hidden="true" />
-              Shared with community consent.
+            <p className="mt-8 pt-4 border-t border-border font-sans text-xs text-muted-foreground leading-relaxed flex items-center gap-2">
+              <Shield className="size-3.5 shrink-0 text-primary" aria-hidden="true" />
+              Shared with verified community consent.
             </p>
           </div>
         }
         media={
           <Image
-            src={stories[0].image}
-            alt="Community story visual"
+            src={featuredStory.image}
+            alt="Community story documentary visual"
             fill
-            sizes="(max-width: 768px) 100vw, 50vw"
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />
         }
       />
 
-      {/* ═══ Section 6: Trust, Transparency & Action (merged) ═══ */}
-      <div className="bg-background">
-        <div className="mx-auto max-w-container px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
-          {/* Trust heading */}
-          <div className="mb-10">
-            <h2 className="font-serif text-3xl sm:text-4xl font-light text-foreground tracking-tight leading-tight">
-              Transparency & Accountability
-            </h2>
-            <p className="font-sans text-base text-muted-foreground mt-3 max-w-2xl">
-              Every rupee received is dedicated to grassroots impact. Registered non-profit since 1988.
-            </p>
-          </div>
-
-          {/* Trust cards */}
-          <div className="grid sm:grid-cols-3 gap-px bg-border border border-border mb-16">
-            <Link href="/open-ledger" className="group bg-background hover:bg-muted/40 p-6 md:p-8 flex flex-col justify-between transition-colors duration-300">
-              <div>
-                <span className="font-sans text-xs font-semibold tracking-wider uppercase text-primary">Open Ledger</span>
-                <h3 className="font-serif text-xl md:text-2xl font-light text-foreground mt-3 mb-2">Transparent Accounting</h3>
-                <p className="font-sans text-sm text-muted-foreground leading-relaxed">
-                  Every donation tracked. No hidden costs.
-                </p>
-              </div>
-              <span className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-primary mt-6 group-hover:underline underline-offset-4">
-                View <ArrowRight className="size-3.5" aria-hidden="true" />
+      {/* ═══ 05 — Accountability (Clean 3-Link Transparency Row) ═══ */}
+      <section className="py-12 md:py-16 border-t border-border bg-background">
+        <div className="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4 mb-10 pb-4 border-b border-border">
+            <div>
+              <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground font-semibold block mb-1">
+                Transparency & Evidence
               </span>
-            </Link>
-            <Link href="/about/governance" className="group bg-background hover:bg-muted/40 p-6 md:p-8 flex flex-col justify-between transition-colors duration-300">
-              <div>
-                <span className="font-sans text-xs font-semibold tracking-wider uppercase text-primary">Governance</span>
-                <h3 className="font-serif text-xl md:text-2xl font-light text-foreground mt-3 mb-2">Board & Leadership</h3>
-                <p className="font-sans text-sm text-muted-foreground leading-relaxed">
-                  Independent oversight under the Manipur Societies Registration Act.
-                </p>
-              </div>
-              <span className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-primary mt-6 group-hover:underline underline-offset-4">
-                View <ArrowRight className="size-3.5" aria-hidden="true" />
-              </span>
-            </Link>
-            <Link href="/reports" className="group bg-background hover:bg-muted/40 p-6 md:p-8 flex flex-col justify-between transition-colors duration-300">
-              <div>
-                <span className="font-sans text-xs font-semibold tracking-wider uppercase text-primary">Reports</span>
-                <h3 className="font-serif text-xl md:text-2xl font-light text-foreground mt-3 mb-2">Audited Statements</h3>
-                <p className="font-sans text-sm text-muted-foreground leading-relaxed">
-                  Annual reports and programme impact evaluations.
-                </p>
-              </div>
-              <span className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-primary mt-6 group-hover:underline underline-offset-4">
-                View <ArrowRight className="size-3.5" aria-hidden="true" />
-              </span>
-            </Link>
-          </div>
-
-          {/* Closing CTA — merged with contact */}
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4 leading-tight text-balance">
-              The future of our communities is something we build together.
-            </h2>
-            <p className="font-sans text-base text-muted-foreground mb-8 font-light leading-relaxed text-balance">
-              Partner with us, volunteer your skills, or reach our community team directly.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href="/volunteer" className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-xs transition-colors">
-                Volunteer
-                <ArrowRight className="size-3.5" />
-              </Link>
-              <Link href="/get-help" className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-background border border-border text-foreground hover:bg-muted font-medium text-xs transition-colors">
-                <MessageCircle className="size-3.5" aria-hidden="true" />
-                Get Help
-              </Link>
-              <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-background border border-border text-foreground hover:bg-muted font-medium text-xs transition-colors">
-                Contact
-              </Link>
+              <h2 className="font-serif text-2xl sm:text-3xl font-light text-foreground">
+                Accountability & Open Governance
+              </h2>
             </div>
+            <p className="font-sans text-xs sm:text-sm text-muted-foreground font-light max-w-md">
+              Every rupee received is dedicated to grassroots impact. Registered non-profit society in Manipur since 1988.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-border">
+            <Link
+              href="/open-ledger"
+              className="group flex flex-col justify-between pt-6 md:pt-0 md:pl-8 first:pl-0"
+            >
+              <div>
+                <span className="font-mono text-xs text-primary font-semibold">01</span>
+                <h3 className="font-serif text-xl sm:text-2xl font-light text-foreground group-hover:text-primary transition-colors mt-2 mb-2">
+                  Open Ledger
+                </h3>
+                <p className="font-sans text-xs sm:text-sm text-muted-foreground font-light leading-relaxed">
+                  Transparent accounting. Every donation and disbursement tracked with zero hidden costs.
+                </p>
+              </div>
+              <span className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-primary mt-6 group-hover:translate-x-0.5 transition-transform">
+                <span>View Ledger</span>
+                <ArrowRight className="size-3.5" />
+              </span>
+            </Link>
+
+            <Link
+              href="/about"
+              className="group flex flex-col justify-between pt-6 md:pt-0 md:pl-8"
+            >
+              <div>
+                <span className="font-mono text-xs text-primary font-semibold">02</span>
+                <h3 className="font-serif text-xl sm:text-2xl font-light text-foreground group-hover:text-primary transition-colors mt-2 mb-2">
+                  Governance
+                </h3>
+                <p className="font-sans text-xs sm:text-sm text-muted-foreground font-light leading-relaxed">
+                  Independent board oversight and community accountability under the Manipur Societies Registration Act.
+                </p>
+              </div>
+              <span className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-primary mt-6 group-hover:translate-x-0.5 transition-transform">
+                <span>View Governance</span>
+                <ArrowRight className="size-3.5" />
+              </span>
+            </Link>
+
+            <Link
+              href="/reports"
+              className="group flex flex-col justify-between pt-6 md:pt-0 md:pl-8"
+            >
+              <div>
+                <span className="font-mono text-xs text-primary font-semibold">03</span>
+                <h3 className="font-serif text-xl sm:text-2xl font-light text-foreground group-hover:text-primary transition-colors mt-2 mb-2">
+                  Reports
+                </h3>
+                <p className="font-sans text-xs sm:text-sm text-muted-foreground font-light leading-relaxed">
+                  Audited financial statements, annual impact reports, and field evaluations available for open public review.
+                </p>
+              </div>
+              <span className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-primary mt-6 group-hover:translate-x-0.5 transition-transform">
+                <span>View Reports</span>
+                <ArrowRight className="size-3.5" />
+              </span>
+            </Link>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* ═══ 06 — Closing CTA (Quiet Close) ═══ */}
+      <QuietClose
+        label="Community First"
+        heading="The future of our communities is something we build together."
+        description="Partner with us, volunteer your skills, or connect directly with our local field team across Manipur."
+        action={
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              href="/volunteer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium rounded-none transition-colors"
+            >
+              <span>Volunteer</span>
+              <ArrowRight className="size-3.5" />
+            </Link>
+            <Link
+              href="/get-help"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-transparent border border-border text-foreground hover:bg-muted font-sans text-xs font-medium rounded-none transition-colors"
+            >
+              <span>Get Help</span>
+            </Link>
+          </div>
+        }
+      />
     </div>
   );
 }

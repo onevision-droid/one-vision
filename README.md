@@ -38,7 +38,7 @@ Open [http://localhost:3000](http://localhost:3000).
 - [`DESIGN.md`](DESIGN.md) — Visual identity and UI/UX system
 - [`ARCHITECTURE.md`](ARCHITECTURE.md) — Technical architecture and implementation sequence
 - [`CONTENT.md`](CONTENT.md) — Editorial voice, impact language, content governance
-- [`docs/02-NORDIC-LAGOON-DESIGN-SYSTEM.md`](docs/02-NORDIC-LAGOON-DESIGN-SYSTEM.md) — Authoritative token system
+- [`docs/02-NORDIC-LAGOM-DESIGN-SYSTEM.md`](docs/02-NORDIC-LAGOM-DESIGN-SYSTEM.md) — Authoritative token system
 - [`docs/03-PAGE-SECTIONS-BLUEPRINT.md`](docs/03-PAGE-SECTIONS-BLUEPRINT.md) — Page-by-page section specs
 - [`docs/05-AI-AGENT-TASK-SPEC.md`](docs/05-AI-AGENT-TASK-SPEC.md) — Task specs with acceptance criteria
 

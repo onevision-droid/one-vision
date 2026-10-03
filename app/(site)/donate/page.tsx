@@ -41,7 +41,7 @@ export default async function DonatePage(
 
       <Section tone="default">
         <Container>
-          <div className="grid lg:grid-cols-[1fr_380px] gap-0 items-start border border-border">
+          <div className="grid lg:grid-cols-[1fr_380px] gap-0 items-start border border-border rounded-none overflow-hidden shadow-xs">
             {/* Main Donation Form */}
             <div className="p-6 md:p-8 lg:p-10 w-full max-w-3xl lg:border-r border-border bg-card">
               <DonateForm recurringEnabled={env.DONATE_RECURRING_ENABLED} allocationPreference={campaign} />
@@ -50,9 +50,9 @@ export default async function DonatePage(
             {/* Sidebar Information */}
             <div className="flex flex-col h-full bg-background">
               <div className="p-6 md:p-8 border-b border-border bg-card hover:bg-muted/40 transition-colors">
-                <h4 className="font-serif text-xl sm:text-2xl font-light text-foreground mb-3 sm:mb-4">
+                <h3 className="font-serif text-xl sm:text-2xl font-light text-foreground mb-3 sm:mb-4">
                   Prefer to donate supplies?
-                </h4>
+                </h3>
                 <p className="font-sans text-base text-muted-foreground font-light mb-4 sm:mb-6 leading-relaxed">
                   We accept educational materials, clinic supplies, solar lamps, and medical hardware for our 18 community health centres.
                 </p>
@@ -68,9 +68,9 @@ export default async function DonatePage(
                 <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-primary block mb-2">
                   Tax Deduction
                 </span>
-                <h4 className="font-serif text-xl sm:text-2xl font-light text-foreground mb-3 sm:mb-4">
+                <h3 className="font-serif text-xl sm:text-2xl font-light text-foreground mb-3 sm:mb-4">
                   Section 80G Exemption
-                </h4>
+                </h3>
                 <p className="font-sans text-base text-muted-foreground font-light leading-relaxed">
                   Donations from Indian residents qualify for 50% tax deduction
                   under Section 80G of the Income Tax Act. A verified, digitally stamped receipt is

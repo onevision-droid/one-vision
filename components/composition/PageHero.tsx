@@ -1,5 +1,6 @@
-import { Section, Container } from"@/components/layout/Shell";
-import Image from"next/image";
+import React from "react";
+import { Section, Container } from "@/components/layout/Shell";
+import Image from "next/image";
 
 interface PageHeroProps {
   badge: string;
@@ -26,7 +27,7 @@ export function PageHero({
             {/* Left Pane: Content */}
             <div className="flex-1 relative flex flex-col justify-center p-6 md:p-8 lg:p-10 xl:p-12 lg:border-r border-border z-10 transition-colors duration-500 hover:bg-muted overflow-hidden">
               <div className="flex items-center gap-3 mb-3 shrink-0">
-                <span className="size-2 bg-foreground shrink-0" aria-hidden="true" />
+                <span className="size-2 rounded-none bg-primary shrink-0" aria-hidden="true" />
                 <span className="text-[11px] font-semibold uppercase tracking-widest text-foreground">{badge}</span>
               </div>
               <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-light tracking-tight text-foreground mb-4 leading-[0.95] shrink-0">
@@ -51,6 +52,7 @@ export function PageHero({
                 sizes="(max-width: 1024px) 100vw, 400px"
                 className="object-cover object-center transition-all duration-700 group-hover:scale-105"
                 priority
+                loading="eager"
               />
               {/* Subtle soft scrim */}
               <div className="absolute inset-0 pointer-events-none bg-linear-to-t from-background/20 to-transparent" />
@@ -67,7 +69,7 @@ export function PageHero({
       <Container className="w-full flex flex-col justify-center relative z-10">
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center justify-center p-4 w-full">
           <div className="flex items-center gap-2 mb-4 shrink-0">
-            <span className="size-2 bg-foreground shrink-0" aria-hidden="true" />
+            <span className="size-2 rounded-none bg-primary shrink-0" aria-hidden="true" />
             <span className="text-[11px] font-semibold uppercase tracking-widest text-foreground">{badge}</span>
           </div>
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground mb-4 leading-[0.95] shrink-0">

@@ -96,20 +96,20 @@ export const metadata: Metadata = {
 
 export default function GovernancePage() {
   return (
-    <div className="flex flex-col w-full bg-muted pt-20">
+    <div className="flex flex-col w-full bg-background pt-20">
       {/* Intro Section */}
       <Section tone="default" className="relative overflow-hidden">
         <HalftoneBackground />
         <Container className="relative z-10">
           <div className="mb-6">
-            <Breadcrumbs items={[{ label:"About", href:"/about" }, { label:"Governance", href:"/about/governance" }]} />
+            <Breadcrumbs items={[{ label: "About", href: "/about" }, { label: "Governance", href: "/about/governance" }]} />
           </div>
           <div className="max-w-4xl">
             <Badge className="mb-6">
               Governance & Leadership
             </Badge>
             <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light leading-tight tracking-tight text-foreground mb-6">
-              Accountable.<br/> Community-led.
+              Accountable.<br /> Community-led.
             </h1>
             <p className="font-sans text-base sm:text-lg text-muted-foreground leading-relaxed font-light max-w-2xl">
               Committed to transparency, accountability, and making decisions that are rooted in the lived realities of the communities we serve in Manipur.
@@ -130,9 +130,9 @@ export default function GovernancePage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {leaders.map((leader, i) => (
-              <Card key={i} className="flex flex-col h-full border-border hover:border-text-primary transition-colors">
+              <Card key={i} className="flex flex-col h-full bg-card border-border hover:border-primary/40 transition-colors">
                 <CardContent className="flex flex-col p-8 h-full gap-2">
                   <h3 className="font-sans text-heading-lg font-medium text-foreground">{leader.name}</h3>
                   <p className="font-sans text-caption font-semibold tracking-wide uppercase text-muted-foreground">{leader.role}</p>

@@ -34,7 +34,7 @@ export default function CampaignsPage() {
           <div className="mb-10">
             <Breadcrumbs items={[{ label:"Campaigns", href:"/campaigns" }]} />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {campaigns.map((c) => (
               <CampaignCard 
                 key={c.id}
@@ -43,6 +43,7 @@ export default function CampaignsPage() {
                 status={c.status ||"active"}
                 image={c.image}
                 href={`/campaigns/${c.slug}`}
+                headingLevel="h2"
               />
             ))}
           </div>
