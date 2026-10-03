@@ -216,6 +216,7 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
                           e.preventDefault();
                           setIsMegaMenuOpen(true);
                         } else {
+                          // When menu is open, allow link to navigate and close menu
                           setIsMegaMenuOpen(false);
                         }
                       }
@@ -226,13 +227,6 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
                         // Space does not activate a native link, so toggle the menu and block page scroll.
                         e.preventDefault();
                         setIsMegaMenuOpen((prev) => !prev);
-                      } else if (e.key === "Enter") {
-                        if (!isMegaMenuOpen) {
-                          e.preventDefault();
-                          setIsMegaMenuOpen(true);
-                        } else {
-                          setIsMegaMenuOpen(false);
-                        }
                       } else if (e.key === "Escape") {
                         e.preventDefault();
                         setIsMegaMenuOpen(false);
