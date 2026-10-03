@@ -17,7 +17,7 @@ The visual system combines:
 - **Editorial Web Design:** Elegant publication-grade typographic pacing, narrative structure, and deliberate asymmetric balance over rigid card matrices.
 - **Documentary Storytelling:** Authentic photographic evidence capturing real community members, field workers, and tangible outcomes across Manipur.
 - **Warm Mineral Color:** Eliminates clinical white glare with comforting mineral foundations (Bone, Paper, Oat, Stone) and a focused Quiet Indigo action accent.
-- **Accessibility-First Engineering:** Native WCAG 2.2 AA compliance, visible high-contrast focus rings, and robust mobile-first interaction.
+- **Accessibility-First Engineering:** Native WCAG 2.2 AA compliance, visible high-contrast focus rings, and accessible mobile-first interaction.
 
 ---
 

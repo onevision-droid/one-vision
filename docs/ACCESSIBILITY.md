@@ -1,6 +1,6 @@
-# ACCESSIBILITY.md — One Vision: Field Edition
+# ACCESSIBILITY.md: One Vision: Field Edition
 
-**Project:** One Vision — Society for Health & Education Manipur  
+**Project:** One Vision: Society for Health & Education Manipur  
 **Standard:** WCAG 2.2 AA (Full Conformance)  
 **Philosophy:** Accessibility is an inherent architectural foundation, not a post-launch cosmetic patch.
 
@@ -11,7 +11,7 @@
 1. **Perceivable:** Information and UI components must be presentable to users in ways they can perceive (high contrast, text alternatives, no color-only state signaling).
 2. **Operable:** All functionality must be operable through keyboard navigation and touch gestures, with ample time and zero traps.
 3. **Understandable:** Layouts and language must be predictable, clear, and reassuring.
-4. **Robust:** Code must parse cleanly across browsers, screen readers, and assistive devices.
+4. **Reliable:** Code must parse cleanly across browsers, screen readers, and assistive devices.
 
 ---
 
@@ -31,7 +31,7 @@ All primary, secondary, and accent combinations are tested against WCAG 2.2 AA (
 | **Clay on Bone** | `#A65B4F` on `#F2EFE7` | **4.2:1** | AA Pass (Large text & UI) | Warning banners, urgent notice headers |
 | **Stone on Bone** | `#D8D2C8` on `#F2EFE7` | **1.2:1** | N/A (Decorative divider) | Structural hairlines; never used for text |
 
-*Strict Rule:* Never use light gray text for functional or narrative copy. Never convey system state using color alone—always pair with text labels or distinct icons.
+*Strict Rule:* Never use light gray text for functional or narrative copy. Never convey system state using color alone. Always pair color with text labels or distinct icons.
 
 ---
 
