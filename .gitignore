@@ -60,10 +60,17 @@ audit-report.md
 __pycache__/
 *.py[cod]
 *$py.class
+.pytest_cache/
+.ruff_cache/
+
+# Local editor & formatting configs
+.editorconfig
+.prettierrc
 
 # MCP server credentials & local overrides
 .mcp.json
 *.mcp.json
 .vscode/mcp.json
 .cursor/mcp.json
+
 
