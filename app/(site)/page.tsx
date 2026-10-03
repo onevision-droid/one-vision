@@ -64,12 +64,10 @@ export default function Home() {
       {/* ═══ 02 — Proof of Impact (Compact Horizontal Strip) ═══ */}
       <ImpactStrip
         tone="alt"
-        stats={[
-          { value: "2,500+", label: "People engaged" },
-          { value: "500+", label: "Young people trained" },
-          { value: "25+", label: "Communities engaged" },
-          { value: "22+", label: "Local projects supported" },
-        ]}
+        stats={orgData.stats.map((stat) => ({
+          value: `${typeof stat.value === "number" ? stat.value.toLocaleString("en-GB") : stat.value}${stat.suffix || ""}`,
+          label: stat.label,
+        }))}
       />
 
       {/* ═══ 03 — Five Priorities (Editorial Programme Index) ═══ */}
@@ -153,7 +151,7 @@ export default function Home() {
             </Link>
 
             <Link
-              href="/about"
+              href="/about/governance"
               className="group flex flex-col justify-between pt-6 md:pt-0 md:pl-8"
             >
               <div>

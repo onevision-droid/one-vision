@@ -80,10 +80,10 @@
   --secondary-foreground: #F8FAFC;
   --muted: #1E293B;
   --muted-foreground: #94A3B8;
-  --accent: #10B981;
-  --accent-foreground: #FFF;
-  --destructive: #F87171;
-  --destructive-foreground: #FFF;
+  --accent: #059669;
+  --accent-foreground: #FFFFFF;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
   --border: rgba(229, 231, 235, 0.12);
   --input: rgba(229, 231, 235, 0.18);
   --ring: #6366F1;
@@ -141,6 +141,8 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -210,17 +212,23 @@
   max-width: 1240px;
 }
 
+@utility scroll-fade-y {
+  mask-image: linear-gradient(to bottom, transparent, black 16px, black calc(100% - 16px), transparent);
+}
+
 @layer base {
   *, ::before, ::after {
     border-radius: 0px !important;
   }
   * {
-    @apply border-border;
+    border-color: var(--border);
   }
   *:focus-visible {
-    @apply outline-ring/50;
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--background);
+    color: var(--foreground);
   }
 }

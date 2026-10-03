@@ -506,12 +506,12 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
                   <span className="truncate">24/7 Helpline</span>
                 </a>
                 <Link
-                  href="/contact"
+                  href="/get-help"
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center gap-1.5 p-2.5 border border-border bg-card hover:border-primary/50 transition-colors rounded-none"
                 >
                   <MessageSquare className="size-3.5 text-primary shrink-0" />
-                  <span className="truncate">Contact Desk</span>
+                  <span className="truncate">Get Help</span>
                 </Link>
               </div>
             </div>

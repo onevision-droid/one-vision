@@ -12,6 +12,13 @@
     "email": "hello@onevision.org",
     "phone": "+91 98765 43210"
   },
+  "social": {
+    "facebook": "https://facebook.com/onevisionmanipur",
+    "instagram": "https://instagram.com/onevisionmanipur",
+    "x": "https://x.com/onevisionmanipur",
+    "youtube": "https://youtube.com/@onevisionmanipur",
+    "linkedin": "https://linkedin.com/company/onevisionmanipur"
+  },
   "locale": "en-GB",
   "stats": [
     {

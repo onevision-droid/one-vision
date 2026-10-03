@@ -148,11 +148,21 @@ export default function VolunteerPage() {
                 <div className="pt-4 border-t border-border space-y-3 font-sans text-xs text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <Mail className="size-3.5 text-primary shrink-0" />
-                    <span>Direct: {siteSettings.contactEmail}</span>
+                    <a
+                      href={`mailto:${siteSettings.contactEmail}`}
+                      className="hover:text-primary transition-colors underline-offset-4 hover:underline"
+                    >
+                      Direct: {siteSettings.contactEmail}
+                    </a>
                   </div>
                   <div className="flex items-center gap-2">
                     <Phone className="size-3.5 text-primary shrink-0" />
-                    <span>Helpline: {siteSettings.contactPhone}</span>
+                    <a
+                      href={`tel:${siteSettings.contactPhone.replace(/[^0-9+]/g, "")}`}
+                      className="hover:text-primary transition-colors underline-offset-4 hover:underline"
+                    >
+                      Helpline: {siteSettings.contactPhone}
+                    </a>
                   </div>
                   <div className="flex items-center gap-2">
                     <MapPin className="size-3.5 text-primary shrink-0" />

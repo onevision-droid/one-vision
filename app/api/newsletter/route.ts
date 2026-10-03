@@ -12,12 +12,14 @@ export async function POST(req: Request) {
       );
     }
 
-    // Record subscription for monthly community dispatch
-    return NextResponse.json({
-      success: true,
-      message: "Subscription successfully registered for monthly dispatch.",
-      timestamp: new Date().toISOString(),
-    });
+    // Newsletter persistence storage is not yet provisioned in the database schema
+    return NextResponse.json(
+      {
+        success: false,
+        error: "Newsletter subscription storage is not yet provisioned.",
+      },
+      { status: 501 }
+    );
   } catch {
     return NextResponse.json(
       { success: false, error: "Failed to process newsletter subscription." },

@@ -69,7 +69,7 @@ export default function ReportsPage() {
             </p>
           </div>
 
-          <div className="p-8 md:12 space-y-6 bg-card">
+          <div className="p-8 md:p-12 space-y-6 bg-card">
             {reports.map((report) => (
               <div key={report.id} className="group flex flex-col md:flex-row gap-6 p-6 bg-muted/30 border border-border hover:border-primary/40 transition-all hover:shadow-xs hover:bg-muted/60 rounded-none">
                 <div className="size-10 bg-background shadow-2xs border border-border flex items-center justify-center shrink-0 rounded-none">

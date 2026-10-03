@@ -50,32 +50,31 @@ function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
 const FooterNewsletterForm = React.memo(function FooterNewsletterForm() {
   const [email, setEmail] = useState("");
   const [subscribeStatus, setSubscribeStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes("@")) return;
     setSubscribeStatus("submitting");
+    setErrorMessage(null);
 
     try {
-      if (typeof window !== "undefined") {
-        const stored = JSON.parse(localStorage.getItem("ov_newsletter_subscriptions") || "[]");
-        if (!stored.includes(email)) {
-          stored.push(email);
-          localStorage.setItem("ov_newsletter_subscriptions", JSON.stringify(stored));
-        }
-      }
-
-      await fetch("/api/newsletter", {
+      const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
-      }).catch(() => {
-        // Fallback to client storage on connection error
       });
 
-      setSubscribeStatus("success");
-      setEmail("");
+      if (res.ok) {
+        setSubscribeStatus("success");
+        setEmail("");
+      } else {
+        const data = await res.json().catch(() => null);
+        setErrorMessage(data?.error || "Subscription service is currently unavailable.");
+        setSubscribeStatus("idle");
+      }
     } catch {
+      setErrorMessage("Network error. Please try again later.");
       setSubscribeStatus("idle");
     }
   };
@@ -114,6 +113,11 @@ const FooterNewsletterForm = React.memo(function FooterNewsletterForm() {
           <ArrowRight className="size-3.5" />
         </button>
       </div>
+      {errorMessage && (
+        <p className="text-[11px] font-sans text-destructive leading-normal">
+          {errorMessage}
+        </p>
+      )}
       <p className="text-[11px] font-sans text-muted-foreground leading-normal">
         By subscribing, you agree to our{" "}
         <Link href="/privacy" className="underline hover:text-foreground transition-colors py-2 -my-2 inline-block">
@@ -160,7 +164,7 @@ export const Footer = React.memo(function Footer() {
             {/* Social Media Links */}
             <div className="flex items-center gap-3 text-muted-foreground mb-6">
               <a
-                href="https://facebook.com"
+                href={orgData.social?.facebook || "https://facebook.com/onevisionmanipur"}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="One Vision on Facebook"
@@ -169,7 +173,7 @@ export const Footer = React.memo(function Footer() {
                 <FacebookIcon className="size-3.5" />
               </a>
               <a
-                href="https://instagram.com"
+                href={orgData.social?.instagram || "https://instagram.com/onevisionmanipur"}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="One Vision on Instagram"
@@ -178,7 +182,7 @@ export const Footer = React.memo(function Footer() {
                 <InstagramIcon className="size-3.5" />
               </a>
               <a
-                href="https://x.com"
+                href={orgData.social?.x || "https://x.com/onevisionmanipur"}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="One Vision on X"
@@ -187,7 +191,7 @@ export const Footer = React.memo(function Footer() {
                 <XIcon className="size-3.5" />
               </a>
               <a
-                href="https://youtube.com"
+                href={orgData.social?.youtube || "https://youtube.com/@onevisionmanipur"}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="One Vision on YouTube"
@@ -196,7 +200,7 @@ export const Footer = React.memo(function Footer() {
                 <YoutubeIcon className="size-3.5" />
               </a>
               <a
-                href="https://linkedin.com"
+                href={orgData.social?.linkedin || "https://linkedin.com/company/onevisionmanipur"}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="One Vision on LinkedIn"
@@ -315,7 +319,7 @@ export const Footer = React.memo(function Footer() {
         {/* ═══ Legal & Back to Top Bottom Bar ═══ */}
         <div className="pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground font-light">
           <p className="font-sans text-center md:text-left">
-            &copy; 2026 One Vision, Manipur. All rights reserved.
+            &copy; {new Date().getFullYear()} {orgData.org.legal}. All rights reserved.
           </p>
 
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 font-sans">

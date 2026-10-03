@@ -53,7 +53,8 @@ interface AntiPattern {
 const ANTI_PATTERNS: AntiPattern[] = [
   {
     id: "anti-pattern-rounded-corners",
-    regex: /\brounded-(?:xs|sm|md|lg|xl|2xl|3xl|full|t-.*|b-.*|l-.*|r-.*)\b/g,
+    // Detects bare rounded, named radii, directional/corner variants without -none, and arbitrary non-zero radius values
+    regex: /(?<![a-zA-Z0-9_-])rounded(?:-(?:(?:t|b|l|r|tl|tr|bl|br|s|e|ss|se|es|ee)(?!-none\b)(?:-(?:xs|sm|md|lg|xl|2xl|3xl|full|pill|\d+|\[[^\]]+\]))?|(?!none\b)(?:xs|sm|md|lg|xl|2xl|3xl|full|pill|\d+|\[(?!0(?:px)?\])[^\]]+\])))(?![a-zA-Z0-9_-])|(?<![a-zA-Z0-9_-])rounded(?![a-zA-Z0-9_-])/g,
     severity: "error" as const,
     message: "Forbidden rounded corner class found. Project architecture enforces strict zero-radius orthogonal geometry (rounded-none). Rounded corners, pills, circles, and curved lines are strictly forbidden.",
   },
