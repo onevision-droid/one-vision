@@ -59,11 +59,11 @@ Tokens are declared using CSS variables and exposed via Tailwind v4 `@theme inli
   --input:                  var(--ov-stone);
   --ring:                   var(--ov-indigo);
 
-  /* Geometry & Radius */
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 10px;
-  --radius-pill: 9999px;
+  /* Geometry & Radius (Strict Zero-Radius Architecture) */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-pill: 0px;
 }
 ```
 

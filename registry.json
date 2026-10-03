@@ -26,6 +26,11 @@
           "path": "lib/data/programmes.ts",
           "type": "registry:lib",
           "target": "lib/data/programmes.ts"
+        },
+        {
+          "path": "lib/data/types.ts",
+          "type": "registry:lib",
+          "target": "lib/data/types.ts"
         }
       ]
     },
@@ -65,6 +70,33 @@
           "path": "lib/data/site-settings.ts",
           "type": "registry:lib",
           "target": "lib/data/site-settings.ts"
+        },
+        {
+          "path": "lib/data/types.ts",
+          "type": "registry:lib",
+          "target": "lib/data/types.ts"
+        },
+        {
+          "path": "content/org.json",
+          "type": "registry:file",
+          "target": "content/org.json"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Zero-radius semantic badge with status indicators and purpose-driven tints.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "components/ui/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/badge.tsx"
         }
       ]
     },

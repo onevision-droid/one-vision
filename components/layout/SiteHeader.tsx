@@ -210,14 +210,22 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
                 >
                   <Link
                     href={link.href}
-                    onClick={() => {
+                    onClick={(e) => {
                       if (link.hasMegaMenu) {
+                        e.preventDefault();
+                        setIsMegaMenuOpen((prev) => !prev);
+                      }
+                    }}
+                    onKeyDown={(e) => {
+                      if (link.hasMegaMenu && (e.key === "Enter" || e.key === " ")) {
+                        e.preventDefault();
                         setIsMegaMenuOpen((prev) => !prev);
                       }
                     }}
                     aria-current={isActive ? "page" : undefined}
                     aria-haspopup={link.hasMegaMenu ? "true" : undefined}
                     aria-expanded={link.hasMegaMenu ? isMegaMenuOpen : undefined}
+                    aria-controls={link.hasMegaMenu ? "programmes-mega-menu" : undefined}
                     className={`relative px-3 py-2 font-sans text-xs sm:text-[13px] font-medium tracking-normal transition-colors duration-200 ${
                       isActive
                         ? isTransparentActive

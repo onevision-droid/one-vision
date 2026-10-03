@@ -1,15 +1,40 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Programme } from "@/lib/data/types";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
-export function ProgrammeFilter({ programmes }: { programmes: Programme[] }) {
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+export function ProgrammeFilter({
+  programmes,
+  initialCategory = "All",
+}: {
+  programmes: Programme[];
+  initialCategory?: string;
+}) {
+  const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
 
   const categories = ["All", ...Array.from(new Set(programmes.map((p) => p.category)))];
+
+  useEffect(() => {
+    if (initialCategory && (initialCategory === "All" || categories.includes(initialCategory))) {
+      setSelectedCategory(initialCategory);
+    }
+  }, [initialCategory, categories]);
+
+  const handleCategorySelect = (cat: string) => {
+    setSelectedCategory(cat);
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      if (cat === "All") {
+        url.searchParams.delete("category");
+      } else {
+        url.searchParams.set("category", cat);
+      }
+      window.history.replaceState({}, "", url.toString());
+    }
+  };
 
   const filteredProgrammes =
     selectedCategory === "All"
@@ -26,7 +51,7 @@ export function ProgrammeFilter({ programmes }: { programmes: Programme[] }) {
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => setSelectedCategory(cat)}
+              onClick={() => handleCategorySelect(cat)}
               className={`px-4 py-2 font-sans text-xs font-medium transition-colors rounded-none cursor-pointer ${
                 selectedCategory === cat
                   ? "bg-primary text-primary-foreground"

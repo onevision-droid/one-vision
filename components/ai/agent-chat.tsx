@@ -64,6 +64,18 @@ export function AgentChat({
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    if (initialMessages !== undefined) {
+      setMessages(initialMessages);
+    }
+  }, [initialMessages]);
+
+  useEffect(() => {
+    if (initialLoading !== undefined) {
+      setIsLoading(initialLoading);
+    }
+  }, [initialLoading]);
+
   // Auto-scroll to bottom of chat
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior:"smooth" });

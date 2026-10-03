@@ -12,7 +12,14 @@ export const metadata: Metadata = {
   description:"Active and upcoming community initiatives across Manipur — from emergency relief to youth education and mobile health clinics.",
 };
 
-export default function ProgrammesPage() {
+export default async function ProgrammesPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ category?: string }>;
+}) {
+  const resolvedParams = searchParams ? await searchParams : undefined;
+  const initialCategory = resolvedParams?.category || "All";
+
   return (
     <div className="flex flex-col w-full bg-background">
       <PageHero 
@@ -30,7 +37,7 @@ export default function ProgrammesPage() {
 
       <Section tone="alt">
         <Container>
-          <ProgrammeFilter programmes={programmes} />
+          <ProgrammeFilter programmes={programmes} initialCategory={initialCategory} />
         </Container>
       </Section>
       <QuietClose

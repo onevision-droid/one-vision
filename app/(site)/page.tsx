@@ -65,10 +65,10 @@ export default function Home() {
       <ImpactStrip
         tone="alt"
         stats={[
-          { value: "2,500+", label: "Families reached" },
+          { value: "2,500+", label: "People engaged" },
           { value: "500+", label: "Young people trained" },
           { value: "25+", label: "Communities engaged" },
-          { value: "22+", label: "Local partners" },
+          { value: "22+", label: "Local projects supported" },
         ]}
       />
 

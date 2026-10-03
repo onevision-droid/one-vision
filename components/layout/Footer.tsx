@@ -51,14 +51,33 @@ const FooterNewsletterForm = React.memo(function FooterNewsletterForm() {
   const [email, setEmail] = useState("");
   const [subscribeStatus, setSubscribeStatus] = useState<"idle" | "submitting" | "success">("idle");
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes("@")) return;
     setSubscribeStatus("submitting");
-    setTimeout(() => {
+
+    try {
+      if (typeof window !== "undefined") {
+        const stored = JSON.parse(localStorage.getItem("ov_newsletter_subscriptions") || "[]");
+        if (!stored.includes(email)) {
+          stored.push(email);
+          localStorage.setItem("ov_newsletter_subscriptions", JSON.stringify(stored));
+        }
+      }
+
+      await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      }).catch(() => {
+        // Fallback to client storage on connection error
+      });
+
       setSubscribeStatus("success");
       setEmail("");
-    }, 600);
+    } catch {
+      setSubscribeStatus("idle");
+    }
   };
 
   if (subscribeStatus === "success") {

@@ -52,8 +52,10 @@ export const OfflineStreamDemo: Story = {
           content: text,
         };
       });
+      const streamFingerprint = mappedMessages.map((m) => `${m.id}:${m.content.length}`).join(",");
       return (
         <AgentChat
+          key={streamFingerprint}
           className="h-125"
           initialMessages={mappedMessages}
         />
