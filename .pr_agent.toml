@@ -1,8 +1,8 @@
 [config]
-model = "openrouter/qwen/qwen3.8-27b:free"
-fallback_models = ["openrouter/cohere/north-mini-code:free", "openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"]
+model = "openrouter/nvidia/nemotron-3.5-lightning:free"
+fallback_models = ["openrouter/google/gemma-4-26b-a4b-it:free", "openrouter/google/gemma-4-31b-it:free", "openrouter/nvidia/nemotron-3-super-120b-a12b:free", "openrouter/qwen/qwen3.8-27b:free"]
 custom_model_max_tokens = 262144
-max_output_tokens = 2000
+max_output_tokens = 8192
 enable_large_pr_handling = true
 git_provider = "github"
 

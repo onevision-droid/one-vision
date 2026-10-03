@@ -36,11 +36,11 @@ jobs:
           OPENROUTER__KEY: ${{ secrets.OPENROUTER_API_KEY || secrets.OPENROUTER__KEY || secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_BASE: "https://openrouter.ai/api/v1"
-          OPENAI_MODEL: "openrouter/qwen/qwen3.8-27b:free"
-          config.model: "openrouter/qwen/qwen3.8-27b:free"
-          config.fallback_models: '["openrouter/cohere/north-mini-code:free", "openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"]'
+          OPENAI_MODEL: "openrouter/nvidia/nemotron-3.5-lightning:free"
+          config.model: "openrouter/nvidia/nemotron-3.5-lightning:free"
+          config.fallback_models: '["openrouter/google/gemma-4-26b-a4b-it:free", "openrouter/google/gemma-4-31b-it:free", "openrouter/nvidia/nemotron-3-super-120b-a12b:free", "openrouter/qwen/qwen3.8-27b:free"]'
           config.custom_model_max_tokens: "262144"
-          config.max_output_tokens: "2000"
+          config.max_output_tokens: "8192"
           config.enable_large_pr_handling: "true"
           github_action_config.auto_review: "true"
           github_action_config.auto_describe: "true"
