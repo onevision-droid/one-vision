@@ -37,9 +37,8 @@ export function Breadcrumbs({ items = [], className, variant = "container" }: Br
           <BreadcrumbLink
             href="/"
             className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors"
-            aria-label="Home"
           >
-            <Home className="size-3.5" />
+            <Home className="size-3.5" aria-hidden="true" />
             <span className="sr-only">Home</span>
           </BreadcrumbLink>
         </BreadcrumbItem>

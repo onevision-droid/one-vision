@@ -57,7 +57,6 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
           exit={{ opacity: 0, y: 6 }}
           transition={{ duration: 0.18, ease: "easeOut" }}
           className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-215 max-w-[95vw] bg-card border border-border rounded-none shadow-lg p-6 z-50 text-foreground"
-          onMouseLeave={onClose}
         >
           <div className="grid grid-cols-12 gap-6 items-stretch">
             {/* ═══ Column 1: Pillar Categories (3 cols) ═══ */}

@@ -337,7 +337,7 @@ def main():
         text_type = args[i + 1]
         del args[i:i + 2]
     if text_type != "reply" and text_type not in LIMITS:
-        sys.exit("unknown --type %r (expected procedural or descriptive)\n%s" % (text_type, USAGE))
+        sys.exit("unknown --type %r (expected procedural, descriptive, or reply)\n%s" % (text_type, USAGE))
     if len(args) != 1:
         sys.exit(USAGE)
     src = args[0]

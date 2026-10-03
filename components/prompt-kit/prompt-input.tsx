@@ -88,9 +88,11 @@ export function PromptInputTextarea({
     }
   };
 
+  const generatedId = React.useId();
+
   return (
     <textarea
-      id={props.id || "prompt-input-textarea"}
+      id={props.id || generatedId}
       aria-label={props["aria-label"] || placeholder || "Message input"}
       ref={textareaRef}
       rows={1}

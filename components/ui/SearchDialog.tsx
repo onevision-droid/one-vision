@@ -167,7 +167,6 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
               setSelectedIndex(0);
             }}
             onKeyDown={handleKeyDown}
-            aria-label="Search operations, reports, or field stories"
             placeholder="Search operations, reports, or field stories..."
             className="flex-1 bg-transparent border-none outline-none text-heading-sm font-sans text-foreground placeholder:text-muted-foreground placeholder:font-light"
           />

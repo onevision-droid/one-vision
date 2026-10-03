@@ -30,16 +30,16 @@ All tokens are defined in `app/globals.css` using native CSS variables and expos
 | Semantic Token | Primitive CSS Var | Hex Value | Role & Contrast Rule |
 |---|---|---|---|
 | `--color-background` | `--ov-bone` | `#F2EFE7` | Primary canvas & page background (Anti-halation) |
-| `--color-surface` | `--ov-paper` | `#FAF8F2` | Primary content surface & elevated elements |
-| `--color-surface-muted` | `--ov-oat` | `#E9E4D9` | Soft alternating section bands & wells |
-| `--color-border` | `--ov-stone` | `#D8D2C8` | Hairline 1px structural rules & dividers |
-| `--color-text` | `--ov-ink` | `#1B1C19` | Primary headings, body copy, and structural anchors (15:1 AAA) |
-| `--color-text-muted` | `--ov-slate` | `#55564F` | Secondary copy, metadata, subtitles (6.5:1 AA) |
-| `--color-brand` | `--ov-indigo` | `#5752BC` | Primary interactive actions, active navigation, focus rings |
-| `--color-brand-strong` | `--ov-indigo-dark` | `#403B92` | Action hover & pressed states (8.5:1 on white) |
-| `--color-success` | `--ov-moss` | `#586653` | Environmental, ecological & community trust signals |
-| `--color-signal` | `--ov-clay` | `#A65B4F` | Important alerts & human warmth accent |
-| `--color-surface-pure` | `--ov-white` | `#FFFFFF` | Intentional high-contrast utility accents |
+| `--color-card` | `--ov-paper` | `#FAF8F2` | Primary content surface & elevated elements |
+| `--color-muted` | `--ov-oat` | `#E4DFD3` | Soft alternating section bands & wells |
+| `--color-border` | `--ov-stone` | `#D9D4C7` | Hairline 1px structural rules & dividers |
+| `--color-foreground` | `--ov-ink` | `#1B1C19` | Primary headings, body copy, and structural anchors (15:1 AAA) |
+| `--color-muted-foreground` | `--ov-slate` | `#5C5E58` | Secondary copy, metadata, subtitles (6.5:1 AA) |
+| `--color-primary` | `--ov-indigo` | `#5752BC` | Primary interactive actions, active navigation, focus rings |
+| `--color-primary-hover` | `--ov-indigo-hover` | `#433EA8` | Action hover & pressed states (8.5:1 on white) |
+| `--color-ov-moss` | `--ov-moss` | `#3B6E52` | Environmental, ecological & community trust signals |
+| `--color-destructive` | `--ov-clay` | `#A84B2B` | Important alerts & human warmth accent |
+| `--color-card` | `--card` | `#FAF8F2` | Intentional high-contrast surface accents |
 
 ### 2.2 Prohibitions & Strict Rules:
 - Pure white `#FFFFFF` is prohibited as a full-page background.
@@ -89,7 +89,7 @@ All hero sections across the entire platform (`components/content/Hero.tsx` and 
 - Viewport Centering: `min-h-dvh pt-20 pb-6 md:pt-22 md:pb-8 lg:pt-24 lg:pb-10 flex flex-col justify-center`
 - Container Height: `lg:h-95 xl:h-100`
 - Image Ratio: 1:1 Square (`aspect-square`) with dynamic full-viewport centering.
-- *Strict Rule:* Never alter the structural layout classes, container heights, or 1:1 image aspect ratio. Only text copy, badges, button links/labels, and image source paths within the hero sections may be modified.
+- *Strict Rule:* Never alter the structural layout classes, container heights, or 1:1 image aspect ratio. Only text copy, badges, button links/labels, and image source paths within the hero sections can be modified.
 
 ---
 

@@ -183,6 +183,7 @@ Task-critical utility interface prioritizing speed, accessibility, and clarity:
 │     Badge: COMMUNITY SUPPORT DESK · MANIPUR                 │
 │     Title: Frontline Care & Assistance.                     │
 │     Description: Urgent healthcare and community support.   │
+│     Actions: Immediate direct call & care desk anchors      │
 ├─────────────────────────────────────────────────────────────┤
 │ 02. Emergency & Direct Assistance (High-Priority Anchor)    │
 │     Prominent 24/7 Helpline: [+91 98765 43210]              │

@@ -42,7 +42,7 @@
 - Implement warm mineral color tokens in `app/globals.css`:
   `--ov-bone (#F2EFE7)`, `--ov-paper (#FAF8F2)`, `--ov-oat (#E9E4D9)`, `--ov-stone (#D8D2C8)`, `--ov-ink (#1B1C19)`, `--ov-slate (#55564F)`, `--ov-moss (#586653)`, `--ov-indigo (#5752BC)`, `--ov-indigo-dark (#403B92)`, `--ov-clay (#A65B4F)`.
 - Configure fluid typography clamps in `@theme inline`.
-- Set standard border radius (`4px` sm, `6px` md, `10px` lg, `9999px` pill).
+- Set zero-radius tokens (`0px` sm, `0px` md, `0px` lg, `0px` pill) in strict adherence to zero-radius architecture.
 - Define global focus-visible styling: 2px Quiet Indigo ring with 2px offset.
 
 ### Phase 3 — Global Shell & Navigation

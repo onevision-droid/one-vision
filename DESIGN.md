@@ -1,4 +1,4 @@
-# DESIGN.md — One Vision Design System: Field Edition
+# DESIGN.md: One Vision Design System: Field Edition
 
 **Project:** One Vision, Society for Health & Education Manipur  
 **Document Type:** Canonical Master Design System & Architecture Specification  
@@ -43,11 +43,11 @@ Supporting traits:
 
 - **Visual Anchor:** Clean, architectural typography with understated geometry.
 - **Prohibitions:** Generic globes, puzzle pieces, clipart hands, gradients, or heavy decorative drop-shadows.
-- **Application:** Rendered in deep Ink (`#1B1C19`) on light mineral backgrounds; clean and legible at any scale.
+- **Application:** Rendered in deep Ink (`#1B1C19`) on light mineral backgrounds. It is clean and legible at any scale.
 
 ---
 
-## 4. Color System — Warm Mineral Foundations
+## 4. Color System: Warm Mineral Foundations
 
 The color system transitions away from high-glare white and electric violet toward a warm neutral foundation balanced by a single quiet brand action color:
 
@@ -96,10 +96,10 @@ The color system transitions away from high-glare white and electric violet towa
 ## 6. Containment Hierarchy & Geometry (Anti-Card Soup)
 
 Do not enclose content blocks in cards simply because they have a title and text. Adhere to the **4-Level Containment Hierarchy**:
-1. **Level 1 — Open Editorial Section (Default):** No border, no card container. Fluid typography, generous spacing, and whitespace alignment carry the content.
-2. **Level 2 — Soft Surface Block:** Background shift only (e.g., Oat `#E9E4D9` on Bone `#F2EFE7`). No border.
-3. **Level 3 — Bordered Module:** Subtle hairline rule (`1px solid var(--ov-stone)`). Applied strictly when grouping or interaction requires explicit demarcation.
-4. **Level 4 — Elevated Object (Rare):** Extremely subtle shadow reserved strictly for floating utility elements (modals, dropdown popovers, mobile navigation overlays).
+1. **Level 1: Open Editorial Section (Default):** No border, no card container. Fluid typography, generous spacing, and whitespace alignment carry the content.
+2. **Level 2: Soft Surface Block:** Background shift only (such as Oat `#E9E4D9` on Bone `#F2EFE7`). No border.
+3. **Level 3: Bordered Module:** Subtle hairline rule (`1px solid var(--ov-stone)`). Applied strictly when grouping or interaction requires explicit demarcation.
+4. **Level 4: Elevated Object (Rare):** Extremely subtle shadow reserved strictly for floating utility elements (modals, dropdown popovers, mobile navigation overlays).
 
 ### Radii & Borders:
 - **Default Border:** Hairline rule (`1px solid var(--ov-stone)`).
@@ -132,7 +132,7 @@ As mandated by `AGENTS.md` Rule 8, all Hero sections across the entire platform 
 
 ## 9. Motion & Interaction: "Quiet Motion"
 
-- **Durations:** 160ms–240ms for micro-interactions; 300ms–500ms for editorial entry reveals.
+- **Durations:** 160ms to 240ms for micro-interactions, and 300ms to 500ms for editorial entry reveals.
 - **Transitions:** Native CSS transitions preferred over bulky runtime animation libraries.
 - **Reduced Motion:** Full compliance with `prefers-reduced-motion: reduce`. All animated transitions collapse immediately to zero duration when enabled.
 
@@ -140,7 +140,7 @@ As mandated by `AGENTS.md` Rule 8, all Hero sections across the entire platform 
 
 ## 10. Accessibility & Core Web Vitals (WCAG 2.2 AA)
 
-- **Contrast:** Normal text ≥ 4.5:1; large text ≥ 3.0:1.
+- **Contrast:** Normal text ≥ 4.5:1, and large text ≥ 3.0:1.
 - **Visible Focus:** 2px Quiet Indigo ring with 2px offset.
 - **Touch Targets:** Minimum 44×44px on mobile viewports.
 - **Web Vitals Targets:** LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1.

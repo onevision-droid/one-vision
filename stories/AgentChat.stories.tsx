@@ -52,12 +52,16 @@ export const OfflineStreamDemo: Story = {
           content: text,
         };
       });
-      const streamFingerprint = mappedMessages.map((m) => `${m.id}:${m.content.length}`).join(",");
       return (
         <AgentChat
-          key={streamFingerprint}
           className="h-125"
           initialMessages={mappedMessages}
+          onSendMessage={async (userText) => ({
+            id: `assistant-fixture-${Date.now()}`,
+            role: "assistant",
+            content: `Simulated offline response for: "${userText}". Connected to local community knowledge fixture.`,
+            modelUsed: "fixture/community-guide",
+          })}
         />
       );
     }

@@ -81,9 +81,9 @@
   --muted: #1E293B;
   --muted-foreground: #94A3B8;
   --accent: #059669;
-  --accent-foreground: #FFFFFF;
+  --accent-foreground: #FFF;
   --destructive: #DC2626;
-  --destructive-foreground: #FFFFFF;
+  --destructive-foreground: #FFF;
   --border: rgba(229, 231, 235, 0.12);
   --input: rgba(229, 231, 235, 0.18);
   --ring: #6366F1;
@@ -199,7 +199,16 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Strict Zero-Radius System: No rounded corners or curve lines permitted */
+  /* Category & Status Badge semantic color tokens */
+  --color-badge-volunteer: #92400E;
+  --color-badge-volunteer-bg: #FEF3C7;
+  --color-badge-community: #1D4ED8;
+  --color-badge-community-bg: #DBEAFE;
+  --color-status-active: #15803D;
+  --color-status-pending: #9A3412;
+  --color-status-completed: var(--muted-foreground);
+
+  /* Strict Zero-Radius System: Zero border-radius orthogonal geometry */
   --radius-xs: 0px;
   --radius-sm: 0px;
   --radius-md: 0px;

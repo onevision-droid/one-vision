@@ -47,10 +47,12 @@ export interface AgentChatProps {
   className?: string;
   isDialog?: boolean;
   onClose?: () => void;
-  /** Seeds the conversation on mount only. Change the component `key` to reset it. */
+  /** Conversation messages or seed. Updates when prop changes. */
   initialMessages?: ChatMessage[];
-  /** Seeds the loading state on mount only. Change the component `key` to reset it. */
+  /** Conversation loading state. Updates when prop changes. */
   initialLoading?: boolean;
+  /** Optional custom message transport (e.g. for offline fixtures or stories). */
+  onSendMessage?: (text: string, messages: ChatMessage[]) => Promise<ChatMessage | void>;
 }
 
 export function AgentChat({
@@ -59,12 +61,26 @@ export function AgentChat({
   onClose,
   initialMessages,
   initialLoading = false,
+  onSendMessage,
 }: AgentChatProps) {
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages || []);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(initialLoading);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Adjust state during render when props change (avoids cascading effect renders and satisfies react-hooks)
+  const [prevInitialMessages, setPrevInitialMessages] = useState(initialMessages);
+  if (initialMessages !== undefined && initialMessages !== prevInitialMessages) {
+    setPrevInitialMessages(initialMessages);
+    setMessages(initialMessages);
+  }
+
+  const [prevInitialLoading, setPrevInitialLoading] = useState(initialLoading);
+  if (initialLoading !== undefined && initialLoading !== prevInitialLoading) {
+    setPrevInitialLoading(initialLoading);
+    setIsLoading(initialLoading);
+  }
 
   // Auto-scroll to bottom of chat
   const scrollToBottom = () => {
@@ -95,35 +111,42 @@ export function AgentChat({
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/chat", {
-        method:"POST",
-        headers: {"Content-Type":"application/json" },
-        body: JSON.stringify({
-          messages: newMessages
-            .filter((m) => !m.id.startsWith("error-"))
-            .map((m) => ({
-              role: m.role,
-              content: m.content,
-            })),
-        }),
-      });
+      if (onSendMessage) {
+        const customMessage = await onSendMessage(text, newMessages);
+        if (customMessage) {
+          setMessages((prev) => [...prev, customMessage]);
+        }
+      } else {
+        const response = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            messages: newMessages
+              .filter((m) => !m.id.startsWith("error-"))
+              .map((m) => ({
+                role: m.role,
+                content: m.content,
+              })),
+          }),
+        });
 
-      const data = await response.json().catch(() => ({}));
+        const data = await response.json().catch(() => ({}));
 
-      if (!response.ok) {
-        throw new Error(data.error || `HTTP error ${response.status}`);
+        if (!response.ok) {
+          throw new Error(data.error || `HTTP error ${response.status}`);
+        }
+
+        const assistantMessage: ChatMessage = {
+          id: createMessageId("assistant"),
+          role: "assistant",
+          content: data.content,
+          modelUsed: data.modelUsed,
+          fallbackAttempted: data.fallbackAttempted,
+          executionTimeMs: data.executionTimeMs,
+        };
+
+        setMessages((prev) => [...prev, assistantMessage]);
       }
-
-      const assistantMessage: ChatMessage = {
-        id: createMessageId("assistant"),
-        role:"assistant",
-        content: data.content,
-        modelUsed: data.modelUsed,
-        fallbackAttempted: data.fallbackAttempted,
-        executionTimeMs: data.executionTimeMs,
-      };
-
-      setMessages((prev) => [...prev, assistantMessage]);
     } catch (err: unknown) {
       const errorText = err instanceof Error ? err.message :"Timeout or network failure";
       const errorMessage: ChatMessage = {

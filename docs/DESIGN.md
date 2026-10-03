@@ -83,7 +83,7 @@ A calm, warm, natural palette inspired by Northeast landscapes, designed for cla
 ### Rectangular Badges
 - **Programme:** `#EDE9FE` background, `#4F46E5` text, rectangular shape (`rounded-none px-3 py-1 text-xs font-medium`).
 - **Story:** `#F1F5F9` background, `#334155` text, rectangular shape (`rounded-none`).
-- **Impact:** `#D1FAE5` background, `#10B981` text, rectangular shape (`rounded-none`).
+- **Impact:** `#D1FAE5` background, `#065F46` text, rectangular shape (`rounded-none`).
 - **Volunteer:** `#FEF3C7` background, `#D97706` text, rectangular shape (`rounded-none`).
 - **Community:** `#DBEAFE` background, `#2563EB` text, rectangular shape (`rounded-none`).
 - **Urgent:** `#FEE2E2` background, `#DC2626` text, rectangular shape (`rounded-none`).
@@ -158,4 +158,4 @@ Per Rule 8 of `AGENTS.md`:
   - Layout: `min-h-dvh pt-20 pb-6 md:pt-22 md:pb-8 lg:pt-24 lg:pb-10 flex flex-col justify-center`
   - Container heights: `lg:h-95 xl:h-100`
   - Image aspect ratio: 1:1 square (`aspect-square`) with dynamic full-viewport centering.
-- Dimensions, aspect ratios, and centering logic are permanently locked. Visual styling adheres strictly to Nordic Purposeful Design tokens (DM Serif Display, `#4F46E5` primary CTA, soft pill badges).
+- Dimensions, aspect ratios, and centering logic are permanently locked. Visual styling adheres strictly to Nordic Lagom Design tokens (DM Serif Display, `#5752BC` primary CTA, zero-radius badges).

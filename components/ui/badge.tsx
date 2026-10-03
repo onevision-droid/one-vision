@@ -9,25 +9,25 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-[#EDE9FE] text-[#4338CA] hover:bg-[#DDD6FE]",
-        secondary: "bg-[#F1F5F9] text-[#1E293B] hover:bg-[#E2E8F0]",
-        destructive: "bg-[#FEE2E2] text-[#B91C1C] hover:bg-[#FECACA] font-badge",
-        outline: "border border-[#E5E7EB] bg-white text-[#0F172A] hover:bg-[#F8FAFC]",
+        default: "bg-primary-light text-primary hover:bg-primary/20",
+        secondary: "bg-muted text-foreground hover:bg-muted/80",
+        destructive: "bg-destructive/15 text-destructive hover:bg-destructive/25 font-badge",
+        outline: "border border-border bg-card text-foreground hover:bg-muted",
         ghost: "hover:bg-muted text-muted-foreground",
         link: "text-primary underline-offset-4 hover:underline",
 
         /* ═══ Nordic Purposeful Category Pills (Section 06) ═══ */
-        programme: "bg-[#EDE9FE] text-[#4338CA]",
-        story: "bg-[#F1F5F9] text-[#1E293B]",
-        impact: "bg-[#D1FAE5] text-[#065F46]",
-        volunteer: "bg-[#FEF3C7] text-[#92400E]",
-        community: "bg-[#DBEAFE] text-[#1D4ED8]",
-        urgent: "bg-[#FEE2E2] text-[#B91C1C] font-badge tracking-[0.06em]",
+        programme: "bg-primary-light text-primary",
+        story: "bg-muted text-foreground",
+        impact: "bg-ov-moss-light text-ov-moss",
+        volunteer: "bg-badge-volunteer-bg text-badge-volunteer",
+        community: "bg-badge-community-bg text-badge-community",
+        urgent: "bg-destructive/15 text-destructive font-badge tracking-[0.06em]",
 
         /* ═══ Status Dots (Section 06) ═══ */
-        active: "bg-transparent text-[#15803D] px-1 py-0.5 font-sans font-medium gap-1.5 [&>span]:size-1.5 [&>span]:rounded-none [&>span]:bg-[#15803D]",
-        pending: "bg-transparent text-[#9A3412] px-1 py-0.5 font-sans font-medium gap-1.5 [&>span]:size-1.5 [&>span]:rounded-none [&>span]:bg-[#9A3412]",
-        completed: "bg-transparent text-[#475569] px-1 py-0.5 font-sans font-medium gap-1.5 [&>span]:size-1.5 [&>span]:rounded-none [&>span]:bg-[#475569]",
+        active: "bg-transparent text-status-active px-1 py-0.5 font-sans font-medium gap-1.5 [&>span]:size-1.5 [&>span]:rounded-none [&>span]:bg-status-active",
+        pending: "bg-transparent text-status-pending px-1 py-0.5 font-sans font-medium gap-1.5 [&>span]:size-1.5 [&>span]:rounded-none [&>span]:bg-status-pending",
+        completed: "bg-transparent text-status-completed px-1 py-0.5 font-sans font-medium gap-1.5 [&>span]:size-1.5 [&>span]:rounded-none [&>span]:bg-status-completed",
       },
     },
     defaultVariants: {

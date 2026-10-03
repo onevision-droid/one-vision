@@ -212,10 +212,8 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
                     href={link.href}
                     onClick={(e) => {
                       if (link.hasMegaMenu) {
-                        if (!isMegaMenuOpen) {
-                          e.preventDefault();
-                          setIsMegaMenuOpen(true);
-                        }
+                        e.preventDefault();
+                        setIsMegaMenuOpen(true);
                       }
                     }}
                     onKeyDown={(e) => {
@@ -224,9 +222,12 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
                         // Space does not activate a native link, so toggle the menu and block page scroll.
                         e.preventDefault();
                         setIsMegaMenuOpen((prev) => !prev);
-                      } else if (e.key === "Enter" && !isMegaMenuOpen) {
+                      } else if (e.key === "Enter") {
                         e.preventDefault();
                         setIsMegaMenuOpen(true);
+                      } else if (e.key === "Escape") {
+                        e.preventDefault();
+                        setIsMegaMenuOpen(false);
                       }
                     }}
                     aria-current={isActive ? "page" : undefined}
