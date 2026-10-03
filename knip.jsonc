@@ -26,7 +26,9 @@
     "temp_gstack/**",
     "testsprite_tests/**",
     "storybook-static/**",
-    "public/**"
+    "public/**",
+    "components/ui/**",
+    "lib/supabase/database.types.ts"
   ],
   "rules": {
     "files": "error",
@@ -43,5 +45,8 @@
     "shadcn",
     "tailwindcss-animate",
     "tw-animate-css"
-  ]
+  ],
+  "ignoreExportsUsedInFile": true,
+  "ignoreBinaries": ["stylelint", "eslint"],
+  "ignoreWorkspaces": []
 }

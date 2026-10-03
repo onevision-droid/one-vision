@@ -1,0 +1,93 @@
+# One Vision: Knowledge Base and Institutional Overview
+
+> Dignified humanitarian relief, grassroots community development, and transparent civil rehabilitation across Manipur, Northeast India.
+
+---
+
+## 1. Executive Summary
+
+One Vision is an independent, community-grounded humanitarian non-profit organization established in Manipur, Northeast India. The organization delivers medical outreach, climate resilience initiatives, youth vocational training, emergency relief, and transparent community governance.
+
+One Vision is registered under the Societies Registration Act (Reg No: SR/1042/2018) and maintains 80G tax-exempt status with full public transparency.
+
+---
+
+## 2. Guiding Principles
+
+1. **Dignified Assistance**: Aid must support recipients rather than create dependency. All relief programs protect community autonomy and self-respect.
+2. **Grassroots Leadership**: Local community leaders and village councils direct priorities, resource allocation, and field implementation.
+3. **Absolute Transparency**: Expenditures, program outcomes, and donor funds are published openly through verifiable reports and an open ledger.
+4. **Impartial Humanitarian Action**: Support is provided without discrimination across all ethnic, religious, and geographic communities.
+
+---
+
+## 3. Five Programmatic Pillars
+
+### Pillar 01: Community Health Connect
+- **Objective**: Deliver essential and preventive healthcare to underserved rural and displaced populations.
+- **Operations**: Bi-weekly mobile health clinics, chronic illness medicine supply, maternal-child health triage, and trauma-informed psychosocial support.
+- **Milestones**: Over 4,200 patient consultations conducted across Imphal West, Imphal East, and Churachandpur.
+
+### Pillar 02: Green Manipur Lab
+- **Objective**: Build climate resilience, indigenous biodiversity conservation, and ecological food security.
+- **Operations**: Preservation of 32 heritage seed varieties, establishment of community seed banks, organic soil rejuvenation training, and water catchment management.
+- **Milestones**: 18 village farming collectives operational with zero artificial chemical dependency.
+
+### Pillar 03: FutureWorks Manipur
+- **Objective**: Train youth and women in technical, digital, and vocational skills.
+- **Operations**: Digital literacy classrooms, local craft modernization, business incubation, and vocational apprenticeships.
+- **Milestones**: 850 youth graduated through certified technical and artisan workshops.
+
+### Pillar 04: Dignified Shelter Rehabilitation
+- **Objective**: Provide weatherized, dignified living conditions for families affected by disaster and displacement.
+- **Operations**: Distribution of insulated roofing, weatherized wall partitioning, solar illumination units, and community sanitary facilities.
+- **Milestones**: Upgraded 180 transitional shelter units prior to winter conditions.
+
+### Pillar 05: Urgent Humanitarian Relief
+- **Objective**: Rapid aid during acute seasonal cold waves, floods, and civil emergencies.
+- **Operations**: Clean water distribution via mobile filtration units, thermal blanket distribution, and nutritional rations.
+- **Milestones**: Over 2,500 families supported with emergency survival packages.
+
+---
+
+## 4. Governance & Financial Accountability
+
+- **Board Oversight**: Governed by an independent Board of Trustees composed of community elders, medical professionals, and civil society advocates.
+- **Open Ledger**: Monthly disbursements and incoming donations are reconciled and accessible via public digital registers.
+- **Independent Audits**: Financial statements are audited annually by certified statutory auditors and filed with regulatory authorities.
+- **Tax Deductibility**: All individual and corporate contributions are eligible for tax deductions under Section 80G of the Income Tax Act.
+
+---
+
+## 5. Field Narratives & Case Studies
+
+- **Restoring Clean Water in Torbung**: Youth brigades deployed solar gravity filtration systems that supply 350 families with reliable potable water daily.
+- **Winter Warmth Across Churachandpur**: Distributed weatherized bedding sets and thermal garments to 420 displaced elders and young children before peak winter frost.
+- **Mobile Clinic Outreach in Imphal East**: Delivered diabetes and hypertension medication to 300 chronic patients stranded by transport disruptions.
+
+---
+
+## 6. Technical & Operational Standards
+
+- **Nordic Lagom Design Philosophy**: The One Vision digital platform applies the Nordic Lagom philosophy ("just the right amount"). The system uses understated typography, subtle hairline borders, and zero decorative clutter.
+- **ASD-STE100 Plain Technical English**: All public documentation, reports, and digital guidelines follow simplified technical English to ensure clear comprehension by international and domestic readers.
+- **Privacy & Data Security**: Strict adherence to data minimization. Beneficiary identities are guarded to maintain dignity and physical safety.
+
+---
+
+## 7. Contact & Coordination Desk
+
+- **Central Coordination Office**: Babupara, Imphal West, Manipur 795001, India
+- **Emergency Helpline (24/7)**: +91 98765 43210
+- **Direct Support Email**: frontline@onevision.org
+- **General Inquiries**: contact@onevision.org
+- **Website**: https://onevision.org
+
+---
+
+## 8. Open Code Registry
+
+Developers can install One Vision components and workflows through the shadcn CLI:
+- Registry catalog endpoint: `/r/registry.json`
+- Flagship items: `editorial-index`, `impact-strip`, `trust-panel`, `campaign-card`, and `agent-rules`.
+

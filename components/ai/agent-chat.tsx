@@ -28,9 +28,9 @@ function createMessageId(prefix: string) {
 }
 
 
-interface ChatMessage {
+export interface ChatMessage {
   id: string;
-  role:"user" |"assistant";
+  role: "user" | "assistant";
   content: string;
   modelUsed?: string;
   fallbackAttempted?: boolean;
@@ -47,12 +47,20 @@ export interface AgentChatProps {
   className?: string;
   isDialog?: boolean;
   onClose?: () => void;
+  initialMessages?: ChatMessage[];
+  initialLoading?: boolean;
 }
 
-export function AgentChat({ className, isDialog = false, onClose }: AgentChatProps) {
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
+export function AgentChat({
+  className,
+  isDialog = false,
+  onClose,
+  initialMessages,
+  initialLoading = false,
+}: AgentChatProps) {
+  const [messages, setMessages] = useState<ChatMessage[]>(initialMessages || []);
   const [inputValue, setInputValue] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(initialLoading);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -147,21 +155,21 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
        "flex flex-col h-full w-full",
         isDialog
           ?"rounded-none border-none bg-transparent shadow-none"
-          :"max-w-2xl mx-auto rounded-lg border border-border/80 bg-background/60 backdrop-blur-md shadow-xs overflow-hidden dark:border-border dark:bg-foreground/60",
+          :"max-w-2xl mx-auto rounded-none border border-border/80 bg-background/60 backdrop-blur-md shadow-xs overflow-hidden dark:border-border dark:bg-foreground/60",
         className
       )}
     >
       {/* Minimal Header */}
       <div className="shrink-0 flex items-center justify-between px-3.5 py-2.5 border-b border-border/60 bg-muted/90 dark:border-border dark:bg-foreground/90">
         <div className="flex items-center gap-2">
-          <div className="size-6 rounded-xs bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+          <div className="size-6 rounded-none bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
             <Sparkles className="size-3.5" />
           </div>
           <div className="flex items-center gap-1.5">
             <h3 className="font-sans text-xs font-medium text-foreground tracking-tight">
               Community Guide
             </h3>
-            <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" title="Active" />
+            <span className="size-1.5 rounded-none bg-emerald-500 animate-pulse" aria-hidden="true" />
           </div>
         </div>
 
@@ -172,7 +180,6 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
               onClick={handleClear}
               style={{ minHeight:"28px" }}
               className="size-7 flex items-center justify-center text-muted-foreground hover:text-foreground dark:hover:text-background hover:bg-foreground/5 dark:hover:bg-foreground/10 transition-colors cursor-pointer"
-              title="Clear conversation"
               aria-label="Clear conversation"
             >
               <RotateCcw className="size-3.5" />
@@ -185,7 +192,6 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
               onClick={onClose}
               style={{ minHeight:"28px" }}
               className="size-7 flex items-center justify-center text-muted-foreground hover:text-foreground dark:hover:text-background hover:bg-foreground/5 dark:hover:bg-foreground/10 transition-colors cursor-pointer"
-              title="Close Assistant"
               aria-label="Close Assistant Dialog"
             >
               <X className="size-4" />
@@ -195,11 +201,11 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
       </div>
 
       {/* Messages Scroll Area */}
-      <div className="flex-1 min-h-0 overflow-y-auto p-3.5 sm:p-4 space-y-3.5 scrollbar-thin [scrollbar-color:var(--border)_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-border dark:[&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-track]:bg-transparent">
+      <div className="flex-1 min-h-0 overflow-y-auto scroll-fade-y p-3.5 sm:p-4 space-y-3.5 scrollbar-thin [scrollbar-color:var(--border)_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-border dark:[&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-track]:bg-transparent">
         {/* Minimalist Empty State */}
         {messages.length === 0 && (
           <div className="h-full min-h-65 flex flex-col items-center justify-center text-center px-4 py-8 space-y-4 my-auto">
-            <div className="size-10 rounded-sm bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shadow-2xs">
+            <div className="size-10 rounded-none bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shadow-2xs">
               <Sparkles className="size-5" />
             </div>
 
@@ -220,7 +226,7 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
                   onClick={() => handleSend(item.query)}
                   disabled={isLoading}
                   style={{ minHeight: "28px" }}
-                  className="group flex items-center justify-between sm:justify-center gap-2 px-3 py-1 text-[11px] font-sans text-muted-foreground hover:text-foreground bg-muted hover:bg-muted/80 border border-border/80 hover:border-foreground/40 dark:hover:border-white/30 rounded-xs transition-all cursor-pointer shadow-2xs text-left sm:text-center"
+                  className="group flex items-center justify-between sm:justify-center gap-2 px-3 py-1 text-[11px] font-sans text-muted-foreground hover:text-foreground bg-muted hover:bg-muted/80 border border-border/80 hover:border-foreground/40 dark:hover:border-white/30 rounded-none transition-all cursor-pointer shadow-2xs text-left sm:text-center"
                 >
                   <span>{item.label}</span>
                   <span className="text-muted-foreground group-hover:text-primary transition-colors">→</span>
@@ -242,7 +248,7 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
             {/* Avatar */}
             <div
               className={cn(
-                "size-6 rounded-sm shrink-0 flex items-center justify-center font-mono text-[10px] border transition-colors mt-0.5",
+                "size-6 rounded-none shrink-0 flex items-center justify-center font-mono text-[10px] border transition-colors mt-0.5",
                 msg.role === "user"
                   ? "bg-foreground text-background border-foreground dark:bg-background dark:text-foreground"
                   : "bg-primary/10 text-primary border-primary/20"
@@ -254,10 +260,10 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
             {/* Bubble */}
             <div
               className={cn(
-               "flex flex-col space-y-1.5 rounded-xl px-3 py-2 text-xs sm:text-body-sm transition-all max-w-[88%]",
+               "flex flex-col space-y-1.5 rounded-none px-3 py-2 text-xs sm:text-body-sm transition-all max-w-[88%]",
                 msg.role ==="user"
-                  ?"bg-foreground text-background rounded-tr-xs dark:bg-background dark:text-foreground"
-                  :"bg-muted/80 text-foreground rounded-tl-xs border border-border/60 shadow-2xs   dark:border-border"
+                  ?"bg-foreground text-background rounded-none dark:bg-background dark:text-foreground"
+                  :"bg-muted/80 text-foreground rounded-none border border-border/60 shadow-2xs dark:border-border"
               )}
             >
 
@@ -282,7 +288,7 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
                     type="button"
                     onClick={() => handleCopy(msg.id, msg.content)}
                     className="inline-flex items-center gap-0.5 hover:text-foreground dark:hover:text-background transition-colors cursor-pointer"
-                    title="Copy"
+                    aria-label="Copy message content"
                   >
                     {copiedId === msg.id ? (
                       <>
@@ -305,12 +311,12 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
         {/* Loading Indicator */}
         {isLoading && (
           <div className="flex gap-2 max-w-2xl mr-auto">
-            <div className="size-6 rounded-sm shrink-0 flex items-center justify-center bg-primary/10 text-primary border border-primary/20 mt-0.5">
+            <div className="size-6 rounded-none shrink-0 flex items-center justify-center bg-primary/10 text-primary border border-primary/20 mt-0.5">
               <Sparkles className="size-3" />
             </div>
-            <div className="flex items-center gap-2 px-3 py-2 rounded-sm bg-muted/80 border border-border/60 shadow-2xs dark:border-border">
+            <div className="flex items-center gap-2 px-3 py-2 rounded-none bg-muted/80 border border-border/60 shadow-2xs dark:border-border">
               <Loader variant="dots" size="sm" />
-              <span className="font-mono text-[11px] text-muted-foreground animate-pulse">
+              <span className="font-mono text-[11px] text-muted-foreground shimmer">
                 Thinking...
               </span>
             </div>
@@ -330,6 +336,8 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
           className="flex-row items-center gap-2 pl-3 pr-1.5 py-1 border border-border/80 bg-muted dark:bg-foreground/60 focus-within:border-foreground/40 dark:focus-within:border-white/30 focus-within:shadow-2xs transition-all"
         >
           <PromptInputTextarea
+            id="agent-chat-prompt-input"
+            aria-label="Ask Community Guide"
             placeholder="Ask Community Guide... (Enter to send)"
             minHeight={22}
             maxHeight={80}
@@ -343,10 +351,10 @@ export function AgentChat({ className, isDialog = false, onClose }: AgentChatPro
               aria-label="Send Message"
               style={{ minHeight: "28px", height: "28px", width: "28px" }}
               className={cn(
-                "size-7 shrink-0 flex items-center justify-center transition-all duration-150 border rounded-sm",
+                "size-7 shrink-0 flex items-center justify-center transition-all duration-150 border rounded-none",
                 inputValue.trim() && !isLoading
                   ? "bg-primary border-primary text-primary-foreground hover:bg-primary/90 active:scale-95 cursor-pointer shadow-2xs"
-                  : "bg-muted border-border/50 text-muted dark:border-border dark:text-foreground cursor-not-allowed opacity-50"
+                  : "bg-muted border-border/50 text-muted-foreground dark:border-border dark:text-foreground cursor-not-allowed opacity-50"
               )}
             >
               <ArrowUpIcon className="size-3.5" />

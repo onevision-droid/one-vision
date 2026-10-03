@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "impact-strip",
+  "title": "Impact Strip",
+  "description": "Four-column responsive key metrics strip with serif numerals and hairline dividers.",
+  "files": [
+    {
+      "path": "components/composition/ImpactStrip.tsx",
+      "content": "import React from \"react\";\nimport { Section, Container } from \"@/components/layout/Shell\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface ImpactStat {\n  value: string | number;\n  suffix?: string;\n  label: string;\n}\n\ninterface ImpactStripProps {\n  stats: ImpactStat[];\n  className?: string;\n  tone?: \"default\" | \"alt\" | \"inverted\";\n}\n\nexport function ImpactStrip({\n  stats,\n  className,\n  tone = \"alt\",\n}: ImpactStripProps) {\n  return (\n    <Section tone={tone} className={cn(\"py-8 md:py-12 border-y border-border\", className)}>\n      <Container>\n        <div className=\"grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 divide-y lg:divide-y-0 lg:divide-x divide-border\">\n          {stats.map((stat, idx) => (\n            <div\n              key={idx}\n              className={cn(\n                \"flex flex-col justify-center\",\n                idx > 0 && idx % 2 === 0 ? \"pt-6 lg:pt-0\" : \"\",\n                idx % 2 !== 0 ? \"pt-6 sm:pt-0 pl-0 sm:pl-4 lg:pl-8\" : \"lg:first:pl-0 lg:pl-8\"\n              )}\n            >\n              <div className=\"flex items-baseline gap-0.5\">\n                <span className=\"font-serif text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-foreground\">\n                  {stat.value}\n                </span>\n                {stat.suffix && (\n                  <span className=\"font-serif text-2xl sm:text-3xl font-light text-primary\">\n                    {stat.suffix}\n                  </span>\n                )}\n              </div>\n              <p className=\"font-sans text-xs sm:text-sm text-muted-foreground font-medium tracking-wide mt-2\">\n                {stat.label}\n              </p>\n            </div>\n          ))}\n        </div>\n      </Container>\n    </Section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/composition/ImpactStrip.tsx"
+    },
+    {
+      "path": "components/layout/Shell.tsx",
+      "content": "import * as React from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nexport type SectionTone = \"default\" | \"alt\" | \"inverted\";\r\n\r\nexport interface SectionProps extends React.HTMLAttributes<HTMLElement> {\r\n  /**\r\n   * The semantic tone of the section, determining background and text colors.\r\n   * @default \"default\"\r\n   */\r\n  tone?: SectionTone;\r\n}\r\n\r\n/**\r\n * Section wrapper enforcing Nordic Lagom vertical rhythm: py-12 md:py-16 lg:py-20.\r\n */\r\nexport const Section = React.forwardRef<HTMLElement, SectionProps>(\r\n  ({ tone = \"default\", className, children, ...props }, ref) => {\r\n    const toneClasses = {\r\n      default: \"bg-background text-foreground\",\r\n      alt: \"bg-muted text-foreground\",\r\n      inverted: \"bg-foreground text-background\",\r\n    };\r\n\r\n    return (\r\n      <section\r\n        ref={ref}\r\n        data-tone={tone}\r\n        className={cn(\r\n          \"py-12 md:py-16 lg:py-20\",\r\n          toneClasses[tone],\r\n          className\r\n        )}\r\n        {...props}\r\n      >\r\n        {children}\r\n      </section>\r\n    );\r\n  }\r\n);\r\nSection.displayName = \"Section\";\r\n\r\nexport type ContainerProps = React.HTMLAttributes<HTMLDivElement>;\r\n\r\n/**\r\n * Container enforcing max-width of 1200px and strict gutter rules: 24px (32px >= xl).\r\n */\r\nexport const Container = React.forwardRef<HTMLDivElement, ContainerProps>(\r\n  ({ className, children, ...props }, ref) => {\r\n    return (\r\n      <div\r\n        ref={ref}\r\n        className={cn(\r\n          \"mx-auto w-full max-w-container px-4 sm:px-6 lg:px-8\",\r\n          className\r\n        )}\r\n        {...props}\r\n      >\r\n        {children}\r\n      </div>\r\n    );\r\n  }\r\n);\r\nContainer.displayName = \"Container\";\r\n",
+      "type": "registry:component",
+      "target": "components/layout/Shell.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,25 @@
+# One Vision
+
+> Dignified humanitarian relief, grassroots community action, and transparent civil rehabilitation across Manipur, Northeast India.
+
+One Vision is an independent, non-profit community initiative committed to field-level emergency support, healthcare accessibility, transitional education, and long-term economic resilience.
+
+## Core Navigation
+
+- [About One Vision](/about): Organizational mission, foundational principles, leadership, and community accountability framework.
+- [Programmes](/programmes): Active initiatives across healthcare clinics, child learning centers, shelter rehabilitation, and sustainable livelihoods.
+- [Impact & Transparency Reports](/reports): Audited financial statements, annual accountability publications, and verifiable metric reports.
+- [Field Stories](/stories): Verified first-person narratives, community dispatches, and field updates directly from relief coordinators.
+- [Donate & Support](/donate): Direct avenues to support specific relief funds and grassroots rehabilitation projects.
+- [Contact & Office](/contact): Public office coordinates in Imphal, community help lines, and formal institutional partnership channels.
+
+## Operational Standards
+
+- Design Architecture: Built on Nordic Lagom principles with restrained aesthetics, quiet chrome, hairline borders, and balanced typography.
+- Documentation Integrity: Architecture and technical communications adhere strictly to ASD-STE100 Plain Technical English.
+- Governance & Compliance: Fully registered non-profit entity adhering to regulatory standards, audited expenditures, and public reporting.
+
+## Open Code Registry
+
+- [Component Registry Index](/r/registry.json): Manifest of installable Nordic Lagom UI blocks, components, and agent rules for the shadcn CLI.
+

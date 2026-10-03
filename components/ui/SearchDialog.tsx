@@ -146,36 +146,42 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  onClick={onClose}
  />
  <div
-        className="relative w-full max-w-2xl bg-background border-2 border-border shadow-2xl flex flex-col max-h-[80vh] overflow-hidden"
+        className="relative w-full max-w-2xl bg-card border border-border shadow-xl rounded-none flex flex-col max-h-[80vh] overflow-hidden"
         role="dialog"
         aria-modal="true"
+        aria-label="Site Search"
       >
         {/* Input Header */}
-        <div className="flex items-center border-b-2 border-border px-4 py-4 bg-muted">
- <Search className="size-5 text-foreground shrink-0 mr-3" />
- <input
- ref={inputRef}
- type="text"
- value={query}
- onChange={(e) => {
- setQuery(e.target.value);
- setSelectedIndex(0);
- }}
- onKeyDown={handleKeyDown}
- placeholder="Search operations, reports, or field stories..."
- className="flex-1 bg-transparent border-none outline-none text-heading-sm font-sans text-foreground placeholder:text-muted-foreground placeholder:font-light"
- />
- <button
- onClick={onClose}
- className="p-1 ml-2 text-muted-foreground hover:text-foreground transition-colors shrink-0"
- aria-label="Close search"
- >
- <X className="size-5" />
- </button>
- </div>
+        <div className="flex items-center border-b border-border px-4 py-4 bg-muted/40">
+          <Search className="size-5 text-foreground shrink-0 mr-3" />
+          <label htmlFor="search-dialog-input" className="sr-only">
+            Search operations, reports, or field stories
+          </label>
+          <input
+            id="search-dialog-input"
+            ref={inputRef}
+            type="text"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setSelectedIndex(0);
+            }}
+            onKeyDown={handleKeyDown}
+            aria-label="Search operations, reports, or field stories"
+            placeholder="Search operations, reports, or field stories..."
+            className="flex-1 bg-transparent border-none outline-none text-heading-sm font-sans text-foreground placeholder:text-muted-foreground placeholder:font-light"
+          />
+          <button
+            onClick={onClose}
+            className="p-1 ml-2 text-muted-foreground hover:text-foreground transition-colors shrink-0"
+            aria-label="Close search"
+          >
+            <X className="size-5" />
+          </button>
+        </div>
 
  {/* Results Body */}
- <div ref={scrollRef} className="overflow-y-auto flex-1">
+ <div ref={scrollRef} className="overflow-y-auto scroll-fade-y flex-1">
  {!query ? (
  <div className="p-10 text-center flex flex-col items-center justify-center">
  <span className="text-caption uppercase tracking-widest text-muted-foreground font-semibold mb-2">
@@ -206,36 +212,36 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  <li key={result.id}>
  <Link
  href={url}
- target={isPdf ?"_blank" : undefined}
+ target={isPdf ? "_blank" : undefined}
  onMouseEnter={() => setSelectedIndex(index)}
  onClick={onClose}
  className={`w-full text-left px-5 py-4 flex items-start gap-4 border-b border-border transition-colors ${
- isSelected ?"bg-foreground text-background" :"bg-transparent text-foreground hover:bg-muted/80"
+ isSelected ? "bg-primary text-primary-foreground" : "bg-transparent text-foreground hover:bg-muted/80"
  }`}
  >
  <div className="flex-1 min-w-0">
  <div className="flex items-center gap-2 mb-1">
  <span
- className={`text-[10px] font-sans font-medium uppercase tracking-wider px-1.5 py-0.5 border ${
+ className={`text-[10px] font-sans font-medium uppercase tracking-wider px-2 py-0.5 rounded-none border ${
  isSelected
- ?"border-border text-background/80"
-                    :"border-border text-muted-foreground"
+ ? "border-primary-foreground/30 text-primary-foreground bg-primary-foreground/10"
+                    : "border-border text-foreground/85 font-semibold bg-muted"
  } `}
  >
  {result._type}
  </span>
- {result._type ==="programme" && (
- <span className={`text-caption font-semibold truncate ${isSelected ?"text-background/60" :"text-muted-foreground"}`}>
+ {result._type === "programme" && (
+ <span className={`text-caption font-semibold truncate ${isSelected ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
  {item.location}
  </span>
  )}
  </div>
- <h4 className={`font-sans text-body-sm font-semibold truncate ${isSelected ?"text-background" :"text-foreground"}`}>
+ <h4 className={`font-sans text-body-sm font-semibold truncate ${isSelected ? "text-primary-foreground" : "text-foreground"}`}>
  {item.title}
  </h4>
  </div>
  {isSelected && (
- <div className="shrink-0 flex items-center text-background/60 mt-2">
+ <div className="shrink-0 flex items-center text-primary-foreground/80 mt-2">
  <CornerDownLeft className="size-4" />
  </div>
  )}
@@ -248,20 +254,20 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  </div>
 
  {/* Footer */}
- <div className="border-t border-border bg-muted px-4 py-3 flex items-center justify-between text-[11px] font-sans text-muted-foreground uppercase tracking-widest">
+ <div className="border-t border-border bg-muted/60 px-4 py-3 flex items-center justify-between text-[11px] font-sans text-muted-foreground uppercase tracking-widest">
  <span>{results.length} results</span>
  <div className="hidden sm:flex items-center gap-4">
  <span className="flex items-center gap-1">
- <kbd className="px-1.5 py-0.5 border border-border bg-background">↑</kbd>
- <kbd className="px-1.5 py-0.5 border border-border bg-background">↓</kbd>
+ <kbd className="px-1.5 py-0.5 border border-border bg-background rounded-none font-mono">↑</kbd>
+ <kbd className="px-1.5 py-0.5 border border-border bg-background rounded-none font-mono">↓</kbd>
  Navigate
  </span>
  <span className="flex items-center gap-1">
- <kbd className="px-1.5 py-0.5 border border-border bg-background">↵</kbd>
+ <kbd className="px-1.5 py-0.5 border border-border bg-background rounded-none font-mono">↵</kbd>
  Select
  </span>
  <span className="flex items-center gap-1">
- <kbd className="px-1.5 py-0.5 border border-border bg-background">ESC</kbd>
+ <kbd className="px-1.5 py-0.5 border border-border bg-background rounded-none font-mono">ESC</kbd>
  Close
  </span>
  </div>

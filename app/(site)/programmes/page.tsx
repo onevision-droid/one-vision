@@ -38,7 +38,7 @@ export default function ProgrammesPage() {
         heading="Ready to get involved?"
         description="Whether you can offer time, specialized skills, or resources, every single contribution helps build resilience in Imphal."
         action={
-          <Link href="/volunteer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium transition-colors rounded-sm">
+          <Link href="/volunteer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary-hover text-primary-foreground font-sans text-xs font-medium transition-colors rounded-none">
             <span>Volunteer</span>
             <ArrowRight className="size-3.5" />
           </Link>

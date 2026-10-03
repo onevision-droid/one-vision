@@ -32,7 +32,7 @@ export function PromptInput({
     <PromptInputContext.Provider value={{ value, onValueChange, onSubmit, disabled }}>
       <div
         className={cn(
-         "relative flex rounded-xl border border-border/80 bg-muted/90 shadow-2xs backdrop-blur-xs transition-all duration-200",
+         "relative flex rounded-none border border-border/80 bg-muted/90 shadow-2xs backdrop-blur-xs transition-all duration-200",
          "focus-within:border-foreground/40 focus-within:shadow-xs dark:focus-within:border-white/30",
           disabled &&"opacity-60 cursor-not-allowed",
           className
@@ -90,6 +90,8 @@ export function PromptInputTextarea({
 
   return (
     <textarea
+      id={props.id || "prompt-input-textarea"}
+      aria-label={props["aria-label"] || placeholder || "Message input"}
       ref={textareaRef}
       rows={1}
       value={value}

@@ -25,18 +25,18 @@ export function PageHero({
           <div className="flex flex-col lg:flex-row w-full border border-border shadow-none bg-background group overflow-hidden lg:h-95 xl:h-100">
             {/* Left Pane: Content */}
             <div className="flex-1 relative flex flex-col justify-center p-6 md:p-8 lg:p-10 xl:p-12 lg:border-r border-border z-10 transition-colors duration-500 hover:bg-muted overflow-hidden">
-              <div className="flex items-center gap-3 mb-3 shrink-0">
-                <span className="size-2 bg-foreground shrink-0" aria-hidden="true" />
-                <span className="text-[11px] font-semibold uppercase tracking-widest text-foreground">{badge}</span>
+              <div className="flex items-center gap-2 mb-3 shrink-0">
+                <span className="size-2 rounded-none bg-primary shrink-0" aria-hidden="true" />
+                <span className="font-sans text-xs font-medium tracking-normal text-muted-foreground">{badge}</span>
               </div>
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-light tracking-tight text-foreground mb-4 leading-[0.95] shrink-0">
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-normal tracking-tight text-foreground mb-4 leading-[1.05] shrink-0">
                 {heading}
               </h1>
-              <p className="font-sans text-base md:text-lg text-muted-foreground max-w-prose font-light leading-relaxed shrink-0">
+              <p className="font-sans text-base md:text-lg text-muted-foreground max-w-prose font-normal leading-relaxed shrink-0">
                 {description}
               </p>
               {actions && (
-                <div className="mt-6 flex flex-wrap gap-4 shrink-0">
+                <div className="mt-6 flex flex-wrap gap-3 shrink-0">
                   {actions}
                 </div>
               )}
@@ -51,6 +51,7 @@ export function PageHero({
                 sizes="(max-width: 1024px) 100vw, 400px"
                 className="object-cover object-center transition-all duration-700 group-hover:scale-105"
                 priority
+                loading="eager"
               />
               {/* Subtle soft scrim */}
               <div className="absolute inset-0 pointer-events-none bg-linear-to-t from-background/20 to-transparent" />
@@ -67,17 +68,17 @@ export function PageHero({
       <Container className="w-full flex flex-col justify-center relative z-10">
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center justify-center p-4 w-full">
           <div className="flex items-center gap-2 mb-4 shrink-0">
-            <span className="size-2 bg-foreground shrink-0" aria-hidden="true" />
-            <span className="text-[11px] font-semibold uppercase tracking-widest text-foreground">{badge}</span>
+            <span className="size-2 rounded-none bg-primary shrink-0" aria-hidden="true" />
+            <span className="font-sans text-xs font-medium tracking-normal text-muted-foreground">{badge}</span>
           </div>
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground mb-4 leading-[0.95] shrink-0">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-foreground mb-4 leading-[1.05] shrink-0">
             {heading}
           </h1>
           <p className="font-sans text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl shrink-0">
             {description}
           </p>
           {actions && (
-            <div className="mt-6 flex flex-wrap gap-4 shrink-0 justify-center">
+            <div className="mt-6 flex flex-wrap gap-3 shrink-0 justify-center">
               {actions}
             </div>
           )}

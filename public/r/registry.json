@@ -1,0 +1,104 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "one-vision",
+  "homepage": "https://github.com/onevision-droid/one-vision",
+  "items": [
+    {
+      "name": "editorial-index",
+      "type": "registry:block",
+      "title": "Editorial Index",
+      "description": "Five Priorities asymmetric editorial grid with balanced height parity, category badges, and unified card links.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/composition/EditorialIndex.tsx",
+          "type": "registry:component",
+          "target": "components/composition/EditorialIndex.tsx"
+        },
+        {
+          "path": "components/layout/Shell.tsx",
+          "type": "registry:component",
+          "target": "components/layout/Shell.tsx"
+        },
+        {
+          "path": "lib/data/programmes.ts",
+          "type": "registry:lib",
+          "target": "lib/data/programmes.ts"
+        }
+      ]
+    },
+    {
+      "name": "impact-strip",
+      "type": "registry:component",
+      "title": "Impact Strip",
+      "description": "Four-column responsive key metrics strip with serif numerals and hairline dividers.",
+      "files": [
+        {
+          "path": "components/composition/ImpactStrip.tsx",
+          "type": "registry:component",
+          "target": "components/composition/ImpactStrip.tsx"
+        },
+        {
+          "path": "components/layout/Shell.tsx",
+          "type": "registry:component",
+          "target": "components/layout/Shell.tsx"
+        }
+      ]
+    },
+    {
+      "name": "trust-panel",
+      "type": "registry:component",
+      "title": "Trust Panel",
+      "description": "Registered NGO governance and transparency panel with 80G tax compliance indicator.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/content/TrustPanel.tsx",
+          "type": "registry:component",
+          "target": "components/content/TrustPanel.tsx"
+        },
+        {
+          "path": "lib/data/site-settings.ts",
+          "type": "registry:lib",
+          "target": "lib/data/site-settings.ts"
+        }
+      ]
+    },
+    {
+      "name": "campaign-card",
+      "type": "registry:component",
+      "title": "Campaign Card",
+      "description": "Editorial programme card with 16:10 media aspect ratio and status badge.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "components/content/CampaignCard.tsx",
+          "type": "registry:component",
+          "target": "components/content/CampaignCard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-rules",
+      "type": "registry:item",
+      "title": "Agent Rules",
+      "description": "Nordic Lagom frontend engineering standards, Plain Technical English rules, and layout locks.",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "type": "registry:file",
+          "target": "~/AGENTS.md"
+        }
+      ]
+    }
+  ]
+}

@@ -1,11 +1,113 @@
 {
   "version": 1,
   "skills": {
+    "ai-design-system": {
+      "source": "ymandrikov/ai-design-system",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/ai-design-system/SKILL.md",
+      "computedHash": "f410852606fdbd74fe0cb66983c06931c069b47bc5ee2b95ffd647746e4ea108"
+    },
+    "good-readme": {
+      "source": "evilmartians/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/good-readme/SKILL.md",
+      "computedHash": "be284e69d5c41cf125d4ce54f34ea6025a6de00f6269d9a091af3a217e360cd2"
+    },
     "impeccable": {
       "source": "pbakaus/impeccable",
       "sourceType": "github",
       "skillPath": ".agents/skills/impeccable/SKILL.md",
       "computedHash": "ec48c58ca973b42c826d5d3be9069b7023d2361ebf7f89ee56b0bae7eb92390a"
+    },
+    "intent-log": {
+      "source": "irinanazarova/intent-log",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/intent-log/SKILL.md",
+      "computedHash": "bffb47714785aadec382c302c1604e9bee77d72788123a4ba7ccec611eb8b0dc"
+    },
+    "llms-visibility": {
+      "source": "evilmartians/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/llms-visibility/SKILL.md",
+      "computedHash": "03658d643f305005e9f13732aa632f9dd76d9aed142a08d644a990388079cbf4"
+    },
+    "sb-audit": {
+      "source": "strongeron/storybook-workbench",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/sb-audit/SKILL.md",
+      "computedHash": "12772c6d0cf3ccd0d1813ba2d6b1b942a20d24b2099a336b325ecd64c498f1e8"
+    },
+    "sb-explore": {
+      "source": "strongeron/storybook-workbench",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/sb-explore/SKILL.md",
+      "computedHash": "2bd669adbcd4acdb2cac3135e30e84bf62a387c4bdad5f8059d022ef4e20f376"
+    },
+    "sb-figma": {
+      "source": "strongeron/storybook-workbench",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/sb-figma/SKILL.md",
+      "computedHash": "b146a474cac1b7da8de601786f9e922834174ecfe01685e62631921c7e3b11b0"
+    },
+    "sb-flows": {
+      "source": "strongeron/storybook-workbench",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/sb-flows/SKILL.md",
+      "computedHash": "b1ad2932fe0d39e892453510ffb952f12f39ab636c15c92d1db729d94f892264"
+    },
+    "sb-health": {
+      "source": "strongeron/storybook-workbench",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/sb-health/SKILL.md",
+      "computedHash": "10a438a7e210af60e0669ff3a958b1b2a2f8d297e75ffd5a70fe8d7e58043460"
+    },
+    "sb-hub": {
+      "source": "strongeron/storybook-workbench",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/sb-hub/SKILL.md",
+      "computedHash": "ac041258fefad2edca4969d04e87e0901373bdc00fed71ecae5c8ac691d27540"
+    },
+    "sb-inventory": {
+      "source": "strongeron/storybook-workbench",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/sb-inventory/SKILL.md",
+      "computedHash": "13d086a274793466659e13a9df5cf74fc6fb5c6686e1677fc23ee5a69bb952bb"
+    },
+    "sb-setup": {
+      "source": "strongeron/storybook-workbench",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/sb-setup/SKILL.md",
+      "computedHash": "293de38561e43c2676ea2648b788c164b5d484c818cbe5da64026a23e369db86"
+    },
+    "sb-ship": {
+      "source": "strongeron/storybook-workbench",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/sb-ship/SKILL.md",
+      "computedHash": "69f9801fc7338652388f03d5c9103b17a73f911cf7b18fe358a7bd8d0fc97fc3"
+    },
+    "sb-stories": {
+      "source": "strongeron/storybook-workbench",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/sb-stories/SKILL.md",
+      "computedHash": "b624a7eacd63cd41b360d46733c4e6e893562c02e77ee9b921ed6b00b89d9008"
+    },
+    "sb-wrappers": {
+      "source": "strongeron/storybook-workbench",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/sb-wrappers/SKILL.md",
+      "computedHash": "8747c8ac418bd9dfe4ca23670e05fc50de9a133c558540f1be65a41a5e208cba"
+    },
+    "simple-english": {
+      "source": "AminBlg/SimpleEnglish",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/simple-english/SKILL.md",
+      "computedHash": "2f25072b7edd707d525d597b388f473b46baad100a3232e13f60e30b0fcc4a82"
+    },
+    "tailwind-best-practices": {
+      "source": "evilmartians/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/tailwind-best-practices/SKILL.md",
+      "computedHash": "fbbb7e2c2ea9510c95114ac36e037f217a2a80966d078282764b9c5bbd0ae0d9"
     }
   }
 }

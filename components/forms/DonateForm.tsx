@@ -113,11 +113,19 @@ export function DonateForm({
             control={form.control}
             name="frequency"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="space-y-2">
+                <FormLabel className="sr-only">Donation Frequency</FormLabel>
                 <FormControl>
-                  <div className="grid grid-cols-2 gap-0 border border-border bg-muted/40 rounded-sm overflow-hidden *:border-r last:*:border-r-0 *:border-border">
+                  <div
+                    role="radiogroup"
+                    aria-label="Donation Frequency"
+                    className="grid grid-cols-2 gap-0 border border-border bg-muted/40 rounded-none overflow-hidden *:border-r last:*:border-r-0 *:border-border"
+                  >
                     <button
                       type="button"
+                      role="radio"
+                      aria-checked={field.value === "one-time"}
+                      aria-label="One-time contribution"
                       onClick={() => field.onChange("one-time")}
                       className={cn(
                         "px-4 py-2.5 font-sans text-xs font-medium transition-colors",
@@ -128,13 +136,15 @@ export function DonateForm({
                     </button>
                     <button
                       type="button"
+                      role="radio"
+                      aria-checked={field.value === "monthly"}
+                      aria-label={recurringEnabled ? "Monthly contribution" : "Monthly contribution (coming soon)"}
                       onClick={() => {
                         if (recurringEnabled) {
                           field.onChange("monthly");
                         }
                       }}
                       disabled={!recurringEnabled}
-                      title={!recurringEnabled ? "Monthly recurring giving is coming soon" : undefined}
                       className={cn(
                         "px-4 py-2.5 font-sans text-xs font-medium transition-colors",
                         field.value === "monthly"
@@ -152,7 +162,7 @@ export function DonateForm({
             )}
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-border rounded-sm overflow-hidden *:border-b sm:*:border-b-0 *:border-r last:*:border-r-0 *:border-border bg-card">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-border rounded-none overflow-hidden *:border-b sm:*:border-b-0 *:border-r last:*:border-r-0 *:border-border bg-card">
             {[
               { amount: 500, impact: "Maternal Health Kit" },
               { amount: 1000, impact: "Clinic Medicine Supply" },
@@ -203,7 +213,7 @@ export function DonateForm({
                       type="number" 
                       min="100" 
                       placeholder="Custom amount" 
-                      className="pl-8 rounded-sm border-border focus-visible:ring-primary/20 h-14 font-sans text-lg"
+                      className="pl-8 rounded-none border-border focus-visible:ring-primary/20 h-14 font-sans text-lg"
                       onChange={(e) => {
                         setSelectedPreset(null);
                         field.onChange(e);
@@ -231,7 +241,7 @@ export function DonateForm({
                 <FormItem className="space-y-2">
                   <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">First Name <span className="text-destructive">*</span></FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Jane" autoComplete="given-name" className="rounded-sm border-border focus-visible:ring-primary/20 h-12" />
+                    <Input {...field} placeholder="Jane" autoComplete="given-name" className="rounded-none border-border focus-visible:ring-primary/20 h-12" />
                   </FormControl>
                   <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
                 </FormItem>
@@ -244,7 +254,7 @@ export function DonateForm({
                 <FormItem className="space-y-2">
                   <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">Last Name <span className="text-destructive">*</span></FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Doe" autoComplete="family-name" className="rounded-sm border-border focus-visible:ring-primary/20 h-12" />
+                    <Input {...field} placeholder="Doe" autoComplete="family-name" className="rounded-none border-border focus-visible:ring-primary/20 h-12" />
                   </FormControl>
                   <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
                 </FormItem>
@@ -259,7 +269,7 @@ export function DonateForm({
               <FormItem className="space-y-2">
                 <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">Email Address (for 80G tax receipt) <span className="text-destructive">*</span></FormLabel>
                 <FormControl>
-                  <Input {...field} type="email" placeholder="jane@example.com" autoComplete="email" className="rounded-sm border-border focus-visible:ring-primary/20 h-12" />
+                  <Input {...field} type="email" placeholder="jane@example.com" autoComplete="email" className="rounded-none border-border focus-visible:ring-primary/20 h-12" />
                 </FormControl>
                 <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
@@ -273,7 +283,7 @@ export function DonateForm({
               <FormItem className="space-y-2">
                 <FormLabel className="font-mono text-[10px] font-bold text-foreground uppercase tracking-widest block">PAN Number (Required for 80G Tax Exemption Certificate)</FormLabel>
                 <FormControl>
-                  <Input {...field} className="uppercase rounded-sm border-border focus-visible:ring-primary/20 h-12" placeholder="ABCDE1234F" />
+                  <Input {...field} className="uppercase rounded-none border-border focus-visible:ring-primary/20 h-12" placeholder="ABCDE1234F" />
                 </FormControl>
                 <FormMessage className="font-mono text-[10px] text-destructive uppercase" />
               </FormItem>
@@ -283,7 +293,7 @@ export function DonateForm({
 
         {/* Submit Action */}
         <div className="pt-6">
-          <button type="submit" className="w-full flex items-center justify-center gap-2 h-10 px-5 bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-xs font-medium transition-colors rounded-sm shadow-xs">
+          <button type="submit" className="w-full flex items-center justify-center gap-2 h-10 px-5 bg-primary hover:bg-primary-hover text-primary-foreground font-sans text-xs sm:text-sm font-medium transition-colors rounded-none shadow-xs">
             <span>Donate</span>
             <ArrowRight className="size-3.5" />
           </button>

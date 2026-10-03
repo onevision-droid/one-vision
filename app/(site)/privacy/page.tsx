@@ -54,7 +54,7 @@ export default function PrivacyPage() {
 
               <h2 className="text-foreground font-serif text-2xl font-light">4. Contact & Inquiries</h2>
               <p>
-                To request data deletion or inquire about our privacy practices, contact our team at <a href={`mailto:${siteSettings.contactEmail}`} className="text-primary hover:underline">{siteSettings.contactEmail}</a>.
+                To request data deletion or inquire about our privacy practices, contact our team at <a href={`mailto:${siteSettings.contactEmail}`} className="text-primary underline underline-offset-2 hover:text-primary-hover font-medium">{siteSettings.contactEmail}</a>.
               </p>
             </div>
           </div>

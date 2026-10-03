@@ -1,108 +1,118 @@
-<!-- DEPRECATED: This document is from a prior design era (Nordic Lagom / Fraunces serif). The canonical design system is now defined in /DESIGN.md (Frontline Humanitarian mandate). Do not reference this file for new development. -->
+# 05 — AI Agent Task Specification (Field Edition)
 
-# 05 — AI Agent Task Specification — One Vision
-
-How an AI coding agent must execute on this project. Read `AGENTS.md` first, then docs 01–04. This document defines binding rules and task specs with acceptance criteria.
-
----
-
-## A. Binding rules (never violate)
-
-1. **Primitives first.** Interactive components (dialog, sheet, tabs, accordion, select, form controls, toast) come from shadcn/ui registry built on the installed primitives. Custom code wraps/styles them — never reimplements.
-2. **Server components by default.** Client components only for: interactivity, forms, animations, observers. Mark with `'use client'` only when required; keep client boundaries leaf-level.
-3. **Tokens only.** No raw hex, px font-sizes, or ad-hoc spacing outside doc 02 tokens. Use semantic utilities: `bg-surface`, `text-secondary`, `text-eyebrow`, `radius-md`, etc.
-4. **Composition vocabulary only.** Pages are built from the seven patterns in doc 02 §9. Propose a new pattern only with justification in the PR description.
-5. **Accessibility is acceptance criteria, not a follow-up.** Every task below includes its a11y exit checks; a PR failing them is incomplete.
-6. **Honest content.** Never invent statistics, quotes, testimonials, or legal claims. Placeholder copy is clearly marked `TODO(content)`.
-7. **Performance budget.** Any page adding >170kb gz JS or LCP image >250kb must justify in PR or optimise.
-8. **Reduced motion.** All animation respects `prefers-reduced-motion`; final state renders immediately when reduced.
-9. **Follow `nextjs-agent-rules` in AGENTS.md.** Read `node_modules/next/dist/docs/` before using any Next.js API; this project runs Next 16 — training-data conventions may be stale.
-10. **Definition of done = AGENTS.md §15.** Content/empty states, responsive behaviour, a11y tested, loading/error states, SEO, analytics events, security review, no console errors, visual regression, docs updated.
+**Project:** One Vision — Society for Health & Education Manipur  
+**Role:** Senior Frontend Architect, Design Systems Engineer & Accessibility Specialist  
+**Directives:** Adhere strictly to `DESIGN.md`, `AGENTS.md`, and the September 2026 Nordic Lagom brief.
 
 ---
 
-## B. Task specs
+## 1. Non-Negotiable Binding Rules
 
-### L-01 — Root layout shell
-**Scope:** `app/layout.tsx`, `components/layout/{SiteHeader,MobileNavigation,Footer,SkipLink}.tsx`.
-**Requirements:**
-- Fonts via `next/font/local` → CSS vars `--font-fraunces`, `--font-inter` (map in `globals.css` `@theme inline`).
-- Landmarks: `<header><nav>`, `<main id="main">`, `<footer>`; skip-link as first focusable element, visible on focus, href `#main`.
-- Header: wordmark left; nav **What We Do · Stories · Get Help · Get Involved · About**; single primary button **Support** → `/donate`; transparent-over-hero → `surface-raised` with `shadow-raised` on scroll (passive listener); optional language slot (render-disabled).
-- MobileNavigation: shadcn Sheet; focus trapped while open, ESC closes, focus returns to trigger; nav links ≥44px targets; body scroll locked.
-- Footer per doc 03 footer spec.
-**Acceptance:** axe zero violations; full keyboard operation; 320px no horizontal scroll; header ≤64px tall; no JS required for footer/nav anchor links (SSR).
-
-### L-02 — Design-token & utility foundation
-**Scope:** `app/globals.css` (doc 02 §10 verbatim), `lib/utils.ts` (`cn` = clsx + tailwind-merge), `lib/tokens.ts` (typed token export for TS reference), stylelint rule banning raw hex outside `globals.css`.
-**Acceptance:** `pnpm build` green; importing a raw hex in a component fails lint.
-
-### L-03 — Composition pattern components
-**Scope:** `components/composition/{Shoreline,DepthBand,Mosaic,SplitNarrative,EvidenceShoreline,Ledger,QuietClose}.tsx`.
-**Contract:** each accepts `surface?: 'paper'|'mist'|'sand'|'forest'|'ink'` and `reversed?: boolean`; renders semantic `<section>` with `aria-labelledby` when a heading exists; consistent vertical rhythm tokens (py-24 lg:py-32); asymmetric grids only on lg+.
-**Acceptance:** Storybook-style preview route `/design/patterns` rendering all seven on all surfaces; zero a11y violations; patterns compose without spacing collisions (adjacent same-surface sections auto-merge via `data-surface` logic or explicit prop).
-
-### P-01 — Homepage
-**Scope:** `app/(site)/page.tsx` implementing doc 03 `/` sections 1–9 with seed data from `lib/data`.
-**Acceptance:** one primary CTA per viewport; ImpactMetric count-up gated by reduced-motion; Lighthouse ≥90 mobile; all nine sections present and data-driven (no hard-coded copy beyond hero statement).
-
-### P-02 — Programme index + detail
-**Scope:** `app/(site)/programmes/page.tsx`, `app/(site)/programmes/[slug]/page.tsx`, `components/content/ProgrammeCard`→ **use Ledger rows** (`components/composition/Ledger`), `components/content/ImpactMetric`.
-**Acceptance:** filter via URL search params (`?status=&area=`), SSR; detail page contains all 9 sections of doc 03; `generateMetadata` per slug; structured data `NGO`/`GovernmentService` where fitting; empty state when filter yields nothing.
-
-### P-03 — Stories index + article
-**Scope:** stories routes + `components/content/StoryCard` (Ledger variant) + article prose styles (`@layer components .prose-editorial`: 68ch measure, link-article style, pull-quote, figure captions).
-**Acceptance:** article grammar per CONTENT.md (7 points visible); consent note rendered from CMS metadata; reading time estimate; related-reading Ledger.
-
-### P-04 — Campaigns index + detail
-**Scope:** campaigns routes; status chips (Active/Closed — no fake urgency); update log as Ledger with `<time datetime>`; FAQ via shadcn Accordion (keyboard: arrows move between headers per APG).
-**Acceptance:** closed campaigns show outcome one-liner; FAQ answers distinguish One Vision vs external provision.
-
-### P-05 — Donate (feature-flagged)
-**Scope:** `app/(site)/donate/page.tsx`, `components/forms/DonationSelector`, `components/content/DonationTrustPanel`.
-**Rules:** route renders only when `DONATE_ENABLED=true` (env via `lib/env.ts`); monthly toggle present but disabled with "coming soon" note unless `DONATE_RECURRING_ENABLED=true`; fee transparency line; no "₹X saves a child" claims without sourced metric.
-**Acceptance:** flag off → 404; Trust Panel prominent; `donate_start` analytics event on amount selection.
-
-### P-06 — Events + Reports
-**Scope:** events index/detail, reports index; Event schema JSON-LD; report PDF cards show file size + type icon; `report_download` event.
-**Acceptance:** past events show outcome; registration CTA links externally or to contact route until registration system lands.
-
-### P-07 — Support Finder + Get Help  **[highest priority after L-tasks]**
-**Scope:** `app/(site)/get-help/page.tsx`, `components/finder/SupportFinder.tsx` (client), `components/forms/HelpRequestForm.tsx`, `components/content/EmergencyBanner.tsx`.
-**Behaviour:**
-- EmergencyBanner first in DOM; content: emergency numbers vs external orgs vs One Vision scope; `role="region" aria-label="Emergency information"`; dismissible per session (not per page view).
-- SupportFinder: 3-step chip-based flow (need → area → result); state in URL params; every result state actionable — zero dead ends; results from `lib/data/resources` (typed, zod); keyboard: chips are radiogroup semantics; step transitions move focus to result heading (`tabIndex={-1}`).
-- HelpRequestForm: react-hook-form + zod; fields per doc 03; server action with rate limit + honeypot; error summary with `role="alert"` + focus management to first error; success state with reference ID + expected response time + privacy note.
-**Acceptance:** complete flow operable by keyboard alone; axe clean; submission stored via server action with RLS-protected insert; analytics `help_request_start/complete`; honest copy reviewed (no emergency-response promises).
-
-### P-08 — Trust Panel (shared)
-**Scope:** `components/content/TrustPanel.tsx` variants `compact | full`.
-**Acceptance:** renders registration identity line, governance link, latest annual report link, safeguarding link; props-driven from `site_settings`; appears on donate (full), get-help confirmation + footer contexts (compact).
-
-### P-09 — EmptyState / ErrorState system
-**Scope:** `components/ui-state/{EmptyState,ErrorState,LoadingSkeleton}.tsx` using shadcn Skeleton.
-**Rules:** every listing route implements all three; EmptyState offers next action (browse all / clear filters); ErrorState offers retry; copy honest, never blame user.
-**Acceptance:** visual regression screenshots at 375/1024 for all states on `/programmes` and `/stories`.
-
-### P-10 — Search
-**Scope:** `app/(site)/search/page.tsx`; server-side Postgres `ilike` across title/summary/body excerpt; grouped results with counts; empty state; `search` analytics event with query (no user identity).
-**Acceptance:** results ≤300ms p95 on seed data; no client-side-only rendering of results.
-
-### A-01 — Admin foundation (Phase 4)
-**Scope:** `app/admin/` route group, Supabase Auth login, role-based access (editor/admin/super_admin), layout with sidebar; RLS policies per ARCHITECTURE.md; submissions inbox with status workflow.
-**Acceptance:** unauthenticated → redirect; editor cannot reach settings; every mutation writes audit_log; all admin actions server-authorized.
+1. **Adherence to DESIGN.md:** All refactoring must strictly implement the warm mineral palette, editorial serif/sans typography, and 4-tier containment hierarchy specified in `DESIGN.md`.
+2. **Hero Section Layout Lock (Immutable Contract):**
+   - Hero components (`components/content/Hero.tsx` and `components/composition/PageHero.tsx`) are permanently locked as Full-Viewport Heroes:
+     `min-h-dvh pt-20 pb-6 md:pt-22 md:pb-8 lg:pt-24 lg:pb-10 flex flex-col justify-center`
+   - Hero container heights: `lg:h-95 xl:h-100`
+   - Image aspect ratio: 1:1 square (`aspect-square`) with dynamic full-viewport centering.
+   - *Strict Rule:* Never alter the structural layout classes, container heights, or 1:1 image aspect ratio. Only modify text copy, badges, button links/labels, and image source paths within this established frame.
+3. **Preserve Facts & Copy:** Do not rewrite or hallucinate organizational facts, registration IDs, partner details, phone numbers, or statistics.
+4. **Package Manager Mandate:** Use `pnpm` exclusively. Never execute `npm` or `yarn`.
+5. **Mobile-First CSS:** Author styles mobile-first. Use `md:` and `lg:` prefixes for viewport enhancements. Never allow horizontal scroll (`overflow-x-hidden`).
+6. **No Ad-Hoc Styling:** All colors, spacing, and font sizes must resolve to design tokens. No magic hex values outside `globals.css`.
 
 ---
 
-## C. Definition of done (per PR)
-- [ ] Tokens only; primitives from registry
-- [ ] Keyboard pass + axe clean + reduced-motion verified
-- [ ] Empty/loading/error states
-- [ ] SEO metadata + structured data where applicable
-- [ ] Analytics events wired
-- [ ] 320px–1440px screenshots attached
-- [ ] No console errors; `pnpm build && pnpm lint` green
-- [ ] Docs updated (this file or docs 02–04) if behaviour changed
+## 2. Master Task Catalog
 
-## D. Suggested prompt skeleton for the coding agent
-> You are working on One Vision (docs: AGENTS.md, docs/01–05). Task: <ID from §B>. Build using shadcn primitives, Tailwind v4 tokens in app/globals.css, server components by default. Follow the acceptance criteria in docs/05 §<ID>. Do not invent content, statistics, or legal claims. Verify with `pnpm build` before finishing.
+### Task T-01: Design Token & Global Style Foundation
+- **Target File:** `app/globals.css`
+- **Actions:**
+  - Define warm mineral palette: `--ov-bone`, `--ov-paper`, `--ov-oat`, `--ov-stone`, `--ov-ink`, `--ov-slate`, `--ov-moss`, `--ov-indigo`, `--ov-indigo-dark`, `--ov-clay`, `--ov-white`.
+  - Wire variables into Tailwind CSS v4 `@theme inline`.
+  - Set global background to `--ov-bone` and text to `--ov-ink`.
+  - Establish fluid typography utilities using CSS `clamp()`.
+  - Configure default focus ring: `2px solid var(--ov-indigo)` with offset.
+- **Acceptance:** Zero pure-white backgrounds; contrast verified ≥ 4.5:1 for all normal text.
+
+### Task T-02: Shell & Global Chrome
+- **Target Files:** `components/layout/SiteHeader.tsx`, `components/layout/Footer.tsx`, `components/layout/Shell.tsx`
+- **Actions:**
+  - Refactor `SiteHeader`: Clean left wordmark, generous navigation spacing, quiet active states, prominent Donate button in Quiet Indigo.
+  - Implement full-height accessible `MobileNav` drawer with backdrop blur and touch targets ≥ 48px.
+  - Refactor `Footer`: 4 clean editorial columns, legal registration details, quiet copyright line.
+  - Refactor `Shell.tsx`: Enforce section padding (`py-12 md:py-16 lg:py-20`) and container width (`max-w-container mx-auto px-4 sm:px-6 lg:px-8`).
+- **Acceptance:** Keyboard-navigable, zero layout shift on mobile menu toggle.
+
+### Task T-03: Reusable Editorial Primitives
+- **Target Files:**
+  - `components/composition/ImpactStrip.tsx` (New): Clean horizontal metric flow.
+  - `components/composition/EditorialIndex.tsx` (New): Featured-first list pattern with numbered rows.
+  - `components/content/StoryCard.tsx`: Refactored to editorial standards.
+  - `components/composition/QuietClose.tsx`: Warm, uncluttered closing section.
+- **Acceptance:** Eliminates repetitive card grids; reusable across Home, Programmes, and Stories.
+
+### Task T-04: Home Page Refactor
+- **Target File:** `app/(site)/page.tsx`
+- **Actions:**
+  - Maintain Locked Hero with editorial copy ("Shared Vision. Local Action.").
+  - Replace dashboard cards with horizontal `ImpactStrip`.
+  - Replace `ProgrammesBento` with `EditorialIndex` (01 featured + 02–05 numbered rows).
+  - Refactor community story into an asymmetric split feature.
+  - Replace dense trust cards with a clean 3-link transparency row (Open Ledger, Governance, Reports).
+  - Implement calm `QuietClose`.
+- **Acceptance:** Scannable editorial journal aesthetic; zero card soup.
+
+### Task T-05: Programmes Page Refactor
+- **Target Files:** `app/(site)/programmes/page.tsx`, `components/content/ProgrammeFilter.tsx`
+- **Actions:**
+  - Locked Hero: "Five Priorities. One Shared Future."
+  - Segmented text filter with mobile horizontal scroll.
+  - Featured-first programme presentation: Item 01 large visual + Items 02–05 compact rows.
+  - Partner collaboration strip.
+- **Acceptance:** Publication-grade programme index; no e-commerce catalog look.
+
+### Task T-06: Stories Page Refactor
+- **Target File:** `app/(site)/stories/page.tsx`
+- **Actions:**
+  - Locked Hero: "Grassroots Stories."
+  - Dominant lead story feature (7-column visual + 5-column story content).
+  - Secondary story pair with contrasting vertical alignment.
+  - Chronological vertical archive list.
+- **Acceptance:** Strong photographic lead; clear metadata and reading times.
+
+### Task T-07: About Page Refactor
+- **Target File:** `app/(site)/about/page.tsx`
+- **Actions:**
+  - Locked Hero: "Our Foundations."
+  - Institutional origin narrative.
+  - Documentary Image Essay: 1 dominant lead + 2 supporting photos with captions.
+  - Two-column governance structure (Board & Leadership / Operational Team).
+  - Quiet closing statement.
+- **Acceptance:** Dignified institutional essay; no repetitive construction imagery.
+
+### Task T-08: Volunteer Page Refactor
+- **Target File:** `app/(site)/volunteer/page.tsx`, `components/forms/VolunteerForm.tsx`
+- **Actions:**
+  - Locked Hero: "Local Action."
+  - Concise why-volunteer narrative with mentor testimonial.
+  - 3 open editorial commitments (01 Learn, 02 Contribute, 03 Respect).
+  - Clean, accessible multi-step form with clear visual fieldsets.
+  - Volunteer FAQ accordion.
+- **Acceptance:** Smooth form completion flow; zero boxed clutter.
+
+### Task T-09: Get Help Page Refactor
+- **Target File:** `app/(site)/get-help/page.tsx`, `components/composition/ContactForm.tsx`
+- **Actions:**
+  - Locked Hero: "Frontline Care & Assistance."
+  - High-priority 24/7 Helpline (+91 98765 43210) and Direct Care Inbox prominent above the fold.
+  - Confidentiality guarantee notice.
+  - Streamlined request form.
+  - High-priority FAQs.
+- **Acceptance:** Fast, accessible utility interface; emergency assistance immediately reachable.
+
+### Task T-10: Multi-Breakpoint Visual & A11y Verification
+- **Actions:**
+  - Validate across 1440px, 1280px, 1024px, 768px, 430px, 390px viewports.
+  - Run accessibility audit for contrast, keyboard focus, and screen-reader labels.
+  - Verify `prefers-reduced-motion` fallbacks.
+- **Acceptance:** Zero critical a11y violations; responsive layouts pass QA checklist.

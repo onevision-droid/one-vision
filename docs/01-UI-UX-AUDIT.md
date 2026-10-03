@@ -1,94 +1,114 @@
-<!-- DEPRECATED: This document is from a prior design era (Nordic Lagom / Fraunces serif). The canonical design system is now defined in /DESIGN.md (Frontline Humanitarian mandate). Do not reference this file for new development. -->
+# 01 — UI/UX Audit & Visual Analysis (September 2026)
 
-# 01 — UI/UX Audit — One Vision
-
-**Scope:** repository blueprint (docs + config), not rendered code — `app/`, `components/`, `lib/` do not yet exist. Audit verdicts therefore apply to the *design intent* (DESIGN.md, AGENTS.md, CONTENT.md) and the *technical scaffold* (package.json, components.json, configs).
-
----
-
-## Verdict summary
-
-| Area | Score | Status |
-|---|---|---|
-| Brand strategy & voice | A− | Strong, distinctive, well-guarded against NGO clichés |
-| Design tokens (colour/type/space) | B | Palette is right, but tokens are *prose tables*, not code |
-| Information architecture | A− | Complete route map, sensible prioritisation |
-| Component system | C+ | Named but unspecified — no props, states, or variants defined |
-| Interaction & motion spec | B− | Good constraints; no tokenised durations/easings yet |
-| Accessibility | B (intent) / F (implementation) | WCAG 2.2 AA declared; zero mechanism in repo (no ACCESSIBILITY.md despite AGENTS.md referencing it) |
-| Production readiness | D | No source code, no tests, no CI, no forms/validation libs, no backend deps |
-| Content model | A− | Excellent editorial grammar; not yet encoded as schemas/types |
+**Project:** One Vision — Society for Health & Education Manipur  
+**Scope:** Evaluation of live interfaces across 6 core views (Home, Programmes, Stories, About, Volunteer, Get Help) and underlying frontend implementation.  
+**Audit Standard:** Nordic Lagom Principles, WCAG 2.2 AA Accessibility, Core Web Vitals.
 
 ---
 
-## Critical findings (fix before any UI work)
+## 1. Executive Summary & Verdict
 
-### F1 — The codebase is a scaffold, not an app
-Only config files exist. Every "audit the pages" request is premature until `app/(site)/` skeleton is generated. **Action:** treat all page work as greenfield, governed by docs 03/05.
+The current One Vision website possesses a respectable architectural foundation: dignified typography, authentic documentary photography, structured navigation, and a recognized brand accent. However, the current visual implementation suffers from **template fatigue** and **visual flatness**.
 
-### F2 — Missing docs referenced by AGENTS.md
-`docs/ACCESSIBILITY.md` is mandated but absent; `docs/` directory itself is absent (all docs sit at repo root). **Action:** create `docs/` and add ACCESSIBILITY.md (doc 04 provides outline).
-
-### F3 — Design tokens exist only as markdown tables
-DESIGN.md defines hex values, spacing (4px base), type sizes, grid — none of it is encoded. With Tailwind v4, the correct vehicle is CSS-first `@theme` in `app/globals.css`. Until tokens are code, every component will drift. **Action:** implement doc 02 §Token implementation verbatim.
-
-### F4 — Component library discipline risk
-components.json declares shadcn (`style: base-lyra`, `iconLibrary: lucide`) + `@base-ui/react` is installed. Two primitive sources = inconsistent behaviour. **Rule (binding):** shadcn/ui components are the only source of interactive primitives (Dialog, Tabs, Accordion, Select, Sheet). Do NOT hand-roll these. Framer-motion is permitted for scroll-triggered reveals only; all standard hover/focus transitions are CSS.
-
-### F5 — Dependency gaps for declared features
-No Supabase client, no form library, no validation (zod), no MDX/long-form content tooling, no test runner (Playwright/Vitest), no axe accessibility testing. **Action:** doc 04 dependency manifest.
-
-### F6 — `cn` package anomaly
-`"cn": "^0.3.2"` is not the conventional `clsx` + `tailwind-merge` pairing shadcn expects. `lib/utils.ts` must export `cn()` via clsx + tailwind-merge or shadcn registry installs will misbehave.
-
-### F7 — Typography not loaded
-Fraunces + Inter are specified but no `next/font` setup exists. Display font must be self-hosted via `next/font/local` or `next/font/google` with `display: swap` and subsetting for low-bandwidth targets.
+### Current System Scorecard
+| Audit Dimension | Current Rating | Core Finding | Target (Field Edition) |
+|---|---|---|---|
+| **Tonal Depth & Surfaces** | 2.0 / 5 | Excessive pure-white glare; sterile clinic feel; lack of material warmth | Warm mineral neutrals (Bone, Paper, Oat) |
+| **Containment & Geometry** | 2.2 / 5 | "Card soup" — nearly every content chunk is trapped in a bordered box | 4-tier containment hierarchy (Open space default) |
+| **Typography Hierarchy** | 3.2 / 5 | Dignified serifs, but gray body copy is often too faint (< 4.5:1 contrast) | Deep charcoal Ink (`#1B1C19`) + Slate (`#55564F`) |
+| **Color Distribution** | 2.5 / 5 | Electric purple action color dominates due to zero tonal counterweight | Deeper Quiet Indigo (`#5752BC`) with warm neutrals |
+| **Editorial Rhythm** | 2.5 / 5 | Repetitive rhythm: Section → Border → Gray Band → Card Grid | Editorial storytelling flow with asymmetric pacing |
+| **Photographic Hierarchy** | 3.0 / 5 | Strong documentary assets, but repetitive crops reused across pages | Controlled narrative roles (Hero, Lead, Evidence) |
+| **Mobile Responsiveness** | 2.2 / 5 | Desktop layout shrunken down into narrow viewports (~390–480px) | True mobile-first editorial stacked architecture |
+| **Accessibility (WCAG 2.2)** | 2.8 / 5 | Sub-4.5:1 text contrast on muted copy; small mobile touch targets | Strictly verified AA contrast & 44px+ hit targets |
 
 ---
 
-## UX findings (design-intent level)
+## 2. In-Depth Global Visual Findings
 
-### U1 — Single-action clarity is good; action hierarchy is under-specified
-CONTENT.md says "one primary action per section" but no visual grammar exists for primary vs. secondary vs. tertiary buttons on dark vs. light fields. Doc 02 §Button matrix closes this.
+### A. The White is Doing Too Much Work (Visual Glare)
+- **Observed Issue:** The predominant visual background is harsh, near-pure white (`#FFFFFF` or `oklch(1 0 0)`). Alternating sections rely almost exclusively on cold light-gray bands (`#F5F5F5`).
+- **Psychological Impact:** Excessive glare, weak atmospheric depth, clinical/sterile aesthetic reminiscent of hospital stationery rather than a warm community initiative.
+- **Redesign Remedy:** Introduce the warm mineral surface system:
+  - Base canvas: Bone `#F2EFE7`
+  - Content ground: Paper `#FAF8F2`
+  - Alternating wells: Oat `#E9E4D9`
+  - Hairline dividers: Stone `#D8D2C8`
+  - White `#FFFFFF` is retained solely as an intentional contrast accent.
 
-### U2 — Get Help is the differentiator but has the least design detail
-DESIGN.md §15 describes a 5-step flow with no UI pattern attached (wizard? filterable directory? decision tree?). Doc 03 specifies the **Support Finder** pattern (progressive disclosure, no dead ends, emergency banner always visible).
+### B. "Card Soup" — Too Many Bordered Boxes
+- **Observed Issue:** The interface repeatedly nests paragraphs, links, and lists inside bordered rectangles with light-gray backgrounds. Over 70% of viewport elements sit within cards.
+- **Psychological Impact:** Visual exhaustion and template fatigue. The user feels like they are browsing an inventory catalog rather than engaging with human stories.
+- **Redesign Remedy:** Implement the **4-Level Containment Hierarchy**:
+  - *Level 1 (Default):* Open editorial sections with typography and whitespace alignment doing the work.
+  - *Level 2:* Soft surface tonal shifts (Oat/Paper), borderless.
+  - *Level 3:* Bordered cards only when interactive state or strict grouping demands it.
+  - *Level 4:* Subtle elevated objects reserved strictly for overlays and dropdowns.
 
-### U3 — Image composition rules exist but no aspect-ratio/lazy-loading contract
-"Full-bleed story / mosaic / split / evidence strip" need enforced ratios (e.g., 4:5, 3:2, 16:9, 1:1) and `next/image` sizes per breakpoint, else layout shift and CLS regressions. Specified in doc 02 §Media contract.
+### C. Overuse of Uppercase Eyebrow Labels
+- **Observed Issue:** Almost every heading has an uppercase, tracked eyebrow label perched on top.
+- **Psychological Impact:** When every element announces itself with an eyebrow label, visual hierarchy collapses. The labels lose their indexing value and become visual noise.
+- **Redesign Remedy:** Restrict eyebrows strictly to section category, programme pillar, story publication metadata, and critical status badges.
 
-### U4 — Empty/error/loading states are policy, not design
-AGENTS.md requires them per feature; no component specs exist. Doc 03 adds an EmptyState/ErrorState system; doc 05 defines acceptance criteria.
+### D. Body Copy Contrast Deficit
+- **Observed Issue:** Secondary text frequently drops to faint gray tones (`oklch(0.475 0.021 43.1)` or `#737373`), which on pale backgrounds fails the 4.5:1 WCAG 2.2 AA contrast threshold under variable lighting conditions.
+- **Redesign Remedy:** Anchor all primary text in deep charcoal Ink (`#1B1C19` — 15:1 contrast on Bone) and secondary text in warm Slate (`#55564F` — 6.5:1 contrast).
 
-### U5 — Localisation is anticipated but no i18n strategy
-English + local languages are planned; strings are not yet externalised and no locale-aware date/number handling exists. Phase-2 concern; flagged now so components never hard-code copy.
+### E. Electric Violet Dominance (Lack of Counterweight)
+- **Observed Issue:** The action purple (`oklch(0.457 0.24 277.023)`) stands out with harsh, synthetic intensity against the stark white background, creating visual discord.
+- **Redesign Remedy:** Re-anchor the purple/indigo brand family into **Quiet Indigo** (`#5752BC`) and **Indigo Dark** (`#403B92`). Grounded against warm mineral Bone and Oat surfaces, Indigo functions as a quiet, authoritative signal for primary actions rather than a jarring neon highlight.
 
-### U6 — Trust signals are described but not componentised
-Trust Panel (§21) should be a single reusable component injected contextually (donate sidebar, footer, get-help confirmation), not re-implemented per page. Specified in doc 03.
+### F. Modular Section Fatigue (The Repetitive Stack)
+- **Observed Issue:** Scrolling down any page reveals an unvarying cadence: `Section → Border → Gray Band → 3-Card Grid → Section → Border → CTA`.
+- **Redesign Remedy:** Create publication-grade editorial pacing:
+  `Hero statement → Immediate compact impact proof → Asymmetric narrative feature → Numbered index rows → Generous breathing space → Quiet closing action`.
+
+### G. Photographic Asset Duplication
+- **Observed Issue:** The same hero photography (`/about-hero.jpg`, `/volunteer-hero.jpg`, `/home-hero-2026.jpg`) is repeated across multiple pages in both hero banners and secondary cards.
+- **Redesign Remedy:** Establish a strict photographic role hierarchy:
+  - Archival & Infrastructure → Documentary Monochrome
+  - Community Narratives & Voices → Warm Monochrome
+  - Healthcare & Youth Activities → Natural Muted Color
+  - Unique image assignment per major section.
+
+### H. Mobile Degradation (Desktop-in-Miniature)
+- **Observed Issue:** On narrow viewports (~390px to 480px), desktop multi-column grids and horizontal layouts are simply squeezed down, resulting in crowded text, wrapped metadata badges, and cramped form fields.
+- **Redesign Remedy:** Design strictly mobile-first:
+  - Collapse multi-column compositions into unified, elegant vertical axes.
+  - Convert dense 3-card rows into clear, sequential editorial lists.
+  - Ensure all interactive touch targets meet or exceed 44×44px.
+  - Provide full-width edge-to-edge documentary imagery where appropriate.
 
 ---
 
-## Accessibility gaps (against WCAG 2.2 AA intent)
+## 3. Page-Specific Audit Findings
 
-1. No skip-link, landmark, or focus-visible implementation yet — must be in root layout from day one.
-2. No reduced-motion implementation — framer-motion usage must be gated behind `useReducedMotion` and CSS `@media (prefers-reduced-motion)`.
-3. Touch targets: declare ≥44×44px minimum as a token, enforce on nav and cards.
-4. Contrast: Terracotta `#C85B3F` on Paper `#F7F3EA` = ~4.6:1 (passes AA for large text only at 18pt+); body-sized terracotta text fails. Marigold `#D7A43A` on Paper = ~2.2:1 — **never** for text, icons only on dark fields. Encoded as usage rules in doc 02.
-5. Form error pattern (aria-describedby, role="alert", focus-to-error) required in all form specs.
+### 3.1 Home Page (`/`)
+- **Current State:** Tries to explain all organizational capabilities simultaneously with boxed bento grids, multiple stat sections, and competing CTA buttons.
+- **Key Issues:** Card soup in the 5 priorities section; repeated stats blocks; disconnected trust cards.
+- **Prescription:** Transform 5 priorities into an editorial index (1 featured item + 4 clean numbered rows). Compact the stats into a single horizontal impact strip.
 
----
+### 3.2 Programmes Page (`/programmes`)
+- **Current State:** A filter bar followed by a repetitive 3-column grid of bordered cards (`CampaignCard`).
+- **Key Issues:** Looks like a commercial product catalog; filter buttons wrap awkwardly on mobile.
+- **Prescription:** Transition to a featured-first editorial list with a quiet segmented filter (horizontal scroll on mobile) and compact descriptive rows.
 
-## Priority matrix
+### 3.3 Stories Page (`/stories`)
+- **Current State:** Hero section, wide featured card, followed by a 3-card grid titled "More Stories".
+- **Key Issues:** The featured story image lacks dominance; the 3 lower cards are identical in visual weight.
+- **Prescription:** Elevate the featured story with prominent imagery and clear bylines; format secondary stories into 2 compact features plus a vertical chronological archive list.
 
-| Priority | Item | Owner doc |
-|---|---|---|
-| P0 | Token implementation in `globals.css` (@theme, Tailwind v4) | 02 |
-| P0 | Root layout: fonts, skip-link, landmarks, header/footer shells | 05 task L-01 |
-| P0 | Fix `cn` utility + shadcn primitive registry | 05 task L-02 |
-| P1 | Support Finder (Get Help) UX build | 03 §Get Help, 05 task P-07 |
-| P1 | EmptyState/ErrorState components | 05 task P-09 |
-| P1 | Button/link hierarchy + focus ring tokens | 02 §Interactive |
-| P2 | Trust Panel component | 05 task P-08 |
-| P2 | Motion tokens + reduced-motion gates | 02 §Motion |
-| P2 | Test/CI/a11y harness | 04 |
-| P3 | i18n string externalisation | 04 (phase 2) |
+### 3.4 About Page (`/about`)
+- **Current State:** Hero, followed by a SplitNarrative trust panel, partner marquee, and an image mosaic.
+- **Key Issues:** Reuses the construction image twice in adjacent sections; the governance section lacks clear, authoritative two-column layout.
+- **Prescription:** Curate an authentic documentary photo essay (1 dominant image + 2 contextual images with captions); establish clean two-column governance (Leadership & Operational Team).
+
+### 3.5 Volunteer Page (`/volunteer`)
+- **Current State:** Combines an image block, testimonial quote, a 3-card commitment grid, long form, and FAQs.
+- **Key Issues:** Heavy visual compartmentalization; the 3 commitments are boxed in bulky cards; form feels lengthy.
+- **Prescription:** Convert the 3 commitments into clean numbered editorial principles (01 Learn, 02 Contribute, 03 Respect); organize the application into clean visual fieldsets with clear input focus states.
+
+### 3.6 Get Help Page (`/get-help`)
+- **Current State:** Utility page that mixes editorial storytelling with helpline information and contact forms.
+- **Key Issues:** Emergency helpline is boxed in a small card alongside an email card; urgent assistance is not immediately prominent.
+- **Prescription:** Elevate direct emergency/care desk contact (Call + Email) to the top priority above the fold; streamline message form with clear input hierarchy; provide 3–5 high-value FAQs.

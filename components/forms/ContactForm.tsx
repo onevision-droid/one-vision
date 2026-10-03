@@ -99,7 +99,11 @@ export function ContactForm() {
       <h2 className="font-sans text-heading-md font-medium text-foreground mb-6">Send a Message</h2>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <label htmlFor="contact-form-honeypot" className="sr-only">
+            Leave this field blank
+          </label>
           <input
+            id="contact-form-honeypot"
             type="text"
             name="ov_system_field"
             value={honeypot}
@@ -108,6 +112,7 @@ export function ContactForm() {
             autoComplete="off"
             className="sr-only"
             aria-hidden="true"
+            aria-label="Do not fill this field"
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <FormField

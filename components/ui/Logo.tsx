@@ -36,7 +36,7 @@ M 50 26
 A 24 24 0 0 0 50 74
 A 24 24 0 0 0 50 26
 Z
-`.trim().replace(/\s+/g,"");
+`.replace(/\n\s*/g, " ").trim();
 
 export function Logo({
   className,
@@ -62,9 +62,9 @@ export function Logo({
     <div className={cn("group flex items-center gap-3 select-none", className)}>
       {/* Precision Ocular Visor Mark (Continuous Loop Animation) */}
       <motion.div
-        className={cn("relative shrink-0 flex items-center justify-center", sizeMap[size])}
+        className={cn("relative shrink-0 flex items-center justify-center will-change-transform", sizeMap[size])}
         whileHover={shouldReduceMotion ? undefined : { scale: 1.08 }}
-        transition={{ type:"spring", stiffness: 400, damping: 25 }}
+        transition={{ type: "spring", stiffness: 400, damping: 25 }}
       >
         <svg
           viewBox="0 0 100 100"

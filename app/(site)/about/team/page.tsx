@@ -44,7 +44,7 @@ const departments = [
 
 export default function TeamPage() {
   return (
-    <div className="flex flex-col w-full bg-muted pt-20">
+    <div className="flex flex-col w-full bg-background pt-20">
       
       {/* Hero Section */}
       <Section tone="default" className="relative overflow-hidden">
@@ -84,7 +84,7 @@ export default function TeamPage() {
                 <div className="md:col-span-8">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {dept.members.map((member, mIdx) => (
-                      <Card key={mIdx} className="flex flex-col h-full border-border hover:border-text-primary transition-colors">
+                      <Card key={mIdx} className="flex flex-col h-full bg-card border-border hover:border-primary/40 transition-colors">
                         <CardContent className="flex flex-col p-6 h-full gap-2">
                           <h3 className="font-sans font-medium text-heading-md text-foreground">{member.name}</h3>
                           <p className="font-sans text-caption font-semibold uppercase tracking-wider text-muted-foreground">{member.role}</p>

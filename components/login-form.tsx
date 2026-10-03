@@ -42,7 +42,7 @@ export function LoginForm({
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="border-border shadow-none bg-muted">
         <CardHeader>
-          <CardTitle className="font-sans text-heading-lg font-semibold tracking-tight">Coordination Access</CardTitle>
+          <h1 className="font-sans text-heading-lg font-semibold tracking-tight text-foreground">Coordination Access</h1>
           <CardDescription className="text-body-sm text-muted-foreground mt-2">
             Authorized personnel only. Enter your credentials to proceed.
           </CardDescription>

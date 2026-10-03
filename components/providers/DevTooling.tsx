@@ -31,14 +31,46 @@ export function DevTooling() {
         console.warn("[DevTooling] react-scan could not be loaded:", err);
       });
 
-    // 2. Initialize @axe-core/react
-    import("@axe-core/react")
-      .then((axe) => {
-        axe.default(React, ReactDOM, 1000);
-      })
-      .catch((err) => {
-        console.warn("[DevTooling] @axe-core/react could not be loaded:", err);
+    // 2. Initialize @axe-core/react only when explicitly requested (e.g. ?a11y=true or localStorage flag)
+    // Continuous runtime axe scans block the main thread for ~1000ms ("other time: 1017ms" in React Scan)
+    const isAxeRequested =
+      window.location.search.includes("a11y=true") ||
+      (typeof localStorage !== "undefined" && localStorage.getItem("ENABLE_AXE_RUNTIME") === "true");
+
+    if (isAxeRequested) {
+      import("@axe-core/react")
+        .then((axe) => {
+          axe.default(React, ReactDOM, 2000, undefined, {
+            exclude: [["#react-scan-root"], ["[data-react-scan]"]],
+          });
+        })
+        .catch((err) => {
+          console.warn("[DevTooling] @axe-core/react could not be loaded:", err);
+        });
+    }
+
+    // 3. Patch react-scan's internal a11y labels without expensive full-DOM subtree observation
+    const patchScanRoot = () => {
+      const scanRoot = document.getElementById("react-scan-root");
+      if (!scanRoot) return false;
+      const btn = scanRoot.querySelector("button:not([aria-label])");
+      if (btn) btn.setAttribute("aria-label", "Toggle React Scan Settings");
+      const checkboxes = scanRoot.querySelectorAll('input[type="checkbox"][title]:not([aria-label])');
+      checkboxes.forEach((cb) => {
+        cb.setAttribute("aria-label", cb.getAttribute("title") || "Toggle setting");
       });
+      return true;
+    };
+
+    let attempts = 0;
+    const interval = setInterval(() => {
+      attempts++;
+      if (patchScanRoot() || attempts > 20) {
+        clearInterval(interval);
+      }
+    }, 500);
+
+    return () => clearInterval(interval);
   }, []);
 
   return null;

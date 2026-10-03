@@ -86,7 +86,7 @@ export default function EventsPage() {
                 <article
                   key={evt.id}
                   id={evt.slug}
-                  className="bg-muted border border-border hover:border-primary transition-colors p-6 md:p-8 flex flex-col md:flex-row gap-6 md:items-start justify-between scroll-mt-24"
+                  className="bg-card border border-border hover:border-primary/40 rounded-none transition-all p-6 md:p-8 flex flex-col md:flex-row gap-6 md:items-start justify-between scroll-mt-24 shadow-xs"
                 >
                   <div className="space-y-4 max-w-xl">
                     <div className="flex flex-wrap items-center gap-3 text-caption font-semibold uppercase tracking-wider text-muted-foreground">
@@ -96,21 +96,21 @@ export default function EventsPage() {
                       </span>
                       {evt.time && (
                         <>
-                          <span className="size-1 bg-muted" />
+                          <span className="size-1 bg-border rounded-none" />
                           <span className="inline-flex items-center gap-1.5">
                             <Clock className="size-3.5" />
                             {evt.time}
                           </span>
                         </>
                       )}
-                      <span className="size-1 bg-muted" />
+                      <span className="size-1 bg-border rounded-none" />
                       <span className="inline-flex items-center gap-1.5">
                         <MapPin className="size-3.5" />
                         {evt.location}
                       </span>
                     </div>
 
-                    <h3 className="font-sans text-heading-lg font-light text-foreground leading-snug">
+                    <h3 className="font-serif text-2xl font-light text-foreground leading-snug">
                       {evt.title}
                     </h3>
 
@@ -159,25 +159,25 @@ export default function EventsPage() {
                 <article
                   key={evt.id}
                   id={evt.slug}
-                  className="bg-muted border border-border p-6 md:p-8 space-y-4 scroll-mt-24"
+                  className="bg-card border border-border p-6 md:p-8 space-y-4 scroll-mt-24 rounded-none shadow-xs"
                 >
                   <div className="flex flex-wrap items-center gap-3 text-caption font-semibold uppercase tracking-wider text-muted-foreground">
                     <span className="inline-flex items-center gap-1.5">
                       <Calendar className="size-3.5" />
                       <time dateTime={evt.date}>{evt.displayDate}</time>
                     </span>
-                    <span className="size-1 bg-muted" />
+                    <span className="size-1 bg-border rounded-none" />
                     <span className="inline-flex items-center gap-1.5">
                       <MapPin className="size-3.5" />
                       {evt.location}
                     </span>
-                    <span className="size-1 bg-muted" />
-                    <span className="text-caption uppercase px-2 py-0.5 bg-muted border border-border">
+                    <span className="size-1 bg-border rounded-none" />
+                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 bg-muted border border-border rounded-none">
                       Completed
                     </span>
                   </div>
 
-                  <h3 className="font-sans text-heading-lg font-light text-foreground">
+                  <h3 className="font-serif text-2xl font-light text-foreground">
                     {evt.title}
                   </h3>
 
@@ -186,7 +186,7 @@ export default function EventsPage() {
                   </p>
 
                   {evt.outcome && (
-                    <div className="bg-muted border border-border p-4 flex items-start gap-3 mt-4">
+                    <div className="bg-muted/50 border border-border/80 p-4 flex items-start gap-3 mt-4 rounded-none">
                       <CheckCircle2 className="size-5 text-primary shrink-0 mt-0.5" />
                       <div>
                         <span className="text-caption uppercase tracking-wider text-foreground font-semibold block mb-0.5">

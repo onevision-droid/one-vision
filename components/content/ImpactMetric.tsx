@@ -21,7 +21,7 @@ export function ImpactMetric({ value, prefix ="", suffix ="", label, date, metho
  {prefix}<NumberTicker value={value} className="text-foreground tracking-normal dark:text-foreground" />{suffix}
  </span>
  </div>
- <h4 className="font-sans text-sm uppercase tracking-widest text-foreground mb-2 flex items-center justify-center gap-2">
+ <h3 className="font-sans text-sm uppercase tracking-widest text-foreground mb-2 flex items-center justify-center gap-2">
  {label}
  {methodology && (
  <TooltipProvider delay={300}>
@@ -36,7 +36,7 @@ export function ImpactMetric({ value, prefix ="", suffix ="", label, date, metho
  </Tooltip>
  </TooltipProvider>
  )}
- </h4>
+ </h3>
  <span className="font-sans text-[10px] uppercase tracking-widest text-muted-foreground">{date}</span>
  </div>
  );

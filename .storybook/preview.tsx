@@ -5,6 +5,14 @@ import '../app/globals.css' // Ensure Tailwind styles are loaded
 
 const preview: Preview = {
   parameters: {
+    backgrounds: {
+      default: 'bone',
+      values: [
+        { name: 'bone', value: '#F2EFE7' },
+        { name: 'paper', value: '#FAF8F2' },
+        { name: 'white', value: '#FFFFFF' },
+      ],
+    },
     chromatic: { 
       pauseAnimationAtEnd: true,
       delay: 300
@@ -19,7 +27,9 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <MotionConfig reducedMotion="user">
-        <Story />
+        <div className="font-sans antialiased text-foreground">
+          <Story />
+        </div>
       </MotionConfig>
     )
   ],

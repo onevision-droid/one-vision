@@ -42,15 +42,20 @@ const EXCLUDE_PATTERNS = [
 ];
 
 // Anti-patterns from AGENTS.md and DESIGN.md
-const ANTI_PATTERNS = [
+interface AntiPattern {
+  id: string;
+  regex: RegExp;
+  severity: "error" | "warning";
+  message: string;
+  filter?: (line: string, filePath?: string) => boolean;
+}
+
+const ANTI_PATTERNS: AntiPattern[] = [
   {
-    id: "anti-pattern-excessive-radius",
-    regex: /\brounded-(?:3xl|full)\b/g,
-    severity: "warning" as const,
-    message: "Avoid extreme cartoonish rounding on structural layout containers. Nordic Lagom prioritizes subtle, serene hairline structure and disciplined geometry.",
-    filter: (line: string, filePath?: string) =>
-      !/avatar|badge|pill|icon|checkbox|radio|pulse|dot|indicator|spinner|spin|bounce|ping|size-1|size-2|size-3|size-4/i.test(line) &&
-      !/badge|avatar|loader|prompt-kit/i.test(filePath || ""),
+    id: "anti-pattern-rounded-corners",
+    regex: /\brounded-(?:xs|sm|md|lg|xl|2xl|3xl|full|t-.*|b-.*|l-.*|r-.*)\b/g,
+    severity: "error" as const,
+    message: "Forbidden rounded corner class found. Project architecture enforces strict zero-radius orthogonal geometry (rounded-none). Rounded corners, pills, circles, and curved lines are strictly forbidden.",
   },
   {
     id: "anti-pattern-w-screen",
