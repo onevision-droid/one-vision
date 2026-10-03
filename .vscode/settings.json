@@ -1,3 +1,5 @@
 {
-  "css.lint.unknownAtRules": "ignore"
+  "css.lint.unknownAtRules": "ignore",
+  "python.defaultInterpreterPath": "C:\\Users\\rtf70\\.local\\bin\\python.exe",
+  "python.languageServer": "None"
 }

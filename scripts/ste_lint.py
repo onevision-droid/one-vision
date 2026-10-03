@@ -23,15 +23,15 @@ import re
 import sys
 from collections import Counter
 
-BANNED_MODALS = re.compile(r"\b(should|would|may|might|could)\b", re.I)
-PERFECT = re.compile(r"\b(has|have|had)\s+been\b|\b(has|have)\s+\w+ed\b", re.I)
-CONTRACTION = re.compile(r"\b\w+(n't|'ll|'re|'ve|'d)\b|\bit's\b|\byou're\b", re.I)
-ING_CLAUSE = re.compile(r",\s*(mak|allow|enabl|ensur|highlight|creat|provid|offer|help|reduc|improv|lead|caus|result)ing\b", re.I)
-LATIN = re.compile(r"\b(e\.g\.|i\.e\.|etc\.?)(?=[\s,)]|$)", re.I)
+BANNED_MODALS = re.compile(r"\b(should|would|may|might|could)\b", re.IGNORECASE)
+PERFECT = re.compile(r"\b(has|have|had)\s+been\b|\b(has|have)\s+\w+ed\b", re.IGNORECASE)
+CONTRACTION = re.compile(r"\b\w+(n't|'ll|'re|'ve|'d)\b|\bit's\b|\byou're\b", re.IGNORECASE)
+ING_CLAUSE = re.compile(r",\s*(mak|allow|enabl|ensur|highlight|creat|provid|offer|help|reduc|improv|lead|caus|result)ing\b", re.IGNORECASE)
+LATIN = re.compile(r"\b(e\.g\.|i\.e\.|etc\.?)(?=[\s,)]|$)", re.IGNORECASE)
 SLOP_CORE = re.compile(
     r"\b(simply|seamlessly|effortlessly|robust|leverag\w*|utiliz\w*|"
     r"comprehensive|powerful|blazingly|streamlin\w*|facilitat\w*|"
-    r"performant|plethora|myriad|delve|crucial|pivotal)\b", re.I)
+    r"performant|plethora|myriad|delve|crucial|pivotal)\b", re.IGNORECASE)
 SLOP_TSV = pathlib.Path(__file__).resolve().parent / "slop.tsv"
 
 
@@ -49,32 +49,32 @@ def slop_pattern():
                 terms.append(re.escape(term).replace(r"\ ", r"\s+") + r"\w*")
     if not terms:
         return SLOP_CORE
-    return re.compile(SLOP_CORE.pattern[:-len(r")\b")] + "|" + "|".join(terms) + r")\b", re.I)
+    return re.compile(SLOP_CORE.pattern[:-len(r")\b")] + "|" + "|".join(terms) + r")\b", re.IGNORECASE)
 
 
 SLOP = slop_pattern()
-TRAILING_COND = re.compile(r"\s(if|when)\s", re.I)
+TRAILING_COND = re.compile(r"\s(if|when)\s", re.IGNORECASE)
 DASH = re.compile(r"—|(?<!\d)–(?!\d)|(?<= )--(?= )|(?<=[^\s\d]{2}) - (?=[^\s\d]{2})")
 ROTATION_SETS = [
-    ("check-verify", re.compile(r"\b(check|verify|confirm|validate|ensure)\w*\b", re.I)),
-    ("config-settings", re.compile(r"\b(config|configuration|settings)\b", re.I)),
+    ("check-verify", re.compile(r"\b(check|verify|confirm|validate|ensure)\w*\b", re.IGNORECASE)),
+    ("config-settings", re.compile(r"\b(config|configuration|settings)\b", re.IGNORECASE)),
 ]
 LIMITS = {"procedural": 20, "descriptive": 25}
 
 
 def strip_code(text):
-    text = re.sub(r"```.*?```", " ", text, flags=re.S)
+    text = re.sub(r"```.*?```", " ", text, flags=re.DOTALL)
     text = re.sub(r"`[^`\n]+`", " CODESPAN ", text)  # one word per Rule 8.6
-    text = re.sub(r"^#+\s.*$", " ", text, flags=re.M)  # headings exempt (titles, 8.6)
+    text = re.sub(r"^#+\s.*$", " ", text, flags=re.MULTILINE)  # headings exempt (titles, 8.6)
     text = re.sub(r"https?://\S+", " URL ", text)
-    text = re.sub(r"^\s*\|[\s:|-]+\|\s*$", " ", text, flags=re.M)  # table separator rows
-    text = re.sub(r"^\s*\|(.*)\|\s*$", lambda m: ". ".join(c.strip() for c in m.group(1).split("|") if c.strip()) + ". ", text, flags=re.M)  # each cell is its own unit, still linted
+    text = re.sub(r"^\s*\|[\s:|-]+\|\s*$", " ", text, flags=re.MULTILINE)  # table separator rows
+    text = re.sub(r"^\s*\|(.*)\|\s*$", lambda m: ". ".join(c.strip() for c in m.group(1).split("|") if c.strip()) + ". ", text, flags=re.MULTILINE)  # each cell is its own unit, still linted
     return text
 
 
 def sentences(text):
     # Append ". " to each item so items become their own sentence units instead of merging.
-    text = re.sub(r"^\s*([-*]|\d+\.)\s+(.*?)([.!?:])?\s*$", lambda m: m.group(2) + (m.group(3) or ".") + " ", text, flags=re.M)
+    text = re.sub(r"^\s*([-*]|\d+\.)\s+(.*?)([.!?:])?\s*$", lambda m: m.group(2) + (m.group(3) or ".") + " ", text, flags=re.MULTILINE)
     parts = re.split(r"(?<=[.!?:])\s+", text)
     return [p.strip() for p in parts if len(p.strip().split()) >= 2]
 
@@ -117,7 +117,7 @@ def lint_detail(text, text_type):
         m = TRAILING_COND.search(s)
         if m:
             line_start = s.rfind("\n", 0, m.start()) + 1
-            if m.start() - line_start >= 4 and not re.match(r"^(if|when)\b", s, re.I):
+            if m.start() - line_start >= 4 and not re.match(r"^(if|when)\b", s, re.IGNORECASE):
                 add_sentence("trailing_condition", s, pos)
         pos += max(len(s), 1)
 
@@ -168,7 +168,7 @@ def lint(text, text_type):
         if not m:
             return False
         line_start = s.rfind("\n", 0, m.start()) + 1
-        return m.start() - line_start >= 4 and not re.match(r"^(if|when)\b", s, re.I)
+        return m.start() - line_start >= 4 and not re.match(r"^(if|when)\b", s, re.IGNORECASE)
 
     counts["trailing_condition"] = sum(1 for s in sents if trailing_cond(s))
     rotation = 0
@@ -240,17 +240,17 @@ Remove the panel:
 
 
 BOLD = re.compile(r"\*\*[^*\n]+\*\*")
-HEADER = re.compile(r"^#{1,6}\s", re.M)
-BULLET = re.compile(r"^\s*([-*+]|\d+[.)])\s", re.M)
+HEADER = re.compile(r"^#{1,6}\s", re.MULTILINE)
+BULLET = re.compile(r"^\s*([-*+]|\d+[.)])\s", re.MULTILINE)
 
 
 def reader_check(text):
     """What a reader sees in a chat reply."""
     text = text.replace("\r\n", "\n")
-    prose = re.sub(r"```.*?```", " ", text, flags=re.S)
+    prose = re.sub(r"```.*?```", " ", text, flags=re.DOTALL)
     prose = re.sub(r"`[^`\n]+`", " CODESPAN ", prose)
-    prose_no_md = re.sub(r"^\s*(#{1,6}\s|[-*+]\s|\d+[.)]\s|\|)", "", prose, flags=re.M)
-    prose_no_md = re.sub(r"^\s*[\s:|-]+$", "", prose_no_md, flags=re.M)
+    prose_no_md = re.sub(r"^\s*(#{1,6}\s|[-*+]\s|\d+[.)]\s|\|)", "", prose, flags=re.MULTILINE)
+    prose_no_md = re.sub(r"^\s*[\s:|-]+$", "", prose_no_md, flags=re.MULTILINE)
     sents = [p for p in re.split(r"(?<=[.!?])[\"'\)\]]*\s+|\n+", prose_no_md) if len(p.strip().split()) >= 2]
     counts = {
         "sentences": len(sents),
@@ -337,7 +337,7 @@ def main():
         text_type = args[i + 1]
         del args[i:i + 2]
     if text_type != "reply" and text_type not in LIMITS:
-        sys.exit("unknown --type %r (expected procedural, descriptive, or reply)\n%s" % (text_type, USAGE))
+        sys.exit(f"unknown --type {text_type!r} (expected procedural, descriptive, or reply)\n{USAGE}")
     if len(args) != 1:
         sys.exit(USAGE)
     src = args[0]
