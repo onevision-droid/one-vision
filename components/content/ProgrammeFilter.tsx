@@ -20,10 +20,13 @@ export function ProgrammeFilter({
     [programmes]
   );
 
-  // Sync with initialCategory prop changes
-  useEffect(() => {
+  // Sync with initialCategory prop changes. Adjusting state during render avoids the
+  // cascading render of an effect, and only fires when the prop itself changes.
+  const [prevInitialCategory, setPrevInitialCategory] = useState(initialCategory);
+  if (initialCategory !== prevInitialCategory) {
+    setPrevInitialCategory(initialCategory);
     setSelectedCategory(initialCategory);
-  }, [initialCategory]);
+  }
 
   // Sync with browser back/forward history navigation
   useEffect(() => {

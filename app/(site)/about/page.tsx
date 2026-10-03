@@ -205,7 +205,7 @@ export default function AboutPage() {
                 href="/about/governance"
                 className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-primary hover:underline underline-offset-4 py-2 min-h-9"
               >
-                <span>Read more</span>
+                <span>Read more about Governance</span>
                 <ArrowRight className="size-3.5" />
               </Link>
             </div>
@@ -225,7 +225,7 @@ export default function AboutPage() {
                 href="/about/team"
                 className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-primary hover:underline underline-offset-4 py-2 min-h-9"
               >
-                <span>Read more</span>
+                <span>Read more about our Team</span>
                 <ArrowRight className="size-3.5" />
               </Link>
             </div>

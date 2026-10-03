@@ -47,7 +47,9 @@ export interface AgentChatProps {
   className?: string;
   isDialog?: boolean;
   onClose?: () => void;
+  /** Seeds the conversation on mount only. Change the component `key` to reset it. */
   initialMessages?: ChatMessage[];
+  /** Seeds the loading state on mount only. Change the component `key` to reset it. */
   initialLoading?: boolean;
 }
 
@@ -63,18 +65,6 @@ export function AgentChat({
   const [isLoading, setIsLoading] = useState(initialLoading);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (initialMessages !== undefined) {
-      setMessages(initialMessages);
-    }
-  }, [initialMessages]);
-
-  useEffect(() => {
-    if (initialLoading !== undefined) {
-      setIsLoading(initialLoading);
-    }
-  }, [initialLoading]);
 
   // Auto-scroll to bottom of chat
   const scrollToBottom = () => {

@@ -12,7 +12,7 @@ export function Hero() {
           <div className="flex-1 relative flex flex-col justify-center p-6 md:p-8 lg:p-10 xl:p-12 lg:border-r border-border z-10 transition-colors duration-500 hover:bg-muted overflow-hidden">
             <div className="flex items-center gap-3 mb-3 shrink-0">
               <span className="size-2 rounded-none bg-primary shrink-0" aria-hidden="true" />
-              <span className="font-sans text-xs font-medium tracking-normal text-muted-foreground">
+              <span className="font-sans text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 Manipur Community NGO · Est. 1988
               </span>
             </div>

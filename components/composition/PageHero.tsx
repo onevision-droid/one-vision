@@ -1,5 +1,6 @@
-import { Section, Container } from"@/components/layout/Shell";
-import Image from"next/image";
+import React from "react";
+import { Section, Container } from "@/components/layout/Shell";
+import Image from "next/image";
 
 interface PageHeroProps {
   badge: string;
@@ -27,7 +28,7 @@ export function PageHero({
             <div className="flex-1 relative flex flex-col justify-center p-6 md:p-8 lg:p-10 xl:p-12 lg:border-r border-border z-10 transition-colors duration-500 hover:bg-muted overflow-hidden">
               <div className="flex items-center gap-3 mb-3 shrink-0">
                 <span className="size-2 rounded-none bg-primary shrink-0" aria-hidden="true" />
-                <span className="font-sans text-xs font-medium tracking-normal text-muted-foreground">{badge}</span>
+                <span className="text-[11px] font-semibold uppercase tracking-widest text-foreground">{badge}</span>
               </div>
               <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-light tracking-tight text-foreground mb-4 leading-[0.95] shrink-0">
                 {heading}
@@ -69,7 +70,7 @@ export function PageHero({
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center justify-center p-4 w-full">
           <div className="flex items-center gap-2 mb-4 shrink-0">
             <span className="size-2 rounded-none bg-primary shrink-0" aria-hidden="true" />
-            <span className="font-sans text-xs font-medium tracking-normal text-muted-foreground">{badge}</span>
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-foreground">{badge}</span>
           </div>
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground mb-4 leading-[0.95] shrink-0">
             {heading}

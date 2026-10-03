@@ -1,16 +1,16 @@
 # DESIGN.md — One Vision Design System: Field Edition
 
-**Project:** One Vision — Society for Health & Education Manipur  
+**Project:** One Vision, Society for Health & Education Manipur  
 **Document Type:** Canonical Master Design System & Architecture Specification  
 **Edition:** Field Edition (September 2026 Redesign)  
-**Philosophy:** Nordic Lagom ("Just the right amount" — neither sterile nor decorative, neither sparse nor crowded)  
-**Working Concept:** "Quiet Humanism" — Grounded, Editorial, Warm, Clear, Restrained, Human, Durable
+**Philosophy:** Nordic Lagom ("Just the right amount": neither sterile nor decorative, neither sparse nor crowded)  
+**Working Concept:** "Quiet Humanism": Grounded, Editorial, Warm, Clear, Restrained, Human, Durable
 
 ---
 
 ## 1. Design Thesis
 
-**One Vision moves away from a generic "minimal NGO website made of cards" to an authoritative editorial civic journal for Manipur — documentary, human, trustworthy, useful, and beautifully restrained.**
+**One Vision moves away from a generic "minimal NGO website made of cards" to an authoritative editorial civic journal for Manipur: documentary, human, trustworthy, useful, and beautifully restrained.**
 
 The visual system combines:
 - **Nordic Lagom:** Disciplined functional restraint, generous breathing room, serene balance, and zero unnecessary visual noise.
@@ -117,7 +117,7 @@ As mandated by `AGENTS.md` Rule 8, all Hero sections across the entire platform 
 - **Viewport Layout:** `min-h-dvh pt-20 pb-6 md:pt-22 md:pb-8 lg:pt-24 lg:pb-10 flex flex-col justify-center`
 - **Hero Container Dimensions:** `lg:h-95 xl:h-100`
 - **Image Aspect Ratio:** 1:1 square (`aspect-square`) with dynamic full-viewport centering.
-- **Strict Rule:** Never alter the structural layout classes, container dimensions, or 1:1 image ratio. Only text copy, badges, button links/labels, and image source paths within the hero sections may be modified.
+- **Strict Rule:** Never alter the structural layout classes, container dimensions, or 1:1 image ratio. Only text copy, badges, button links/labels, and image source paths within the hero sections can be modified.
 
 ---
 
