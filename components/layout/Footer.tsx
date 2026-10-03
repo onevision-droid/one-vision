@@ -317,7 +317,7 @@ export const Footer = React.memo(function Footer() {
         </div>
 
         {/* ═══ Legal & Back to Top Bottom Bar ═══ */}
-        <div className="pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground font-light">
+        <div className="pt-6 pb-[max(1rem,env(safe-area-inset-bottom))] flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground font-light">
           <p className="font-sans text-center md:text-left">
             &copy; {new Date().getFullYear()} {orgData.org.legal}. All rights reserved.
           </p>
@@ -340,7 +340,7 @@ export const Footer = React.memo(function Footer() {
               type="button"
               onClick={scrollToTop}
               aria-label="Back to top of page"
-              className="hover:text-primary hover:border-primary transition-colors cursor-pointer inline-flex items-center gap-1.5 text-muted-foreground border border-border rounded-none px-3 py-1.5 min-h-9 text-xs"
+              className="hover:text-primary hover:border-primary transition-colors cursor-pointer inline-flex items-center gap-1.5 text-muted-foreground border border-border rounded-none px-3 py-1.5 min-h-9 text-xs mr-14 sm:mr-0"
             >
               <ArrowUp className="size-3" />
               <span>Back to top</span>

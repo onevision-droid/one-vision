@@ -24,7 +24,7 @@ export function FeatureCard({
   return (
     <div
       className={cn(
-        "group relative rounded-none overflow-hidden p-6 sm:p-8 flex flex-col justify-between min-h-80 shadow-sm",
+        "group relative rounded-none overflow-hidden p-5 sm:p-8 flex flex-col justify-between min-h-80 shadow-sm",
         className
       )}
     >
@@ -57,7 +57,7 @@ export function FeatureCard({
 
         <Link
           href={buttonHref}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-none bg-white text-slate-900 font-sans text-sm font-medium transition-all duration-200 hover:bg-white/90 hover:gap-2.5 shadow-xs"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-none bg-white text-slate-900 font-sans text-sm font-medium transition-all duration-200 hover:bg-white/90 hover:gap-2.5 shadow-xs min-h-11 sm:min-h-10"
         >
           <span>{buttonText}</span>
           <ArrowRight className="size-4" aria-hidden="true" />

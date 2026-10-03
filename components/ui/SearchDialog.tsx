@@ -140,7 +140,7 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
  return (
  <>
  {isOpen && (
- <div className="fixed inset-0 z-100 flex items-start justify-center pt-[10vh] px-4 md:px-0">
+ <div className="fixed inset-0 z-100 flex items-start justify-center pt-[calc(6vh+env(safe-area-inset-top,0px))] sm:pt-[10vh] px-4 md:px-0">
  <div
  className="absolute inset-0 bg-foreground/60 backdrop-blur-sm"
  onClick={onClose}
@@ -172,7 +172,7 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
           />
           <button
             onClick={onClose}
-            className="p-1 ml-2 text-muted-foreground hover:text-foreground transition-colors shrink-0"
+            className="p-2 ml-2 text-muted-foreground hover:text-foreground transition-colors shrink-0 min-h-10 min-w-10 flex items-center justify-center cursor-pointer"
             aria-label="Close search"
           >
             <X className="size-5" />

@@ -21,21 +21,22 @@ export function Hero() {
               Shared<br />Vision<span className="text-primary">.</span>
             </h1>
             <p className="font-sans text-base md:text-lg text-muted-foreground max-w-md font-light leading-relaxed shrink-0">
-              Serving communities across Manipur with healthcare,<br className="hidden sm:inline" />
+              Serving communities across Manipur with healthcare,{' '}
+              <br className="hidden sm:inline" />
               sustainable livelihoods, and ecological resilience.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3 shrink-0">
               <Link
                 href="/programmes"
-                className="bg-primary text-primary-foreground hover:bg-primary-hover shadow-xs hover:-translate-y-px transition-all flex items-center justify-center gap-2 px-5 py-2.5 rounded-none font-sans text-xs font-medium"
+                className="bg-primary text-primary-foreground hover:bg-primary-hover shadow-xs hover:-translate-y-px transition-all flex items-center justify-center gap-2 px-5 py-2.5 rounded-none font-sans text-xs font-medium min-h-11 sm:min-h-10"
               >
                 <span>Our Work</span>
                 <ArrowRight aria-hidden="true" className="size-3.5" />
               </Link>
               <Link 
                 href="/volunteer"
-                className="bg-card text-foreground border border-border hover:bg-muted shadow-xs hover:-translate-y-px transition-all flex items-center justify-center gap-2 px-5 py-2.5 rounded-none font-sans text-xs font-medium"
+                className="bg-card text-foreground border border-border hover:bg-muted shadow-xs hover:-translate-y-px transition-all flex items-center justify-center gap-2 px-5 py-2.5 rounded-none font-sans text-xs font-medium min-h-11 sm:min-h-10"
               >
                 <span>Volunteer</span>
                 <ArrowUpRight className="size-3.5" aria-hidden="true" />
@@ -44,7 +45,7 @@ export function Hero() {
           </div>
 
           {/* Right Pane: 50% Hero Image */}
-          <div className="w-full lg:w-1/2 shrink-0 relative bg-muted border-t lg:border-t-0 border-border overflow-hidden aspect-square lg:aspect-auto h-72 sm:h-80 md:h-96 lg:h-full">
+          <div className="w-full lg:w-1/2 shrink-0 relative bg-muted border-t lg:border-t-0 border-border overflow-hidden aspect-square lg:aspect-auto h-72 sm:h-80 md:h-80 lg:h-full">
             <Image 
               src="/home-hero-2026.jpg" 
               alt="Manipuri youth and elders collaborating around a table" 

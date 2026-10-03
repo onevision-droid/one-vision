@@ -44,7 +44,7 @@ export function PageHero({
             </div>
 
             {/* Right Pane: 50% Hero Image */}
-            <div className="w-full lg:w-1/2 shrink-0 relative bg-muted border-t lg:border-t-0 border-border overflow-hidden aspect-square lg:aspect-auto h-72 sm:h-80 md:h-96 lg:h-full">
+            <div className="w-full lg:w-1/2 shrink-0 relative bg-muted border-t lg:border-t-0 border-border overflow-hidden aspect-square lg:aspect-auto h-72 sm:h-80 md:h-80 lg:h-full">
               <Image 
                 src={image} 
                 alt={imageAlt || `${badge} photographic overview`} 

@@ -172,7 +172,7 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 w-full transition-colors duration-300 will-change-transform ${
+        className={`fixed top-0 left-0 right-0 z-50 w-full transition-colors duration-300 will-change-transform pt-[env(safe-area-inset-top,0px)] ${
           isTransparentActive
             ? "bg-transparent border-b border-white/10 text-white"
             : isScrolled
@@ -320,7 +320,7 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav-drawer"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              className={`lg:hidden flex items-center justify-center size-9 border rounded-none transition-colors cursor-pointer ${
+              className={`lg:hidden flex items-center justify-center size-10 border rounded-none transition-colors cursor-pointer ${
                 isTransparentActive
                   ? "border-white/20 bg-white/10 text-white hover:bg-white/20"
                   : "border-border bg-card text-foreground hover:border-primary/50"
@@ -350,7 +350,7 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-x-0 top-16 bottom-0 z-40 bg-background border-b border-border lg:hidden flex flex-col justify-between p-6 overflow-y-auto scroll-fade-y will-change-transform"
+            className="fixed inset-x-0 top-[calc(4rem+env(safe-area-inset-top,0px))] bottom-0 z-50 bg-background border-b border-border lg:hidden flex flex-col justify-between p-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] overflow-y-auto scroll-fade-y will-change-transform"
           >
             {/* Screen 1: Main Menu View */}
             {mobileView === "main" && (
