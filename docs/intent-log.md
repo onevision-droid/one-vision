@@ -34,4 +34,5 @@ All text follows ASD-STE100 Plain Technical English rules.
 - **Improve Badge Dark Mode Contrast**: Added dark mode color variables in globals.css for primary-light and category badges. Updated Badge variants to exceed 4.5:1 text contrast.
 - **Rebuild Component Registry Manifests**: Rebuilt the registry manifests in public/r. This keeps the design system registry in sync with component definitions.
 - **Guard Review Workflow Execution**: Added an environment check in qodo-review.yml. The step skips when API keys are not present.
+- **Eliminate Em-Dashes in Documentation**: Replaced em-dashes with colons across documentation specifications and the README file. This satisfies the plain technical English directive.
 

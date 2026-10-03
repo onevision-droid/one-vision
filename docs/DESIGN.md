@@ -1,10 +1,10 @@
-# DESIGN.md — One Vision: Nordic Purposeful Design System
+# DESIGN.md: One Vision: Nordic Purposeful Design System
 
-**Project:** One Vision — Society for Health & Education Manipur  
+**Project:** One Vision: Society for Health & Education Manipur  
 **Document Type:** Canonical Design System Specification & Visual Guidelines  
 **Edition:** Nordic Purposeful Design (September 2026 Edition)  
 **North Star:** "Clean & Minimal, Human & Authentic, Accessible & Inclusive, Content Focused"  
-**Philosophy:** Nordic Lagom ("Just the right amount" — purposeful clarity, serene balance, generous breathing room, understated refinement)
+**Philosophy:** Nordic Lagom ("Just the right amount": purposeful clarity, serene balance, generous breathing room, understated refinement)
 
 ---
 
@@ -45,8 +45,8 @@ A calm, warm, natural palette inspired by Northeast landscapes, designed for cla
 
 ## 3. Typography & 7-Level Type Scale
 
-- **Headings (Serif):** `DM Serif Display` — A modern editorial serif for authoritative, human, and trustworthy editorial voice.
-- **Body (Sans Serif):** `Inter` — Highly legible, neutral, and versatile workhorse for user interfaces and long-form reading.
+- **Headings (Serif):** `DM Serif Display`: A modern editorial serif for authoritative, human, and trustworthy editorial voice.
+- **Body (Sans Serif):** `Inter`: Highly legible, neutral, and versatile workhorse for user interfaces and long-form reading.
 
 ### Exact 7-Level Type Scale
 

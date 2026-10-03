@@ -1,6 +1,6 @@
-# 05 — AI Agent Task Specification (Field Edition)
+# 05: AI Agent Task Specification (Field Edition)
 
-**Project:** One Vision — Society for Health & Education Manipur  
+**Project:** One Vision: Society for Health & Education Manipur  
 **Role:** Senior Frontend Architect, Design Systems Engineer & Accessibility Specialist  
 **Directives:** Adhere strictly to `DESIGN.md`, `AGENTS.md`, and the September 2026 Nordic Lagom brief.
 

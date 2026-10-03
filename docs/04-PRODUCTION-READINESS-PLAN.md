@@ -1,6 +1,6 @@
-# 04 — Production Readiness & Implementation Plan (Field Edition)
+# 04: Production Readiness & Implementation Plan (Field Edition)
 
-**Project:** One Vision — Society for Health & Education Manipur  
+**Project:** One Vision: Society for Health & Education Manipur  
 **Scope:** Systematic 8-phase execution roadmap from audit to deployment verification.  
 **Standard:** Nordic Lagom Design Strategy, WCAG 2.2 AA, Core Web Vitals (LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1).
 
@@ -32,20 +32,20 @@
 
 ## 2. Phase-by-Phase Execution Details
 
-### Phase 1 — Audit & Inventory
+### Phase 1: Audit & Inventory
 - Audit all routes: `/`, `/programmes`, `/stories`, `/about`, `/volunteer`, `/get-help`, `/open-ledger`, `/reports`, `/contact`.
 - Inventory existing CSS variables, hardcoded colors, and inline styles.
 - Map recurring anti-patterns: pure-white glare, card soup, repeated uppercase eyebrows, faint gray text, loud purple action buttons.
 - Audit mobile viewports down to 390px to flag desktop compression issues.
 
-### Phase 2 — Token & Style Foundation
+### Phase 2: Token & Style Foundation
 - Implement warm mineral color tokens in `app/globals.css`:
   `--ov-bone (#F2EFE7)`, `--ov-paper (#FAF8F2)`, `--ov-oat (#E9E4D9)`, `--ov-stone (#D8D2C8)`, `--ov-ink (#1B1C19)`, `--ov-slate (#55564F)`, `--ov-moss (#586653)`, `--ov-indigo (#5752BC)`, `--ov-indigo-dark (#403B92)`, `--ov-clay (#A65B4F)`.
 - Configure fluid typography clamps in `@theme inline`.
 - Set zero-radius tokens (`0px` sm, `0px` md, `0px` lg, `0px` pill) in strict adherence to zero-radius architecture.
 - Define global focus-visible styling: 2px Quiet Indigo ring with 2px offset.
 
-### Phase 3 — Global Shell & Navigation
+### Phase 3: Global Shell & Navigation
 - Refactor `components/layout/SiteHeader.tsx`:
   - Dignified left-anchored wordmark: "ONE VISION".
   - Generous desktop navigation spacing with quiet active indicator.
@@ -55,7 +55,7 @@
 - Refactor `components/layout/Footer.tsx` with clean editorial columns and organization registration details.
 - Refactor `components/layout/Shell.tsx` to enforce the 4-level containment hierarchy.
 
-### Phase 4 — Core Editorial Primitives
+### Phase 4: Core Editorial Primitives
 - **ImpactStrip:** Horizontal, single-row evidence strip replacing dashboard card walls.
 - **EditorialIndex:** Featured-first programme list pattern (Item 01 large card; Items 02–05 numbered rows).
 - **StoryFeature & StoryList:** Dominant featured visual + secondary story pair + vertical chronological archive list.
@@ -63,7 +63,7 @@
 - **Accordion:** Clean Radix-based FAQ disclosure component with accessible ARIA tags.
 - **FormControls:** Standardized input, textarea, and select controls on Paper surfaces with crisp labels.
 
-### Phase 5 — Page-by-Page Editorial Refactor
+### Phase 5: Page-by-Page Editorial Refactor
 1. **Home (`app/(site)/page.tsx`):**
    - Locked Hero (Preserve full-viewport dimensions and 1:1 image).
    - Compact ImpactStrip (2,500+ families reached, etc.).
@@ -97,17 +97,17 @@
    - Clear assistance request form.
    - Essential FAQs.
 
-### Phase 6 — Quiet Motion & Interaction
+### Phase 6: Quiet Motion & Interaction
 - Implement CSS micro-transitions (160ms–240ms) for buttons, links, and accordion items.
 - Implement subtle editorial entry reveals (300ms–450ms) using CSS animations.
 - Enforce strict `prefers-reduced-motion` compliance.
 
-### Phase 7 — Performance & Asset Optimization
+### Phase 7: Performance & Asset Optimization
 - Run Next.js image optimization with explicit `sizes` and `priority` on above-the-fold heroes.
 - Audit web fonts to ensure `font-display: swap` and zero layout shift.
 - Validate bundle size; avoid unnecessary JS animation dependencies.
 
-### Phase 8 — Multi-Breakpoint Visual QA
+### Phase 8: Multi-Breakpoint Visual QA
 - Capture and review screenshots across 6 standard viewports:
   - 1440 × 900 (Large Desktop)
   - 1280 × 800 (Standard Desktop)

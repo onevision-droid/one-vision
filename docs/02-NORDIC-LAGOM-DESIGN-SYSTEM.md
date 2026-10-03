@@ -1,15 +1,15 @@
-# 02 — Nordic Lagom Design System Specification (Field Edition)
+# 02: Nordic Lagom Design System Specification (Field Edition)
 
-**Project:** One Vision — Society for Health & Education Manipur  
+**Project:** One Vision: Society for Health & Education Manipur  
 **Status:** Active & Binding  
-**System Name:** ONE VISION — FIELD EDITION  
+**System Name:** ONE VISION: FIELD EDITION  
 **Framework:** Next.js 16 (App Router) + Tailwind CSS v4 (CSS-first `@theme`)
 
 ---
 
 ## 1. System Philosophy: "Quiet Humanism"
 
-The One Vision design system unites Nordic functional discipline with the dignity of community-led action in Manipur. It replaces both aggressive brutalism and sterile minimalism with **Nordic Lagom** — *just enough*:
+The One Vision design system unites Nordic functional discipline with the dignity of community-led action in Manipur. It replaces both aggressive brutalism and sterile minimalism with **Nordic Lagom**: *just enough*:
 - **Serene Tonal Equilibrium:** Warm mineral neutrals prevent ocular fatigue and create an inviting civic reading atmosphere.
 - **Typographic Authority:** An editorial serif anchors community narrative; a refined grotesque sans handles structured interface and data.
 - **Photographic Dignity:** Authentic documentary photography serves as evidence and humanity, never mere decoration.
@@ -130,10 +130,10 @@ Vertical section rhythms:
 ## 5. Containment Hierarchy (Anti-Card Soup)
 
 To eliminate repetitive card grids, content containment follows four strict levels:
-1. **Level 1 — Open Editorial Flow (Primary Default):** Content sits directly on the page canvas (`--background`). Hierarchy is achieved through typography, generous spacing, and subtle horizontal rules.
-2. **Level 2 — Soft Surface Shift:** Alternating background section using Oat (`--ov-oat`) or Paper (`--ov-paper`). No border.
-3. **Level 3 — Bordered Module:** Subtle 1px rule (`border border-border`) using Stone (`--ov-stone`). Applied strictly to interactive items, form groupings, and key data rows.
-4. **Level 4 — Floating Utility Object:** Extremely subtle shadow (`shadow-sm`) reserved exclusively for floating navigation bars, dropdown menus, and modal dialogs.
+1. **Level 1: Open Editorial Flow (Primary Default):** Content sits directly on the page canvas (`--background`). Hierarchy is achieved through typography, generous spacing, and subtle horizontal rules.
+2. **Level 2: Soft Surface Shift:** Alternating background section using Oat (`--ov-oat`) or Paper (`--ov-paper`). No border.
+3. **Level 3: Bordered Module:** Subtle 1px rule (`border border-border`) using Stone (`--ov-stone`). Applied strictly to interactive items, form groupings, and key data rows.
+4. **Level 4: Floating Utility Object:** Extremely subtle shadow (`shadow-sm`) reserved exclusively for floating navigation bars, dropdown menus, and modal dialogs.
 
 ---
 

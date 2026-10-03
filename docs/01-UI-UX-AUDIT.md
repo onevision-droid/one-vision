@@ -1,6 +1,6 @@
-# 01 — UI/UX Audit & Visual Analysis (September 2026)
+# 01: UI/UX Audit & Visual Analysis (September 2026)
 
-**Project:** One Vision — Society for Health & Education Manipur  
+**Project:** One Vision: Society for Health & Education Manipur  
 **Scope:** Evaluation of live interfaces across 6 core views (Home, Programmes, Stories, About, Volunteer, Get Help) and underlying frontend implementation.  
 **Audit Standard:** Nordic Lagom Principles, WCAG 2.2 AA Accessibility, Core Web Vitals.
 
@@ -14,7 +14,7 @@ The current One Vision website possesses a respectable architectural foundation:
 | Audit Dimension | Current Rating | Core Finding | Target (Field Edition) |
 |---|---|---|---|
 | **Tonal Depth & Surfaces** | 2.0 / 5 | Excessive pure-white glare; sterile clinic feel; lack of material warmth | Warm mineral neutrals (Bone, Paper, Oat) |
-| **Containment & Geometry** | 2.2 / 5 | "Card soup" — nearly every content chunk is trapped in a bordered box | 4-tier containment hierarchy (Open space default) |
+| **Containment & Geometry** | 2.2 / 5 | "Card soup": nearly every content chunk is trapped in a bordered box | 4-tier containment hierarchy (Open space default) |
 | **Typography Hierarchy** | 3.2 / 5 | Dignified serifs, but gray body copy is often too faint (< 4.5:1 contrast) | Deep charcoal Ink (`#1B1C19`) + Slate (`#55564F`) |
 | **Color Distribution** | 2.5 / 5 | Electric purple action color dominates due to zero tonal counterweight | Deeper Quiet Indigo (`#5752BC`) with warm neutrals |
 | **Editorial Rhythm** | 2.5 / 5 | Repetitive rhythm: Section → Border → Gray Band → Card Grid | Editorial storytelling flow with asymmetric pacing |
@@ -36,7 +36,7 @@ The current One Vision website possesses a respectable architectural foundation:
   - Hairline dividers: Stone `#D8D2C8`
   - White `#FFFFFF` is retained solely as an intentional contrast accent.
 
-### B. "Card Soup" — Too Many Bordered Boxes
+### B. "Card Soup": Too Many Bordered Boxes
 - **Observed Issue:** The interface repeatedly nests paragraphs, links, and lists inside bordered rectangles with light-gray backgrounds. Over 70% of viewport elements sit within cards.
 - **Psychological Impact:** Visual exhaustion and template fatigue. The user feels like they are browsing an inventory catalog rather than engaging with human stories.
 - **Redesign Remedy:** Implement the **4-Level Containment Hierarchy**:
@@ -52,7 +52,7 @@ The current One Vision website possesses a respectable architectural foundation:
 
 ### D. Body Copy Contrast Deficit
 - **Observed Issue:** Secondary text frequently drops to faint gray tones (`oklch(0.475 0.021 43.1)` or `#737373`), which on pale backgrounds fails the 4.5:1 WCAG 2.2 AA contrast threshold under variable lighting conditions.
-- **Redesign Remedy:** Anchor all primary text in deep charcoal Ink (`#1B1C19` — 15:1 contrast on Bone) and secondary text in warm Slate (`#55564F` — 6.5:1 contrast).
+- **Redesign Remedy:** Anchor all primary text in deep charcoal Ink (`#1B1C19`, 15:1 contrast on Bone) and secondary text in warm Slate (`#55564F`, 6.5:1 contrast).
 
 ### E. Electric Violet Dominance (Lack of Counterweight)
 - **Observed Issue:** The action purple (`oklch(0.457 0.24 277.023)`) stands out with harsh, synthetic intensity against the stark white background, creating visual discord.

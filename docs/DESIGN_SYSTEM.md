@@ -1,8 +1,8 @@
-# One Vision — Design System Specification (Field Edition)
+# One Vision: Design System Specification (Field Edition)
 
 **Status:** Canonical & Active  
 **Design Philosophy:** Nordic Lagom ("Just the right amount")  
-**Design Direction:** ONE VISION — FIELD EDITION (September 2026)  
+**Design Direction:** ONE VISION: FIELD EDITION (September 2026)  
 **Target:** WCAG 2.2 AA Compliance  
 **Platform:** Next.js 16 (Turbopack) + Tailwind CSS v4 (CSS-first `@theme`)
 
@@ -76,10 +76,10 @@ All tokens are defined in `app/globals.css` using native CSS variables and expos
 - Max Content Width: `1240px` (`max-w-container mx-auto px-4 sm:px-6 lg:px-8`)
 
 ### 4.2 4-Level Containment Hierarchy:
-1. **Level 1 — Open Editorial Section:** Default layout. Clean typography and generous whitespace.
-2. **Level 2 — Soft Surface Block:** Background shift to Oat (`#E9E4D9`) or Paper (`#FAF8F2`).
-3. **Level 3 — Bordered Module:** Subtle 1px rule (`border border-border`). Used selectively.
-4. **Level 4 — Elevated Object:** Subtle utility shadow (`shadow-sm`) reserved for popovers and dialogs.
+1. **Level 1: Open Editorial Section:** Default layout. Clean typography and generous whitespace.
+2. **Level 2: Soft Surface Block:** Background shift to Oat (`#E9E4D9`) or Paper (`#FAF8F2`).
+3. **Level 3: Bordered Module:** Subtle 1px rule (`border border-border`). Used selectively.
+4. **Level 4: Elevated Object:** Subtle utility shadow (`shadow-sm`) reserved for popovers and dialogs.
 
 ---
 

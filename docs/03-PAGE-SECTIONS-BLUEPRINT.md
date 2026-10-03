@@ -1,12 +1,12 @@
-# 03 — Page Sections Blueprint (Field Edition)
+# 03: Page Sections Blueprint (Field Edition)
 
-**Project:** One Vision — Society for Health & Education Manipur  
+**Project:** One Vision: Society for Health & Education Manipur  
 **Scope:** Architectural blueprint for the six primary pages + shared structural sections.  
 **Guiding Principle:** Editorial storytelling flow, anti-card soup, purposeful containment, and mobile-first responsiveness.
 
 ---
 
-## 1. `/` — Home Page Blueprint
+## 1. `/`: Home Page Blueprint
 
 The Home page moves away from a disjointed stack of boxed cards into a cohesive, publication-style civic journal:
 
@@ -42,7 +42,7 @@ The Home page moves away from a disjointed stack of boxed cards into a cohesive,
 
 ---
 
-## 2. `/programmes` — Programmes Page Blueprint
+## 2. `/programmes`: Programmes Page Blueprint
 
 Replaces the 3-column product catalog with a curated, publication-grade index:
 
@@ -62,10 +62,10 @@ Replaces the 3-column product catalog with a curated, publication-grade index:
 │     [01] Community Health Connect                           │
 │          Large documentary image, detailed outcome metric,  │
 │          operational geography, direct link                 │
-│     [02] Green Manipur Lab — Compact editorial row          │
-│     [03] FutureWorks — Compact editorial row                │
-│     [04] Local Enterprise Lab — Compact editorial row       │
-│     [05] Community Data Lab — Compact editorial row         │
+│     [02] Green Manipur Lab: Compact editorial row           │
+│     [03] FutureWorks: Compact editorial row                 │
+│     [04] Local Enterprise Lab: Compact editorial row        │
+│     [05] Community Data Lab: Compact editorial row          │
 ├─────────────────────────────────────────────────────────────┤
 │ 04. Collaborative Partner Invitation (Quiet Strip)          │
 │     "Have an initiative that needs community support?"      │
@@ -76,7 +76,7 @@ Replaces the 3-column product catalog with a curated, publication-grade index:
 
 ---
 
-## 3. `/stories` — Stories Page Blueprint
+## 3. `/stories`: Stories Page Blueprint
 
 Elevates authentic grassroots journalism over uniform card grids:
 
@@ -106,7 +106,7 @@ Elevates authentic grassroots journalism over uniform card grids:
 
 ---
 
-## 4. `/about` — About Page Blueprint
+## 4. `/about`: About Page Blueprint
 
 Transforms the narrative into an authoritative institutional monograph:
 
@@ -139,7 +139,7 @@ Transforms the narrative into an authoritative institutional monograph:
 
 ---
 
-## 5. `/volunteer` — Volunteer Page Blueprint
+## 5. `/volunteer`: Volunteer Page Blueprint
 
 Simplifies the onboarding journey from heavy cards into clear editorial principles and a streamlined application:
 
@@ -173,7 +173,7 @@ Simplifies the onboarding journey from heavy cards into clear editorial principl
 
 ---
 
-## 6. `/get-help` — Community Support & Care Desk Blueprint
+## 6. `/get-help`: Community Support & Care Desk Blueprint
 
 Task-critical utility interface prioritizing speed, accessibility, and clarity:
 
