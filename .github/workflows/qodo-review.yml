@@ -39,7 +39,7 @@ jobs:
           OPENAI_MODEL: "openrouter/meta-llama/llama-3.1-8b-instruct:free"
           config.model: "openrouter/meta-llama/llama-3.1-8b-instruct:free"
           config.fallback_models: '["openrouter/google/gemini-2.0-flash-exp:free", "openrouter/qwen/qwen-2.5-coder-32b-instruct:free"]'
-          config.max_model_tokens: "128000"
+          config.custom_model_max_tokens: "128000"
           config.max_output_tokens: "2000"
           config.enable_large_pr_handling: "true"
           github_action_config.auto_review: "true"
