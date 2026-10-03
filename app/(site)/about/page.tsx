@@ -35,10 +35,16 @@ export default function AboutPage() {
       <Section tone="default" className="py-16 md:py-20 border-b border-border">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 space-y-4">
+              <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground font-semibold block">
+                Open Governance · Est. 1988
+              </span>
               <h2 className="font-serif text-3xl sm:text-4xl font-light text-foreground leading-tight">
                 Transparency<br />& Trust
               </h2>
+              <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed max-w-sm pt-2">
+                Public annual audits, verified community consent, and an open financial ledger across all operations in Manipur.
+              </p>
             </div>
             <div className="lg:col-span-7 space-y-6 text-muted-foreground font-light text-base sm:text-lg leading-relaxed">
               <p>
@@ -69,13 +75,40 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
+
+          {/* Verified Organizational Metrics Band */}
+          <div className="mt-12 pt-10 border-t border-border">
+            <div className="grid grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-border border border-border bg-card">
+              {orgData.stats.map((stat) => (
+                <div key={stat.id} className="p-6 flex flex-col justify-between">
+                  <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground font-medium mb-3">
+                    {stat.period} Milestone
+                  </span>
+                  <div>
+                    <div className="font-sans text-3xl sm:text-4xl font-semibold tracking-tight text-foreground tabular-nums mb-1">
+                      {stat.value.toLocaleString()}{stat.suffix}
+                    </div>
+                    <p className="font-sans text-xs sm:text-sm text-muted-foreground font-light">
+                      {stat.label}
+                    </p>
+                  </div>
+                  <span className="font-mono text-[10px] text-muted-foreground/75 mt-4 block">
+                    Source: {stat.source}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </Container>
       </Section>
 
       {/* ═══ 03 — Image Essay: Deeply Rooted in Manipur ═══ */}
-      <Section tone="alt" className="py-16 md:py-24 border-b border-border">
+      <Section tone="alt" className="py-16 md:py-20 border-b border-border">
         <Container>
-          <div className="max-w-2xl mb-12">
+          <div className="max-w-2xl mb-10">
+            <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground font-semibold block mb-2">
+              Community Fieldwork · Imphal & Districts
+            </span>
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-foreground leading-tight mb-4">
               Deeply Rooted in Manipur
             </h2>
@@ -84,22 +117,23 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Editorial Photo Essay: 1 Lead + 3 Satellites */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Primary Lead Image (7 Columns) */}
-            <div className="lg:col-span-7 flex flex-col border border-border bg-card overflow-hidden">
-              <div className="relative aspect-4/3 w-full bg-muted">
+          {/* Editorial Photo Essay: Balanced Lead + Satellites */}
+          <div className="space-y-8">
+            {/* Primary Panoramic Lead Image (Full Width) */}
+            <div className="flex flex-col border border-border bg-card overflow-hidden">
+              <div className="relative aspect-16/9 md:aspect-21/9 w-full bg-muted">
                 <Image
                   src="/home-hero-2026.jpg"
-                  alt="Community gathering in Imphal streetscape"
+                  alt="Community gathering and field logistics in Imphal"
                   fill
-                  sizes="(max-width: 1024px) 100vw, 58vw"
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 80vw"
                   className="object-cover"
                 />
               </div>
-              <div className="p-5 flex items-start justify-between gap-4 border-t border-border">
+              <div className="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-border">
                 <p className="font-sans text-xs sm:text-sm text-foreground font-light">
-                  Local logistics hub and supply coordination point in Imphal.
+                  Local logistics hub and mutual aid supply coordination point in Imphal.
                 </p>
                 <span className="font-sans text-[11px] text-muted-foreground flex items-center gap-1 shrink-0">
                   <MapPin className="size-3 text-primary" />
@@ -108,23 +142,23 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Supporting Images (5 Columns) */}
-            <div className="lg:col-span-5 flex flex-col gap-8">
+            {/* Supporting Field Vignettes (3 Columns Balanced) */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="flex flex-col border border-border bg-card overflow-hidden">
-                <div className="relative aspect-16/10 w-full bg-muted">
+                <div className="relative aspect-4/3 w-full bg-muted">
                   <Image
                     src="/volunteer-hero.jpg"
-                    alt="Youth volunteers organizing"
+                    alt="Youth volunteers organizing community actions"
                     fill
-                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover"
                   />
                 </div>
-                <div className="p-4 flex items-start justify-between gap-4 border-t border-border">
-                  <p className="font-sans text-xs text-foreground font-light">
-                    Youth volunteer team planning a community initiative.
+                <div className="p-4 flex flex-col justify-between flex-1 gap-3 border-t border-border">
+                  <p className="font-sans text-xs text-foreground font-light leading-relaxed">
+                    Youth volunteer team planning decentralized community initiatives.
                   </p>
-                  <span className="font-sans text-[11px] text-muted-foreground flex items-center gap-1 shrink-0">
+                  <span className="font-sans text-[11px] text-muted-foreground flex items-center gap-1 shrink-0 pt-2 border-t border-border/40">
                     <MapPin className="size-3 text-primary" />
                     Community Center
                   </span>
@@ -132,20 +166,20 @@ export default function AboutPage() {
               </div>
 
               <div className="flex flex-col border border-border bg-card overflow-hidden">
-                <div className="relative aspect-16/10 w-full bg-muted">
+                <div className="relative aspect-4/3 w-full bg-muted">
                   <Image
                     src="/community-voices.jpg"
-                    alt="Women community leaders"
+                    alt="Women community leaders coordinating health outreach"
                     fill
-                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover"
                   />
                 </div>
-                <div className="p-4 flex items-start justify-between gap-4 border-t border-border">
-                  <p className="font-sans text-xs text-foreground font-light">
-                    Local leaders coordinating health outreach.
+                <div className="p-4 flex flex-col justify-between flex-1 gap-3 border-t border-border">
+                  <p className="font-sans text-xs text-foreground font-light leading-relaxed">
+                    Local women leaders coordinating healthcare and mutual aid across district networks.
                   </p>
-                  <span className="font-sans text-[11px] text-muted-foreground flex items-center gap-1 shrink-0">
+                  <span className="font-sans text-[11px] text-muted-foreground flex items-center gap-1 shrink-0 pt-2 border-t border-border/40">
                     <MapPin className="size-3 text-primary" />
                     District Network
                   </span>
@@ -153,20 +187,20 @@ export default function AboutPage() {
               </div>
 
               <div className="flex flex-col border border-border bg-card overflow-hidden">
-                <div className="relative aspect-16/10 w-full bg-muted">
+                <div className="relative aspect-4/3 w-full bg-muted">
                   <Image
                     src="/programmes-hero.jpg"
-                    alt="Community learning workshop"
+                    alt="Decentralized workshops and skills training"
                     fill
-                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover"
                   />
                 </div>
-                <div className="p-4 flex items-start justify-between gap-4 border-t border-border">
-                  <p className="font-sans text-xs text-foreground font-light">
-                    Decentralized training sessions in future skills.
+                <div className="p-4 flex flex-col justify-between flex-1 gap-3 border-t border-border">
+                  <p className="font-sans text-xs text-foreground font-light leading-relaxed">
+                    Decentralized training sessions in future skills, digital literacy, and environmental stewardship.
                   </p>
-                  <span className="font-sans text-[11px] text-muted-foreground flex items-center gap-1 shrink-0">
+                  <span className="font-sans text-[11px] text-muted-foreground flex items-center gap-1 shrink-0 pt-2 border-t border-border/40">
                     <MapPin className="size-3 text-primary" />
                     FutureWorks Hub
                   </span>
@@ -183,23 +217,35 @@ export default function AboutPage() {
       {/* ═══ 05 — The People ═══ */}
       <Section tone="default" className="py-16 md:py-20 border-b border-border">
         <Container>
-          <div className="mb-10 pb-4 border-b border-border">
-            <h2 className="font-serif text-3xl sm:text-4xl font-light text-foreground">
-              The People
-            </h2>
+          <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4 mb-10 pb-4 border-b border-border">
+            <div>
+              <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground font-semibold block mb-1">
+                Local Leadership · 100% Manipur-Based
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl font-light text-foreground">
+                The People
+              </h2>
+            </div>
+            <p className="font-sans text-sm text-muted-foreground font-light max-w-md">
+              Community-elected trustees, medical specialists, and a decentralized network of over 500 grassroots navigators.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 divide-y md:divide-y-0 md:divide-x divide-border">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-border">
             {/* Column 1: Governance */}
             <div className="flex flex-col justify-between pt-6 md:pt-0 md:pr-8">
               <div>
                 <span className="font-mono text-xs text-primary font-semibold">01</span>
                 <h3 className="font-serif text-2xl font-light text-foreground mt-2 mb-3">
-                  Governance & Leadership
+                  Governance & Trustees
                 </h3>
-                <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed mb-6">
-                  Meet the Board of Trustees shaping our strategic vision and maintaining institutional integrity.
+                <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed mb-4">
+                  Community-elected Board of Trustees maintaining fiduciary rigor, zero-conflict policies, and institutional integrity since 1988.
                 </p>
+                <div className="mb-6 p-3 bg-muted border border-border text-xs font-sans text-foreground">
+                  <span className="font-medium block text-foreground">Oinam Thoiba Singh</span>
+                  <span className="text-muted-foreground text-[11px]">President, One Vision Manipur</span>
+                </div>
               </div>
               <Link
                 href="/about/governance"
@@ -210,16 +256,20 @@ export default function AboutPage() {
               </Link>
             </div>
 
-            {/* Column 2: Operational Team */}
-            <div className="flex flex-col justify-between pt-6 md:pt-0 md:pl-8">
+            {/* Column 2: Clinical Team */}
+            <div className="flex flex-col justify-between pt-6 md:pt-0 md:px-8">
               <div>
                 <span className="font-mono text-xs text-primary font-semibold">02</span>
                 <h3 className="font-serif text-2xl font-light text-foreground mt-2 mb-3">
-                  Operational Team
+                  Clinical & Operations
                 </h3>
-                <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed mb-6">
-                  Discover the dedicated staff, field workers, and community navigators executing our mission across Manipur.
+                <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed mb-4">
+                  Doctors, triage nurses, and fleet coordinators managing mobile health clinics and emergency care distribution across hill and valley districts.
                 </p>
+                <div className="mb-6 p-3 bg-muted border border-border text-xs font-sans text-foreground">
+                  <span className="font-medium block text-foreground">Dr. Bembem Chanu</span>
+                  <span className="text-muted-foreground text-[11px]">Clinical Director</span>
+                </div>
               </div>
               <Link
                 href="/about/team"
@@ -228,6 +278,50 @@ export default function AboutPage() {
                 <span>Read more about our Team</span>
                 <ArrowRight className="size-3.5" />
               </Link>
+            </div>
+
+            {/* Column 3: Field Navigators */}
+            <div className="flex flex-col justify-between pt-6 md:pt-0 md:pl-8">
+              <div>
+                <span className="font-mono text-xs text-primary font-semibold">03</span>
+                <h3 className="font-serif text-2xl font-light text-foreground mt-2 mb-3">
+                  Field Navigators
+                </h3>
+                <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed mb-4">
+                  Frontline youth researchers and community animators driving environmental field labs, literacy sessions, and mutual aid networks.
+                </p>
+                <div className="mb-6 p-3 bg-muted border border-border text-xs font-sans text-foreground">
+                  <span className="font-medium block text-foreground">Lin Laishram</span>
+                  <span className="text-muted-foreground text-[11px]">Community Operations Lead</span>
+                </div>
+              </div>
+              <Link
+                href="/volunteer"
+                className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-primary hover:underline underline-offset-4 py-2 min-h-9"
+              >
+                <span>Join Volunteer Network</span>
+                <ArrowRight className="size-3.5" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Local Presence Highlights */}
+          <div className="mt-12 pt-8 border-t border-border grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="p-4 border border-border bg-card">
+              <span className="font-sans text-2xl sm:text-3xl font-semibold text-foreground block tabular-nums">45</span>
+              <span className="font-sans text-xs text-muted-foreground font-light">Community Navigators</span>
+            </div>
+            <div className="p-4 border border-border bg-card">
+              <span className="font-sans text-2xl sm:text-3xl font-semibold text-foreground block tabular-nums">500+</span>
+              <span className="font-sans text-xs text-muted-foreground font-light">Active Volunteers</span>
+            </div>
+            <div className="p-4 border border-border bg-card">
+              <span className="font-sans text-2xl sm:text-3xl font-semibold text-foreground block tabular-nums">100%</span>
+              <span className="font-sans text-xs text-muted-foreground font-light">Local Field Staff</span>
+            </div>
+            <div className="p-4 border border-border bg-card">
+              <span className="font-sans text-2xl sm:text-3xl font-semibold text-foreground block tabular-nums">1988</span>
+              <span className="font-sans text-xs text-muted-foreground font-light">Community Founded</span>
             </div>
           </div>
         </Container>

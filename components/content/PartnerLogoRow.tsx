@@ -78,25 +78,25 @@ const PartnerTickerItem = ({ name, focus, status, icon: Icon, logoClass }: Partn
 };
 
 export function PartnerLogoRow() {
- return (
- <div className="relative py-12 border-y border-border bg-muted overflow-hidden">
- <div className="container mx-auto px-4 mb-8 text-center">
- <p className="font-sans text-xs uppercase tracking-widest text-muted-foreground font-medium">
- Working alongside trusted organizations across Manipur
- </p>
- </div>
- 
- <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
- <Marquee pauseOnHover>
- {partners.map((partner, index) => (
- <PartnerTickerItem key={`${partner.name}-${index}`} {...partner} />
- ))}
- </Marquee>
- 
- {/* Edge Fade Gradients */}
- <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r from-background to-transparent" />
- <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l from-background to-transparent" />
- </div>
- </div>
+  return (
+    <div className="relative py-8 md:py-10 border-y border-border bg-muted overflow-hidden">
+      <div className="container mx-auto px-4 mb-5 text-center">
+        <p className="font-sans text-xs uppercase tracking-widest text-muted-foreground font-medium">
+          Working alongside trusted organizations across Manipur
+        </p>
+      </div>
+
+      <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+        <Marquee pauseOnHover>
+          {partners.map((partner, index) => (
+            <PartnerTickerItem key={`${partner.name}-${index}`} {...partner} />
+          ))}
+        </Marquee>
+
+        {/* Edge Fade Gradients */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r from-muted to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l from-muted to-transparent" />
+      </div>
+    </div>
  );
 }
