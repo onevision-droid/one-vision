@@ -41,3 +41,5 @@ All text follows ASD-STE100 Plain Technical English rules.
 - **Update OpenRouter Credentials and Verified Models**: Updated repository secrets with a fresh OpenRouter API key. Configured verified free models across .pr_agent.toml and qodo-review.yml.
 - **Replace Community Health Story Image**: Replaced the mismatched relief camp image with an authentic documentary photograph of a Manipur community health hub in public/community-health.jpg and updated lib/data/stories.ts.
 - **Replace About Hero Photo with Manipur Heritage Photography**: Replaced public/about-hero.jpg with an authentic documentary photograph of Manipuri community elders and organizers collaborating around community records in a village veranda.
+- **Invalidate Next.js Image Cache for About Page Hero**: Copied authentic documentary image to public/manipur-foundations.jpg. Updated app/(site)/about/page.tsx to point directly to /manipur-foundations.jpg. Cleared .next/cache/images to stop browsers and Next.js from serving stale cached stone construction imagery.
+

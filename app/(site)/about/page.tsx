@@ -27,8 +27,8 @@ export default function AboutPage() {
           </>
         }
         description="A community-led organisation working for a healthier, greener and more resilient Manipur since 1988. Formerly known as the Society for Health & Education Manipur."
-        image="/about-hero.jpg"
-        imageAlt="Community volunteers and organizers collaborating in Manipur"
+        image="/manipur-foundations.jpg"
+        imageAlt="Archival photograph of Manipuri community elders, educators, and organizers collaborating around community records"
       />
 
       {/* ═══ 02 — Transparency & Trust ═══ */}
