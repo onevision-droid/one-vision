@@ -65,6 +65,14 @@
   --sidebar-accent-foreground: var(--ov-ink);
   --sidebar-border: var(--ov-stone);
   --sidebar-ring: var(--ov-indigo);
+
+  --badge-volunteer: #92400E;
+  --badge-volunteer-bg: #FEF3C7;
+  --badge-community: #1D4ED8;
+  --badge-community-bg: #DBEAFE;
+  --status-active: #15803D;
+  --status-pending: #9A3412;
+  --status-completed: var(--ov-slate);
 }
 
 .dark {
@@ -76,6 +84,8 @@
   --popover-foreground: #F8FAFC;
   --primary: #6366F1;
   --primary-foreground: #FFF;
+  --primary-hover: #4F46E5;
+  --primary-light: rgba(99, 102, 241, 0.2);
   --secondary: #1E293B;
   --secondary-foreground: #F8FAFC;
   --muted: #1E293B;
@@ -87,6 +97,22 @@
   --border: rgba(229, 231, 235, 0.12);
   --input: rgba(229, 231, 235, 0.18);
   --ring: #6366F1;
+
+  --ov-indigo: #6366F1;
+  --ov-indigo-hover: #4F46E5;
+  --ov-indigo-light: rgba(99, 102, 241, 0.2);
+  --ov-moss: #34D399;
+  --ov-moss-light: rgba(5, 150, 105, 0.2);
+  --ov-clay: #F87171;
+  --ov-clay-light: rgba(220, 38, 38, 0.2);
+
+  --badge-volunteer: #FCD34D;
+  --badge-volunteer-bg: rgba(245, 158, 11, 0.15);
+  --badge-community: #93C5FD;
+  --badge-community-bg: rgba(59, 130, 246, 0.15);
+  --status-active: #4ADE80;
+  --status-pending: #FB923C;
+  --status-completed: #94A3B8;
 
   --chart-1: #6366F1;
   --chart-2: #34D399;
@@ -200,13 +226,13 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   /* Category & Status Badge semantic color tokens */
-  --color-badge-volunteer: #92400E;
-  --color-badge-volunteer-bg: #FEF3C7;
-  --color-badge-community: #1D4ED8;
-  --color-badge-community-bg: #DBEAFE;
-  --color-status-active: #15803D;
-  --color-status-pending: #9A3412;
-  --color-status-completed: var(--muted-foreground);
+  --color-badge-volunteer: var(--badge-volunteer);
+  --color-badge-volunteer-bg: var(--badge-volunteer-bg);
+  --color-badge-community: var(--badge-community);
+  --color-badge-community-bg: var(--badge-community-bg);
+  --color-status-active: var(--status-active);
+  --color-status-pending: var(--status-pending);
+  --color-status-completed: var(--status-completed);
 
   /* Strict Zero-Radius System: Zero border-radius orthogonal geometry */
   --radius-xs: 0px;

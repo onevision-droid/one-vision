@@ -212,8 +212,12 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
                     href={link.href}
                     onClick={(e) => {
                       if (link.hasMegaMenu) {
-                        e.preventDefault();
-                        setIsMegaMenuOpen(true);
+                        if (!isMegaMenuOpen) {
+                          e.preventDefault();
+                          setIsMegaMenuOpen(true);
+                        } else {
+                          setIsMegaMenuOpen(false);
+                        }
                       }
                     }}
                     onKeyDown={(e) => {
@@ -223,8 +227,12 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
                         e.preventDefault();
                         setIsMegaMenuOpen((prev) => !prev);
                       } else if (e.key === "Enter") {
-                        e.preventDefault();
-                        setIsMegaMenuOpen(true);
+                        if (!isMegaMenuOpen) {
+                          e.preventDefault();
+                          setIsMegaMenuOpen(true);
+                        } else {
+                          setIsMegaMenuOpen(false);
+                        }
                       } else if (e.key === "Escape") {
                         e.preventDefault();
                         setIsMegaMenuOpen(false);
