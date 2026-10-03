@@ -1,7 +1,9 @@
 [config]
 model = "openrouter/meta-llama/llama-3.1-8b-instruct:free"
 fallback_models = ["openrouter/google/gemini-2.0-flash-exp:free", "openrouter/qwen/qwen-2.5-coder-32b-instruct:free"]
-custom_model_max_tokens = 2000
+max_model_tokens = 128000
+max_output_tokens = 2000
+enable_large_pr_handling = true
 git_provider = "github"
 
 [pr_reviewer]
