@@ -41,7 +41,7 @@ export function StoryCard({
             {badge}
           </Badge>
           <div
-            className="size-8 rounded-none bg-white text-slate-800 shadow-xs flex items-center justify-center transition-all duration-200 group-hover:bg-primary group-hover:text-white pointer-events-auto"
+            className="size-10 rounded-none bg-white text-slate-800 shadow-xs flex items-center justify-center transition-all duration-200 group-hover:bg-primary group-hover:text-white pointer-events-auto"
             aria-hidden="true"
           >
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />

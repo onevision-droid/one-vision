@@ -57,9 +57,8 @@ export function SplitNarrative({
             </div>
           </div>
 
-          {/* Media: 6 columns — 50% */}
           <div className="lg:col-span-6 relative bg-muted border-t lg:border-t-0 border-border">
-            <div className="relative h-full min-h-75 lg:min-h-85 w-full overflow-hidden">
+            <div className="relative h-full min-h-60 md:min-h-72 lg:min-h-85 w-full overflow-hidden">
               {media}
             </div>
           </div>

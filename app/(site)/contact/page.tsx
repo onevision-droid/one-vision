@@ -23,7 +23,7 @@ export default function ContactPage() {
             for Change.
           </>
         }
-        description="Whether you are a community organization, volunteer, researcher, donor, or partner institution, we welcome your collaboration with our team in Imphal."
+        description="Reach out to explore local partnerships, research initiatives, or community collaboration in Imphal."
       />
       {/* Contact Form (Document Shell Layout) */}
       <section className="w-full px-4 py-12 md:py-20 bg-background">

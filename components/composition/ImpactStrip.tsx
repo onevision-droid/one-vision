@@ -22,14 +22,14 @@ export function ImpactStrip({
   return (
     <Section tone={tone} className={cn("py-8 md:py-12 border-y border-border", className)}>
       <Container>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 divide-y lg:divide-y-0 lg:divide-x divide-border">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 divide-y-0 lg:divide-x divide-border">
           {stats.map((stat, idx) => (
             <div
               key={idx}
               className={cn(
-                "flex flex-col justify-center",
-                idx > 0 && idx % 2 === 0 ? "pt-6 lg:pt-0" : "",
-                idx % 2 !== 0 ? "pt-6 sm:pt-0 pl-0 sm:pl-4 lg:pl-8" : "lg:first:pl-0 lg:pl-8"
+                "flex flex-col justify-center py-4 lg:py-0",
+                idx % 2 !== 0 ? "pl-6 lg:pl-8" : "",
+                idx > 1 ? "border-t border-border lg:border-t-0" : ""
               )}
             >
               <div className="flex items-baseline gap-0.5">

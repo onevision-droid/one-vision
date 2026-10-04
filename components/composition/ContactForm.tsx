@@ -85,7 +85,7 @@ export function ContactForm() {
               type="text" 
               name="name"
               required
-              className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors rounded-none"
+              className="w-full min-h-11 bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors rounded-none"
               placeholder="Jane Doe"
             />
           </div>
@@ -96,7 +96,7 @@ export function ContactForm() {
               type="email" 
               name="email"
               required
-              className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors rounded-none"
+              className="w-full min-h-11 bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors rounded-none"
               placeholder="jane@example.com"
             />
           </div>
@@ -108,7 +108,7 @@ export function ContactForm() {
             <select 
               id="subject" 
               name="subject"
-              className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors appearance-none rounded-none"
+              className="w-full min-h-11 bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors appearance-none rounded-none"
             >
               <option>Community Support & Healthcare Guidance</option>
               <option>Volunteer & Skills Contribution</option>
@@ -137,7 +137,7 @@ export function ContactForm() {
         <Button 
           type="submit" 
           disabled={isSubmitting || isSuccess}
-          className="w-full h-10 bg-primary hover:bg-primary-hover text-primary-foreground font-sans text-xs sm:text-sm font-medium transition-colors flex items-center justify-center gap-2 rounded-none mt-auto shadow-xs"
+          className="w-full min-h-11 bg-primary hover:bg-primary-hover text-primary-foreground font-sans text-xs sm:text-sm font-medium transition-colors flex items-center justify-center gap-2 rounded-none mt-auto shadow-xs"
         >
           {isSubmitting ? (
             <span className="flex items-center gap-2">

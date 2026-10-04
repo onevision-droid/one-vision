@@ -68,7 +68,7 @@ export function ProgrammeFilter({
             <button
               key={cat}
               onClick={() => handleCategorySelect(cat)}
-              className={`px-4 py-2 font-sans text-xs font-medium transition-colors rounded-none cursor-pointer ${
+              className={`inline-flex items-center px-4 py-2 min-h-11 sm:min-h-9 font-sans text-xs font-medium transition-colors rounded-none cursor-pointer ${
                 selectedCategory === cat
                   ? "bg-primary text-primary-foreground"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted"
@@ -115,7 +115,7 @@ export function ProgrammeFilter({
                 </p>
               </div>
 
-              <div className="pt-6 border-t border-border flex items-center justify-between">
+              <div className="pt-6 border-t border-border flex flex-wrap items-center justify-between gap-4">
                 <div>
                   <span className="font-serif text-2xl sm:text-3xl font-light text-foreground block">
                     {lead.metrics[0].value}
@@ -126,7 +126,7 @@ export function ProgrammeFilter({
                 </div>
                 <Link
                   href={`/programmes/${lead.slug}`}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary-hover text-primary-foreground font-sans text-xs font-medium rounded-none transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 min-h-11 sm:min-h-10 bg-primary hover:bg-primary-hover text-primary-foreground font-sans text-xs font-medium rounded-none transition-colors"
                 >
                   <span>Explore Programme</span>
                   <ArrowRight className="size-3.5" />
@@ -199,7 +199,7 @@ export function ProgrammeFilter({
         </div>
         <Link
           href="/contact"
-          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-card border border-border hover:bg-muted hover:border-primary/40 text-foreground font-sans text-xs font-medium transition-colors rounded-none shrink-0"
+          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 min-h-11 sm:min-h-10 bg-card border border-border hover:bg-muted hover:border-primary/40 text-foreground font-sans text-xs font-medium transition-colors rounded-none shrink-0"
         >
           <span>Initiate Partnership</span>
           <ArrowUpRight className="size-3.5" />

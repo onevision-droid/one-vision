@@ -26,7 +26,7 @@ export default function AboutPage() {
             Foundations.
           </>
         }
-        description="A community-led organisation working for a healthier, greener and more resilient Manipur since 1988. Formerly known as the Society for Health & Education Manipur."
+        description="A community-led organisation working for a healthier, greener, and more resilient Manipur since 1988."
         image="/manipur-foundations.jpg"
         imageAlt="Archival photograph of Manipuri community elders, educators, and organizers collaborating around community records"
       />

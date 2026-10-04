@@ -34,7 +34,7 @@ export default async function DonatePage(
             Powers Community.
           </>
         }
-        description="Support frontline community health centres, youth mentorship, and sustainable grassroots livelihoods in Manipur. 100% transparent, audited, and tax-exempt."
+        description="Support frontline health centres, youth mentorship, and grassroots livelihoods across Manipur."
         image="/donate-hero.jpg"
         imageAlt="Community aid distribution and sustainable support in Manipur"
       />

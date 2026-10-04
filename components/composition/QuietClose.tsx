@@ -19,7 +19,7 @@ export function QuietClose({
   return (
     <Section tone="default" className={cn("bg-muted", className)}>
       <Container className="max-w-4xl">
-        <div className="p-8 md:p-10 lg:p-12 border border-border bg-card text-foreground flex flex-col items-center text-center rounded-none shadow-xs">
+        <div className="p-6 sm:p-8 md:p-10 lg:p-12 border border-border bg-card text-foreground flex flex-col items-center text-center rounded-none shadow-xs">
           {label && (
             <div className="flex items-center gap-3 mb-5">
               <span className="size-1.5 bg-primary shrink-0" />

@@ -30,7 +30,7 @@ export default async function ProgrammesPage({
             Priorities.
           </>
         }
-        description="Expanding opportunities across Manipur through evidence-based interventions. We believe community-driven action is the only sustainable approach."
+        description="Expanding opportunities across Manipur through evidence-based, community-driven interventions."
         image="/programmes-hero.jpg"
         imageAlt="Community initiative participants working together in Manipur"
       />

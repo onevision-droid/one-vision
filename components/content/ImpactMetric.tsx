@@ -15,7 +15,7 @@ interface ImpactMetricProps {
 
 export function ImpactMetric({ value, prefix ="", suffix ="", label, date, methodology }: ImpactMetricProps) {
  return (
- <div className="flex flex-col items-center justify-center text-center p-8 border-b md:border-b-0 md:border-r border-border last:border-0 relative">
+ <div className="flex flex-col items-center justify-center text-center p-5 sm:p-8 border-b md:border-b-0 md:border-r border-border last:border-0 relative">
  <div className="flex items-center gap-2 mb-6">
  <span className="font-sans text-heading-xl md:text-display-md font-light text-foreground tabular-nums">
  {prefix}<NumberTicker value={value} className="text-foreground tracking-normal dark:text-foreground" />{suffix}

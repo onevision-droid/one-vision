@@ -26,7 +26,9 @@ export default function CampaignsPage() {
             Campaigns.
           </>
         }
-        description="Our targeted campaigns address immediate, short-term crises requiring rapid funding, volunteer deployment, or supply gathering."
+        description="Targeted interventions addressing immediate crisis relief, health supplies, and community recovery across Manipur."
+        image="/campaigns-hero.jpg"
+        imageAlt="Manipuri volunteers distributing rice and medical supplies outside a village community hall"
       />
 
       <Section tone="alt">
@@ -34,7 +36,7 @@ export default function CampaignsPage() {
           <div className="mb-10">
             <Breadcrumbs items={[{ label:"Campaigns", href:"/campaigns" }]} />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {campaigns.map((c) => (
               <CampaignCard 
                 key={c.id}

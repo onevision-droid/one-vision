@@ -29,7 +29,7 @@ export default function StoriesPage() {
             Stories.
           </>
         }
-        description="Documenting community resilience, local leadership, and shared humanity across Manipur. Dignity, evidence, and long-term hope."
+        description="Documenting community resilience, local leadership, and shared humanity across Manipur."
         image="/community-voices.jpg"
         imageAlt="Local community members sharing their stories in Manipur"
       />

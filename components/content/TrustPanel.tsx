@@ -32,19 +32,19 @@ export function TrustPanel({ variant = "full", className }: TrustPanelProps) {
         <div className="flex flex-wrap items-center gap-0 text-xs font-sans font-medium">
           <Link
             href="/about/governance"
-            className="p-4 sm:p-5 text-muted-foreground hover:text-foreground transition-colors border-r border-border inline-flex items-center"
+            className="px-4 sm:px-5 min-h-11 text-muted-foreground hover:text-foreground transition-colors border-r border-border inline-flex items-center"
           >
             Governance
           </Link>
           <Link
             href="/reports"
-            className="p-4 sm:p-5 text-muted-foreground hover:text-foreground transition-colors border-r border-border inline-flex items-center"
+            className="px-4 sm:px-5 min-h-11 text-muted-foreground hover:text-foreground transition-colors border-r border-border inline-flex items-center"
           >
             Annual Report
           </Link>
           <Link
             href="/about/governance#safeguarding"
-            className="p-4 sm:p-5 text-muted-foreground hover:text-foreground transition-colors inline-flex items-center"
+            className="px-4 sm:px-5 min-h-11 text-muted-foreground hover:text-foreground transition-colors inline-flex items-center"
           >
             Safeguarding
           </Link>

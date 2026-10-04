@@ -27,7 +27,7 @@ export default function ContactPage() {
             & Assistance.
           </>
         }
-        description="Need healthcare navigation, maternal support, emergency assistance, or guidance for your village? Our dedicated community teams are here for you."
+        description="Healthcare navigation, maternal support, and emergency assistance for every village in Manipur."
         image="/contact-hero.jpg"
         imageAlt="Community support coordinator on the ground in Manipur"
       />

@@ -27,7 +27,7 @@ export default function ReportsPage() {
             over claims.
           </>
         }
-        description="We believe in complete institutional transparency. Access our verified impact reports, audited financial statements, and open ledger."
+        description="Verified impact reports, audited financial statements, and an open ledger for every rupee."
       />
 
       {/* ── Key Verified Indicators (Section 08 Metric Cards) ── */}

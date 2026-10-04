@@ -72,7 +72,7 @@ export function EditorialIndex() {
                     {featured.metrics[0].label}
                   </span>
                 </div>
-                <span className="inline-flex items-center gap-2 font-sans text-xs font-medium text-foreground bg-secondary group-hover:bg-primary group-hover:text-primary-foreground px-4 py-2.5 rounded-none border border-border group-hover:border-primary transition-all duration-200 shrink-0">
+                <span className="inline-flex items-center gap-2 font-sans text-xs font-medium text-foreground bg-secondary group-hover:bg-primary group-hover:text-primary-foreground px-4 min-h-11 rounded-none border border-border group-hover:border-primary transition-all duration-200 shrink-0">
                   <span>Explore</span>
                   <ArrowRight className="size-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </span>
@@ -117,7 +117,7 @@ export function EditorialIndex() {
                           {programme.metrics[0].label}
                         </span>
                       </div>
-                      <span className="size-9 rounded-none border border-border bg-background flex items-center justify-center text-muted-foreground group-hover:border-primary group-hover:text-primary group-hover:bg-primary/5 group-hover:translate-x-0.5 transition-all shrink-0">
+                      <span className="size-11 rounded-none border border-border bg-background flex items-center justify-center text-muted-foreground group-hover:border-primary group-hover:text-primary group-hover:bg-primary/5 group-hover:translate-x-0.5 transition-all shrink-0">
                         <ArrowRight className="size-4" />
                       </span>
                     </div>

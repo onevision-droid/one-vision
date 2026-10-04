@@ -61,7 +61,7 @@ export default function EventsPage() {
             Collective Action.
           </>
         }
-        description="We convene regularly with ward representatives, local youth, healthcare workers, and community members to plan transparent aid distribution and resilience programs."
+        description="Regular assemblies with ward representatives, youth, and health workers to plan transparent community action."
       />
 
       {/* Upcoming Events */}
